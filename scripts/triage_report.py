@@ -26,8 +26,8 @@ json.dump(buckets, open("content_triage/triage_report.json", "w"),
           indent=2, ensure_ascii=False)
 counts = {k: len(v) for k, v in buckets.items()}
 print(counts)
-expected = {"no_correct": 29, "no_rationales": 17, "partial_rationales": 25,
-            "rationale_mismatch": 3, "stem_options_mismatch": 1,
-            "empty_candidate_los": 55}
+expected = {"no_correct": 0, "no_rationales": 0, "partial_rationales": 0,
+            "rationale_mismatch": 0, "stem_options_mismatch": 0,
+            "empty_candidate_los": 0}
 assert counts == expected, (counts, expected)
 print("OK -> content_triage/triage_report.json")
