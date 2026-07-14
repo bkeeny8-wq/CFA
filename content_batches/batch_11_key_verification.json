@@ -1,0 +1,46 @@
+{
+  "target": "question_bank",
+  "description": "key-verification batch - vitting_teddy_brealer_q5 (C->B), autland_quantitative q5 (A confirmed, rationales completed), autland_quantitative q6 (A->B); clears all 3 rationale_mismatch flags and both partial_rationales flags on autland q5/q6",
+  "replacements": [
+    {
+      "id": "vitting_teddy_brealer_q5",
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Allocation 1 has the highest Ratio 1 (Sharpe ratio, (k − R_F)/σ = 0.262), but the Sharpe ratio measures excess return over the RISK-FREE rate per unit of total risk. The committee's criterion is the probability of meeting the 5.0% TARGET return, which Roy's safety-first ratio (Ratio 2) measures.",
+        "B": "Correct. The committee wants the allocation with the highest probability of meeting the 5.0% target return. Roy's safety-first criterion selects the portfolio with the highest ratio (k − k_T)/σ — Ratio 2 in Exhibit 2. Allocation 2's Ratio 2 of 0.077 exceeds Allocation 1's 0.067 and Allocation 3's 0.070, so Allocation 2 minimizes the probability of falling below the 5.0% target.",
+        "C": "Incorrect. Allocation 3 has the highest Ratio 3 (Treynor measure, (k − R_F)/β = 0.041), but beta-based measures gauge return per unit of systematic risk against the risk-free rate. They say nothing about shortfall probability versus the committee's 5.0% target; Roy's safety-first ratio (Ratio 2) does, and Allocation 2 ranks highest."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "autland_quantitative_autland_quantitative_q5",
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Richard's comment that individual hedge fund investment strategies are unique to each fund, making it difficult to find an appropriate peer group, is accurate per the curriculum. Hedge funds span heterogeneous strategies with unlimited universes, leverage, and shorting, so peer-group benchmarks suffer from poor comparability (as well as survivorship and backfill biases).",
+        "B": "Incorrect. Richard's comment on asset liquidity is inaccurate. He claims hedge funds generally hold liquid assets, but many hedge fund strategies hold illiquid or thinly traded positions (distressed debt, private instruments, complex derivatives), which is one of the recognized obstacles to hedge fund benchmarking.",
+        "C": "Incorrect. Richard's comment on asset valuation is inaccurate. He claims hedge fund assets can be readily valued, but illiquid and complex holdings are often marked to model or appraised, making valuation difficult — another recognized benchmarking challenge, not a point in favor of easy assessment."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "autland_quantitative_autland_quantitative_q6",
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The Sharpe ratio is (portfolio return − RISK-FREE rate) divided by the TOTAL standard deviation of returns. Richard describes a target return in the numerator and a downside deviation measured only on returns below the target — neither feature belongs to the Sharpe ratio.",
+        "B": "Correct. Richard describes the Sortino ratio: (expected return − target return) divided by target semideviation — a standard deviation measurement computed only from performance BELOW the target return. This penalizes downside volatility while ignoring upside volatility, addressing the Sharpe ratio's symmetric treatment of risk.",
+        "C": "Incorrect. Capture ratios compare a fund's participation in up markets versus down markets (upside capture / downside capture). They involve no target return and no downside deviation calculation, so they do not match Richard's description."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    }
+  ],
+  "expected": {
+    "applied": 3
+  },
+  "pin_updates": {
+    "rationale_mismatch": 0,
+    "partial_rationales": 15
+  }
+}

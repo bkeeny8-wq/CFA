@@ -1,0 +1,1722 @@
+{
+  "target": "drills",
+  "description": "distractor batch 9 - trading costs & electronic markets, trade strategy & execution, performance evaluation, equity PM overview (107 items); parallel-weight distractors authored; correct key pinned to post-rotation layout",
+  "precondition": "apply after batch_01, batch_02, rotate_drill_keys.py, batch_03, batch_04, batch_05, batch_06, batch_07, batch_08",
+  "replacements": [
+    {
+      "id": "r10_tse_los_a_q2",
+      "options": {
+        "A": "Trade urgency refers to the total notional value of the trade being executed.",
+        "B": "how quickly or slowly the order is executed over the trading time horizon — greater urgency = shorter execution horizon.",
+        "C": "Trade urgency refers to the number of counterparties involved in filling the order."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Notional measures size; urgency measures SPEED — how quickly the order executes over the horizon.",
+        "B": "Full statement: how quickly or slowly the order is executed over the trading time horizon — greater urgency = shorter execution horizon; lower urgency = longer execution horizon.\n\nCorrect. Per the reading, 'Trade urgency refers to how quickly (aggressively) or slowly (patiently) the order is executed over the trading time horizon. Greater trade urgency is associated with executing over shorter execution horizons, whereas lower trade urgency is associated with executing over longer execution horizons.' Trade urgency is driven by expected alpha decay rate, market conditions, and manager risk aversion.",
+        "C": "Incorrect. Counterparty count is an execution detail; urgency is the time dimension of the strategy."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_a_q6",
+      "options": {
+        "A": "Cash flow needs always generate low trading urgency, since cash requirements can be anticipated.",
+        "B": "Cash flow needs always generate high trading urgency, requiring immediate liquidation in every case.",
+        "C": "varies — collateral/margin calls require close-to-immediate liquidation (high urgency), whereas a fund redemption due to longer-term client allocation changes may not require immediate liquidation (low urgency)."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Margin and collateral calls demand near-immediate liquidation — high urgency.",
+        "B": "Incorrect. A fund redemption on a longer settlement cycle permits patient execution — urgency VARIES with the need.",
+        "C": "Correct. Per the reading, 'Cash flow needs may involve high or low trade urgency depending on their nature. For example, collateral/margin calls could require close-to-immediate liquidation, whereas a fund redemption due to longer-term client asset allocation changes might not require immediate liquidation.' Fund inflows require capital to be invested; outflows require positions to be liquidated."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_a_q7",
+      "options": {
+        "A": "a strategy of temporarily investing cash using futures or ETFs to gain desired equity exposure before investing in underlying securities longer term.",
+        "B": "Equitization is a strategy for hedging the currency risk of foreign equity holdings.",
+        "C": "Equitization is the tax equalization process applied to globally mobile employees."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: a strategy of temporarily investing cash using futures or ETFs to gain desired equity exposure before investing in underlying securities longer term — used to minimize cash drag on the portfolio when inflows are hindered by lack of liquidity in underlying securities.\n\nCorrect. Per the reading: 'Equitization in this case refers to a strategy of temporarily investing cash using futures or ETFs to gain the desired equity exposure before investing in the underlying securities longer term. Equitization may be required if large inflows into a portfolio are hindered by lack of liquidity in the underlying securities. For example, a large inflow into a small-capitalization equity portfolio often cannot be invested immediately in the underlying stocks owing to limited market liquidity. Instead, the manager may equitize the cash using equity futures or ETFs and then gradually trade into the underlying positions.'",
+        "B": "Incorrect. Currency hedging is a separate overlay; equitization converts CASH into equity exposure via futures or ETFs.",
+        "C": "Incorrect. The term names temporary market exposure for uninvested cash, not a tax process."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_b_q6",
+      "options": {
+        "A": "Execution risk is the same concept as market impact under a different name.",
+        "B": "Execution risk is the risk that a completed trade fails to settle.",
+        "C": "the risk of an adverse price movement occurring over the trading horizon due to a change in fundamental value or trading-induced volatility — often proxied by price volatility."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Market impact is the trader's own price pressure; execution risk is ADVERSE PRICE MOVEMENT over the horizon from value changes or induced volatility.",
+        "B": "Incorrect. Settlement failure is operational risk; execution risk concerns prices during the trading horizon.",
+        "C": "Full statement: the risk of an adverse price movement occurring over the trading horizon due to a change in fundamental value or trading-induced volatility — often proxied by price volatility; higher volatility → greater execution risk.\n\nCorrect. Per the reading: 'Execution risk is the risk of an adverse price movement occurring over the trading horizon owing to a change in the fundamental value of the security or because of trading-induced volatility. Execution risk is often proxied by price volatility. Securities with higher levels of price volatility have greater exposure to execution risk than securities with lower price volatility.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_b_q7",
+      "options": {
+        "A": "higher trade urgency — more concerned about market risk and tends to trade quickly to avoid greater market exposure associated with trading patiently.",
+        "B": "High individual risk aversion in a trader results in lower trade urgency and more patient execution.",
+        "C": "A trader's risk aversion has no impact on the chosen trading strategy."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Per the reading: 'A portfolio manager or trader with a high level of risk aversion is likely to be more concerned about market risk and will tend to trade with greater trade urgency to avoid the greater market exposure associated with trading more patiently. A portfolio manager with a low level of risk aversion might be less concerned about market risk and may tend to trade more patiently (more passively), with lower levels of trade urgency.'",
+        "B": "Incorrect. Patience is the LOW-risk-aversion posture; the risk-averse trader shortens market exposure by trading quickly.",
+        "C": "Incorrect. Risk aversion is a direct strategy input — it raises urgency to cut exposure to execution risk."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_c_q2",
+      "options": {
+        "A": "the security price at the time the portfolio manager made the decision to buy or sell — commonly specified by quantitative portfolio managers who have exact records of this price.",
+        "B": "The decision price benchmark is the security's closing price on the day of the trade.",
+        "C": "The decision price benchmark is the volume-weighted average price over the trading day."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: the security price at the time the portfolio manager made the decision to buy or sell — commonly specified by quantitative portfolio managers who have exact records of this price; may be used as inputs into their quantitative models.\n\nCorrect. Per the reading: 'The decision price benchmark represents the security price at the time the portfolio manager made the decision to buy or sell the security. In many situations, portfolio managers have exact records of the price when they decided to buy or sell the security. Quantitative portfolio managers will often have records of their decision price because these prices may be inputs into their quantitative models.'",
+        "B": "Incorrect. The close is its own benchmark; decision price is struck when the MANAGER DECIDES to trade.",
+        "C": "Incorrect. VWAP is a separate intraday benchmark; decision price anchors cost to the moment of the investment decision."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_c_q5",
+      "options": {
+        "A": "an equal-weighted average price of all trades executed over the day or trading horizon — does NOT consider volume traded.",
+        "B": "TWAP is identical to VWAP, differing only in the naming convention used by vendors.",
+        "C": "TWAP is the volume-weighted price of trades executed within the horizon."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: an equal-weighted average price of all trades executed over the day or trading horizon — does NOT consider volume traded; chosen when managers wish to exclude potential trade outliers (large trades at day's low/high).\n\nCorrect. Per the reading: 'The TWAP benchmark price is defined as an equal-weighted average price of all trades executed over the day or trading horizon. Unlike VWAP, TWAP price does not consider volume traded and is simply the average price of trades executed over the specified time horizon. Portfolio managers may choose TWAP when they wish to exclude potential trade outliers. Trade outliers may be caused by trading a large buy order at the day's low or a large sell order at the day's high.'",
+        "B": "Incorrect. The two differ structurally — VWAP weights by volume, TWAP weights each period equally.",
+        "C": "Incorrect. Volume weighting defines VWAP; TWAP is the EQUAL-weighted average and ignores volume entirely."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_c_q6",
+      "options": {
+        "A": "The closing price benchmark is used primarily by high-turnover quantitative funds.",
+        "B": "index managers and mutual funds that wish to execute transactions at the closing price for the day — important for managers with index mandates where fund securities are valued using official market close.",
+        "C": "The closing price benchmark is used exclusively by intraday day traders."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Quantitative funds typically benchmark to decision or arrival prices tied to signal generation.",
+        "B": "Full statement: index managers and mutual funds that wish to execute transactions at the closing price for the day — important for managers with index mandates where fund securities are valued using official market close; minimizes tracking error to the benchmark.\n\nCorrect. Per the reading: 'The closing price is typically used by index managers and mutual funds that wish to execute transactions at the closing price for the day. For managers with index mandates, where the fund's securities are typically valued using the official market close for each security, it is important to know how close their executions are to the benchmark price, which also uses the official market close in its calculation. A portfolio manager who is managing tracking error to a benchmark will generally select a closing price benchmark since the closing price is the price used to compute the fund's valuation.'",
+        "C": "Incorrect. Day traders close positions before the close; INDEX managers and mutual funds valued at the close are the natural users."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_d_q1",
+      "options": {
+        "A": "For the high-urgency alpha trade, the most appropriate strategy is passive VWAP or TWAP over the whole day routed through dark pools.",
+        "B": "The most appropriate strategy is waiting until the closing auction to execute the entire order.",
+        "C": "trade portion in the opening auction and continue any residual in the open market (using price target benchmark, e.g., $60 limit) — provides greater execution certainty given trade urgency."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Passive full-day scheduling surrenders the short-term alpha the pre-market discount offers.",
+        "B": "Incorrect. Waiting until the close forfeits the overreaction opportunity; the opening auction plus open-market residual (with a price target/limit) captures it.",
+        "C": "Full statement: trade portion in the opening auction and continue any residual in the open market (using price target benchmark, e.g., $60 limit) — provides greater execution certainty given trade urgency; avoid dark pool venues due to risk of unfilled executions.\n\nCorrect. Per the reading's short-term alpha example: 'Given the possibility of short-term price increases in XYZ, this order has associated trade urgency and the trader does not have the benefit of trading the order passively (such as using a VWAP or TWAP participation strategy) during the day, since XYZ's price could increase to fair value at any time. To trade this order, the trader would not likely attempt to use dark pool venues, given their greater risk of unfilled executions if offsetting orders do not arrive. The trader will likely want to trade a portion of the order in the opening auction and then continue trading any residual in the open market.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_d_q5",
+      "options": {
+        "A": "buy MDAX futures immediately to gain full €100M index exposure (equitize the cash), then build underlying stock positions over time and unwind the futures.",
+        "B": "For the new €100M MDAX mandate, the appropriate strategy is investing slowly in the underlying stocks over many days without interim exposure.",
+        "C": "The appropriate strategy is holding the €100M in cash indefinitely until attractive entry prices emerge."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: buy MDAX futures immediately to gain full €100M index exposure (equitize the cash), then build underlying stock positions over time and unwind the futures — eliminates opportunity cost of holding cash relative to the benchmark.\n\nCorrect. Per the reading's new mandate example: 'The trader can get more immediate exposure to the MDAX by buying €100 million worth of MDAX futures traded on Eurex, a major European derivatives exchange. After establishing this initial exposure, the trader can begin building the underlying stock positions over time and unwinding (selling) the equivalent futures exposure. This approach allows the client mandate to achieve full €100 million exposure to the MDAX, eliminating the opportunity cost of holding cash balances in the fund.' For smaller mandates in liquid securities, may skip the equitization-via-futures step.",
+        "B": "Incorrect. Slow uncovered investing risks underperformance from day one if the MDAX rises — measurement begins at today's close.",
+        "C": "Incorrect. Cash drag against an equity benchmark is the guaranteed way to trail; futures equitization removes it immediately."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_d_q8",
+      "options": {
+        "A": "execute portion in the market prior to close (e.g., 10% VWAP up to close) and send remainder (e.g., 90%) to closing auction.",
+        "B": "For large sell orders threatening closing-auction NAV, the reading suggests trading the entire order in the closing auction.",
+        "C": "The reading suggests cancelling the order entirely to avoid any auction impact."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: execute portion in the market prior to close (e.g., 10% VWAP up to close) and send remainder (e.g., 90%) to closing auction — some brokers offer 'close algorithms' automating this.\n\nCorrect. Per the reading: 'From a fiduciary standpoint, however, trading in a manner that will lead to a poorer (less favorable) execution for a client is inappropriate. An alternative approach that portfolio managers follow when their trades are large relative to expected liquidity in the closing auction is to execute in the market and in the closing auction. For example, they would identify a reasonable amount to send to the closing auction (e.g., 90% of the order to be sent to the closing auction), trade the order remainder in the market prior to the close of trading (e.g., 10% of the order to be traded VWAP in the market up to the close of trading), and then send the identified amount (90% of the order) to the closing auction.'",
+        "B": "Incorrect. Full concentration in the auction is exactly what creates the adverse NAV impact.",
+        "C": "Incorrect. Cancellation abandons the investment decision; splitting (e.g., 10% VWAP before the close, 90% to the auction) manages the impact."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_d_q9",
+      "options": {
+        "A": "The primary goal of any trading strategy is to always execute at the lowest possible price.",
+        "B": "balance the expected costs and risks associated with trading the order in the market consistent with the portfolio manager's trading objectives, risk aversion, and other known constraints.",
+        "C": "The primary goal is to always trade at the fastest achievable speed."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The lowest price is rarely achievable and chasing it invites opportunity cost; the goal is the cost/risk balance.",
+        "B": "Correct. Per the reading: 'The primary goal of any trading strategy is to balance the expected costs and risks associated with trading the order in the market consistent with the portfolio manager's trading objectives, risk aversion, and other known constraints. A portfolio manager's motivation to trade, risk aversion, trade urgency for the order, and other factors, such as order size and market conditions at the time of trading, are thus key in determining an appropriate trade strategy.'",
+        "C": "Incorrect. Speed minimizes execution risk but maximizes impact; the objective BALANCES both, consistent with the manager's trading objectives."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_e_q2",
+      "options": {
+        "A": "a schedule determined by historical volumes or specified time periods — POV sends orders following a volume participation schedule (e.g., 10% participation rate).",
+        "B": "Scheduled algorithms send orders at random times to avoid detection by other market participants.",
+        "C": "Scheduled algorithms trade only at the market open and close, avoiding intraday activity."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: a schedule determined by historical volumes or specified time periods — POV sends orders following a volume participation schedule (e.g., 10% participation rate); VWAP/TWAP release orders following a time-specified schedule.\n\nCorrect. Per the reading: 'Scheduled algorithms send orders to the market following a schedule that is determined by historical volumes or specified time periods. Scheduled algorithms include percentage of volume (POV) algorithms, volume-weighted average price algorithms, and time-weighted average price algorithms. POV algorithms (also known as participation algorithms) send orders following a volume participation schedule. As trading volume increases in the market, these algorithms will trade more shares... VWAP and TWAP algorithms release orders to the market following a time-specified schedule.'",
+        "B": "Incorrect. Randomization is an anti-gaming overlay elsewhere; scheduled algos follow VOLUME or TIME schedules.",
+        "C": "Incorrect. POV, VWAP, and TWAP operate throughout the day per their participation or time schedules."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_e_q5",
+      "options": {
+        "A": "trade more aggressively at the beginning of trading to execute more shares nearer to the arrival price — 'front-loaded' strategy.",
+        "B": "Arrival price algorithms spread trading uniformly across the entire day.",
+        "C": "Arrival price algorithms concentrate all trading at the end of the day."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: trade more aggressively at the beginning of trading to execute more shares nearer to the arrival price — 'front-loaded' strategy; used when the manager believes prices are likely to move unfavorably during the trade horizon or when the trader is risk averse and wishes to reduce execution risk.\n\nCorrect. Per the reading: 'Arrival price algorithms seek to trade close to current market prices at the time the order is received for execution. Arrival price algorithms will trade more aggressively at the beginning of trading to execute more shares nearer to the arrival price, known as a front-loaded strategy. Arrival price algorithms tend to be time schedule based but can also be volume participation based. Arrival price algorithms are used for orders in which the portfolio manager or trader believes prices are likely to move unfavorably during the trade horizon.' Also used when order is not outsized (less than 15% of expected volume).",
+        "B": "Incorrect. Uniform spreading is TWAP's profile; arrival price algos are FRONT-loaded.",
+        "C": "Incorrect. End-of-day concentration maximizes drift from the arrival price — the opposite of the objective."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_e_q6",
+      "options": {
+        "A": "Dark aggregator algorithms are most appropriate for small orders in highly liquid securities.",
+        "B": "large orders relative to expected volume where trading in the open market would lead to significant market impact and where the trader is concerned about information leakage from posting limit orders in lit venues.",
+        "C": "Dark aggregators are appropriate for trades requiring immediate, certain execution."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Small liquid orders route efficiently through lit markets and SORs.",
+        "B": "Full statement: large orders relative to expected volume where trading in the open market would lead to significant market impact and where the trader is concerned about information leakage from posting limit orders in lit venues — also appropriate for relatively illiquid securities and when the trader does not need to execute the entire order.\n\nCorrect. Per the reading: 'Dark aggregator algorithms are used in trading when portfolio managers and traders are concerned with information leakage that may occur from posting limit orders in lit venues with pre- and post-trade transparency. These algorithms are used when order size is large relative to the market (i.e., a large percentage of expected volume) and when trading in the open market using arrival price or VWAP strategies would lead to significant market impact. These algorithms are appropriate for trading securities that are relatively illiquid or have relatively wide bid-ask spreads. Since trading in dark pools offers less certainty of execution (offsetting orders may never arrive), these algorithms are appropriate for trades in which the trader or portfolio manager does not need to execute the order in its entirety.'",
+        "C": "Incorrect. Dark venues trade certainty for reduced impact — immediacy-critical orders belong in lit markets."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_e_q7",
+      "options": {
+        "A": "Smart order routers execute exclusively in dark pools, never touching lit venues.",
+        "B": "Smart order routers send every order to a single pre-designated venue.",
+        "C": "determine how best to route an order given prevailing market conditions — for limit orders, find the destination with highest execution probability."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. SORs span lit AND dark destinations.",
+        "B": "Incorrect. The router's function is venue CHOICE — for limit orders, the destination with the highest fill probability under prevailing conditions.",
+        "C": "Full statement: determine how best to route an order given prevailing market conditions — for limit orders, find the destination with highest execution probability; for market orders, find the venue with best market price (e.g., NBBO in US); continuously monitor real-time data from exchanges and dark pools.\n\nCorrect. Per the reading: 'Smart order routers (SORs) determine how best to route an order given prevailing market conditions. The SOR will determine the destination with the highest probability of executing the limit order and the venue with the best market price — known in the United States as the National Best Bid and Offer (NBBO) — for market orders. The SOR continuously monitors real-time data from exchanges and venues and also assesses ongoing activity in dark pools. SORs are used when a portfolio manager or trader wishes to execute a small order.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_f_q5",
+      "options": {
+        "A": "OTC derivative markets have high public transparency similar to listed equity markets.",
+        "B": "OTC derivative markets operate with no dealer involvement.",
+        "C": "historically opaque markets — regulatory efforts (Dodd-Frank in US, G-20 2009 agreement) have increased transparency via swap data repositories (SDRs) and central clearing for standardized derivatives."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Historic OPACITY is the defining feature; Dodd-Frank and the G-20 agenda pushed transparency via swap data repositories.",
+        "B": "Incorrect. Dealers are central to OTC structure — that intermediation is what the reforms sought to illuminate.",
+        "C": "Full statement: historically opaque markets — regulatory efforts (Dodd-Frank in US, G-20 2009 agreement) have increased transparency via swap data repositories (SDRs) and central clearing for standardized derivatives; large customized trades often require price concessions to find buyers/sellers.\n\nCorrect. Per the reading: 'OTC derivative markets have historically been opaque, with little public data about prices, trade sizes, and structure details. Regulatory efforts have focused on increasing transparency and reducing counterparty risk in these markets. In the United States, the Dodd-Frank Wall Street Reform and Consumer Protection Act, enacted in 2010, significantly increased post-trade transparency in the OTC derivative markets with the establishment of swap data repositories (SDRs) to which trade details must be submitted... Trading OTC derivatives takes place through dealers.' Large, urgent trades = broker risk trades. Large, non-urgent = high-touch agency. Sometimes strong price concession is required."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_g_q1",
+      "options": {
+        "A": "Implementation shortfall is an ex-ante estimate of the expected cost of trading an order.",
+        "B": "the difference between the return for a notional/paper portfolio (assuming all transactions at manager's decision price) and the portfolio's actual return (reflecting realized transactions including all fees and costs).",
+        "C": "Implementation shortfall is the firm's total commission expense over the measurement period."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. IS is EX-POST — measured after the fact against the decision price.",
+        "B": "Correct. Per the reading: 'The implementation shortfall (IS) metric is the most important ex post trade cost measurement used in finance. The IS metric provides portfolio managers with the total cost associated with implementing the investment decision. IS is calculated as the difference between the return for a notional or paper portfolio, where all transactions are assumed to take place at the manager's decision price, and the portfolio's actual return, which reflects realized transactions, including all fees and costs.' Formula: IS = Paper return − Actual return.",
+        "C": "Incorrect. Commissions are one component; IS spans the full paper-versus-actual portfolio return difference."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_h_q1",
+      "options": {
+        "A": "evaluates and measures the execution quality of the trade and the overall performance of the trader, broker, and/or algorithm — facilitates communication among portfolio manager, traders, brokers to understand how costs occur.",
+        "B": "Trade cost analysis is the same exercise as pre-trade cost estimation, performed with identical models before the order is worked in the market.",
+        "C": "Post-trade TCA focuses only on the commissions paid to executing brokers, since implicit costs cannot be measured after the fact."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: evaluates and measures the execution quality of the trade and the overall performance of the trader, broker, and/or algorithm — facilitates communication among portfolio manager, traders, brokers to understand how costs occur; provides basis for peer group comparisons; helps rank brokers.\n\nCorrect. Per the reading: 'The evaluation of trade execution is also referred to as trade cost evaluation, trade cost analysis (TCA), and post-trade analysis. Its goal is to evaluate and measure the execution quality of the trade and the overall performance of the trader, broker, and/or algorithm... Proper trade cost evaluation enables portfolio managers to better manage costs throughout the investment cycle and helps facilitate communication between the portfolio manager, traders, and brokers to better understand how and why costs occur during the implementation of investment decisions. Trade cost analysis also provides the basis for peer group comparisons.'",
+        "B": "Incorrect. Pre-trade estimates are forecasts; TCA is RETROSPECTIVE evaluation of execution quality.",
+        "C": "Incorrect. TCA evaluates trader, broker, and algorithm performance across all cost components, not commissions alone."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_h_q4",
+      "options": {
+        "A": "Market-adjusted cost (bps) = Arrival cost (bps) − β × Index cost (bps) — removes expected stock movement due to market movement (based on stock's beta) so the residual isolates the impact of the order itself.",
+        "B": "Market-adjusted cost is computed as arrival cost plus beta times the index cost.",
+        "C": "Market-adjusted cost is simply equal to the arrival cost with no adjustment."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Per the reading: 'Market-adjusted cost (bps) = Arrival cost (bps) − β × Index cost (bps). In this case, β represents the stock's beta to the underlying index. The expectation in this formulation is that the stock would have exhibited price movement based on the market movement and the stock's sensitivity to the index measured via its beta to the index. This formulation thus helps remove the movement in the stock that would have occurred even if the order was not entered into the market.'",
+        "B": "Incorrect. The sign is wrong — market movement is SUBTRACTED: arrival cost − β × index cost.",
+        "C": "Incorrect. Without removing the market-driven component, the measure confounds trading skill with market drift."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_h_q6",
+      "options": {
+        "A": "Added value is computed as arrival cost plus the estimated pre-trade cost.",
+        "B": "Added value equals the closing price minus the opening price on the trade date.",
+        "C": "Added value = Arrival cost − Est. pre-trade cost — if a fund executes at cost lower than pre-trade estimate it's superior performance."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. The sign is wrong — added value SUBTRACTS the estimate: arrival cost − estimated pre-trade cost.",
+        "B": "Incorrect. The close-open range is a market statistic; added value compares realized cost to the pre-trade expectation.",
+        "C": "Full statement: Added value = Arrival cost − Est. pre-trade cost — if a fund executes at cost lower than pre-trade estimate it's superior performance; if higher, underperformed expectations.\n\nCorrect. Per the reading: 'Another methodology used by investors to evaluate trading performance is to compare the arrival cost of the order with the estimated pre-trade cost. The expected trading cost is calculated using a pre-trade model and incorporates such factors as order size, volatility, market liquidity, investor risk aversion, level of urgency, and the underlying market conditions... The added value metric is computed as follows: Added value (bps) = Arrival cost (bps) − Est. pre-trade cost (bps).'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_h_q8",
+      "options": {
+        "A": "Using multiple reference price benchmarks together only confuses the trading cost analysis.",
+        "B": "measure trading cost and evaluate performance on an intraday basis (e.g., pre-trade arrival price for estimated required money, intraday VWAP to compare with other participants' prices, post-trade closing price to see reversion).",
+        "C": "Multiple benchmarks reduce the amount of information available to evaluators."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Each benchmark isolates a different phase — the combination clarifies rather than confuses.",
+        "B": "Full statement: measure trading cost and evaluate performance on an intraday basis (e.g., pre-trade arrival price for estimated required money, intraday VWAP to compare with other participants' prices, post-trade closing price to see reversion) — providing valuable insights into different aspects of trading execution.\n\nCorrect. Per the reading: 'Although one benchmark is used in execution, to represent the tradable strategy, multiple reference price benchmarks may be used to measure trading cost and to evaluate performance, typically on an intraday basis. For example, to measure trading costs, a pre-trade benchmark, such as the arrival price benchmark, may be used to provide the portfolio manager or trader with the estimated money required to complete the transaction. The trader may also compare the execution price of the order with an intraday benchmark such as the VWAP of the asset over the trading horizon... Additionally, the trader may compare the last trade price of the order with a post-trade benchmark to understand whether there was price reversion after order completion. The use of multiple price benchmarks may provide valuable insights into different aspects of trading execution.'",
+        "C": "Incorrect. Layering benchmarks (arrival for required money, interval VWAP for execution, close for valuation) ADDS information."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_i_q2",
+      "options": {
+        "A": "ensure the asset manager's execution and order-handling procedures are in line with the *duty of best execution* owed to clients.",
+        "B": "The objective of a trade policy is to maximize firm profits even at the expense of clients.",
+        "C": "The objective of a trade policy is to eliminate all trading activity."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Per the reading: 'The objective of a trade policy is to ensure the asset manager's execution and order-handling procedures are in line with the duty of best execution that is owed to clients.' Trade policy needs to include: meaning of best execution, factors determining optimal order execution approach, listing of eligible brokers and execution venues, and process to monitor execution arrangements.",
+        "B": "Incorrect. Client-expense profit maximization inverts the fiduciary relationship the policy exists to protect.",
+        "C": "Incorrect. Trading is essential to implementation; the policy governs it under the duty of BEST EXECUTION."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_i_q4",
+      "options": {
+        "A": "A trade aggregation and allocation policy should avoid aggregating client orders entirely.",
+        "B": "The allocation policy should always allocate executed shares to the largest account first.",
+        "C": "ensure executed orders are allocated fairly to individual clients on a pre-trade and post-trade basis, with remedies for misallocations and an escalation policy."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Aggregation is permitted and often benefits clients; the policy governs its fairness.",
+        "B": "Incorrect. Size-priority favoritism is what fair pre-trade and post-trade allocation (with misallocation remedies) prevents.",
+        "C": "Full statement: ensure executed orders are allocated fairly to individual clients on a pre-trade and post-trade basis, with remedies for misallocations and an escalation policy; if a pooled trade is not fully executed, the executed amount must generally be allocated pro-rata so no account is disadvantaged.\n\nCorrect. Per the reading: 'Asset managers that aggregate trades for client accounts and funds should have a \"trade aggregation and allocation\" policy in place. These policies seek to ensure executed orders are allocated fairly to individual clients on a pre-trade and post-trade basis, there are remedies for misallocations, and an escalation policy is in place. For example, if several accounts (e.g., pooled funds or separate accounts) follow the same or a similar investment strategy and have similar trading needs, then pooling the trades for trade execution may make sense in some situations. If a pooled trade is not fully executed, the order amount that is executed generally needs to be allocated to accounts on a pro-rata basis so that no account is disadvantaged relative to the others.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r10_tse_los_i_q5",
+      "options": {
+        "A": "have a policy for treatment of trade errors — errors and any resulting gains/losses must be disclosed to firm's compliance department and documented in a trade error log with related documentation.",
+        "B": "Firms should conceal trade errors from the compliance department to avoid regulatory attention.",
+        "C": "Firms should always pass trade errors and any resulting losses through to the client."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: have a policy for treatment of trade errors — errors and any resulting gains/losses must be disclosed to firm's compliance department and documented in a trade error log with related documentation; errors must be resolved in a way that prevents adverse impact for the client.\n\nCorrect. Per the reading: 'Firms should have a policy in place for the treatment of trade errors. Errors from trading and any resulting gains/losses need to be disclosed to a firm's compliance department and documented in a trade error log. The trade error log should include any related documentation and evidence that trade errors are resolved in a way that prevents adverse impact for the client.'",
+        "B": "Incorrect. Concealment compounds the violation; disclosure to compliance is the required treatment.",
+        "C": "Incorrect. Clients are not the error absorber — the policy assigns gains/losses and mandates compliance disclosure."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_a_q3",
+      "options": {
+        "A": "The bid-ask spread is the mid quote price between the standing bid and ask.",
+        "B": "The bid-ask spread is the discount rate dealers apply when financing inventory positions.",
+        "C": "the ask price minus the bid price — the price at which a trader will sell a specified quantity minus the price at which a trader will buy a specified quantity."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. The midpoint is a reference PRICE; the spread is the DIFFERENCE — ask minus bid.",
+        "B": "Incorrect. Financing rates are a separate dealer economics item; the spread is the sell-price-minus-buy-price gap.",
+        "C": "Full statement: the ask price minus the bid price — the price at which a trader will sell a specified quantity minus the price at which a trader will buy a specified quantity; traders who want to trade quickly buy at higher prices and sell at lower prices than those willing to wait.\n\nCorrect. Per the reading: 'The bid–ask spread is the ask price (the price at which a trader will sell a specified quantity of a security) minus the bid price (the price at which a trader will buy a specified quantity of a security). Traders who want to trade quickly buy at higher prices and sell at lower prices than those willing to wait for others to trade with them.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_a_q4",
+      "options": {
+        "A": "is the effect of the trade on transaction prices — traders who want to fill large orders often must move prices to encourage others to trade with them.",
+        "B": "Market impact affects only small trades, since large orders are negotiated privately.",
+        "C": "Market impact is always zero in liquid markets with continuous quoting."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: is the effect of the trade on transaction prices — traders who want to fill large orders often must move prices to encourage others to trade with them; small market orders have small market impact because filled by traders willing to trade at quoted prices; larger orders require larger price concessions.\n\nCorrect. Per the reading: 'Market impact (or price impact) is the effect of the trade on transaction prices. Traders who want to fill large orders often must move prices to encourage others to trade with them... For small orders, market impact often is limited to buying at bid prices and selling at lower ask prices. Small market orders generally have small market impact because these orders often are immediately filled by traders willing to trade at quoted bid and offer prices, or even better prices. Larger orders have greater market impact when traders must move the market to fill their orders.'",
+        "B": "Incorrect. Impact grows WITH size — large orders must move prices to draw out counterparties.",
+        "C": "Incorrect. Impact is a real, measurable cost even in the most liquid markets."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_a_q5",
+      "options": {
+        "A": "Delay costs arise from the commissions brokers charge for handling orders.",
+        "B": "arise from the inability to complete the desired trade immediately — traders fail to profit when they fill their orders after prices move as they expect.",
+        "C": "Delay costs are always incurred immediately at the moment the order is submitted."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Commissions are explicit costs; delay costs arise from the INABILITY to trade immediately.",
+        "B": "Full statement: arise from the inability to complete the desired trade immediately — traders fail to profit when they fill their orders after prices move as they expect; often measured on the portion of the order carried over from one day to the next; delay is costly when price moves away from an order (up for buy, down for sell), often because information leaks into the market.\n\nCorrect. Per the reading: 'Delay costs (also called slippage) arise from the inability to complete the desired trade immediately... Effective spreads also do not measure delay costs (also called slippage) that arise from the inability to complete the desired trade immediately because of its size in relation to the available market liquidity. Delay costs also arise when portfolio managers or their traders fail to create and route orders quickly to the markets where they will fill most quickly. Analysts often measure delay costs on the portion of the order carried over from one day to the next. Delay is costly when price moves away from an order (up for a buy order, down for a sell order), often because information leaks into the market.'",
+        "C": "Incorrect. The cost accrues as prices move away DURING the delay — filling after prices have run."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_a_q6",
+      "options": {
+        "A": "Opportunity costs arise from executions that complete successfully at favorable prices.",
+        "B": "Opportunity costs are another name for broker commissions.",
+        "C": "the failure to execute a trade promptly — traders fail to profit when their orders fail to trade and prices move as they expect."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Successful fills incur no opportunity cost — the cost belongs to orders that FAIL to trade.",
+        "B": "Incorrect. Commissions are paid on trades done; opportunity cost is profit missed when unfilled orders would have paid off.",
+        "C": "Full statement: the failure to execute a trade promptly — traders fail to profit when their orders fail to trade and prices move as they expect; often significant for large orders; when delays cause a portion of the order to go unfilled, associated cost is opportunity cost.\n\nCorrect. Per the reading: 'Opportunity costs (or unrealized profit/loss) arise from the failure to execute a trade promptly. Traders fail to profit when their orders fail to trade and price move as they expect... When delays in execution cause a portion of the order to go unfilled, the associated cost is called opportunity cost.' Opportunity costs are difficult to measure — sensitive to time frame chosen and assumptions about prices at which orders could have traded."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_a_q7",
+      "options": {
+        "A": "costs of employing buy-side traders, costs of equipping them with proper trading tools (electronic systems and data), costs of office space (trading rooms or corners).",
+        "B": "Buy-side fixed trading costs consist of commissions only.",
+        "C": "Buy-side institutions bear no fixed trading costs of any kind."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: costs of employing buy-side traders, costs of equipping them with proper trading tools (electronic systems and data), costs of office space (trading rooms or corners); small buy-side institutions often avoid these by not employing buy-side traders and having portfolio managers submit orders directly to brokers.\n\nCorrect. Per the reading: 'The costs of trading include fixed costs and variable costs. For buy-side institutions, fixed trading costs include the costs of employing buy-side traders, the costs of equipping them with proper trading tools (electronic systems and data), and the costs of office space (trading rooms or corners). Small buy-side institutions often avoid these costs by not employing buy-side traders. Their portfolio managers submit their orders directly to their brokers. Variable transaction costs arise from trading activity and consist of explicit and implicit costs.'",
+        "B": "Incorrect. Commissions are VARIABLE per-trade costs; the fixed base is people, systems, data, and space.",
+        "C": "Incorrect. Employing traders, equipping them with electronic systems and data, and housing them are real fixed costs."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_b_q3",
+      "options": {
+        "A": "The effective spread is a poor cost estimate when orders always fill immediately in single executions.",
+        "B": "traders split large orders into many parts filled over time — orders often move the market and cause bid/ask prices to rise or fall.",
+        "C": "The effective spread fails only in markets where no orders exist."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Immediate single fills are where the effective spread works BEST.",
+        "B": "Full statement: traders split large orders into many parts filled over time — orders often move the market and cause bid/ask prices to rise or fall; the market impact makes trading expensive (especially for the last parts to fill) but effective spread will not fully identify this cost if computed separately for each trade.\n\nCorrect. Per the reading: 'The effective spread is a poor estimate of transaction costs when traders split large orders into many parts to fill over time. Such orders often move the market and cause bid and ask prices to rise or fall. The impact of the order on market prices, called market impact, makes trading expensive — especially for the last parts to fill — but the effective spread will not fully identify this cost if it is computed separately for each trade.'",
+        "C": "Incorrect. The failure case is real and common: split orders filled over time move quotes, and the effective spread misses that cumulative impact."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_b_q7",
+      "options": {
+        "A": "VWAP transaction cost estimates are impossible to interpret under any conditions.",
+        "B": "VWAP cost estimates are always exactly zero by construction.",
+        "C": "when trades being evaluated are substantial fraction of all trades in benchmark, or trades took place at same rate as other trades, Trade VWAP and VWAP benchmark will be nearly equal — suggesting trades were not costly."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. They are interpretable — just biased in identifiable situations.",
+        "B": "Incorrect. The bias TOWARD zero (when the evaluated trades dominate the benchmark or trade at the same rate as others) is the flaw, and it explains the measure's popularity.",
+        "C": "Full statement: when trades being evaluated are substantial fraction of all trades in benchmark, or trades took place at same rate as other trades, Trade VWAP and VWAP benchmark will be nearly equal — suggesting trades were not costly; but conclusion misleading if trade had substantial price impact; bias toward zero explains why measure is popular.\n\nCorrect. Per the reading: 'Interpreting VWAP transaction cost estimates is problematic when the trades being evaluated are a substantial fraction of all trades in the VWAP benchmark, or, more generally, when the trades took place at the same rate as other trades in the market. In both cases, the Trade VWAP and the VWAP benchmark will be nearly equal, which would suggest that the evaluated trades were not costly. But this conclusion would be misleading if the trade had substantial price impact. For example, if a large trader were the only buyer for a given trading period (or interval), the VWAP transaction cost estimate would be zero regardless of the market impact. This bias toward zero helps explain why the measure is so popular. Investment managers like to show their investment sponsors transaction cost estimates that suggest that trading is not expensive.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_b_q8",
+      "options": {
+        "A": "greater than the quoted spread — because the large order size that exceeds the bid size causes the order to walk down the limit order book.",
+        "B": "When a large sell order walks down the book, the effective spread will be less than the quoted spread.",
+        "C": "When a large order exceeds the bid size, the effective spread remains identical to the quoted spread."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: greater than the quoted spread — because the large order size that exceeds the bid size causes the order to walk down the limit order book; the average sale price is less than the bid so effective spread is higher than quoted spread.\n\nCorrect. Per the reading's example (Alpha Trade 3): 'The effective spread for the third trade is greater than the quoted spread because the large order size, which was greater than the bid size, caused the order to walk down the limit order book. The average sale price was less than the bid so that the effective spread was higher than the quoted spread.' Walking down the book adds market impact beyond the quoted spread.",
+        "B": "Incorrect. The direction is the reverse — deeper fills at worse prices WIDEN the effective spread beyond the quote.",
+        "C": "Incorrect. Equality holds only when the fill completes at the quote; walking the book breaks it."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_c_q1",
+      "options": {
+        "A": "Implementation shortfall measures only the commissions paid on executed trades.",
+        "B": "the total cost of implementing an investment decision by capturing all explicit and implicit costs — includes market impact costs, delay costs, and opportunity costs which are often significant for large orders.",
+        "C": "Implementation shortfall measures only the market impact component of trading cost."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Commissions are one slice; IS is COMPREHENSIVE — explicit and implicit costs together.",
+        "B": "Full statement: the total cost of implementing an investment decision by capturing all explicit and implicit costs — includes market impact costs, delay costs, and opportunity costs which are often significant for large orders; views trading from an investment management perspective.\n\nCorrect. Per the reading: 'The implementation shortfall method of measuring trading costs addresses the problems associated with the effective spread method. Implementation shortfall is also attractive because it views trading from an investment management perspective and measures the total cost of implementing an investment decision by capturing all explicit and implicit costs. The implementation shortfall method includes the market impact costs and delay costs as well as opportunity costs, which are often significant for large orders.'",
+        "C": "Incorrect. Impact is captured alongside delay and opportunity costs — the totality of implementation cost."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_c_q2",
+      "options": {
+        "A": "Implementation shortfall compares the actual portfolio to its benchmark index.",
+        "B": "Implementation shortfall compares the target portfolio to the planning document.",
+        "C": "the values of the actual portfolio with the paper portfolio (constructed on assumption trades could be arranged at prices that prevailed when the decision to trade was made)."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Benchmark-relative return is performance measurement; IS compares actual to the PAPER portfolio.",
+        "B": "Incorrect. The comparison is actual results versus the paper portfolio transacted at decision prices.",
+        "C": "Full statement: the values of the actual portfolio with the paper portfolio (constructed on assumption trades could be arranged at prices that prevailed when the decision to trade was made); the prevailing price is the decision price/arrival price/strike price, generally the midquote at the time of decision.\n\nCorrect. Per the reading: 'Implementation shortfall compares the values of the actual portfolio with that of a paper portfolio constructed on the assumption that trades could be arranged at the prices that prevailed when the decision to trade is made. The prevailing price — also called the decision price, the arrival price, or the strike price — is generally taken to be the midquote price at the time of the trade decision. The excess of the paper value over the actual value is the implementation shortfall.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_c_q4",
+      "options": {
+        "A": "Implementation shortfall is preferred over effective spread when orders always fill in single executions.",
+        "B": "orders are large and split over time — IS captures market impact costs, delay costs, opportunity costs that arise as prices move away during protracted execution.",
+        "C": "Implementation shortfall is preferred only in markets where no orders exist."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Single fills are the effective spread's home turf.",
+        "B": "Full statement: orders are large and split over time — IS captures market impact costs, delay costs, opportunity costs that arise as prices move away during protracted execution; effective spread misses these when computed per trade.\n\nCorrect. Per the reading: 'The implementation shortfall method of measuring trading costs addresses the problems associated with the effective spread method... The implementation shortfall method includes the market impact costs and delay costs as well as opportunity costs, which are often significant for large orders.' Effective spread computed per-trade underestimates market impact of split large orders because it fails to capture cross-trade effects.",
+        "C": "Incorrect. The preference case is real: large orders split over time, where IS captures impact, delay, and opportunity costs the spread misses."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_c_q7",
+      "options": {
+        "A": "Implementation shortfall addresses no limitation because the effective spread has none.",
+        "B": "effective spread's failure to capture market impact of split large orders across trades, delay costs, and opportunity costs from unfilled orders.",
+        "C": "Implementation shortfall's advantage is that it is simpler to compute than the effective spread."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The effective spread demonstrably fails on split orders.",
+        "B": "Full statement: effective spread's failure to capture market impact of split large orders across trades, delay costs, and opportunity costs from unfilled orders — IS captures the total drag on portfolio performance not just individual trade slippage.\n\nCorrect. Per the reading: 'The implementation shortfall method of measuring trading costs addresses the problems associated with the effective spread method... The implementation shortfall method includes the market impact costs and delay costs as well as opportunity costs, which are often significant for large orders.' Effective spread's per-trade calculation doesn't aggregate cross-trade market impact, whereas IS captures the total decision-to-execution slippage.",
+        "C": "Incorrect. IS is MORE complex, not simpler — its advantage is comprehensiveness across impact, delay, and unfilled-order costs."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_d_q2",
+      "options": {
+        "A": "cheap to operate once built (server rooms vs floors), precisely enforce order precedence and pricing rules without error, keep perfect audit trails, keep hidden orders perfectly hidden (unlike floor brokers), operate continuously around-the-clock, operate when bad weather prevents floor workers.",
+        "B": "Electronic exchange systems offer no advantages over floor-based trading systems, since human floor brokers can negotiate nuances and accommodate order handling that machines cannot replicate.",
+        "C": "Electronic systems offer exactly one advantage over floor-based trading — longer daily trading hours — while matching floors on cost, accuracy, and record keeping."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Per the reading: 'Compared with floor-based trading systems, electronic order-matching systems enjoy many advantages: Most obviously, electronic systems are cheap to operate once built. Operating in server rooms, they require less physical space than trading floors... Electronic exchange systems do exactly what they are programmed to do. When properly programmed, they precisely enforce the exchange's trading order precedence and pricing rules without error or exception. Electronic exchange systems can also keep perfect audit trails... Electronic exchange systems that support hidden orders keep those orders perfectly hidden. Unlike floor brokers, they never inadvertently or fraudulently reveal their clients' hidden orders to others. In contrast to floor-based brokers and exchange officials, electronic order-matching systems can operate, for the most part, on a continuous, \"around-the-clock\" basis. Finally, electronic exchanges can operate when bad weather or other events would likely prevent workers from convening on a floor.'",
+        "B": "Incorrect. The advantages are numerous and decisive — cost, precision, records, speed, scale.",
+        "C": "Incorrect. Hours are one item on a longer list: cheap operation, error-free rule enforcement, perfect audit trails."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_d_q3",
+      "options": {
+        "A": "Computers implement trading strategies effectively because they possess human intuition.",
+        "B": "infinite attention spans and wide attention scope (watch many instruments simultaneously), extraordinarily fast responses, perfect discipline (do exactly what programmed), and perfect memory retention of any information programmers want to save.",
+        "C": "Computers bring no relevant capabilities to trading strategy implementation."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Intuition is what computers LACK; their edge is attention, speed, and discipline.",
+        "B": "Correct. Per the reading: 'Additionally, computers have come to dominate the implementation of many trading strategies because they are so efficient and so unlike human traders: Computers have infinite attention spans and a very wide attention scope. They can continuously watch and respond to information from many instruments and many markets simultaneously and essentially forever. Their responses are extraordinarily fast. Computers are perfectly disciplined and do only what they are instructed (programmed) to do. Computers do not forget any information that their programmers want to save.'",
+        "C": "Incorrect. Infinite attention spans, simultaneous multi-instrument monitoring, and instant flawless execution are the capabilities."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_d_q4",
+      "options": {
+        "A": "Order-driven markets are always dealer-only markets where customers cannot post orders.",
+        "B": "Order-driven markets are always paper-based systems predating electronic trading.",
+        "C": "markets in which orders submitted by traders are arranged based on a rules-based, order-matching system run by an exchange, a broker, or an alternative trading system (ATS)."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Dealer-centric quoting is the QUOTE-driven model; order-driven markets match customer orders under rules.",
+        "B": "Incorrect. Modern order-driven markets are overwhelmingly electronic — the rules-based matching system defines them, not the medium.",
+        "C": "Full statement: markets in which orders submitted by traders are arranged based on a rules-based, order-matching system run by an exchange, a broker, or an alternative trading system (ATS); organized by most exchanges and electronic communication networks (ECNs).\n\nCorrect. Per the reading: 'Electronic trading systems have largely displaced floor-based trading systems in all instruments for which order-driven markets are viable. Order-driven markets — markets in which orders submitted by traders are arranged based on a rules-based, order-matching system run by an exchange, a broker, or an alternative trading system (ATS) — are now organized by most exchanges and electronic communication networks (ECNs).'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_d_q5",
+      "options": {
+        "A": "lagged that of equities, futures, and options markets — despite efforts of many creative developers, most public investors still trade largely over-the-counter with dealers.",
+        "B": "The electronification of bond markets has fully occurred, matching equities in every respect.",
+        "C": "Bond markets have no potential for electronic trading given their structure."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: lagged that of equities, futures, and options markets — despite efforts of many creative developers, most public investors still trade largely over-the-counter with dealers; potential for growth is quite large; corporate/municipal bond issues vastly outnumber stock issues.\n\nCorrect. Per the reading: 'Much less attention has been given to the market structures of corporate and municipal bond markets, most of which, from the customer's point of view, have changed little since the late 19th century. Despite the efforts of many creative developers of electronic bond trading systems, most public investors in these markets still trade largely over the counter with dealers. The potential for electronic trading systems in these markets — and the attendant growth in electronic trading strategies — is quite large. Such systems undoubtedly will reflect the fact that bond issues — especially municipal bonds — vastly outnumber stock issues.'",
+        "B": "Incorrect. Bond electronification LAGS — most public investors still trade through dealers.",
+        "C": "Incorrect. The potential is substantial; the lag reflects instrument heterogeneity, not impossibility."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_e_q1",
+      "options": {
+        "A": "trading the same instrument in multiple venues — venues trading the same instruments have proliferated, and trading in any given instrument now occurs in multiple venues.",
+        "B": "Market fragmentation means all trading in an instrument concentrates on a single exchange.",
+        "C": "Market fragmentation means no trading venues exist for the instrument."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: trading the same instrument in multiple venues — venues trading the same instruments have proliferated, and trading in any given instrument now occurs in multiple venues; increases potential for price and liquidity disparities across venues because buyers and sellers often are not in the same venues at the same time.\n\nCorrect. Per the reading: 'Markets for many asset classes have become increasingly fragmented throughout the world because venues trading the same instruments have proliferated and trading in any given instrument now occurs in multiple venues. Available liquidity for an instrument on any one exchange now often represents just a small fraction of the aggregate liquidity for that instrument. Market fragmentation — trading the same instrument in multiple venues — increases the potential for price and liquidity disparities across venues because buyers and sellers often are not in the same venues at the same time.'",
+        "B": "Incorrect. Concentration is the OPPOSITE; fragmentation is the same instrument trading across many venues.",
+        "C": "Incorrect. Fragmentation implies venue PROLIFERATION, not absence."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_e_q6",
+      "options": {
+        "A": "Traders filling large orders adapt by concentrating all activity in a single venue.",
+        "B": "Traders filling large orders adapt by executing everything at once in one block.",
+        "C": "search for liquidity across multiple venues and across time to control market impacts of their trades — response to increasing market fragmentation."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Single-venue concentration ignores the liquidity scattered elsewhere.",
+        "B": "Incorrect. All-at-once execution maximizes impact; the adaptation is searching across VENUES and across TIME.",
+        "C": "Full statement: search for liquidity across multiple venues and across time to control market impacts of their trades — response to increasing market fragmentation; algorithms break orders into pieces and submit them randomly across markets over time.\n\nCorrect. Per the reading: 'With increasing market fragmentation, traders filling large orders now adapt their trading strategies to search for liquidity across multiple venues and across time to control the market impacts of their trades. Electronic algorithmic trading techniques, such as liquidity aggregation and smart order routing, help traders manage the challenges and opportunities presented by fragmentation.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_e_q7",
+      "options": {
+        "A": "often represents just a small fraction of the aggregate liquidity for that instrument — due to fragmentation across multiple venues.",
+        "B": "Any single exchange's displayed liquidity represents all of the aggregate liquidity for the instrument.",
+        "C": "A single exchange's displayed liquidity represents nothing about the instrument's tradability."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: often represents just a small fraction of the aggregate liquidity for that instrument — due to fragmentation across multiple venues; drives need for aggregation tools and smart routing.\n\nCorrect. Per the reading: 'Available liquidity for an instrument on any one exchange now often represents just a small fraction of the aggregate liquidity for that instrument.' This creates the challenge that motivates development of liquidity aggregation and smart order routing.",
+        "B": "Incorrect. Fragmentation means each venue holds a SLICE, often a small one.",
+        "C": "Incorrect. It represents real but partial liquidity — a fraction of the cross-venue aggregate."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_f_q1",
+      "options": {
+        "A": "High-frequency traders typically hold positions for months, harvesting slow-moving premia.",
+        "B": "generally complete round trips composed of a purchase followed by a sale (or sale then purchase) within a minute and often as quickly as a few milliseconds.",
+        "C": "High-frequency traders trade only once a year at index reconstitution."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Month-long holding is conventional investing; HFT round trips complete within a MINUTE, often milliseconds.",
+        "B": "Full statement: generally complete round trips composed of a purchase followed by a sale (or sale then purchase) within a minute and often as quickly as a few milliseconds; may trade in and out of an actively traded security more than a thousand times per day but usually only in small sizes.\n\nCorrect. Per the reading: 'High-frequency traders (HFTs) generally complete round trips composed of a purchase followed by a sale (or a sale followed by a purchase) within a minute and often as quickly as a few milliseconds. During a day, they may trade in and out of an actively traded security or contract more than a thousand times — but usually only in small sizes.'",
+        "C": "Incorrect. HFT activity is continuous and extremely short-horizon."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_f_q2",
+      "options": {
+        "A": "Low-latency traders are exclusively high-frequency market-making firms.",
+        "B": "No category of low-latency traders exists in modern markets.",
+        "C": "news traders (trade on electronic news feeds) and certain parasitic traders (speculators who base predictions on information about orders others intend to fill)."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. HFTs are a subset; NEWS traders and certain parasitic traders also compete on latency.",
+        "B": "Incorrect. The category is defined and populated — speed-dependent strategies beyond pure HFT.",
+        "C": "Full statement: news traders (trade on electronic news feeds) and certain parasitic traders (speculators who base predictions on information about orders others intend to fill); parasitic traders include front runners (trade in front of liquidity demanders) and quote matchers (trade in front of liquidity suppliers); may hold positions for as long as a day or longer, unlike HFTs.\n\nCorrect. Per the reading: 'Low-latency traders include news traders who trade on electronic news feeds and certain parasitic traders. Parasitic traders are speculators who base their predictions about future prices on information they obtain about orders that other traders intend, or will soon intend, to fill. Parasitic traders include front runners, who trade in front of traders who demand liquidity, and quote matchers, who trade in front of traders who supply liquidity. When trying to open or close positions, low-latency traders often need to send or cancel orders very quickly in response to new information. In contrast to HFTs, low-latency traders may hold their positions for as long as a day and sometimes longer.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_f_q3",
+      "options": {
+        "A": "subscribe to high-speed electronic news feeds, quickly analyze releases to determine if information will move markets and in which direction, send marketable orders (instructions to fill at best available price).",
+        "B": "Electronic news traders trade only random orders unrelated to information flow.",
+        "C": "Electronic news traders deliberately avoid news to reduce information risk."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: subscribe to high-speed electronic news feeds, quickly analyze releases to determine if information will move markets and in which direction, send marketable orders (instructions to fill at best available price); profit when they can execute against 'stale orders' — orders that don't yet reflect the new information.\n\nCorrect. Per the reading: 'Electronic news traders subscribe to high-speed electronic news feeds that report news releases made by corporations, governments, and other aggregators of information. They then quickly analyze these releases to determine whether the information they contain will move the markets and, if so, in which direction. They trade on this information by sending marketable orders — instructions to fill the order at the best available price — to wherever they expect they may be filled. News traders profit when they can execute against stale orders — orders that do not yet reflect the new information.'",
+        "B": "Incorrect. Their strategy is entirely news-DRIVEN — machine-readable feeds parsed in microseconds.",
+        "C": "Incorrect. News is the input: high-speed feeds analyzed instantly for direction and materiality."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_f_q5",
+      "options": {
+        "A": "Electronic arbitrageurs trade a single instrument in a single market, avoiding cross-market activity.",
+        "B": "No arbitrage opportunities exist in electronic markets, so no such traders operate.",
+        "C": "look across markets for arbitrage opportunities in which they can buy an undervalued instrument and sell a similar overvalued one."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. CROSS-market comparison is the strategy's essence.",
+        "B": "Incorrect. Opportunities appear continuously at small scale — buying the undervalued instrument against selling a similar overvalued one.",
+        "C": "Full statement: look across markets for arbitrage opportunities in which they can buy an undervalued instrument and sell a similar overvalued one; combination is called an arbitrage portfolio; positions are called legs; try to construct arbitrage portfolios at minimum cost and risk.\n\nCorrect. Per the reading: 'Electronic arbitrageurs look across markets for arbitrage opportunities in which they can buy an undervalued instrument and sell a similar overvalued one. The combination of these two positions is called an arbitrage portfolio, and the positions are called legs. Electronic arbitrageurs try to construct their arbitrage portfolios at minimum cost and risk.' Three strategies: take liquidity on both sides, offer liquidity on one side, offer liquidity on both sides."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_f_q6",
+      "options": {
+        "A": "use artificial intelligence to identify when large traders (or many small traders) are trying to fill orders on the same side of the market.",
+        "B": "Electronic front runners trade only after all other market participants have completed their orders.",
+        "C": "No category of electronic front running exists in modern markets."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: use artificial intelligence to identify when large traders (or many small traders) are trying to fill orders on the same side of the market; purchase when they believe imbalance will push market up, sell when opposite; search for predictable patterns in order submissions, trades, or relations between trades and other events.\n\nCorrect. Per the reading: 'Electronic front runners are low-latency traders who use artificial intelligence methods to identify when large traders, or many small traders, are trying to fill orders on the same side of the market. They will purchase when they believe that an imbalance of buy orders over sell orders will push the market up and sell when they believe the opposite. Their order anticipation strategies try to identify predictable patterns in order submission. They may search for patterns in order submissions, trades, or the relations between trades and other events.' Dealers and brokers cannot legally front run orders their own clients have submitted, but they can trade on publicly observable patterns.",
+        "B": "Incorrect. Trading AFTER everyone is the opposite of the strategy; they trade AHEAD of detected order flow.",
+        "C": "Incorrect. The practice is recognized — AI-driven detection of large or correlated same-side order flow, traded in front of."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_f_q7",
+      "options": {
+        "A": "Electronic quote matchers trade in front of liquidity demanders, anticipating market orders.",
+        "B": "trade in front of traders who *supply* liquidity — try to exploit option values of standing orders (limit orders waiting to be filled).",
+        "C": "Electronic quote matchers operate with no defined strategy."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Front running DEMANDERS is the front runner's game; quote matchers exploit liquidity SUPPLIERS.",
+        "B": "Full statement: trade in front of traders who *supply* liquidity — try to exploit option values of standing orders (limit orders waiting to be filled); buy when they believe they can rely on standing buy orders to get out of positions, sell when same for sell orders; take positions with potentially limited losses.\n\nCorrect. Per the reading: 'Electronic quote matchers try to exploit the option values of standing orders. Standing orders are limit orders waiting to be filled. Options to trade are valuable to quote matchers because they allow them to take positions with potentially limited losses. Quote matchers buy when they believe they can rely on standing buy orders to get out of their positions, and they sell when they can do the same with standing sell orders.' Parasitic traders include front runners (trade in front of liquidity demanders) and quote matchers (trade in front of liquidity suppliers).",
+        "C": "Incorrect. The strategy is defined: exploit the option value of standing limit orders waiting to be filled."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_f_q8",
+      "options": {
+        "A": "Buy-side traders aware of front runners welcome detection, since attention improves their fills.",
+        "B": "Buy-side traders respond to front runners by trading in regular, predictable patterns.",
+        "C": "randomizing their strategies to make them more difficult to detect — submitting orders at random times instead of regular intervals, submitting various sizes instead of same size, hiding among other orders."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Detection is the threat — it invites being traded against.",
+        "B": "Incorrect. Predictability aids the predator; the response is RANDOMIZING order timing and sizing.",
+        "C": "Full statement: randomizing their strategies to make them more difficult to detect — submitting orders at random times instead of regular intervals, submitting various sizes instead of same size, hiding among other orders; but hiding large liquidity-demanding trades is always challenging.\n\nCorrect. Per the reading: 'Buy-side traders, and the brokers who provide them with algorithms to manage large orders, are aware of the efforts that electronic traders make to detect and front run their orders. Accordingly, they randomize their strategies to make them more difficult to detect. They submit orders at random times instead of at regular intervals, and they submit various sizes instead of the same size. Although these techniques make detection more difficult, hiding large, liquidity-demanding trades is always challenging because sophisticated traders can ultimately identify them by the inevitable relation between prices and volumes that they create.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_g_q1",
+      "options": {
+        "A": "are programmed strategies using combinations or sequences of simple orders, advanced orders, or multiple orders to achieve objectives.",
+        "B": "Trading algorithms process only one simple order at a time.",
+        "C": "Trading algorithms submit market orders exclusively."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: are programmed strategies using combinations or sequences of simple orders, advanced orders, or multiple orders to achieve objectives; extensively used by buy-side traders to trade small orders and reduce price impacts of large trades; break large orders and submit pieces to various markets over time; submit orders at random times/sizes/exchanges to hide origins.\n\nCorrect. Per the reading: 'Algorithms (\"algos\" for short) are programmed strategies for filling orders. Algorithms may use combinations or sequences of simple orders, advanced orders, or multiple orders to achieve their objectives. Buy-side traders use algorithms, often provided by brokers, extensively to trade small orders and to reduce the price impacts of large trades. For example, many algorithms break up large orders and submit the pieces to various markets over time. Breaking up orders makes it difficult for other traders to infer that a trader is trying to fill a large order. The algorithms typically submit the orders at random times, in random sizes, and sometimes to randomly selected exchanges to hide their common origin.'",
+        "B": "Incorrect. Algos orchestrate COMBINATIONS and sequences of orders toward an objective.",
+        "C": "Incorrect. Limit orders, advanced order types, and multi-venue routing are all in the toolkit."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_g_q2",
+      "options": {
+        "A": "VWAP algorithms concentrate all trading at the market open.",
+        "B": "attempt to obtain volume-weighted average fill price close to (or better than) VWAP of all trades arranged within a prespecified time interval.",
+        "C": "VWAP algorithms concentrate all trading at the market close."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Open-only execution ignores the day's volume distribution the algo is built to track.",
+        "B": "Full statement: attempt to obtain volume-weighted average fill price close to (or better than) VWAP of all trades arranged within a prespecified time interval; participate in equal fraction of trading volume throughout the interval; forecast volumes based on historical volume profile and current volumes; trade more during high-volume periods (open/close), less during low-volume.\n\nCorrect. Per the reading: 'VWAP algorithms attempt to obtain a volume-weighted average fill price that is close to (or better than) the volume-weighted average price (VWAP) of all trades arranged within a prespecified time interval. To minimize the variation between the actual average fill price and the VWAP over the interval, these algorithms try to participate in an equal fraction of all trading volume throughout the interval. To do so, they forecast volumes based on the historical volume profile and on current volumes. The algorithm trades more during periods of historically high volume (e.g., around market open and close) and when the market has been more active than normal. It trades less during periods of relatively low volume.'",
+        "C": "Incorrect. The algo spreads execution across the horizon in proportion to expected volume, targeting the interval VWAP or better."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_h_q2",
+      "options": {
+        "A": "Collocation is banned by securities regulators in major markets.",
+        "B": "Collocation is not a practice that exists in electronic markets.",
+        "C": "the practice where exchanges allow electronic traders to place their servers in the rooms where the exchange servers operate."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Collocation is legal and commercially offered by exchanges.",
+        "B": "Incorrect. It is standard: traders' servers placed in the exchange's own data center to minimize transmission latency.",
+        "C": "Full statement: the practice where exchanges allow electronic traders to place their servers in the rooms where the exchange servers operate; exchanges charge substantial fees for collocation space and related services; concerns about fairness dictate communication lines connecting proprietary servers to exchange servers be of same length for all customers buying same class of collocation service.\n\nCorrect. Per the reading: 'Many exchanges allow electronic traders to place their servers in the rooms where the exchange servers operate, a practice called collocation. Exchanges charge substantial fees for collocation space and related services, such as air conditioning and power. Note that even within collocation centers, concerns about fairness dictate that the communication lines connecting proprietary servers to exchange servers all be of the same length for all customers buying the same class of collocation service.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_h_q4",
+      "options": {
+        "A": "Line-of-sight microwave channels offer no speed advantage over fiber-optic cable.",
+        "B": "microwaves travel through air at just slightly below speed of light, whereas signals travel through fiber-optic channels and copper wires only two-thirds as quickly.",
+        "C": "Microwave transmission is slower than fiber-optic transmission, but cheaper to operate."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The speed difference is the entire rationale.",
+        "B": "Full statement: microwaves travel through air at just slightly below speed of light, whereas signals travel through fiber-optic channels and copper wires only two-thirds as quickly; also minimize number of electronic routers and switches through which communications pass (each adds latency).\n\nCorrect. Per the reading: 'Electronic traders and brokers also use the fastest communication technologies they can obtain to collect and transmit information when any distance separates the places where information events occur from the places where they act on those events. To that end, they use the fastest and most direct communication lines that are available. For example, they prefer line-of-sight microwave channels to fiber-optic and copper channels because of the differences in speed of electromagnetic wave propagation through these materials. (Microwaves travel through air at just slightly below the speed of light, whereas signals travel through fiber-optic channels and copper wires only two-thirds as quickly.) They also ensure that their communications pass through the fewest electronic routers and switches possible because passage through each of these devices adds its latency to the total latency of the line.'",
+        "C": "Incorrect. Microwaves through AIR travel just under lightspeed; signals in fiber and copper propagate meaningfully slower."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_h_q5",
+      "options": {
+        "A": "Electronic traders pursuing fast computations rely on deliberately slowed, underclocked processors, accepting lower speeds in exchange for the thermal stability that continuous trading requires.",
+        "B": "Fast computation for electronic trading requires no hardware or software optimization, since exchange matching engines impose uniform processing delays that equalize all participants.",
+        "C": "very fast overclocked processors (with liquid cooling), fast memory (avoiding physical disk drive latencies), specialized processors (sometimes on gallium arsenide vs silicon), simple efficient operating systems (variants of MS-DOS due to simplicity), assembler language for repeated functions, avoiding interpreter languages like Python for time-critical code."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. The direction is the opposite — OVERCLOCKED processors with liquid cooling.",
+        "B": "Incorrect. Optimization is comprehensive: fast memory avoiding disk latency, specialized processors, streamlined code.",
+        "C": "Correct. Per the reading: 'First and most obviously, they use very fast computers. They overclock their processors (i.e., run them faster than the processor designers intended) and use liquid cooling systems to keep them from melting. They store all information in fast memory to avoid the latencies associated with physical disk drives... They sometimes use specialized processors designed to solve their specific trading problems quickly, and they may even use processors etched on gallium arsenide rather than silicon. Electronic traders also must run very efficient software. They often use simple and specialized operating systems to avoid the overhead associated with supporting operating system functions they do not use. Remarkably, many electronic trading systems run under variants of the original MS-DOS operating system because of its simplicity. Electronic traders optimize their computer code for speed. They often write important functions that they repeatedly use in assembler language to ensure that they run quickly.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_h_q6",
+      "options": {
+        "A": "contain prearranged action plans — traders reduce their decision latencies by doing analyses before events instead of afterward.",
+        "B": "Contingency tables waste electronic traders' time by requiring analysis of events that may never occur.",
+        "C": "Contingency tables serve no purpose in latency-sensitive trading."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: contain prearranged action plans — traders reduce their decision latencies by doing analyses before events instead of afterward; seeing an event (e.g., bid increase), they respond by simply looking up optimal response in a contingency table stored in memory; must be kept up to date and include responses for most-likely events.\n\nCorrect. Per the reading: 'Some electronic traders also reduce latency by creating contingency tables that contain prearranged action plans. For example, suppose that a bid rises in a market in which electronic traders are active. In response to the increased bid, traders may want to raise their bids or offers. The decision to do so may depend on their inventory positions and perhaps on many other factors as well. To decide what to do following an increased bid may require substantial analyses, which take time. Traders can reduce their decision latencies by doing these analyses before the bid increases instead of afterward. Seeing the increased bid, they can respond by simply looking up the optimal response in a contingency table stored in memory. To be most useful, the contingency tables must be kept up to date and must include responses for most-likely events.'",
+        "B": "Incorrect. Pre-computation is the SAVINGS — analysis done before events instead of after.",
+        "C": "Incorrect. The purpose is decision-latency reduction: prearranged action plans triggered instantly."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_i_q3",
+      "options": {
+        "A": "The Knight Capital failure of 1 August 2012 was a minor incident with limited financial consequence.",
+        "B": "was a runaway algorithm — due to a software programming mistake, Knight sent millions of orders to markets over 45-minute period when it intended only 212 orders.",
+        "C": "The Knight Capital failure was caused by a human trader's manual order entry error."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The event was near-fatal to the firm — hundreds of millions lost in under an hour.",
+        "B": "Full statement: was a runaway algorithm — due to a software programming mistake, Knight sent millions of orders to markets over 45-minute period when it intended only 212 orders; produced 4 million executions involving 397 stocks; Knight lost $400 million.\n\nCorrect. Per the reading: 'Runaway algorithms produce streams of unintended orders that result from programming mistakes. The problems sometimes occur when programmers do not anticipate some contingency. The Knight Capital trading failure on 1 August 2012 may be the most extreme example of a runaway algorithm incident. Owing to a software programming mistake, Knight sent millions of orders to the markets over a 45-minute period when it intended only to fill 212 orders, some of which normally might have been broken up but none of which would have generated so many orders. These orders produced 4 million executions involving 397 stocks. Knight lost $400 million in the incident.'",
+        "C": "Incorrect. The cause was SOFTWARE — a programming mistake sent millions of unintended orders over 45 minutes."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_i_q4",
+      "options": {
+        "A": "The 6 May 2010 Flash Crash was not tied to any single identifiable order.",
+        "B": "The Flash Crash was a slow, orderly decline spread evenly across the session.",
+        "C": "was triggered by a large institutional trader (Waddell & Reed) selling $4.1B in E-mini S&P 500 futures using an algorithm designed to participate in fixed fraction of market volume."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Investigation traced a specific trigger — a $4.1B E-mini S&P 500 futures sale executed by algorithm.",
+        "B": "Incorrect. The crash was FAST — a plunge and recovery within minutes, not a slow drift.",
+        "C": "Full statement: was triggered by a large institutional trader (Waddell & Reed) selling $4.1B in E-mini S&P 500 futures using an algorithm designed to participate in fixed fraction of market volume; initial trades depressed S&P 500 futures prices, trading volumes increased as arbitrageurs traded, causing algorithm to increase order submissions, exacerbating problem; market recovered after CME briefly halted E-mini futures trading; E-mini dropped ~5% in 5 minutes then recovered nearly fully.\n\nCorrect. Per the reading: 'Overlarge orders demand more liquidity than the market can provide. In these events, a trader — often inexperienced — will try to execute a marketable order that is too large for the market to handle without severely disrupting prices in the time given to fill the order. The 6 May 2010 Flash Crash occurred as a result of such an order. The crash was triggered when a large institutional trader tried to sell $4.1 billion in E-mini S&P 500 futures contracts using an algorithm over a short period. The algorithm was designed to participate in a fixed fraction of the market volume. When the initial trades depressed S&P 500 futures prices, trading volumes increased substantially as arbitrageurs and others started to trade. The increase in trading volumes caused the algorithm to increase the rate of its order submissions, which exacerbated the problem. The market reverted to its former levels after the Chicago Mercantile Exchange briefly halted trading in the E-mini S&P 500 futures contract, and the large order eventually was filled.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_j_q3",
+      "options": {
+        "A": "the dissemination of false information about fundamental values or about other traders' trading intentions to alter investors' value assessments.",
+        "B": "Rumormongering is always legal because opinions about securities are protected speech.",
+        "C": "Rumormongering is not a practice recognized in market-abuse taxonomies."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: the dissemination of false information about fundamental values or about other traders' trading intentions to alter investors' value assessments; illegal in most jurisdictions; analysts must ensure they base analyses on valid, balanced information, not false or one-sided information designed to distort analyses.\n\nCorrect. Per the reading: 'Rumormongering is the dissemination of false information about fundamental values or about other traders' trading intentions to alter investors' value assessments. Financial analysts must be careful to ensure that they base their analyses on valid information and not on false information designed to fool them into making poor decisions. Note that although rumormongering is illegal in most jurisdictions, simply reporting one side of an issue is not illegal. Financial analysts, therefore, must also be careful to ensure that they base their analyses on balanced information and not on information that is true but selectively presented to them with the purpose of distorting their analyses.'",
+        "B": "Incorrect. Disseminating FALSE information to move valuations is market manipulation, not protected opinion.",
+        "C": "Incorrect. The practice is a recognized abuse — false claims about values or other traders' intentions."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_j_q5",
+      "options": {
+        "A": "Spoofing is a hidden-order strategy that conceals trading intentions from the market.",
+        "B": "Spoofing is not a recognized practice in electronic markets.",
+        "C": "traders placing exposed standing limit orders to convey impression to other traders that the market is more liquid than it is or to suggest security is under- or overvalued."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Spoofing uses EXPOSED standing limit orders — visibility is the mechanism of deception.",
+        "B": "Incorrect. Spoofing/layering is a recognized and prosecuted abuse: fake displayed liquidity to mislead other traders.",
+        "C": "Full statement: traders placing exposed standing limit orders to convey impression to other traders that the market is more liquid than it is or to suggest security is under- or overvalued; example: spoofer places hidden buy order + exposed sell limit orders to convey price may fall; some traders sell into spoofer's buy order; spoofer then cancels sell orders.\n\nCorrect. Per the reading: 'Spoofing, also known as layering, is a trading practice in which traders place exposed standing limit orders to convey an impression to other traders that the market is more liquid than it is or to suggest to other traders that the security is under- or overvalued. For example, suppose that a spoofer wants to buy stock cheaply or quickly. The spoofer might place a hidden buy order in the market. The spoofer then places one or more exposed sell limit orders in the market to convey the impression that prices may soon fall. Seeing the spoofing sell orders, one or more traders may conclude that values may be lower than market prices suggest. On that basis, they may sell into the spoofer's buy order, enabling the spoofer to obtain a quick and possibly cheaper purchase.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_j_q7",
+      "options": {
+        "A": "Gunning the market is not a recognized manipulation strategy.",
+        "B": "strategy used by market manipulators to force traders to do disadvantageous trades — generally by selling quickly to push prices down with hope of triggering stop-loss sell orders.",
+        "C": "Gunning the market is a legitimate strategy for providing liquidity in stressed conditions."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The tactic is recognized manipulation.",
+        "B": "Full statement: strategy used by market manipulators to force traders to do disadvantageous trades — generally by selling quickly to push prices down with hope of triggering stop-loss sell orders; e.g., manipulator sells aggressively to push prices from 51 to 50 to trigger stop-loss sells clustered at 50, then repurchases at lower prices.\n\nCorrect. Per the reading: 'Gunning the market. Gunning the market is a strategy used by market manipulators to force traders to do disadvantageous trades. A manipulator generally guns the market by selling quickly to push prices down with the hope of triggering stop-loss sell orders. A stop-loss (or stop) sell order becomes valid for execution once the specified stop price condition is met by a trade occurring at or below the stop price. For example, suppose that a market manipulator believes that traders have placed many stop-loss sell orders at 50. These sell orders would become valid upon a trade occurring at 50 or below. The manipulator may sell aggressively to push prices down from 51 to 50 and thereby trigger the stop-loss sell orders. The manipulator then may be able to profit by repurchasing at lower prices.'",
+        "C": "Incorrect. Forcing disadvantageous trades — selling fast to push prices through stop levels — is abuse, not liquidity provision."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r14_trading_los_j_q8",
+      "options": {
+        "A": "Squeezing and cornering are not practices that occur in modern markets, having been eliminated by position limits and electronic surveillance of deliverable contracts.",
+        "B": "Squeezing and cornering are always legal expressions of market power, protected as legitimate accumulation of scarce assets by traders with superior foresight.",
+        "C": "schemes to force traders to do disadvantageous trades — manipulator obtains control over resources necessary to settle trading contracts, then unexpectedly withdraws those resources from market causing traders to default on contracts (some of which manipulator may hold)."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Both schemes persist, particularly around deliverable contracts.",
+        "B": "Incorrect. Controlling the resources needed to settle contracts in order to force disadvantageous trades is illegal manipulation.",
+        "C": "Full statement: schemes to force traders to do disadvantageous trades — manipulator obtains control over resources necessary to settle trading contracts, then unexpectedly withdraws those resources from market causing traders to default on contracts (some of which manipulator may hold); short squeezes: manipulators control substantial fraction of lendable shares, then recall stock loans; commodity corners: manipulators buy many futures contracts + deliverable supply in spot; illegal in most jurisdictions.\n\nCorrect. Per the reading: 'Squeezing and cornering. Squeezing, cornering, and gunning the market are all schemes that market manipulators use to force traders to do disadvantageous trades. In a squeeze or corner, the manipulator obtains control over resources necessary to settle trading contracts. The manipulator then unexpectedly withdraws those resources from the market, which causes traders to default on their contracts, some of which the manipulator may hold... For example, in short squeezes, manipulators obtain control of a substantial fraction of all available lendable stock shares or bonds. If the securities are overvalued... many speculators may be short selling the securities by unknowingly borrowing them from the manipulators. The manipulators then will recall the security loans. If the short sellers (\"shorts\") cannot borrow the securities from others, they will be forced to buy securities in the market to cover their stock loans... In commodity market corners, manipulators buy many futures contracts while simultaneously buying in the spot markets much of the deliverable supply of the commodity. Corners are illegal in most jurisdictions.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_a_q5",
+      "options": {
+        "A": "Performance measurement draws no distinction between absolute return and excess return.",
+        "B": "investment return tells us what the portfolio achieved over a specific period irrespective of peer or benchmark performance (absolute return).",
+        "C": "Absolute and excess return are defined but never both used in evaluating the same portfolio."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The distinction is foundational — what the portfolio achieved versus what it achieved RELATIVE to a benchmark.",
+        "B": "Full statement: investment return tells us what the portfolio achieved over a specific period irrespective of peer or benchmark performance (absolute return); performance measurement also provides basis to understand difference between portfolio return and its benchmark return (excess return); this is different from 'excess return' used in Sharpe ratio context (return above risk-free rate).\n\nCorrect. Per the reading: 'The investment return tells us what the portfolio achieved over a specific period, irrespective of peer or benchmark performance. For purposes of this reading, we will call this the absolute return. But it also provides the basis to understand the difference between the portfolio return and its benchmark return, the excess return.' Note the distinction from Sharpe context: 'this additional return is often referred to as excess return. This use contrasts with how \"excess return\" is used in return performance attribution — that is, as a return in excess of a benchmark's return.'",
+        "C": "Incorrect. Both views are routinely applied together; each answers a different evaluation question."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_b_q3",
+      "options": {
+        "A": "The bottom-up stock picker example shows that sector attribution always aligns with any manager's process.",
+        "B": "if portfolio manager is a genuine bottom-up stock picker who ignores sector benchmark weights, then measuring the impact of sector allocation against these weights is not measuring decisions made as part of the investment process.",
+        "C": "No example connects attribution design to the manager's investment process."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The example shows the OPPOSITE — sector effects for a benchmark-agnostic stock picker measure a byproduct, not a decision.",
+        "B": "Full statement: if portfolio manager is a genuine bottom-up stock picker who ignores sector benchmark weights, then measuring the impact of sector allocation against these weights is not measuring decisions made as part of the investment process; sector effects are merely a byproduct of the manager's investment decisions.\n\nCorrect. Per the reading: 'For example, if the portfolio manager is a genuine bottom-up stock picker who ignores sector benchmark weights, then measuring the impact of sector allocation against these weights is not measuring decisions made as part of the investment process; sector effects are merely a byproduct of the manager's investment decisions.'",
+        "C": "Incorrect. The stock-picker illustration exists precisely to make the process-alignment point."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_b_q4",
+      "options": {
+        "A": "Attribution has no use as a diagnostic or management tool beyond client reporting.",
+        "B": "Attribution serves no purpose within the investment organization.",
+        "C": "used by senior management, client relationship specialists, risk controllers, operations staff, portfolio managers, and sales/marketing professionals."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Diagnosis of where returns come from is attribution's core internal use.",
+        "B": "Incorrect. Senior management, relationship specialists, risk controllers, operations, PMs, and sales all consume attribution output.",
+        "C": "Full statement: used by senior management, client relationship specialists, risk controllers, operations staff, portfolio managers, and sales/marketing professionals; provides insights to investment decision-making process; when it accurately reflects the investment decision-making process, return attribution provides quality control for the investment process and provides senior management with a tool to manage a complex business with multiple investment strategies; especially important when performance is weak (portfolio managers must demonstrate understanding of their performance).\n\nCorrect. Per the reading: 'Performance attribution is a critical component of the portfolio evaluation process. Used by senior management, client relationship specialists, risk controllers, operations staff, portfolio managers, and sales and marketing professionals, attribution analysis provides important insights to the investment decision-making process... Return attribution analysis is particularly important when performance is weak; portfolio managers must demonstrate an understanding of their performance, provide a rationale for their decisions, and generate confidence in their ability to add value in the future. When it accurately reflects the investment decision-making process, return attribution provides quality control for the investment process and provides senior management with a tool to manage a complex business with multiple investment strategies.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_c_q1",
+      "options": {
+        "A": "performance attribution includes both return attribution and risk attribution (although in practice, 'performance attribution' is often used to mean 'return attribution').",
+        "B": "Return attribution and risk attribution are the same analysis under two names.",
+        "C": "No distinction exists between attributing returns and attributing risk."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: performance attribution includes both return attribution and risk attribution (although in practice, 'performance attribution' is often used to mean 'return attribution'); return attribution analyzes impact of active investment decisions on returns; risk attribution analyzes the risk consequences of those decisions; depending on purpose of analysis, risk may be viewed in absolute or benchmark-relative terms.\n\nCorrect. Per the reading: 'Performance attribution includes return attribution and risk attribution (although in practice, \"performance attribution\" is often used to mean \"return attribution\"). Return attribution analyzes the impact of active investment decisions on returns; risk attribution analyzes the risk consequences of those decisions. Depending on the purpose of the analysis, risk may be viewed in absolute or benchmark-relative terms. For example, when risk relative to a benchmark is the focus, a risk attribution analysis might identify and evaluate a portfolio's deviations from a benchmark's exposures to risk factors.'",
+        "B": "Incorrect. They decompose different quantities — realized return sources versus risk exposures.",
+        "C": "Incorrect. The distinction is drawn explicitly, with 'performance attribution' colloquially meaning the return side."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_c_q2",
+      "options": {
+        "A": "Macro attribution has no defined framework in performance evaluation, since sponsor-level decisions cannot be decomposed with the same rigor as manager-level decisions.",
+        "B": "measures the effect of the sponsor's choice to deviate from the strategic asset allocation, including effect of 'gaps' between strategic asset allocation and its implementation (e.g., where sum of the managers' benchmarks is equal to something other than the benchmark index).",
+        "C": "Macro attribution and micro attribution are indistinguishable analyses, both measuring the individual manager's security selection within the assigned mandate."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The framework is defined at the SPONSOR level.",
+        "B": "Full statement: measures the effect of the sponsor's choice to deviate from the strategic asset allocation, including effect of 'gaps' between strategic asset allocation and its implementation (e.g., where sum of the managers' benchmarks is equal to something other than the benchmark index); attribution used to evaluate the asset owner's tactical asset allocation and manager selection decisions.\n\nCorrect. Per the reading: 'attribution can also be conducted to evaluate the asset owner's tactical asset allocation and manager selection decisions (called macro attribution) or to evaluate the impact of the portfolio manager's decisions on the performance of the asset owner's total fund (called micro attribution). A defined-benefit pension plan makes the decision to allocate a given percentage of the fund to each asset class and decides which manager(s) to hire for each asset class. Macro attribution measures the effect of the sponsor's choice to deviate from the strategic asset allocation, including the effect of \"gaps\" between the strategic asset allocation and its implementation (e.g., where the sum of the managers' benchmarks is equal to something other than the benchmark index).'",
+        "C": "Incorrect. Macro evaluates the sponsor's deviations from strategic allocation (including gaps); micro evaluates the manager within the mandate."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_c_q4",
+      "options": {
+        "A": "provides good starting point for a conversation with clients, explaining both positive and negative aspects of recent performance.",
+        "B": "Return attribution provides no benefit for client conversations.",
+        "C": "Attribution serves no purpose when performance has been weak."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: provides good starting point for a conversation with clients, explaining both positive and negative aspects of recent performance; return attribution analysis is particularly important when performance is weak; portfolio managers must demonstrate understanding of their performance, provide rationale for their decisions, and generate confidence in their ability to add value in the future.\n\nCorrect. Per the reading: 'Performance attribution provides a good starting point for a conversation with clients, explaining both positive and negative aspects of recent performance. Return attribution analysis is particularly important when performance is weak; portfolio managers must demonstrate an understanding of their performance, provide a rationale for their decisions, and generate confidence in their ability to add value in the future.'",
+        "B": "Incorrect. Attribution is the natural STARTING POINT for explaining results to clients.",
+        "C": "Incorrect. Weak periods are where attribution earns its keep — explaining the negative alongside the positive."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_d_q1",
+      "options": {
+        "A": "Returns-based attribution requires full holdings and transaction data for every period.",
+        "B": "Returns-based attribution is the most accurate of the three attribution approaches.",
+        "C": "uses only the total portfolio returns over a period to identify the components of the investment process that have generated the returns."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Data-heavy requirements belong to holdings- and transactions-based approaches; returns-based needs only TOTAL RETURNS.",
+        "B": "Incorrect. It is the LEAST accurate — the price of its minimal data appetite.",
+        "C": "Full statement: uses only the total portfolio returns over a period to identify the components of the investment process that have generated the returns; most appropriate when underlying portfolio holding information is not available with sufficient frequency at required level of detail (e.g., hedge funds because can be difficult to obtain underlying holdings); easiest method to implement but because it does not use underlying holdings, it is the least accurate of the three approaches and the most vulnerable to data manipulation.\n\nCorrect. Per the reading: 'Returns-based attribution uses only the total portfolio returns over a period to identify the components of the investment process that have generated the returns. Returns-based attribution is most appropriate when the underlying portfolio holding information is not available with sufficient frequency at the required level of detail. For example, one might use returns-based attribution to evaluate hedge funds, because it can be difficult to obtain the underlying holdings of hedge funds. Returns-based attribution is the easiest method to implement, but because it does not use the underlying holdings, it is the least accurate of the three approaches and the most vulnerable to data manipulation.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_d_q3",
+      "options": {
+        "A": "Transactions-based attribution uses only period-end holdings snapshots.",
+        "B": "uses both the holdings of the portfolio and the transactions (purchases and sales) that occurred during the evaluation period.",
+        "C": "Transactions-based attribution uses only total portfolio returns."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Holdings snapshots alone define HOLDINGS-based attribution; adding purchases and sales is what upgrades it.",
+        "B": "Full statement: uses both the holdings of the portfolio and the transactions (purchases and sales) that occurred during the evaluation period; weights and returns reflect all transactions during period including transaction costs; most accurate type of attribution analysis but also most difficult and time-consuming to implement; underlying data must be complete, accurate, and reconciled from period to period; entire excess return can be quantified and explained; return will reconcile with return presented to client; can be used as diagnostic tool to identify errors.\n\nCorrect. Per the reading: 'The third approach, transactions-based attribution, uses both the holdings of the portfolio and the transactions (purchases and sales) that occurred during the evaluation period. For transaction-based attribution, both the weights and returns reflect all transactions during the period, including transaction costs. Transaction-based attribution is the most accurate type of attribution analysis but also the most difficult and time-consuming to implement. To obtain meaningful results, the underlying data must be complete, accurate, and reconciled from period to period. Because all the data are available, the entire excess return can be quantified and explained. The return used in the attribution analysis will reconcile with the return presented to the client, and attribution analysis can be used as a diagnostic tool to identify errors.'",
+        "C": "Incorrect. Returns-only is the returns-based method; transactions-based is the most complete and most accurate."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_d_q5",
+      "options": {
+        "A": "availability and quality of the underlying data, the reporting requirements for the client, and the complexity of the investment decision-making process.",
+        "B": "The choice of attribution approach follows no identifiable criteria.",
+        "C": "The attribution approach is dictated solely by the evaluator's software vendor."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Per the reading: 'Performance attribution may be either returns based, holdings based, or transactions based. The decision to use one set of inputs rather than another depends on the availability of data as well as the investment process being measured.' Also: 'The choice of attribution approach depends on the availability and quality of the underlying data, the reporting requirements for the client, and the complexity of the investment decision-making process.'",
+        "B": "Incorrect. Three criteria govern: data availability and quality, client reporting requirements, and process complexity.",
+        "C": "Incorrect. Vendor tools implement the choice; the criteria drive it."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_e_q3",
+      "options": {
+        "A": "all overweight positions in sectors with positive returns will generate positive allocation effects irrespective of overall benchmark return.",
+        "B": "The BHB model has no known problems in allocation attribution.",
+        "C": "The BHB model's problem is that it cannot compute allocation effects at all."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: all overweight positions in sectors with positive returns will generate positive allocation effects irrespective of overall benchmark return; overweighting sector i that earns positive return B_i > 0 results in positive allocation A_i = (w_i - W_i) × B_i > 0 even when sector return is less than overall benchmark return (B_i < B); when sector return is negative, overweighting produces negative allocation; but if portfolio manager is overweight in negative market that has outperformed overall benchmark, effect should be positive — this is the BHB flaw.\n\nCorrect. Per the reading: 'In the BHB model, all overweight positions in sectors with positive returns will generate positive allocation effects irrespective of the overall benchmark return, whereas all overweight positions in negative markets will generate negative allocation effects. Thus, overweighting a sector i that earns a positive return, B_i > 0, results in a positive allocation effect, A_i = (w_i − W_i)B_i > 0, even when the sector return is less than the overall benchmark return (i.e., B_i < B). When the sector return is negative, 0 > B_i, overweighting produces a negative allocation effect, A_i = (w_i − W_i)B_i < 0. Clearly, if the portfolio manager is overweight in a negative market that has outperformed the overall benchmark, the effect should be positive.'",
+        "B": "Incorrect. A well-documented sign problem exists.",
+        "C": "Incorrect. It computes them — but any overweight to a positive-return sector scores positive regardless of whether the sector BEAT the overall benchmark."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_e_q4",
+      "options": {
+        "A": "The Brinson-Fachler model makes no modification to the BHB allocation factor.",
+        "B": "solves BHB problem by modifying asset allocation factor to compare returns with overall benchmark: A_i = (w_i - W_i) × (B_i - B).",
+        "C": "Brinson-Fachler and BHB are identical models published under different names."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. BF modifies the allocation term deliberately.",
+        "B": "Full statement: solves BHB problem by modifying asset allocation factor to compare returns with overall benchmark: A_i = (w_i - W_i) × (B_i - B); allocation effect at portfolio level (BS - B) unchanged from BHB model; applied to Exhibit 2 data: Energy 0.0%, Health care (30%-20%)×(-2%-8.2%) = -1.02%, Financials (20%-30%)×(12%-8.2%) = -0.38%; total still -1.4% at portfolio level but individual sector effects change.\n\nCorrect. Per Equation 10: 'The contribution to asset allocation in the ith sector is now: A_i = (w_i − W_i)(B_i − B). Note that in Equation 10, the allocation effect at the portfolio level, BS − B, is unchanged from the BHB model.' Data: 'Revised BF sector allocation effects are calculated for the portfolio data in Exhibit 2 as follows: Energy: (50% − 50%) × (10% − 8.2%) = 0.0%; Health care: (30% − 20%) × (−2.0% − 8.2%) = −1.02%; Financials: (20% − 30%) × (12% − 8.2%) = −0.38%; Total: 0.0% − 1.02% − 0.38% = −1.4%.'",
+        "C": "Incorrect. BF compares sector returns against the OVERALL benchmark — A_i = (w_i − W_i)(B_i − B) — fixing BHB's sign inconsistency."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_f_q4",
+      "options": {
+        "A": "instead of estimating price changes from changes in duration and yields to maturity, bonds repriced from zero-coupon curves (spot rates).",
+        "B": "No full-repricing method exists for yield curve decomposition.",
+        "C": "Yield curve decomposition can only be approximated through duration times yield change."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: instead of estimating price changes from changes in duration and yields to maturity, bonds repriced from zero-coupon curves (spot rates); more precise pricing and allows for broader range of instrument types and yield changes; supports greater variety of quantitative modeling beyond fixed-income attribution (e.g., ex ante risk); better aligned with how portfolio managers typically view instruments; requires full capability to reprice all financial instruments in portfolio and benchmark; complex nature can make it more difficult and costly to administer operationally and results more difficult to understand particularly for non-fixed-income professionals.\n\nCorrect. Per the reading: 'Instead of estimating price changes from changes in duration and yields to maturity, bonds can be repriced from zero-coupon curves (spot rates)... This full repricing attribution approach provides more precise pricing and allows for a broader range of instrument types and yield changes. It also supports a greater variety of quantitative modeling beyond fixed-income attribution (e.g., ex ante risk). This approach is better aligned with how portfolio managers typically view the instruments. However, it requires the full capability to reprice all financial instruments in the portfolio and the benchmark, including the rates and the characteristics of the instrument. Its complex nature can make it more difficult and costly to administer operationally and can make the results more difficult to understand, particularly for non-fixed-income professionals.'",
+        "B": "Incorrect. Full repricing from spot curves is the most precise method described.",
+        "C": "Incorrect. Duration approximation is the simpler alternative; repricing bonds from zero-coupon curves is more exact, at higher complexity."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_j_q3",
+      "options": {
+        "A": "Broad market indexes and style indexes are the same construction under different labels.",
+        "B": "No distinction exists between broad market and style benchmarks.",
+        "C": "broad market indexes are measures of broad asset class performance (JP Morgan Emerging Market Bond Index EMBI for emerging market bonds, MSCI World Index for global developed market equities) — well known, readily available, easily understood."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Coverage differs — full asset class versus a style slice of it.",
+        "B": "Incorrect. Broad indexes (e.g., EMBI for emerging market debt) measure the asset class; style indexes isolate segments like value or growth.",
+        "C": "Full statement: broad market indexes are measures of broad asset class performance (JP Morgan Emerging Market Bond Index EMBI for emerging market bonds, MSCI World Index for global developed market equities) — well known, readily available, easily understood; style indexes represent investment styles within asset classes; investment style is natural grouping of investment disciplines that has predictive power in explaining future dispersion of returns across portfolios (Brown and Goetzmann 1997); in late 1970s researchers found that stock valuation (P/E) and market cap explained much of stock return variation, leading to style versions of broad indexes (Russell 2000 Value, Russell 1000 Growth).\n\nCorrect. Per the reading: 'Broad market indexes are measures of broad asset class performance, such as the JP Morgan Emerging Market Bond Index (EMBI) for emerging market bonds or the MSCI World Index for global developed market equities. Broad market indexes are well known, readily available, and easily understood. The performance of broad market indexes is widely reported in the popular media. Market indexes have also been more narrowly defined to represent investment styles within asset classes, resulting in style indexes. An investment style is a natural grouping of investment disciplines that has some predictive power in explaining the future dispersion of returns across portfolios. In the late 1970s, researchers found that stock valuation (e.g., the price-to-earnings ratio) and market capitalization explained much of stock return variation. In response, many index providers created various style versions of their broad market indexes (e.g., the Russell 2000 Value and Russell 1000 Growth Indexes).'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_k_q3",
+      "options": {
+        "A": "No statistical tests exist for evaluating benchmark quality.",
+        "B": "correlation between active management return A = (P - B) and style return S = (B - M) — a good benchmark should not reflect systematic biases.",
+        "C": "Benchmark quality is evaluated only through qualitative committee judgment."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Correlation-based tests are standard.",
+        "B": "Full statement: correlation between active management return A = (P - B) and style return S = (B - M) — a good benchmark should not reflect systematic biases; correlation between A and S should not be statistically different from zero; define E = (P - M) as difference between portfolio and broad market index; when manager's style (S) is in (out of) favor relative to market, expect both benchmark and account to outperform (underperform) the market; a good benchmark will have a statistically significant positive correlation coefficient between S and E.\n\nCorrect. Per the reading: 'We can use these benchmark building blocks to further search for systematic biases between the active management return and the style return, identified through correlation. For instance, if we measure the correlation between active management return, A = (P − B), and style return, S = (B − M), we can identify whether the manager's active selection decisions align with the style currently favored by the market. A good benchmark should not reflect these systematic biases, where the correlation between A and S should not be statistically different from zero. Likewise, we define the difference between the portfolio and the broad market index as E = (P − M). When a manager's style (S) is in (out of ) favor relative to the market, we expect both the benchmark and the account to outperform (underperform) the market. Therefore, a good benchmark will have a statistically significant positive correlation coefficient between S and E.'",
+        "C": "Incorrect. The quantitative test correlates active return A = (P − B) with style return S = (B − M); a good benchmark leaves them uncorrelated."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_k_q5",
+      "options": {
+        "A": "benchmark meets criteria of unambiguous (individual securities and weights clearly identifiable), investable (shares freely tradeable), measurable (index returns published daily), reflective of current investment opinions (selected by manager), and specified in advance (not created after fact).",
+        "B": "The JEMstone assessment finds the MSCI ACWI Small Cap benchmark meets every validity criterion without exception.",
+        "C": "The assessment finds the benchmark meets none of the validity criteria."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: benchmark meets criteria of unambiguous (individual securities and weights clearly identifiable), investable (shares freely tradeable), measurable (index returns published daily), reflective of current investment opinions (selected by manager), and specified in advance (not created after fact); does NOT meet criterion of appropriate — liquidity and capitalization constraints imposed by client are not consistent with manner in which manager runs other portfolios managed by firm; manager may choose to be accountable if liquidity/capitalization constraints not expected to interfere with strategy execution.\n\nCorrect. Per Example 10 solution: 'The benchmark meets the criteria of unambiguous. The individual securities and their weights are clearly identifiable. The benchmark most likely meets the criteria of investable. The shares in the index are freely tradeable. The benchmark meets the criteria of measurable. Index returns are published daily. The benchmark does not meet the criteria of appropriate. The liquidity and capitalization constraints imposed by the client are not consistent with the manner in which the manager runs other portfolios managed by the firm. The benchmark meets the criteria of reflective of current investment opinions. The benchmark was selected by the manager and is presumed to be representative of the manager's investment process. The benchmark meets the criteria of specified in advance. The benchmark is not created after the fact. The manager may choose to be accountable to this index if the liquidity and capitalization constraints are not expected to interfere with the ability to execute the investment strategy.'",
+        "B": "Incorrect. The APPROPRIATENESS criterion fails — the benchmark does not match the manager's investment process.",
+        "C": "Incorrect. Most criteria pass: unambiguous, investable, measurable, specified in advance."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_l_q3",
+      "options": {
+        "A": "'normal portfolio' or 'normal benchmark' is portfolio that most closely represents manager's typical positions in investment universe.",
+        "B": "The normal portfolio concept has no definition in performance evaluation.",
+        "C": "A normal portfolio is the market-cap-weighted index of the manager's home country."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: 'normal portfolio' or 'normal benchmark' is portfolio that most closely represents manager's typical positions in investment universe; manager's 'true' active return equals return minus normal portfolio return; most investors tend to use broad market benchmark for manager evaluation, so manager's active return measured as manager's return minus investor's benchmark return; mismatch between broad market benchmark and manager's 'normal' portfolio is not manager's 'true' active return but 'misfit active return'; using broad market index typically misses manager's style (creates style bias).\n\nCorrect. Per the reading: 'Benchmark misspecification can lead to mismeasurement of the value added by the portfolio managers. A \"normal portfolio\" or \"normal benchmark\" is the portfolio that most closely represents the manager's typical positions in his investment universe. The manager's \"true\" active return is equal to his return minus his normal portfolio return. Most investors, however, tend to use a broad market benchmark for manager evaluation. The manager's active return is thus measured as the manager's return minus the investor's benchmark return. There is a mismatch between the broad market benchmark and the manager's \"normal\" portfolio or benchmark; this is not the manager's \"true\" active return but is more appropriately termed the \"misfit active return\" (see, e.g., Gastineau, Olma, and Zielinski 2007). Using a broad market index typically misses the manager's style (i.e., creates style bias).'",
+        "B": "Incorrect. The concept is defined and used for custom benchmarking.",
+        "C": "Incorrect. The normal portfolio represents the manager's TYPICAL positions in the manager's own universe — not a country index."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_m_q1",
+      "options": {
+        "A": "Benchmarking alternative investments presents no distinctive challenges, since hedge fund and private equity index providers now publish investable benchmarks equivalent in quality to public equity indexes.",
+        "B": "No framework identifies the difficulties in alternative-asset benchmarking, leaving evaluators to improvise on a case-by-case basis without recognized guidance.",
+        "C": "selection of appropriate benchmark stymied by lack of high-quality investible market indexes, frequent use of leverage in many strategies, limited liquidity and lack of readily available market values for many underlying assets, and use of internal rates of return rather than time-weighted rates of return."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. The challenges are structural.",
+        "B": "Incorrect. The framework names them: scarce high-quality investable indexes, leverage, valuation lags, and heterogeneous strategies.",
+        "C": "Correct. Per the reading: 'Performance evaluation for alternative asset classes presents many challenges. The selection of an appropriate benchmark is stymied by the lack of high-quality, investible market indexes, the frequent use of leverage in many strategies, the limited liquidity and lack of readily available market values for many underlying assets, and the use of internal rates of return rather than time-weighted rates of return.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_m_q2",
+      "options": {
+        "A": "hedge funds encompass broad range of possible strategies, may have unlimited investment universe, use leverage, sell assets short, take positions in derivatives, opportunistic in choice of strategy.",
+        "B": "Hedge funds are benchmarked cleanly with a single standard index that captures every strategy from global macro to convertible arbitrage.",
+        "C": "No framework addresses hedge fund benchmarking, since the industry's opacity makes systematic evaluation impossible."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: hedge funds encompass broad range of possible strategies, may have unlimited investment universe, use leverage, sell assets short, take positions in derivatives, opportunistic in choice of strategy; broad market indexes are unsuitable as hedge fund benchmarks; risk-free rate (Treasury yield) plus spread (3%-6%) sometimes advocated for arbitrage strategies; both broad market indexes and risk-free rate will be weakly correlated or uncorrelated with hedge fund returns failing benchmark quality test; hedge fund manager universes from CSFB/Tremont often used but subject to survivorship bias and other limitations.\n\nCorrect. Per the reading: 'Hedge funds do not represent an asset class... These characteristics make it difficult to create a single standard against which hedge funds should be judged... These characteristics of hedge funds make it clear that broad market indexes are unsuitable as hedge fund benchmarks. The risk-free rate (e.g., Treasury yield) plus a spread (e.g., 3%–6%) is sometimes advocated as a hedge fund benchmark for arbitrage-based hedge fund strategies... Both broad market indexes and the risk-free rate will be weakly correlated or uncorrelated with hedge fund returns, thus failing the benchmark quality test of Bailey et al. (2007) that states that portfolio and benchmark factor sensitivities should be similar. Because of the shortcomings of broad market indexes and the risk-free rate, hedge fund manager universes from such providers as CSFB/Tremont are often used as hedge fund benchmarks.'",
+        "B": "Incorrect. No single index fits — unlimited universes, leverage, and shorting defeat standard benchmarks.",
+        "C": "Incorrect. The framework covers the difficulties directly, including why peer groups and factor models step in."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_m_q3",
+      "options": {
+        "A": "No Public Market Equivalent methodology exists for private equity evaluation.",
+        "B": "uses cash flow data to replicate the general partner's capital calls and distributions, assuming these same cash flows were invested in the chosen equity index.",
+        "C": "PME methodologies ignore fund cash flows and use only reported NAVs."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. PME is the standard private-equity benchmarking family.",
+        "B": "Full statement: uses cash flow data to replicate the general partner's capital calls and distributions, assuming these same cash flows were invested in the chosen equity index; comparing performance of PME index with net IRR of fund reveals extent of over- or underperformance of PME index relative to public index; several PME methodologies exist, most common being Long-Nickels PME, PME+, Kaplan and Schoar PME, and Direct Alpha PME; important to choose appropriate PME for each private equity fund — poorly chosen PME raises risk of leading investor to incorrect conclusion.\n\nCorrect. Per the reading: 'The methodology uses cash flow data to replicate the general partner's capital calls and distributions, assuming these same cash flows were invested in the chosen equity index. Comparing the performance of the PME index with the net IRR of the fund reveals the extent of over- or underperformance of the PME index relative to the public index. Several PME methodologies exist, the most common being Long–Nickels PME, PME+, Kaplan and Schoar PME, and Direct Alpha PME. It is important to choose the appropriate PME for each private equity fund; a poorly chosen PME raises the risk of leading the investor to an incorrect conclusion.'",
+        "C": "Incorrect. Cash flows are the INPUT — capital calls and distributions replicated as if invested in the public index."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_m_q4",
+      "options": {
+        "A": "No framework exists for benchmarking commodity investments.",
+        "B": "Commodity benchmarking presents no problems because spot indexes are directly investable.",
+        "C": "commodity benchmarks tend to use indexes based on performance of futures-based commodity investments (Reuters/Jefferies CRB Index, S&P Goldman Sachs Commodity Index GSCI, Bloomberg Commodity Index BCOM)."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. The framework exists, built on futures-based indexes.",
+        "B": "Incorrect. Spot indexes are NOT directly investable — hence futures-based benchmarks (CRB, S&P GSCI) with their roll and collateral return complications.",
+        "C": "Full statement: commodity benchmarks tend to use indexes based on performance of futures-based commodity investments (Reuters/Jefferies CRB Index, S&P Goldman Sachs Commodity Index GSCI, Bloomberg Commodity Index BCOM); indexes use futures rather than actual assets; because cost-of-carry model ensures return on fully margined position in futures contract mimics return on underlying spot deliverable, futures contract returns often used as surrogate for cash market performance; challenges include use of derivatives to represent actual commodity assets, varying degrees of leverage among funds, discretionary weighting of exposures; market-cap-weighting cannot be carried over to commodity indexes because every long futures position has corresponding short futures position — market cap of futures contract is always zero.\n\nCorrect. Per the reading: 'Commodity benchmarks tend to use indexes based on the performance of futures-based commodity investments. These include the Reuters/Jefferies Commodity Research Bureau (RJ/CRB) Index, the S&P Goldman Sachs Commodity Index (GSCI), and the Bloomberg Commodity Index (BCOM). However, because the indexes use futures, rather than actual assets, they attempt to replicate the returns available to holding long positions in commodities... A market-cap-weighting scheme, so common for equity and bond market indexes, cannot be carried over to indexes of commodity futures. Because every long futures position has a corresponding short futures position, the market capitalization of a futures contract is always zero. Benchmarking of commodity investments presents similar challenges to other alternatives, including the use of derivatives to represent actual commodity assets, varying degrees of leverage among funds, and the discretionary weighting of exposures within the index.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_o_q1",
+      "options": {
+        "A": "The Sharpe ratio has no recognized weaknesses as a performance measure.",
+        "B": "the use of standard deviation as a measure of risk assumes investors are indifferent between upside and downside volatility.",
+        "C": "The Sharpe ratio's weakness is that it ignores risk entirely."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. A well-known weakness exists in its risk measure.",
+        "B": "Full statement: the use of standard deviation as a measure of risk assumes investors are indifferent between upside and downside volatility; for investor looking for potentially high-rewarding investment, volatility on upside is not necessarily a negative; risk-averse investors concerned about preservation of capital are most concerned with downside risk; Sortino ratio addresses this by using downside deviation.\n\nCorrect. Per the reading: 'One weakness of the Sharpe ratio is that the use of standard deviation as a measure of risk assumes investors are indifferent between upside and downside volatility. For example, for an investor looking for a potentially high-rewarding investment, volatility on the upside is not necessarily a negative. Similarly, risk-averse investors concerned about the preservation of capital are clearly most concerned with downside risk.'",
+        "C": "Incorrect. Risk is central to the ratio — the flaw is that standard deviation treats UPSIDE and downside volatility identically."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_p_q1",
+      "options": {
+        "A": "Distinguishing manager skill from luck presents no difficulty for evaluators.",
+        "B": "Skill-versus-luck evaluation is not a recognized challenge in the literature.",
+        "C": "investment manager's record for any specific period will reflect good luck (unanticipated good developments) and bad luck (unanticipated bad developments)."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. The difficulty is fundamental.",
+        "B": "Incorrect. The challenge is canonical — any period's record blends skill with unanticipated good and bad developments.",
+        "C": "Full statement: investment manager's record for any specific period will reflect good luck (unanticipated good developments) and bad luck (unanticipated bad developments); paradox of skill — as people become more knowledgeable about an activity, difference between worst and best performers becomes narrower; ever-increasing aggregate skill level of investment managers may lead to narrower performance differentials and greater likelihood that differentials can be explained by luck; financial market returns have large element of randomness; hypothesis that manager's underlying mean return exceeds benchmark may require many years of observations to confirm with reasonably high degree of confidence.\n\nCorrect. Per the reading: 'An investment manager's record for any specific period will reflect good luck (unanticipated good developments) and bad luck (unanticipated bad developments). One reason that luck should be considered important when appraising investment performance is the paradox of skill. As people become more knowledgeable about an activity, the difference between the worst and the best performers becomes narrower. Thus, the ever-increasing aggregate skill level of investment managers, supplemented by massive computing power and access to \"big data,\" may lead to narrower investment performance differentials and a greater likelihood that these differentials can be explained by luck. Deciding whether a portfolio manager has or lacks active investment skill on the basis of past returns is difficult and always subject to error. Financial market returns have a large element of randomness... the hypothesis that the manager's underlying mean return exceeds the benchmark's mean return may require many years of observations to confirm with a reasonably high degree of confidence.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r19_ppe_los_p_q4",
+      "options": {
+        "A": "No framework guides the evaluation of investment manager skill.",
+        "B": "A single appraisal ratio suffices to establish manager skill conclusively.",
+        "C": "evaluation of investment manager skill requires use of broad range of analysis tools with fundamental understanding of how tools work, how they complement each other, and their specific limitations."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. The framework prescribes combining tools.",
+        "B": "Incorrect. No single measure settles it — a broad toolkit applied with understanding of each tool's construction and limits is required.",
+        "C": "Full statement: evaluation of investment manager skill requires use of broad range of analysis tools with fundamental understanding of how tools work, how they complement each other, and their specific limitations; appraisal ratios must be used with care noting assumptions of each ratio and affording appropriateness to measured investment process, risk tolerance, and investor time horizon; although appraisal ratios help identify manager skill (as opposed to luck), often based on investment return data which are often limited and subject to error.\n\nCorrect. Per the reading Summary: 'Investment performance appraisal ratios — including the Sortino ratio, upside/downside capture ratios, maximum drawdown, and drawdown duration — measure investment skill. Appraisal ratios must be used with care, noting the assumptions of each ratio and affording the appropriateness to the measured investment process, risk tolerance, and investor time horizon. Although appraisal ratios help identify manager skill (as opposed to luck), they often are based on investment return data, which are often limited and subject to error. Evaluation of investment manager skill requires the use of a broad range of analysis tools, with fundamental understanding of how the tools work, how they complement each other, and their specific limitations.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_a_q12",
+      "options": {
+        "A": "For inflation protection, the reading recommends concentrating in long-duration nominal bonds.",
+        "B": "For inflation protection, the reading recommends holding only cash equivalents.",
+        "C": "companies that can successfully pass on higher input costs to customers, or commodity producers that may benefit from rising commodity prices."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Long-duration nominal bonds are among the assets MOST damaged by inflation.",
+        "B": "Incorrect. Cash loses purchasing power in inflation; pricing-power companies and commodity producers are the equity answer.",
+        "C": "Full statement: companies that can successfully pass on higher input costs to customers, or commodity producers that may benefit from rising commodity prices — recognizing that equities' inflation-hedge efficacy is mixed at best.\n\nCorrect. The reading's inflation-hedge discussion (and the Huber portfolio-manager example) notes: companies successful at passing along higher input costs (raw materials, energy, wages) to customers can protect margins; commodity producers (oil, industrial metals) benefit directly from commodity price rises. Certain sectors provide some protection though the asset class overall is mixed as an inflation hedge."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_b_q11",
+      "options": {
+        "A": "For the Chinese robotics fund, geographic segmentation alone is the recommended framework.",
+        "B": "size/style segmentation with growth-oriented style (size depending on the company), since the fund's rapid-earnings-growth focus best aligns with growth style.",
+        "C": "For the fund, economic activity segmentation alone captures the relevant characteristics."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Geography is already fixed by the mandate — it adds no discriminating power.",
+        "B": "Full statement: size/style segmentation with growth-oriented style (size depending on the company), since the fund's rapid-earnings-growth focus best aligns with growth style; geography and economic activity segmentation are less appropriate given the similar geographic and industry composition of the target industry.\n\nCorrect. Per the reading's example, based on the desired strategy to invest in companies with rapidly accelerating earnings, the manager would most likely segment by size/style — using an investment style that reflects growth, with size (large, mid, or small cap) depending on the company. Other segmentation approaches (geography and economic activity) would be less appropriate given the similar geographic and industry composition of the Chinese robotics industry.",
+        "C": "Incorrect. Sector segmentation misses the accelerating-earnings dimension; size/style with a GROWTH orientation fits the fund's character."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_b_q12",
+      "options": {
+        "A": "The reading's example of a multi-approach index combination is the S&P 500 alone.",
+        "B": "The reading's example is the Dow Jones Industrial Average.",
+        "C": "the MSCI Europe Large Cap Growth Index and the MSCI World Small Cap Value Index, which combine geographic, size, and style dimensions."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. The S&P 500 reflects a single approach — selective large-cap US.",
+        "B": "Incorrect. The DJIA is a 30-stock price-weighted index; the cited combinations are MSCI Europe Large Cap Growth and MSCI World Small Cap Value, blending geography, size, and style.",
+        "C": "Correct. The reading identifies these indexes as examples combining geography, size, and style: MSCI Europe Large Cap Growth Index, MSCI World Small Cap Value Index, MSCI Emerging Markets Large Cap Growth Index, and MSCI Latin America Midcap Index. This combination also sometimes applies to individual countries, particularly large developed markets."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_b_q13",
+      "options": {
+        "A": "the S&P Global Natural Resources Index (90 largest natural resources/commodities companies across agribusiness, energy, and metals and mining) and the MSCI World Energy Index (large-cap and mid-cap oil and natural gas).",
+        "B": "Sector-based equity indexes are constructed only within single countries.",
+        "C": "Multi-country indexes exist only for whole markets, never for individual sectors."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. The reading cites these as examples of sector indexes that are global in scope: S&P Global Natural Resources Index (90 largest publicly traded companies in natural resources/commodities across agribusiness, energy, and metals and mining); MSCI World Energy Index (large-cap and mid-cap segments of publicly traded oil and natural gas in developed markets); Refinitiv Global Financials Index (100 largest global financial services). Because many sectors are global, industry-focused indexes are often global.",
+        "B": "Incorrect. Sector indexes routinely cross borders.",
+        "C": "Incorrect. The S&P Global Natural Resources Index — 90 companies spanning agribusiness, energy, and metals worldwide — is the cited example."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_b_q2",
+      "options": {
+        "A": "In size/style segmentation, style is determined by market capitalization alone.",
+        "B": "a scoring system incorporating multiple metrics or ratios such as price-to-book, price-to-earnings, earnings growth, dividend yield, and book value growth.",
+        "C": "Style is determined by the geographic domicile of the company."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Capitalization defines the SIZE axis; style needs valuation and growth metrics.",
+        "B": "Full statement: a scoring system incorporating multiple metrics or ratios such as price-to-book, price-to-earnings, earnings growth, dividend yield, and book value growth — scored individually, weighted, and aggregated to produce a composite score positioning the stock along the value-growth spectrum.\n\nCorrect. The reading states style is often determined through a scoring system that incorporates multiple metrics or ratios (P/B, P/E, earnings growth, dividend yield, book value growth). These metrics are scored individually for each company, assigned weights, and aggregated to produce a composite score determining where the stock falls along the value-growth spectrum. A combination of growth and value is not uncommon, particularly for large corporations with both mature and higher-growth business lines.",
+        "C": "Incorrect. Domicile is the geographic approach; style scoring blends price-to-book, price-to-earnings, earnings growth, and dividend yield."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_c_q12",
+      "options": {
+        "A": "predatory trading — where predatory traders purchase (or sell short) shares prior to their effective inclusion (or deletion) from an index, resulting in price movement and profit for the predatory trader at the expense of the index fund.",
+        "B": "Index funds face no hidden costs given their transparency and low turnover.",
+        "C": "The hidden cost identified is that index funds pay higher commissions than active funds."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. The reading states index funds face a 'hidden' cost from potential predatory trading. A predatory trader may purchase (or sell short) shares prior to their effective inclusion (or deletion) from an index, resulting in price movement and potential profit for the predatory trader. Such strategies can be regarded as a cost to index-fund investors — albeit a cost that is not necessarily evident to a portfolio manager or investor.",
+        "B": "Incorrect. Transparency is the vulnerability — predictable trades invite predation.",
+        "C": "Incorrect. Commissions are LOWER for index funds; the hidden cost is predatory trading ahead of announced inclusions and deletions."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_c_q13",
+      "options": {
+        "A": "Momentum and deep value strategies have identical trading cost profiles, since both trade the same universe of listed equities through the same brokers and venues.",
+        "B": "momentum strategies 'demand liquidity' (buying stocks already rising, selling those already falling) so tend to have higher trading costs, while deep value strategies more likely 'provide liquidity' to the market (buying significantly undervalued stocks) so tend to have lower trading costs.",
+        "C": "Deep value strategies always incur higher trading costs than momentum strategies, because unloved stocks trade with wider spreads that dominate any liquidity-demand effect."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Their liquidity postures differ fundamentally.",
+        "B": "Correct. The reading states some active investing approaches 'demand liquidity' from the market — for example, in a momentum strategy the investor seeks to buy shares already rising in price (or sell those already falling). Deep value strategies (involving stocks deemed significantly undervalued) are more likely to 'provide liquidity' to the market. Investment strategies that involve frequent trading and demand liquidity are, unsurprisingly, likely to have higher trading costs than long-term, buy-and-hold investment strategies.",
+        "C": "Incorrect. The relationship runs the other way — momentum DEMANDS liquidity (buying what's rising), while patient value buying tends to SUPPLY it."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_c_q4",
+      "options": {
+        "A": "Index funds lend stocks frequently because regulation requires them to do so.",
+        "B": "of their large, long-term holdings in stocks, and because index-fund managers are normally not concerned that borrowed stock used for short-selling might depress the corresponding equity prices.",
+        "C": "Index funds lend stocks because they need external cash to fund operations."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. No lending mandate exists; the practice is commercial.",
+        "B": "Full statement: of their large, long-term holdings in stocks, and because index-fund managers are normally not concerned that borrowed stock used for short-selling might depress the corresponding equity prices — index funds merely seek to replicate benchmark performance.\n\nCorrect. The reading states index funds are frequent stock lenders because of their large, long-term holdings in stocks. In addition, because index funds merely seek to replicate the performance of an index, portfolio managers of these funds are normally not concerned that borrowed stock used for short-selling purposes might decrease the prices of the corresponding equities. Large actively managed pension funds, endowments, and institutional investors are also frequent lenders (though more concerned with short-selling impact).",
+        "C": "Incorrect. Operational cash is not the driver — large, stable long-term holdings and indifference to short-sale price pressure make lending attractive income."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_d_q1",
+      "options": {
+        "A": "Shareholder engagement is defined as purely passive index investing without interaction.",
+        "B": "Shareholder engagement means the buying and selling of shares in secondary markets.",
+        "C": "the process whereby investors actively interact with companies, including voting on corporate matters at general meetings as well as other forms of communication (quarterly investor calls, in-person meetings)."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Passivity in trading does not preclude — and is not — engagement.",
+        "B": "Incorrect. Trading is portfolio management; engagement is ACTIVE INTERACTION with companies, including voting at general meetings.",
+        "C": "Full statement: the process whereby investors actively interact with companies, including voting on corporate matters at general meetings as well as other forms of communication (quarterly investor calls, in-person meetings) — generally concerning issues that can affect the value of a company and, by extension, an investor's shares.\n\nCorrect. The reading defines shareholder engagement as the process whereby investors actively interact with companies. It often includes voting on corporate matters at general meetings as well as other forms of communication (quarterly investor calls, in-person meetings). Generally, engagement concerns issues that can affect the value of a company and, by extension, an investor's shares."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_d_q10",
+      "options": {
+        "A": "Proxy voting is prohibited under most jurisdictions' corporate law.",
+        "B": "Proxy voting refers to voting conducted via cryptocurrency tokens.",
+        "C": "enabling shareholders unable to attend a meeting to authorize another individual (another shareholder or director) to vote on their behalf."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Proxy voting is standard, legally supported practice worldwide.",
+        "B": "Incorrect. The proxy is a PERSON — another shareholder or director authorized to vote for a shareholder unable to attend.",
+        "C": "Full statement: enabling shareholders unable to attend a meeting to authorize another individual (another shareholder or director) to vote on their behalf — the most common form of investor participation in general meetings.\n\nCorrect. The reading defines proxy voting as enabling shareholders who are unable to attend a meeting to authorize another individual (e.g., another shareholder or director) to vote on their behalf. Proxy voting is the most common form of investor participation in general meetings. Although most resolutions pass without controversy, sometimes minority shareholders attempt to strengthen their influence via proxy voting. Multiple shareholders may collectively vote in favor of or in opposition to a resolution."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_d_q12",
+      "options": {
+        "A": "When shares are loaned, the voting rights remain with the lender at all times, since a securities loan transfers only economic exposure rather than legal title.",
+        "B": "the transaction is technically an assignment of title with a repurchase option — voting rights are transferred to the borrower — which could potentially result in the borrower having different voting opinions from the lending investor.",
+        "C": "When shares are loaned, the voting rights are permanently extinguished for the duration of the loan, with neither the lender nor the borrower entitled to vote them."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Title transfers with the loan — and voting rights travel with title to the borrower.",
+        "B": "Full statement: the transaction is technically an assignment of title with a repurchase option — voting rights are transferred to the borrower — which could potentially result in the borrower having different voting opinions from the lending investor; some stock lenders therefore recall shares ahead of voting resolutions.\n\nCorrect. The reading states when an investor loans shares, the transaction is technically an assignment of title with a repurchase option — voting rights are transferred to the borrower. The transfer could potentially result in the borrower having different voting opinions from the lending investor. To mitigate this, some stock lenders recall shares ahead of voting resolutions. The downside is loss of stock lending revenue during the recall period and potential reputation risk. In some cases, investors borrow shares explicitly to exercise voting rights ('empty voting') — no capital invested but voting rights acquired.",
+        "C": "Incorrect. Rights transfer, not vanish; lenders wanting to vote must recall shares before the record date."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_d_q3",
+      "options": {
+        "A": "From the company's perspective, shareholder engagement always harms performance by distracting management.",
+        "B": "can assist in developing a more effective corporate governance culture, which may lead to better company performance to the benefit of shareholders and other stakeholders.",
+        "C": "Engagement eliminates all disagreements between companies and their shareholders."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The reading identifies BENEFITS — engagement can strengthen governance culture.",
+        "B": "Correct. The reading states from a company's perspective, shareholder engagement can assist in developing a more effective corporate governance culture. In turn, shareholder engagement may lead to better company performance to the benefit of shareholders as well as other stakeholders. Investors also benefit — through more information about companies or the sectors in which they operate.",
+        "C": "Incorrect. Disagreement persists; the benefit is a more effective governance culture that can improve performance for all shareholders."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_d_q7",
+      "options": {
+        "A": "Activist investing is purely passive index tracking with no engagement component.",
+        "B": "Activist investing is always and only focused on management compensation.",
+        "C": "a distinct and specialized version of engagement — activists specialize in taking stakes in companies and creating change to generate a gain on the investment."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Activism is engagement INTENSIFIED, not passivity.",
+        "B": "Incorrect. Compensation is one topic among many; activists take stakes to create change that generates investment gains.",
+        "C": "Full statement: a distinct and specialized version of engagement — activists specialize in taking stakes in companies and creating change to generate a gain on the investment; hedge funds are among the most common activists due to potential high performance fees, limited regulation, fewer investment constraints, and ability to leverage positions.\n\nCorrect. The reading defines activist investing as a distinct and specialized version of engagement. Activists specialize in taking stakes in companies and creating change to generate a gain on their investment. Hedge funds are among the most common activists, possibly because of the potential for high performance fees. Additionally, because hedge funds are subject to limited regulation, have fewer investment constraints, and can often leverage positions, they often have more flexibility as activists."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_e_q10",
+      "options": {
+        "A": "For the cost-conscious efficiency-believing client, highly concentrated active management is the recommendation.",
+        "B": "For this client, a long/short hedge fund structure is the recommendation.",
+        "C": "index-based, because the client believes in market efficiency (implying alpha is difficult to earn), values low costs, and narrow country/sector focus is typically well-served by index-based products."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Belief in efficiency undercuts the case for concentrated active risk — and the costs contradict her priorities.",
+        "B": "Incorrect. Long/short is high-cost active management; index-based exposure fits her efficiency view, cost sensitivity, and narrow focus.",
+        "C": "Correct. Per the reading's Goudreaux example: cost consciousness and belief in market efficiency drive her toward index-based management. Because she believes in market efficiency, she likely believes it is challenging for active managers to outperform. Because she is cost conscious, index-based (typically lower fee) is attractive. Her narrow country/sector focus is well-served by index-based sector or country ETFs. So her portfolio is likely index-based."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_e_q3",
+      "options": {
+        "A": "Confidence to outperform requires no fundamental research capability on the manager's part.",
+        "B": "an understanding of the manager's equity investment universe, a competitive analysis of other managers with a similar universe, and appropriate resources (research staff and access to information).",
+        "C": "Confidence to outperform requires a contractual guarantee of alpha delivery."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Research capability is a required foundation.",
+        "B": "Correct. The reading states that active investment managers typically need to be confident they can adequately outperform their benchmark. This requires an understanding of the manager's equity investment universe, a competitive analysis of other managers with a similar universe, and appropriate resources (e.g., research staff and access to information). Without these, outperformance confidence is unfounded.",
+        "C": "Incorrect. Alpha cannot be guaranteed; the requirement is universe understanding, competitive analysis of similar managers, and demonstrable insight."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_e_q6",
+      "options": {
+        "A": "Suitable benchmarks for active managers carry no liquidity requirement for underlying securities.",
+        "B": "benchmarks with sufficient liquidity of underlying securities (thus maintaining a reasonable cost of trading), and enough underlying securities to generate sufficient alpha.",
+        "C": "A single-stock benchmark is suitable for a diversified active mandate."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Liquidity keeps trading costs reasonable — a benchmark requirement, not an option.",
+        "B": "Full statement: benchmarks with sufficient liquidity of underlying securities (thus maintaining a reasonable cost of trading), and enough underlying securities to generate sufficient alpha — for this reason, many country-specific or sector-specific investment strategies (e.g., consumer defensive companies) are index based.\n\nCorrect. The reading states an investor or equity manager's choice of benchmark can play a meaningful role in the ability to attract new funds. As part of the selection process, active managers normally must have benchmarks with sufficient liquidity of underlying securities (thus maintaining reasonable cost of trading). In addition, the number of securities underlying the benchmark typically must be broad enough to generate sufficient alpha. For this reason, many country-specific or sector-specific investment strategies (e.g., consumer defensive companies) are index-based.",
+        "C": "Incorrect. Diversified investing requires ENOUGH underlying securities; one stock supports neither diversification nor meaningful active positioning."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_e_q7",
+      "options": {
+        "A": "Client-specific ESG mandates are impossible to implement in practice.",
+        "B": "Client-specific ESG mandates are always managed passively through screened indexes.",
+        "C": "typically managed actively, because index-based management may not be particularly efficient or cost effective when managers must meet client-desired holdings or holdings to avoid."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Such mandates are widely implemented.",
+        "B": "Incorrect. The reading identifies them as typically ACTIVE — bespoke exclusions and integration make index-based approaches inefficient.",
+        "C": "Full statement: typically managed actively, because index-based management may not be particularly efficient or cost effective when managers must meet client-desired holdings or holdings to avoid — for example, exclusionary/negative screening requires ongoing monitoring to determine companies directly and indirectly involved in 'unacceptable' industries.\n\nCorrect. The reading states client-specific investment mandates, such as those related to ESG considerations, are typically managed actively. This active approach occurs because index-based management may not be particularly efficient or cost effective when managers must meet a client's desired holdings (or holdings to avoid). For example, a mandate to avoid certain 'unacceptable' activities (military technology/weapons, tobacco/alcohol, gambling) requires ongoing monitoring — managers need to determine which companies are directly and indirectly involved. Although ESG investing is typically active, a growing number of index-based ESG vehicles exist."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_e_q8",
+      "options": {
+        "A": "a risk of active management if the success of an investment manager's firm is dependent on one or a few 'star managers' who may potentially leave the firm.",
+        "B": "Key-person risk is a distinctive risk of index-based management.",
+        "C": "Key-person risk refers to the risk of losing the fund's key legal counsel."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. The reading identifies key-person risk as a risk of active management. Key-person risk is relevant for active managers if the success of an investment manager's firm is dependent on one or a few individuals ('star managers') who may potentially leave the firm. This is generally less of a concern for index-based strategies where portfolio management is rules-based.",
+        "B": "Incorrect. Rules-based indexing depends little on individual talent; the risk attaches to ACTIVE management built on star managers.",
+        "C": "Incorrect. The 'key persons' are the star investment managers whose departure threatens the franchise."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_f_q3",
+      "options": {
+        "A": "Free-float adjustment counts every share ever issued without distinction.",
+        "B": "counting only shares available for trade by the public, excluding shares that are held by founders, governments, or other companies — because closely held or strategic-holder shares are seldom traded and could cause disproportionate trading effects.",
+        "C": "Free-float adjustment is the adjustment of share counts for dilution from options and convertibles."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Counting everything is the UNADJUSTED total; float adjustment removes strategic holdings.",
+        "B": "Full statement: counting only shares available for trade by the public, excluding shares that are held by founders, governments, or other companies — because closely held or strategic-holder shares are seldom traded and could cause disproportionate trading effects; float-adjustment relies on publicly available information.\n\nCorrect. The reading states many stock indexes 'free-float adjust' their shares outstanding, which means they count only shares available for trade by the public, excluding those held by founders, governments, or other companies. When a company's floated shares are a small fraction of total shares outstanding, trading can result in disproportionate effects. Similarly, stocks for which trading volume is a small fraction of total shares outstanding are likely to have low liquidity and high trading costs. Many indexes require float and average shares traded above a certain percentage.",
+        "C": "Incorrect. Dilution is a different adjustment; float excludes founder, government, and corporate cross-holdings unavailable for public trading."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_f_q6",
+      "options": {
+        "A": "Whole Foods moved from the Large Cap to the Mid Cap index because the company changed its industry classification.",
+        "B": "its market cap dropped from USD15.3 billion (May 2015) to USD10.4 billion (May 2016), below the buffer value of approximately USD10.5 billion (67% of the USD15,707 million cutoff for the smallest company in the Large Cap Index).",
+        "C": "Whole Foods moved indexes because the company was delisted from public markets."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Industry was unchanged; SIZE was the trigger.",
+        "B": "Correct. The reading's Whole Foods Market example: MSCI sets a cutoff value for the smallest company in the Large Cap Index at each rebalance and sets the buffer at 67% of the cutoff. In May 2016, the cutoff market cap was USD15,707M; buffer was USD10,524M (~USD10.5B). Whole Foods' market cap had dropped from USD15.3B (May 2015) to USD10.4B (May 2016), below the USD10.5B buffer. Per the stated rules, Whole Foods was removed from MSCI USA Large Cap and added to MSCI USA Mid Cap Index.",
+        "C": "Incorrect. The stock continued trading until the 2017 Amazon acquisition; the 2016 move followed its market cap falling from $15.3B to $10.4B, through the buffer."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r6_epm_los_f_q7",
+      "options": {
+        "A": "Packeting is the immediate transfer of all of a stock's shares upon any breakpoint breach.",
+        "B": "Packeting prohibits a stock from ever appearing in more than one index simultaneously.",
+        "C": "splitting stock positions into multiple parts: if a mid-cap stock's cap increases and breaches the mid-cap/large-cap breakpoint, a portion of the total holding is transferred to the large-cap index but the rest stays in the mid-cap index."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Immediate full transfer is the conventional approach packeting replaces.",
+        "B": "Incorrect. Packeting EXPLICITLY permits split membership — a portion moves on the first breach, the remainder on confirmation at the next review.",
+        "C": "Full statement: splitting stock positions into multiple parts: if a mid-cap stock's cap increases and breaches the mid-cap/large-cap breakpoint, a portion of the total holding is transferred to the large-cap index but the rest stays in the mid-cap index — the remainder moves on the next reconstitution if the stock still qualifies. This keeps portfolio turnover and trading costs low.\n\nCorrect. The reading defines packeting as splitting stock positions into multiple parts. If a stock's capitalization breaches the mid-cap/large-cap breakpoint, a portion of the total holding is transferred to the large-cap index but the rest stays in the mid-cap index. On the next reconstitution date, if the stock's value remains large cap and all other qualifications are met, the remainder of the shares are moved. This policy keeps portfolio turnover and trading costs low. CRSP uses packeting for the CRSP family of indexes."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    }
+  ],
+  "expected": {
+    "applied": 107
+  }
+}

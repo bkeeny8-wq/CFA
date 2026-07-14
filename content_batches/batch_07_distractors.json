@@ -1,0 +1,1754 @@
+{
+  "target": "drills",
+  "description": "distractor batch 7 - fixed income: FI overview, LDI/index-based, credit strategies, yield curve strategies (109 items); parallel-weight distractors authored; correct key pinned to post-rotation layout",
+  "precondition": "apply after batch_01, batch_02, rotate_drill_keys.py, batch_03, batch_04, batch_05, batch_06",
+  "replacements": [
+    {
+      "id": "r18_ldi_los_a_q1",
+      "options": {
+        "A": "the process of structuring and managing a fixed-income bond portfolio to minimize the variance in the realized rate of return over a known time horizon.",
+        "B": "Immunization is the practice of maximizing the expected return of a bond portfolio without regard to the timing of any obligations.",
+        "C": "Immunization refers to eliminating credit risk by holding only government-guaranteed securities."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: the process of structuring and managing a fixed-income bond portfolio to minimize the variance in the realized rate of return over a known time horizon; this variance arises from the volatility of future interest rates; default risk is neglected because portfolio bonds are assumed to have default probabilities approaching zero.\n\nCorrect. Per the reading: 'Immunization is the process of structuring and managing a fixed-income bond portfolio to minimize the variance in the realized rate of return over a known time horizon. This variance arises from the volatility of future interest rates. Default risk is neglected at this point because the portfolio bonds are assumed to have default probabilities that approach zero.'",
+        "B": "Incorrect. Immunization targets a KNOWN horizon obligation and minimizes return variance to it — return maximization is not the objective.",
+        "C": "Incorrect. The technique addresses INTEREST RATE risk over a known horizon, not credit risk elimination."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_a_q8",
+      "options": {
+        "A": "A parallel yield curve shift is a necessary condition for immunization to succeed — without it, immunization always fails.",
+        "B": "a sufficient, but not necessary, condition for immunization is a parallel (or shape-preserving) shift whereby all yields change by the same amount in the same direction.",
+        "C": "Yield curve shifts bear no relation to whether an immunized portfolio achieves its target return."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Parallel (shape-preserving) shifts are SUFFICIENT but not necessary — immunization can succeed under some non-parallel movements.",
+        "B": "Full statement: a sufficient, but not necessary, condition for immunization is a parallel (or shape-preserving) shift whereby all yields change by the same amount in the same direction; if change in cash flow yield is the same as that on zero-coupon bond being replicated, immunization can be achieved even with non-parallel shift to yield curve.\n\nCorrect. Per the reading Summary: 'A sufficient, but not necessary, condition for immunization is a parallel (or shape-preserving) shift whereby all yields change by the same amount in the same direction. If the change in the cash flow yield is the same as that on the zero-coupon bond being replicated, immunization can be achieved even with a non-parallel shift to the yield curve.'",
+        "C": "Incorrect. Curve movements are precisely the risk immunization manages; the sufficiency condition concerns them directly."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_b_q5",
+      "options": {
+        "A": "if CTD is 6.5-year T-note (BPV 56.8727, CF 0.8226), futures BPV = 56.8727/0.8226 = 69.1377 and required contracts = (117,824 - 18,819)/69.1377 = 1,432.",
+        "B": "The Treasury futures example concludes that no futures position can close the BPV gap between assets and liabilities.",
+        "C": "The example poses the hedge but leaves the required number of contracts uncomputed."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: if CTD is 6.5-year T-note (BPV 56.8727, CF 0.8226), futures BPV = 56.8727/0.8226 = 69.1377 and required contracts = (117,824 - 18,819)/69.1377 = 1,432; but if CTD is 10-year T-note (BPV 81.6607, CF 0.8516), futures BPV = 95.8909 and required contracts = 1,032; difference of 400 contracts significant — must know CTD.\n\nCorrect. Per the reading: 'If the CTD security is the 6.5-year T-note shown in Exhibit 17, the futures BPV is estimated to be USD69.1377 (= 56.8727/0.8226). Then, the required number of contracts is approximately 1,432: (117,824 − 18,819)/69.1377 = 1,432. But if the CTD security is the 10-year T-note, the futures BPV is USD95.8909 (= 81.6607/0.8516). To close the money duration gap, the required number of contracts is only 1,032: (117,824 − 18,819)/95.8909 = 1,032. Clearly, the asset manager must know the CTD T-note to use in the derivatives overlay strategy. The difference of 400 futures contracts is significant.'",
+        "B": "Incorrect. The gap is hedgeable — the computation delivers the required contract count using the CTD's BPV and conversion factor.",
+        "C": "Incorrect. The calculation is completed: futures BPV = 56.8727/0.8226 = 69.1377, contracts = (117,824 − 18,819)/69.1377."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_b_q8",
+      "options": {
+        "A": "(1) bond tender offer — buy back debt liabilities on open market at premium above market price, at price commensurate with triple-A rating to entice bondholders.",
+        "B": "The Japanese corporation case presents a single course of action: holding the existing debt to maturity.",
+        "C": "The case identifies no alternatives for managing the corporation's debt liabilities."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: (1) bond tender offer — buy back debt liabilities on open market at premium above market price, at price commensurate with triple-A rating to entice bondholders; (2) cash flow matching — buys portfolio of government bonds matching coupon interest and principal on debt liabilities, external auditors would agree to accounting defeasement allowing removal from balance sheet; (3) duration matching — buys portfolio of high-quality corporate bonds matching duration, using interest rate derivatives to keep duration on target; auditors unlikely to allow accounting defeasement.\n\nCorrect. Per the case study: 'An investment bank working with the corporation offers three alternatives to accomplish the objective: 1. Bond tender offer. The corporation would buy back the debt liabilities on the open market, paying a premium above the market price... The investment bank anticipates that the tender offer would have to be at a price commensurate with a triple-A rating to entice the bondholders to sell. 2. Cash flow matching. The corporation buys a portfolio of government bonds that matches, as closely as possible, the coupon interest and principal redemptions on the debt liabilities. The investment bank is highly confident that the corporation's external auditors will agree to accounting defeasement because the purchased bonds are government securities. That agreement will allow the corporation to remove both the defeasing asset portfolio and the liabilities from the balance sheet. 3. Duration matching. The corporation buys a portfolio of high-quality corporate bonds that matches the duration of the debt liabilities. Interest rate derivatives contracts will be used to keep the duration on its target as time passes and yields change. The investment bank thinks it is very unlikely that the external auditors will allow this strategy to qualify for accounting defeasement.'",
+        "B": "Incorrect. Three alternatives are developed — the tender offer is one of them, alongside cash-flow matching and duration matching.",
+        "C": "Incorrect. The case is built around comparing three distinct defeasance approaches."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_c_q7",
+      "options": {
+        "A": "No alternatives to the receive-fixed swap exist for closing a pension duration gap.",
+        "B": "(1) purchased receiver swaption — confers right to buyer to enter swap as fixed-rate receiver, gain on receiver swaption as rates decline offsets losses on balance sheet, but requires paying option premium up front.",
+        "C": "The only alternative to the swap is selling the pension's equity holdings to buy long bonds."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. A purchased receiver swaption and a swaption collar are both developed as alternatives.",
+        "B": "Full statement: (1) purchased receiver swaption — confers right to buyer to enter swap as fixed-rate receiver, gain on receiver swaption as rates decline offsets losses on balance sheet, but requires paying option premium up front; (2) swaption collar — combination of buying receiver swaption and writing payer swaption, premium received on payer swaption offsets premium needed to buy receiver swaption.\n\nCorrect. Per the reading Summary: 'An alternative to the receive-fixed interest rate swap is a purchased receiver swaption. This swaption confers to the buyer the right to enter the swap as the fixed-rate receiver. Because of its negative duration gap (asset BPV is less than liability BPV), the typical pension plan suffers when interest rates fall and could become underfunded. The gain on the receiver swaption as rates decline offsets the losses on the balance sheet. Another alternative is a swaption collar, the combination of buying the receiver swaption and writing a payer swaption. The premium received on the payer swaption that is written offsets the premium needed to buy the receiver swaption.'",
+        "C": "Incorrect. The derivative alternatives — receiver swaption and collar — add hedging BPV without reallocating the asset portfolio."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_c_q9",
+      "options": {
+        "A": "short-term yields on high-quality bonds go down while long-term yields go up (1.5-year drops 25 bps, 6-year unchanged, 11.5-year up 25 bps).",
+        "B": "In the steepening twist scenario, hedged and unhedged positions produce identical outcomes across the curve.",
+        "C": "Exhibit 15 presents no scenario data for a steepening twist."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: short-term yields on high-quality bonds go down while long-term yields go up (1.5-year drops 25 bps, 6-year unchanged, 11.5-year up 25 bps); leads to loss of EUR1,178,071 in asset portfolio as cash flow yield increases by 10.04 bps; market value of liabilities drops by only EUR835,156 because cash flow yield increases by only 7.11 bps; steepening twist to shape of yield curve is source of loss (difference EUR342,915).\n\nCorrect. Per Exhibit 15 and reading: 'This scenario is the steepening twist in which short-term yields on high-quality bonds go down while long-term yields go up. The 1.5-year yield is assumed to drop by 25 bps. The 6-year yield remains the same, and the 11.5-year yield goes up by 25 bps. These changes lead to a loss of EUR1,178,071 in the asset portfolio as the cash flow yield increases by 10.04 bps... The market value of the liabilities drops by only EUR835,156 because the cash flow yield increases by only 7.11 bps. The value of the assets goes down by more than the liabilities — the difference is EUR342,915. The steepening twist to the shape of the yield curve is the source of the loss.'",
+        "B": "Incorrect. The twist creates differential outcomes precisely because yield changes vary by maturity.",
+        "C": "Incorrect. The scenario is specified: 1.5-year down 25 bps, 6-year unchanged, 11.5-year up 25 bps."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_d_q1",
+      "options": {
+        "A": "No formula relates asset, hedge, and liability sensitivities in interest rate hedging.",
+        "B": "Full hedging requires only that asset BPV equal liability BPV, with no role for the hedge position.",
+        "C": "Asset BPV × ΔAsset yields + Hedge BPV × ΔHedge yields ≈ Liability BPV × ΔLiability yields (all yield changes in basis points)."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Equation 6 states the relationship explicitly across all three components.",
+        "B": "Incorrect. The hedge term is integral: Asset BPV × ΔAsset yields + Hedge BPV × ΔHedge yields ≈ Liability BPV × ΔLiability yields.",
+        "C": "Full statement: Asset BPV × ΔAsset yields + Hedge BPV × ΔHedge yields ≈ Liability BPV × ΔLiability yields (all yield changes in basis points); describes immunization strategy (hedging ratio of 100%) matching changes in market value on each side of balance sheet; 'approximately equals' sign results from ignoring higher-order terms such as convexity.\n\nCorrect. Per Equation 6: 'Asset BPV × ΔAsset yields + Hedge BPV × ΔHedge yields ≈ Liability BPV × ΔLiability yields. ΔAsset yields, ΔHedge yields, and ΔLiability yields are measured in basis points. This equation describes an immunization strategy (a hedging ratio of 100%) whereby the intent is to match the changes in market value on each side of the balance sheet when yields change. Doing so entails matching the money duration of assets and liabilities. We know, however, that entities also choose to partially hedge interest rate risk by selecting a hedging ratio less than 100%. In any case, Equation 6 serves to indicate the source of the risks to LDI. The \"approximately equals\" sign (≈) in the equation results from ignoring higher-order terms, such as convexity.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_d_q10",
+      "options": {
+        "A": "LDI managers face no meaningful implementation choices once the liability profile is measured.",
+        "B": "The only implementation route in LDI is physical asset allocation; derivatives play no role.",
+        "C": "LDI manager has fundamental choice between managing interest rate risk with asset allocation and with derivatives overlays."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. The fundamental implementation choice — asset allocation versus derivatives overlay — remains after measurement.",
+        "B": "Incorrect. Derivatives overlays are one of the two principal routes; the choice between them is the point.",
+        "C": "Full statement: LDI manager has fundamental choice between managing interest rate risk with asset allocation and with derivatives overlays; choice depends on thorough evaluation of risk and return trade-offs; in some circumstances, derivatives might be deemed too expensive or risky particularly regarding available collateral and cash holdings; then manager might choose to increase holdings of long-term, high-quality bonds that have high duration statistics; growth of government zero-coupon bonds (US Treasury STRIPS) facilitates that asset reallocation process.\n\nCorrect. Per the reading: 'In summary, an LDI manager has a fundamental choice between managing interest rate risk with asset allocation and with derivatives overlays. As with all financial management decisions, the choice depends on a thorough evaluation of risk and return trade-offs. In some circumstances, derivatives might be deemed too expensive or risky, particularly regarding available collateral and cash holdings. Then the manager might choose to increase holdings of long-term, high-quality bonds that have high duration statistics. The growth of government zero-coupon bonds, such as US Treasury STRIPS (Separate Trading of Registered Interest and Principal of Securities), facilitates that asset reallocation process.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_d_q11",
+      "options": {
+        "A": "when corporation issued callable bond, effectively bought call option giving flexibility to refinance at lower cost if benchmark rates and/or credit spread narrows.",
+        "B": "No strategy exists for a corporation seeking to defease callable debt using swaptions.",
+        "C": "The case study addresses callable debt but proposes only open-market repurchase as the remedy."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: when corporation issued callable bond, effectively bought call option giving flexibility to refinance at lower cost if benchmark rates and/or credit spread narrows; writing receiver swaption 'sells' that call option and corporation captures value of embedded call option by means of premium received; if market rates in three years higher than strike rate on swaption and yield on debt security, both options expire out of the money; if market rates fall and bond prices go up, both options in the money — corporation sells 7-year bonds (assets) and uses proceeds to call debt liabilities at par value, gain offsets loss on closing swaption.\n\nCorrect. Per the case study solution: 'The derivatives consultant should recommend that the corporation choose the fourth option and write a receiver swaption — that is, an option that gives the swaption buyer the right to enter into a swap to receive fixed and pay floating. When the corporation issued the callable bond, it effectively bought the call option, giving the corporation the flexibility to refinance at a lower cost of borrowed funds if benchmark rates and/or the corporation's credit spread narrows. Writing the receiver swaption \"sells\" that call option, and the corporation captures the value of the embedded call option by means of the premium received. Suppose that market rates in three years are higher than the strike rate on the swaption and the yield on the debt security. Then both options — the embedded call option in the bond liability, as well as the swaption — expire out of the money. The asset and liability both have seven years until maturity and are non-callable. Suppose instead that market rates fall and bond prices go up. Both options are now in the money. The corporation sells the seven-year bonds (the assets) and uses the proceeds to call the debt liabilities at par value. The gain on that transaction offsets the loss on closing out the swaption with the counterparty.'",
+        "B": "Incorrect. Writing a receiver swaption monetizes the embedded call the issuer effectively owns.",
+        "C": "Incorrect. The strategy presented is the swaption sale — the issuer bought refinancing flexibility with the call and can sell an offsetting option."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_d_q3",
+      "options": {
+        "A": "Asset BPV can be measured without error whenever the liability cash flows are Type I.",
+        "B": "in practice common to approximate asset portfolio duration using weighted average of individual durations for component bonds.",
+        "C": "Duration approximation introduces no measurement issue in immunization practice."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Even with certain (Type I) cash flows, the common weighted-average-duration approximation introduces error.",
+        "B": "Full statement: in practice common to approximate asset portfolio duration using weighted average of individual durations for component bonds; a better approach to achieve immunization uses cash flow yield to discount future coupon and principal payments; this error is minimized when underlying yield curve is flat or when future cash flows are concentrated in flattest segment of curve.\n\nCorrect. Per the reading: 'Measurement error for asset BPV can even arise in the classic immunization strategy for Type I cash flows, which have set amounts and dates. In practice, it is common to approximate the asset portfolio duration using the weighted average of the individual durations for the component bonds. A better approach to achieve immunization, however, uses the cash flow yield to discount the future coupon and principal payments. This error is minimized when the underlying yield curve is flat or when future cash flows are concentrated in the flattest segment of the curve.'",
+        "C": "Incorrect. The weighted-average shortcut ignores curve shape effects — a real, acknowledged measurement error."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_d_q4",
+      "options": {
+        "A": "Hedge BPV is known exactly because futures contracts have contractually fixed sensitivities.",
+        "B": "Derivatives overlays introduce no measurement risk into the hedging relationship.",
+        "C": "when using derivatives overlays to immunize, Equation 4 estimates futures BPV to be BPV for CTD security divided by its conversion factor."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Futures BPV is ESTIMATED — CTD BPV divided by its conversion factor — and the CTD itself can change.",
+        "B": "Incorrect. The estimation chain (CTD identification, conversion factor) is a genuine source of hedge measurement error.",
+        "C": "Full statement: when using derivatives overlays to immunize, Equation 4 estimates futures BPV to be BPV for CTD security divided by its conversion factor; a more developed calculation involving short-term rates and accrued interest could change number of contracts needed to hedge interest rate risk; although error introduced by using approximation might not be large, still can be source of underperformance in hedging strategy.\n\nCorrect. Per the reading: 'A similar problem arises in measuring hedge BPV. When we illustrated the use of derivatives overlays to immunize, we used a common approximation for the futures BPV. Equation 4 estimates it to be the BPV for the qualifying CTD security divided by its conversion factor. A more developed calculation involving short-term rates and accrued interest, however, could change the number of contracts needed to hedge the interest rate risk. Although the error introduced by using an approximation might not be large, it still can be a source of underperformance in the hedging strategy.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_d_q7",
+      "options": {
+        "A": "Spread risk does not arise in LDI because assets and liabilities respond to the same yield curve.",
+        "B": "LDI frameworks are immune to divergence between asset and liability discount rates.",
+        "C": "framework rests on changes in benchmark bond yield curve (usually government bonds), but in practice ΔAsset yield and ΔLiability yield often refer to various classes of corporate bonds."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Asset yields and liability discount rates often move by DIFFERENT amounts than benchmark government yields — that divergence is spread risk.",
+        "B": "Incorrect. The framework rests on the benchmark curve, but corporate-quality liability discounting and asset spreads can decouple from it.",
+        "C": "Full statement: framework rests on changes in benchmark bond yield curve (usually government bonds), but in practice ΔAsset yield and ΔLiability yield often refer to various classes of corporate bonds; risk is that respective spreads on broad index and high-quality sector do not move in unison with shift in government bond yield curve; similar spread risk present in immunizing multiple Type I liabilities.\n\nCorrect. Per the reading: 'Generally, the framework for thinking about interest rate risk rests on changes in the benchmark bond yield curve, which usually is the yield curve for government bonds. In practice, however, ΔAsset yield and ΔLiability yield often refer to various classes of corporate bonds. In the pension fund example, the fund holds a portfolio of fixed-income bonds that tracks a well-diversified index of corporate bonds that may include non-investment-grade securities. The present value of retirement benefits, however, depends on yields on high-quality corporate bonds. Therefore, a risk is that the respective spreads on the broad index and the high-quality sector do not move in unison with a shift in the government bond yield curve. A similar spread risk is present in the earlier example of immunizing multiple Type I liabilities.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_d_q9",
+      "options": {
+        "A": "Contingent immunization carries no risk related to asset liquidity or distressed pricing.",
+        "B": "manager may increase portfolio risk by using active management if surplus above threshold, but if losses reduce surplus to some minimum amount, positions need to be adjusted to revert to passive duration-matching portfolio of high-quality bonds.",
+        "C": "Active positions in a contingent immunization strategy never need to be unwound."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. If losses push the surplus to the trigger, positions — possibly distressed or illiquid — must be liquidated to lock in immunization.",
+        "B": "Full statement: manager may increase portfolio risk by using active management if surplus above threshold, but if losses reduce surplus to some minimum amount, positions need to be adjusted to revert to passive duration-matching portfolio of high-quality bonds; distressed assets that become hard to value, such as tranches of subprime mortgage-backed securities, also become illiquid during financial crises.\n\nCorrect. Per the reading: 'manager may increase portfolio risk by using active management. But if losses reduce the surplus to some minimum amount, the positions need to be adjusted to revert to a passive duration-matching fixed-income portfolio of high-quality bonds. Distressed assets that become hard to value, such as tranches of subprime mortgage-backed securities, also become illiquid during financial crises.'",
+        "C": "Incorrect. The forced unwind at the surplus floor is the strategy's defining risk; illiquid holdings make it costly."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_e_q1",
+      "options": {
+        "A": "Bond and equity markets are approximately the same size, with similar numbers of securities outstanding.",
+        "B": "fixed-income markets are much larger and broader than equity markets, and number of fixed-income securities outstanding is vastly larger as reflected in broad market indexes.",
+        "C": "The reading offers no comparison between fixed-income and equity market scale."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Fixed-income markets are MUCH larger and broader, with vastly more securities outstanding.",
+        "B": "Full statement: fixed-income markets are much larger and broader than equity markets, and number of fixed-income securities outstanding is vastly larger as reflected in broad market indexes; MSCI World Index (23 developed countries, 85% market cap) has ~1,600 securities; Bloomberg Barclays Global Aggregate Index (24 local currency markets) has more than 16,000 securities; those fixed-income issuers represent much wider range of borrowers than relatively narrow universe of companies issuing equity.\n\nCorrect. Per the reading: 'Fixed-income markets are much larger and broader than equity markets, and the number of fixed-income securities outstanding is vastly larger as reflected in broad market indexes. For instance, the MSCI World Index, capturing equities in 23 developed market countries and 85% of the available market capitalization in each market, consists of about 1,600 securities, whereas the Bloomberg Barclays Global Aggregate Index, covering global investment-grade debt from 24 local currency markets, consists of more than 16,000 securities. Those fixed-income issuers represent a much wider range of borrowers than the relatively narrow universe of companies issuing equity securities.'",
+        "C": "Incorrect. The scale comparison is drawn explicitly — a single issuer can have dozens of bonds against one common stock."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_e_q2",
+      "options": {
+        "A": "The Bloomberg Barclays US Aggregate contains no published constituent or sector data.",
+        "B": "The US Aggregate covers a single sector: US Treasury securities only.",
+        "C": "oldest and most widely recognized US bond market index (one of four regional aggregate benchmarks that constitute Bloomberg Barclays Global Aggregate Index)."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Constituent rules and sector weights are published and transparent.",
+        "B": "Incorrect. The Aggregate spans Treasuries, agencies, corporates, and securitized sectors — one of four regional aggregates in the Global Aggregate.",
+        "C": "Full statement: oldest and most widely recognized US bond market index (one of four regional aggregate benchmarks that constitute Bloomberg Barclays Global Aggregate Index); includes US Treasuries, government agency securities, corporate bonds, mortgage-backed securities, asset-backed securities, and commercial mortgage-backed securities; although large number of index constituents provides means of risk diversification, in practice it is neither feasible nor cost-effective for investors to pursue full replication approach with broad fixed-income market index.\n\nCorrect. Per the reading: 'For example, the oldest and most widely recognized US bond market index, the Bloomberg Barclays US Aggregate Index (one of four regional aggregate benchmarks that constitute the Bloomberg Barclays Global Aggregate Index), includes US Treasuries, government agency securities, corporate bonds, mortgage-backed securities, asset-backed securities, and commercial mortgage-backed securities. Although the large number of index constituents provides a means of risk diversification, in practice it is neither feasible nor cost-effective for investors to pursue a full replication approach with a broad fixed-income market index.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_e_q3",
+      "options": {
+        "A": "as of October 2020, Royal Dutch Shell had 57 bonds outstanding across four currencies (some both fixed and floating rate), range of maturities under a year to bonds maturing in 2052.",
+        "B": "Exhibit 24 provides no issuer-level data comparing debt and equity securities outstanding.",
+        "C": "The reading makes no comparison of security counts between debt and equity for any issuer."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: as of October 2020, Royal Dutch Shell had 57 bonds outstanding across four currencies (some both fixed and floating rate), range of maturities under a year to bonds maturing in 2052; BHP Billiton 22 bonds vs 1 common; Johnson & Johnson 37 vs 1; Ford Motor Company 104 fixed-income securities vs 2 common equity + 2 preferred equity; existence of many debt securities for a particular issuer suggests many near substitutes may exist for investor seeking to pursue enhanced index strategy.\n\nCorrect. Per Exhibit 24 (Debt and Equity Securities Outstanding for Select Issuers): 'Royal Dutch Shell PLC: 57 Fixed-Income, 1 Common Equity, 0 Preferred. BHP Billiton Limited: 22, 1, 0. Johnson & Johnson: 37, 1, 0. Ford Motor Company: 104, 2, 2.' And: 'As of October 2020, Royal Dutch Shell had 57 bonds outstanding across four currencies, some of which were both fixed and floating rate, with a range of maturities from under a year to bonds maturing in 2052. The existence of many debt securities for a particular issuer suggests that many near substitutes may exist for an investor seeking to pursue an enhanced index strategy.'",
+        "B": "Incorrect. The exhibit details a real issuer's outstanding bonds by currency, coupon type, and maturity.",
+        "C": "Incorrect. Royal Dutch Shell's 57 bonds across four currencies against its common equity is the illustration."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_e_q4",
+      "options": {
+        "A": "Fixed-income trading is predominantly exchange-based with central limit order books like equities.",
+        "B": "largely over-the-counter markets that rely on broker/dealers as principals to trade using quote-based execution process rather than order-based trading systems common in equity markets.",
+        "C": "Bond and equity market structures are identical in venue and execution process."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Bond markets are largely OTC, quote-driven through broker/dealer principals — with Basel III raising dealers' inventory costs.",
+        "B": "Full statement: largely over-the-counter markets that rely on broker/dealers as principals to trade using quote-based execution process rather than order-based trading systems common in equity markets; rising cost of maintaining risk-weighted assets on dealer balance sheets because of Basel III capital requirements has had adverse effect on fixed-income trading and liquidity; broker/dealers reduced bond inventories; dealers less willing to support larger 'block' trades preferring smaller trade sizes; significant decline in proprietary trading among dealers has had greater pricing effect on less liquid 'off-the-run' bonds.\n\nCorrect. Per the reading: 'Unlike equity securities, which trade primarily over an exchange, fixed-income markets are largely over-the-counter markets that rely on broker/dealers as principals to trade in these securities using a quote-based execution process rather than the order-based trading systems common in equity markets. The rising cost of maintaining risk-weighted assets on dealer balance sheets because of Basel III capital requirements has had an adverse effect on fixed-income trading and liquidity. Broker/dealers have reduced bond inventories because of higher capital costs. With lower trading inventories, dealers have both a limited appetite to facilitate trading at narrow bid–offer spreads and are less willing to support larger \"block\" trades, preferring execution in smaller trade sizes. Finally, a significant decline in proprietary trading among dealers has had a greater pricing effect on less liquid or \"off-the-run\" bonds.'",
+        "C": "Incorrect. Quote-based OTC execution versus order-based exchange trading is the structural difference."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_e_q5",
+      "options": {
+        "A": "No US system exists for reporting over-the-counter bond transactions.",
+        "B": "US corporate bond trades are reported voluntarily, at each dealer's discretion.",
+        "C": "US Trade Reporting and Compliance Engine — regulators developed system that facilitates mandatory reporting of over-the-counter transactions in eligible fixed-income securities."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. TRACE — the Trade Reporting and Compliance Engine — is that system.",
+        "B": "Incorrect. TRACE reporting is MANDATORY for covered OTC transactions.",
+        "C": "Full statement: US Trade Reporting and Compliance Engine — regulators developed system that facilitates mandatory reporting of over-the-counter transactions in eligible fixed-income securities; all broker/dealers that are FINRA (Financial Industry Regulatory Authority) member firms must report corporate bond transactions within 15 minutes of occurrence; vast majority of fixed-income securities either do not trade at all or trade only a few times during the year; average trade size in dollar terms in US investment-grade bond market is roughly 70 times size of average stock trade.\n\nCorrect. Per the reading: 'Fixed-income trading in many markets is difficult to track. In some markets, regulators developed systems that facilitate mandatory reporting of over-the-counter transactions in eligible fixed-income securities, such as the US Trade Reporting and Compliance Engine (TRACE) system. All broker/dealers that are Financial Industry Regulatory Authority (FINRA) member firms must report corporate bond transactions within 15 minutes of occurrence. It is important to note the distinct nature of fixed-income trading versus equities. The vast majority of fixed-income securities either do not trade at all or trade only a few times during the year. Only a small fraction trade every business day, according to MarketAxess, a leading electronic trading provider. It is also important to note that the average trade size in dollar terms in the US investment-grade bond market is roughly 70 times the size of the average stock trade.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_e_q9",
+      "options": {
+        "A": "refers to change in a non-Treasury security's price given a widening or narrowing of the spread compared with the benchmark.",
+        "B": "Spread duration is not a recognized fixed-income risk measure.",
+        "C": "Spread duration measures a Treasury security's sensitivity to changes in its own benchmark yield."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: refers to change in a non-Treasury security's price given a widening or narrowing of the spread compared with the benchmark; for non-government fixed-income securities, we separate yield to maturity into benchmark yield (typically most recently issued or on-the-run government bond with closest time to maturity) and a spread reflecting difference between benchmark yield and security-specific yield; matching relative quality between portfolio and fixed-income index will minimize this risk.\n\nCorrect. Per the reading: 'the risk that a bond's price will change in response to an idiosyncratic rate move rather than an overall market yield change is known as spread risk. For non-government fixed-income securities, we separate the yield to maturity into a benchmark yield (typically the most recently issued or on-the-run government bond with the closest time to maturity) and a spread reflecting the difference between the benchmark yield and the security-specific yield. Spread duration refers to the change in a non-Treasury security's price given a widening or narrowing of the spread compared with the benchmark. Matching the relative quality between the portfolio and the fixed-income index will minimize this risk.'",
+        "B": "Incorrect. It is the standard measure of price sensitivity to spread changes for non-Treasury securities.",
+        "C": "Incorrect. The concept applies to NON-Treasury securities and isolates the spread component versus the benchmark."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_f_q11",
+      "options": {
+        "A": "Full index replication is chosen without any supporting rationale, reflecting institutional habit rather than a considered view on active management or cost structures.",
+        "B": "index replication done based on expectation that (i) active manager cannot consistently outperform index on risk-adjusted basis, (ii) investor cannot identify skilled manager in advance, or (iii) investor is not prepared to go through periods of underperformance.",
+        "C": "Index replication serves no identifiable investor purpose relative to active management, since it guarantees benchmark-matching gross returns while charging comparable fees."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The rationale is explicit — skepticism of consistent risk-adjusted active outperformance, cost minimization, and benchmark-relative accountability.",
+        "B": "Full statement: index replication done based on expectation that (i) active manager cannot consistently outperform index on risk-adjusted basis, (ii) investor cannot identify skilled manager in advance, or (iii) investor is not prepared to go through periods of underperformance; in practice investors that wish to have exposure to index rely on one of many ETFs that exist in this space.\n\nCorrect. Per the reading: 'expectation that (i) an active manager cannot consistently outperform the index on a risk-adjusted basis, (ii) the investor cannot identify a skilled manager in advance, or (iii) the investor is not prepared to go through periods of underperformance. Initial index replication does not require manager analysis but rather involves sourcing a wide range of securities in exact proportion to the index, many of which may be thinly traded.'",
+        "C": "Incorrect. Low cost and reliable benchmark tracking are the purposes replication serves."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_f_q2",
+      "options": {
+        "A": "Enhanced indexing through stratified sampling has no defined methodology.",
+        "B": "goal is to mirror most important index characteristics and still closely track index performance over time while purchasing fewer securities.",
+        "C": "Stratified sampling in bond indexing serves no purpose beyond reducing reporting burden."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The method is defined: match the index's most important characteristics with fewer securities.",
+        "B": "Full statement: goal is to mirror most important index characteristics and still closely track index performance over time while purchasing fewer securities; also called cell approach; first, each cell or significant index portfolio characteristic identified and mapped to current index; second, portfolio manager identifies subset of bonds or bond-linked exposures (derivatives) with characteristics corresponding to index; finally, positions in each cell adjusted over time given changes to underlying index vs existing portfolio positions; e.g., index contains 1,000 fixed-income securities, 10% AAA rated → manager might choose 5-10 AAA rated securities within cell to mimic performance.\n\nCorrect. Per the reading: 'Many limitations of the full replication approach are addressed by an enhanced indexing strategy. This approach's goal is to mirror the most important index characteristics and still closely track index performance over time while purchasing fewer securities. This general approach is referred to as a stratified sampling or cell approach to indexing. First, each cell or significant index portfolio characteristic is identified and mapped to the current index. Second, the fixed-income portfolio manager identifies a subset of bonds or bond-linked exposures, such as derivatives, with characteristics that correspond to the index. Finally, the positions in each cell are adjusted over time given changes to the underlying index versus existing portfolio positions. For example, say a fixed-income index contains 1,000 fixed-income securities, 10% of which are AAA rated. The portfolio manager might choose 5–10 AAA rated securities within a cell to mimic the performance of the AAA rated bonds within the index.'",
+        "C": "Incorrect. The purpose is close tracking at lower cost — full bond-index replication is often impractical."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_f_q3",
+      "options": {
+        "A": "ESG incorporation in bond indexes has no identifiable components.",
+        "B": "Bond index ESG methodologies consist solely of overweighting green bond issues.",
+        "C": "(1) business involvement screen excludes issuers involved in business lines/activities such as alcohol, gambling, tobacco, adult entertainment, nuclear power, and firearms."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Two components are identified — business-involvement screens and ESG ratings-based selection.",
+        "B": "Incorrect. Green bond tilts are not the framework; exclusionary screens plus ratings integration are.",
+        "C": "Full statement: (1) business involvement screen excludes issuers involved in business lines/activities such as alcohol, gambling, tobacco, adult entertainment, nuclear power, and firearms; (2) ESG rating, provided by numerous third-party companies applied (MSCI provides ratings on 'AAA to CCC' scale using rules-based methodology according to companies' exposure to ESG risks and how well they are managed relative to peers); when building sustainable index, Bloomberg applies such rules then further filters constituents for business involvement and minimum MSCI rating (BBB); given proliferation of ESG data providers, differences across methodologies and ratings.\n\nCorrect. Per the reading: 'There are two main components to incorporating ESG factors in an index. First, a business involvement screen excludes issuers involved in business lines or such activities as alcohol, gambling, tobacco, adult entertainment, nuclear power, and firearms. Second, an ESG rating, provided by one of numerous third-party companies, is applied. MSCI, one such company, provides ratings on an \"AAA to CCC\" scale using a rules-based methodology according to the companies' exposure to ESG risks and how well they are managed relative to peers. When building a sustainable index, for example, Bloomberg will apply such rules as those previously described and then further filter the constituents for business involvement and an MSCI minimum rating requirement of BBB. Given the proliferation of ESG data providers, there are differences across methodologies and ratings.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_f_q4",
+      "options": {
+        "A": "(1) lower cost enhancements — minimizing fund expenses or introducing more competitive trading process to reduce bid-offer cost of trading.",
+        "B": "Volpert identifies no strategies for enhancing indexed bond portfolio returns.",
+        "C": "The only enhancement Volpert describes is adding equity exposure to the bond portfolio."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: (1) lower cost enhancements — minimizing fund expenses or introducing more competitive trading process to reduce bid-offer cost of trading; (2) issue selection enhancements — use of bond valuation models to identify specific issues that are undervalued or 'cheap' to their implied value; (3) yield curve enhancements — use of analytical models to gauge relative value across term structure of interest rates; (4) sector/quality enhancements — overweighting specific bond and credit sectors across business cycle; (5) call exposure enhancements — significant yield changes affect bond performance especially when a bond shifts from trading to maturity to trading to earlier call date.\n\nCorrect. Per the reading: 'Volpert (2012) outlines a number of enhancement strategies available to portfolio managers seeking to reduce the component of tracking error associated with the expenses and transaction costs of portfolio management as follows: Lower cost enhancements... Issue selection enhancements... Yield curve enhancements... Sector/quality enhancements. This strategy involves overweighting specific bond and credit sectors across the business cycle to enhance returns... Call exposure enhancements. Because effective duration is a sufficient risk measure only for relatively small rate changes, anticipated larger yield changes may affect bond performance significantly, especially when a bond shifts from trading to maturity to trading to an earlier call date... Callable fixed-income securities (priced on a yield-to-call basis) trading above par tend to be less price sensitive for a given effective duration than those priced on a yield-to-maturity basis, suggesting a manager should use metrics other than effective duration in this case when changing exposure.'",
+        "B": "Incorrect. Several enhancement categories are catalogued, beginning with lower-cost enhancements.",
+        "C": "Incorrect. The enhancements are fixed-income-native: cost reduction, issue selection, yield curve positioning, sector/quality positioning, call exposure positioning."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_f_q5",
+      "options": {
+        "A": "Callable securities are always more price sensitive than option-free bonds of the same duration.",
+        "B": "callable fixed-income securities (priced on yield-to-call basis) trading above par tend to be less price sensitive for a given effective duration than those priced on yield-to-maturity basis.",
+        "C": "Call features have no effect on a bond's price sensitivity profile."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Premium callables priced to call tend to be LESS price sensitive for a given effective duration.",
+        "B": "Full statement: callable fixed-income securities (priced on yield-to-call basis) trading above par tend to be less price sensitive for a given effective duration than those priced on yield-to-maturity basis; suggests manager should use metrics other than effective duration in this case when changing exposure; e.g., anticipated drop in yields might cause callable bond to shift from being priced on yield-to-maturity basis to yield-to-call basis.\n\nCorrect. Per the reading: 'For example, an anticipated drop in yields might cause a callable bond to shift from being priced on a yield-to-maturity basis to a yield-to-call basis. Callable fixed-income securities (priced on a yield-to-call basis) trading above par tend to be less price sensitive for a given effective duration than those priced on a yield-to-maturity basis, suggesting a manager should use metrics other than effective duration in this case when changing exposure.'",
+        "C": "Incorrect. The call feature compresses upside price response — the yield-to-call pricing basis is exactly why."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_f_q9",
+      "options": {
+        "A": "The three Adelaide Super funds carry identical risk profiles.",
+        "B": "The case study provides no basis for distinguishing the funds' risk levels.",
+        "C": "Paisley Fixed-Interest Fund represents lowest risk of three (half in short-term securities via AusBond Bank Bill Index + lack of active management, buy-and-hold) suitable for investor near retirement."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. The funds differ materially in duration, credit, and management style.",
+        "B": "Incorrect. Paisley emerges as lowest risk — half in short-term securities via the AusBond Bank Bill Index, without active management risk.",
+        "C": "Full statement: Paisley Fixed-Interest Fund represents lowest risk of three (half in short-term securities via AusBond Bank Bill Index + lack of active management, buy-and-hold) suitable for investor near retirement; Dundee Australian Fixed-Income Fund medium risk profile (composite benchmark, enhanced indexing approach, match index duration but add value through fundamental strategies) best for middle-aged worker; Newcastleton Australian Bond Fund highest risk (actively managed with mandate to take positions in duration and credit that deviate from index) appropriate for younger worker.\n\nCorrect. Per the case study solution: 'The Paisley Fixed-Interest Fund represents the lowest risk of the three fund choices, given both its choice of underlying bond index (half of which is in short-term securities) and lack of active management strategies. The Paisley Fund could be a suitable choice for an investor near retirement who is seeking income with a minimum risk profile. The Dundee Fund represents a medium risk profile given the choice of the composite benchmark and suggests an enhanced approach to indexing. This fund may be the best choice for a middle-aged worker seeking to add a fixed-income component with moderate risk to his portfolio. The Newcastleton Fund has the highest risk of the three choices and is an example of an actively managed fund that has a mandate to take positions in primary risk factors, such as duration and credit, that deviate from those of the index to generate excess return. This fund could be an appropriate choice for a younger worker who is seeking exposure to fixed income but willing to accommodate higher risk.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_g_q10",
+      "options": {
+        "A": "Benchmark selection precedes and determines the investor's goals and objectives.",
+        "B": "No structured process links investor objectives to benchmark choice.",
+        "C": "starts with clear delineation of portfolio manager's investment goals and objectives (protection of funds against inflation, broad market replication, predictable returns within acceptable risk parameters, or maximum absolute returns)."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. The sequence runs the other way — goals and objectives are delineated FIRST, then the benchmark follows.",
+        "B": "Incorrect. The process is structured: objectives (inflation protection, market returns, liability funding) drive the benchmark decision.",
+        "C": "Full statement: starts with clear delineation of portfolio manager's investment goals and objectives (protection of funds against inflation, broad market replication, predictable returns within acceptable risk parameters, or maximum absolute returns); manager must agree on investment policy with asset owners/beneficiaries/other constituents outlining return objectives, risk tolerance, and constraints; strategic asset allocation targeting specific weightings for each permissible asset class results from process; tactical asset allocation range often provides investment manager some short-term flexibility to deviate from these weightings.\n\nCorrect. Per the reading: 'The asset allocation process starts with a clear delineation of the portfolio manager's investment goals and objectives. Examples of such goals might include the protection of funds (especially against inflation), broad market replication, predictable returns within acceptable risk parameters, or maximum absolute returns through opportunistic means. The manager must agree on an investment policy with the asset owners, beneficiaries, and other constituents outlining return objectives, risk tolerance, and constraints to narrow choices available in the broader capital markets to meet these objectives. Recall that a strategic asset allocation targeting specific weightings for each permissible asset class is the result of this process, while a tactical asset allocation range often provides the investment manager some short-term flexibility to deviate from these weightings in response to anticipated market changes.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_g_q2",
+      "options": {
+        "A": "clear, transparent rules for security inclusion and weighting, investability, daily valuation and availability of past returns, and turnover.",
+        "B": "Bond benchmark selection is unconstrained by any criteria; any published index qualifies.",
+        "C": "The only requirement for a benchmark index is that it contain more than 100 securities."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Per the reading: 'Benchmark selection must factor in the broad range of issuers and characteristics available in the fixed-income markets. In general, the use of an index as a widely accepted benchmark requires clear, transparent rules for security inclusion and weighting, investability, daily valuation and availability of past returns, and turnover.'",
+        "B": "Incorrect. Clear rules, investability, daily valuation, availability of history, and turnover data are required criteria.",
+        "C": "Incorrect. No security-count threshold exists; rule transparency and investability are the tests."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_g_q5",
+      "options": {
+        "A": "desired duration profile may be considered portfolio 'beta' with targeted duration equal to investor's preferred duration exposure.",
+        "B": "Fixed-income portfolios have no analog to the equity beta concept.",
+        "C": "The fixed-income beta is credit rating rather than any duration measure."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: desired duration profile may be considered portfolio 'beta' with targeted duration equal to investor's preferred duration exposure; once parameters clear, investors may combine several well-defined sub-benchmark categories into overall benchmark; examples of sub-benchmark categories: Treasuries (or domestic sovereign bonds), US agencies or other asset-backed securities, corporate bonds, high-yield bonds, bank loans, developed markets global debt, or emerging markets debt.\n\nCorrect. Per the reading: 'The dynamics of fixed-income markets require investors to more actively understand and define their underlying duration preferences as well as a desired risk and return profile within their fixed-income allocation when conducting benchmark selection. Expressed differently, the desired duration profile may be considered the portfolio \"beta,\" with the targeted duration equal to an investor's preferred duration exposure. Once these parameters are clear, investors may wish to combine several well-defined sub-benchmark categories into an overall benchmark. Examples of sub-benchmark categories might include Treasuries (or domestic sovereign bonds), US agencies or other asset-backed securities, corporate bonds, high-yield bonds, bank loans, developed markets global debt, or emerging markets debt.'",
+        "B": "Incorrect. The targeted duration profile plays the beta role — the portfolio's systematic exposure choice.",
+        "C": "Incorrect. Duration, not rating, is the primary systematic exposure treated as the portfolio's 'beta'."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_g_q7",
+      "options": {
+        "A": "Investor-specific duration preferences play no role in fixed-income benchmark choice.",
+        "B": "Duration preference is a minor stylistic factor without structural grounding.",
+        "C": "choosing a fixed-income benchmark is unique in that investor usually has some degree of fixed-income exposure embedded within its asset/liability portfolio as outlined in immunization and liability-driven investing examples."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Embedded asset/liability duration makes the investor's implicit or explicit duration preference central to the choice.",
+        "B": "Incorrect. The preference is structural — fixed-income exposure already embedded in the investor's balance sheet shapes the appropriate benchmark.",
+        "C": "Full statement: choosing a fixed-income benchmark is unique in that investor usually has some degree of fixed-income exposure embedded within its asset/liability portfolio as outlined in immunization and liability-driven investing examples; investment manager must therefore consider these implicit or explicit duration preferences when choosing fixed-income benchmark.\n\nCorrect. Per the reading: 'Choosing a fixed-income benchmark is unique, however, in that the investor usually has some degree of fixed-income exposure embedded within its asset/liability portfolio, as outlined in the foregoing immunization and liability-driven investing examples. The investment manager must therefore consider these implicit or explicit duration preferences when choosing a fixed-income benchmark.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r18_ldi_los_g_q8",
+      "options": {
+        "A": "highly risk-averse investor sensitive to fluctuations in portfolio value would prefer index with short or intermediate duration with limited credit risk to limit market value risk.",
+        "B": "The highly risk-averse investor in the case study prefers the longest-duration index available.",
+        "C": "The case study finds risk aversion irrelevant to index preference."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: highly risk-averse investor sensitive to fluctuations in portfolio value would prefer index with short or intermediate duration with limited credit risk to limit market value risk; of alternatives listed, S&P Eurozone Sovereign Bond 1-3 Years Index or FTSE 1-3 Years Pfandbrief Index (given high credit quality of covered bonds) would be appropriate.\n\nCorrect. Per case study solution: 'Given this investor's high degree of risk aversion, an index with short or intermediate duration with limited credit risk would be most appropriate to limit market value risk. Of the alternatives listed, the S&P Eurozone Sovereign Bond 1–3 Years Index or the FTSE 1–3 Years Pfandbrief Index (given the high credit quality of covered bonds) would be appropriate choices.'",
+        "B": "Incorrect. Sensitivity to value fluctuations points to SHORT or intermediate duration with strong credit quality.",
+        "C": "Incorrect. Risk aversion drives the recommendation directly — limited duration and high quality."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_a_q2",
+      "options": {
+        "A": "Correlations between fixed-income indexes are driven purely by the dividend yields of the underlying issuers' equities.",
+        "B": "the interest rate component (duration) and by geography — investment-grade securities in developed economies are highly correlated with sovereign yield curve changes.",
+        "C": "Correlations between fixed-income indexes are determined only by credit rating, with duration and geography playing no role."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Dividend yield is an equity attribute; the reading's FI correlation drivers are the interest rate (duration) component and geography.",
+        "B": "Full statement: the interest rate component (duration) and by geography — investment-grade securities in developed economies are highly correlated with sovereign yield curve changes; below-investment-grade securities are affected more by spread changes and often show stronger correlations with equity markets.\n\nCorrect. The reading states within the FI asset class, correlations between FI indexes are driven largely by the interest rate component (duration) and by geography. In developed economies, investment-grade securities with a low probability of default are highly correlated with interest rate changes in the sovereign yield curve. Below-investment-grade securities are affected more by changes in spread than by changes in general interest rates and often exhibit stronger correlations with equity markets. Correlations between interest rates and spreads can often be negative.",
+        "C": "Incorrect. Rating matters at the security level, but index correlations trace to shared duration exposure and regional rate linkages."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_a_q8",
+      "options": {
+        "A": "Enhanced indexing matches the benchmark in every dimension, holding all constituents at exact index weights with zero deviation.",
+        "B": "Modest outperformance (generally 20-30 bps) of benchmark, active risk kept low (typically around 50 bps or lower), small deviations from underlying benchmark, most primary risk factors closely matched (particularly duration), slightly higher turnover than underlying benchmark.",
+        "C": "Enhanced indexing targets outperformance of 50 bps or more through large deviations from benchmark factor exposures and sector weights."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Exact full matching is PURE indexing; enhanced indexing permits small deviations to seek modest outperformance.",
+        "B": "Correct. Per Exhibit 6, enhanced indexing objective is modest outperformance (generally 20-30 bps) of benchmark while active risk is kept low (typically around 50 bps or lower). Portfolio weights show small deviations from underlying benchmark. Most primary risk factors are closely matched (particularly duration). Turnover is slightly higher than underlying benchmark. This contrasts with pure indexing (zero target active return and risk) and active management (50+ bps outperformance with larger deviations).",
+        "C": "Incorrect. Large factor deviations and 50+ bps targets describe ACTIVE management; enhanced indexing targets roughly 20-30 bps with active risk near 50 bps or lower."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_b_q2",
+      "options": {
+        "A": "Effective duration differs from modified duration because it ignores yield changes entirely, measuring only the passage of time.",
+        "B": "effective duration measures the sensitivity of the bond's price to a change in the benchmark yield curve (using a parallel shift), and is essential for measuring interest rate risk of complex bonds where future cash flows are uncertain (e.g., bonds with embedded options).",
+        "C": "Effective duration differs from modified duration because it cannot be computed for bonds with embedded options."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Effective duration measures price response to benchmark curve shifts — yield changes are its very input.",
+        "B": "Correct. The reading defines effective duration as the sensitivity of a bond's price to a change in a benchmark yield curve (i.e., using a parallel shift in the benchmark yield curve, ΔCurve). Effective duration is essential to the measurement of the interest rate risk of a complex bond where future cash flows are uncertain — such as callable/putable bonds and MBS with embedded options. The formula: EffDur = [(PV_) − (PV+)] / [2 × ΔCurve × PV_0].",
+        "C": "Incorrect. The opposite: effective duration is essential precisely FOR bonds whose cash flows change with rates (embedded options, MBS)."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_b_q5",
+      "options": {
+        "A": "PVBP is computed by multiplying money duration by 100, converting it to a percentage-of-par measure.",
+        "B": "PVBP 'scales' money duration so it can be interpreted as money gained or lost for each basis point change in the reference interest rate.",
+        "C": "PVBP has no relationship to money duration; the two measures answer unrelated questions."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The scaling is by 0.0001 (one basis point), not a multiplication by 100.",
+        "B": "Full statement: PVBP 'scales' money duration so it can be interpreted as money gained or lost for each basis point change in the reference interest rate — a related statistic, sometimes called 'basis point value' (BPV), is the money duration times 0.0001 (1 bp).\n\nCorrect. The reading defines PVBP as an estimate of the change in a bond's price given a 1 bp change in yield to maturity. PVBP 'scales' money duration so that it can be interpreted as money gained or lost for each basis point change in the reference interest rate. Also referred to in North America as the 'dollar value of an 0.01' (DV01) — calibrated to a bond's par value of 100. Related statistic BPV = money duration × 0.0001. The terms PVBP and DV01 are used interchangeably.",
+        "C": "Incorrect. PVBP IS scaled money duration — money gained or lost per one-basis-point change in the reference rate."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_b_q6",
+      "options": {
+        "A": "For option-free zero-coupon bonds, Macaulay durations decrease as maturity lengthens, and convexity is unrelated to duration.",
+        "B": "For zeros, convexity is inversely proportional to duration, so longer-duration zeros carry systematically less convexity.",
+        "C": "Macaulay durations increase *linearly* with maturity (a 30-year zero has 3× the duration of a 10-year zero), and convexity is approximately proportional to duration squared (a 30-year zero has about 9× the convexity of a 10-year zero)."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Duration INCREASES with maturity for zeros — linearly, so a 30-year zero has three times the duration of a 10-year zero.",
+        "B": "Incorrect. The relationship is direct — convexity is approximately proportional to duration squared, not inverse.",
+        "C": "Correct. The reading identifies these helpful heuristics: for zero-coupon (option-free) bonds, Macaulay durations increase linearly with maturity — a 30-year zero has 3× the duration of a 10-year zero. Convexity is approximately proportional to duration squared — a 30-year zero has about 9× (3²) the convexity of a 10-year zero. Additionally, coupon-paying bonds have more convexity than zero-coupon bonds of the same duration (a 30-year coupon-paying bond with duration ~18 years has more convexity than an 18-year zero). A zero-coupon bond has the lowest convexity of all bonds of a given duration."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_b_q8",
+      "options": {
+        "A": "Duration times spread modifies spread duration to eliminate the impact of duration from the credit risk measure entirely.",
+        "B": "incorporate the empirical observation that spread changes across the credit spectrum tend to occur on a proportional percentage basis rather than absolute bp basis.",
+        "C": "Duration times spread is a pure interest rate risk measure with no connection to credit spreads."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. DTS builds ON duration — it scales spread duration by the spread level rather than removing duration.",
+        "B": "Full statement: incorporate the empirical observation that spread changes across the credit spectrum tend to occur on a proportional percentage basis rather than absolute bp basis — DTS weights the spread duration by a factor equal to the current credit spread, increasing the magnitude of expected price changes for a given change in spread.\n\nCorrect. The reading defines DTS as a modification of the spread duration definition to incorporate the empirical observation that spread changes across the credit spectrum tend to occur on a proportional percentage basis rather than being based on absolute basis point changes. This measure weights the spread duration by a factor equal to the current credit spread, increasing the magnitude of expected price changes for a given change in spread. Portfolio managers often use DTS when adjusting credit exposure by rating (e.g., reducing A-rated names and increasing BBB-rated credits).",
+        "C": "Incorrect. DTS is a CREDIT-risk measure reflecting that spread changes tend to be proportional (percentage) rather than absolute."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_b_q9",
+      "options": {
+        "A": "Portfolio dispersion is defined as the mean of the times to receipt of the portfolio's cash flows.",
+        "B": "Portfolio dispersion is the standard deviation of the portfolio's periodic total returns.",
+        "C": "the variance of the times to receipt of cash flows with respect to the duration — measures the extent to which payments are spread out around the duration."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. The weighted MEAN of cash-flow times is duration; dispersion is the variance around that mean.",
+        "B": "Incorrect. Dispersion is a cash-flow TIMING statistic, not a return-volatility statistic.",
+        "C": "Full statement: the variance of the times to receipt of cash flows with respect to the duration — measures the extent to which payments are spread out around the duration; higher cash flow dispersion leads to an increase in convexity, and is used in measuring interest rate immunization for liabilities.\n\nCorrect. The reading defines portfolio dispersion as capturing the variance of the times to receipt of cash flows with respect to the duration. Whereas Macaulay duration is the weighted average of the times to receipt of cash flows, dispersion is the weighted variance. It measures the extent to which the payments are spread out around the duration. Convexity is affected by the dispersion of cash flows — higher cash flow dispersion leads to an increase in convexity. It is used in measuring interest rate immunization for liabilities."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_c_q6",
+      "options": {
+        "A": "Bid-ask spreads on bonds are determined purely by the coupon rate, with higher coupons commanding wider spreads.",
+        "B": "Bid-ask spreads are identical across all bonds because dealers quote a standardized market-wide spread.",
+        "C": "riskiness (riskier bonds have higher spreads due to dealers' aversion to holding them), complexity (embedded options widen spreads), and creditworthiness (bonds of large high-credit-quality corporations with many outstanding issues have the lowest spreads among corporates)."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Coupon is not the driver; riskiness, complexity, and credit quality shape dealers' quoted spreads.",
+        "B": "Incorrect. Spreads vary widely — dealers charge more to hold riskier, more complex, less liquid paper.",
+        "C": "Correct. The reading states several factors determine bid-ask spread: (1) riskier bonds often have higher bid-ask spreads because of dealers' aversion to hold them (dealers must finance inventories and want to cover both costs and profit); (2) bond complexity — plain vanilla corporate bonds normally have lower spreads than corporate bonds with non-standard/complex features (e.g., embedded options); (3) creditworthiness — bonds of large, high-credit-quality corporations with many outstanding issues are the most liquid among corporate bonds and thus have relatively low bid-ask spreads. Government bond spreads are lowest of all."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_c_q8",
+      "options": {
+        "A": "Dealer inventories have no impact on quoted spreads because dealers hedge all inventory instantly.",
+        "B": "less liquid bonds are likely to remain in dealer inventory *longer* than liquid bonds, and dealers therefore incur higher costs of financing and holding those bonds.",
+        "C": "Less liquid bonds always trade with narrower spreads because dealers discount them to move inventory faster."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Inventory dynamics drive quotes — financing and holding costs accumulate while positions sit.",
+        "B": "Full statement: less liquid bonds are likely to remain in dealer inventory *longer* than liquid bonds, and dealers therefore incur higher costs of financing and holding those bonds — they seek to cover costs and profit through the bid-ask spread, so spreads will be higher for illiquid bonds.\n\nCorrect. The reading states bond dealers often carry an inventory of bonds because buy and sell orders don't arrive simultaneously. A dealer is not certain how long bonds will remain in inventory. Less liquid bonds are likely to remain in inventory longer than liquid bonds. A dealer provides bid-ask quotes on bonds of its choice. Some illiquid bonds won't have quotes, particularly bid quotes. Because dealers must finance their inventories, they incur costs in obtaining funding and holding those bonds. Dealers cover their costs and make a profit through the bid-ask spread — the spread will be higher for illiquid bonds that are likely to remain in inventory longer.",
+        "C": "Incorrect. The relationship is opposite: longer expected inventory residence means WIDER spreads to cover funding costs."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_d_q7",
+      "options": {
+        "A": "The domestic-currency return on a foreign bond is the product of the two returns: R_DC = R_FC × R_FX.",
+        "B": "The domestic-currency return is the simple sum of the foreign return and the currency return: R_DC = R_FC + R_FX.",
+        "C": "R_DC = (1 + R_FC)(1 + R_FX) − 1, where R_DC and R_FC are domestic and foreign currency returns and R_FX is the percentage change of the domestic currency versus the foreign currency."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Simple multiplication of the returns is not the relationship; the returns compound as (1 + R_FC)(1 + R_FX) − 1.",
+        "B": "Incorrect. The sum ignores the cross-term R_FC × R_FX; compounding is the accurate formulation.",
+        "C": "Full statement: R_DC = (1 + R_FC)(1 + R_FX) − 1, where R_DC and R_FC are domestic and foreign currency returns and R_FX is the percentage change of the domestic currency versus the foreign currency; for a portfolio: R_DC = Σ ω_i (1 + R_FC,i)(1 + R_FX,i) − 1.\n\nCorrect. The reading states R_DC = (1 + R_FC)(1 + R_FX) − 1 for a single asset, or R_DC = Σ ω_i (1 + R_FC,i)(1 + R_FX,i) − 1 for a portfolio, where R_DC and R_FC are domestic and foreign currency returns as a percentage, R_FX is the percentage change of the domestic currency versus the foreign currency, and ω_i are portfolio weights. This is a compound (not simple) relationship."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_e_q1",
+      "options": {
+        "A": "The leveraged portfolio return is the product of the invested return and the borrowing rate: r_P = r_I × r_B.",
+        "B": "The leveraged portfolio return is simply the invested return less the borrowing rate: r_P = r_I − r_B.",
+        "C": "r_P = r_I + (V_B / V_E) × (r_I − r_B), where r_P is leveraged portfolio return, r_I is return on invested funds, r_B is borrowing rate, V_B is borrowed funds, V_E is equity."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Multiplying by the borrowing rate has no economic meaning here.",
+        "B": "Incorrect. Simple subtraction omits the leverage multiplier V_B/V_E applied to the spread (r_I − r_B).",
+        "C": "Correct. The reading decomposes r_P = r_I + (V_B / V_E) × (r_I − r_B). This shows the leveraged return equals return on invested funds plus a leverage-dependent term. If r_I > r_B (investment return exceeds borrowing rate), the second term is positive and leverage boosts return. If r_I < r_B, leverage reduces return. The degree of enhancement or drag is proportional to leverage (V_B/V_E) and the spread (r_I − r_B)."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_e_q5",
+      "options": {
+        "A": "an important source of short-term financing where a security owner agrees to sell a security for a specific cash amount while simultaneously agreeing to repurchase the security at a specified future date and price.",
+        "B": "A repurchase agreement is an outright securities transfer that carries no obligation to repurchase the security.",
+        "C": "A repurchase agreement is an equity investment vehicle for gaining diversified stock exposure."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: an important source of short-term financing where a security owner agrees to sell a security for a specific cash amount while simultaneously agreeing to repurchase the security at a specified future date and price — effectively a collateralized loan.\n\nCorrect. The reading describes repos as important sources of short-term financing for FI security dealers and other financial institutions, evidenced by trillions of dollars annually. In a repo, a security owner agrees to sell a security for a specific cash amount while simultaneously agreeing to repurchase the security at a specified future date (typically one day later) and price. Repos are effectively collateralized loans. From the borrower's standpoint the transaction is a repo; from the lender's standpoint (e.g., money market fund) it's a reverse repo.",
+        "B": "Incorrect. The simultaneous agreement to repurchase at a specified price and date is the defining feature.",
+        "C": "Incorrect. Repos are collateralized short-term DEBT financing, not equity vehicles."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_e_q7",
+      "options": {
+        "A": "The rebate rate in securities lending is always exactly zero by market convention.",
+        "B": "The rebate rate is always positive regardless of how strong the borrowing demand for the security becomes.",
+        "C": "the portion of the collateral earnings rate that is repaid to the security borrower by the security lender: Rebate rate = Collateral earnings rate − Security lending rate."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. The rebate equals collateral earnings minus the security lending rate — normally positive, not zero.",
+        "B": "Incorrect. For hard-to-borrow securities in extreme demand, the rebate can turn NEGATIVE.",
+        "C": "Full statement: the portion of the collateral earnings rate that is repaid to the security borrower by the security lender: Rebate rate = Collateral earnings rate − Security lending rate; when securities are difficult to borrow (high demand), the rebate rate may be negative.\n\nCorrect. The reading states when bonds are posted as collateral, the income earned on the collateral usually exceeds the security lending rate — the security lender (in possession of the bonds) usually repays the security borrower a portion of the interest earned on the bond collateral. The rebate rate = collateral earnings rate − security lending rate. When securities are difficult to borrow (typically because there is high demand to short), the rebate rate may be negative — the fee for borrowing the securities exceeds the return on the collateral. In this case, the security borrower pays a fee in addition to foregoing the collateral interest."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_e_q9",
+      "options": {
+        "A": "The manager should purchase additional US Treasuries with available cash to express both views simultaneously.",
+        "B": "selling US Treasury futures to reduce interest rate duration (retaining spread duration on corporate bonds) and entering a receive-fixed, pay-floating swap on Brazilian rates for the bullish EM view.",
+        "C": "The manager should convert the entire fund to cash, exiting both the rate and spread exposures."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Buying Treasuries INCREASES the rate exposure the bearish rate view says to cut.",
+        "B": "Full statement: selling US Treasury futures to reduce interest rate duration (retaining spread duration on corporate bonds) and entering a receive-fixed, pay-floating swap on Brazilian rates for the bullish EM view — both are leveraged since only counterparty collateral is required, but incorrect views on either position magnify losses.\n\nCorrect. Per the reading's Arturo example: bearish on US Treasury rates requires reducing duration — sell US Treasury futures whose notional and duration offset the corporate bond duration to reach new target duration; this retains spread duration exposure to corporates while shedding interest rate risk. Bullish on Brazilian rates: enter a receive-fixed, pay-floating swap on Brazilian rates — effectively creates a long fixed-rate bond position that will appreciate if Brazilian rates fall. Both positions are leveraged (only counterparty collateral used). Risk: incorrect views magnify losses, potentially requiring position closure at inopportune times.",
+        "C": "Incorrect. Full liquidation forfeits the bullish EM spread view and abandons the mandate; derivatives express both views without wholesale turnover."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_f_q3",
+      "options": {
+        "A": "Zero-coupon bonds are never taxed until maturity in any jurisdiction, deferring the entire tax liability.",
+        "B": "imputed interest that is taxed throughout the bond's life may be calculated, ensuring tax is paid over the bond's life and the return is not taxed entirely as a capital gain.",
+        "C": "The entire return on a zero-coupon bond is taxed as a capital gain at the moment of issuance."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Some countries tax IMPUTED interest throughout the bond's life, preventing wholesale deferral.",
+        "B": "Correct. The reading states in general, tax is payable only on capital gains and interest income that have been received. In some countries, an exception to this rule applies to zero-coupon bonds — imputed interest that is taxed throughout a zero-coupon bond's life may be calculated. This method of taxation ensures that tax is paid over the bond's life and that the return on a zero-coupon bond is not taxed entirely as a capital gain.",
+        "C": "Incorrect. Taxation at issuance is not the treatment; imputed interest accrues and is taxed over the holding period."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_f_q7",
+      "options": {
+        "A": "All countries apply pass-through treatment to mutual fund capital gains, taxing investors on gains realized inside funds.",
+        "B": "No country applies pass-through treatment; fund-level gains are everywhere deferred until the investor sells fund shares.",
+        "C": "the US uses pass-through treatment (realized net capital gains in underlying securities of a fund are treated as if distributed to investors in the year that they arise)."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Treatment differs across jurisdictions — pass-through is not universal.",
+        "B": "Incorrect. The US uses pass-through: realized net gains inside the fund are treated as distributed to investors.",
+        "C": "Full statement: the US uses pass-through treatment (realized net capital gains in underlying securities of a fund are treated as if distributed to investors in the year that they arise); the UK does not use pass-through treatment (realized gains increase the fund NAV, investors pay taxes when they sell fund shares, deferring capital gains taxes).\n\nCorrect. The reading states some countries, such as the US, use pass-through treatment of capital gains in mutual funds. Realized net capital gains in the underlying securities of a fund are treated as if distributed to investors in the year that they arise, and investors need to include the gains on their tax returns. Other countries, such as the UK, do not use pass-through treatment. Realized capital gains within a fund increase the NAV of the fund shares; investors pay taxes on the net capital gain when they sell their fund shares. This treatment defers cap gains tax payments. UK PM decisions on when to realize gains/losses don't affect timing of investor tax payments."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_g_q4",
+      "options": {
+        "A": "A callable bond is a Type I liability with both the amount and timing of cash outlays known with certainty.",
+        "B": "Type II liability — known amount but uncertain timing (the call option makes the timing of principal repayment uncertain).",
+        "C": "A callable bond is a Type IV liability with both the amount and the timing of cash outlays uncertain."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The issuer's call option makes the TIMING of principal repayment uncertain — Type I requires known timing.",
+        "B": "Correct. Per Exhibit 15: Type II has known amount but uncertain timing. Examples: callable and putable bonds (the option means principal may be repaid before final maturity); term life insurance policy (timing of death is unknown, but the payout amount is defined). Effective duration is needed for Types II, III, and IV liabilities.",
+        "C": "Incorrect. The amount is known; only timing is uncertain — that combination is Type II, not Type IV."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_g_q6",
+      "options": {
+        "A": "Type IV liability — both amount and timing uncertain (weather events difficult to predict, making both loss amounts and occurrence timing unknown).",
+        "B": "Property and casualty insurance liabilities are Type II — known amount with uncertain timing.",
+        "C": "Property and casualty insurance liabilities are Type III — uncertain amount with known timing."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Per Exhibit 15: Type IV has uncertain amount and uncertain timing. Examples: property and casualty insurance (weather events difficult to predict — both loss amounts and timing are uncertain until the event occurs). For Types II, III, and IV liabilities, effective duration is needed, computed using a model for the uncertain cash flows and an initial assumption about the yield curve. Then the yield curve is shifted up and down to obtain new PV estimates.",
+        "B": "Incorrect. Weather-driven losses make the AMOUNT uncertain too — Type II requires a known amount.",
+        "C": "Incorrect. Timing is also unpredictable — occurrence dates cannot be scheduled — so Type III's known timing fails."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_g_q7",
+      "options": {
+        "A": "Residential mortgages with prepayment options are Type I assets, with fully certain cash-flow amounts and timing.",
+        "B": "Type IV assets — the timing of interest and principal cash flows is uncertain due to the prepayment option (a call option) held by the homeowner.",
+        "C": "Residential mortgages with prepayment options are Type III assets, with uncertain amounts but known timing."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The homeowner's prepayment (call) option destroys timing certainty — Type I cannot apply.",
+        "B": "Full statement: Type IV assets — the timing of interest and principal cash flows is uncertain due to the prepayment option (a call option) held by the homeowner; default risk also affects the projected amount of cash flows.\n\nCorrect. Per the reading's Modern Mortgage example: residential mortgage loans are Type IV assets to the savings bank. The timing of interest and principal cash flows is uncertain because of the prepayment option held by the homeowner (a complex call option). Homeowners might prepay for many reasons — sale of property, refinance if rates decline. A prepayment model is needed to project timing. Default risk also affects projected amounts. Even if average LTV is 80% (high quality), some loans could have higher LTVs and be more subject to default, especially if home prices decline.",
+        "C": "Incorrect. Timing is the UNCERTAIN element; prepayments arrive unpredictably, placing the mortgages in Type IV."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_g_q8",
+      "options": {
+        "A": "Liability-based mandates rely on purely tactical active management with no matching of liability payouts.",
+        "B": "Liability-based mandates are implemented exclusively through equity long-short strategies.",
+        "C": "cash flow matching (attempts to ensure all future liability payouts are matched precisely by cash flows from bonds or fixed-income derivatives) and duration matching (based on the duration of assets and liabilities, so both are similarly affected by interest rate changes)."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Matching is the core — cash flow matching, duration matching, and contingent immunization are the approaches.",
+        "B": "Incorrect. These mandates are fixed-income constructs; equity long-short is not among the approaches.",
+        "C": "Correct. The reading identifies within liability-based mandates: (1) cash flow matching — an immunization approach that attempts to ensure all future liability payouts are matched precisely by cash flows from bonds or fixed-income derivatives; (2) duration matching — an immunization approach based on the duration of assets and liabilities (ideally, both the liability portfolio and the bond portfolio should be affected similarly by a change in interest rates); (3) contingent immunization — a hybrid approach that combines immunization with active management when assets exceed the PV of liabilities. These may use derivatives overlays."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_h_q1",
+      "options": {
+        "A": "building a dedicated asset portfolio of high-quality fixed-income bonds that, as closely as possible, matches the amount and timing of scheduled cash outflows.",
+        "B": "Cash flow matching means using derivatives to hedge the portfolio's duration risk while ignoring cash flow timing.",
+        "C": "Cash flow matching means continuously buying and selling short-term bills to fund liabilities as they arrive."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: building a dedicated asset portfolio of high-quality fixed-income bonds that, as closely as possible, matches the amount and timing of scheduled cash outflows; 'dedicated' means the bonds are placed in a held-to-maturity portfolio.\n\nCorrect. The reading defines cash flow matching as a classic strategy to eliminate interest rate risk arising from multiple liabilities by building a dedicated asset portfolio of high-quality fixed-income bonds that, as closely as possible, matches the amount and timing of scheduled cash outflows. 'Dedicated' means the bonds are placed in a held-to-maturity portfolio.",
+        "B": "Incorrect. Duration hedging is a different technique; cash flow matching aligns actual bond cash flows with each liability.",
+        "C": "Incorrect. A rolling bill program is not the approach — a dedicated portfolio matches amount AND timing of scheduled payouts."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_h_q4",
+      "options": {
+        "A": "buy a portfolio of Swedish government bonds working *backwards* from the last liability, matching final maturity + coupon to each obligation and using coupon inflows from longer-maturity bonds to reduce the required par value of shorter-maturity bonds.",
+        "B": "The Simonsson defeasance is accomplished by purchasing a single 5-year zero-coupon bond sized to the total obligation.",
+        "C": "The strategy purchases any available bonds regardless of maturity, since all bonds fund liabilities equally well."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Per the reading's Simonsson example, the cash flow matching portfolio is built by starting with the LAST liability and working BACKWARDS. For each liability, the required par value of a bond maturing near that date is computed, subtracting coupons already contributed from later-maturity bonds. E.g., for the Year 5 liability of SEK5.25M, Alfred buys ~SEK4.98M par of the 5.50% May Y5 bond (yields SEK5,253,900 at maturity). Coupons from that bond flow into earlier years, reducing required par values for earlier-maturity bonds. Final holdings: SEK2.96M (2.75% Y2), SEK5.95M (3.50% Y3), SEK3.95M (4.75% Y4), SEK4.98M (5.50% Y5).",
+        "B": "Incorrect. One zero maturing in year 5 leaves the year 2-4 payments unfunded; each liability date needs matched cash flow.",
+        "C": "Incorrect. Maturity selection is the essence — work BACKWARD from the last liability, matching final maturity plus coupons to each obligation."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_i_q5",
+      "options": {
+        "A": "fixed-maturity corporate bond exchange-traded funds (ETFs) with a designated year of maturity and credit risk profile (e.g., 2029 investment-grade corporate bonds).",
+        "B": "A laddered portfolio can be built using only equity ETFs, provided the funds span multiple sectors.",
+        "C": "The only instruments suitable for laddering are individual Treasury bills rolled at each maturity."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: fixed-maturity corporate bond exchange-traded funds (ETFs) with a designated year of maturity and credit risk profile (e.g., 2029 investment-grade corporate bonds); ETFs should be more liquid than positions in the actual bonds and provide similar laddered benefits.\n\nCorrect. The reading states 'Another way for a wealth manager to build a laddered portfolio for a client is to use fixed-maturity corporate bond exchange-traded funds (ETFs). These ETFs have a designated year of maturity and credit risk profile — for instance, 2024 investment-grade corporate bonds. The passively managed, low-cost ETF seeks to replicate the performance of an index of held-to-maturity investment-grade corporate bonds that mature in that year. Roughly equal positions in 2022 through 2029 fixed-maturity corporate bond ETFs create a laddered portfolio that should provide the same benefits as holding the bonds directly — price stability in the soonest-to-mature ETF and greater convexity than a bullet portfolio. Moreover, the ETFs should be more liquid than positions in the actual bonds.'",
+        "B": "Incorrect. Equity funds have no maturities to ladder; fixed-maturity BOND ETFs are the vehicle.",
+        "C": "Incorrect. Bills alone cluster at the short end; fixed-maturity corporate bond ETFs (e.g., a 2029 investment-grade fund) supply the rungs."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r7_fipm_los_i_q6",
+      "options": {
+        "A": "One limitation of laddered portfolios is that they eliminate all default risk, leaving no credit premium to earn.",
+        "B": "The decision to build a laddered bond portfolio should be weighed against buying shares in a fixed-income mutual fund, especially if the portfolio consists of a limited number of corporate bonds.",
+        "C": "One limitation of laddered portfolios is that their convexity is infinite, making risk management impossible."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Default risk REMAINS in a ladder of corporate bonds — elimination is neither true nor a limitation.",
+        "B": "Full statement: The decision to build a laddered bond portfolio should be weighed against buying shares in a fixed-income mutual fund, especially if the portfolio consists of a limited number of corporate bonds — the mutual fund provides greater diversification of default risk, actual bonds can entail a much higher cost of acquisition, and if the entire investment needs to be liquidated, mutual fund shares can be redeemed more quickly and likely at a better price than selling the bonds.\n\nCorrect. The reading states: 'But laddered portfolios are not without limitations. For many investors, the decision to build a laddered bond portfolio should be weighed against buying shares in a fixed-income mutual fund, especially if the portfolio consists of a limited number of corporate bonds. Clearly, the mutual fund provides greater diversification of default risk. Moreover, actual bonds can entail a much higher cost of acquisition. If the entire investment needs to be liquidated, the mutual fund shares can be redeemed more quickly than the bonds can be sold, and likely at a better price.'",
+        "C": "Incorrect. Ladder convexity is comparatively high but finite; the cited limitation is the comparison against a diversified bond fund, especially for smaller portfolios."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_a_q10",
+      "options": {
+        "A": "if a bond has higher positive convexity than an otherwise identical bond, the bond price increases more if rates fall (and decreases less if rates rise) than the duration estimate would suggest.",
+        "B": "Positive convexity is worth nothing to investors because its effects cancel across rising and falling rate environments.",
+        "C": "Higher positive convexity always causes greater losses than an otherwise identical lower-convexity bond."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: if a bond has higher positive convexity than an otherwise identical bond, the bond price increases more if rates fall (and decreases less if rates rise) than the duration estimate would suggest; therefore a bond with higher convexity might be expected to have a lower yield-to-maturity than a similar-duration bond with less convexity.\n\nCorrect. The reading states, 'All else equal, positive convexity is a valuable feature in bonds. If a bond has higher positive convexity than an otherwise identical bond, then the bond price increases more if interest rates decrease (and decreases less if interest rates increase) than the duration estimate would suggest. This price behavior is valuable to investors; therefore, a bond with higher convexity might be expected to have a lower yield-to-maturity than a similar-duration bond with less convexity.' Convexity is affected by cash flow dispersion — higher dispersion → higher convexity.",
+        "B": "Incorrect. The effects reinforce rather than cancel — gaining more when rates fall AND losing less when rates rise is valuable asymmetry.",
+        "C": "Incorrect. Convexity cushions losses; the higher-convexity bond loses LESS when rates rise."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_a_q11",
+      "options": {
+        "A": "Higher cash flow dispersion produces lower convexity, which is why barbells carry less convexity than bullets.",
+        "B": "higher cash flow dispersion → higher convexity, so barbell portfolios (with widely dispersed cash flows) have more convexity than bullet portfolios (with concentrated cash flows) for the same duration.",
+        "C": "Cash flow dispersion has no impact on convexity; the two properties are independent."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The relationship runs the other way — dispersion RAISES convexity, and barbells out-convex bullets.",
+        "B": "Correct. The reading states convexity is affected by the dispersion of cash flows — the variance of the times to receipt of cash flow. Higher cash flow dispersion leads to an increase in convexity. This is in contrast to Macaulay duration, which measures the weighted average of the times to cash flow receipt. All else equal, bonds with longer durations also have higher convexity. This is why the barbell portfolio in Example 1 has 40.229 convexity vs 26.5 for the bullet with the same duration.",
+        "C": "Incorrect. Dispersion directly drives convexity; spreading cash flows around the duration point is what creates it."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_a_q5",
+      "options": {
+        "A": "The three primary yield curve risk factors from principal components analysis are all forms of issuer-specific credit risk.",
+        "B": "level (parallel shift ~82% of yield curve changes), slope (twist/flattening or steepening ~12%), and curvature/shape (butterfly movement ~4%).",
+        "C": "PCA identifies a single yield curve risk factor: central bank policy risk, explaining virtually all curve movement."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Credit spread risk is a separate factor family; the PCA factors are level, slope, and curvature.",
+        "B": "Correct. The reading states primary yield curve risk factors are categorized by three types: (1) change in level (parallel shift), (2) change in slope (flattening or steepening twist), and (3) change in shape or curvature (butterfly movement). Principal components analysis was used to decompose yield curve changes: level, slope, and curvature movements over time accounted for approximately 82%, 12%, and 4%, respectively, of US Treasury yield curve changes. The consistency of these results over time and across global markets underscores their importance in active yield curve strategies.",
+        "C": "Incorrect. The decomposition yields THREE factors — level (~82%), slope (~12%), and curvature (~4%) — not a single policy factor."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_a_q6",
+      "options": {
+        "A": "Yield curve slope is measured as the average yield across all maturities on the curve.",
+        "B": "Yield curve slope is measured as the standard deviation of yields across the maturity spectrum.",
+        "C": "the difference in basis points between the yield-to-maturity on a long-maturity bond and the yield-to-maturity on a shorter-maturity bond (e.g., the 2s30s spread of 127 bps in July 2020: 30-year at 1.43% minus 2-year at 0.16%)."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. An average describes the curve's LEVEL; slope is the long-minus-short yield difference.",
+        "B": "Incorrect. A standard deviation describes yield dispersion, not the directional difference between long and short maturities.",
+        "C": "Full statement: the difference in basis points between the yield-to-maturity on a long-maturity bond and the yield-to-maturity on a shorter-maturity bond (e.g., the 2s30s spread of 127 bps in July 2020: 30-year at 1.43% minus 2-year at 0.16%); widening spread is a steepening, narrowing is a flattening, and negative spread means an inverted curve.\n\nCorrect. The reading defines yield curve slope as the difference in basis points between the yield-to-maturity on a long-maturity bond and a shorter-maturity bond. Example: as of July 2020, the slope measured by the 2s30s spread — the difference between the 30-year Treasury bond (1.43%) and the 2-year Treasury note (0.16%) yields-to-maturity — was 127 bps. As the spread widens the curve steepens; as it narrows it flattens; if the spread turns negative (as just before the 2008 GFC), the yield curve is inverted."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_a_q7",
+      "options": {
+        "A": "Butterfly spread = −(Short-term yield) + (2 × Medium-term yield) − Long-term yield — positive spread indicates a 'humped' or concave shape at the midpoint; negative spread indicates a 'saucer' or convex shape.",
+        "B": "The butterfly spread is computed as short-term yield minus twice the medium-term yield plus the long-term yield.",
+        "C": "The butterfly spread equals the long-term yield minus the short-term yield."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Per Equation 2, Butterfly spread = −(Short-term yield) + (2 × Medium-term yield) − Long-term yield. The butterfly spread takes on larger positive values when the yield curve has more curvature. Positive butterfly spread indicates a 'humped' or concave shape to the midpoint of the curve; negative butterfly spread indicates a 'saucer' or convex shape. It changes when intermediate-term yield changes are of a different magnitude than those on the wings (short and long ends). Exhibit 3 uses 2y, 10y, and 30y tenors.",
+        "B": "Incorrect. The signs are reversed — the formula is minus short, PLUS twice medium, minus long.",
+        "C": "Incorrect. Long minus short is the SLOPE; the butterfly measures curvature with the 2× medium-term center."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_b_q3",
+      "options": {
+        "A": "Rolling down the yield curve means selling all bonds immediately at the initial purchase date to capture the entry spread.",
+        "B": "buying bonds with maturity beyond the investment horizon and selling them at the end at a higher price (lower YTM due to the upward-sloping curve as the bond has aged).",
+        "C": "Rolling down the yield curve means continuously shifting the portfolio into shorter maturities as time passes."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The strategy HOLDS the bond, capturing the price appreciation from riding down the upward-sloping curve.",
+        "B": "Full statement: buying bonds with maturity beyond the investment horizon and selling them at the end at a higher price (lower YTM due to the upward-sloping curve as the bond has aged); with an upward-sloping curve, this offers a total return (higher coupon plus price appreciation) greater than buying a bond with maturity matching the horizon.\n\nCorrect. The reading states that 'rolling down' the yield curve incorporates coupon income (adjusted over time for any price difference from par) but also additional return from time passage and the investor's ability to sell the shorter-maturity bond in the future at a higher price (lower YTM due to the upward-sloping curve). If the yield curve is upward-sloping, buying bonds with maturity beyond the investment horizon offers a total return (higher coupon plus price appreciation) greater than the purchase of a bond with maturity matching the investment horizon if the curve remains static.",
+        "C": "Incorrect. No shifting is required; the bond's own aging lowers its YTM (on an upward-sloping curve) and lifts its price."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_b_q4",
+      "options": {
+        "A": "The repo carry trade involves borrowing at long-term rates and lending at short-term rates.",
+        "B": "The repo carry trade involves trading cash for stocks to capture the equity risk premium.",
+        "C": "buying a long-term security and financing it at a short-term rate below the long-term YTM — that is, earning a positive 'repo carry'."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. That reverses the direction — the trade FUNDS long-term bond positions at LOWER short-term repo rates.",
+        "B": "Incorrect. The trade is a fixed-income financing structure, not an equity strategy.",
+        "C": "Full statement: buying a long-term security and financing it at a short-term rate below the long-term YTM — that is, earning a positive 'repo carry'; at the end of the trade the bond is sold and the repo is unwound.\n\nCorrect. The reading defines the repo carry trade as buying a long-term security and financing it at a short-term rate below the long-term YTM — earning a positive 'repo carry'. At the end of the trade, the bond is sold and the repo is unwound. This uses the repo market for leverage: cash-based strategy but with leverage risk added."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_b_q5",
+      "options": {
+        "A": "Long futures position (purchase contract for future bond delivery) and receive-fixed swap (fixed-rate receiver on an interest rate swap) — both synthetically increase duration.",
+        "B": "Exhibit 7's derivatives-based static strategies consist of cash bond purchases only, with no derivative instruments.",
+        "C": "Exhibit 7's strategies are short-only positions designed to reduce portfolio duration."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: Long futures position (purchase contract for future bond delivery) and receive-fixed swap (fixed-rate receiver on an interest rate swap) — both synthetically increase duration; long futures relies on price appreciation, receive-fixed generates 'swap carry' (receive fixed swap rate, pay MRR).\n\nCorrect. Per Exhibit 7, derivatives-based static YC strategies to synthetically increase duration are: (1) long futures position — purchase contract for future bond delivery; targeted return = (ΔPrice / ΔBond yield) − Margin cost; (2) receive-fixed swap — fixed-rate receiver on interest rate swap; targeted return = (Swap rate − MRR) + (ΔSwap MTM / ΔSwap yield). Similar to receive-fixed swap being like the cash-based repo carry but with 'swap carry' component.",
+        "B": "Incorrect. The exhibit's subject is DERIVATIVES — long futures and receive-fixed swaps.",
+        "C": "Incorrect. Both listed positions ADD duration synthetically; they are duration-extending, not duration-reducing."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_b_q6",
+      "options": {
+        "A": "Derivatives require full cash payment upfront equal to the notional value, which is the source of their leverage.",
+        "B": "the initial cash outlay for a derivative is limited to initial margin or collateral — as opposed to the full price for a cash bond purchase — so derivatives have a high degree of implicit leverage.",
+        "C": "Derivatives cannot be leveraged because clearinghouses require one-for-one collateralization."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Full upfront payment is the OPPOSITE of the leverage mechanism — only margin or collateral is posted.",
+        "B": "Full statement: the initial cash outlay for a derivative is limited to initial margin or collateral — as opposed to the full price for a cash bond purchase — so derivatives have a high degree of implicit leverage; a small move in price/yield can have a very large effect on a derivative's MTM value relative to the margin posted.\n\nCorrect. The reading states, 'since the initial cash outlay for a derivative is limited to initial margin or collateral as opposed to the full price for a cash bond purchase, derivatives have a high degree of implicit leverage. A small move in price/yield can have a very large effect on a derivative's mark-to-market value (MTM) relative to the margin posted. This outsized price effect makes derivatives effective instruments for fixed-income portfolio management.'",
+        "C": "Incorrect. Margin-based exposure IS the implicit leverage; collateral is a fraction of notional."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_c_q10",
+      "options": {
+        "A": "The butterfly strategy for curvature uses bullet-only exposure concentrated at a single maturity point.",
+        "B": "combining a long bullet with a short barbell portfolio (or vice versa) — short-term and long-term bond positions of the barbell form the 'wings', while the intermediate-term bullet forms the 'body'.",
+        "C": "The butterfly strategy purchases all maturities in equal amounts across the curve."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. A lone bullet is one wing of the trade; the butterfly PAIRS a bullet body against barbell wings.",
+        "B": "Full statement: combining a long bullet with a short barbell portfolio (or vice versa) — short-term and long-term bond positions of the barbell form the 'wings', while the intermediate-term bullet forms the 'body'; the investor is either long or short both a short-term and long-term bond and enters an intermediate-term bullet in the opposite direction.\n\nCorrect. Per the reading, 'The most common yield curve curvature strategy combines a long bullet with a short barbell portfolio (or vice versa) in what is referred to as a butterfly strategy to capitalize on expected yield curve shape changes.' The short-term and long-term bond positions of the barbell form the 'wings', while the intermediate-term bullet forms the 'body' of the butterfly. Unlike steepener/flatteners, the investor is either 'long' or 'short' both a short-term and long-term bond and enters into an intermediate-term bullet trade in the opposite direction.",
+        "C": "Incorrect. Equal weighting across maturities is a ladder, not a butterfly; the butterfly is long bullet/short barbell or the reverse."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_c_q6",
+      "options": {
+        "A": "combining a 'long' shorter-dated bond position with a 'short' longer-dated bond position — this generates a gain from an increase in yield curve slope (long shorter maturity gains as short-end rates decrease or shorter rates fall less than longer rates rise).",
+        "B": "A duration-neutral steepener is achieved by purchasing longer-dated bonds only, concentrating exposure at the long end.",
+        "C": "A duration-neutral steepener is achieved by buying both short- and long-term bonds in market-value-matched amounts."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: combining a 'long' shorter-dated bond position with a 'short' longer-dated bond position — this generates a gain from an increase in yield curve slope (long shorter maturity gains as short-end rates decrease or shorter rates fall less than longer rates rise); downside risk is yield curve flattening.\n\nCorrect. Per the reading, yield curve steepener strategies seek to gain from an increase in yield curve slope (or a greater difference between long-term and short-term YTM). This may be achieved by combining a 'long' shorter-dated bond position with a 'short' longer-dated bond position. Example: buying the 2-year Treasury and selling the 10-year Treasury at par with position weights that give zero net portfolio duration; portfolio gains if slope increases (whether from decline in 2-year yield or rise in 10-year yield). Downside risk is yield curve flattening.",
+        "B": "Incorrect. A long-end bullet has large net duration and loses as the curve steepens — the opposite structure.",
+        "C": "Incorrect. Long both wings is a barbell, not a steepener; the steepener pairs LONG short-dated against SHORT long-dated positions at net zero duration."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_c_q8",
+      "options": {
+        "A": "A bear steepener is a fall in long-term yields greater than the fall in short-term yields.",
+        "B": "A bear steepener describes a stable-yield environment in which the curve's slope drifts without direction.",
+        "C": "a rise in long-term yields more than short-term yields — could result from a jump in long-term rates amid higher growth and inflation expectations while short-term rates remain unchanged."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Falling yields are BULL moves; that pattern is a bull steepener only if short rates fall faster.",
+        "B": "Incorrect. The bear steepener is a directional RISE — long-term yields up more than short-term, often on growth and inflation expectations.",
+        "C": "Full statement: a rise in long-term yields more than short-term yields — could result from a jump in long-term rates amid higher growth and inflation expectations while short-term rates remain unchanged; an analyst might expect the next central bank policy change to be tightening.\n\nCorrect. The reading describes bear steepening: long-term YTM rise more than short-term YTM. This could result from a jump in long-term rates amid higher growth and inflation expectations while short-term rates remain unchanged. In this case, an analyst might expect the next central bank policy change to be a monetary tightening to curb inflation."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_c_q9",
+      "options": {
+        "A": "reverse the exposure profile of a steepener — namely, a 'short' short-term bond position and a 'long' long-term bond position.",
+        "B": "Yield curve flattener strategies are structured to gain from an increase in the curve's slope.",
+        "C": "Flattener strategies are unaffected by changes in the slope of the yield curve."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: reverse the exposure profile of a steepener — namely, a 'short' short-term bond position and a 'long' long-term bond position; gain from an anticipated narrowing of the difference between long-term and short-term yields.\n\nCorrect. The reading states flattener strategies may use a barbell that reverses the exposure profile of a steepener — namely, a 'short' short-term bond position and a 'long' long-term bond position. Yield curve flattening involves an anticipated narrowing of the difference between long-term and short-term YTM. Two variations: bear flattening (short-term rates rise) and bull flattening (long-term rates fall — often flight-to-quality). Flatteners may be duration-neutral, net long duration (bull flattener), or net short duration (bear flattener).",
+        "B": "Incorrect. Gaining from slope INCREASES is the steepener; the flattener profits when slope decreases.",
+        "C": "Incorrect. Slope sensitivity is the trade's entire purpose — short the short end, long the long end."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_d_q6",
+      "options": {
+        "A": "increases portfolio duration — adds convexity to the portfolio and is exercised if the bond price appreciates beyond the strike (i.e., generally at a lower YTM).",
+        "B": "A purchased bond call option decreases portfolio duration, offsetting long cash bond exposure.",
+        "C": "A purchased bond call option has no duration impact because option positions carry only volatility exposure."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: increases portfolio duration — adds convexity to the portfolio and is exercised if the bond price appreciates beyond the strike (i.e., generally at a lower YTM); payoff = Max(Bond price at lower yield − Strike, 0) − Call premium.\n\nCorrect. Per Exhibit 24, a long bond call option is the purchase of the right to take forward bond delivery. Targeted return = Max(Bond price at lower yield − Strike, 0) − Call premium. Portfolio duration impact: increase portfolio duration (long bond position exposure via option). A call option adds convexity to the portfolio and is exercised if the bond price appreciates beyond the strike (at lower YTM).",
+        "B": "Incorrect. Duration reduction comes from PUT purchases; the call gains as bond prices rise, adding duration.",
+        "C": "Incorrect. The call has positive delta to bond prices — a genuine duration (and convexity) contribution."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_e_q8",
+      "options": {
+        "A": "a negative KRD contribution — for example, the short 5-year active position has KRD of −0.857 = 4.902 × (−46/263).",
+        "B": "A short position in a maturity bucket produces a positive key rate duration contribution.",
+        "C": "Short positions produce no key rate duration contribution because KRD is defined only for long holdings."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Per the reading's active portfolio example: the short 5-year active position has a negative key rate duration of −0.857 = 4.902 × (−46/263). Negative position values (representing 'short' positions) produce negative KRD contributions. This allows active managers to explicitly express short views on specific parts of the yield curve.",
+        "B": "Incorrect. Positive contributions come from LONG positions; the short's sign flips negative.",
+        "C": "Incorrect. Shorts contribute with negative sign — e.g., the short 5-year position's KRD of −0.857 = 4.902 × (−46/263)."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_f_q1",
+      "options": {
+        "A": "R_DC = (1 + R_FC)(1 + R_FX) − 1, for a single asset — combining foreign-currency return with FX return.",
+        "B": "The domestic-currency return on a foreign bond is the product of the two component returns: R_DC = R_FC × R_FX.",
+        "C": "The domestic-currency return is the simple sum of the foreign-currency return and the FX return: R_DC = R_FC + R_FX."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: R_DC = (1 + R_FC)(1 + R_FX) − 1, for a single asset — combining foreign-currency return with FX return; portfolio version uses weighted sums.\n\nCorrect. Per Equations 12-13: For a single asset, R_DC = (1 + R_FC)(1 + R_FX) − 1. For a portfolio, R_DC = Σ ω_i (1 + R_FC,i)(1 + R_FX,i) − 1. R_DC and R_FC are domestic and foreign currency returns; R_FX is percentage change of domestic vs foreign currency; ω_i are portfolio weights summing to 1. This combines the third factor (E(ΔPrice due to view of benchmark yield)) and fifth factor (E(ΔPrice due to view of currency value changes)) from Equation 1.",
+        "B": "Incorrect. Multiplying the returns is not the compounding relationship.",
+        "C": "Incorrect. The simple sum drops the cross-term; the returns compound as (1 + R_FC)(1 + R_FX) − 1."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_f_q2",
+      "options": {
+        "A": "Covered interest rate parity establishes no relationship between spot and forward exchange rates.",
+        "B": "F(DC/FC, T) = S_0(DC/FC) × [(1 + r_DC)^T / (1 + r_FC)^T], where F is forward rate, S is spot, r_DC and r_FC are domestic and foreign risk-free rates.",
+        "C": "Covered interest rate parity states that the forward rate equals the spot rate in all circumstances."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. CIP defines the relationship precisely through the interest rate differential.",
+        "B": "Correct. Per Equation 14: F(DC/FC, T) = S_0(DC/FC) × [(1 + r_DC)^T / (1 + r_FC)^T]. If an investor uses a forward contract to fully hedge foreign currency cash flows, she should expect to earn the domestic risk-free rate. This implies a higher-yielding currency trades at a forward discount, while a lower-yielding currency trades at a premium. In the reading's example: 1.1218 spot vs 1.187 2-year forward, consistent with USD > EUR rates in 2019.",
+        "C": "Incorrect. F = S only when the two risk-free rates are equal; generally F = S × (1 + r_DC)^T / (1 + r_FC)^T."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_f_q6",
+      "options": {
+        "A": "The MXN carry trade fell short of expectations because Mexican rates fell dramatically over the horizon.",
+        "B": "The shortfall arose because the USD funding rate changed dramatically during the trade.",
+        "C": "over the horizon, 90-day MXN yields rose (from 7.70% to 8.20% at 270 days) and MXN depreciated against USD by year-end (from 19.15 to 19.65)."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. MXN 90-day yields ROSE (7.70% to 8.20% by day 270), hurting the reinvestment leg — they did not fall.",
+        "B": "Incorrect. The USD borrowing cost was FIXED on the one-year loan; the drag came from rising MXN yields and peso depreciation (19.15 to 19.65).",
+        "C": "Full statement: over the horizon, 90-day MXN yields rose (from 7.70% to 8.20% at 270 days) and MXN depreciated against USD by year-end (from 19.15 to 19.65); late-period MXN depreciation undercut trade profitability despite higher MXN yields.\n\nCorrect. Per Example 12: 'Note that 90-day MXN YTMs rose and that MXN depreciated slightly versus USD over the 360-day period. If the manager had rolled over this trade for the full 12 months, the realized return would have been ~3.61%. While the cross-currency carry trade was ultimately profitable, it was exposed to risks over the horizon; moreover, despite the rise in 90-day MXN YTMs, a late-period MXN depreciation undercut the profitability of the trade.' Carry trades are unhedged and most successful in stable (low volatility) markets."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_f_q8",
+      "options": {
+        "A": "The cross-currency basis is always zero under all market conditions, as arbitrage instantly closes any gap.",
+        "B": "the difference between the direct USD interest rate and the synthetic USD interest rate derived from swapping JPY into US dollars — a positive (negative) basis means the direct rate is higher (lower) than the synthetic rate.",
+        "C": "The cross-currency basis is simply the difference between EUR and USD policy rates."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Persistent non-zero basis is well documented — post-crisis funding frictions keep arbitrage from closing it.",
+        "B": "Full statement: the difference between the direct USD interest rate and the synthetic USD interest rate derived from swapping JPY into US dollars — a positive (negative) basis means the direct rate is higher (lower) than the synthetic rate; covered interest rate parity suggests it should be close to zero, but Exhibit 29 shows persistent negative basis for JPY and EUR post-2008 GFC.\n\nCorrect. Per the reading, 'The \"basis\" or spread, as shown in the cross-currency basis swap, is the difference between the USD interest rate and the synthetic USD interest rate derived from swapping JPY into US dollars. A positive (negative) currency basis means that the direct USD interest rate is higher (lower) than the synthetic USD interest rate. While covered interest rate parity suggests that cross-currency basis should be close to zero, Exhibit 29 shows that the JPY and EUR cross-currency basis was persistently negative following the 2008 global financial crisis.' Du, Tepper, and Verdelhan (2018) attribute this to higher post-2008 financial intermediation costs and international imbalances.",
+        "C": "Incorrect. The basis is the gap between DIRECT USD funding and SYNTHETIC USD funding created by swapping (e.g., JPY) into dollars."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_g_q10",
+      "options": {
+        "A": "Portfolio risk and return impact analysis is best illustrated using duration alone, which captures all relevant yield curve risk.",
+        "B": "a pair of examples (like Examples 14 and 15) that integrate rolldown vs carry, changes in level/slope/shape of a single-currency yield curve, and extension to multiple currencies with spot and forward FX rates related to relative interest rates.",
+        "C": "The analysis is best conducted through purely qualitative discussion without numerical scenarios."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Duration alone misses slope and shape effects — the integrated examples exist to capture them.",
+        "B": "Correct. Per the reading, 'The fixed-income portfolio risk and return impact of rolldown return versus carry, changes in the level, slope, and shape of a single currency yield curve, and an extension to multiple currencies (where spot and forward FX rates are related to relative interest rates) are best illustrated with a pair of examples.' Examples 14 (single-currency Treasury scenarios) and 15 (AUD bullet vs barbell) integrate all key elements.",
+        "C": "Incorrect. Quantitative worked examples (rolldown vs carry, level/slope/shape changes, FX) are the reading's chosen vehicle."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_g_q11",
+      "options": {
+        "A": "Successful active yield curve managers focus exclusively on parallel level shifts of the curve, since level movements explain most yield variance and render slope and shape views an unnecessary complication.",
+        "B": "Successful active yield curve managers avoid all derivative instruments, implementing their curve views exclusively through cash bond purchases and sales to eliminate counterparty and margin complexity.",
+        "C": "integrate views on level, slope, and shape of the yield curve using appropriate strategies (cash and derivatives), account for convexity effects when relevant, use KRDs to identify shaping risk, evaluate cross-currency exposures via CIP and cross-currency swaps, and use scenario analysis to stress-test against potential adverse outcomes."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Slope and curvature views are integral — level-only focus leaves most of the toolkit unused.",
+        "B": "Incorrect. Futures, swaps, and options are central instruments; avoiding them forfeits efficient implementation.",
+        "C": "Correct. Per the reading's overall framework: successful active YC management integrates: (1) yield level view driving bullet/barbell/synthetic duration adjustments; (2) slope view driving steepener/flattener strategies; (3) shape view driving butterfly strategies; (4) volatility view driving option/embedded-option choices; (5) KRD analysis to detect shaping risk between portfolio and benchmark; (6) cross-currency strategies where uncovered interest parity divergence provides carry opportunities but exchange rate volatility can undermine profitability; (7) scenario analysis to quantify tail risks. This holistic framework is essential."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_g_q3",
+      "options": {
+        "A": "$1,945,628 (3.891%) — larger than Portfolio A's $1,236,563 due to Portfolio B's higher 10y exposure (which sees the 100 bp yield decline).",
+        "B": "Under the bull flattening scenario, Portfolio B gains $1,236,563 (2.473%), less than Portfolio A.",
+        "C": "Portfolio B gains nothing under the bull flattening because barbell structures are immune to curve changes."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Per Example 14: under bull flattening (5y −50 bp, 10y −100 bp), Portfolio A gains 2.473% ($1,236,563) while Portfolio B gains 3.891% ($1,945,628). Portfolio B's larger gain reflects its 41.06% weight in the 10-year Treasury which experienced the 100 bp yield decline. This demonstrates that duration-matched portfolios perform differently under slope scenarios.",
+        "B": "Incorrect. $1,236,563 is PORTFOLIO A's gain; B's larger 10-year exposure captures the 100 bp long-end rally.",
+        "C": "Incorrect. The barbell is highly exposed to the long end — it gains the MOST from the 10-year yield decline."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_g_q5",
+      "options": {
+        "A": "The AUD bullet and barbell trades are identical in outcome, making the evaluation moot.",
+        "B": "The manager's evaluation depends only on the FX view, since AUD appreciation dominates any rate effect.",
+        "C": "portfolio value change combines rolldown return (bullet 99.75 vs barbell 100.00 expected end-of-horizon price under stable curve), duration effect (60 bp × 3.95), plus FX return from 0.25% AUD appreciation."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. The structures respond differently to the parallel shift through their differing duration, convexity, and rolldown profiles.",
+        "B": "Incorrect. Both legs matter — rolldown and rate effects on portfolio value combine with the 0.25% AUD appreciation in the total return.",
+        "C": "Full statement: portfolio value change combines rolldown return (bullet 99.75 vs barbell 100.00 expected end-of-horizon price under stable curve), duration effect (60 bp × 3.95), plus FX return from 0.25% AUD appreciation — expected total AUD return then converted using R_DC = (1+R_FC)(1+R_FX) − 1.\n\nCorrect. Per the AUD Example 15 framework, evaluating cross-currency yield curve strategy return requires combining: (1) rolldown return (bullet 99.75 vs barbell 100.00 in 1 year under stable curve = different rolldown magnitudes), (2) duration-based response to 60 bp parallel decline (60 bp × 3.95 duration ≈ 2.37% price gain), (3) any convexity contribution, and (4) FX return of 0.25%. Total return per Equation 12: R_DC = (1 + R_FC)(1 + R_FX) − 1. This scenario illustrates how the reading's framework integrates all elements of Equation 1."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r8_ycs_los_g_q7",
+      "options": {
+        "A": "The integrated framework handles only single-currency exposures, leaving foreign bonds outside its scope.",
+        "B": "quantifies how unexpected changes to level/slope/shape of the yield curve as well as currency changes can impact portfolio value.",
+        "C": "The integrated framework ignores convexity, treating price responses as linear in yield changes."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The cross-currency return equations (12-13) extend the framework to foreign-currency positions.",
+        "B": "Full statement: quantifies how unexpected changes to level/slope/shape of the yield curve as well as currency changes can impact portfolio value — Equation 3 for single-currency and Equation 13 for multi-currency portfolios.\n\nCorrect. Per the reading, 'The factors affecting the expected return of a fixed-income portfolio were summarized in Equation 1. The key underlying assumption in this calculation is that the inputs rely on the fixed-income manager's expectations under an active strategy. As we have seen earlier, unexpected changes to the level, slope, and shape of the yield curve as well as currency changes can impact a portfolio's value in a number of ways — as quantified by the use of portfolio duration and convexity statistics in Equation 3 for a single currency and in Equation 13 for a multi-currency portfolio.'",
+        "C": "Incorrect. Convexity enters through Equation 3 — second-order price effects are part of the quantification."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_a_q2",
+      "options": {
+        "A": "Expected loss is computed as the probability of default alone: EL = POD.",
+        "B": "EL = LGD × POD, where LGD = EE × (1 − RR) and POD is the probability of default; CVA is Σ(PV of Expected Loss).",
+        "C": "Expected loss is computed as the loss given default alone: EL = LGD."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. POD alone carries no dollar magnitude; it must be weighted by the loss severity LGD.",
+        "B": "Correct. Per Exhibit 2 CVA framework: Expected Exposure (EE) × (1 − Recovery Rate) = LGD (Loss Given Default). LGD × POD (Probability of Default) = EL (Expected Loss). PV of EL discounted at risk-free rate, summed = CVA. This provides the PV of credit risk for a loan, bond, or derivative.",
+        "C": "Incorrect. LGD alone ignores likelihood; the probability weight POD completes EL = LGD × POD, with CVA the sum of PV of expected losses."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_b_q4",
+      "options": {
+        "A": "The asset swap spread is identical to the Z-spread for every bond, differing only in name.",
+        "B": "the difference between the bond's fixed coupon rate and the fixed rate on an interest rate swap versus MRR — matches the coupon dates for the remaining life of the bond.",
+        "C": "The asset swap spread is the bond issuer's CDS spread quoted in the derivatives market."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The Z-spread is measured over the zero (spot) curve; the ASW references the swap fixed rate versus MRR against the bond's coupon.",
+        "B": "Full statement: the difference between the bond's fixed coupon rate and the fixed rate on an interest rate swap versus MRR — matches the coupon dates for the remaining life of the bond; if bond priced at par, this spread approximately equals the credit risk over MRR.\n\nCorrect. Per the reading, ASW is the difference between the bond's fixed coupon rate and the fixed rate on an interest rate swap versus MRR that matches the coupon dates for the remaining life of the bond. If purchased at par, the asset swap transforms the fixed-rate coupon to an equivalent spread over MRR for the life of the bond. Example 5: bank bond coupon 2.75% vs 8y swap rate 1.647% → ASW = 110.3 bps. Under bond default, the asset manager still faces mark-to-market settlement of the swap.",
+        "C": "Incorrect. CDS spreads come from the credit derivatives market; the ASW is a cash-bond-versus-swap construct."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_b_q5",
+      "options": {
+        "A": "The Z-spread is identical to the simple yield spread over a single benchmark bond.",
+        "B": "The Z-spread measures the bond's spread attributable to interest rate volatility over the zero curve.",
+        "C": "a constant spread over a government (or interest rate swap) spot curve added to each spot rate such that PV of bond cash flows equals the bond price — accurately captures term structure of zero rates."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. The yield spread uses one benchmark point; the Z-spread is a constant addition to EVERY spot rate on the curve.",
+        "B": "Incorrect. 'Zero-volatility' means volatility is assumed away — the same constant spread across the curve equates PV to price.",
+        "C": "Full statement: a constant spread over a government (or interest rate swap) spot curve added to each spot rate such that PV of bond cash flows equals the bond price — accurately captures term structure of zero rates; more complex than G-spread/I-spread but limited to option-free bonds.\n\nCorrect. Per Equation 2 and the reading, the Z-spread is a constant spread over a government (or swap) spot curve such that PV = Σ [PMT/(1 + z_i + Z)^i + FV/(1 + z_N + Z)^N]. Where the bond price is a function of cash flows in the numerator with respective benchmark spot rates z_1...z_N derived from the swap or government yield curve and a constant Z-spread per period. More accurate than G-spread or I-spread but more complex; limited to option-free bonds."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_b_q6",
+      "options": {
+        "A": "a generalization of the Z-spread calculation that incorporates bond option pricing based on assumed interest rate volatility.",
+        "B": "The option-adjusted spread is identical to the Z-spread for all bonds, whether or not options are embedded.",
+        "C": "The option-adjusted spread is defined only for callable bonds and cannot be computed for other structures."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: a generalization of the Z-spread calculation that incorporates bond option pricing based on assumed interest rate volatility — the constant yield spread over the zero curve which makes the arbitrage-free value of a bond with embedded options equal to its market price.\n\nCorrect. Per the reading, the OAS is a generalization of the Z-spread calculation that incorporates bond option pricing based on assumed interest rate volatility. The OAS is the constant yield spread over the zero curve which makes the arbitrage-free value of such a bond equal to its market price. Note that the Z-spread for an option-free bond is simply its OAS, assuming zero volatility. OAS provides a consistent basis for comparing credit risk yield spreads for option-free, callable, putable, and structured fixed-income instruments.",
+        "B": "Incorrect. Equality holds ONLY for option-free bonds; embedded options drive the two apart.",
+        "C": "Incorrect. OAS generalizes across option-free, callable, putable, and structured instruments — that generality is its point."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_b_q7",
+      "options": {
+        "A": "OAS is considered most appropriate because it is the simplest spread measure to compute.",
+        "B": "it provides a consistent basis for comparing credit risk yield spreads for option-free, callable, putable, and structured fixed-income instruments.",
+        "C": "OAS is considered most appropriate because it ignores interest rate volatility entirely."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. OAS is among the most COMPLEX measures — its value is consistency, not simplicity.",
+        "B": "Full statement: it provides a consistent basis for comparing credit risk yield spreads for option-free, callable, putable, and structured fixed-income instruments — despite its main drawbacks (highly dependent on volatility and other model assumptions).\n\nCorrect. Per the reading, 'The OAS approach is the most appropriate yield spread measure for active fixed-income portfolio managers because it provides a consistent basis for comparing credit risk yield spreads for option-free, callable, putable, and structured fixed-income instruments.' OAS calculations rely on models incorporating current term structure, interest rate volatility, term structure model factors, and specific option-based features. Main drawback: highly dependent on volatility and other model assumptions. For structured instruments, returns are highly dependent on prepayment vs extension risk.",
+        "C": "Incorrect. OAS INCORPORATES assumed volatility through option pricing; ignoring volatility is the Z-spread's limitation."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_c_q1",
+      "options": {
+        "A": "divides the credit universe into sectors of comparable companies, then evaluates each issuer's implied credit risk by comparing company-specific financial information to spread-related compensation for assuming default, credit migration, and liquidity risks.",
+        "B": "A bottom-up credit approach focuses only on macroeconomic factors such as growth, inflation, and policy rates.",
+        "C": "A bottom-up credit approach ignores individual bond issuers entirely, allocating by sector aggregates alone."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. The reading states, 'Once the credit universe has been divided into sectors and prospective bonds identified, the investor evaluates each issuer's implied credit risk comparing company-specific financial information to spread-related compensation for assuming default, credit migration, and liquidity risks for comparative purposes. Beyond the prospects within a company's industry, its competitive position within that industry, and operating history, financial ratios are a valuable tool to compare creditworthiness across firms.'",
+        "B": "Incorrect. Macro-first analysis is the TOP-DOWN approach.",
+        "C": "Incorrect. Issuer-level comparison within sectors of comparable companies is the essence of bottom-up."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_c_q3",
+      "options": {
+        "A": "Reduced form credit models use market-based variables only, inferring default from equity prices and asset volatility.",
+        "B": "Reduced form models are based purely on qualitative analyst judgment without quantitative inputs.",
+        "C": "solve for default intensity (POD over a specific time period) using observable company-specific variables such as financial ratios and recovery assumptions as well as macroeconomic variables (economic growth, market volatility measures)."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Equity-market-based asset-value inference describes STRUCTURAL models.",
+        "B": "Incorrect. Reduced form models are quantitative — solving for default intensity from observable company variables such as financial ratios.",
+        "C": "Full statement: solve for default intensity (POD over a specific time period) using observable company-specific variables such as financial ratios and recovery assumptions as well as macroeconomic variables (economic growth, market volatility measures) — Altman's Z-score is an early example.\n\nCorrect. Per the reading, reduced form models solve for default intensity, or the POD over a specific time period, using observable company-specific variables such as financial ratios and recovery assumptions as well as macroeconomic variables, including economic growth and market volatility measures. Altman's (1968) Z-score combined liquidity (working capital/total assets), profitability (retained earnings/total assets), asset efficiency (EBIT/total assets), market vs book equity, and asset turnover (sales/total assets) into a composite score to classify manufacturing firms as likely to remain solvent or go bankrupt."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_c_q5",
+      "options": {
+        "A": "An increase in the issuer's stock price volatility would decrease the structural model's probability of default.",
+        "B": "increase the POD, because higher equity volatility increases the likelihood that the market value of the issuer's assets will fall below the default threshold.",
+        "C": "Stock price volatility has no effect on the probability of default in a structural model."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Higher volatility widens the distribution of asset values, RAISING the chance assets fall below the default threshold.",
+        "B": "Correct. Per Example 15: 'Higher equity volatility increases the likelihood that the market value of the issuer's assets will fall below the default threshold.' Structural models use asset volatility to determine the likelihood of reaching the default point. In contrast, a higher coverage ratio (higher cash flow) implies improved ability to service debt (lower POD), and a decrease in leverage ratio (less debt vs equity) reduces likelihood of financial distress.",
+        "C": "Incorrect. Equity volatility is a critical structural-model input — it drives the asset-value distribution."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_d_q5",
+      "options": {
+        "A": "Active credit investors incorporate ESG through purely random issuer selection weighted by market values.",
+        "B": "Active credit investors ignore ESG entirely, treating it as immaterial to credit outcomes.",
+        "C": "screens (exclude industries or issuers below ESG threshold), targeting relatively favorable ESG issuers within a given sector/rating while matching index risk/return, and directly funding ESG-specific initiatives."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Random selection is not a strategy; the three ways are screens, best-in-class targeting, and thematic/impact approaches.",
+        "B": "Incorrect. ESG adoption in credit is growing and structured — exclusionary screens, favorable-issuer tilts, and dedicated mandates.",
+        "C": "Correct. Per the reading: 'Active credit investors usually incorporate ESG factors into portfolio strategies in one of three basic ways: (1) The use of screens to either exclude specific industries with less favorable ESG characteristics (firearms, tobacco, coal), or to rule out specific companies or sovereign issuers with ESG-specific ratings below a threshold; (2) Use of ESG ratings to target issuers within a given sector or rating category with relatively favorable ESG characteristics while matching a specific index risk and return; (3) Targeting fixed-income investments that directly fund ESG-specific initiatives.' ESG and credit ratings tend to be positively correlated."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_d_q7",
+      "options": {
+        "A": "In an economic downturn, high-yield spread curves steepen dramatically as long-dated risk dominates.",
+        "B": "flatten or invert — because the probability of downgrade or default is higher in the near term than the long term, HY often experience more pronounced flattening/inversion than investment-grade.",
+        "C": "High-yield spread curves remain unchanged across the economic cycle."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Dramatic steepening characterizes recovery/expansion phases; downturns concentrate default risk in the NEAR term.",
+        "B": "Correct. Per Example 2 solution: 'High-yield issuers often experience more pronounced flattening or credit spread curve inversion in an economic downturn because the probability of downgrade or default is higher in the near term than the long term.' While investment-grade and high-yield issuers both experience declining profitability, this usually leads to a flatter credit spread curve for investment-grade issuers and often to credit spread curve inversion for high-yield issuers.",
+        "C": "Incorrect. The cycle reshapes credit curves — downturns flatten or invert HY curves as near-term default probability jumps."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_e_q1",
+      "options": {
+        "A": "OTC markets — liquidity rests with individual dealers, their specific portfolio and depth of inventory, and appetite to supply liquidity at a cost.",
+        "B": "Corporate bond market liquidity is characterized by highly liquid centralized exchange trading like equities.",
+        "C": "Corporate bond markets have no liquidity at all, making secondary trading impossible."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: OTC markets — liquidity rests with individual dealers, their specific portfolio and depth of inventory, and appetite to supply liquidity at a cost; higher regulatory capital requirements post-2008 reduced bond inventories, driving growth of electronic trading platforms.\n\nCorrect. Per the reading: 'Bonds primarily trade in over-the-counter (OTC) markets as opposed to on an exchange. OTC market liquidity rests with individual dealers, their specific portfolio and depth of inventory, and appetite to supply liquidity at a cost. Corporate bonds are traditionally traded on a request-for-quote basis. The use of electronic trading platforms for bond trading has grown because higher regulatory capital requirements reduced bond inventories among dealers after the 2008-09 global financial crisis. While electronic trading platforms comprised less than one-third of individual corporate bond trading volume as of 2020, trading in bond portfolios and bond ETFs has grown in importance.'",
+        "B": "Incorrect. Bond markets are OTC-dominated; liquidity rests with individual dealers' inventories and risk appetite.",
+        "C": "Incorrect. Liquidity exists but is dealer-intermediated and uneven across issues."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_e_q2",
+      "options": {
+        "A": "TRACE is a US equity exchange where corporate bonds are listed for order-book trading.",
+        "B": "a separate ex-post liquidity gauge specific to the US corporate bond market — the Trade Reporting and Compliance Engine reporting system introduced in 2002 to track real-time price and volume reporting for bond transactions.",
+        "C": "TRACE is an exchange-traded fund tracking the US corporate bond market."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. TRACE is a REPORTING system for OTC bond transactions, not a trading venue.",
+        "B": "Full statement: a separate ex-post liquidity gauge specific to the US corporate bond market — the Trade Reporting and Compliance Engine reporting system introduced in 2002 to track real-time price and volume reporting for bond transactions; portfolio managers review recent TRACE trading activity to gauge estimated cost of trading a bond position.\n\nCorrect. Per the reading, TRACE is 'a separate, ex-post liquidity gauge specific to the US corporate bond market... the TRACE (Trade Reporting and Compliance Engine) reporting system introduced in 2002 to track real-time price and volume reporting for bond transactions. Portfolio managers will often review recent TRACE trading activity to gauge the estimated cost of trading a bond position.' Complements the effective spread transaction cost statistic for actively quoted bonds.",
+        "C": "Incorrect. It is the Trade Reporting and Compliance Engine — an ex-post transaction-reporting gauge, not an investment product."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_e_q3",
+      "options": {
+        "A": "Managers control liquidity risk by trading their most illiquid positions as frequently as possible.",
+        "B": "Managers control liquidity risk by avoiding all fixed-income exposure whenever spreads widen.",
+        "C": "favor on-the-run government bonds or most recently issued corporate/other bonds for short-term tactical positioning while reserving relatively illiquid positions for buy-and-hold strategies."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. High-frequency trading of illiquid names maximizes transaction costs — the opposite of the practice.",
+        "B": "Incorrect. Exposure avoidance is not the technique; using on-the-run and recent issues for tactical trades while reserving illiquid positions for buy-and-hold is.",
+        "C": "Full statement: favor on-the-run government bonds or most recently issued corporate/other bonds for short-term tactical positioning while reserving relatively illiquid positions for buy-and-hold strategies; consider liquid alternatives such as CDS and bond ETFs to close portfolio gaps or react quickly to changing markets.\n\nCorrect. Per the reading: 'First, active managers will usually favor on-the-run government bonds or most recently issued corporate or other bonds for short-term tactical portfolio positioning, while reserving relatively illiquid positions for buy-and-hold strategies or strategic positioning to minimize expected return erosion due to trading costs. Second, active managers might consider liquid alternatives to individual bond trades to close portfolio gaps where active management adds little value, or to react quickly to rapidly changing markets. These alternatives include CDS and bond ETFs.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_e_q4",
+      "options": {
+        "A": "liquid, exchange-traded bond portfolios that create and redeem shares using an OTC primary market between institutional investors and the ETF sponsor.",
+        "B": "Fixed-income ETFs are economically identical to holding the individual underlying bonds directly.",
+        "C": "Fixed-income ETFs are actively managed products carrying high management fees."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: liquid, exchange-traded bond portfolios that create and redeem shares using an OTC primary market between institutional investors and the ETF sponsor; ETF shares trade on an exchange, overcoming liquidity constraints of OTC-traded bonds; usually offer relatively constant portfolio duration (with exception of target-maturity ETFs).\n\nCorrect. Per the reading, 'Fixed-income ETFs are liquid, exchange-traded bond portfolios that create and redeem shares using an OTC primary market that exists between a set of institutional investors (or authorized participants) and the ETF sponsor. These ETF shares trade in the secondary market on an exchange, overcoming the liquidity constraints of individual OTC-traded bonds. Bond ETFs have enjoyed significant growth. As ETF sponsors target a specific index or profile, ETFs offer relatively constant portfolio duration and pay variable monthly interest based on the overall portfolio.' Active credit managers use ETFs to quickly overweight/underweight exposures in rapidly changing markets.",
+        "B": "Incorrect. Exchange tradability, the creation/redemption mechanism, and unit economics distinguish ETFs from direct bond ownership.",
+        "C": "Incorrect. Most bond ETFs are index-tracking with LOW fees; the creation/redemption OTC primary market underpins their liquidity."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_e_q6",
+      "options": {
+        "A": "Dealers quote narrower bid-ask spreads on illiquid bonds to compensate buyers for holding them.",
+        "B": "Bid-ask spreads on illiquid bonds are identical to those on liquid bonds under competitive quoting.",
+        "C": "wider because dealers must finance inventories, less liquid bonds remain in inventory longer, and dealers seek to cover funding/holding costs and profit through the spread."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. The direction is opposite — illiquidity WIDENS quoted spreads.",
+        "B": "Incorrect. Spreads vary systematically with liquidity: longer inventory residence and financing costs are passed into wider quotes.",
+        "C": "Full statement: wider because dealers must finance inventories, less liquid bonds remain in inventory longer, and dealers seek to cover funding/holding costs and profit through the spread; some illiquid bonds won't have quotes.\n\nCorrect. Per the reading, dealers cover their costs and make a profit through the bid-ask spread — the spread will be higher for illiquid bonds that are likely to remain in inventory longer. Bond dealers often carry inventory because buy/sell orders don't arrive simultaneously. Riskier bonds have higher bid-ask spreads due to dealers' aversion to hold them. Government bond spreads are lowest of all; conventional corporate spreads lower than complex/embedded-option corporates."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_g_q2",
+      "options": {
+        "A": "The protection buyer pays 2.375% upfront because the CDS spread exceeds the standard coupon.",
+        "B": "receives 2.375% upfront (= (1.00% − 0.50%) × 4.75) because CDS spread is below the standard IG coupon of 1.00%.",
+        "C": "The protection buyer receives 0.5% upfront, equal to the CDS spread itself."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The buyer RECEIVES the upfront — the 0.50% spread is BELOW the 1.00% standard IG coupon.",
+        "B": "Correct. Per Example 22: 'Because investment-grade CDS contracts have a fixed coupon of 1.00% p.a. versus the 0.50% p.a. CDS market spread, the investor buying protection should receive the difference from par upfront in exchange for paying an above-market coupon under the contract.' Upfront premium: 2.375% of CDS notional = (1.00% − 0.50%) × 4.75. Standard fixed coupons post-2008 are 1.00% for IG and 5.00% for HY.",
+        "C": "Incorrect. The upfront applies the spread-coupon gap times EffSpreadDur: (1.00% − 0.50%) × 4.75 = 2.375%."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_g_q7",
+      "options": {
+        "A": "Markit CDX North American Investment Grade index consisting of 125 equally weighted CDS contracts on entities (with six subindexes.",
+        "B": "The most frequently traded US investment-grade CDS index is the European iTraxx Crossover index.",
+        "C": "The most frequently traded US investment-grade CDS index is the S&P 500 index."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: Markit CDX North American Investment Grade index consisting of 125 equally weighted CDS contracts on entities (with six subindexes: High Volatility, Consumer Cyclical, Energy, Financials, Industrial, Telecom Media & Technology).\n\nCorrect. Per the reading: 'For example, the Markit CDX North American Investment Grade index consists of 125 equally weighted CDS contracts on entities, including six subindexes (High Volatility, Consumer Cyclical, Energy, Financials, Industrial, and Telecom, Media, and Technology).' The 5-year tenor is generally the most frequently traded contract.",
+        "B": "Incorrect. iTraxx Crossover covers European sub-investment-grade names.",
+        "C": "Incorrect. The S&P 500 is an equity index; the CDX North American Investment Grade (125 equally weighted names) is the instrument."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_h_q2",
+      "options": {
+        "A": "$292,250 (= $217,250 from price appreciation + $75,000 from incremental coupon income due to credit spreads).",
+        "B": "None of the $506,500 rolldown gain is attributable to credit spreads; the entire amount reflects the government curve.",
+        "C": "The full $506,500 gain is attributable to credit spread roll-down, with no benchmark contribution."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Per Example 26: The total incremental roll-down strategy generates $506,500 (= $344,000 price appreciation + $162,500 coupon income), of which $292,250 (= $217,250 + $75,000) is estimated to be due to credit spread curve roll down. The $75,000 is the credit-spread portion of incremental coupon ($225,000 − $150,000). The $217,250 is half the 0.07% YTM decline attributable to yield spread narrowing (from 0.85% to 0.815% at 14.5y).",
+        "B": "Incorrect. The credit component is substantial — $292,250 of the total.",
+        "C": "Incorrect. $506,500 is the TOTAL; the spread portion is $292,250 ($217,250 price appreciation plus $75,000 incremental spread-driven coupon)."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_h_q3",
+      "options": {
+        "A": "Expecting HY spreads to widen versus IG, the manager buys HY bonds and sells IG bonds.",
+        "B": "sells (goes short in) HY bonds and buys (goes long in) IG bonds, or synthetically: buys protection on HY CDS index and sells protection on IG CDS index (Example 29.",
+        "C": "Expecting relative spread widening, the manager makes no portfolio changes."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Long HY loses as HY spreads widen — the position is backwards for the view.",
+        "B": "Full statement: sells (goes short in) HY bonds and buys (goes long in) IG bonds, or synthetically: buys protection on HY CDS index and sells protection on IG CDS index (Example 29 — CDX HY vs CDX IG).\n\nCorrect. Per the reading: 'an active manager expects a weaker economy and a widening of high-yield versus investment-grade credit spread levels. The manager can capitalize on this view by buying five-year protection on a high-yield CDS index and selling protection on an investment-grade CDS index for the same tenor.' Example 29 shows this: sell CDX IG protection, buy CDX HY protection; under an economic downturn where IG spreads rise 50% and HY spreads double, the strategy gains $697,000.",
+        "C": "Incorrect. The view demands positioning: short HY/long IG in cash, or buy HY index protection and sell IG index protection synthetically."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_h_q7",
+      "options": {
+        "A": "Derivative-based strategies to add credit spread exposure consist only of buying CDS protection.",
+        "B": "Managers seeking additional spread duration must avoid derivatives entirely and buy cash bonds.",
+        "C": "selling CDS single-name or index protection for longer maturities or lower credit quality, or using a long-short approach."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Buying protection REDUCES credit exposure; selling protection adds it.",
+        "B": "Incorrect. Selling single-name or index protection — longer maturity or lower quality — is the derivative route to added spread duration.",
+        "C": "Correct. Per the reading, 'Derivative-based credit strategies to add credit spread duration or increase credit exposure include selling CDS single-name or index protection for longer maturities or lower credit quality or using a long-short approach to achieve a similar objective.' Selling protection creates 'long risk' exposure (analogous to owning bonds); buying protection creates 'short risk' exposure (analogous to shorting bonds)."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_i_q2",
+      "options": {
+        "A": "The Bloomberg SRSK model estimates sovereign credit risk using political risk as its only input.",
+        "B": "a combination of quantitative and qualitative factors — external debt to GDP, currency reserves, GDP growth, and political risk — to estimate a sovereign issuer's one-year POD.",
+        "C": "The SRSK model relies only on historical default rates, extrapolating past sovereign defaults forward."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Political risk is one factor among several — external debt/GDP, currency reserves, and GDP growth join it.",
+        "B": "Full statement: a combination of quantitative and qualitative factors — external debt to GDP, currency reserves, GDP growth, and political risk — to estimate a sovereign issuer's one-year POD; similar to DRSK, users can change model inputs.\n\nCorrect. Per the reading, 'The Bloomberg Sovereign Risk (SRSK) model shown in Exhibit 30 combines quantitative and qualitative factors such as external debt to GDP, currency reserves, GDP growth, and political risk to estimate a sovereign issuer's one-year POD. Similar to the DRSK model discussed earlier, the SRSK model allows users to change model inputs and also derives a \"model\" CDS spread, which could be compared to the market CDS spread.' Costa Rica example: 1.28% one-year default risk.",
+        "C": "Incorrect. The model is forward-looking, combining quantitative macro-financial variables with qualitative factors."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_i_q5",
+      "options": {
+        "A": "Emerging markets exhibit characteristics identical to developed markets across growth, risk, and market access.",
+        "B": "higher, more volatile, and less balanced economic growth than developed markets, greater geopolitical risk, currency restrictions, and capital controls.",
+        "C": "Emerging market investments carry no currency risk because local currencies are pegged to the dollar."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. EM growth is higher, more volatile, and less balanced, with greater geopolitical and capital-flow risk.",
+        "B": "Full statement: higher, more volatile, and less balanced economic growth than developed markets, greater geopolitical risk, currency restrictions, and capital controls — sovereign credit risk is a critical starting point.\n\nCorrect. Per the reading, 'Emerging markets are characterized by higher, more volatile, and less balanced economic growth than developed markets, often in addition to greater geopolitical risk, currency restrictions, and capital controls. Sovereign credit risk is therefore a critical starting point in considering fixed-income investments in emerging markets, where both the ability and willingness of issuers to repay debt is of importance.' Institutional considerations include political stability, transparency, adherence to property rights and contract law.",
+        "C": "Incorrect. EM currencies are often volatile, and currency restrictions and controls add to — rather than remove — FX risk."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_i_q7",
+      "options": {
+        "A": "the relationship between the higher local currency YTM, the lower USD bond YTM, and the local currency's expected depreciation vs USD over the investment horizon.",
+        "B": "The choice between the local-currency and USD bond depends only on the yield-to-maturity differential.",
+        "C": "The choice depends only on the issuer's credit risk, which differs between the two bonds."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: the relationship between the higher local currency YTM, the lower USD bond YTM, and the local currency's expected depreciation vs USD over the investment horizon; if bullish on the emerging economy's growth prospects, the investor may earn higher USD return from the unhedged local currency bond if the local currency depreciates less than expected under interest rate parity conditions (forward rate bias).\n\nCorrect. Per Example 34 solution: 'A United States-based investor seeking to maximize US-dollar-denominated return must consider the relationship between the higher local currency bond YTM, the lower US dollar bond YTM, and the local currency's expected depreciation (or appreciation) versus the US dollar over the investment horizon. While uncovered interest rate parity suggests that local currency depreciation vs the US dollar would offset any benefit of a higher YTM, an investor with a bullish view of the emerging economy's growth prospects would benefit from forward rate bias and earn a higher return in US dollar terms from an unhedged investment in the local currency bond if the local currency were to depreciate less than expected.'",
+        "B": "Incorrect. The higher local yield can be consumed by currency depreciation — the FX view is essential.",
+        "C": "Incorrect. The issuer is the SAME; the decision weighs the YTM gap against expected local-currency depreciation versus USD."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_j_q2",
+      "options": {
+        "A": "Structured products offer active credit managers no additional benefits over corporate bonds, since securitized cash flows carry the same risk-return profile as the issuing institutions' senior unsecured debt.",
+        "B": "Structured products offer only lower returns than corporate bonds of comparable rating, because the costs of structuring and servicing consume any yield advantage the underlying collateral provides.",
+        "C": "the ability to access fixed-income cash flows (commercial/residential real estate, consumer loans), enhance returns by increasing exposure to interest rate volatility (via mortgage prepayment/extension risk), and add debt exposure created by redistribution of default risk into tranches across the credit spectrum."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Access to distinct cash-flow pools (real estate, consumer loans) and exposure tailoring are genuine benefits.",
+        "B": "Incorrect. Tranche selection and structural leverage can ENHANCE returns relative to comparable corporates.",
+        "C": "Correct. Per the reading, 'Structured financial instruments can offer active credit managers the ability to access fixed-income cash flows such as commercial or residential real estate, enhance returns by increasing portfolio exposure to interest rate volatility (via mortgage prepayment and extension risk), and add debt exposure created by the redistribution of default risk into different tranches across the credit spectrum.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_j_q3",
+      "options": {
+        "A": "establishes higher-rated tranches via internal credit enhancement or overcollateralization, with successively lower-rated tranches absorbing a greater proportion of the associated default risk.",
+        "B": "Tranching gives all tranches in an ABS or CDO identical risk, differing only in coupon convention.",
+        "C": "Tranching eliminates default risk entirely from the securitization structure."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: establishes higher-rated tranches via internal credit enhancement or overcollateralization, with successively lower-rated tranches absorbing a greater proportion of the associated default risk — an SPV owns the underlying asset pool and issues debt across several tranches backed by the asset pool cash flows.\n\nCorrect. Per the reading and Exhibit 32: 'This is achieved by establishing higher-rated tranches via internal credit enhancement or overcollateralization, with successively lower-rated tranches absorbing a greater proportion of the associated default risk. An active investor might overweight default risk by choosing a lower-rated ABS tranche based on a tactical view. Alternatively, a portfolio manager might underweight credit exposure using a higher-rated tranche in a downturn.' The ABS issuer is a special purpose vehicle (SPV) that owns the underlying asset pool.",
+        "B": "Incorrect. Stratification is the point — senior tranches are protected by subordination while lower tranches absorb losses first.",
+        "C": "Incorrect. Default risk is REDISTRIBUTED across the capital structure, not eliminated."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_j_q4",
+      "options": {
+        "A": "Covered bonds differ from ABS in offering no recourse to the issuing institution.",
+        "B": "covered bonds offer dual recourse (i.e., to both the issuing financial institution and the underlying asset pool) as well as substitution of non-performing assets.",
+        "C": "Covered bonds differ from ABS in always carrying the highest yield among secured instruments."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. DUAL recourse — to issuer AND asset pool — is the covered bond's defining feature.",
+        "B": "Full statement: covered bonds offer dual recourse (i.e., to both the issuing financial institution and the underlying asset pool) as well as substitution of non-performing assets — this results in lower credit risk and lower yield than ABS.\n\nCorrect. Per the reading, 'While covered bonds offer real estate cash flow exposure similar to that of ABS, given the dual recourse (i.e., to both the issuing financial institution and the underlying asset pool), as well as the substitution of non-performing assets, covered bonds usually involve lower credit risk and a lower yield.' Covered bonds are senior debt obligations backed by a pool of commercial/residential mortgages or public sector assets.",
+        "C": "Incorrect. Their stronger protections typically produce LOWER yields, not the highest."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_k_q1",
+      "options": {
+        "A": "The primary inputs for fixed-income analytical models are limited to cash bond positions, since derivatives and financing transactions are tracked separately in settlement systems rather than analytics platforms.",
+        "B": "all long and short cash bond and derivative positions, repurchase agreements, and cash across currencies, using CUSIP or ISIN identifiers to capture features like interest/principal dates, day count conventions, put-call features, plus derivative and repo details.",
+        "C": "The primary inputs are real-time market feeds only, with no position-level data required because models infer holdings from custodial records automatically."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Derivatives, repos, and cash across currencies belong in the position inputs alongside cash bonds.",
+        "B": "Correct. Per the reading: 'Primary inputs for fixed-income models include all long and short cash bond and derivative positions, repurchase agreements, and cash across currencies. Fixed-income security inputs use CUSIP or ISIN identifiers to capture all relevant features such as interest and principal payment dates, day count conventions, and put-call features. Portfolio derivative and repo position inputs also include details of such agreements, such as settlement dates, option strike prices, and collateral terms necessary to satisfy derivative counterparty or clearing requirements based on market changes.'",
+        "C": "Incorrect. Positions (identified by CUSIP/ISIN) are required inputs alongside market data."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_k_q2",
+      "options": {
+        "A": "Real-time vendor market data feeds for fixed-income models include only stock prices.",
+        "B": "Real-time feeds include only currency data, with rates and credit curves sourced manually.",
+        "C": "spot and forward rates, credit curves, implied volatilities, and exchange rates — used to value historical, existing, and potential future new portfolio positions."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. FI models need rates, curves, and volatilities — equity prices alone are insufficient.",
+        "B": "Incorrect. Spot and forward rates, credit curves, implied volatilities, AND exchange rates all flow through the feeds.",
+        "C": "Full statement: spot and forward rates, credit curves, implied volatilities, and exchange rates — used to value historical, existing, and potential future new portfolio positions; matrix pricing (or evaluated pricing) values inactively traded FI instruments based on observable liquid benchmarks.\n\nCorrect. Per the reading: 'Real-time market data feeds usually sourced from vendors via application programming interfaces include spot and forward rates, credit curves, implied volatilities, and exchange rates that are used to value historical, existing, and potential future new portfolio positions. These tools value inactively traded fixed-income instruments using matrix pricing (or evaluated pricing) based on observable liquid benchmark YTMs of similar maturity and duration and credit spreads of actively traded bonds with comparable times to maturity, credit quality, and sector. Additional model inputs include index subscriptions, ESG and credit ratings, and issuer balance sheet data.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_k_q3",
+      "options": {
+        "A": "are subject to constant change as a result of both new debt issuance and bond maturities as well as ratings changes, bond callability, and prepayment.",
+        "B": "Fixed-income indexes, like equity indexes, are fully static between annual reconstitutions.",
+        "C": "Fixed-income indexes never change composition once constructed."
+      },
+      "correct": "A",
+      "rationales": {
+        "A": "Full statement: are subject to constant change as a result of both new debt issuance and bond maturities as well as ratings changes, bond callability, and prepayment — a critical consideration in analytical models.\n\nCorrect. Per the reading: 'In contrast to more static equity indexes, fixed-income indexes are subject to constant change as a result of both new debt issuance and bond maturities as well as ratings changes, bond callability, and prepayment.' This is a key differentiator between fixed-income and equity index management. As new bonds are issued and old ones mature or are called/prepaid, the index composition changes.",
+        "B": "Incorrect. Bond indexes change CONSTANTLY — issuance, maturities, ratings migration, calls, and prepayments all move membership.",
+        "C": "Incorrect. Constant turnover is their defining operational feature relative to equity indexes."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_k_q4",
+      "options": {
+        "A": "Model assumptions in fixed-income analytics are limited to market data supplied by vendors.",
+        "B": "user-defined parameters such as term structure models, investment time horizon, VaR methodology, historical and/or specific market scenarios, and portfolio filters (inclusion/exclusion of specific sectors or minimum ESG threshold).",
+        "C": "Fixed-income analytical tools accept no user input, running entirely on default settings."
+      },
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Assumptions are USER-defined — term structure model, horizon, VaR methodology, scenarios.",
+        "B": "Correct. Per the reading: 'Model assumptions include user-defined parameters such as term structure models, investment time horizon, VaR methodology, historical and/or specific market scenarios, and portfolio filters that could involve inclusion or exclusion of specific sectors or a minimum ESG rating threshold for consideration.' Different assumptions can lead to different portfolio outcomes.",
+        "C": "Incorrect. User specification of parameters and scenarios is essential to meaningful output."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "r9_cs_los_k_q5",
+      "options": {
+        "A": "Model outputs support only portfolio construction, with risk analysis handled outside the tools.",
+        "B": "Model outputs support only ratings analysis for surveillance purposes.",
+        "C": "each stage of the active portfolio management process — portfolio selection and construction, risk analysis of existing/prospective positions, and trading/position management."
+      },
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Risk analysis of existing and prospective positions is a core output alongside construction.",
+        "B": "Incorrect. Outputs span the full active management workflow — selection, construction, risk, and trading support.",
+        "C": "Full statement: each stage of the active portfolio management process — portfolio selection and construction, risk analysis of existing/prospective positions, and trading/position management; typically includes a portfolio summary or landing page that aggregates current portfolio risk and return across sectors, ratings, and currencies vs the benchmark index.\n\nCorrect. Per the reading: 'Fixed-income analytical model outputs support each stage of the active portfolio management process, namely portfolio selection and construction, risk analysis of existing and prospective portfolio positions, and trading and position management. A portfolio summary or landing page typically aggregates current portfolio risk and return across sectors, ratings, and currencies versus the benchmark index. Model applications supporting research and portfolio construction allow managers to assess the expected change in portfolio performance by including incremental long or short.'"
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    }
+  ],
+  "expected": {
+    "applied": 109
+  }
+}

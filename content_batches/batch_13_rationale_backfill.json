@@ -1,0 +1,204 @@
+{
+  "target": "question_bank",
+  "description": "rationale backfill batch - 17 items completed with full three-option rationales (15 partial_rationales + 2 no_rationales, incl. arthur_camme q1/q6); includes 2 verified key corrections grounded in vignette text and surviving official rationale fragments: overview_of_fi_danny_moynahan_danny_q3 C->B (dealers WIDEN, not narrow, bid-ask spreads on thinly traded bonds) and credit_strategies_pm_pathway_mt_pleasant_advisers_ashley_wes_q4 C->B (key rate durations misplaced in the macro-factors section; Section 2 risk measurements all valid). Bank data_quality reaches 100% complete.",
+  "precondition": "apply after batch_11_key_verification.json and batch_12_answer_keys.json",
+  "replacements": [
+    {
+      "id": "remington_preston_remington_q5",
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Comment 1 claims the 60/40 stock/bond split OPTIMIZES the growth benefits of equity and the risk-reduction benefits of bonds. A heuristic is a rule of thumb — it captures those benefits roughly but performs no optimization for any particular investor's objectives or constraints.",
+        "B": "Incorrect. Comment 2 mischaracterizes the Norway model, which is defined by largely PASSIVE investment in publicly traded securities (subject to ESG considerations) — the diametrical CONTRAST to the endowment model's active management and heavy alternatives allocations, not a variation of it.",
+        "C": "Correct. Comment 3 accurately describes the 1/N heuristic: wealth is allocated equally across the N available asset classes and rebalanced regularly, with no regard to expected returns, volatilities, or correlations — all assets are treated as indistinguishable in those dimensions."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "overview_of_fi_danny_moynahan_danny_q3",
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Moynahan's liquidity discussion contains an error, so his comments cannot be affirmed as correct in full.",
+        "B": "Correct. Moynahan claims dealers will NARROW bid–ask spreads on thinly traded securities as a consequence of their illiquidity. The relationship runs the other way: dealers WIDEN bid–ask spreads on thinly traded bonds to compensate for the inventory and search risk of holding illiquid positions.",
+        "C": "Incorrect. The pricing and yield-to-maturity comment is accurate: liquidity does influence fixed-income pricing, and less liquid bonds compensate investors with higher yields to maturity (an illiquidity premium), enhancing portfolio YTM."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "ldi_pm_pathway_beatriz_maestre_beatriz_maestre_q4",
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Portfolio A matches the 6.5-year horizon (Macaulay duration 6.50) but carries substantially higher convexity (102.64) than Portfolio B — greater dispersion of cash flows around the liability date, and therefore more structural risk from non-parallel yield curve shifts.",
+        "B": "Correct. Immunizing the single EUR2.3 million liability requires matching Macaulay duration to the 6.5-year horizon and then MINIMIZING convexity (cash flow dispersion) to reduce structural risk. Portfolio B matches duration (6.52) with the LOWEST convexity of the three (86.16), making it the closest available substitute for the unavailable zero-coupon bond.",
+        "C": "Incorrect. Portfolio C has the HIGHEST convexity (129.43) — the greatest cash flow dispersion around the horizon — and a slightly short duration (6.47). Among duration-comparable candidates, the immunization rule selects the minimum-convexity portfolio, and C is the opposite."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "credit_strategies_pm_pathway_mt_pleasant_advisers_ashley_wes_q4",
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The report is not correctly structured — one item is misclassified between the two sections.",
+        "B": "Correct. Section 1's macro-factor list includes KEY RATE DURATIONS alongside corporate profitability, economic growth, currency movements, expected volatility, and default rates. Key rate duration is a portfolio RISK MEASUREMENT — the sensitivity of portfolio value to a shift at a specific curve point — not a macroeconomic factor, so West is incorrect with respect to the macro factors.",
+        "C": "Incorrect. Section 2's contents — average credit rating, average spread duration, duration times spread, average OAS, duration, and effective convexity — are all legitimate credit portfolio risk measurements, so West is correct with respect to the risk measurements."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "index_based_equity_strategies_sapphire_bay_edward_cullen_q5",
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Optimization selects holdings by minimizing predicted tracking error through a risk model, explicitly accounting for covariances among securities, typically subject to constraints. Stapleton describes representative cell-based selection, not an optimizer-driven construction.",
+        "B": "Correct. Stapleton proposes purchasing securities that form a mutually exclusive yet comprehensive subgroup of the index, designed to track the index's return and risk characteristics — the definition of stratified sampling: divide the index into mutually exclusive, exhaustive cells and hold representative securities from each. It is the standard method for tracking a large-constituent index (MSCI EAFE) with a modest ($15 million) allocation.",
+        "C": "Incorrect. A blended approach combines methods — for example, stratified sampling plus optimization. Stapleton describes a single sampling technique with no optimization component."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "index_based_equity_strategies_arthur_camme_arthur_camme_q1",
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Parker claims value factor funds seek to lower downside risk. Value funds pursue the value RETURN PREMIUM — return enhancement. Downside-risk reduction is the objective of low-volatility and quality factor funds, not value funds.",
+        "B": "Incorrect. Parker claims single-factor funds concentrate risk exposure relative to cap weighting. Relative to a market-cap-weighted index, factor-based strategies tend to DIVERSIFY risk exposures away from concentrated market beta — the concentration claim is the inaccurate one.",
+        "C": "Correct. Parker's fundamental-weighting comment is accurate: fundamental weighting can enhance return (it severs the link between weight and price), yet because weights are based on accounting fundamentals rather than intrinsic values, the approach can still overweight overpriced stocks and underweight underpriced stocks when compared with intrinsic-value weighting."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "index_based_equity_strategies_arthur_camme_arthur_camme_q6",
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. The correction left Daventown at 51% equities / 2% cash / 47% fixed income against a 60/40 policy. An overlay using equity index futures restores the policy exposure immediately and at the LOWEST cost — no physical securities are traded, existing managers are undisturbed, and the roughly 9%-of-assets equity gap fits within the IPS's 10% derivatives notional limit, which expressly permits derivatives for meeting allocation guidelines.",
+        "B": "Incorrect. Physically selling bonds and buying equities restores policy weights but incurs full transaction costs across both asset classes and disrupts the underlying managers — strictly more expensive than the futures overlay for the same exposure change.",
+        "C": "Incorrect. Replacing the highest-tracking-error manager with index ETFs is a manager-structure decision, not a rebalancing mechanism. It incurs transition costs and does not by itself restore the 60/40 allocation — the equity underweight remains."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "active_equity_investing_construction_the_epsilon_institute_t_q2",
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. The return unexplained by rewarded factors ('alpha') = actual excess return − Σβ_pk × F_k. Rewarded-factor return = (0.91 × 0.61%) + (0.15 × 0.17%) + (0.60 × 0.18%) + (0.08 × 0.72%) = 0.555% + 0.026% + 0.108% + 0.058% ≈ 0.75%. Unexplained = 0.55% − 0.75% = −0.20% per month.",
+        "B": "Incorrect. −0.17% is the fund's shortfall versus its BENCHMARK (0.55% − 0.72%) — the active return relative to the Russell 1000 Value Index, not the portion of the fund's return unexplained by its own rewarded-factor exposures.",
+        "C": "Incorrect. 0.13% results from adding the 0.33% monthly risk-free rate back to the −0.20% unexplained return (−0.20% + 0.33% = 0.13%). The computation must be done consistently in excess-of-risk-free terms; the risk-free rate does not belong in the alpha."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "active_equity_investing_construction_the_epsilon_institute_t_q6",
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. 20.9% results from dividing Country A's covariance with the portfolio by the portfolio's standard deviation (0.0276/0.132) while omitting the 30% country weight — a units error mixing variance and standard deviation and dropping the weight entirely.",
+        "B": "Correct. Country A's contribution to portfolio variance = weight × covariance with the portfolio = 0.30 × 0.0276 = 0.00828. As a proportion of total portfolio variance (0.132² = 0.017424): 0.00828 / 0.017424 ≈ 47.5%.",
+        "C": "Incorrect. 56.8% comes from weight × standalone standard deviation over portfolio standard deviation (0.30 × 25/13.2). Using Country A's standalone volatility ignores its correlations with Countries B and C — the covariance with the portfolio, not the standalone risk, determines the variance contribution."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "pure_case_lorelie_chan_q4",
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Pure's checking clients are described as insensitive to interest rate changes and incentivized to stay — the non-interest-bearing deposit base is stable, so rising rates produce no increase in liabilities from this behavior.",
+        "B": "Incorrect. Pure's loans are VARIABLE-RATE, repricing upward as rates rise, and the sticky deposit franchise does not force asset sales. The depositor behavior described produces no decline in asset values.",
+        "C": "Correct. With funding locked in at roughly zero cost (stable, non-interest-bearing checking deposits) and variable-rate loans repricing upward in a rising-rate environment, Pure's net interest margin widens. Wider margins on a stable funding base increase the value of the bank's residual equity."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "inflection_capital_case_scenario_derek_mulaney_q3",
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Arrival cost = (50.55 − 50.45)/50.45 ≈ +19.8 bps. The market rose over the horizon: index cost = (1,015 − 1,010)/1,010 ≈ +49.5 bps, and with TEXX's beta of 1.30 the expected stock move is 1.30 × 49.5 ≈ 64.4 bps. Market-adjusted cost = 19.8 − 64.4 ≈ −44.6 bps — the buy was executed well BELOW what the market move alone would have implied, making this the benchmark against which the trade looks best.",
+        "B": "Incorrect. Versus TWAP: (50.55 − 50.57)/50.57 ≈ −4.0 bps — favorable, but far smaller than the −44.6 bps market-adjusted result.",
+        "C": "Incorrect. Versus VWAP: (50.55 − 50.52)/50.52 ≈ +5.9 bps — a COST relative to the volume-weighted benchmark, the worst of the three comparisons."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "paulsen_case_ole_paulsen_q4",
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. The high-water mark requires recapturing Fund ABC's Year 2 loss of 4% before performance sharing is earned, reducing the Year 3 return from 23% to 19%. Sharing is based on return net of the base fee: (19% − 2.50%) × 10% = 1.65%. Total Year 3 fee = 2.50% base + 1.65% sharing = 4.15%.",
+        "B": "Incorrect. 4.40% omits deducting the 2.50% base fee from the HWM-adjusted performance: 2.50% + (19% × 10%) = 4.40%. ABC's sharing is computed on return NET of the base fee.",
+        "C": "Incorrect. 4.55% ignores the high-water mark entirely, sharing on the full Year 3 return: 2.50% + (23% − 2.50%) × 10% = 4.55%. The HWM feature requires the prior loss to be recovered first."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "cleantech_research_fund_case_scenario_q1",
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect (i.e., likely a violation). The advertisement states the team 'are all CFA's' — using the CFA designation as a noun is improper use under Standard VII(B) — Reference to CFA Institute, the CFA Designation, and the CFA Program.",
+        "B": "Incorrect (i.e., likely a violation). Claiming that CFA Institute 'recognizes their expertise' and that clients 'can rely on our team for superior performance results' exaggerates the meaning of the designation and implies superior performance from credential-holding — a violation of Standard VII(B).",
+        "C": "Correct (least likely a violation). Stating that several managers serve as volunteers for CFA Institute is a factual disclosure of involvement. It reveals no confidential information and, by itself, implies no endorsement — not a violation of the Standards."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "cleantech_research_fund_case_scenario_q2",
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. The analytics-software claim is presented with its basis (a multiple-factor regression) and accompanied by disclosure of key risks — reliance on historical data and possible interference from unknown factors. Framed as a model-based projection with risks disclosed, it does not violate the Standards.",
+        "B": "Incorrect. The sector-return comment is expressly framed as opinion ('it is our opinion that returns in this area will continue to be above average') and is preceded by a discussion of sector risks — unproven technology and incentive-driven market dysfunction — satisfying the balanced-communication requirement.",
+        "C": "Correct. The solar claim — 'We WILL earn a 200% return over the next year' — states a projection as a guaranteed fact. Standard V(B) — Communication with Clients requires separating opinion from fact, and Standard I(C) — Misrepresentation prohibits assurances of investment performance; conditioning it on internally prepared sales projections and a tax-incentive assumption does not cure the guarantee."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "cleantech_research_fund_case_scenario_q3",
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Statement 2 expressly recommends the fund 'only for investors who are able to assume a high level of risk' — the suitability qualification is present, so Standard III(C) is not the violated Standard here.",
+        "B": "Incorrect. The statement accurately dates the fund's purchase ('last month') and does not claim the fund captured last year's post-partnership quadrupling in EnergyAlgae's market capitalization, so Statement 2 does not misrepresent performance under Standard I(C).",
+        "C": "Correct. A CleanTech founder sits on EnergyAlgae's board and provided information on the patent process, and the fund bought additional stock BEFORE the patent became widely publicized in the semiannual report. Acting on material nonpublic information received from an insider violates Standard II(A) — Material Nonpublic Information."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "cleantech_research_fund_case_scenario_q4",
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Slar's analysis includes the company's past three years of operational history and the industry's business-cycle stage — an adequate operational component of a diligent third-party research basis.",
+        "B": "Incorrect. Slar's research includes a historical financial analysis and a one-year earnings forecast — reasonable earnings-projection components for reliance on third-party research.",
+        "C": "Correct. Slar updates its research only ANNUALLY. For a high-risk, rapidly evolving clean-technology company whose circumstances can change materially within a year, an annual update cadence is a deficiency; relying on it without question falls short of the reasonable and diligent effort Standard V(A) — Diligence and Reasonable Basis requires when using third-party research."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "cleantech_research_fund_case_scenario_q5",
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Severing the relationship immediately is not required by the Standards. Conflicts of this kind can be managed through full and fair disclosure; termination is an extreme remedy the Standards do not mandate.",
+        "B": "Incorrect. Explaining the ownership structure alone is too narrow. The conflict spans more than ownership — CleanTech's founders control Slar, Slar underwrote EnergyAlgae's public offering, and CleanTech relies on Slar's research — all of which bear on independence and objectivity.",
+        "C": "Correct. Standard I(B) — Independence and Objectivity (with Standard VI(A) — Disclosure of Conflicts) requires full and fair disclosure to ALL clients of every matter that could reasonably be expected to impair independence and objectivity. Communicating all relevant information — the ownership of Slar, the underwriting relationship, and the reliance on Slar's research — is the most appropriate course."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    }
+  ],
+  "expected": {
+    "applied": 17
+  },
+  "pin_updates": {
+    "ungradeable_mc": 0,
+    "no_correct": 0,
+    "no_rationales": 0,
+    "partial_rationales": 0,
+    "incomplete_questions": 0
+  }
+}

@@ -1,0 +1,353 @@
+{
+  "target": "question_bank",
+  "description": "answer-key batch - 29 no_correct MCs keyed with full three-option rationales (CME foundation, Vitting, HNW currency, Maestre LDI, Central County credit, Sapphire Bay, Arthur Camme, Grasmere, Inflection, Autland q1-q4, Teamwork q1-q8, Athena, CleanTech, Davika); includes reconstructed stem/options for central_county q7, sapphire_bay q6, teamwork q8; clears all no_correct flags and the overlapping no_rationales/partial_rationales flags",
+  "precondition": "apply after batch_11_key_verification.json",
+  "replacements": [
+    {
+      "id": "cme_foundation_the_united_states_q1",
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Grey's statement contains an error: under RiteVal's near-term deflation scenario, real estate — a real, income-producing asset that benefits from rising prices — would be expected to perform poorly, not well.",
+        "B": "Incorrect. Grey's comment about equities is accurate. Once inflation returns to its expected equilibrium level, inflation at or near expectations is generally consistent with good equity performance.",
+        "C": "Correct. Under unexpected near-term deflation, Treasury bonds benefit (falling yields, improved purchasing power of fixed cash flows), so that part of Grey's statement is right. Real estate, however, is a real asset whose income and values suffer in deflation — Grey's claim that real estate 'should do well' is the error."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "vitting_teddy_brealer_q1",
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. An economic balance sheet includes extended assets and liabilities. Assets: immediately available funds + funds restricted to scholarships + PV of pledged future contributions (unrestricted and restricted) + Clement's $50.0 million conditional donation. Liabilities: current endowment obligations + PV of future endowment obligations + the $210.3 million project cost. Liabilities exceed assets by approximately $55.6 million — the underfunding.",
+        "B": "Incorrect. This figure omits Clement's $50.0 million donation from the asset side. He has committed to donate if the project is undertaken, so on an economic balance sheet the pledge is an extended asset; excluding it overstates the underfunding by exactly $50 million.",
+        "C": "Incorrect. This figure wrongly excludes the scholarship-restricted funds and scholarship-restricted pledged contributions from the asset side while retaining all obligations. The economic balance sheet includes ALL assets and liabilities — restricted assets fund the scholarship component of the endowment's obligations."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "vitting_teddy_brealer_q2",
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Black recommends a heavy fixed-income allocation with cash distributions specifically to OFFSET the university's future cash disbursements — choosing assets in relation to the obligations they must fund. Selecting an asset allocation relative to the investor's liabilities (rather than on asset characteristics alone) is the liability-relative approach.",
+        "B": "Incorrect. Mean-variance optimization is an asset-only approach that maximizes return for a level of risk without reference to liabilities. Black's rationale is explicitly built around funding the university's future disbursements.",
+        "C": "Incorrect. 'Asset segmentation' is not one of the curriculum's asset allocation approaches (asset-only, liability-relative, goals-based). Black's disbursement-offsetting logic is liability-relative."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "vitting_teddy_brealer_q6",
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Black's preferred method is Monte Carlo simulation, and it is well suited to the additional issues he raises: simulation can incorporate portfolio rebalancing costs and can model return distributions that require more parameters than expected return and volatility (non-normal distributions).",
+        "B": "Incorrect. Monte Carlo simulation CAN address rebalancing costs — trading costs can be built into the simulated paths, which is one of its advantages over single-period mean-variance analysis.",
+        "C": "Incorrect. Monte Carlo simulation CAN accommodate distributions characterized by parameters beyond expected return and volatility (skewness, fat tails, path dependence) — that flexibility is precisely why Black prefers it for these issues."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "currency_hnw_worldwide_hnw_worldwide_q2",
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. HNW forecasts euro appreciation against the US dollar. Higher REAL interest rates in euro-based countries attract capital flows toward euro assets, supporting euro appreciation — Reason 1 is consistent with HNW's assessment under the economic fundamentals framework.",
+        "B": "Incorrect. Potential defaults of euro-based countries from excessive debt are euro-NEGATIVE fundamentals; IMF/ECB support measures are crisis responses, not appreciation drivers. Reason 2 does not support a stronger euro.",
+        "C": "Incorrect. A DECLINING US trade deficit with euro-based countries means improving US external balances — a US-dollar-supportive fundamental that argues for euro depreciation, the opposite of HNW's view."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "ldi_pm_pathway_beatriz_maestre_beatriz_maestre_q3",
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect (i.e., a strategy Maestre WOULD likely recommend). An index mutual fund is very easy to implement compared with stratified sampling and, given the relatively small size of the portfolio, would likely have lower costs — directly addressing Ruelas's time and transaction-cost concerns.",
+        "B": "Correct (least likely). Stratified sampling requires Cávado's staff to construct and continuously maintain a cell-matched portfolio — ongoing analysis, trading, and rebalancing. Ruelas explicitly doubts it is worth his or his staff's time, and at this portfolio's small scale the approach carries higher implementation costs than either pooled or synthetic alternatives.",
+        "C": "Incorrect (i.e., a strategy Maestre WOULD likely recommend). A synthetic strategy using a total return swap would be easier and cheaper to implement than stratified sampling given the small size of the portfolio — index exposure is obtained in a single contract without building the underlying bond portfolio."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "credit_strategies_pm_pathway_central_county_central_county_q5",
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Larent claims a company's credit ratings are independent from the sovereign rating of its domicile. In practice, corporate ratings are linked to — and often capped by — the sovereign rating (the sovereign ceiling), so this statement is wrong.",
+        "B": "Incorrect. Larent claims bankruptcy laws apply equally to all investors of a company's bond issuances. Bankruptcy regimes differ substantially across jurisdictions, and creditor treatment varies by legal system and by class — this statement is wrong.",
+        "C": "Correct. Larent's statement about credit cycles is accurate: regional differences across the global credit universe make the ability to assess and predict credit cycles important when investing in international corporate bonds — cycles are not synchronized across regions."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "credit_strategies_pm_pathway_central_county_central_county_q7",
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. With spreads assumed constant, expected excess return ≈ spread − (probability of default × loss severity). Bond D: 0.75% − (0.25% × 40%) = 0.75% − 0.10% = 0.65% — the lowest of the three.",
+        "B": "Incorrect. Bond E: 1.00% − (0.50% × 50%) = 1.00% − 0.25% = 0.75%. Higher than Bond D but below Bond F.",
+        "C": "Correct. With spreads constant over the one-year holding period, the spread-change term drops out and expected excess spread = spread − (POD × loss severity). Bond F: 1.25% − (0.75% × 60%) = 1.25% − 0.45% = 0.80%, the highest expected excess spread (vs 0.65% for Bond D and 0.75% for Bond E)."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": [],
+      "stem": "Based on Exhibit 2 and assuming spreads remain constant over the next year, the bond with the highest expected excess spread is *most likely*:",
+      "options": {
+        "A": "Bond D.",
+        "B": "Bond E.",
+        "C": "Bond F."
+      }
+    },
+    {
+      "id": "index_based_equity_strategies_sapphire_bay_edward_cullen_q4",
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Manager A holds 498 of 500 index names (near-full replication) with quarterly reconstitution — small sampling gap and timely index maintenance keep tracking error low despite next-day dividend reinvestment.",
+        "B": "Incorrect. Manager B holds 504 names against a 500-stock index and reinvests dividends same-day — the closest replication and most tracking-friendly dividend treatment, despite the highest fee.",
+        "C": "Correct. Manager C holds only 475 of 500 index names (the largest sampling gap), reinvests dividends next day, and reconstitutes only SEMI-ANNUALLY while the index reconstitutes more frequently — allowing the portfolio to drift from the index between updates. These three features combine to produce the largest expected tracking error."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "index_based_equity_strategies_sapphire_bay_edward_cullen_q6",
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Manager A replicates closely (498 of 500 names) and reconstitutes quarterly, but reinvests dividends the NEXT day. The index assumes same-day reinvestment, so the one-day lag introduces a small recurring source of return deviation that Manager B avoids.",
+        "B": "Correct. Manager B's practices are the most tracking-friendly in Exhibit 2: full index coverage (504 holdings against the 500-name index), SAME-DAY dividend reinvestment matching the index's total-return assumption, and quarterly rebalancing and reconstitution aligned with index maintenance. The higher 15 bp fee lowers net return by a constant, but the return PATH deviates least from the index.",
+        "C": "Incorrect. Manager C combines the largest sampling gap (475 of 500 names), next-day dividend reinvestment, and only SEMI-ANNUAL reconstitution — allowing membership drift between index updates. These are the practices most likely to WIDEN tracking error, not minimize it."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": [],
+      "stem": "Based on Exhibit 2, the manager whose portfolio management practices are *most* supportive of minimizing tracking error is:",
+      "options": {
+        "A": "Manager A.",
+        "B": "Manager B.",
+        "C": "Manager C."
+      }
+    },
+    {
+      "id": "index_based_equity_strategies_arthur_camme_arthur_camme_q3",
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Parker attributes Manager B's higher tracking error to more volatile markets, but tracking error measures deviation from the BENCHMARK, not market volatility. Manager B's 1.97% tracking error reflects sampling (800 of 928 MSCI EAFE names), not the volatility of the markets he traded in.",
+        "B": "Correct. Parker's statement about excess return is the most appropriate. For a passive replication manager, the objective is to match the index — a 2.10% excess return from an indexer is not evidence of skill; it signals loose tracking, and attributing it to luck rather than skill is the appropriate read.",
+        "C": "Incorrect. Parker claims Manager B used currency overlays to LEVER foreign-currency returns. A currency overlay is used to HEDGE (manage) currency risk in a portfolio holding foreign-currency securities, not to leverage returns."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "index_based_equity_strategies_arthur_camme_arthur_camme_q4",
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. MultiFAK's active factor tilts run from Momentum (0.14 vs benchmark 0.17, underweight) to Low Volatility (0.31 vs 0.28, overweight), with Yield and Quality at benchmark weights. Shifting weight from a return-oriented factor (momentum) into a risk-oriented factor (low volatility) marks the primary strategy as risk reduction.",
+        "B": "Incorrect. A diversification-oriented strategy would spread exposure across lowly correlated factors or maximize breadth. MultiFAK's single meaningful tilt — into low volatility — is a defensive risk posture, not a diversification play.",
+        "C": "Incorrect. A return-oriented strategy would overweight return factors such as momentum, value, or yield. MultiFAK UNDERWEIGHTS momentum to fund its low-volatility overweight — the opposite of a return-oriented tilt."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "active_equity_investing_strategies_grasmere_asset_morgon_abe_q5",
+      "correct": "A",
+      "rationales": {
+        "A": "Correct (least likely). Stop-loss rules are a remedy for LOSS AVERSION and the disposition effect — reluctance to realize losses. Carlucci diagnoses illusion of control and confirmation bias, and stop-loss rules address neither, so Abernathy is least likely to recommend them here.",
+        "B": "Incorrect (i.e., a step he WOULD likely recommend). Stricter diversification rules directly counter the illusion of control, which shows up as increasingly concentrated positions — exactly what the larger funds have exhibited.",
+        "C": "Incorrect (i.e., a step he WOULD likely recommend). Actively seeking contradictory information is the standard remedy for confirmation bias — forcing the manager to weigh disconfirming evidence rather than only supportive research."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "inflection_capital_case_scenario_derek_mulaney_q2",
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Largent identified a short-term alpha opportunity (the market underreacted to unfavorable news) requiring urgent execution, and the order is small — about 3% of expected daily volume. An arrival price algorithm trades aggressively early ('front-loaded') to execute near the decision/arrival price, which fits a high-urgency, alpha-driven, low-impact order.",
+        "B": "Incorrect. Dark aggregators suit LARGE orders relative to expected volume where lit-market impact is the concern and urgency is low. A 3% ADV order has modest impact risk, and dark venues' execution uncertainty conflicts with the urgency of a decaying alpha signal.",
+        "C": "Incorrect. TWAP spreads execution evenly across the horizon — a passive schedule that surrenders the short-term alpha as prices adjust to the news. It suits low-urgency orders, not this trade."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "autland_quantitative_autland_quantitative_q1",
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. Richard's answer contains an error about when risk enters the process, so 'correct' cannot stand.",
+        "B": "Incorrect. Richard's description of WHAT performance appraisal assesses is accurate — appraisal does evaluate the quality of the manager's performance (skill versus luck).",
+        "C": "Correct. Richard claims risk is considered ONLY within performance appraisal. Risk enters the evaluation process earlier as well — performance attribution includes RISK attribution alongside return attribution — so he is wrong about when risk enters, not about what appraisal assesses."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "autland_quantitative_autland_quantitative_q2",
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. Richard's answer contains an error about the manager's actions, so 'correct' cannot stand.",
+        "B": "Correct. Richard says the residual 'cannot be explained by an action taken by the fund manager.' The residual in holdings-based attribution arises from TRADING between holdings snapshots — and trading is a manager action. His claim about manager actions is the error.",
+        "C": "Incorrect. Richard's frequency point is accurate: the residual can result from transactions occurring more frequently than the holdings assessments, which is exactly why transactions-based attribution is more precise."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "autland_quantitative_autland_quantitative_q3",
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. In the Brinson framework, the SELECTION effect is computed using the BENCHMARK sector weights — W_i × (R_i − B_i) — not the fund manager's weights.",
+        "B": "Incorrect. The Brinson model attributes the manager's performance against the benchmark; the fund sponsor's capital allocation decisions are a macro-attribution matter and do not enter the model's sector-weight mechanics.",
+        "C": "Correct. The differences between the manager's and the benchmark's sector weights (w_i − W_i) drive the ALLOCATION effect, (w_i − W_i) × B_i, and also appear in the INTERACTION term, (w_i − W_i) × (R_i − B_i) — both weight sets are incorporated through those two components."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "autland_quantitative_autland_quantitative_q4",
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. AQI assesses sector allocation FIRST, followed by within-sector security selection — a top-down sequence, not bottom-up.",
+        "B": "Correct. Timmon states the risk assessment is RELATIVE TO A BENCHMARK. Benchmark-relative risk is tracking risk, so explaining that the manager's risk assessment is the tracking risk relative to the benchmark is the most accurate improvement to the client explanation.",
+        "C": "Incorrect. AQI's process explicitly allocates risk to sector allocation AND within-sector selection — restricting the description to security selection risk alone misstates the process."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "teamwork_advisory_teamwork_advisory_q1",
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. A factor-model benchmark is constructed by regressing the portfolio's returns against factors believed to drive returns. Zhang describes comparing the manager against OTHERS with similar styles, not against a factor regression.",
+        "B": "Incorrect. An absolute return benchmark sets a fixed return objective independent of peers or markets. Zhang's plan is explicitly relative — how the manager performed versus similar-style managers.",
+        "C": "Correct. Determining how a manager performed relative to other managers with similar investment styles is manager universe (peer group) benchmarking."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "teamwork_advisory_teamwork_advisory_q2",
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. −3.39% is the ACTIVE-plus-STYLE total: P − M = 8.11% − 11.50%. It mixes the manager's active contribution with the style effect.",
+        "B": "Correct. Return due to style = Benchmark return − Market index return = B − M = 9.10% − 11.50% = −2.40%. The style Fund A's manager follows underperformed the broad market by 2.40%.",
+        "C": "Incorrect. −0.99% is the return due to ACTIVE MANAGEMENT: P − B = 8.11% − 9.10%. That measures the manager's contribution relative to the style benchmark, not the style itself."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "teamwork_advisory_teamwork_advisory_q3",
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. 0.46 uses the target return in the numerator but the fund's full STANDARD deviation in the denominator: (14.30 − 4.00)/22.30. The Sortino ratio requires the target semi-standard deviation.",
+        "B": "Incorrect. 0.50 is approximately the SHARPE ratio: (14.30 − 3.08)/22.30 — risk-free rate in the numerator and total standard deviation in the denominator.",
+        "C": "Correct. Sortino ratio = (Fund return − Target return) / Target semi-standard deviation = (14.30% − 4.00%) / 14.35% = 10.30/14.35 ≈ 0.72."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "teamwork_advisory_teamwork_advisory_q4",
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect (i.e., an accurate reason). The Sortino ratio penalizes only returns below the minimum acceptable return, so it is preferred when the investor's goal is capital preservation.",
+        "B": "Incorrect (i.e., an accurate reason). Because it isolates downside deviation, the Sortino ratio assesses performance more accurately than the Sharpe ratio when the return distribution is not symmetrical.",
+        "C": "Correct (least accurate). Reason 3 is wrong: the target (minimum acceptable) return in the Sortino ratio is set by the INDIVIDUAL INVESTOR's objectives and preferences, not by market conditions."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "teamwork_advisory_teamwork_advisory_q5",
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Downside capture uses the periods when the BENCHMARK return is negative (periods 2, 3, and 6). Fund C average: (−2.0 − 4.1 − 3.3)/3 = −3.13%; benchmark average: (−3.5 − 3.8 − 4.0)/3 = −3.77%. Downside capture = −3.13/−3.77 ≈ 83.28% — the manager captured only about 83% of the benchmark's decline.",
+        "B": "Incorrect. 107.71% results from mixing in positive-benchmark periods or inverting the ratio; downside capture is computed only over benchmark-down periods, and Fund C lost LESS than its benchmark in those periods, so the ratio must be below 100%.",
+        "C": "Incorrect. 129.33% would mean the fund fell substantially more than its benchmark in down markets — the opposite of Exhibit 2, where Fund C's down-period losses are smaller than the benchmark's in two of the three down periods."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "teamwork_advisory_teamwork_advisory_q6",
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Fund B's capture ratio (upside capture / downside capture) is 117% — greater than 1 (100%). A capture ratio above 1 indicates positive asymmetry: the fund participates in more of the market's gains than its losses, a CONVEX return profile.",
+        "B": "Incorrect. A concave return profile corresponds to a capture ratio BELOW 1 — capturing more downside than upside (negative asymmetry).",
+        "C": "Incorrect. A symmetric profile corresponds to a capture ratio of approximately 1 (100%) — equal participation in up and down markets. At 117%, Fund B is asymmetric."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "teamwork_advisory_teamwork_advisory_q7",
+      "correct": "A",
+      "rationales": {
+        "A": "Correct. Godwin and Zhang want to be more confident about the ABILITIES of the fund managers — whether performance reflects skill. Performance appraisal is the component of performance evaluation that assesses the quality (skill) of the manager.",
+        "B": "Incorrect. Performance attribution explains the SOURCES of the return relative to the benchmark — what drove the result — not whether the manager is skillful.",
+        "C": "Incorrect. Performance measurement calculates WHAT the return was over the period. It quantifies the result but says nothing about manager ability."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "teamwork_advisory_teamwork_advisory_q8",
+      "correct": "C",
+      "rationales": {
+        "A": "Incorrect. A significantly POSITIVE correlation between active return (P − B) and style return (B − M) indicates the benchmark systematically misses part of the manager's style — active results would move with the style effect, a sign of a poor benchmark.",
+        "B": "Incorrect. A significantly NEGATIVE correlation likewise indicates systematic overlap between the benchmark error and the manager's active decisions — also a sign of an inappropriate benchmark.",
+        "C": "Correct. For an appropriate benchmark, the manager's active management return A = (P − B) should be UNCORRELATED with the style return S = (B − M) — the correlation should not be significantly different from zero. A good benchmark cleanly separates the manager's decisions from the style's performance."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": [],
+      "stem": "Based on Godwin's comment about determining whether the benchmark is appropriate, if the benchmark is appropriate, then the correlation between the active management return (P − B) and the style return (B − M) should *most likely* be:",
+      "options": {
+        "A": "positive.",
+        "B": "negative.",
+        "C": "not significantly different from zero."
+      }
+    },
+    {
+      "id": "athena_investment_services_case_scenario_q1",
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. The new local anti-money-laundering regulations do not take effect until the first quarter of NEXT year, so they are not currently binding — and Standard I(A) requires compliance with the strictest CURRENTLY applicable law.",
+        "B": "Correct. Athena currently has clients residing in Europe, and the European regulations are already in force and encompass all of the local requirements. Under Standard I(A) — Knowledge of the Law, members must comply with the strictest applicable law or regulation, which at present is the European anti-money-laundering regime.",
+        "C": "Incorrect. Athena will not take on Singapore-based clients until the second half of next year, so the Singaporean regulations are not yet applicable — they become relevant only once that client relationship begins."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "cleantech_research_fund_case_scenario_q6",
+      "correct": "A",
+      "rationales": {
+        "A": "Correct (least likely violated). CleanTech (the fund — client money) sold its EnergyAlgae position FIRST, and employees sold their personal shares only afterward. That sequencing is consistent with Standard VI(B) — Priority of Transactions, which requires client transactions to take precedence over employee transactions, so the ORDER of the trades is the element least likely to have violated the Standards.",
+        "B": "Incorrect (i.e., likely violated). Customers and suppliers were highly skeptical of EnergyAlgae's claims and industry contacts had never heard of the company; ignoring this adverse information while promoting and holding the stock lacks a diligent, reasonable basis under Standard V(A).",
+        "C": "Incorrect (i.e., likely violated). Presenting positive views in media interviews and then immediately liquidating — followed by employee sales and a dramatic price collapse — is price-distorting, pump-and-dump conduct that violates Standard II(B) — Market Manipulation."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    },
+    {
+      "id": "davika_ravinder_case_scenario_q2",
+      "correct": "B",
+      "rationales": {
+        "A": "Incorrect. A different employment status would not cure the suitability problem: Canon is 60, faces two large near-term withdrawals, and retires at 65. Ability to bear risk generally declines with age and with imminent liquidity needs regardless of how he is employed.",
+        "B": "Correct. Standard III(C) — Suitability requires judging an investment's suitability in the context of the client's TOTAL portfolio. If the portfolio Ravinder manages were only one of numerous portfolios Canon holds, a more aggressive strategy in this sleeve could be suitable within his overall situation; managed in isolation for a 60-year-old facing large imminent withdrawals, it is not.",
+        "C": "Incorrect. Delaying the son's funding by five years does not remove the court-ordered divorce settlement — a large, near-term, non-discretionary withdrawal — nor the age-65 retirement horizon, so the aggressive strategy would remain unsuitable."
+      },
+      "data_quality": "complete",
+      "data_quality_flags": []
+    }
+  ],
+  "expected": {
+    "applied": 29
+  },
+  "pin_updates": {
+    "ungradeable_mc": 0,
+    "no_correct": 0,
+    "no_rationales": 2,
+    "partial_rationales": 15
+  }
+}

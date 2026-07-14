@@ -1,0 +1,369 @@
+{
+  "target": "question_bank",
+  "description": "LOS tagging batch - 55 questions with empty candidate_los tagged to master LOS IDs: 47 ethics case-scenario MCs mapped to guidance_standard_* readings by the standard(s) at issue (.a for violation-identification items, .b for recommended-action/procedure items; multi-standard screens tagged to each named standard; athena q1 also tagged to application_of_code_and_standards_l3), and 8 trade-strategy MCs (inflection, quagmire) mapped to trade_strategy_and_execution letters (motivations .a, benchmarks .c, strategy selection .d, algorithms .e, market structures .f, implementation shortfall .g, cost measurement .h). Only candidate_los is replaced; no other fields touched.",
+  "precondition": "apply after batch_11, batch_12, batch_13",
+  "replacements": [
+    {
+      "id": "ashraf_omar_case_scenario_q1",
+      "candidate_los": [
+        "guidance_standard_v_investment_analysis.a"
+      ]
+    },
+    {
+      "id": "ashraf_omar_case_scenario_q2",
+      "candidate_los": [
+        "guidance_standard_v_investment_analysis.b"
+      ]
+    },
+    {
+      "id": "ashraf_omar_case_scenario_q3",
+      "candidate_los": [
+        "guidance_standard_i_professionalism.a",
+        "guidance_standard_v_investment_analysis.a"
+      ]
+    },
+    {
+      "id": "ashraf_omar_case_scenario_q4",
+      "candidate_los": [
+        "guidance_standard_vi_conflicts_of_interest.b",
+        "guidance_standard_i_professionalism.b"
+      ]
+    },
+    {
+      "id": "ashraf_omar_case_scenario_q5",
+      "candidate_los": [
+        "guidance_standard_i_professionalism.a"
+      ]
+    },
+    {
+      "id": "ashraf_omar_case_scenario_q6",
+      "candidate_los": [
+        "guidance_standard_vi_conflicts_of_interest.a"
+      ]
+    },
+    {
+      "id": "athena_investment_services_case_scenario_q1",
+      "candidate_los": [
+        "guidance_standard_i_professionalism.a",
+        "application_of_code_and_standards_l3.a"
+      ]
+    },
+    {
+      "id": "cleantech_research_fund_case_scenario_q1",
+      "candidate_los": [
+        "guidance_standard_vii_responsibilities.a"
+      ]
+    },
+    {
+      "id": "cleantech_research_fund_case_scenario_q2",
+      "candidate_los": [
+        "guidance_standard_v_investment_analysis.a",
+        "guidance_standard_i_professionalism.a"
+      ]
+    },
+    {
+      "id": "cleantech_research_fund_case_scenario_q3",
+      "candidate_los": [
+        "guidance_standard_ii_integrity_capital_markets.a",
+        "guidance_standard_iii_duties_to_clients.a"
+      ]
+    },
+    {
+      "id": "cleantech_research_fund_case_scenario_q4",
+      "candidate_los": [
+        "guidance_standard_v_investment_analysis.a"
+      ]
+    },
+    {
+      "id": "cleantech_research_fund_case_scenario_q5",
+      "candidate_los": [
+        "guidance_standard_i_professionalism.b",
+        "guidance_standard_vi_conflicts_of_interest.b"
+      ]
+    },
+    {
+      "id": "cleantech_research_fund_case_scenario_q6",
+      "candidate_los": [
+        "guidance_standard_ii_integrity_capital_markets.a",
+        "guidance_standard_vi_conflicts_of_interest.a"
+      ]
+    },
+    {
+      "id": "davika_ravinder_case_scenario_q1",
+      "candidate_los": [
+        "guidance_standard_vi_conflicts_of_interest.b"
+      ]
+    },
+    {
+      "id": "davika_ravinder_case_scenario_q2",
+      "candidate_los": [
+        "guidance_standard_iii_duties_to_clients.a"
+      ]
+    },
+    {
+      "id": "davika_ravinder_case_scenario_q3",
+      "candidate_los": [
+        "guidance_standard_iv_duties_to_employers.a",
+        "guidance_standard_i_professionalism.a"
+      ]
+    },
+    {
+      "id": "davika_ravinder_case_scenario_q4",
+      "candidate_los": [
+        "guidance_standard_iii_duties_to_clients.a"
+      ]
+    },
+    {
+      "id": "davika_ravinder_case_scenario_q5",
+      "candidate_los": [
+        "guidance_standard_v_investment_analysis.a"
+      ]
+    },
+    {
+      "id": "davika_ravinder_case_scenario_q6",
+      "candidate_los": [
+        "guidance_standard_ii_integrity_capital_markets.b",
+        "guidance_standard_vi_conflicts_of_interest.b"
+      ]
+    },
+    {
+      "id": "foster_asset_management_case_scenario_q1",
+      "candidate_los": [
+        "guidance_standard_iii_duties_to_clients.a",
+        "guidance_standard_v_investment_analysis.a",
+        "guidance_standard_vi_conflicts_of_interest.a"
+      ]
+    },
+    {
+      "id": "foster_asset_management_case_scenario_q2",
+      "candidate_los": [
+        "guidance_standard_ii_integrity_capital_markets.b"
+      ]
+    },
+    {
+      "id": "foster_asset_management_case_scenario_q3",
+      "candidate_los": [
+        "guidance_standard_i_professionalism.b"
+      ]
+    },
+    {
+      "id": "foster_asset_management_case_scenario_q4",
+      "candidate_los": [
+        "guidance_standard_iii_duties_to_clients.b"
+      ]
+    },
+    {
+      "id": "foster_asset_management_case_scenario_q5",
+      "candidate_los": [
+        "guidance_standard_iii_duties_to_clients.a"
+      ]
+    },
+    {
+      "id": "foster_asset_management_case_scenario_q6",
+      "candidate_los": [
+        "guidance_standard_iv_duties_to_employers.b"
+      ]
+    },
+    {
+      "id": "frank_litman_case_scenario_q1",
+      "candidate_los": [
+        "guidance_standard_iv_duties_to_employers.a"
+      ]
+    },
+    {
+      "id": "frank_litman_case_scenario_q2",
+      "candidate_los": [
+        "guidance_standard_iv_duties_to_employers.b"
+      ]
+    },
+    {
+      "id": "frank_litman_case_scenario_q3",
+      "candidate_los": [
+        "guidance_standard_iii_duties_to_clients.a",
+        "guidance_standard_i_professionalism.a"
+      ]
+    },
+    {
+      "id": "frank_litman_case_scenario_q4",
+      "candidate_los": [
+        "guidance_standard_iii_duties_to_clients.a"
+      ]
+    },
+    {
+      "id": "inflection_capital_case_scenario_derek_mulaney_q1",
+      "candidate_los": [
+        "trade_strategy_and_execution.d",
+        "trade_strategy_and_execution.e"
+      ]
+    },
+    {
+      "id": "inflection_capital_case_scenario_derek_mulaney_q2",
+      "candidate_los": [
+        "trade_strategy_and_execution.d",
+        "trade_strategy_and_execution.e"
+      ]
+    },
+    {
+      "id": "inflection_capital_case_scenario_derek_mulaney_q3",
+      "candidate_los": [
+        "trade_strategy_and_execution.c",
+        "trade_strategy_and_execution.h"
+      ]
+    },
+    {
+      "id": "inflection_capital_case_scenario_derek_mulaney_q4",
+      "candidate_los": [
+        "trade_strategy_and_execution.f"
+      ]
+    },
+    {
+      "id": "jacaranda_asset_management_case_scenario_q1",
+      "candidate_los": [
+        "guidance_standard_i_professionalism.a",
+        "guidance_standard_iv_duties_to_employers.a"
+      ]
+    },
+    {
+      "id": "jacaranda_asset_management_case_scenario_q2",
+      "candidate_los": [
+        "guidance_standard_i_professionalism.b"
+      ]
+    },
+    {
+      "id": "jacaranda_asset_management_case_scenario_q3",
+      "candidate_los": [
+        "guidance_standard_iii_duties_to_clients.a"
+      ]
+    },
+    {
+      "id": "jacaranda_asset_management_case_scenario_q4",
+      "candidate_los": [
+        "guidance_standard_v_investment_analysis.a"
+      ]
+    },
+    {
+      "id": "jacaranda_asset_management_case_scenario_q5",
+      "candidate_los": [
+        "guidance_standard_iv_duties_to_employers.b"
+      ]
+    },
+    {
+      "id": "jacaranda_asset_management_case_scenario_q6",
+      "candidate_los": [
+        "guidance_standard_iii_duties_to_clients.a"
+      ]
+    },
+    {
+      "id": "jorge_pena_case_scenario_q1",
+      "candidate_los": [
+        "guidance_standard_vii_responsibilities.a"
+      ]
+    },
+    {
+      "id": "jorge_pena_case_scenario_q2",
+      "candidate_los": [
+        "guidance_standard_iv_duties_to_employers.a"
+      ]
+    },
+    {
+      "id": "jorge_pena_case_scenario_q3",
+      "candidate_los": [
+        "guidance_standard_i_professionalism.a",
+        "guidance_standard_iv_duties_to_employers.a",
+        "guidance_standard_vi_conflicts_of_interest.a"
+      ]
+    },
+    {
+      "id": "jorge_pena_case_scenario_q4",
+      "candidate_los": [
+        "guidance_standard_i_professionalism.a",
+        "guidance_standard_iv_duties_to_employers.a",
+        "guidance_standard_vii_responsibilities.a"
+      ]
+    },
+    {
+      "id": "jorge_pena_case_scenario_q5",
+      "candidate_los": [
+        "guidance_standard_iv_duties_to_employers.a"
+      ]
+    },
+    {
+      "id": "jorge_pena_case_scenario_q6",
+      "candidate_los": [
+        "guidance_standard_i_professionalism.a",
+        "guidance_standard_iii_duties_to_clients.a",
+        "guidance_standard_iv_duties_to_employers.a"
+      ]
+    },
+    {
+      "id": "quagmire_case_steve_holt_q1",
+      "candidate_los": [
+        "trade_strategy_and_execution.a"
+      ]
+    },
+    {
+      "id": "quagmire_case_steve_holt_q2",
+      "candidate_los": [
+        "trade_strategy_and_execution.d",
+        "trade_strategy_and_execution.e"
+      ]
+    },
+    {
+      "id": "quagmire_case_steve_holt_q3",
+      "candidate_los": [
+        "trade_strategy_and_execution.g"
+      ]
+    },
+    {
+      "id": "quagmire_case_steve_holt_q4",
+      "candidate_los": [
+        "trade_strategy_and_execution.h"
+      ]
+    },
+    {
+      "id": "sue_kim_case_scenario_q1",
+      "candidate_los": [
+        "guidance_standard_ii_integrity_capital_markets.a",
+        "guidance_standard_v_investment_analysis.a"
+      ]
+    },
+    {
+      "id": "sue_kim_case_scenario_q2",
+      "candidate_los": [
+        "guidance_standard_iii_duties_to_clients.a",
+        "guidance_standard_i_professionalism.a"
+      ]
+    },
+    {
+      "id": "sue_kim_case_scenario_q3",
+      "candidate_los": [
+        "guidance_standard_vi_conflicts_of_interest.a"
+      ]
+    },
+    {
+      "id": "sue_kim_case_scenario_q4",
+      "candidate_los": [
+        "guidance_standard_vi_conflicts_of_interest.a",
+        "guidance_standard_ii_integrity_capital_markets.a"
+      ]
+    },
+    {
+      "id": "sue_kim_case_scenario_q5",
+      "candidate_los": [
+        "guidance_standard_i_professionalism.a"
+      ]
+    },
+    {
+      "id": "sue_kim_case_scenario_q6",
+      "candidate_los": [
+        "guidance_standard_v_investment_analysis.b"
+      ]
+    }
+  ],
+  "expected": {
+    "applied": 55
+  },
+  "pin_updates": {
+    "empty_candidate_los": 0
+  }
+}
