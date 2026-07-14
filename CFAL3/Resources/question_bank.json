@@ -16453,30 +16453,6 @@
             },
             {
               "number": 2,
-              "id": "inflection_capital_case_scenario_derek_mulaney_q2",
-              "stem": "Which of the following trading algorithms did Mulaney *most\nlikely* use when trading NGEN?",
-              "options": {
-                "A": "Arrival price",
-                "B": "Dark aggregator",
-                "C": "Time-weighted average price (TWAP)"
-              },
-              "type": "mc",
-              "correct": "A",
-              "rationales": {
-                "A": "Correct. Largent identified a short-term alpha opportunity (the market underreacted to unfavorable news) requiring urgent execution, and the order is small — about 3% of expected daily volume. An arrival price algorithm trades aggressively early ('front-loaded') to execute near the decision/arrival price, which fits a high-urgency, alpha-driven, low-impact order.",
-                "B": "Incorrect. Dark aggregators suit LARGE orders relative to expected volume where lit-market impact is the concern and urgency is low. A 3% ADV order has modest impact risk, and dark venues' execution uncertainty conflicts with the urgency of a decaying alpha signal.",
-                "C": "Incorrect. TWAP spreads execution evenly across the horizon — a passive schedule that surrenders the short-term alpha as prices adjust to the news. It suits low-urgency orders, not this trade."
-              },
-              "candidate_los": [
-                "trade_strategy_and_execution.d",
-                "trade_strategy_and_execution.e"
-              ],
-              "primary_reading_ids": [],
-              "data_quality": "complete",
-              "data_quality_flags": []
-            },
-            {
-              "number": 3,
               "id": "inflection_capital_case_scenario_derek_mulaney_q3",
               "stem": "The TEXX trade *most likely *looks best relative to which trading\nbenchmark?",
               "options": {
@@ -16500,7 +16476,7 @@
               "data_quality_flags": []
             },
             {
-              "number": 4,
+              "number": 3,
               "id": "inflection_capital_case_scenario_derek_mulaney_q4",
               "stem": "Whose comments at the weekend strategy meeting are *most\nlikely* accurate?",
               "options": {

@@ -35,11 +35,11 @@ final class QuestionBankIntegrityTests: XCTestCase {
     }
 
     func testPinnedBankCounts() throws {
-        // v3 bank: 491 questions (268 MC + 223 essay). If the content pipeline
+        // v3 bank: 490 questions (267 MC + 223 essay). If the content pipeline
         // changes these, update the pins deliberately.
         let qs = allQuestions(try loadBank())
-        XCTAssertEqual(qs.count, 491)
-        XCTAssertEqual(qs.filter { $0.type == .mc }.count, 268)
+        XCTAssertEqual(qs.count, 490)
+        XCTAssertEqual(qs.filter { $0.type == .mc }.count, 267)
         XCTAssertEqual(qs.filter { $0.type == .essay }.count, 223)
     }
 
