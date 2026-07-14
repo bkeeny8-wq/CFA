@@ -72,14 +72,20 @@ struct StudyReadingDetailView: View {
     // MARK: - iPad: notes/drills beside checklist
 
     private var regularWidthLayout: some View {
-        HStack(spacing: 0) {
-            primaryColumn
-                .frame(maxWidth: .infinity)
+        GeometryReader { proxy in
+            if proxy.size.width >= LayoutMetrics.studySideBySideMinWidth {
+                HStack(spacing: 0) {
+                    primaryColumn
+                        .frame(maxWidth: .infinity)
 
-            Divider()
+                    Divider()
 
-            LOSChecklistPanel(area: area, reading: reading)
-                .frame(width: LayoutMetrics.studyChecklistWidth)
+                    LOSChecklistPanel(area: area, reading: reading)
+                        .frame(width: LayoutMetrics.studyChecklistWidth)
+                }
+            } else {
+                compactLayout
+            }
         }
         .toolbar {
             if notes != nil && drillBundle != nil {

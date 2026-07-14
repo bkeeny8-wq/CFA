@@ -25,10 +25,10 @@ struct StudyPlannerSplitView: View {
     var body: some View {
         NavigationSplitView(columnVisibility: $columnVisibility) {
             areasColumn
-                .navigationSplitViewColumnWidth(min: 260, ideal: 300)
+                .navigationSplitViewColumnWidth(min: 220, ideal: 250)
         } content: {
             readingsColumn
-                .navigationSplitViewColumnWidth(min: 280, ideal: 320)
+                .navigationSplitViewColumnWidth(min: 240, ideal: 270)
         } detail: {
             detailColumn
         }

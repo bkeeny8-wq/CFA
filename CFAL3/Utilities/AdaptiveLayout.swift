@@ -5,6 +5,8 @@ enum LayoutMetrics {
     static let readableMaxWidth: CGFloat = 720
     /// Fixed width for the LOS checklist pane beside notes on iPad.
     static let studyChecklistWidth: CGFloat = 380
+    /// Minimum detail-pane width for side-by-side notes + checklist on iPad.
+    static let studySideBySideMinWidth: CGFloat = 700
 }
 
 struct ReadableContentWidthModifier: ViewModifier {
