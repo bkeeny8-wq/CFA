@@ -1,21 +1,15 @@
 import SwiftUI
 
 struct RootTabView: View {
-    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-
     var body: some View {
-        Group {
-            if horizontalSizeClass == .regular {
-                RootSidebarView()
-            } else {
-                RootPhoneTabView()
-            }
-        }
-        .tint(Theme.accent)
+        RootTabContent()
+            .tint(Theme.accent)
     }
 }
 
-private struct RootPhoneTabView: View {
+private struct RootTabContent: View {
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+
     var body: some View {
         TabView {
             NavigationStack {
@@ -23,14 +17,10 @@ private struct RootPhoneTabView: View {
             }
             .tabItem { Label("Home", systemImage: "house.fill") }
 
-            NavigationStack {
-                StudyPlannerView()
-            }
+            studyRoot
             .tabItem { Label("Study", systemImage: "checklist") }
 
-            NavigationStack {
-                TopicListView()
-            }
+            browseRoot
             .tabItem { Label("Browse", systemImage: "books.vertical.fill") }
 
             NavigationStack {
@@ -42,6 +32,28 @@ private struct RootPhoneTabView: View {
                 ProgressDashboardView()
             }
             .tabItem { Label("Progress", systemImage: "chart.bar.fill") }
+        }
+    }
+
+    @ViewBuilder
+    private var studyRoot: some View {
+        if horizontalSizeClass == .regular {
+            StudyPlannerSplitView()
+        } else {
+            NavigationStack {
+                StudyPlannerView()
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var browseRoot: some View {
+        if horizontalSizeClass == .regular {
+            BrowseSplitView()
+        } else {
+            NavigationStack {
+                TopicListView()
+            }
         }
     }
 }
