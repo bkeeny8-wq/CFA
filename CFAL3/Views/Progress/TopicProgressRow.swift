@@ -1,6 +1,6 @@
 import SwiftUI
 
-private let examWeights: [String: String] = [
+let progressExamWeights: [String: String] = [
     "asset_allocation": "15–20%",
     "portfolio_construction": "15–20%",
     "performance_measurement": "5–10%",
@@ -16,7 +16,7 @@ struct TopicProgressRow: View {
         VStack(alignment: .leading, spacing: 6) {
             HStack {
                 Text(progress.name)
-                if let w = examWeights[progress.topicID] {
+                if let w = progressExamWeights[progress.topicID] {
                     Text(w)
                         .font(.caption2)
                         .foregroundStyle(.secondary)
