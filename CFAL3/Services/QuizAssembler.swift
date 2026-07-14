@@ -34,15 +34,15 @@ enum QuizAssembler {
     /// Drill readings that no bank question references, mapped to the bank
     /// topic they belong to so the Topics filter still reaches them.
     private static let supplementalReadingTopics: [String: String] = [
-        "guidance_standard_i_professionalism": "ethics",
-        "guidance_standard_ii_integrity_capital_markets": "ethics",
-        "guidance_standard_iii_duties_to_clients": "ethics",
-        "guidance_standard_iv_duties_to_employers": "ethics",
-        "guidance_standard_v_investment_analysis": "ethics",
-        "guidance_standard_vi_conflicts_of_interest": "ethics",
-        "guidance_standard_vii_responsibilities": "ethics",
-        "case_study_in_portfolio_management_institutional_endowment": "institutional_investors",
-        "case_study_in_portfolio_management_institutional_swf": "institutional_investors",
+        "guidance_standard_i_professionalism": "ethical_and_professional_standards",
+        "guidance_standard_ii_integrity_capital_markets": "ethical_and_professional_standards",
+        "guidance_standard_iii_duties_to_clients": "ethical_and_professional_standards",
+        "guidance_standard_iv_duties_to_employers": "ethical_and_professional_standards",
+        "guidance_standard_v_investment_analysis": "ethical_and_professional_standards",
+        "guidance_standard_vi_conflicts_of_interest": "ethical_and_professional_standards",
+        "guidance_standard_vii_responsibilities": "ethical_and_professional_standards",
+        "case_study_in_portfolio_management_institutional_endowment": "portfolio_construction",
+        "case_study_in_portfolio_management_institutional_swf": "portfolio_construction",
     ]
 
     /// Assemble a question ID list from the current PracticeBuilderPreference,

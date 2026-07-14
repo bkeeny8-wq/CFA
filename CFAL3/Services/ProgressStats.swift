@@ -31,6 +31,25 @@ struct LOSAreaCoverage {
 }
 
 enum ProgressStats {
+    static let legacyTopicMap: [String: String] = [
+        "cme_1": "asset_allocation",
+        "cme_2": "asset_allocation",
+        "derivatives": "derivatives_and_risk_management",
+        "alt_investments": "portfolio_construction",
+        "institutional_investors": "portfolio_construction",
+        "performance_evaluation": "performance_measurement",
+        "manager_selection": "performance_measurement",
+        "ethics": "ethical_and_professional_standards",
+        "equity": "portfolio_management_pathway",
+        "fixed_income": "portfolio_management_pathway",
+        "trade_strategy_execution_volume_2_of_the_pm_pathwaymod_7":
+            "portfolio_management_pathway",
+    ]
+
+    static func canonicalTopicID(_ id: String) -> String {
+        legacyTopicMap[id] ?? id
+    }
+
     static func topicProgress(
         content: ContentLoader,
         attempts: [Attempt],
@@ -179,8 +198,11 @@ enum ProgressStats {
     }
 
     static func dueCountByTopic(cards: [ReviewCard], now: Date = .now) -> [String: Int] {
-        Dictionary(grouping: cards.filter { $0.dueDate <= now }, by: \.topicId)
-            .mapValues(\.count)
+        Dictionary(
+            grouping: cards.filter { $0.dueDate <= now },
+            by: { canonicalTopicID($0.topicId) }
+        )
+        .mapValues(\.count)
     }
 
     static func cardStats(for questionID: String, attempts: [Attempt], card: ReviewCard?) -> (attempts: Int, correct: Int, lastWasCorrect: Bool?) {
@@ -189,21 +211,6 @@ enum ProgressStats {
         let last = questionAttempts.sorted { $0.timestamp > $1.timestamp }.first?.wasCorrect
         return (questionAttempts.count, correctCount, last)
     }
-
-    private static let topicToExamArea: [String: String] = [
-        "cme_1": "asset_allocation",
-        "cme_2": "asset_allocation",
-        "asset_allocation": "asset_allocation",
-        "derivatives": "derivatives_and_risk_management",
-        "fixed_income": "portfolio_management_pathway",
-        "equity": "portfolio_management_pathway",
-        "alt_investments": "portfolio_construction",
-        "institutional_investors": "portfolio_construction",
-        "trade_strategy_execution_volume_2_of_the_pm_pathwaymod_7": "portfolio_management_pathway",
-        "performance_evaluation": "performance_measurement",
-        "manager_selection": "performance_measurement",
-        "ethics": "ethical_and_professional_standards",
-    ]
 
     static func contentDensity(content: ContentLoader) -> [ContentDensityProgress] {
         guard let targets = content.contentTargets, let bank = content.questionBank else { return [] }
@@ -214,7 +221,7 @@ enum ProgressStats {
         }
 
         for topic in bank.topics {
-            guard let areaID = topicToExamArea[topic.id] else { continue }
+            let areaID = canonicalTopicID(topic.id)
             var counts = haveByArea[areaID] ?? (0, 0, 0)
             for caseStudy in topic.cases {
                 for question in caseStudy.questions {
