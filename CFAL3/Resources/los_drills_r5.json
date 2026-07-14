@@ -1,0 +1,1858 @@
+{
+  "schema_version": 2,
+  "generated_by": "claude_r5_aarw_drills_curriculum_grounded",
+  "curriculum_source": "CFA Program 2027 Level III Volume 1, Learning Module 5",
+  "content_type": "mc_only",
+  "drills": [
+    {
+      "los_id": "asset_allocation_with_real_world_constraints.a",
+      "los_letter": "a",
+      "los_text": "discuss asset size, liquidity needs, time horizon, and regulatory or other considerations as constraints on asset allocation",
+      "reading_id": "asset_allocation_with_real_world_constraints",
+      "reading_name": "Asset Allocation with Real-World Constraints",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r5_aarw_los_a_q1",
+          "number": 1,
+          "stem": "The reading identifies four common constraints that must be considered when modeling asset allocation alternatives. Which of the following is *least likely* one of them?",
+          "options": {
+            "A": "The number of asset classes in the strategic policy universe.",
+            "B": "Asset size.",
+            "C": "Liquidity needs."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The four constraints identified are asset size, liquidity needs, taxes, and time horizon. Regulatory and other external considerations may also influence the opportunity set. The number of asset classes is not itself a constraint — it's an output shaped by the constraints.",
+            "B": "This is one of the four.",
+            "C": "This is one of the four."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Constraints in Asset Allocation and Asset Size",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_a_q2",
+          "number": 2,
+          "stem": "Research on defined benefit pension plan size and performance (1990–2008) cited in the reading found that large DB plans outperformed smaller ones by *most likely*:",
+          "options": {
+            "A": "10–15 basis points per year on a risk-adjusted basis.",
+            "B": "45–50 basis points per year on a risk-adjusted basis.",
+            "C": "100–200 basis points per year on a risk-adjusted basis."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This is below the reading's figure.",
+            "B": "Correct. The reading cites Dyck and Pomorski (2011) — large DB plans outperformed smaller ones by 45–50 basis points per year on a risk-adjusted basis. Gains come from a combination of cost savings related to internal management, greater ability to negotiate fees with external managers, and the ability to support larger allocations to private equity and real estate.",
+            "C": "This is above the reading's figure."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Asset Size — DB plan scale study",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_a_q3",
+          "number": 3,
+          "stem": "In the reading's small-cap example, a US$25 billion fund seeking a 5% allocation to global small-cap stocks (US$1.25 billion) across 3–4 active managers *most likely* faces which issue?",
+          "options": {
+            "A": "The managers' AUM is unaffected by the allocation size.",
+            "B": "Small-cap is the most scalable strategy for very large investors.",
+            "C": "Average allocation per manager (US$300–400 million) would constitute 23%–31% of each manager's AUM, exposing both the asset owner and manager to undesirable operational risk."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "The manager's AUM composition is materially affected.",
+            "B": "Small-cap is one of the strategies most sensitive to diseconomies of scale.",
+            "C": "Correct. In the reading's example, an effective AUM level for a small-cap manager is on the order of US$1.3 billion. A US$300–400M allocation from a single client would constitute 23%–31% of that manager's AUM — an undesirable operational risk. Above some size, active investment strategies become difficult to deploy effectively."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Asset Size — small-cap constraint example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_a_q4",
+          "number": 4,
+          "stem": "The reading notes that owners of very large portfolios frequently choose to invest passively in developed equity markets. The rationale is *most likely*:",
+          "options": {
+            "A": "their size inhibits alpha potential in developed equities, so scarce governance resources can be allocated to areas like private equity, hedge funds, and infrastructure where scale and resources provide a competitive advantage.",
+            "B": "Developed-market equities are illegal to actively manage in most jurisdictions, forcing passive implementation.",
+            "C": "Passive investing always outperforms active management, making the choice automatic for any investor."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states owners of very large portfolios face size constraints in allocating to active equity strategies. They frequently invest passively in developed equity markets where their size inhibits alpha potential. Finite resources can then be allocated toward such strategies as private equity, hedge funds, and infrastructure where scale and resources provide a competitive advantage.",
+            "B": "Incorrect. No such legal restriction exists anywhere.",
+            "C": "Incorrect. The reading makes no categorical claim; the logic is size-specific — mega-portfolios' scale inhibits alpha in developed equities, so governance budgets go where they pay (private markets)."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Asset Size — passive DM equity for large investors",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_a_q5",
+          "number": 5,
+          "stem": "The reading notes that investment managers tend to incur *disadvantages* from increasing AUM, *most likely* including:",
+          "options": {
+            "A": "Growing AUM produces smaller trade sizes that reduce price impact and improve execution.",
+            "B": "larger trade sizes incurring greater price impact, capital inflows causing style drift beyond core investment theses, and organizational hierarchies slowing decision making.",
+            "C": "The main AUM disadvantage is a narrower opportunity set imposed by regulatory position limits."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Trade sizes GROW with AUM, raising price impact — the direction is opposite.",
+            "B": "Correct. The reading identifies these disadvantages of manager scale: growth in AUM leads to larger trade sizes (greater price impact); capital inflows may cause active managers to pursue ideas outside their core theses; and organizational hierarchies may slow decision-making and reduce incentives. Asset owners, in contrast, are found to have increasing returns to scale.",
+            "C": "Incorrect. Regulatory limits are a separate constraint; the identified costs are impact, style drift from inflows, and organizational complexity."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Asset Size — manager scale disadvantages",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_a_q6",
+          "number": 6,
+          "stem": "For asset owners with *small* portfolios (like the Courneuve University Endowment with US$250 million), the reading recommends *most likely*:",
+          "options": {
+            "A": "large allocations to hedge funds, private equity, and infrastructure to match Yale endowment's approach.",
+            "B": "concentrating in a single asset class to reduce complexity.",
+            "C": "asset allocation emphasizing large and liquid investments (cash equivalents, developed and emerging market equity, sovereign and investment-grade bonds), with a small portion in commingled real estate/PE/hedge fund investments if governance capacity supports it."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This ignores the size and governance constraints.",
+            "B": "Concentration would forfeit diversification benefits.",
+            "C": "Correct. The reading's Courneuve solution notes that asset size and limited governance resources are significant constraints. The AA should emphasize large and liquid investments (cash equivalents, DM/EM equity, sovereign and IG bonds). Some small portion could be allocated to commingled real estate, PE, or hedge funds, but only after ensuring the board has expertise or engages an outside expert."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Constraints — Example 1, Courneuve Endowment",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_a_q7",
+          "number": 7,
+          "stem": "The reading identifies *two dimensions of liquidity* that must be considered in AA. These are *most likely*:",
+          "options": {
+            "A": "the liquidity needs of the asset owner and the liquidity characteristics of the asset classes in the opportunity set.",
+            "B": "the historical bid-ask spread and turnover.",
+            "C": "the size of the portfolio and the size of the asset class."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states two dimensions must be considered: (1) the liquidity needs of the asset owner and (2) the liquidity characteristics of the asset classes in the opportunity set. Integrating the two is an essential element of successful investment planning.",
+            "B": "These are important but only capture the asset side.",
+            "C": "These relate to asset size, not liquidity per se."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Liquidity",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_a_q8",
+          "number": 8,
+          "stem": "A bank's day-to-day operations portfolio *most likely* requires:",
+          "options": {
+            "A": "large allocations to private equity for illiquidity premium capture.",
+            "B": "high-quality, very short-term, and highly liquid assets due to very high turnover.",
+            "C": "concentration in long-dated infrastructure investments."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This is inappropriate for a day-to-day operational portfolio.",
+            "B": "Correct. The reading states a bank's day-to-day operations portfolio will typically experience very high turnover and very high need for liquidity; therefore, the investment portfolio must hold high-quality, very short-term, and highly liquid assets. Longer-term bank investment portfolios may allocate more to less-liquid investments.",
+            "C": "This is inappropriate for a day-to-day operational portfolio."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Liquidity — bank example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_a_q9",
+          "number": 9,
+          "stem": "The reading argues that in the 2008–2009 global financial crisis, illiquidity became a substantial problem because *most likely*:",
+          "options": {
+            "A": "Illiquidity became a problem in 2008-2009 because regulators mandated a market-wide liquidity halt.",
+            "B": "Liquidity remained abundant throughout the crisis, and no allocation distortions occurred.",
+            "C": "asset owners liquidated their most liquid assets to meet obligations, leaving less liquid assets as an ever-larger portion of the portfolio."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. No such mandate existed — the mechanism was investor behavior.",
+            "B": "Incorrect. Liquidity evaporated in less-liquid assets; owners sold their MOST liquid holdings to meet obligations, leaving illiquid assets an ever-larger share of shrinking portfolios.",
+            "C": "Full statement: asset owners liquidated their most liquid assets to meet obligations, leaving less liquid assets as an ever-larger portion of the portfolio; many were forced to sell private partnership interests at steeply discounted secondary prices, or defaulted on private-fund capital commitments.\n\nCorrect. The reading states that when investors liquidated their most liquid assets to meet financial obligations (or to raise cash in fear of further declines), remaining less liquid assets in their portfolios became an ever-larger portion of the portfolio. Many investors were forced to sell private partnership interests on the secondary market at steeply discounted prices; others defaulted on outstanding private fund capital commitments."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Liquidity — the case of vanishing liquidity",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_a_q10",
+          "number": 10,
+          "stem": "The reading warns that in the 2008-2009 GFC, panic selling by governance groups without the mental fortitude to hold illiquid positions *most likely* resulted in:",
+          "options": {
+            "A": "permanent losses — 'rates of return may be mean-reverting, but wealth is not'.",
+            "B": "temporary underperformance that fully reversed.",
+            "C": "no lasting effect on wealth."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: permanent losses — 'rates of return may be mean-reverting, but wealth is not' — because there were fewer assets left to earn returns in the recovery.\n\nCorrect. The reading warns that if those responsible for oversight lack the mental fortitude to maintain course through the crisis, illiquid investments are unlikely to produce their expected rewards. Although rates of return may be mean-reverting, wealth is not — losses resulting from panic selling during times of stress become permanent losses; there are fewer assets left to earn returns in a post-crash recovery.",
+            "B": "The reading emphasizes permanent, not temporary, effects.",
+            "C": "The reading identifies substantial lasting effects."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Liquidity — governance capacity",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_a_q11",
+          "number": 11,
+          "stem": "The reading argues that too much liquidity in markets (overliquidity from central bank QE programs) *most likely* creates:",
+          "options": {
+            "A": "Overliquidity from central bank QE programs creates immediate market crashes as excess money floods out of assets.",
+            "B": "high asset valuations as investors chase excess liquidity, potentially eroding expected future returns of various asset classes.",
+            "C": "Central bank liquidity has no impact on asset prices or expected returns."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The near-term effect is the OPPOSITE — liquidity supports and inflates valuations.",
+            "B": "Correct. The reading states overliquidity in the market may lead to too high asset valuations as investors try to invest their excess liquidity, eroding expected future returns. Following the GFC and COVID-19 pandemic, central banks pumped extra cash via asset purchase/QE programs, fueling equity market rebounds and pushing rates lower.",
+            "C": "Incorrect. The impact is material: investors chasing liquidity bid up valuations, eroding EXPECTED FUTURE returns."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Liquidity — Quantitative Easing sidebar",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_a_q12",
+          "number": 12,
+          "stem": "For a *frozen* pension plan that may soon purchase a group annuity to eliminate its pension obligation, the reading recommends *most likely*:",
+          "options": {
+            "A": "large allocations to illiquid assets to capture illiquidity premium.",
+            "B": "increasing equity allocation aggressively.",
+            "C": "prioritizing liquidity of plan assets, because a substantial allocation to illiquid assets may prevent the plan sponsor from executing the desired annuity purchase."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This ignores the imminent liquidity need.",
+            "B": "This is inappropriate for a plan preparing to terminate.",
+            "C": "Correct. The reading warns that a frozen pension plan that may soon eliminate its pension obligation through group annuity purchase must prioritize liquidity. If there is a significant probability that the company will take this step, liquidity becomes a primary concern; if there is a substantial allocation to illiquid assets, the plan sponsor may be unable to execute the desired annuity purchase."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Liquidity — frozen pension plans",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_a_q13",
+          "number": 13,
+          "stem": "An asset owner's *time horizon* changes with human capital in the reading's Bodie-Merton-Samuelson framework. As human capital (with its predominantly bond-like risk) *declines* over time, the optimal allocation of financial capital *most likely* moves toward:",
+          "options": {
+            "A": "increasing allocation to bonds.",
+            "B": "increasing allocation to equities.",
+            "C": "no change in allocation."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading (citing Bodie, Merton, and Samuelson 1992) states that assuming no change in the investor's utility function, as human capital — with its predominantly bond-like risk — declines over time, the asset allocation for financial capital would reflect an increasing allocation to bonds. This is why target-date fund glide paths move toward bonds.",
+            "B": "This reverses the direction the framework implies.",
+            "C": "The optimal allocation changes as human capital changes."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Time Horizon — Changing Human Capital",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_a_q14",
+          "number": 14,
+          "stem": "The reading discusses *time diversification of risk* — the notion that longer horizons tolerate higher-risk assets because returns even out. Under standard MVO random-walk assumptions, the reading argues that:",
+          "options": {
+            "A": "the probability of shortfall falls with horizon, so time diversification always holds.",
+            "B": "under random walk assumptions there is no reduction in risk with longer horizons; while the probability of shortfall may be lower at longer horizons, the dispersion of possible outcomes (magnitude of potential loss) widens as horizon expands.",
+            "C": "returns become perfectly predictable at long horizons."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The reading disputes this classical intuition under random walk.",
+            "B": "Correct. Per Samuelson (1963, 1969), under the random walk assumption there is no reduction in risk with longer time horizons. Although the probability of reduced wealth or shortfall may be lower at longer horizons, the dispersion of possible outcomes widens. In the reading's example, the lower boundary of expected S&P 500 returns at a 95% confidence interval is less than the initial investment for all periods less than 10 years, and doesn't exceed the risk-free ending wealth until 30 years.",
+            "C": "Returns remain uncertain even at long horizons."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Time Horizon — time diversification of risk",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_a_q15",
+          "number": 15,
+          "stem": "The reading identifies *mean-reverting* behavior in risky asset returns over intermediate to long horizons as *most likely* supporting:",
+          "options": {
+            "A": "immediate 100% cash allocations for all investors.",
+            "B": "constant asset allocations across all horizons.",
+            "C": "the conventional arguments for funding long-term goals with higher risk/return assets and reducing allocations to riskier assets as horizon shortens."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This is not implied by mean reversion.",
+            "B": "This is inconsistent with mean reversion and horizon-based allocation.",
+            "C": "Correct. The reading states that although one-year returns are largely independent, there is some evidence risky asset returns can display mean-reverting tendencies over intermediate to longer time horizons. This would support the conventional arguments for funding long-term goals with higher risk/return assets, and reducing allocations to riskier assets as time horizon shortens."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Time Horizon — mean reversion",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_a_q16",
+          "number": 16,
+          "stem": "The reading notes that insurance companies typically have the largest component of their asset base in *fixed income*. This is *most likely* because:",
+          "options": {
+            "A": "insurers are highly focused on matching assets to projected probabilistic cash flows of the risks they underwrite, making fixed-income the natural core.",
+            "B": "insurance regulation prohibits any equity holdings.",
+            "C": "insurance companies have no need for return-seeking assets."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: insurers are highly focused on matching assets to projected probabilistic cash flows of the risks they underwrite, making fixed-income the natural core; also, regulatory limits on equity typically range from 10% up to 30% (Switzerland) or 50% (Mexico).\n\nCorrect. The reading states insurers are most often highly focused on matching assets to projected probabilistic cash flows of underwritten risks. Fixed-income assets are typically the largest component of an insurance company's asset base. Regulatory limits on equity range from 10% (typical maximum) to 30% in Switzerland and 50% in Mexico. Israel and Korea impose 15% limits on real estate. Some regions use book-value accounting.",
+            "B": "Equity holdings are permitted but often capped.",
+            "C": "Insurers do include return-seeking assets subject to regulatory limits."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Regulatory and Other External Constraints — Insurance Companies",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_a_q17",
+          "number": 17,
+          "stem": "Solvency II, which the reading identifies as introducing a harmonized EU-wide insurance regulatory regime effective January 2016, *most likely*:",
+          "options": {
+            "A": "Solvency II eliminates all capital requirements for EU insurers, freeing their asset allocation entirely.",
+            "B": "sets minimum capital levels for insurers based on the insurer's mix of assets, liabilities, and risk, with asset classes often treated differently for purposes of determining whether an insurer meets risk-based capital requirements.",
+            "C": "Solvency II prohibits EU insurers from investing outside the European Union."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The regime ESTABLISHES risk-based minimum capital, scaled to the asset-liability-risk mix.",
+            "B": "Correct. The reading states Solvency II is an EU legislative program implemented in all 28 member states including the UK in January 2016, introducing a new harmonized EU-wide insurance regulatory regime designed to harmonize risk-based capital requirements. Asset classes are often treated differently for purposes of determining whether an insurer meets risk-based capital requirements, driving distinct treatment of equities, bonds, real estate, etc.",
+            "C": "Incorrect. No foreign-investment prohibition exists; asset classes are capital-weighted by risk, shaping (not banning) allocation."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Regulatory Constraints — Solvency II",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_a_q18",
+          "number": 18,
+          "stem": "The reading notes that a Sovereign Wealth Fund like Norway's NBIM has an internal constraint that it may not invest in any alternative asset class other than *most likely*:",
+          "options": {
+            "A": "hedge funds, unlimited.",
+            "B": "private equity, up to 15% of assets.",
+            "C": "real estate, limited to no more than 7% of assets."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "The reading identifies this as excluded.",
+            "B": "Not the reading's specification for NBIM.",
+            "C": "Correct. The reading states the Norwegian SWF NBIM is not permitted to invest in any alternative asset class other than real estate, which is limited to no more than 7% of assets. As publicly owned entities, SWFs are typically subject to broad public scrutiny and tend to adopt a lower-risk AA than might otherwise be considered given their long-term horizon, to avoid reputation risk."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Regulatory Constraints — Sovereign Wealth Funds",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_a_q19",
+          "number": 19,
+          "stem": "Sharia law, cited as an example of religious constraints on asset allocation, *most likely* prohibits investment in:",
+          "options": {
+            "A": "businesses with links to pork, alcohol, tobacco, pornography, prostitution, gambling, or weaponry.",
+            "B": "any equity or fixed-income asset regardless of underlying business.",
+            "C": "only foreign-denominated securities."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: businesses with links to pork, alcohol, tobacco, pornography, prostitution, gambling, or weaponry; and constrains investments in businesses that operate on interest payments (major Western banks and mortgage providers) and businesses that transfer risk (major Western insurers).\n\nCorrect. The reading identifies Sharia law's prohibitions on businesses with links to pork, alcohol, tobacco, pornography, prostitution, gambling, or weaponry. It also constrains investment in businesses operating on interest payments (major Western banks, mortgage providers) and businesses that transfer risk (major Western insurers). ESG considerations more broadly are becoming increasingly important to institutional and individual investors alike.",
+            "B": "This is over-inclusive.",
+            "C": "This is not the Sharia constraint."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Regulatory Constraints — ESG and religious factors",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_a_q20",
+          "number": 20,
+          "stem": "The reading identifies pension funds as subject to a wide array of jurisdiction-specific constraints. For example, *most likely*:",
+          "options": {
+            "A": "all countries impose identical rules on pension asset allocation.",
+            "B": "Japanese pension funds must hold a certain minimum percentage of assets in Japanese bonds to maintain tax-exempt status.",
+            "C": "pension funds face no regulatory constraints in any jurisdiction."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Rules vary widely across jurisdictions.",
+            "B": "Full statement: Japanese pension funds must hold a certain minimum percentage of assets in Japanese bonds to maintain tax-exempt status; Canada limits investment in any one entity to 10% of market value; Switzerland limits real estate to 30%; Estonia allows up to 75% in public equity.\n\nCorrect. The reading catalogs jurisdiction-specific pension constraints: Japan requires a minimum percentage in Japanese bonds for tax-exempt status; Canada allows a max of 10% of market value in any one entity or related entities; Switzerland generally limits real estate to 30%; Estonia allows a max of 75% in public equity with no foreign investment limit; Brazil allows max 70% in public equity with max 10% in foreign public equity; Ukraine limits bonds to 40%.",
+            "C": "Pension fund allocations are heavily regulated."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.a",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Regulatory Constraints — Pension Fund examples",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "asset_allocation_with_real_world_constraints.b",
+      "los_letter": "b",
+      "los_text": "discuss tax considerations in asset allocation and rebalancing",
+      "reading_id": "asset_allocation_with_real_world_constraints",
+      "reading_name": "Asset Allocation with Real-World Constraints",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r5_aarw_los_b_q1",
+          "number": 1,
+          "stem": "For after-tax portfolio optimization, the reading defines the expected after-tax return for an asset with return purely from interest income as *most likely*:",
+          "options": {
+            "A": "r_at = r_pt + t.",
+            "B": "r_at = r_pt / (1 − t).",
+            "C": "r_at = r_pt × (1 − t)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This is not the after-tax return formula.",
+            "B": "This inverts the formula.",
+            "C": "Correct. The reading defines Equation 1: r_at = r_pt × (1 − t), where r_at is expected after-tax return, r_pt is expected pre-tax return, and t is expected tax rate. For a 3% coupon bond with 40% tax rate: after-tax return = 0.03(1 − 0.40) = 0.018 = 1.80%."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.b",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "After-Tax Portfolio Optimization — Equation 1",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_b_q2",
+          "number": 2,
+          "stem": "For equity that includes both dividend and capital gains components, the reading extends the formula to *most likely*:",
+          "options": {
+            "A": "r_at = p_d × r_pt × (1 − t_d) + p_a × r_pt × (1 − t_cg).",
+            "B": "r_at = r_pt × (1 − t_d − t_cg).",
+            "C": "r_at = (r_pt − t_d − t_cg) / 2."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading gives Equation 2: r_at = p_d × r_pt × (1 − t_d) + p_a × r_pt × (1 − t_cg), where p_d is the proportion of return attributed to dividends, p_a is the proportion attributed to price appreciation, t_d is dividend tax rate, and t_cg is capital gains tax rate. For a stock with no dividends and 8% return, 25% cap gains rate: after-tax = 0.08(1 − 0.25) = 6%.",
+            "B": "This misspecifies how the two tax rates combine.",
+            "C": "This is not the correct formula."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.b",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "After-Tax Portfolio Optimization — Equation 2",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_b_q3",
+          "number": 3,
+          "stem": "The reading argues that taxes affect the *standard deviation* assumption for each asset class through *most likely*:",
+          "options": {
+            "A": "σ_at = σ_pt × (1 + t).",
+            "B": "σ_at = σ_pt × (1 − t).",
+            "C": "σ_at = σ_pt (no adjustment needed)."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This has the wrong sign.",
+            "B": "Correct. The reading gives Equation 3: σ_at = σ_pt × (1 − t). Taxes truncate both the high and low ends of the distribution of returns — muting the dispersion and resulting in lower highs and higher lows. Losses are also muted by the same (1-t) tax adjustment because the investor receives the economic benefit of a capital loss (offset against gains).",
+            "C": "Taxes DO affect standard deviation."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.b",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "After-Tax Portfolio Optimization — Equation 3",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_b_q4",
+          "number": 4,
+          "stem": "The reading states that correlation assumptions *most likely*:",
+          "options": {
+            "A": "Correlation assumptions must be scaled down by the tax rate, like volatilities.",
+            "B": "Asset returns become uncorrelated after taxes are applied.",
+            "C": "do not need to be adjusted for taxes, because taxes are proportional to return and after-tax co-movements are the same as pre-tax co-movements."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Volatility scales with (1 − t); correlations do NOT need tax adjustment.",
+            "B": "Incorrect. Taxes are proportional to returns, so after-tax CO-MOVEMENTS mirror pre-tax co-movements — correlations are unchanged.",
+            "C": "Correct. The reading states correlation assumptions need not be adjusted when modeling asset allocation choices for the taxable asset owner: taxes are proportional to return, so after-tax co-movements are the same as pre-tax co-movements."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.b",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "After-Tax Portfolio Optimization — correlations",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_b_q5",
+          "number": 5,
+          "stem": "In the reading's example comparing pre-tax and after-tax efficient asset mixes, an important observation is that after-tax portfolio P50 shows *most likely*:",
+          "options": {
+            "A": "a significant reduction in high-yield bonds allocation and higher allocations to equities, because high-yield bonds face a heavier tax burden while investment-grade bonds retain their risk-reduction role due to low equity correlation.",
+            "B": "After-tax portfolio P50 shows no change whatsoever from its pre-tax counterpart.",
+            "C": "After-tax optimization eliminates all equities from the optimal mid-frontier mix."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading's Exhibits 5 and 7 show P50 shifts from 25% IG bonds / 26% HY bonds / 49% equity (pre-tax) to 38% IG bonds / 7% HY bonds / 55% equity (after-tax). HY bonds' heavier tax burden reduces their attractiveness. IG bonds, though taxed at the same rate, are less risky and demonstrate lower correlation with equity, so they continue to play the important risk-reduction role.",
+            "B": "Incorrect. Mid-frontier portfolios change MATERIALLY once taxes enter.",
+            "C": "Incorrect. Equities INCREASE — the heavy ordinary-income taxation of high-yield bonds pushes the after-tax frontier toward tax-efficient equity."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.b",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "After-Tax Portfolio Optimization — Exhibits 5, 7",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_b_q6",
+          "number": 6,
+          "stem": "The reading argues that even tax-inefficient assets can play a diversifying role in an optimal after-tax allocation because *most likely*:",
+          "options": {
+            "A": "tax inefficiency is beneficial.",
+            "B": "the optimal after-tax allocation depends on the interaction of after-tax returns, after-tax risk, and correlations.",
+            "C": "tax rules always equalize outcomes."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Tax inefficiency is a cost, not a benefit.",
+            "B": "Full statement: the optimal after-tax allocation depends on the interaction of after-tax returns, after-tax risk, and correlations; a tax-inefficient asset with sufficiently low correlations can still add value.\n\nCorrect. The reading states the optimal after-tax asset allocation depends on the interaction of after-tax returns, after-tax risk, and correlations. If an asset class or strategy is tax inefficient, it can still play a diversifying role in an optimal after-tax asset allocation if it offers sufficiently low correlations. After-tax portfolio optimization helps answer this question.",
+            "C": "This is not the reading's argument."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.b",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "After-Tax Portfolio Optimization — tax-inefficient assets",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_b_q7",
+          "number": 7,
+          "stem": "The reading argues that rebalancing ranges for a *taxable* portfolio *most likely* should be:",
+          "options": {
+            "A": "Rebalancing ranges for taxable portfolios should be narrower than for tax-exempt portfolios to minimize risk drift.",
+            "B": "Rebalancing ranges should be identical across taxable and tax-exempt portfolios of similar risk.",
+            "C": "wider than for a tax-exempt portfolio with a similar risk profile, because after-tax volatility is lower and correlations are unchanged, so it takes larger asset class movements to materially alter the risk profile."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Narrower ranges would multiply taxable realization events — the direction is wrong.",
+            "B": "Incorrect. The tax treatment differs, so the ranges should too: WIDER for taxable portfolios, since after-tax volatility is lower and rebalancing triggers capital gains.",
+            "C": "Correct. The reading states that because after-tax volatility is less than pre-tax volatility (Equation 3) and correlations remain the same, it takes larger asset class movements to materially alter the risk profile of the taxable portfolio. Rebalancing ranges for a taxable portfolio can be wider than those of a tax-exempt portfolio with a similar risk profile. Broader ranges reduce trading frequency and taxable gains."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.b",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Taxes and Rebalancing",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_b_q8",
+          "number": 8,
+          "stem": "The reading gives the formula for equivalent after-tax rebalancing range as R_at = R_pt / (1 − t). For a tax-exempt investor's ±10% range with an equivalent taxable investor facing a 25% tax rate, the equivalent after-tax rebalancing range is *closest to*:",
+          "options": {
+            "A": "±13.3%.",
+            "B": "±7.5%.",
+            "C": "±25.0%."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per Equation 4, R_at = R_pt / (1 − t) = 0.10 / (1 − 0.25) = 0.10 / 0.75 = 0.1333 or 13.3%. The 10% rebalancing range for the tax-exempt investor becomes a 13.3% rebalancing range for the taxable investor when viewed and monitored from the same gross return perspective. Broader rebalancing ranges reduce the frequency of trading and, consequently, the amount of taxable gains.",
+            "B": "This narrows rather than widens the range.",
+            "C": "This is far too wide."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.b",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Taxes and Rebalancing — Equation 4",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_b_q9",
+          "number": 9,
+          "stem": "The reading identifies *strategic asset location* as a tax-reduction strategy. This *most likely* involves:",
+          "options": {
+            "A": "placing all assets in taxable accounts to maximize flexibility.",
+            "B": "placing less tax-efficient assets in accounts with more favorable tax treatment (retirement savings accounts).",
+            "C": "geographical diversification across tax jurisdictions."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This is the opposite of strategic asset location.",
+            "B": "Correct. The reading defines strategic asset location as placing less tax-efficient assets in accounts with more favorable tax treatment, such as retirement savings accounts. As a general rule, assets eligible for lower tax rates and deferred capital gains should first be allocated to taxable accounts (equities), while taxable bonds and high-turnover trading strategies should generally be located in tax-exempt/deferred accounts.",
+            "C": "This is not what asset location means."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.b",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Strategies to Reduce Tax Impact — asset location",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_b_q10",
+          "number": 10,
+          "stem": "The reading's *general rule* for asset location is that *most likely*:",
+          "options": {
+            "A": "all assets should be equally distributed across account types.",
+            "B": "bonds should be held in taxable accounts.",
+            "C": "equities should generally be held in taxable accounts, while taxable bonds and high-turnover trading strategies should generally be located in tax-exempt and tax-deferred accounts."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "The reading gives specific, differentiated guidance.",
+            "B": "This reverses the recommendation.",
+            "C": "Correct. The reading states the general rule: the portion of a taxable asset owner's assets that are eligible for lower tax rates and deferred capital gains tax treatment should first be allocated to the investor's taxable accounts. Equities should generally be held in taxable accounts (they benefit from capital gains rates and deferral). Taxable bonds and high-turnover trading strategies should generally be located in tax-exempt/deferred accounts."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.b",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Strategies to Reduce Tax Impact — general rule",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_b_q11",
+          "number": 11,
+          "stem": "The reading identifies an *exception* to the general rule for asset location that applies to *most likely*:",
+          "options": {
+            "A": "assets held for near-term liquidity needs.",
+            "B": "high-net-worth investors.",
+            "C": "all foreign investments."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: assets held for near-term liquidity needs — a portion of the bond allocation may be held in taxable accounts because tax-exempt/tax-deferred accounts may not be immediately accessible without tax penalty.\n\nCorrect. The reading states one important exception to the general rule regarding asset location applies to assets held for near-term liquidity needs. Because tax-exempt and tax-deferred accounts may not be immediately accessible without tax penalty, a portion of the bond allocation may be held in taxable accounts if its role is to fund near-term consumption requirements.",
+            "B": "Wealth level is not the basis for this exception.",
+            "C": "Not the reading's exception."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.b",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Strategies to Reduce Tax Impact — liquidity exception",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_b_q12",
+          "number": 12,
+          "stem": "The reading identifies *tax-loss harvesting* as *most likely*:",
+          "options": {
+            "A": "avoiding all realized losses to preserve capital.",
+            "B": "intentionally trading to realize a capital loss, which is then used to offset a current or future realized capital gain elsewhere in the portfolio, reducing the investor's taxes.",
+            "C": "swapping bonds within a laddered portfolio to lower duration."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The reading defines tax-loss harvesting as the intentional realization of losses, not their avoidance.",
+            "B": "Correct. The reading defines tax-loss harvesting as intentionally trading to realize a capital loss, which is then used to offset a current or future realized capital gain in another part of the portfolio, thereby reducing the taxes owed by the investor.",
+            "C": "This is a different technique."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.b",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Strategies to Reduce Tax Impact — tax-loss harvesting",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_b_q13",
+          "number": 13,
+          "stem": "The reading gives the after-tax value formula for a tax-deferred account (where assets grow tax-free but are taxed on distribution) as *most likely*:",
+          "options": {
+            "A": "v_at = v_pt × (1 + t_i).",
+            "B": "v_at = v_pt (unchanged).",
+            "C": "v_at = v_pt × (1 − t_i)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This has the wrong sign.",
+            "B": "Tax-deferred accounts do have embedded tax liabilities.",
+            "C": "Correct. The reading gives Equation 5: v_at = v_pt × (1 − t_i), where v_at is after-tax value, v_pt is pre-tax market value, and t_i is the expected income tax rate upon distribution. Because these assets cannot be distributed (and consumed) without incurring the tax, the tax burden is inseparable from the economic value of the assets."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.b",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Strategies to Reduce Tax Impact — Equation 5",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_b_q14",
+          "number": 14,
+          "stem": "In the Moreau case (Example 5), given three recommendations for allocating an inherited *taxable* portfolio with the same asset classes and same risk tolerance as her tax-deferred portfolio, the reading's *most appropriate* recommendation is *most likely* one that:",
+          "options": {
+            "A": "shifts equity-like risk away from high-yield bonds and dividend-income equity strategies (both tax-disadvantaged in taxable accounts) into the total return (capital gain) common stock strategy.",
+            "B": "The recommended taxable allocation matches the tax-deferred portfolio's allocation exactly for consistency.",
+            "C": "The recommendation is to hold the inheritance entirely in cash until the tax rules change."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: shifts equity-like risk away from high-yield bonds and dividend-income equity strategies (both tax-disadvantaged in taxable accounts) into the total return (capital gain) common stock strategy — recommending Recommendation C (30% IG bonds / 0% HY / 0% dividend equity / 70% total return equity).\n\nCorrect. The reading's Example 5 solution states Recommendation C is most appropriate. High-yield bonds and dividend-income common stock strategies are tax-disadvantaged in a taxable portfolio. By shifting equity-like risk to the total return strategy, Moreau achieves greater after-tax return. Given lower after-tax equity volatility, a higher equity allocation may be justified without exceeding her risk level. IG bonds still play the risk-reduction role.",
+            "B": "Incorrect. Matching ignores the accounts' different tax treatment — the taxable setting penalizes tax-inefficient assets.",
+            "C": "Incorrect. Cash parking is not the recommendation; the shift moves equity-like risk away from tax-disadvantaged high-yield bonds and dividend-income strategies."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.b",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Taxes and Rebalancing — Example 5, Moreau case",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_b_q15",
+          "number": 15,
+          "stem": "Following the *asset location* logic in the Moreau case, the reading's optimal placement recommendation is *most likely*:",
+          "options": {
+            "A": "hold everything in the taxable account for maximum flexibility.",
+            "B": "hold IG bonds, HY bonds, and dividend-income common stock in the tax-exempt retirement account; hold the total return (capital gain) common stock in the taxable account.",
+            "C": "randomize across accounts."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This ignores the tax shelter opportunity.",
+            "B": "Correct. The reading's Example 5 asset location table shows: IG bonds → tax-advantaged retirement account (X); HY bonds → tax-advantaged (X); Common stock dividend income → tax-advantaged (X); Common stock total return (capital gain) → taxable account (X). Tax-disadvantaged assets go in the tax-shelter; capital-gain-eligible assets go in the taxable account where they benefit from lower cap gains rates and deferral.",
+            "C": "This is not a strategic recommendation."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.b",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Taxes and Rebalancing — Example 5 asset location",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "asset_allocation_with_real_world_constraints.c",
+      "los_letter": "c",
+      "los_text": "recommend and justify revisions to an asset allocation given change(s) in investment objectives and/or constraints",
+      "reading_id": "asset_allocation_with_real_world_constraints",
+      "reading_name": "Asset Allocation with Real-World Constraints",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r5_aarw_los_c_q1",
+          "number": 1,
+          "stem": "The reading identifies three broad categories of circumstances that may trigger a review of the SAA policy. These are *most likely*:",
+          "options": {
+            "A": "quarter-end, year-end, and month-end.",
+            "B": "peer performance, benchmark rebalancing, and index reconstitution.",
+            "C": "a change in goals, a change in constraints, or a change in beliefs."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Calendar timing is not the basis for special review.",
+            "B": "These are not the reading's categories.",
+            "C": "Correct. The reading identifies three broad categories: (1) a change in goals (business conditions affecting the sponsoring entity, personal circumstances altering risk appetite/capacity), (2) a change in constraints (time horizon, liquidity, asset size, regulatory changes), or (3) a change in beliefs (investment beliefs and their guiding principles)."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.c",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Revising the Strategic Asset Allocation",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_c_q2",
+          "number": 2,
+          "stem": "The reading recommends that institutional asset owners *most likely* revisit the AA policy through a formal study:",
+          "options": {
+            "A": "at least once every five years, with annual affirmation that the AA remains appropriate.",
+            "B": "monthly or quarterly at minimum.",
+            "C": "only when the sponsoring entity is dissolved."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states many institutional asset owners typically revisit the AA policy at least once every five years through a formal AA study, and all asset owners should affirm annually that the AA remains appropriate given their needs and circumstances.",
+            "B": "Monthly/quarterly formal AA studies are impractical and unnecessary.",
+            "C": "Reviews should happen while the entity is operational."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.c",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Revising the Strategic Asset Allocation",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_c_q3",
+          "number": 3,
+          "stem": "A *change in beliefs* — specifically a material shift in expected returns — the reading illustrates using the 1984–2014 vs 2015–2016 environment. The reading argues that *most likely*:",
+          "options": {
+            "A": "Return assumptions have no impact on the optimal asset allocation, since MVO weights are driven entirely by the covariance matrix rather than the expected return vector.",
+            "B": "the 1984–2014 environment (declining inflation and rates, strong global GDP growth, favorable demographics, robust corporate profit growth) produced returns considerably higher than the long-run trend, and 2015–2016 conditions (declining productivity gains, stalling labor force, competitive pressures) implied a materially different forward outlook.",
+            "C": "The reading argues the 1984-2014 environment of declining rates, favorable demographics, and strong profit growth was expected to continue indefinitely, requiring no change to allocations."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Expected returns are the optimizer's primary input; material shifts rework the frontier.",
+            "B": "Full statement: the 1984–2014 environment (declining inflation and rates, strong global GDP growth, favorable demographics, robust corporate profit growth) produced returns considerably higher than the long-run trend, and 2015–2016 conditions (declining productivity gains, stalling labor force, competitive pressures) implied a materially different forward outlook — an AA developed in 2010 built on prior 26 years of returns would look materially different than one using more current forward-looking assumptions.\n\nCorrect. The reading contrasts the two eras extensively. The 1984-2014 period had declining inflation and interest rates from 1970s/early 1980s highs; strong GDP growth aided by favorable demographics; productivity gains; rapid growth in China; and extraordinary corporate profit growth. Returns exceeded long-run trend. The 2015-2016 environment ended these trends. McKinsey's 2016 projections showed neither slow-growth nor moderate-growth scenario expected returns coming close to the past 30 years.",
+            "C": "Incorrect. The reading identifies a REGIME SHIFT — the tailwinds (falling inflation and rates, demographics, profit growth) were not expected to persist into 2015-2016."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.c",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Revising SAA — change in beliefs",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_c_q4",
+          "number": 4,
+          "stem": "A *significant cash inflow* to a fund (e.g., a £500M university endowment receiving a £100M gift) *most likely* should:",
+          "options": {
+            "A": "be invested in parallel with existing assets without review.",
+            "B": "be immediately spent to avoid distortion.",
+            "C": "trigger a formal AA reassessment considering the increased earning potential of the fund and any spending requirements associated with the donation."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "The reading warns that this approach fails to consider the increased earning potential.",
+            "B": "Immediate spending is not a strategic response.",
+            "C": "Correct. The reading states that pausing to formally reassess the fund's goals, objectives, constraints, and opportunities through an AA study allows the asset owner to consider more broadly how best to maximize this additional wealth. Simply investing in parallel with existing assets fails to consider increased earning potential and any spending requirements associated with the donation."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.c",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Revising SAA — significant cash inflow",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_c_q5",
+          "number": 5,
+          "stem": "A university reducing its *spending policy* from 5% to 4% of assets annually *most likely* implies:",
+          "options": {
+            "A": "the endowment may have greater latitude to invest in less liquid segments of the market.",
+            "B": "the endowment must move entirely to cash immediately.",
+            "C": "no change in the AA is warranted."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: the endowment may have greater latitude to invest in less liquid segments of the market — decisions should be made within an AA study framework to achieve the optimal risk-return trade-off.\n\nCorrect. The reading states that faced with lower payouts, the university endowment may have greater latitude to invest in less liquid segments of the market. Decisions as to how and where to invest given this greater flexibility should be made within the framework of an AA study to ensure the resulting allocation achieves the optimal trade-off of risk and return.",
+            "B": "This is over-reactive.",
+            "C": "A material spending change should trigger reassessment."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.c",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Revising SAA — expected payments change",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_c_q6",
+          "number": 6,
+          "stem": "The reading identifies the *2006 US regulatory changes* that mandated a change in the pension liability discount rate as *most likely* triggering:",
+          "options": {
+            "A": "The 2006 US regulatory changes to pension discount rates triggered increased pension equity allocations.",
+            "B": "many US corporate pension plans to begin *de-risking* (adopting an AA strategy focused on hedging liabilities) to reduce contribution volatility.",
+            "C": "The discount-rate change produced no material shift in pension asset allocation behavior."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The response ran toward FIXED INCOME, not equity.",
+            "B": "Correct. The reading states that regulatory changes in the US in 2006 mandated a change in the liability discount rate, which resulted in larger pension contributions. With higher required contributions, there was less need to reach for higher investment returns. Many US corporate pension plans began de-risking (adopting an asset allocation strategy focused on hedging the liabilities) to reduce contribution volatility.",
+            "C": "Incorrect. The change catalyzed widespread DE-RISKING — liability-hedging allocations to reduce contribution and funded-status volatility."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.c",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Revising SAA — regulatory changes",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_c_q7",
+          "number": 7,
+          "stem": "For an *underfunded* pension plan whose *funded status improves*, the reading recommends *most likely*:",
+          "options": {
+            "A": "aggressive equity increase to sustain gains.",
+            "B": "no change in AA regardless of funded status.",
+            "C": "a pre-programmed 'glide path'."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Improving funded status calls for reducing risk, not adding it.",
+            "B": "Funded status changes should drive AA changes.",
+            "C": "Full statement: a pre-programmed 'glide path' — reducing risk (typically equity) as funded status improves, allowing the investor to respond quickly to changing circumstances in a non-reactive and objective manner.\n\nCorrect. The reading notes that certain milestones are reasonable points at which to implement a change in policy, in most instances reducing risk. For pension funds, these milestones are typically related to changes in funded status. Anticipating these milestones by putting an AA policy in place that anticipates them (a 'glide path') allows the investor to respond more quickly to changing circumstances in a non-reactive and objective manner. Target-date mutual funds are a common example."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.c",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Revising SAA — glide path",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_c_q8",
+          "number": 8,
+          "stem": "The GPFC sovereign wealth fund case: adopted a long-range AA when petroleum revenues were expected to grow for 25 years with intergenerational distributions beginning in 20 years. Now alternate fuels have eroded oil exports, inflows are suspended, and distributions expected in 5 years. The AA has 40% in less-liquid asset classes. The reading's response is *most likely*:",
+          "options": {
+            "A": "the change in liquidity constraints materially affects the appropriate AA — the 40% allocation to less-liquid asset classes (high-yield bonds, hedge funds, private equity) may no longer be appropriate given the change in circumstances.",
+            "B": "the current allocation is still appropriate given long-term perpetuity assumption.",
+            "C": "increase the allocation to less-liquid assets to capture illiquidity premium."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading's GPFC Example 6 solution states GPFC had adopted a long-range AA under the expectation of continuing net cash inflows and no immediate liquidity constraints. With the change in circumstances, the need for liquidity has increased significantly. The current AA allocates 40% to less-liquid asset classes (high-yield bonds, hedge funds, private equity). These asset classes — or the size of the allocation to these asset classes — may no longer be appropriate given the change.",
+            "B": "The change in circumstances is material.",
+            "C": "This ignores the new liquidity constraint."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.c",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Revising SAA — Example 6 GPFC case",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_c_q9",
+          "number": 9,
+          "stem": "The O-Chem Corp case: DB pension plan is closed with US$1.0B in assets, 65% funded. The company plans to buy annuities to fully address obligations. The current AA is 80% liability-matching bonds / 20% equities+RE. Company just announced US$15B capital investment and will only contribute the pension minimum for the foreseeable future. Full funding will take at least 10 years. Reading's recommendation *most likely*:",
+          "options": {
+            "A": "maintain current AA.",
+            "B": "conduct new AA study to address the cash flow forecast change.",
+            "C": "immediately purchase annuities regardless of funding level."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Current AA is inappropriate given the changed timeline.",
+            "B": "Full statement: conduct new AA study to address the cash flow forecast change; a higher allocation to return-seeking assets (public and private equities) is warranted since lower contributions imply the plan will need to rely more heavily on investment returns; suspend the private equity liquidation plan until the new AA study completes.\n\nCorrect. The reading's O-Chem solution: the Investment Committee should conduct a new AA study to address the changes in cash flow forecasts. The lower contributions imply the pension plan will need to rely more heavily on investment returns to reach its funding objectives. A higher allocation to return-seeking assets is warranted. The company should suspend the current private equity liquidation plan until the new AA study has been completed. A liability-matching bond portfolio is still appropriate, though less than the current 80%.",
+            "C": "Cannot annuitize a materially underfunded plan."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.c",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Revising SAA — O-Chem Corp case",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_c_q10",
+          "number": 10,
+          "stem": "The reading notes that new advisers or Investment Committee members joining the oversight group *most likely* should trigger:",
+          "options": {
+            "A": "immediate AA changes reflecting new members' preferences.",
+            "B": "no action related to AA.",
+            "C": "an AA study to educate new members about the investment philosophy and process, ensuring they have a holistic view of the asset owner's goals and objectives."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This would be reactive and biased.",
+            "B": "Membership changes are a valid trigger for AA review.",
+            "C": "Correct. The reading states that as new advisers or members join the Investment Committee, they bring their own beliefs and biases regarding certain investment activities. Conducting an AA study to educate these new members and introduce them to the investment philosophy and process adopted by the organization will smooth their integration into the governance system and ensure they have a holistic view of the asset owner's goals and objectives."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.c",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Revising SAA — governance transitions",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_c_q11",
+          "number": 11,
+          "stem": "A university experiencing *declining enrollments* that must lean more heavily on the endowment fund for operations *most likely*:",
+          "options": {
+            "A": "should re-evaluate its AA policy given the changed pattern of expected payouts from the endowment.",
+            "B": "should not review its AA.",
+            "C": "should suspend all endowment distributions."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading lists this precise example — a university experiencing declining enrollments that must lean more heavily on the endowment fund to support operational expenditures — as a change in goals that should trigger AA re-evaluation. When any of these, or similar, events occur or are anticipated, the existing AA policy should be re-evaluated.",
+            "B": "This ignores the material change.",
+            "C": "Suspending distributions may be counterproductive."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.c",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Revising SAA — university operational reliance",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_c_q12",
+          "number": 12,
+          "stem": "The COVID-19 pandemic period referenced in the reading *most likely* illustrates:",
+          "options": {
+            "A": "long-term return expectations should follow short-term market volatility exactly.",
+            "B": "short-term market returns can be extremely volatile (MSCI ACWI −34% Feb-Mar 2020, then +70.5% Mar-Dec 2020) while long-term expectations should not change dramatically.",
+            "C": "no lessons for AA."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The reading distinguishes short-term from long-term expectations.",
+            "B": "Full statement: short-term market returns can be extremely volatile (MSCI ACWI −34% Feb-Mar 2020, then +70.5% Mar-Dec 2020) while long-term expectations should not change dramatically — though bond return expectations lowered due to very low government yields, corporate earnings were generally expected to recover as pandemic disruptions declined.\n\nCorrect. The reading states that while short-term market returns resembled a wild roller-coaster in 2020 (MSCI ACWI −34% peak to trough Feb-Mar, then +70.5% Mar-Dec), long-term return expectations did not change that dramatically. Bond return expectations lowered due to very low government yields (10-year Treasury near 0.6%), but corporate earnings were generally expected to recover as pandemic disruptions declined. Since end-2021, policymakers and markets have focused on assessing long-lasting pandemic impacts (inflation being most topical).",
+            "C": "The reading extracts substantive lessons about horizon separation."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.c",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Revising SAA — COVID-19 example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "asset_allocation_with_real_world_constraints.d",
+      "los_letter": "d",
+      "los_text": "discuss the use of short-term shifts in asset allocation",
+      "reading_id": "asset_allocation_with_real_world_constraints",
+      "reading_name": "Asset Allocation with Real-World Constraints",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r5_aarw_los_d_q1",
+          "number": 1,
+          "stem": "The reading distinguishes tactical asset allocation (TAA) from strategic asset allocation (SAA) as *most likely*:",
+          "options": {
+            "A": "SAA and TAA are identical concepts.",
+            "B": "TAA replaces SAA as the primary framework.",
+            "C": "SAA represents long-term investment policy targets."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "They differ in horizon and predictability assumptions.",
+            "B": "TAA operates within, not in place of, SAA.",
+            "C": "Full statement: SAA represents long-term investment policy targets; TAA allows short-term deviations from SAA targets, predicated on a belief that returns in the short run are predictable.\n\nCorrect. The reading states SAA (policy asset allocation) represents long-term investment policy targets for asset class weights, while TAA allows short-term deviations from SAA targets. TAA is predicated on a belief that investment returns, in the short run, are predictable — contrasting with the random walk assumption more strongly embedded in most SAA processes."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.d",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Short-Term Shifts in Asset Allocation",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_d_q2",
+          "number": 2,
+          "stem": "TAA moves are *most likely* justified based on:",
+          "options": {
+            "A": "cyclical variations within a secular trend (stage of business or monetary cycle) or temporary price dislocations in capital markets.",
+            "B": "long-term structural changes in the economy alone.",
+            "C": "peer-group benchmarks."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states TAA moves might be justified based on cyclical variations within a secular trend (e.g., stage of business or monetary cycle) or temporary price dislocations in capital markets. The objective of TAA is increasing return, or risk-adjusted return, by taking advantage of short-term economic and financial market conditions that appear more favorable to certain asset classes.",
+            "B": "This is more of a SAA consideration.",
+            "C": "Peer benchmarks are not the reading's justification for TAA."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.d",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Short-Term Shifts — TAA justification",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_d_q3",
+          "number": 3,
+          "stem": "The reading distinguishes TAA from GTAA (Global TAA) as *most likely*:",
+          "options": {
+            "A": "GTAA is a subset of strategic asset allocation focused on long-horizon policy weights.",
+            "B": "GTAA is an opportunistic investment strategy that seeks to take advantage of pricing or valuation anomalies across multiple asset classes (typically equities, fixed income, and currencies).",
+            "C": "TAA and GTAA are identical programs distinguished only by fund size."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. GTAA is opportunistic and TACTICAL, not a strategic policy subset.",
+            "B": "Full statement: GTAA is an opportunistic investment strategy that seeks to take advantage of pricing or valuation anomalies across multiple asset classes (typically equities, fixed income, and currencies) — distinct from SAA/TAA.\n\nCorrect. The reading footnote states SAA and TAA are distinct from GTAA (global tactical asset allocation), which is an opportunistic investment strategy that seeks to take advantage of pricing or valuation anomalies across multiple asset classes, typically equities, fixed income, and currencies.",
+            "C": "Incorrect. GTAA extends TAA across MULTIPLE markets globally, exploiting valuation anomalies among countries and asset classes."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.d",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Short-Term Shifts — GTAA distinction",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_d_q4",
+          "number": 4,
+          "stem": "TAA decisions do NOT expressly consider *most likely*:",
+          "options": {
+            "A": "returns of the asset classes.",
+            "B": "policy portfolio ranges.",
+            "C": "liabilities (or goals in goals-based investing)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Returns are central to TAA.",
+            "B": "TAA operates within pre-established policy ranges.",
+            "C": "Correct. The reading states TAA is an asset-only approach. Although tactical asset allocation shifts must still conform to the risk constraints outlined in the IPS, they do not expressly consider liabilities (or goals in goals-based investing). TAA is not concerned with individual security selection — generating alpha through TAA decisions depends on successful market or factor timing rather than security selection."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.d",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Short-Term Shifts — TAA scope",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_d_q5",
+          "number": 5,
+          "stem": "The reading identifies three common ways to evaluate the success of TAA decisions. Which is *least likely* one of them?",
+          "options": {
+            "A": "Comparing the number of trades executed.",
+            "B": "Comparing the Sharpe ratio realized under TAA relative to the SAA Sharpe ratio.",
+            "C": "Evaluating the information ratio or t-statistic of the average excess return of the TAA portfolio relative to the SAA portfolio."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Trade count is not one of the reading's three methods. The three are: (1) compare TAA vs SAA Sharpe ratios, (2) evaluate the information ratio or t-statistic of the average excess return of TAA vs SAA, and (3) plot realized return/risk of TAA portfolio versus realized return/risk of portfolios along the SAA's efficient frontier (particularly useful for assessing risk-adjusted TAA return).",
+            "B": "This is one of the three methods.",
+            "C": "This is one of the three methods."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.d",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Short-Term Shifts — TAA success measures",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_d_q6",
+          "number": 6,
+          "stem": "The reading warns that TAA decisions may incur additional *costs* — *most likely* including:",
+          "options": {
+            "A": "TAA reliably reduces portfolio volatility and carries no offsetting cost.",
+            "B": "higher trading costs and taxes (for taxable investors), plus potential concentration of risk relative to the policy portfolio, particularly problematic when the SAA relies on uncorrelated asset classes.",
+            "C": "TAA guarantees alpha generation sufficient to cover its trading costs."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Volatility can RISE with TAA, and costs are real.",
+            "B": "Correct. The reading states tactical investment decisions may incur additional costs — higher trading costs and taxes (in the case of taxable investors). Tactical decisions can also increase the concentration of risk relative to the policy portfolio. For example, if the tactical decision is to overweight equities, not only is portfolio risk increased but also the diversification of risk contributions is reduced. This is particularly an issue when the SAA policy portfolio relies on uncorrelated asset classes.",
+            "C": "Incorrect. TAA alpha is uncertain; the identified costs — trading, taxes for taxable investors, risk concentration versus policy — are certain."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.d",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Short-Term Shifts — TAA costs",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_d_q7",
+          "number": 7,
+          "stem": "The reading identifies *two broad approaches* to TAA. These are *most likely*:",
+          "options": {
+            "A": "The two broad approaches to TAA are equity-based and fixed-income-based.",
+            "B": "The two broad approaches to TAA are top-down and bottom-up analysis.",
+            "C": "discretionary (qualitative interpretation of political, economic, and financial market conditions) and systematic (quantitative signals to capture documented return anomalies)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Those are asset classes, not decision frameworks.",
+            "B": "Incorrect. Top-down/bottom-up describes research style; the TAA taxonomy is DISCRETIONARY (qualitative macro judgment) versus SYSTEMATIC (rules-based value, momentum, trend signals).",
+            "C": "Correct. The reading identifies two broad approaches: (1) discretionary TAA — relies on qualitative interpretation of political, economic, and financial market conditions; and (2) systematic TAA — relies on quantitative signals to capture documented return anomalies that may be inconsistent with market efficiency."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.d",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Short-Term Shifts — TAA approaches",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_d_q8",
+          "number": 8,
+          "stem": "*Discretionary TAA* is *most likely* predicated on:",
+          "options": {
+            "A": "the existence of manager skill in predicting and timing short-term market moves away from expected outcomes.",
+            "B": "quantitative factor exposures alone.",
+            "C": "buy-and-hold indexing."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: the existence of manager skill in predicting and timing short-term market moves away from expected outcomes; used in practice to attempt to mitigate/hedge risk in distressed markets while enhancing return in positive markets (asymmetric return distribution).\n\nCorrect. The reading states discretionary TAA is predicated on the existence of manager skill in predicting and timing short-term market moves away from the expected outcome for each asset class that is embedded in the SAA. In practice, discretionary TAA is typically used in an attempt to mitigate or hedge risk in distressed markets while enhancing return in positive return markets (i.e., an asymmetric return distribution).",
+            "B": "Discretionary TAA is qualitative, not primarily quantitative.",
+            "C": "This is the opposite of TAA."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.d",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Short-Term Shifts — Discretionary TAA",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_d_q9",
+          "number": 9,
+          "stem": "Common data inputs to *discretionary TAA* include valuation ratios (P/E, P/B, dividend yield), term and credit spreads, central bank policy, GDP growth, earnings expectations, and *most likely*:",
+          "options": {
+            "A": "only fundamental company-level analysis.",
+            "B": "market sentiment indicators (margin borrowing, short interest, volatility index).",
+            "C": "only historical returns."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "TAA is broader than firm-level analysis.",
+            "B": "Correct. The reading identifies market sentiment as a key discretionary TAA input, including: margin borrowing (bullishness/bearishness indicator), short interest (bearish sentiment indicator; high short interest may signal capitulation), and volatility index/'fear index' (VDAX-NEW in Germany, V2X in UK, VIX in US) which measure expected volatility implied by option pricing.",
+            "C": "Multiple sentiment and macro indicators are used."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.d",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Short-Term Shifts — Discretionary TAA data",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_d_q10",
+          "number": 10,
+          "stem": "*Systematic TAA* attempts to capture asset-class-level return anomalies. The reading identifies which of the following as prominent factors used in systematic TAA?",
+          "options": {
+            "A": "Systematic TAA relies on book value and market capitalization as its only two inputs.",
+            "B": "Systematic TAA factors are corporate governance quality and ESG scores.",
+            "C": "value (return of value stocks over growth stocks) and momentum (return of stocks with higher prior returns over stocks with lower prior returns)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Those are single metrics; the documented anomaly factors are structured return spreads.",
+            "B": "Incorrect. Governance and ESG are security-selection considerations; systematic TAA runs on VALUE (value-minus-growth) and MOMENTUM (winners-minus-losers) at the asset class level.",
+            "C": "Correct. The reading identifies value and momentum as factors that have been determined to have some level of predictability and persistence at the asset class level. Value factor = return of value stocks over growth stocks. Momentum factor = return of stocks with higher prior returns over those with lower prior returns. Both are used for security selection within asset classes and for asset class timing."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.d",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Short-Term Shifts — Systematic TAA factors",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_d_q11",
+          "number": 11,
+          "stem": "A *basic trend signal* used in systematic TAA is *most likely*:",
+          "options": {
+            "A": "the most recent 12-month return, with the expectation that the direction of the most recent 12-month returns can be expected to persist for the next 12 months.",
+            "B": "A basic trend signal averages returns over the past 30 years to smooth out cyclical noise.",
+            "C": "Trend signals assume asset prices follow a random walk with no exploitable direction."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states a basic trend signal is the most recent 12-month return: the expectation is that the direction of the most recent 12-month returns can be expected to persist for the next 12 months. Shorter time frames and different weighting schemes can also be used. Another trend signal is the moving-average crossover — when moving average of the shorter time frame is above/below the moving average of the longer time frame.",
+            "B": "Incorrect. A 30-year average destroys the trend information; the signal is the most recent 12-MONTH return.",
+            "C": "Incorrect. Random-walk behavior would make trend following pointless; the signal presumes recent direction persists."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.d",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Short-Term Shifts — trend following signals",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_d_q12",
+          "number": 12,
+          "stem": "*Carry in currencies* uses short-term interest rate differentials to determine which currencies to overweight or underweight. Analogously, *carry in commodities* *most likely* uses:",
+          "options": {
+            "A": "P/E ratios.",
+            "B": "positive (backwardation) and negative (contango) roll yields to determine which commodities to own or short.",
+            "C": "credit ratings."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "P/E is not applicable to commodities.",
+            "B": "Correct. The reading states carry in commodities compares positive (backwardation) and negative (contango) roll yields to determine which commodities to own or short. For bonds, yields-to-maturity and term premiums (yields in excess of the local risk-free rate) signal the relative attractiveness of different fixed-income markets.",
+            "C": "Not the commodity carry signal."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.d",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Short-Term Shifts — carry signals across asset classes",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_d_q13",
+          "number": 13,
+          "stem": "In Example 7, the trend signal shows: IG bonds long (excess return 3%), HY bonds short (−3%), DM equity long (4%), EM equity short (−11%). SAA has ±5% ranges. The reading's recommended TAA is *most likely*:",
+          "options": {
+            "A": "IG bonds 50%, HY bonds 0%, DM equity 50%, EM equity 0%.",
+            "B": "no changes to SAA weights.",
+            "C": "IG bonds 45% (max), HY bonds 5% (min), DM equity 45% (max), EM equity 5% (min)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This exceeds the ±5% policy limits.",
+            "B": "The signals justify moving to the policy limits.",
+            "C": "Correct. The reading's Example 7 states: the TAA decision must be taken in the context of the SAA policy constraints. Although signals for HY bonds and EM equity are negative, minimum permissible weight in each is 5%. Similarly, though IG bonds and DM equity signals are positive, maximum is 45%. Asset classes can be over- or under-weighted to the full extent of the policy limits — recommended TAA: IG bonds 45% (+5%), HY bonds 5% (−5%), DM equity 45% (+5%), EM equity 5% (−5%)."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.d",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Short-Term Shifts — Example 7 systematic TAA",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "asset_allocation_with_real_world_constraints.e",
+      "los_letter": "e",
+      "los_text": "identify behavioral biases that arise in asset allocation and recommend methods to overcome them",
+      "reading_id": "asset_allocation_with_real_world_constraints",
+      "reading_name": "Asset Allocation with Real-World Constraints",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r5_aarw_los_e_q1",
+          "number": 1,
+          "stem": "The reading identifies six behavioral biases most relevant in asset allocation. Which of the following is *least likely* one of them?",
+          "options": {
+            "A": "Momentum bias, technical analysis anchoring, and support-resistance bias.",
+            "B": "Loss aversion, illusion of control, and mental accounting.",
+            "C": "Representativeness bias, framing, and availability bias."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading identifies six behavioral biases most relevant in AA: loss aversion, the illusion of control, mental accounting, representativeness bias, framing, and availability bias. The biases in option C are not among the six named.",
+            "B": "These are three of the six.",
+            "C": "These are three of the six."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.e",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Dealing with Behavioral Biases in Asset Allocation",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_e_q2",
+          "number": 2,
+          "stem": "*Loss aversion* is *most likely* defined as:",
+          "options": {
+            "A": "Loss aversion is the tendency to prefer realizing losses over realizing equivalent gains.",
+            "B": "the tendency for people to strongly prefer avoiding losses over acquiring equivalent gains, with the pain of a loss approximately twice as significant as the joy from an equivalent gain (Prospect theory).",
+            "C": "Loss aversion is the inability to distinguish between losses and gains of equal size."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The pattern is AVOIDING losses — their pain roughly doubles the pleasure of equal gains.",
+            "B": "Correct. The reading (drawing on Prospect theory / Kahneman-Tversky) describes loss aversion as the asymmetric risk preference — the pain of a loss is approximately twice as significant as the joy from an equivalent gain. This is what motivates non-normal utility functions and asymmetric optimizers like mean-CVaR.",
+            "C": "Incorrect. The distinction is sharp — that asymmetric weighting IS the bias."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.e",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Behavioral Biases — loss aversion",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_e_q3",
+          "number": 3,
+          "stem": "*Illusion of control* — the tendency to overestimate one's ability to influence events — *most likely* manifests in asset allocation as:",
+          "options": {
+            "A": "Illusion of control manifests as reduced willingness to make any investment decisions.",
+            "B": "Illusion of control produces perfectly calibrated forecasts through heightened attention.",
+            "C": "willingness to employ tactical shifts, alpha-seeking behaviors (attempted market timing via extreme TAA shifts, all-in/all-out market calls), excessive trading/leverage/short selling, and reducing/eliminating/shorting asset classes based on non-consensus forecasts."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. The bias INCREASES intervention appetite, not decision paralysis.",
+            "B": "Incorrect. Overconfidence, not calibration, follows — extreme TAA shifts, market timing, all-in/all-out trading, and concentrated positioning.",
+            "C": "Correct. The reading states illusion of control can lead investors to overestimate their control over investment outcomes, increasing willingness to employ tactical shifts. Manifestations include: alpha-seeking behaviors (attempted market timing via extreme TAA, all-in/all-out market calls); reliance on 'superior resources' beliefs; excessive trading/leverage/short selling; reducing or eliminating asset classes based on non-consensus forecasts; and retaining large concentrated legacy assets."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.e",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Behavioral Biases — illusion of control",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_e_q4",
+          "number": 4,
+          "stem": "The reading recommends *most likely* mitigating the illusion of control bias by:",
+          "options": {
+            "A": "using the global market portfolio as the starting point in developing AA, employing long-term return/risk forecasts, optimization constraints anchored around global-market-portfolio weights, and strict policy ranges.",
+            "B": "The illusion of control is mitigated by increasing tactical trading frequency to build experience.",
+            "C": "The bias is mitigated by eliminating all quantitative analysis in favor of instinct."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading recommends mitigating illusion of control by: using the global market portfolio as the starting point (building on CAPM, MVO, and efficient market theory); requiring deviations from this baseline to be thoughtfully considered and rigorously vetted; and employing a formal AA process with long-term return/risk forecasts, optimization constraints anchored around asset class weights in the global market portfolio, and strict policy ranges.",
+            "B": "Incorrect. More tactical trading FEEDS the bias rather than tempering it.",
+            "C": "Incorrect. The remedy is structure, not instinct — the GLOBAL MARKET PORTFOLIO as the starting point, long-term forecasts, and disciplined optimization."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.e",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Behavioral Biases — mitigating illusion of control",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_e_q5",
+          "number": 5,
+          "stem": "*Hindsight bias* — the tendency to perceive past investment outcomes as having been predictable — *most likely*:",
+          "options": {
+            "A": "corrects the illusion of control.",
+            "B": "exacerbates the illusion of control.",
+            "C": "has no relationship to the illusion of control."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Hindsight bias reinforces, not corrects, illusion of control.",
+            "B": "Correct. The reading states hindsight bias — the tendency to perceive past investment outcomes as having been predictable — exacerbates the illusion of control. Believing that events could have been predicted increases confidence in one's ability to predict future events.",
+            "C": "The reading identifies a direct exacerbating relationship."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.e",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Behavioral Biases — hindsight bias",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_e_q6",
+          "number": 6,
+          "stem": "*Mental accounting* is *most likely* defined as:",
+          "options": {
+            "A": "the systematic errors made when calculating financial statements.",
+            "B": "the failure to reconcile bank accounts monthly.",
+            "C": "an information-processing bias in which people treat one sum of money differently from another based solely on the mental account the money is assigned to."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This is not the definition.",
+            "B": "This is not the definition.",
+            "C": "Correct. The reading defines mental accounting as an information-processing bias in which people treat one sum of money differently from another based solely on the mental account the money is assigned to. Examples: an investor may consider a retirement portfolio independent of the child's education portfolio even if the combined AA is suboptimal; an employee with significant vested stock options may fail to consider this exposure alongside other assets."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.e",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Behavioral Biases — mental accounting",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_e_q7",
+          "number": 7,
+          "stem": "The reading argues that *goals-based investing* is a natural response to mental accounting bias because:",
+          "options": {
+            "A": "it directly incorporates mental accounting into the AA solution.",
+            "B": "it forces investors to abandon all sub-portfolios.",
+            "C": "it ignores investor preferences entirely."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: it directly incorporates mental accounting into the AA solution — each goal is aligned with a discrete sub-portfolio, and the investor can specify the acceptable level of risk for each goal.\n\nCorrect. The reading states goals-based investing incorporates mental accounting directly into the AA solution. Each goal is aligned with a discrete sub-portfolio, and the investor can specify the acceptable level of risk for each goal. Provided each sub-portfolio lies along the same efficient frontier, the sum of sub-portfolios will also be efficient. This turns mental accounting from a bias into a productive structural approach.",
+            "B": "Goals-based uses, rather than eliminates, sub-portfolios.",
+            "C": "Goals-based centers investor preferences."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.e",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Behavioral Biases — goals-based and mental accounting",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_e_q8",
+          "number": 8,
+          "stem": "A *concentrated stock position* (e.g., a founder-entrepreneur holding equity in the company he founded) that the investor prefers to retain despite the risk is *most likely*:",
+          "options": {
+            "A": "always a rational preference driven purely by tax considerations.",
+            "B": "the result of psychological loyalty to the wealth-generating asset, reinforced by the endowment effect.",
+            "C": "irrelevant to AA decisions."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The reading acknowledges some rational reasons but identifies the psychological drivers as often more significant.",
+            "B": "Full statement: the result of psychological loyalty to the wealth-generating asset, reinforced by the endowment effect — the tendency to ascribe more value to an asset already owned rather than another asset one might purchase to replace it.\n\nCorrect. The reading states there may be rational reasons for retaining the position (ownership control, information advantage, tax considerations), but the desire to retain the riskier exposure is more often the result of a psychological loyalty to the asset that generated the wealth. This mental accounting bias is further reinforced by the endowment effect — the tendency to ascribe more value to an asset already owned rather than another asset one might purchase to replace it.",
+            "C": "This concentration risk is central to individual AA."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.e",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Behavioral Biases — concentrated stock/endowment effect",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_e_q9",
+          "number": 9,
+          "stem": "The reading recommends that the concentrated stock/mental accounting bias be *most likely* accommodated by:",
+          "options": {
+            "A": "prohibiting concentrated stock positions entirely.",
+            "B": "ignoring the concentrated position when calculating AA.",
+            "C": "assigning the concentrated stock position to an aspirational goal."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Prohibition doesn't work with client psychological attachment.",
+            "B": "Ignoring the concentration ignores real risk.",
+            "C": "Full statement: assigning the concentrated stock position to an aspirational goal — one that the client would like to achieve but is willing to assign a lower probability of success — while high-priority lifetime consumption goals are funded with well-diversified portfolios.\n\nCorrect. The reading recommends the concentrated stock/mental accounting bias be accommodated in goals-based AA by assigning the concentrated stock position to an aspirational goal — one the client would like to achieve but is willing to assign a lower probability of success. Whereas lifetime consumption is a high-priority goal requiring a well-diversified portfolio, an aspirational goal (e.g., charitable gift) can reasonably be funded with the concentrated position. This could also avoid capital gains tax altogether if the gift goes to a tax-exempt charity."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.e",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Behavioral Biases — accommodating concentration",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_e_q10",
+          "number": 10,
+          "stem": "*Representativeness (recency) bias* is *most likely* defined as:",
+          "options": {
+            "A": "the tendency to overweight the importance of the most recent observations and information relative to longer-dated or more comprehensive long-term information.",
+            "B": "Representativeness bias is the tendency to always anchor forecasts on long-term historical averages.",
+            "C": "Representativeness bias is the tendency to reject all new information in favor of prior beliefs."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading defines representativeness, or recency, bias as the tendency to overweight the importance of the most recent observations and information relative to a longer-dated or more comprehensive set of long-term observations. Tactical shifts undertaken in response to recent returns or news are particularly susceptible. Return chasing is a common manifestation, resulting in overweighting asset classes with good recent performance.",
+            "B": "Incorrect. Long-average anchoring is the opposite tilt; recency OVERWEIGHTS the newest observations.",
+            "C": "Incorrect. Rejecting new information is conservatism; representativeness over-extrapolates the recent past."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.e",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Behavioral Biases — representativeness bias",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_e_q11",
+          "number": 11,
+          "stem": "The reading argues that *representativeness/recency bias* is not uniformly negative. This is because:",
+          "options": {
+            "A": "Recency bias always improves forecasting accuracy by keeping estimates current.",
+            "B": "random walk, trending, and mean-reversion may be simultaneously relevant to the investment decision-making process, though their effects unfold over different horizons.",
+            "C": "Recency bias eliminates the need for any structured asset allocation process."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The bias systematically distorts; the nuance is that markets sometimes DO trend, making recent data genuinely relevant.",
+            "B": "Full statement: random walk, trending, and mean-reversion may be simultaneously relevant to the investment decision-making process, though their effects unfold over different horizons; the strongest defenses against harmful recency bias are objective AA processes and strong governance frameworks.\n\nCorrect. The reading states recency bias is not uniformly negative. Random walk, trending, and mean-reversion may be simultaneously relevant — although their effect on asset prices will unfold over different time horizons. The strongest defenses are an objective AA process and a strong governance framework. A formal AA policy with pre-specified allowable ranges will constrain recency bias.",
+            "C": "Incorrect. No such implication follows — random walk, trending, and mean reversion may all be simultaneously relevant, which is why judgment stays hard."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.e",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Behavioral Biases — recency bias and market dynamics",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_e_q12",
+          "number": 12,
+          "stem": "*Framing bias* in AA is *most likely* illustrated by:",
+          "options": {
+            "A": "the fact that asset classes have universal risk properties.",
+            "B": "the requirement to price all portfolios in USD.",
+            "C": "the fact that different presentations of the same risk (standard deviation vs VaR vs CVaR) can elicit different asset allocation choices."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Universality of risk is not the reading's argument.",
+            "B": "Currency framing is not the reading's example.",
+            "C": "Full statement: the fact that different presentations of the same risk (standard deviation vs VaR vs CVaR) can elicit different asset allocation choices — e.g., an investor may gravitate to P50 based on 6.0% return and 11.9% standard deviation, but find the −18.5% CVaR of P50 indicative of a level of risk they find very uncomfortable.\n\nCorrect. The reading illustrates framing bias with Exhibit 16. When viewing return and volatility alone (6.0% return, 11.9% std dev), many investors gravitate to P50. However, loss-aversion suggests some may find the −18.5% CVaR indicative of an uncomfortable level of risk. The CVaR frame intuitively communicates a different perspective of exactly the same risk fully explained by std dev — namely, the downside/tail-risk aspects. Framing affects the AA decision."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.e",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Behavioral Biases — framing bias illustration",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_e_q13",
+          "number": 13,
+          "stem": "The reading's *mitigation* for framing bias is *most likely*:",
+          "options": {
+            "A": "presenting AA choices with multiple perspectives on the risk/reward trade-off.",
+            "B": "eliminating all quantitative analysis.",
+            "C": "presenting only expected returns."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: presenting AA choices with multiple perspectives on the risk/reward trade-off — supplementing standard deviation with shortfall probability, tail-risk measures (VaR, CVaR), historical stress tests, and Monte Carlo simulations to capture and communicate risk tangibly.\n\nCorrect. The reading states the framing effect can be mitigated by presenting the possible AA choices with multiple perspectives on the risk/reward trade-off. Standard deviation can be supplemented with shortfall probability, tail-risk measures (VaR and CVaR), historical stress tests, and Monte Carlo simulations. These multiple perspectives compel the investor to consider more carefully what outcomes are acceptable or unacceptable.",
+            "B": "The reading recommends more, not less, quantitative structure.",
+            "C": "Return-only framing would exacerbate the bias."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.e",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Behavioral Biases — mitigating framing bias",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_e_q14",
+          "number": 14,
+          "stem": "*Availability bias* is *most likely* defined as:",
+          "options": {
+            "A": "Availability bias is the inability to access certain investment products due to platform restrictions.",
+            "B": "an information-processing bias in which people take a mental shortcut when estimating the probability of an outcome based on how easily the outcome comes to mind.",
+            "C": "Availability bias is the systematic under-weighting of recent, easily recalled information."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Product access is operational, not psychological; the bias is a mental shortcut.",
+            "B": "Full statement: an information-processing bias in which people take a mental shortcut when estimating the probability of an outcome based on how easily the outcome comes to mind; easily recalled outcomes are perceived as more likely than harder-to-recall ones.\n\nCorrect. The reading defines availability bias as an information-processing bias in which people take a mental shortcut when estimating the probability of an outcome based on how easily the outcome comes to mind. Easily recalled outcomes are perceived as more likely. For example, private equity investors who experienced a liquidity squeeze in 2008-09 are likely to express a strong preference for liquidity, assigning higher probability to such an event occurring again than would an investor who had cash available to acquire distressed PE interests.",
+            "C": "Incorrect. The direction is OVER-weighting — probability estimates track how easily instances come to mind."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.e",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Behavioral Biases — availability bias",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r5_aarw_los_e_q15",
+          "number": 15,
+          "stem": "*Familiarity bias* — a specific form of availability bias — *most likely* results in AA in:",
+          "options": {
+            "A": "Familiarity bias results in over-diversification across too many unfamiliar asset classes.",
+            "B": "Familiarity bias produces no observable effect on portfolio composition.",
+            "C": "*home bias* — a preference for securities listed on the exchanges of one's home country, resulting in a less diversified, less efficient portfolio, particularly if home country capital markets are small."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Familiarity CONCENTRATES portfolios in the known, not spreads them.",
+            "B": "Incorrect. The effect is well documented as HOME BIAS — overweighting home-exchange securities at the cost of diversification.",
+            "C": "Correct. The reading states familiarity bias stems from availability bias — people tend to favor the familiar over the new or different because of the ease of recalling the familiar. In AA, familiarity bias most commonly results in a home bias — a preference for home-country securities. However, concentrating portfolio exposure in home country securities, particularly if home country capital markets are small, results in a less diversified, less efficient portfolio. Familiarity bias can be mitigated by using the global market portfolio as the starting point."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_with_real_world_constraints.e",
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Behavioral Biases — familiarity/home bias",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    }
+  ]
+}

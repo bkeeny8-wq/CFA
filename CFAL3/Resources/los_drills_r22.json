@@ -1,0 +1,1885 @@
+{
+  "schema_version": 2,
+  "generated_by": "los_drills_r18_runner.py",
+  "curriculum_source": "CFA Program 2027 Level III, Volume 6 (PM Pathway), Learning Module 4: Liability-Driven and Index-Based Strategies",
+  "content_type": "mc_only",
+  "reading": {
+    "reading_id": "liability_driven_and_index_based_strategies",
+    "reading_name": "Liability-Driven and Index-Based Strategies",
+    "area_id": "pm_pathway",
+    "los_count": 7,
+    "question_count": 75
+  },
+  "drills": [
+    {
+      "los_id": "liability_driven_and_index_based_strategies.a",
+      "los_letter": "a",
+      "los_text": "evaluate strategies for managing a single liability",
+      "reading_id": "liability_driven_and_index_based_strategies",
+      "reading_name": "Liability-Driven and Index-Based Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r18_ldi_los_a_q1",
+          "number": 1,
+          "stem": "*Immunization* *most likely* is:",
+          "options": {
+            "A": "the process of structuring and managing a fixed-income bond portfolio to minimize the variance in the realized rate of return over a known time horizon.",
+            "B": "Immunization is the practice of maximizing the expected return of a bond portfolio without regard to the timing of any obligations.",
+            "C": "Immunization refers to eliminating credit risk by holding only government-guaranteed securities."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: the process of structuring and managing a fixed-income bond portfolio to minimize the variance in the realized rate of return over a known time horizon; this variance arises from the volatility of future interest rates; default risk is neglected because portfolio bonds are assumed to have default probabilities approaching zero.\n\nCorrect. Per the reading: 'Immunization is the process of structuring and managing a fixed-income bond portfolio to minimize the variance in the realized rate of return over a known time horizon. This variance arises from the volatility of future interest rates. Default risk is neglected at this point because the portfolio bonds are assumed to have default probabilities that approach zero.'",
+            "B": "Incorrect. Immunization targets a KNOWN horizon obligation and minimizes return variance to it — return maximization is not the objective.",
+            "C": "Incorrect. The technique addresses INTEREST RATE risk over a known horizon, not credit risk elimination."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.a",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Single Liability — immunization definition",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_a_q2",
+          "number": 2,
+          "stem": "The *most obvious way to immunize a single liability* *most likely* is:",
+          "options": {
+            "A": "no method.",
+            "B": "buy a zero-coupon bond that matures on the obligation's due date.",
+            "C": "no matching."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Zero-coupon.",
+            "B": "Full statement: buy a zero-coupon bond that matures on the obligation's due date; bond's face value matches liability amount; no cash flow reinvestment risk (no coupons); no price risk (held to maturity); any interest rate volatility over bond's lifetime irrelevant; problem is that in many financial markets, zero-coupon bonds are not available; perfect immunization by zero-coupon bond sets standard to measure performance of coupon-bearing bond strategies.\n\nCorrect. Per the reading: 'The most obvious way to immunize the interest rate risk on a single liability is to buy a zero-coupon bond that matures on the obligation's due date. The bond's face value matches the liability amount. There is no cash flow reinvestment risk because there are no coupon payments to reinvest, and there is no price risk because the bond is held to maturity. Any interest rate volatility over the bond's lifetime is irrelevant in terms of the asset's ability to pay off the liability. The problem is that in many financial markets, zero-coupon bonds are not available. Nevertheless, the perfect immunization provided by a zero-coupon bond sets a standard to measure the performance of immunizing strategies using coupon-bearing bonds.'",
+            "C": "Zero-coupon match."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.a",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Single Liability — zero-coupon",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_a_q3",
+          "number": 3,
+          "stem": "*Coupon bond immunization via Macaulay duration matching* *most likely*:",
+          "options": {
+            "A": "no relationship.",
+            "B": "no immunization.",
+            "C": "at the Macaulay duration point in time, price effect and coupon reinvestment effect cancel each other out."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Duration matching.",
+            "B": "MacDur = horizon.",
+            "C": "Full statement: at the Macaulay duration point in time, price effect and coupon reinvestment effect cancel each other out; therefore investor having investment horizon equal to bond's Macaulay duration is effectively protected (immunized) from interest rate risk (price and coupon reinvestment effects offset for either higher or lower rates); rising rates → bond price falls (measured by money duration) but future value of reinvested coupons goes up.\n\nCorrect. Per the reading: 'Assume that the bond is currently priced at par value. Then, an instantaneous, one-time, upward (parallel) shift occurs in the yield curve. The bond's value falls. That drop in value is estimated by the money duration of the bond. Recall that the money duration is the bond's modified duration statistic multiplied by the price. Subsequently, the bond price will be \"pulled to par\" as the maturity date nears... But another factor is at work. Assuming interest rates remain higher, the future value of reinvested coupon payments goes up... The key detail to note in Exhibit 1 is that at some point in time, the two effects — the price effect and the coupon reinvestment effect — cancel each other out. The remarkable result is that this point in time turns out to be the bond's Macaulay duration (for a zero-coupon bond, its Macaulay duration is its maturity). Therefore, an investor having an investment horizon equal to the bond's Macaulay duration is effectively protected, or immunized, from interest rate risk in that price, and coupon reinvestment effects offset for either higher or lower rates.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.a",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Single Liability — MacDur matching",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_a_q4",
+          "number": 4,
+          "stem": "*Money duration* vs *modified duration* *most likely*:",
+          "options": {
+            "A": "money duration = modified duration × price.",
+            "B": "same.",
+            "C": "no distinction."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: money duration = modified duration × price; drop in bond value from rate shift is estimated by money duration; money duration also known as 'dollar duration' — modified duration multiplied by market value; basis point value (BPV) is money duration multiplied by 1 bp (or 0.0001); closely related risk measure is present value of a basis point (PVBP), also called PV01 in North America (DV01).\n\nCorrect. Per the reading: 'That drop in value is estimated by the money duration of the bond. Recall that the money duration is the bond's modified duration statistic multiplied by the price.' Also: 'Money duration, or \"dollar duration,\" is the portfolio modified duration multiplied by the market value... To keep the numbers manageable, we use the basis point value (BPV) measure for money duration. This measure is the money duration multiplied by 1 bp. The BPV is EUR117,824 (= EUR1,178,237,935 × 0.0001)... A closely related risk measure is the present value of a basis point (PVBP), also called the PV01 (present value of an \"01,\" meaning 1 bp) and, in North America, the DV01 (dollar value of an \"01\").'",
+            "B": "Distinct measures.",
+            "C": "Real distinction."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.a",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Single Liability — money duration",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_a_q5",
+          "number": 5,
+          "stem": "The *EUR 250M single liability example* Exhibit 3 portfolio *most likely*:",
+          "options": {
+            "A": "no example.",
+            "B": "EUR 250M liability due 15 Feb 2027 (6-year horizon from 15 Feb 2021).",
+            "C": "no example."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Detailed portfolio.",
+            "B": "Full statement: EUR 250M liability due 15 Feb 2027 (6-year horizon from 15 Feb 2021); three-bond portfolio: 2.5-year 1.50% coupon (MacDur 2.463, allocation 23.55%), 7-year 3.25% coupon (MacDur 6.316, allocation 48.52%), 10-year 5.00% coupon (MacDur 7.995, allocation 27.93%); portfolio market value EUR 200,052,250; cash flow yield 3.7608%; Macaulay duration matched to 6-year horizon.\n\nCorrect. Per the reading Exhibit 3 (The Bond Portfolio to Immunize the Single Liability): '2.5-Year Bond: Coupon rate 1.50%, Maturity 15 August 2023, Price 100.25, YTM 1.3979%, Par 47,000,000, Market value 47,117,500, MacDur 2.463, Convexity 7.253, Allocation 23.55%. 7-Year Bond: 3.25%, 15 February 2028, 99.75, 3.2903%, 97,300,000, 97,056,750, 6.316, 44.257, 48.52%. 10-Year Bond: 5.00%, 15 February 2031, 100.50, 4.9360%, 55,600,000, 55,878,000, 7.995, 73.747, 27.93%.' Portfolio market value: 'The portfolio's current market value is EUR200,052,250.'",
+            "C": "Real data."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.a",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Single Liability — Exhibit 3",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_a_q6",
+          "number": 6,
+          "stem": "The *cash flow yield* used in immunization *most likely*:",
+          "options": {
+            "A": "no concept.",
+            "B": "no relation.",
+            "C": "is the internal rate of return on the portfolio's cash flows."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "IRR of CFs.",
+            "B": "CF yield = HPR.",
+            "C": "Full statement: is the internal rate of return on the portfolio's cash flows; the holding period rate of return (or horizon yield) equals cash flow yield; multi-bond version of well-known result for single bond: realized rate of return matches yield to maturity only if coupon payments are reinvested at that same yield and if bond is held to maturity or sold at a point on constant-yield price trajectory.\n\nCorrect. Per the reading: 'The six-year holding period rate of return (ROR), also called the horizon yield, is 3.7608%. It is based on the original market value and the total return and is the solution for ROR: 200,052,250 = 250,167,000 / (1 + ROR/2)^12; ROR = 0.037608. The holding period rate of return equals the cash flow yield for the portfolio. This equivalence is the multi-bond version of the well-known result for a single bond: The realized rate of return matches the yield to maturity only if coupon payments are reinvested at that same yield and if the bond is held to maturity or sold at a point on the constant-yield price trajectory.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.a",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Single Liability — cash flow yield",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_a_q7",
+          "number": 7,
+          "stem": "*Immunized portfolio convexity* (Equation 1) *most likely*:",
+          "options": {
+            "A": "Immunized portfolio convexity = (MacDur² + MacDur + Dispersion) / (1 + Cash flow yield)².",
+            "B": "no formula.",
+            "C": "no formula."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: Immunized portfolio convexity = (MacDur² + MacDur + Dispersion) / (1 + Cash flow yield)²; portfolio dispersion and convexity statistics used to assess structural risk to interest rate immunization strategy; structural risk arises from potential for shifts and twists to the yield curve.\n\nCorrect. Per Equation 1: 'Immunized portfolio convexity = (MacDur² + MacDur + Dispersion) / (1 + Cash flow yield)²'. And the reading: 'In terms of semi-annual periods, the Macaulay duration for this portfolio is 12.0008, the dispersion is 33.0378, and the cash flow yield is 1.8804%. Immunized portfolio convexity = (12.0008² + 12.0008 + 33.0378) / (1.018804)² = 182.1437. The portfolio dispersion and convexity statistics are used to assess the structural risk to the interest rate immunization strategy. Structural risk arises from the potential for shifts and twists to the yield curve.'",
+            "B": "Explicit formula.",
+            "C": "Formula given."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.a",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Single Liability — convexity formula",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_a_q8",
+          "number": 8,
+          "stem": "*Parallel yield curve shift* condition for immunization *most likely*:",
+          "options": {
+            "A": "A parallel yield curve shift is a necessary condition for immunization to succeed — without it, immunization always fails.",
+            "B": "a sufficient, but not necessary, condition for immunization is a parallel (or shape-preserving) shift whereby all yields change by the same amount in the same direction.",
+            "C": "Yield curve shifts bear no relation to whether an immunized portfolio achieves its target return."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Parallel (shape-preserving) shifts are SUFFICIENT but not necessary — immunization can succeed under some non-parallel movements.",
+            "B": "Full statement: a sufficient, but not necessary, condition for immunization is a parallel (or shape-preserving) shift whereby all yields change by the same amount in the same direction; if change in cash flow yield is the same as that on zero-coupon bond being replicated, immunization can be achieved even with non-parallel shift to yield curve.\n\nCorrect. Per the reading Summary: 'A sufficient, but not necessary, condition for immunization is a parallel (or shape-preserving) shift whereby all yields change by the same amount in the same direction. If the change in the cash flow yield is the same as that on the zero-coupon bond being replicated, immunization can be achieved even with a non-parallel shift to the yield curve.'",
+            "C": "Incorrect. Curve movements are precisely the risk immunization manages; the sufficiency condition concerns them directly."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.a",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Single Liability — parallel shift",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_a_q9",
+          "number": 9,
+          "stem": "*Structural risk* to immunization *most likely* is:",
+          "options": {
+            "A": "no risk.",
+            "B": "no concept.",
+            "C": "arises from potential for shifts and twists to yield curve."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Real risk.",
+            "B": "Structural risk exists.",
+            "C": "Full statement: arises from potential for shifts and twists to yield curve; minimized by selecting portfolio with lower convexity (and lower dispersion of cash flows); if portfolio's convexity is high, cash flow dispersion is high — greater risk to immunization from non-parallel shifts.\n\nCorrect. Per the reading: 'The portfolio dispersion and convexity statistics are used to assess the structural risk to the interest rate immunization strategy. Structural risk arises from the potential for shifts and twists to the yield curve.' Also from a boxed example: 'This risk is minimized by selecting the portfolio with the lower convexity (and dispersion of cash flows).'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.a",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Single Liability — structural risk",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_a_q10",
+          "number": 10,
+          "stem": "*Rebalancing* immunization portfolio *most likely*:",
+          "options": {
+            "A": "as time passes and bond yields change, the duration of the bonds changes and portfolio needs to be rebalanced.",
+            "B": "no rebalancing.",
+            "C": "static portfolio."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: as time passes and bond yields change, the duration of the bonds changes and portfolio needs to be rebalanced; can be accomplished by buying and selling bonds or using interest rate derivatives (futures contracts and interest rate swaps).\n\nCorrect. Per the reading Summary: 'In the case of a single liability, immunization is achieved by matching the Macaulay duration of the bond portfolio to the horizon date. As time passes and bond yields change, the duration of the bonds changes and the portfolio needs to be rebalanced. This rebalancing can be accomplished by buying and selling bonds or using interest rate derivatives, such as futures contracts and interest rate swaps.'",
+            "B": "Ongoing rebalancing.",
+            "C": "Rebalancing needed."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.a",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Single Liability — rebalancing",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_a_q11",
+          "number": 11,
+          "stem": "*Immunization aims to lock in* *most likely*:",
+          "options": {
+            "A": "no target.",
+            "B": "cash flow yield on the portfolio, which is the internal rate of return on the cash flows.",
+            "C": "no goal."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Cash flow yield.",
+            "B": "Full statement: cash flow yield on the portfolio, which is the internal rate of return on the cash flows; it is NOT the weighted average of the yields to maturity on the bonds that constitute the portfolio.\n\nCorrect. Per the reading Summary: 'An immunization strategy aims to lock in the cash flow yield on the portfolio, which is the internal rate of return on the cash flows. It is not the weighted average of the yields to maturity on the bonds that constitute the portfolio.'",
+            "C": "IRR lock-in."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.a",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Single Liability — CF yield lock-in",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "liability_driven_and_index_based_strategies.b",
+      "los_letter": "b",
+      "los_text": "compare strategies for a single liability and for multiple liabilities, including alternative means of implementation",
+      "reading_id": "liability_driven_and_index_based_strategies",
+      "reading_name": "Liability-Driven and Index-Based Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r18_ldi_los_b_q1",
+          "number": 1,
+          "stem": "*Multiple liability immunization vs single liability* *most likely*:",
+          "options": {
+            "A": "same conditions.",
+            "B": "no distinction.",
+            "C": "principle applies to multiple liabilities in addition to single liability."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Slight difference.",
+            "B": "Distinct condition.",
+            "C": "Full statement: principle applies to multiple liabilities in addition to single liability; unlike single liability case where asset portfolio's modified duration (money duration) must be slightly greater than that of liability, immunization against multiple liabilities requires that asset portfolio's money duration (BPV) match that of liabilities — match may be slightly above or below provided it is closest available to liability BPV.\n\nCorrect. Per the reading: 'The principle of interest rate immunization applies to multiple liabilities in addition to a single liability... Recall that in the case of a single liability, the immunization strategy is to match the portfolio Macaulay duration with the investment horizon. Also, the initial investment needs to match (or exceed) the present value of the liability. These two conditions can be combined to prescribe that the money duration of the immunizing portfolio matches the money duration of the debt liabilities... With multiple liabilities, matching money durations is useful because the market values and cash flow yields of the assets and liabilities are not necessarily equal. Unlike the single liability case, where the asset portfolio's modified duration (money duration) must be slightly greater than that of the liability, immunization against multiple liabilities requires that the asset portfolio's money duration (BPV) match that of the liabilities. The match may be slightly above or below, provided it is the closest available to the liability BPV.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.b",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Multiple Liabilities — money duration match",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_b_q2",
+          "number": 2,
+          "stem": "*Conditions to immunize multiple liabilities* *most likely* require:",
+          "options": {
+            "A": "(1) market value of assets is greater than or equal to market value of liabilities.",
+            "B": "single condition.",
+            "C": "no conditions."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: (1) market value of assets is greater than or equal to market value of liabilities; (2) asset basis point value (BPV) equals liability BPV; (3) dispersion of cash flows and convexity of assets are greater than those of the liabilities.\n\nCorrect. Per the reading Summary: 'The conditions to immunize multiple liabilities are that (1) the market value of assets is greater than or equal to the market value of the liabilities, (2) the asset basis point value (BPV) equals the liability BPV, and (3) the dispersion of cash flows and the convexity of assets are greater than those of the liabilities.'",
+            "B": "Three conditions.",
+            "C": "Three requirements."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.b",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Multiple Liabilities — three conditions",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_b_q3",
+          "number": 3,
+          "stem": "*Duration matching approach* three alternatives to manage liabilities *most likely* include:",
+          "options": {
+            "A": "no options.",
+            "B": "(1) duration matching — extends ideas from single liability to portfolio of debt liabilities.",
+            "C": "single option."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Three approaches.",
+            "B": "Full statement: (1) duration matching — extends ideas from single liability to portfolio of debt liabilities; (2) derivatives overlay — using futures contracts on government bonds in immunization strategy; (3) contingent immunization — allows for active bond portfolio management as long as surplus is above designated threshold.\n\nCorrect. Per the reading: 'In this section, we discuss several approaches to manage these liabilities: Duration matching, which extends the ideas of the previous section to a portfolio of debt liabilities. Derivatives overlay, in particular using futures contracts on government bonds in the immunization strategy; and Contingent immunization, which allows for active bond portfolio management as long as the surplus is above a designated threshold.'",
+            "C": "Three methods."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.b",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Multiple Liabilities — three approaches",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_b_q4",
+          "number": 4,
+          "stem": "*Number of futures contracts for immunization* Equation 3 *most likely*:",
+          "options": {
+            "A": "no formula.",
+            "B": "no formula.",
+            "C": "N_f = (Liability portfolio BPV − Asset portfolio BPV) / Futures BPV."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Explicit formula.",
+            "B": "Formula given.",
+            "C": "Full statement: N_f = (Liability portfolio BPV − Asset portfolio BPV) / Futures BPV; if N_f positive, asset manager buys (goes long) required number; if N_f negative, asset manager sells (goes short) to reduce money duration; futures BPV approximated as BPV_CTD / CF_CTD where CTD is cheapest-to-deliver security.\n\nCorrect. Per Equations 3 and 4: 'N_f = (Liability portfolio BPV − Asset portfolio BPV) / Futures BPV. If Nf is a positive number, the asset manager buys, or goes long, the required number of futures contracts. Doing so raises the money duration of the assets to match that of the liabilities. If Nf is a negative number, the asset manager sells, or goes short, futures contracts to reduce the money duration.' And: 'To simplify, we use an approximation formula that is common in practice: Futures BPV ≈ BPV_CTD / CF_CTD where CF_CTD is the conversion factor for the CTD security.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.b",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Multiple Liabilities — futures formula",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_b_q5",
+          "number": 5,
+          "stem": "The *US Treasury futures example* — asset BPV 18,819, liability BPV 117,824 *most likely*:",
+          "options": {
+            "A": "if CTD is 6.5-year T-note (BPV 56.8727, CF 0.8226), futures BPV = 56.8727/0.8226 = 69.1377 and required contracts = (117,824 - 18,819)/69.1377 = 1,432.",
+            "B": "The Treasury futures example concludes that no futures position can close the BPV gap between assets and liabilities.",
+            "C": "The example poses the hedge but leaves the required number of contracts uncomputed."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: if CTD is 6.5-year T-note (BPV 56.8727, CF 0.8226), futures BPV = 56.8727/0.8226 = 69.1377 and required contracts = (117,824 - 18,819)/69.1377 = 1,432; but if CTD is 10-year T-note (BPV 81.6607, CF 0.8516), futures BPV = 95.8909 and required contracts = 1,032; difference of 400 contracts significant — must know CTD.\n\nCorrect. Per the reading: 'If the CTD security is the 6.5-year T-note shown in Exhibit 17, the futures BPV is estimated to be USD69.1377 (= 56.8727/0.8226). Then, the required number of contracts is approximately 1,432: (117,824 − 18,819)/69.1377 = 1,432. But if the CTD security is the 10-year T-note, the futures BPV is USD95.8909 (= 81.6607/0.8516). To close the money duration gap, the required number of contracts is only 1,032: (117,824 − 18,819)/95.8909 = 1,032. Clearly, the asset manager must know the CTD T-note to use in the derivatives overlay strategy. The difference of 400 futures contracts is significant.'",
+            "B": "Incorrect. The gap is hedgeable — the computation delivers the required contract count using the CTD's BPV and conversion factor.",
+            "C": "Incorrect. The calculation is completed: futures BPV = 56.8727/0.8226 = 69.1377, contracts = (117,824 − 18,819)/69.1377."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.b",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Multiple Liabilities — futures worked example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_b_q6",
+          "number": 6,
+          "stem": "*Conversion factors* for T-note futures *most likely*:",
+          "options": {
+            "A": "always 1.0000.",
+            "B": "based on arbitrary yield to maturity of 6.00%.",
+            "C": "no framework."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "6% assumption.",
+            "B": "Full statement: based on arbitrary yield to maturity of 6.00%; if eligible T-note has coupon rate below (above) 6.00%, conversion factor is less (more) than 1.0000; invoice price paid by buyer at expiration is futures price × conversion factor + accrued interest; when yields are below 6.00%, CTD security typically is qualifying T-note having lowest duration (10-year T-note futures effectively acts as 6.5-year contract, motivating introduction of Ultra 10-year contract).\n\nCorrect. Per the reading: 'Conversion factors that are used to make the qualifying T-notes roughly equivalent for delivery by the contract seller, or short position are based on an arbitrary yield to maturity of 6.00%. If the eligible T-note has a coupon rate below (above) 6.00%, the conversion factor is less (more) than 1.0000. The invoice price paid by the buyer of the contract, the long position, at the expiration of the contract is the futures price multiplied by the conversion factor, plus accrued interest.' Also: 'A factor in determining the CTD T-note is that the conversion factors for each qualifying security are based on the arbitrary assumption of a 6.00% yield to maturity. In practice, when yields are below 6.00% the CTD security typically is the qualifying T-note having the lowest duration. Therefore, the 10-year T-note futures contract essentially has been acting as a 6.5-year contract. (That explains the motivation for introducing the Ultra 10-year contract — to provide a hedging instrument more closely tied to the 10-year T-note traded in the cash market.)'",
+            "C": "Real mechanism."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.b",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Multiple Liabilities — conversion factors",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_b_q7",
+          "number": 7,
+          "stem": "*Contingent immunization* *most likely*:",
+          "options": {
+            "A": "no such strategy.",
+            "B": "no strategy.",
+            "C": "hybrid passive-active strategy."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Hybrid strategy.",
+            "B": "Real strategy.",
+            "C": "Full statement: hybrid passive-active strategy; asset manager can pursue active investment strategies as if operating under total return mandate if surplus is above designated threshold; if actively managed assets perform poorly and surplus evaporates, mandate reverts to purely passive duration-matching portfolio; when surplus above threshold, manager may increase portfolio risk in any asset category (equity, fixed income, alternatives, out-of-money commodity options, credit default swaps); liquidity important criterion because positions unwound if losses near threshold.\n\nCorrect. Per the reading: 'The presence of a significant surplus allows the asset manager to consider a hybrid passive–active strategy known as contingent immunization. The idea behind contingent immunization is that the asset manager can pursue active investment strategies, as if operating under a total return mandate, if the surplus is above a designated threshold. If the actively managed assets perform poorly, however, and the surplus evaporates, the mandate reverts to the purely passive strategy of building a duration-matching portfolio and then managing it to remain on duration target. In principle, when the surplus is above a sufficient threshold, the manager may increase portfolio risk in any asset category, including equity, fixed income, and alternative investments. The manager could also buy out-of-the-money commodity options contracts or credit default swaps. The objective is to attain portfolio gains to reduce the cost of retiring the debt obligations without falling below the minimum funding threshold. Obviously, liquidity is an important criterion in selecting the investments because the positions will need to be unwound if losses cause the surplus to near the threshold.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.b",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Multiple Liabilities — contingent immunization",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_b_q8",
+          "number": 8,
+          "stem": "*Case study — Japanese corporation* three alternatives *most likely*:",
+          "options": {
+            "A": "(1) bond tender offer — buy back debt liabilities on open market at premium above market price, at price commensurate with triple-A rating to entice bondholders.",
+            "B": "The Japanese corporation case presents a single course of action: holding the existing debt to maturity.",
+            "C": "The case identifies no alternatives for managing the corporation's debt liabilities."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: (1) bond tender offer — buy back debt liabilities on open market at premium above market price, at price commensurate with triple-A rating to entice bondholders; (2) cash flow matching — buys portfolio of government bonds matching coupon interest and principal on debt liabilities, external auditors would agree to accounting defeasement allowing removal from balance sheet; (3) duration matching — buys portfolio of high-quality corporate bonds matching duration, using interest rate derivatives to keep duration on target; auditors unlikely to allow accounting defeasement.\n\nCorrect. Per the case study: 'An investment bank working with the corporation offers three alternatives to accomplish the objective: 1. Bond tender offer. The corporation would buy back the debt liabilities on the open market, paying a premium above the market price... The investment bank anticipates that the tender offer would have to be at a price commensurate with a triple-A rating to entice the bondholders to sell. 2. Cash flow matching. The corporation buys a portfolio of government bonds that matches, as closely as possible, the coupon interest and principal redemptions on the debt liabilities. The investment bank is highly confident that the corporation's external auditors will agree to accounting defeasement because the purchased bonds are government securities. That agreement will allow the corporation to remove both the defeasing asset portfolio and the liabilities from the balance sheet. 3. Duration matching. The corporation buys a portfolio of high-quality corporate bonds that matches the duration of the debt liabilities. Interest rate derivatives contracts will be used to keep the duration on its target as time passes and yields change. The investment bank thinks it is very unlikely that the external auditors will allow this strategy to qualify for accounting defeasement.'",
+            "B": "Incorrect. Three alternatives are developed — the tender offer is one of them, alongside cash-flow matching and duration matching.",
+            "C": "Incorrect. The case is built around comparing three distinct defeasance approaches."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.b",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Multiple Liabilities — Japanese case",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_b_q9",
+          "number": 9,
+          "stem": "*Portfolio selection for duration matching* *most likely*:",
+          "options": {
+            "A": "highest BPV.",
+            "B": "duration matching when market values of assets and liabilities differ entails matching money durations (BPVs).",
+            "C": "no criteria."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Complex criteria.",
+            "B": "Full statement: duration matching when market values of assets and liabilities differ entails matching money durations (BPVs); important difference between portfolios lies in convexities — to immunize multiple liabilities, convexity (and dispersion of cash flows) of assets needs to be greater than liabilities BUT must have lowest possible convexity available to minimize structural risk to strategy; correct immunizing portfolio is one with lower convexity that still exceeds liabilities.\n\nCorrect. Per the case study solution: 'Duration matching when the market values of the assets and liabilities differ, however, entails matching the money durations, in particular the BPVs. The choice then comes down to Portfolios A and B. Although both have BPVs close to the liabilities, it is incorrect to choose A based on its BPV being \"closer.\" The important difference between Portfolios A and B lies in the convexities. To immunize multiple liabilities, the convexity (and dispersion of cash flows) of the assets needs to be greater than the liabilities. Therefore, Portfolio A does not meet that condition. Recall that in an earlier exercise, the correct immunizing portfolio is the one with the lower convexity, which minimizes the structural risk to the strategy. But, that bond portfolio still has a convexity greater than the zero-coupon bond that would provide perfect immunization.' Also: 'in addition to matching money duration, immunization against multiple liabilities requires an asset portfolio with convexity which exceeds that of the liabilities but must have the lowest possible convexity available in order to minimize the structural risk to the strategy.'",
+            "C": "Convexity balance."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.b",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Multiple Liabilities — portfolio selection",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_b_q10",
+          "number": 10,
+          "stem": "*Synthetic barbell strategy* *most likely*:",
+          "options": {
+            "A": "no such strategy.",
+            "B": "no concept.",
+            "C": "having positions in short-term and longer-term segments of yield curve."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Synthetic barbell.",
+            "B": "Real strategy.",
+            "C": "Full statement: having positions in short-term and longer-term segments of yield curve; 'synthetic' means 'created with derivatives'; underlying asset portfolio concentrated in short-term market; derivatives portfolio at 6.5-year or 10-year segment; CME Group also has 2-year and 5-year Treasury futures contracts, so asset manager could spread futures across other segments — that diversification reduces structural risk to immunization strategy from non-parallel shifts and twists.\n\nCorrect. Per the reading: 'The asset manager has established a synthetic \"barbell\" strategy: having positions in the short-term and longer-term segments of the yield curve. The term \"synthetic\" means \"created with derivatives.\" The underlying asset portfolio is concentrated in the short-term market. The derivatives portfolio is either at the 6.5-year or 10-year segment of the yield curve. CME Group also has actively traded two-year and five-year Treasury futures contracts. Therefore, the asset manager could choose to spread out the futures contracts across other segments of the yield curve. That diversification reduces the structural risk to the immunization strategy arising from non-parallel shifts and twists to the curve.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.b",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Multiple Liabilities — synthetic barbell",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_b_q11",
+          "number": 11,
+          "stem": "*Type I cash flows* *most likely* are:",
+          "options": {
+            "A": "cash flows where scheduled amounts and payment dates are known to asset manager.",
+            "B": "no framework.",
+            "C": "no distinction."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: cash flows where scheduled amounts and payment dates are known to asset manager; assumed in single liability and multiple liability immunization contexts; more, and harder-to-make, assumptions needed to deal with Type IV liabilities and lead to greater uncertainty regarding models' outputs.\n\nCorrect. Per the reading: 'For now, we continue to assume that these are Type I cash flows in that the scheduled amounts and payment dates are known to the asset manager.' Also: 'Measurement error for asset BPV can even arise in the classic immunization strategy for Type I cash flows, which have set amounts and dates.' And: 'More, and harder-to-make, assumptions are needed to deal with Type IV liabilities and lead to greater uncertainty regarding the models' outputs.'",
+            "B": "Type I definition.",
+            "C": "Known dates + amounts."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.b",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Multiple Liabilities — Type I flows",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "liability_driven_and_index_based_strategies.c",
+      "los_letter": "c",
+      "los_text": "evaluate liability-based strategies under various interest rate scenarios and select a strategy to achieve a portfolio's objectives",
+      "reading_id": "liability_driven_and_index_based_strategies",
+      "reading_name": "Liability-Driven and Index-Based Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r18_ldi_los_c_q1",
+          "number": 1,
+          "stem": "The *pension plan asset BPV calculation* — 50% equity, 40% fixed income (MD 5.5), 10% alternatives on $2.7B *most likely*:",
+          "options": {
+            "A": "no calc.",
+            "B": "$594,000.",
+            "C": "no calc."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Weighted calc.",
+            "B": "Asset BPV = $2.700B × [(0.50 × 0) + (0.40 × 5.5) + (0.10 × 0)] × 0.0001 = $594,000 (term in brackets is estimated effective duration for asset portfolio using shares of market value as weights); equity and alternatives assumed to have zero effective duration because there is no stable and predictable relationship between valuations on those asset classes and market interest rates; assuming zero duration does not imply no interest rate risk.\n\nCorrect. Per the reading: 'Given these assumptions, we conclude that the asset BPV is USD594,000 = USD2.700 billion × [(0.50 × 0) + (0.40 × 5.5) + (0.10 × 0)] × 0.0001. The term in brackets is the estimated effective duration for the asset portfolio, calculated using the shares of market value as the weights. Clearly, the pension plan is running a significant duration gap — the asset BPV of USD594,000 is much lower than the liability BPV of USD2,257,080, using the PBO measure.' Also: 'To be conservative, we assume that there is no stable and predictable relationship between valuations on those asset classes and market interest rates. Therefore, equity duration and alternatives duration are assumed to be zero. Assuming zero duration does not imply that equity and alternatives have no interest rate risk.'",
+            "C": "Weighted duration."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.c",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Interest Rate Scenarios — asset BPV calc",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_c_q2",
+          "number": 2,
+          "stem": "*Duration gap using futures* — Ultra 10-year T-note contract, liability BPV 2,257,080, asset BPV 594,000, futures BPV 95.8909 *most likely*:",
+          "options": {
+            "A": "no calc.",
+            "B": "no calc.",
+            "C": "$8.315 million."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Futures calc.",
+            "B": "17,343 contracts.",
+            "C": "N_f = (2,257,080 - 594,000) / 95.8909 = 17,343 contracts to fully hedge; one concern with futures hedging is need for daily oversight because futures marked to market and settled at end of each day into margin account — 5 bps rate move creates realized loss of $95.8909 × 5 × 17,343 = $8.315 million offset by unrealized reduction in PV of liabilities; large futures position leads to significant daily cash flows.\n\nCorrect. Per the reading: 'For example, suppose the Ultra 10-year Treasury futures contract at the Chicago Mercantile Exchange has a BPV of USD95.8909 because the on-the-run T-note is the CTD security. Using Equation 3, the pension plan would need to buy, or go long, 17,343 contracts to fully hedge the interest rate risk created by the duration gap: N_f = (2,257,080 − 594,000)/95.8909 = 17,343. One concern with hedging with futures is the need for daily oversight of the positions. That need arises because futures contracts are marked to market and settled at the end of each trading day into the margin account. Suppose that the fund did buy 17,343 futures contracts and 10-year Treasury yields go up by 5 bps. Given that the futures BPV is USD95.8909 per contract, the realized loss that day is more than USD8.315 million: USD95.8909 × 5 × 17,343 = 8,315,179.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.c",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Interest Rate Scenarios — futures hedge calc",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_c_q3",
+          "number": 3,
+          "stem": "*Interest rate swap for duration gap* Equation 5 *most likely*:",
+          "options": {
+            "A": "Asset BPV + [NP × Swap BPV/100] = Liability BPV.",
+            "B": "no formula.",
+            "C": "no framework."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: Asset BPV + [NP × Swap BPV/100] = Liability BPV; from pension fund perspective, receive-fixed swap = buying 30-year fixed-rate bond from swap dealer and financing purchase by issuing 30-year FRN paying 3-month MRR; swap's money duration = (high) duration of fixed-rate bond minus (low) duration of FRN — receive-fixed swap has positive duration; from swap dealer's perspective, contract is purchasing (low duration) FRN financed by issuing (high duration) fixed-rate bond so swap has negative duration to dealer.\n\nCorrect. Per Equation 5: 'Asset BPV + [NP × Swap BPV/100] = Liability BPV.' And the reading: 'The risk statistics for an interest rate swap can be obtained from interpreting the contract as a combination of bonds. From the pension fund's perspective, the swap is viewed as buying a 30-year, 4.16% fixed-rate bond from the swap dealer and financing that purchase by issuing a 30-year floating-rate note (FRN) that pays the three-month MRR.' And: 'The swap's money duration is taken to be the (high) duration of the fixed-rate bond minus the (low) duration of the FRN. That explains why a receive-fixed swap has positive duration. From the swap dealer's perspective, the contract is viewed as purchasing a (low duration) FRN that is financed by issuing a (high duration) fixed-rate bond. Hence, the swap has negative duration to the dealer.'",
+            "B": "Explicit formula.",
+            "C": "Swap = bonds combo."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.c",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Interest Rate Scenarios — swap formula",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_c_q4",
+          "number": 4,
+          "stem": "*Notional principal calculation* — 30-year receive-fixed swap 4.16% BPV 0.1673 *most likely*:",
+          "options": {
+            "A": "no answer.",
+            "B": "594,000 + [NP × 0.1673/100] = 2,257,080.",
+            "C": "no calc."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "$994M notional.",
+            "B": "Full statement: 594,000 + [NP × 0.1673/100] = 2,257,080; NP = 994,070,532 (approximately $994 million); receive-fixed swap has positive duration; if swap rates fall, receive-fixed gains value; hedging fund uses this to offset losses on balance sheet from falling rates.\n\nCorrect. Per the reading: 'The notional principal (NP) on the interest rate swap needed to close the duration gap to zero can be calculated with this expression: Asset BPV + [NP × Swap BPV/100] = Liability BPV. This is similar to Equation 2 for futures contracts. Given that the Asset BPV is USD594,000 and the Liability BPV is USD2,257,080 using the PBO measure, the required notional principal for the receive-fixed swap having a BPV of 0.1673 is about USD994 million. 594,000 + [NP × 0.1673/100] = 2,257,080; NP = 994,070,532.'",
+            "C": "Concrete NP."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.c",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Interest Rate Scenarios — NP calc",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_c_q5",
+          "number": 5,
+          "stem": "*Hedging ratio* concept *most likely*:",
+          "options": {
+            "A": "no concept.",
+            "B": "no concept.",
+            "C": "extent of interest rate risk management."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Real concept.",
+            "B": "0% to 100%.",
+            "C": "Full statement: extent of interest rate risk management; hedging ratio of 0% indicates no hedging at all (plan retains significant negative duration gap); hedging ratio of 100% indicates full immunization; in practice partial hedges are common; manager's task is to select ratio between 0% and 100%; interest rate swaps typically have value of zero at initiation.\n\nCorrect. Per the reading: 'We use the term \"hedging ratio\" (or \"interest rate hedging ratio,\" since the focus is on reducing interest rate risk) to indicate the extent of interest rate risk management. A hedging ratio of 0% indicates no hedging at all. The pension plan retains the significant negative duration gap and the risk of lower corporate bond yields if it does not hedge. A hedging ratio of 100% indicates an attempt to fully balance, or to immunize, the assets and liabilities. In this case, the plan manager enters the receive-fixed swap for a notional principal of USD994 million. In practice, partial hedges are common; the manager's task is to select the hedging ratio between 0% and 100%.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.c",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Interest Rate Scenarios — hedging ratio",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_c_q6",
+          "number": 6,
+          "stem": "*Strategic hedging* *most likely*:",
+          "options": {
+            "A": "active management of the hedging ratio.",
+            "B": "no concept.",
+            "C": "no concept."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: active management of the hedging ratio; plan sponsor allows manager flexibility in selecting hedging ratio (e.g., mandate to stay within range of 25% to 75%); when manager anticipates lower market rates and gains on receive-fixed swaps, prefers to be at top of allowable range; if market swap rates expected to go up, could reduce hedging ratio to lower end; performance measured against strategy of maintaining preset hedging ratio (e.g., 50%).\n\nCorrect. Per the reading: 'One possibility is that the plan sponsor allows the manager some flexibility (called \"strategic hedging\") in selecting the hedging ratio. For example, the mandate could be to stay within a range of 25% to 75%. When the manager anticipates lower market rates and gains on receive-fixed interest rate swaps, the manager prefers to be at the top of an allowable range. On the other hand, if market (swap) rates are expected to go up, the manager could reduce the hedging ratio to the lower end of the range. The performance of the strategic hedging decisions can be measured against a strategy of maintaining a preset hedging ratio, for instance, 50%.'",
+            "B": "Active management.",
+            "C": "Range flexibility."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.c",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Interest Rate Scenarios — strategic hedging",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_c_q7",
+          "number": 7,
+          "stem": "*Alternatives to receive-fixed swap* for pension fund duration gap *most likely* include:",
+          "options": {
+            "A": "No alternatives to the receive-fixed swap exist for closing a pension duration gap.",
+            "B": "(1) purchased receiver swaption — confers right to buyer to enter swap as fixed-rate receiver, gain on receiver swaption as rates decline offsets losses on balance sheet, but requires paying option premium up front.",
+            "C": "The only alternative to the swap is selling the pension's equity holdings to buy long bonds."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. A purchased receiver swaption and a swaption collar are both developed as alternatives.",
+            "B": "Full statement: (1) purchased receiver swaption — confers right to buyer to enter swap as fixed-rate receiver, gain on receiver swaption as rates decline offsets losses on balance sheet, but requires paying option premium up front; (2) swaption collar — combination of buying receiver swaption and writing payer swaption, premium received on payer swaption offsets premium needed to buy receiver swaption.\n\nCorrect. Per the reading Summary: 'An alternative to the receive-fixed interest rate swap is a purchased receiver swaption. This swaption confers to the buyer the right to enter the swap as the fixed-rate receiver. Because of its negative duration gap (asset BPV is less than liability BPV), the typical pension plan suffers when interest rates fall and could become underfunded. The gain on the receiver swaption as rates decline offsets the losses on the balance sheet. Another alternative is a swaption collar, the combination of buying the receiver swaption and writing a payer swaption. The premium received on the payer swaption that is written offsets the premium needed to buy the receiver swaption.'",
+            "C": "Incorrect. The derivative alternatives — receiver swaption and collar — add hedging BPV without reallocating the asset portfolio."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.c",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Interest Rate Scenarios — swaption alternatives",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_c_q8",
+          "number": 8,
+          "stem": "*Choosing among receive-fixed swap, receiver swaption, and swaption collar* *most likely*:",
+          "options": {
+            "A": "no criteria.",
+            "B": "no framework.",
+            "C": "depends in part on pension fund manager's view on future interest rates."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Rate-view driven.",
+            "B": "View-based choice.",
+            "C": "Full statement: depends in part on pension fund manager's view on future interest rates; if rates expected to be low, receive-fixed swap typically preferred derivative; if rates expected to go up, receiver swaption can become attractive; if rates projected to reach certain threshold that depends on option costs and strike rates, swaption collar can become favored choice.\n\nCorrect. Per the reading Summary: 'The choice among hedging with the receive-fixed swap, the purchased receiver swaption, and the swaption collar depends in part on the pension fund manager's view on future interest rates. If rates are expected to be low, the receive-fixed swap typically is the preferred derivative. If rates are expected to go up, the receiver swaption can become attractive. And if rates are projected to reach a certain threshold that depends on the option costs and the strike rates, the swaption collar can become the favored choice.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.c",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Interest Rate Scenarios — hedge instrument choice",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_c_q9",
+          "number": 9,
+          "stem": "*Steepening twist scenario* Exhibit 15 *most likely*:",
+          "options": {
+            "A": "short-term yields on high-quality bonds go down while long-term yields go up (1.5-year drops 25 bps, 6-year unchanged, 11.5-year up 25 bps).",
+            "B": "In the steepening twist scenario, hedged and unhedged positions produce identical outcomes across the curve.",
+            "C": "Exhibit 15 presents no scenario data for a steepening twist."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: short-term yields on high-quality bonds go down while long-term yields go up (1.5-year drops 25 bps, 6-year unchanged, 11.5-year up 25 bps); leads to loss of EUR1,178,071 in asset portfolio as cash flow yield increases by 10.04 bps; market value of liabilities drops by only EUR835,156 because cash flow yield increases by only 7.11 bps; steepening twist to shape of yield curve is source of loss (difference EUR342,915).\n\nCorrect. Per Exhibit 15 and reading: 'This scenario is the steepening twist in which short-term yields on high-quality bonds go down while long-term yields go up. The 1.5-year yield is assumed to drop by 25 bps. The 6-year yield remains the same, and the 11.5-year yield goes up by 25 bps. These changes lead to a loss of EUR1,178,071 in the asset portfolio as the cash flow yield increases by 10.04 bps... The market value of the liabilities drops by only EUR835,156 because the cash flow yield increases by only 7.11 bps. The value of the assets goes down by more than the liabilities — the difference is EUR342,915. The steepening twist to the shape of the yield curve is the source of the loss.'",
+            "B": "Incorrect. The twist creates differential outcomes precisely because yield changes vary by maturity.",
+            "C": "Incorrect. The scenario is specified: 1.5-year down 25 bps, 6-year unchanged, 11.5-year up 25 bps."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.c",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Interest Rate Scenarios — steepening twist",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_c_q10",
+          "number": 10,
+          "stem": "*ABO vs PBO measures* for pension plan *most likely*:",
+          "options": {
+            "A": "same.",
+            "B": "$2,257,080.",
+            "C": "no difference."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Distinct measures.",
+            "B": "accumulated benefit obligation (ABO) based on current wages; projected benefit obligation (PBO) based on expected future wages; example: ABO $1.730B with effective duration 17.1; PBO $2.687B with effective duration 8.4; ABO BPV = $1.730B × 17.1 × 0.0001 = $2,958,300; PBO BPV = $2.687B × 8.4 × 0.0001 = $2,257,080; if corporation anticipates acquisition target with acquirer converting from defined benefit to defined contribution, ABO measure matters more than PBO; for corporate sponsor preserving pension plan design as ongoing independent institution, PBO is appropriate measure.\n\nCorrect. Per the reading: 'There is a significant difference between having liabilities of USD1.730 billion and an effective duration of 17.1, as measured by the ABO, and liabilities of USD2.687 billion and an effective duration of 8.4, as measured by the PBO. The ABO BPV is USD2,958,300 (= USD1.730 billion × 17.1 × 0.0001), and the PBO BPV is USD2,257,080 (= USD2.687 billion × 8.4 × 0.0001). The plan sponsor must decide which liability measure to use for risk management and asset allocation. For example, if the corporation anticipates that it might be a target for an acquisition and that the acquirer likely would want to convert the retirement plan from defined benefit to defined contribution, the ABO measure matters more than the PBO. We assume that the corporate sponsor sees itself as an ongoing independent institution that preserves the pension plan's current design. Therefore, PBO is the appropriate measure for pension plan liabilities.'",
+            "C": "Distinct measures."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.c",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Interest Rate Scenarios — ABO vs PBO",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "liability_driven_and_index_based_strategies.d",
+      "los_letter": "d",
+      "los_text": "explain risks associated with managing a portfolio against a liability structure",
+      "reading_id": "liability_driven_and_index_based_strategies",
+      "reading_name": "Liability-Driven and Index-Based Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r18_ldi_los_d_q1",
+          "number": 1,
+          "stem": "*Essential relationship for full interest rate hedging* Equation 6 *most likely*:",
+          "options": {
+            "A": "No formula relates asset, hedge, and liability sensitivities in interest rate hedging.",
+            "B": "Full hedging requires only that asset BPV equal liability BPV, with no role for the hedge position.",
+            "C": "Asset BPV × ΔAsset yields + Hedge BPV × ΔHedge yields ≈ Liability BPV × ΔLiability yields (all yield changes in basis points)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Equation 6 states the relationship explicitly across all three components.",
+            "B": "Incorrect. The hedge term is integral: Asset BPV × ΔAsset yields + Hedge BPV × ΔHedge yields ≈ Liability BPV × ΔLiability yields.",
+            "C": "Full statement: Asset BPV × ΔAsset yields + Hedge BPV × ΔHedge yields ≈ Liability BPV × ΔLiability yields (all yield changes in basis points); describes immunization strategy (hedging ratio of 100%) matching changes in market value on each side of balance sheet; 'approximately equals' sign results from ignoring higher-order terms such as convexity.\n\nCorrect. Per Equation 6: 'Asset BPV × ΔAsset yields + Hedge BPV × ΔHedge yields ≈ Liability BPV × ΔLiability yields. ΔAsset yields, ΔHedge yields, and ΔLiability yields are measured in basis points. This equation describes an immunization strategy (a hedging ratio of 100%) whereby the intent is to match the changes in market value on each side of the balance sheet when yields change. Doing so entails matching the money duration of assets and liabilities. We know, however, that entities also choose to partially hedge interest rate risk by selecting a hedging ratio less than 100%. In any case, Equation 6 serves to indicate the source of the risks to LDI. The \"approximately equals\" sign (≈) in the equation results from ignoring higher-order terms, such as convexity.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.d",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "LDI Risks — essential relationship",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_d_q2",
+          "number": 2,
+          "stem": "*Model risk* in LDI *most likely*:",
+          "options": {
+            "A": "encountered whenever assumptions made about future events and approximations used to measure key parameters.",
+            "B": "no risk.",
+            "C": "no risk."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: encountered whenever assumptions made about future events and approximations used to measure key parameters; risk is that assumptions turn out to be wrong and approximations are inaccurate; e.g., assuming effective durations for investments in equity and alternative assets are zero — modeling problem is effect on those asset classes not predictable or stable because depends on reason for change in nominal interest rates.\n\nCorrect. Per the reading: 'We encounter model risk in financial modeling whenever assumptions are made about future events and approximations are used to measure key parameters. The risk is that those assumptions turn out to be wrong and the approximations are inaccurate. For example, in our earlier defined benefit pension plan example, we assumed that the effective durations for investments in equity and alternative assets are zero. That assumption introduces the risk that asset BPV is mis-measured if, in fact, those market values change as the yield curve shifts. The modeling problem is that the effect on those asset classes is not predictable or stable because it depends on the reason for the change in nominal interest rates. Unlike fixed-income bonds, an increase in expected inflation can have a very different effect on equity and alternative asset valuations than an increase in the real rate.'",
+            "B": "Real risk.",
+            "C": "Assumption risk."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.d",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "LDI Risks — model risk",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_d_q3",
+          "number": 3,
+          "stem": "*Asset BPV measurement error* even for Type I cash flows *most likely*:",
+          "options": {
+            "A": "Asset BPV can be measured without error whenever the liability cash flows are Type I.",
+            "B": "in practice common to approximate asset portfolio duration using weighted average of individual durations for component bonds.",
+            "C": "Duration approximation introduces no measurement issue in immunization practice."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Even with certain (Type I) cash flows, the common weighted-average-duration approximation introduces error.",
+            "B": "Full statement: in practice common to approximate asset portfolio duration using weighted average of individual durations for component bonds; a better approach to achieve immunization uses cash flow yield to discount future coupon and principal payments; this error is minimized when underlying yield curve is flat or when future cash flows are concentrated in flattest segment of curve.\n\nCorrect. Per the reading: 'Measurement error for asset BPV can even arise in the classic immunization strategy for Type I cash flows, which have set amounts and dates. In practice, it is common to approximate the asset portfolio duration using the weighted average of the individual durations for the component bonds. A better approach to achieve immunization, however, uses the cash flow yield to discount the future coupon and principal payments. This error is minimized when the underlying yield curve is flat or when future cash flows are concentrated in the flattest segment of the curve.'",
+            "C": "Incorrect. The weighted-average shortcut ignores curve shape effects — a real, acknowledged measurement error."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.d",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "LDI Risks — asset BPV approx",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_d_q4",
+          "number": 4,
+          "stem": "*Hedge BPV measurement error* *most likely*:",
+          "options": {
+            "A": "Hedge BPV is known exactly because futures contracts have contractually fixed sensitivities.",
+            "B": "Derivatives overlays introduce no measurement risk into the hedging relationship.",
+            "C": "when using derivatives overlays to immunize, Equation 4 estimates futures BPV to be BPV for CTD security divided by its conversion factor."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Futures BPV is ESTIMATED — CTD BPV divided by its conversion factor — and the CTD itself can change.",
+            "B": "Incorrect. The estimation chain (CTD identification, conversion factor) is a genuine source of hedge measurement error.",
+            "C": "Full statement: when using derivatives overlays to immunize, Equation 4 estimates futures BPV to be BPV for CTD security divided by its conversion factor; a more developed calculation involving short-term rates and accrued interest could change number of contracts needed to hedge interest rate risk; although error introduced by using approximation might not be large, still can be source of underperformance in hedging strategy.\n\nCorrect. Per the reading: 'A similar problem arises in measuring hedge BPV. When we illustrated the use of derivatives overlays to immunize, we used a common approximation for the futures BPV. Equation 4 estimates it to be the BPV for the qualifying CTD security divided by its conversion factor. A more developed calculation involving short-term rates and accrued interest, however, could change the number of contracts needed to hedge the interest rate risk. Although the error introduced by using an approximation might not be large, it still can be a source of underperformance in the hedging strategy.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.d",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "LDI Risks — hedge BPV error",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_d_q5",
+          "number": 5,
+          "stem": "*Liability BPV model risk in pension plan example* *most likely*:",
+          "options": {
+            "A": "measuring pension plan's liability is difficult financial modeling problem.",
+            "B": "no assumptions.",
+            "C": "no risk."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: measuring pension plan's liability is difficult financial modeling problem; simple models for two liability measures (ABO and PBO) necessarily require many assumptions about future including dates when employees retire and their wage levels at those times; difficulty in projecting life spans of retirees leads to longevity risk (sponsor has not provided sufficient assets to make longer-than-expected payout stream); more, and harder-to-make, assumptions needed to deal with Type IV liabilities and lead to greater uncertainty.\n\nCorrect. Per the reading: 'Model risk in obtaining a measure of liability BPV is evident in the earlier defined benefit pension plan example. Measuring a defined benefit pension plan's liability is clearly a difficult financial modeling problem. Even the simple models for the two liability measures (the ABO and PBO) necessarily require many assumptions about the future, including the dates when employees retire and their wage levels at those times. The difficulty in projecting life spans of retirees covered by the pension plan leads to longevity risk. The risk is the sponsor has not provided sufficient assets to make the longer-than-expected payout stream. More, and harder-to-make, assumptions are needed to deal with Type IV liabilities and lead to greater uncertainty regarding the models' outputs.'",
+            "B": "Multi-assumption.",
+            "C": "Real risks."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.d",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "LDI Risks — liability BPV",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_d_q6",
+          "number": 6,
+          "stem": "*Non-parallel shifts risk* *most likely*:",
+          "options": {
+            "A": "no risk.",
+            "B": "implicit in Equation 6 is assumption that all yields change by same number of basis points.",
+            "C": "no risk."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Non-parallel risk.",
+            "B": "Full statement: implicit in Equation 6 is assumption that all yields change by same number of basis points; strong assumption and source of risk if fixed-income assets, derivatives, and liabilities are positioned at varying points along benchmark yield curve; parallel yield curve shift is sufficient but not necessary condition; non-parallel shifts and twists can result in changes to cash flow yield that don't match change in zero-coupon bond yield; minimizing dispersion of cash flows in asset portfolio mitigates this risk.\n\nCorrect. Per the reading: 'Implicit in Equation 6 is the assumption that all yields change by the same number of basis points — that is, ΔAsset Yields, ΔHedge Yields, and ΔLiability Yields are equal. That is a strong assumption — and a source of risk — if the fixed-income assets, the derivatives, and the liabilities are positioned at varying points along the benchmark bond yield curve and at varying spreads to that curve. Previously, when we discussed immunizing the interest rate risk on a single liability by structuring and managing a portfolio of fixed-income bonds, we pointed out that a parallel yield curve shift is a sufficient but not necessary condition to achieve the desired outcome. Non-parallel shifts and twists to the yield curve can result in changes to the cash flow yield on the immunizing portfolio that do not match the change in the yield on the zero-coupon bond that provides perfect immunization. Minimizing dispersion of the cash flows in the asset portfolio mitigates this risk.'",
+            "C": "Real risk."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.d",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "LDI Risks — non-parallel risk",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_d_q7",
+          "number": 7,
+          "stem": "*Spread risk in LDI* *most likely*:",
+          "options": {
+            "A": "Spread risk does not arise in LDI because assets and liabilities respond to the same yield curve.",
+            "B": "LDI frameworks are immune to divergence between asset and liability discount rates.",
+            "C": "framework rests on changes in benchmark bond yield curve (usually government bonds), but in practice ΔAsset yield and ΔLiability yield often refer to various classes of corporate bonds."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Asset yields and liability discount rates often move by DIFFERENT amounts than benchmark government yields — that divergence is spread risk.",
+            "B": "Incorrect. The framework rests on the benchmark curve, but corporate-quality liability discounting and asset spreads can decouple from it.",
+            "C": "Full statement: framework rests on changes in benchmark bond yield curve (usually government bonds), but in practice ΔAsset yield and ΔLiability yield often refer to various classes of corporate bonds; risk is that respective spreads on broad index and high-quality sector do not move in unison with shift in government bond yield curve; similar spread risk present in immunizing multiple Type I liabilities.\n\nCorrect. Per the reading: 'Generally, the framework for thinking about interest rate risk rests on changes in the benchmark bond yield curve, which usually is the yield curve for government bonds. In practice, however, ΔAsset yield and ΔLiability yield often refer to various classes of corporate bonds. In the pension fund example, the fund holds a portfolio of fixed-income bonds that tracks a well-diversified index of corporate bonds that may include non-investment-grade securities. The present value of retirement benefits, however, depends on yields on high-quality corporate bonds. Therefore, a risk is that the respective spreads on the broad index and the high-quality sector do not move in unison with a shift in the government bond yield curve. A similar spread risk is present in the earlier example of immunizing multiple Type I liabilities.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.d",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "LDI Risks — spread risk",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_d_q8",
+          "number": 8,
+          "stem": "*Treasury vs corporate volatility for hedging* *most likely*:",
+          "options": {
+            "A": "usually yields on high-quality corporate bonds are less volatile than on more-liquid Treasuries.",
+            "B": "identical.",
+            "C": "no distinction."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: usually yields on high-quality corporate bonds are less volatile than on more-liquid Treasuries; government bonds used in wide variety of hedging as well as speculative trading strategies by institutional investors; also, inflows of international funds typically placed in government bonds at least until allocated to other asset classes; those factors lead to greater volatility in Treasury yields than comparable-maturity corporate bonds.\n\nCorrect. Per the reading: 'Spread risk also is apparent in the derivatives overlay LDI strategies. We illustrated how futures contracts can be used to hedge the interest rate risk of the multiple liabilities, either passively or contingently. In particular, the futures contracts are on 10-year US Treasury notes, whereas the liabilities are corporate obligations. Movements in the corporate/Treasury yield spread introduce risk to the hedging strategy. Usually, yields on high-quality corporate bonds are less volatile than on more-liquid Treasuries. Government bonds are used in a wide variety of hedging as well as speculative trading strategies by institutional investors. Also, inflows of international funds typically are placed in government bonds, at least until they are allocated to other asset classes. Those factors lead to greater volatility in Treasury yields than comparable-maturity corporate bonds.'",
+            "B": "Treasuries more vol.",
+            "C": "Treasuries more volatile."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.d",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "LDI Risks — Treasury vs corporate vol",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_d_q9",
+          "number": 9,
+          "stem": "*Distressed assets and illiquidity risk* in contingent immunization *most likely*:",
+          "options": {
+            "A": "Contingent immunization carries no risk related to asset liquidity or distressed pricing.",
+            "B": "manager may increase portfolio risk by using active management if surplus above threshold, but if losses reduce surplus to some minimum amount, positions need to be adjusted to revert to passive duration-matching portfolio of high-quality bonds.",
+            "C": "Active positions in a contingent immunization strategy never need to be unwound."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. If losses push the surplus to the trigger, positions — possibly distressed or illiquid — must be liquidated to lock in immunization.",
+            "B": "Full statement: manager may increase portfolio risk by using active management if surplus above threshold, but if losses reduce surplus to some minimum amount, positions need to be adjusted to revert to passive duration-matching portfolio of high-quality bonds; distressed assets that become hard to value, such as tranches of subprime mortgage-backed securities, also become illiquid during financial crises.\n\nCorrect. Per the reading: 'manager may increase portfolio risk by using active management. But if losses reduce the surplus to some minimum amount, the positions need to be adjusted to revert to a passive duration-matching fixed-income portfolio of high-quality bonds. Distressed assets that become hard to value, such as tranches of subprime mortgage-backed securities, also become illiquid during financial crises.'",
+            "C": "Incorrect. The forced unwind at the surplus floor is the strategy's defining risk; illiquid holdings make it costly."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.d",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "LDI Risks — distressed illiquidity",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_d_q10",
+          "number": 10,
+          "stem": "*Fundamental choice in LDI* *most likely*:",
+          "options": {
+            "A": "LDI managers face no meaningful implementation choices once the liability profile is measured.",
+            "B": "The only implementation route in LDI is physical asset allocation; derivatives play no role.",
+            "C": "LDI manager has fundamental choice between managing interest rate risk with asset allocation and with derivatives overlays."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. The fundamental implementation choice — asset allocation versus derivatives overlay — remains after measurement.",
+            "B": "Incorrect. Derivatives overlays are one of the two principal routes; the choice between them is the point.",
+            "C": "Full statement: LDI manager has fundamental choice between managing interest rate risk with asset allocation and with derivatives overlays; choice depends on thorough evaluation of risk and return trade-offs; in some circumstances, derivatives might be deemed too expensive or risky particularly regarding available collateral and cash holdings; then manager might choose to increase holdings of long-term, high-quality bonds that have high duration statistics; growth of government zero-coupon bonds (US Treasury STRIPS) facilitates that asset reallocation process.\n\nCorrect. Per the reading: 'In summary, an LDI manager has a fundamental choice between managing interest rate risk with asset allocation and with derivatives overlays. As with all financial management decisions, the choice depends on a thorough evaluation of risk and return trade-offs. In some circumstances, derivatives might be deemed too expensive or risky, particularly regarding available collateral and cash holdings. Then the manager might choose to increase holdings of long-term, high-quality bonds that have high duration statistics. The growth of government zero-coupon bonds, such as US Treasury STRIPS (Separate Trading of Registered Interest and Principal of Securities), facilitates that asset reallocation process.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.d",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "LDI Risks — fundamental choice",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_d_q11",
+          "number": 11,
+          "stem": "*Callable bond swaption case study* — write receiver swaption to defease callable debt *most likely*:",
+          "options": {
+            "A": "when corporation issued callable bond, effectively bought call option giving flexibility to refinance at lower cost if benchmark rates and/or credit spread narrows.",
+            "B": "No strategy exists for a corporation seeking to defease callable debt using swaptions.",
+            "C": "The case study addresses callable debt but proposes only open-market repurchase as the remedy."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: when corporation issued callable bond, effectively bought call option giving flexibility to refinance at lower cost if benchmark rates and/or credit spread narrows; writing receiver swaption 'sells' that call option and corporation captures value of embedded call option by means of premium received; if market rates in three years higher than strike rate on swaption and yield on debt security, both options expire out of the money; if market rates fall and bond prices go up, both options in the money — corporation sells 7-year bonds (assets) and uses proceeds to call debt liabilities at par value, gain offsets loss on closing swaption.\n\nCorrect. Per the case study solution: 'The derivatives consultant should recommend that the corporation choose the fourth option and write a receiver swaption — that is, an option that gives the swaption buyer the right to enter into a swap to receive fixed and pay floating. When the corporation issued the callable bond, it effectively bought the call option, giving the corporation the flexibility to refinance at a lower cost of borrowed funds if benchmark rates and/or the corporation's credit spread narrows. Writing the receiver swaption \"sells\" that call option, and the corporation captures the value of the embedded call option by means of the premium received. Suppose that market rates in three years are higher than the strike rate on the swaption and the yield on the debt security. Then both options — the embedded call option in the bond liability, as well as the swaption — expire out of the money. The asset and liability both have seven years until maturity and are non-callable. Suppose instead that market rates fall and bond prices go up. Both options are now in the money. The corporation sells the seven-year bonds (the assets) and uses the proceeds to call the debt liabilities at par value. The gain on that transaction offsets the loss on closing out the swaption with the counterparty.'",
+            "B": "Incorrect. Writing a receiver swaption monetizes the embedded call the issuer effectively owns.",
+            "C": "Incorrect. The strategy presented is the swaption sale — the issuer bought refinancing flexibility with the call and can sell an offsetting option."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.d",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "LDI Risks — callable bond swaption",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "liability_driven_and_index_based_strategies.e",
+      "los_letter": "e",
+      "los_text": "discuss bond indexes and the challenges of managing a fixed-income portfolio to mimic the characteristics of a bond index",
+      "reading_id": "liability_driven_and_index_based_strategies",
+      "reading_name": "Liability-Driven and Index-Based Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r18_ldi_los_e_q1",
+          "number": 1,
+          "stem": "*Bond markets vs equity markets* size *most likely*:",
+          "options": {
+            "A": "Bond and equity markets are approximately the same size, with similar numbers of securities outstanding.",
+            "B": "fixed-income markets are much larger and broader than equity markets, and number of fixed-income securities outstanding is vastly larger as reflected in broad market indexes.",
+            "C": "The reading offers no comparison between fixed-income and equity market scale."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Fixed-income markets are MUCH larger and broader, with vastly more securities outstanding.",
+            "B": "Full statement: fixed-income markets are much larger and broader than equity markets, and number of fixed-income securities outstanding is vastly larger as reflected in broad market indexes; MSCI World Index (23 developed countries, 85% market cap) has ~1,600 securities; Bloomberg Barclays Global Aggregate Index (24 local currency markets) has more than 16,000 securities; those fixed-income issuers represent much wider range of borrowers than relatively narrow universe of companies issuing equity.\n\nCorrect. Per the reading: 'Fixed-income markets are much larger and broader than equity markets, and the number of fixed-income securities outstanding is vastly larger as reflected in broad market indexes. For instance, the MSCI World Index, capturing equities in 23 developed market countries and 85% of the available market capitalization in each market, consists of about 1,600 securities, whereas the Bloomberg Barclays Global Aggregate Index, covering global investment-grade debt from 24 local currency markets, consists of more than 16,000 securities. Those fixed-income issuers represent a much wider range of borrowers than the relatively narrow universe of companies issuing equity securities.'",
+            "C": "Incorrect. The scale comparison is drawn explicitly — a single issuer can have dozens of bonds against one common stock."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.e",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Bond Indexes — market size",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_e_q2",
+          "number": 2,
+          "stem": "*Bloomberg Barclays US Aggregate Index* *most likely* includes:",
+          "options": {
+            "A": "The Bloomberg Barclays US Aggregate contains no published constituent or sector data.",
+            "B": "The US Aggregate covers a single sector: US Treasury securities only.",
+            "C": "oldest and most widely recognized US bond market index (one of four regional aggregate benchmarks that constitute Bloomberg Barclays Global Aggregate Index)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Constituent rules and sector weights are published and transparent.",
+            "B": "Incorrect. The Aggregate spans Treasuries, agencies, corporates, and securitized sectors — one of four regional aggregates in the Global Aggregate.",
+            "C": "Full statement: oldest and most widely recognized US bond market index (one of four regional aggregate benchmarks that constitute Bloomberg Barclays Global Aggregate Index); includes US Treasuries, government agency securities, corporate bonds, mortgage-backed securities, asset-backed securities, and commercial mortgage-backed securities; although large number of index constituents provides means of risk diversification, in practice it is neither feasible nor cost-effective for investors to pursue full replication approach with broad fixed-income market index.\n\nCorrect. Per the reading: 'For example, the oldest and most widely recognized US bond market index, the Bloomberg Barclays US Aggregate Index (one of four regional aggregate benchmarks that constitute the Bloomberg Barclays Global Aggregate Index), includes US Treasuries, government agency securities, corporate bonds, mortgage-backed securities, asset-backed securities, and commercial mortgage-backed securities. Although the large number of index constituents provides a means of risk diversification, in practice it is neither feasible nor cost-effective for investors to pursue a full replication approach with a broad fixed-income market index.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.e",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Bond Indexes — Barclays US Aggregate",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_e_q3",
+          "number": 3,
+          "stem": "*Debt vs equity securities* per issuer Exhibit 24 *most likely*:",
+          "options": {
+            "A": "as of October 2020, Royal Dutch Shell had 57 bonds outstanding across four currencies (some both fixed and floating rate), range of maturities under a year to bonds maturing in 2052.",
+            "B": "Exhibit 24 provides no issuer-level data comparing debt and equity securities outstanding.",
+            "C": "The reading makes no comparison of security counts between debt and equity for any issuer."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: as of October 2020, Royal Dutch Shell had 57 bonds outstanding across four currencies (some both fixed and floating rate), range of maturities under a year to bonds maturing in 2052; BHP Billiton 22 bonds vs 1 common; Johnson & Johnson 37 vs 1; Ford Motor Company 104 fixed-income securities vs 2 common equity + 2 preferred equity; existence of many debt securities for a particular issuer suggests many near substitutes may exist for investor seeking to pursue enhanced index strategy.\n\nCorrect. Per Exhibit 24 (Debt and Equity Securities Outstanding for Select Issuers): 'Royal Dutch Shell PLC: 57 Fixed-Income, 1 Common Equity, 0 Preferred. BHP Billiton Limited: 22, 1, 0. Johnson & Johnson: 37, 1, 0. Ford Motor Company: 104, 2, 2.' And: 'As of October 2020, Royal Dutch Shell had 57 bonds outstanding across four currencies, some of which were both fixed and floating rate, with a range of maturities from under a year to bonds maturing in 2052. The existence of many debt securities for a particular issuer suggests that many near substitutes may exist for an investor seeking to pursue an enhanced index strategy.'",
+            "B": "Incorrect. The exhibit details a real issuer's outstanding bonds by currency, coupon type, and maturity.",
+            "C": "Incorrect. Royal Dutch Shell's 57 bonds across four currencies against its common equity is the illustration."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.e",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Bond Indexes — Exhibit 24",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_e_q4",
+          "number": 4,
+          "stem": "*Fixed-income markets trading patterns* *most likely*:",
+          "options": {
+            "A": "Fixed-income trading is predominantly exchange-based with central limit order books like equities.",
+            "B": "largely over-the-counter markets that rely on broker/dealers as principals to trade using quote-based execution process rather than order-based trading systems common in equity markets.",
+            "C": "Bond and equity market structures are identical in venue and execution process."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Bond markets are largely OTC, quote-driven through broker/dealer principals — with Basel III raising dealers' inventory costs.",
+            "B": "Full statement: largely over-the-counter markets that rely on broker/dealers as principals to trade using quote-based execution process rather than order-based trading systems common in equity markets; rising cost of maintaining risk-weighted assets on dealer balance sheets because of Basel III capital requirements has had adverse effect on fixed-income trading and liquidity; broker/dealers reduced bond inventories; dealers less willing to support larger 'block' trades preferring smaller trade sizes; significant decline in proprietary trading among dealers has had greater pricing effect on less liquid 'off-the-run' bonds.\n\nCorrect. Per the reading: 'Unlike equity securities, which trade primarily over an exchange, fixed-income markets are largely over-the-counter markets that rely on broker/dealers as principals to trade in these securities using a quote-based execution process rather than the order-based trading systems common in equity markets. The rising cost of maintaining risk-weighted assets on dealer balance sheets because of Basel III capital requirements has had an adverse effect on fixed-income trading and liquidity. Broker/dealers have reduced bond inventories because of higher capital costs. With lower trading inventories, dealers have both a limited appetite to facilitate trading at narrow bid–offer spreads and are less willing to support larger \"block\" trades, preferring execution in smaller trade sizes. Finally, a significant decline in proprietary trading among dealers has had a greater pricing effect on less liquid or \"off-the-run\" bonds.'",
+            "C": "Incorrect. Quote-based OTC execution versus order-based exchange trading is the structural difference."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.e",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Bond Indexes — trading patterns",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_e_q5",
+          "number": 5,
+          "stem": "*US TRACE system* *most likely*:",
+          "options": {
+            "A": "No US system exists for reporting over-the-counter bond transactions.",
+            "B": "US corporate bond trades are reported voluntarily, at each dealer's discretion.",
+            "C": "US Trade Reporting and Compliance Engine — regulators developed system that facilitates mandatory reporting of over-the-counter transactions in eligible fixed-income securities."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. TRACE — the Trade Reporting and Compliance Engine — is that system.",
+            "B": "Incorrect. TRACE reporting is MANDATORY for covered OTC transactions.",
+            "C": "Full statement: US Trade Reporting and Compliance Engine — regulators developed system that facilitates mandatory reporting of over-the-counter transactions in eligible fixed-income securities; all broker/dealers that are FINRA (Financial Industry Regulatory Authority) member firms must report corporate bond transactions within 15 minutes of occurrence; vast majority of fixed-income securities either do not trade at all or trade only a few times during the year; average trade size in dollar terms in US investment-grade bond market is roughly 70 times size of average stock trade.\n\nCorrect. Per the reading: 'Fixed-income trading in many markets is difficult to track. In some markets, regulators developed systems that facilitate mandatory reporting of over-the-counter transactions in eligible fixed-income securities, such as the US Trade Reporting and Compliance Engine (TRACE) system. All broker/dealers that are Financial Industry Regulatory Authority (FINRA) member firms must report corporate bond transactions within 15 minutes of occurrence. It is important to note the distinct nature of fixed-income trading versus equities. The vast majority of fixed-income securities either do not trade at all or trade only a few times during the year. Only a small fraction trade every business day, according to MarketAxess, a leading electronic trading provider. It is also important to note that the average trade size in dollar terms in the US investment-grade bond market is roughly 70 times the size of the average stock trade.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.e",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Bond Indexes — TRACE",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_e_q6",
+          "number": 6,
+          "stem": "*Matrix pricing* (evaluated pricing) *most likely*:",
+          "options": {
+            "A": "estimation process for fixed-income instruments that are not actively traded and therefore do not have observable price.",
+            "B": "no concept.",
+            "C": "no method."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: estimation process for fixed-income instruments that are not actively traded and therefore do not have observable price; makes use of observable liquid benchmark yields (Treasuries of similar maturity and duration) as well as benchmark spreads of bonds with comparable times to maturity, credit quality, and sector/security type to estimate current market yield and price; asset managers typically outsource this function to global custodian or external vendor; estimation analysis is another potential source of variation between index performance and portfolio returns.\n\nCorrect. Per the reading: 'The illiquid nature of most fixed-income instruments gives rise to pricing and valuation challenges for asset managers. For fixed-income instruments that are not actively traded and therefore do not have an observable price, it is common to use an estimation process known as matrix pricing or evaluated pricing. Matrix pricing makes use of observable liquid benchmark yields, such as Treasuries of similar maturity and duration, as well as the benchmark spreads of bonds with comparable times to maturity, credit quality, and sector or security type in order to estimate the current market yield and price. In practice, asset managers will typically outsource this function to a global custodian or external vendor. This estimation analysis is another potential source of variation between index performance and portfolio returns.'",
+            "B": "Real method.",
+            "C": "Common estimation."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.e",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Bond Indexes — matrix pricing",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_e_q7",
+          "number": 7,
+          "stem": "*Bond index rebalancing frequency* vs equity *most likely*:",
+          "options": {
+            "A": "same.",
+            "B": "fixed-income indexes change frequently as result of both new debt issuance and maturity of outstanding bonds.",
+            "C": "no difference."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Monthly bond rebal.",
+            "B": "Full statement: fixed-income indexes change frequently as result of both new debt issuance and maturity of outstanding bonds; bond index eligibility also affected by changes in ratings and bond callability; as a result, rebalancing of bond market indexes usually occurs monthly rather than semi-annually or annually as it does for equity indexes; fixed-income investors pursuing pure indexing strategy therefore must incur greater transaction costs.\n\nCorrect. Per the reading: 'The complexity of trading and valuing individual fixed-income securities further underscores the challenges associated with managing an index-based bond portfolio. Fixed-income indexes change frequently as a result of both new debt issuance and the maturity of outstanding bonds. Bond index eligibility is also affected by changes in ratings and bond callability. As a result, rebalancing of bond market indexes usually occurs monthly rather than semi-annually or annually as it does for equity indexes. Fixed-income investors pursuing a pure indexing strategy therefore must also incur greater transaction costs associated with maintaining a bond portfolio consistent with the index.'",
+            "C": "Real distinction."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.e",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Bond Indexes — rebalancing frequency",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_e_q8",
+          "number": 8,
+          "stem": "*Primary risk factors* per Volpert (2012) *most likely* include:",
+          "options": {
+            "A": "no factors.",
+            "B": "single factor.",
+            "C": "(1) portfolio modified adjusted duration (option-adjusted for callable bonds."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Six factors.",
+            "B": "Six risk factors.",
+            "C": "Full statement: (1) portfolio modified adjusted duration (option-adjusted for callable bonds; incorporate convexity for larger rate moves); (2) key rate duration (rate changes in specific maturity along yield curve while holding others constant — gauges sensitivity to non-parallel shifts); (3) percent in sector and quality (match same percentage weights across fixed-income sectors and credit quality); (4) sector and quality spread duration contribution; (5) sector/coupon/maturity call weights; (6) issuer exposure.\n\nCorrect. Per the reading: 'Volpert (2012) summarized these primary indexing risk factors as follows: Portfolio modified adjusted duration... It is important to factor in option-adjusted duration so that the analysis reflects securities with embedded call risk. Larger rate moves should incorporate the second-order convexity adjustment... Key rate duration... considers rate changes in a specific maturity along the yield curve while holding the remaining rates constant. This measure of duration gauges the index's sensitivity to non-parallel yield curve shifts... Percent in sector and quality. Index yield is most effectively matched by targeting the same percentage weights across fixed-income sectors and credit quality... Sector and quality spread duration contribution... Sector/coupon/maturity call weights... managers should seek to match the coupon and maturity weights of callable bonds by sector... Issuer exposure. Concentration of issuers within a portfolio exposes the asset manager to issuer-specific event risk. The manager should therefore seek to match the portfolio duration effect from holdings in each issuer.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.e",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Bond Indexes — primary risk factors",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_e_q9",
+          "number": 9,
+          "stem": "*Spread duration* *most likely*:",
+          "options": {
+            "A": "refers to change in a non-Treasury security's price given a widening or narrowing of the spread compared with the benchmark.",
+            "B": "Spread duration is not a recognized fixed-income risk measure.",
+            "C": "Spread duration measures a Treasury security's sensitivity to changes in its own benchmark yield."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: refers to change in a non-Treasury security's price given a widening or narrowing of the spread compared with the benchmark; for non-government fixed-income securities, we separate yield to maturity into benchmark yield (typically most recently issued or on-the-run government bond with closest time to maturity) and a spread reflecting difference between benchmark yield and security-specific yield; matching relative quality between portfolio and fixed-income index will minimize this risk.\n\nCorrect. Per the reading: 'the risk that a bond's price will change in response to an idiosyncratic rate move rather than an overall market yield change is known as spread risk. For non-government fixed-income securities, we separate the yield to maturity into a benchmark yield (typically the most recently issued or on-the-run government bond with the closest time to maturity) and a spread reflecting the difference between the benchmark yield and the security-specific yield. Spread duration refers to the change in a non-Treasury security's price given a widening or narrowing of the spread compared with the benchmark. Matching the relative quality between the portfolio and the fixed-income index will minimize this risk.'",
+            "B": "Incorrect. It is the standard measure of price sensitivity to spread changes for non-Treasury securities.",
+            "C": "Incorrect. The concept applies to NON-Treasury securities and isolates the spread component versus the benchmark."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.e",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Bond Indexes — spread duration",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_e_q10",
+          "number": 10,
+          "stem": "*Present value of distribution of cash flows methodology* *most likely*:",
+          "options": {
+            "A": "no method.",
+            "B": "seeks to approximate and match yield curve risk of index over discrete time periods called cash flow vertices.",
+            "C": "no framework."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Real method.",
+            "B": "Full statement: seeks to approximate and match yield curve risk of index over discrete time periods called cash flow vertices; steps: (1) manager divides cash flows for each non-callable security in index into discrete semi-annual periods, aggregates them, and adds cash flows for callable securities based on probability of call for each given period; (2) PV of aggregated cash flows for each semi-annual period computed, total = index's PV; percentage of PV of each cash flow vertex calculated; (3) time period multiplied by vertex's proportionate share of the index; (4) each period's contribution to duration added to arrive at total representing bond index's duration.\n\nCorrect. Per the reading: 'Another method used to address a portfolio's sensitivity to rate changes along the yield curve is referred to as the present value of distribution of cash flows methodology. This approach seeks to approximate and match the yield curve risk of an index over discrete time periods referred to as cash flow vertices, and it involves several steps, as follows: 1. The manager divides the cash flows for each non-callable security in the index into discrete semi-annual periods, aggregates them, and then adds the cash flows for callable securities in the index based on the probability of call for each given period. 2. The present value of aggregated cash flows for each semi-annual period is computed, with the total present value of all such aggregated cash flows equal to the index's present value. The percentage of the present value of each cash flow vertex is calculated. 3. The time period is then multiplied by the vertex's proportionate share of the index... 4. Finally, each period's contribution to duration is added to arrive at a total representing the bond index's duration.'",
+            "C": "Four-step method."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.e",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Bond Indexes — PV distribution CF",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_e_q11",
+          "number": 11,
+          "stem": "*Tracking error* target interpretation Cheng ALBI example *most likely*:",
+          "options": {
+            "A": "no interpretation.",
+            "B": "no framework.",
+            "C": "standard deviation of portfolio's active return for given period."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "SD of active return.",
+            "B": "1-SD of active return.",
+            "C": "Full statement: standard deviation of portfolio's active return for given period; if returns normally distributed around mean, 68% of returns lie within one SD of mean; if fund's tracking error is 50 bps, then for approximately two-thirds of time period observations, expect fund's return to be less than 50 bps above or below index's return; target tracking error of 1.25% means in 68% or two-thirds of time periods, fund should have return within 1.25% of index.\n\nCorrect. Per the reading: 'The goal of matching these primary indexing risk factors is to minimize tracking error, the standard deviation of a portfolio's active return for a given period, whereby active return is defined as follows: Active return = Portfolio return – Benchmark index return. If we assume that returns are normally distributed around the mean, then from a statistical perspective, 68% of those returns will lie within one standard deviation of the mean. Therefore, if a fund's tracking error is 50 bps, then for approximately two-thirds of the time period observations, we would expect the fund's return to be less than 50 bps above or below the index's return.' Also from case study: 'The target tracking error of 1.25% means that assuming normally distributed returns, in 68% or two-thirds of time periods, the All Asia Dragon Fund should have a return that is within 1.25% of the ALBI.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.e",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Bond Indexes — tracking error",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "liability_driven_and_index_based_strategies.f",
+      "los_letter": "f",
+      "los_text": "compare alternative methods for establishing bond market exposure passively",
+      "reading_id": "liability_driven_and_index_based_strategies",
+      "reading_name": "Liability-Driven and Index-Based Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r18_ldi_los_f_q1",
+          "number": 1,
+          "stem": "*Full replication of bond index* *most likely*:",
+          "options": {
+            "A": "involves sourcing wide range of securities in exact proportion to index, many of which may be thinly traded.",
+            "B": "no complications.",
+            "C": "trivial task."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: involves sourcing wide range of securities in exact proportion to index, many of which may be thinly traded; ongoing task under full replication is to purchase or sell bonds when there are changes to index; manager may have to sell when security no longer meets index criteria (matures or downgraded); for Bloomberg Barclays US Aggregate, security becomes ineligible when maturity <1 year or downgraded below average minimum investment-grade rating; managers must purchase newly issued securities that meet index criteria — depending on index, may occur quite frequently; monthly rebalancing driven by rolling bond maturities and frequent new issuance; number of purchases and sales required for exact proportional allocation very significant for most bond indexes; neither feasible nor cost-effective for broad-based indexes.\n\nCorrect. Per the reading: 'Initial index replication does not require manager analysis but rather involves sourcing a wide range of securities in exact proportion to the index, many of which may be thinly traded. The manager's ongoing task under full replication is to purchase or sell bonds when there are changes to the index in addition to managing inflows and outflows for a specific fund. For example, the manager may have to sell when a security no longer meets the index criteria, such as when a security either matures or is downgraded. For the Bloomberg Barclays US Aggregate Bond Index, a fixed-income security becomes ineligible when it either has a maturity of less than one year or is downgraded below an average minimum investment-grade rating. On the other hand, managers must purchase newly issued securities that meet index criteria to maintain full replication, which, depending on the index, may occur quite frequently. Rolling bond maturities, as well as frequent new issuance eligible for inclusion in the index, drive a monthly rebalancing for most fixed-income indexes. The number of purchases and sales required to maintain an exact proportional allocation would be very significant for most bond indexes. As a result, although the large number of index constituents may well provide the best means of risk diversification, in practice it is neither feasible nor cost-effective for investors to pursue full replication for broad-based fixed-income indexes. It is impractical for all but the most narrow indexes.'",
+            "B": "Impractical.",
+            "C": "Structural challenges."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.f",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Passive Methods — full replication",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_f_q2",
+          "number": 2,
+          "stem": "*Enhanced indexing (stratified sampling)* *most likely*:",
+          "options": {
+            "A": "Enhanced indexing through stratified sampling has no defined methodology.",
+            "B": "goal is to mirror most important index characteristics and still closely track index performance over time while purchasing fewer securities.",
+            "C": "Stratified sampling in bond indexing serves no purpose beyond reducing reporting burden."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The method is defined: match the index's most important characteristics with fewer securities.",
+            "B": "Full statement: goal is to mirror most important index characteristics and still closely track index performance over time while purchasing fewer securities; also called cell approach; first, each cell or significant index portfolio characteristic identified and mapped to current index; second, portfolio manager identifies subset of bonds or bond-linked exposures (derivatives) with characteristics corresponding to index; finally, positions in each cell adjusted over time given changes to underlying index vs existing portfolio positions; e.g., index contains 1,000 fixed-income securities, 10% AAA rated → manager might choose 5-10 AAA rated securities within cell to mimic performance.\n\nCorrect. Per the reading: 'Many limitations of the full replication approach are addressed by an enhanced indexing strategy. This approach's goal is to mirror the most important index characteristics and still closely track index performance over time while purchasing fewer securities. This general approach is referred to as a stratified sampling or cell approach to indexing. First, each cell or significant index portfolio characteristic is identified and mapped to the current index. Second, the fixed-income portfolio manager identifies a subset of bonds or bond-linked exposures, such as derivatives, with characteristics that correspond to the index. Finally, the positions in each cell are adjusted over time given changes to the underlying index versus existing portfolio positions. For example, say a fixed-income index contains 1,000 fixed-income securities, 10% of which are AAA rated. The portfolio manager might choose 5–10 AAA rated securities within a cell to mimic the performance of the AAA rated bonds within the index.'",
+            "C": "Incorrect. The purpose is close tracking at lower cost — full bond-index replication is often impractical."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.f",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Passive Methods — stratified sampling",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_f_q3",
+          "number": 3,
+          "stem": "*ESG incorporation in bond indexes* *most likely* two main components:",
+          "options": {
+            "A": "ESG incorporation in bond indexes has no identifiable components.",
+            "B": "Bond index ESG methodologies consist solely of overweighting green bond issues.",
+            "C": "(1) business involvement screen excludes issuers involved in business lines/activities such as alcohol, gambling, tobacco, adult entertainment, nuclear power, and firearms."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Two components are identified — business-involvement screens and ESG ratings-based selection.",
+            "B": "Incorrect. Green bond tilts are not the framework; exclusionary screens plus ratings integration are.",
+            "C": "Full statement: (1) business involvement screen excludes issuers involved in business lines/activities such as alcohol, gambling, tobacco, adult entertainment, nuclear power, and firearms; (2) ESG rating, provided by numerous third-party companies applied (MSCI provides ratings on 'AAA to CCC' scale using rules-based methodology according to companies' exposure to ESG risks and how well they are managed relative to peers); when building sustainable index, Bloomberg applies such rules then further filters constituents for business involvement and minimum MSCI rating (BBB); given proliferation of ESG data providers, differences across methodologies and ratings.\n\nCorrect. Per the reading: 'There are two main components to incorporating ESG factors in an index. First, a business involvement screen excludes issuers involved in business lines or such activities as alcohol, gambling, tobacco, adult entertainment, nuclear power, and firearms. Second, an ESG rating, provided by one of numerous third-party companies, is applied. MSCI, one such company, provides ratings on an \"AAA to CCC\" scale using a rules-based methodology according to the companies' exposure to ESG risks and how well they are managed relative to peers. When building a sustainable index, for example, Bloomberg will apply such rules as those previously described and then further filter the constituents for business involvement and an MSCI minimum rating requirement of BBB. Given the proliferation of ESG data providers, there are differences across methodologies and ratings.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.f",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Passive Methods — ESG components",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_f_q4",
+          "number": 4,
+          "stem": "*Enhancement strategies* per Volpert (2012) *most likely* include:",
+          "options": {
+            "A": "(1) lower cost enhancements — minimizing fund expenses or introducing more competitive trading process to reduce bid-offer cost of trading.",
+            "B": "Volpert identifies no strategies for enhancing indexed bond portfolio returns.",
+            "C": "The only enhancement Volpert describes is adding equity exposure to the bond portfolio."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: (1) lower cost enhancements — minimizing fund expenses or introducing more competitive trading process to reduce bid-offer cost of trading; (2) issue selection enhancements — use of bond valuation models to identify specific issues that are undervalued or 'cheap' to their implied value; (3) yield curve enhancements — use of analytical models to gauge relative value across term structure of interest rates; (4) sector/quality enhancements — overweighting specific bond and credit sectors across business cycle; (5) call exposure enhancements — significant yield changes affect bond performance especially when a bond shifts from trading to maturity to trading to earlier call date.\n\nCorrect. Per the reading: 'Volpert (2012) outlines a number of enhancement strategies available to portfolio managers seeking to reduce the component of tracking error associated with the expenses and transaction costs of portfolio management as follows: Lower cost enhancements... Issue selection enhancements... Yield curve enhancements... Sector/quality enhancements. This strategy involves overweighting specific bond and credit sectors across the business cycle to enhance returns... Call exposure enhancements. Because effective duration is a sufficient risk measure only for relatively small rate changes, anticipated larger yield changes may affect bond performance significantly, especially when a bond shifts from trading to maturity to trading to an earlier call date... Callable fixed-income securities (priced on a yield-to-call basis) trading above par tend to be less price sensitive for a given effective duration than those priced on a yield-to-maturity basis, suggesting a manager should use metrics other than effective duration in this case when changing exposure.'",
+            "B": "Incorrect. Several enhancement categories are catalogued, beginning with lower-cost enhancements.",
+            "C": "Incorrect. The enhancements are fixed-income-native: cost reduction, issue selection, yield curve positioning, sector/quality positioning, call exposure positioning."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.f",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Passive Methods — enhancements",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_f_q5",
+          "number": 5,
+          "stem": "*Callable fixed-income securities* pricing behavior *most likely*:",
+          "options": {
+            "A": "Callable securities are always more price sensitive than option-free bonds of the same duration.",
+            "B": "callable fixed-income securities (priced on yield-to-call basis) trading above par tend to be less price sensitive for a given effective duration than those priced on yield-to-maturity basis.",
+            "C": "Call features have no effect on a bond's price sensitivity profile."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Premium callables priced to call tend to be LESS price sensitive for a given effective duration.",
+            "B": "Full statement: callable fixed-income securities (priced on yield-to-call basis) trading above par tend to be less price sensitive for a given effective duration than those priced on yield-to-maturity basis; suggests manager should use metrics other than effective duration in this case when changing exposure; e.g., anticipated drop in yields might cause callable bond to shift from being priced on yield-to-maturity basis to yield-to-call basis.\n\nCorrect. Per the reading: 'For example, an anticipated drop in yields might cause a callable bond to shift from being priced on a yield-to-maturity basis to a yield-to-call basis. Callable fixed-income securities (priced on a yield-to-call basis) trading above par tend to be less price sensitive for a given effective duration than those priced on a yield-to-maturity basis, suggesting a manager should use metrics other than effective duration in this case when changing exposure.'",
+            "C": "Incorrect. The call feature compresses upside price response — the yield-to-call pricing basis is exactly why."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.f",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Passive Methods — call behavior",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_f_q6",
+          "number": 6,
+          "stem": "*ETFs for bond market exposure* vs mutual funds *most likely*:",
+          "options": {
+            "A": "identical.",
+            "B": "no difference.",
+            "C": "index-based exposure obtained through traded products."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "ETF liquid.",
+            "B": "ETF continuous trading.",
+            "C": "Full statement: index-based exposure obtained through traded products; ETFs offer greater liquidity than mutual funds because available to be purchased or sold throughout trading day; ETF authorized participants (APs) enter into agreement with distributor purchasing shares from or selling ETF shares to fund creation units and would be encouraged to engage in arbitrage to profit from any significant divergence between market price of underlying fixed-income securities portfolio and ETF's net asset value (NAV); however, fact that many fixed-income securities are either thinly traded or not traded at all might allow such divergence to persist.\n\nCorrect. Per the reading: 'Recall that several alternatives to direct investing into bonds are available to investment managers. We have shown earlier that index-based exposure can be obtained through the following traded products, such as ETFs that offer greater liquidity than the underlying securities or other alternatives, such as mutual funds (i.e., pooled investment vehicles whose shares or units represent a proportional share in the ownership of the assets in an underlying portfolio). Investors benefit from greater bond ETF liquidity versus mutual funds given their availability to be purchased or sold throughout the trading day. Recall that ETFs authorized participants — who enter into an agreement with the distributor of the fund, purchasing shares from or selling ETF shares to the fund creation units — would be encouraged to engage in arbitrage to profit from any significant divergence between the market price of the underlying fixed-income securities portfolio and an ETF's net asset value (NAV). That said, the fact that many fixed-income securities are either thinly traded or not traded at all might allow such a divergence to persist.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.f",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Passive Methods — ETF vs mutual",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_f_q7",
+          "number": 7,
+          "stem": "*Total return swap (TRS)* on bond index *most likely*:",
+          "options": {
+            "A": "common over-the-counter instrument.",
+            "B": "same as IRS.",
+            "C": "no difference."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: common over-the-counter instrument; similar to interest rate swap, involves periodic exchange of cash flows between two parties for life of contract; unlike interest rate swap (fixed cash flows vs floating-rate benchmark), TRS has periodic exchange based on reference obligation that is underlying equity, commodity, or bond index; total return receiver receives both cash flows from underlying index and any appreciation in exchange for paying MRR plus pre-determined spread; total return payer responsible for paying reference obligation cash flows and return, will also be compensated by receiver for any depreciation in index or default losses.\n\nCorrect. Per the reading: 'Another alternative to direct investing in fixed-income securities are index-based total return swaps, common over-the-counter instruments. Recall that similar to an interest rate swap, a total return swap involves the periodic exchange of cash flows between two parties for the life of the contract. Unlike an interest rate swap — in which counterparties exchange a stream of fixed cash flows versus a floating-rate benchmark, such as the MRR, to transform fixed assets or liabilities to a variable exposure — a total return swap (TRS) has a periodic exchange based on a reference obligation that is an underlying equity, commodity, or bond index. The total return receiver receives both the cash flows from the underlying index as well as any appreciation in the index over the period in exchange for paying the MRR plus a pre-determined spread. The total return payer is responsible for paying the reference obligation cash flows and return to the receiver but will also be compensated by the receiver for any depreciation in the index or default losses incurred on the portfolio.'",
+            "B": "Different structure.",
+            "C": "Broader structure."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.f",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Passive Methods — TRS",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_f_q8",
+          "number": 8,
+          "stem": "*TRS advantages/disadvantages* *most likely*:",
+          "options": {
+            "A": "no distinction.",
+            "B": "as derivative, TRS requires less initial cash outlay than direct investment in bond portfolio for similar performance.",
+            "C": "no benefits."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Real tradeoffs.",
+            "B": "Full statement: as derivative, TRS requires less initial cash outlay than direct investment in bond portfolio for similar performance; but TRS also carries counterparty credit risk; as customized over-the-counter product, TRS can offer exposure to assets that are difficult to access directly (some high-yield and commercial loan investments).\n\nCorrect. Per the reading: 'A TRS can have some advantages over a direct investment in a bond mutual fund or ETF. As a derivative, it requires less initial cash outlay than direct investment in the bond portfolio for similar performance. A TRS also carries counterparty credit risk, however. As a customized over-the-counter product, a TRS can offer exposure to assets that are difficult to access directly, such as some high-yield and commercial loan investments.'",
+            "C": "Multiple advantages."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.f",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Passive Methods — TRS pros/cons",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_f_q9",
+          "number": 9,
+          "stem": "*Adelaide Super case study — Dundee vs Newcastleton vs Paisley* funds *most likely*:",
+          "options": {
+            "A": "The three Adelaide Super funds carry identical risk profiles.",
+            "B": "The case study provides no basis for distinguishing the funds' risk levels.",
+            "C": "Paisley Fixed-Interest Fund represents lowest risk of three (half in short-term securities via AusBond Bank Bill Index + lack of active management, buy-and-hold) suitable for investor near retirement."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. The funds differ materially in duration, credit, and management style.",
+            "B": "Incorrect. Paisley emerges as lowest risk — half in short-term securities via the AusBond Bank Bill Index, without active management risk.",
+            "C": "Full statement: Paisley Fixed-Interest Fund represents lowest risk of three (half in short-term securities via AusBond Bank Bill Index + lack of active management, buy-and-hold) suitable for investor near retirement; Dundee Australian Fixed-Income Fund medium risk profile (composite benchmark, enhanced indexing approach, match index duration but add value through fundamental strategies) best for middle-aged worker; Newcastleton Australian Bond Fund highest risk (actively managed with mandate to take positions in duration and credit that deviate from index) appropriate for younger worker.\n\nCorrect. Per the case study solution: 'The Paisley Fixed-Interest Fund represents the lowest risk of the three fund choices, given both its choice of underlying bond index (half of which is in short-term securities) and lack of active management strategies. The Paisley Fund could be a suitable choice for an investor near retirement who is seeking income with a minimum risk profile. The Dundee Fund represents a medium risk profile given the choice of the composite benchmark and suggests an enhanced approach to indexing. This fund may be the best choice for a middle-aged worker seeking to add a fixed-income component with moderate risk to his portfolio. The Newcastleton Fund has the highest risk of the three choices and is an example of an actively managed fund that has a mandate to take positions in primary risk factors, such as duration and credit, that deviate from those of the index to generate excess return. This fund could be an appropriate choice for a younger worker who is seeking exposure to fixed income but willing to accommodate higher risk.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.f",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Passive Methods — Adelaide case",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_f_q10",
+          "number": 10,
+          "stem": "*Superannuation plans* *most likely*:",
+          "options": {
+            "A": "Australian government-supported arrangements for Australian workers to save for retirement.",
+            "B": "no concept.",
+            "C": "no arrangements."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: Australian government-supported arrangements for Australian workers to save for retirement; combine government-mandated minimum percentage of wages contributed by employers with voluntary employee contribution offering tax benefits; similar to defined contribution plans common in United States, Europe, and Asia.\n\nCorrect. Per the case study: 'Adelaide Super, a superannuation fund, offers a range of fixed interest (or fixed-income) investment choices to its members. Superannuation funds are Australian government-supported arrangements for Australian workers to save for retirement, which combine a government-mandated minimum percentage of wages contributed by employers with a voluntary employee contribution that offers tax benefits. Superannuation plans are similar to defined contribution plans common in the United States, Europe, and Asia.'",
+            "B": "Australian DC plans.",
+            "C": "Australian DC."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.f",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Passive Methods — superannuation",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_f_q11",
+          "number": 11,
+          "stem": "*Index replication objective when full replication chosen* *most likely*:",
+          "options": {
+            "A": "Full index replication is chosen without any supporting rationale, reflecting institutional habit rather than a considered view on active management or cost structures.",
+            "B": "index replication done based on expectation that (i) active manager cannot consistently outperform index on risk-adjusted basis, (ii) investor cannot identify skilled manager in advance, or (iii) investor is not prepared to go through periods of underperformance.",
+            "C": "Index replication serves no identifiable investor purpose relative to active management, since it guarantees benchmark-matching gross returns while charging comparable fees."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The rationale is explicit — skepticism of consistent risk-adjusted active outperformance, cost minimization, and benchmark-relative accountability.",
+            "B": "Full statement: index replication done based on expectation that (i) active manager cannot consistently outperform index on risk-adjusted basis, (ii) investor cannot identify skilled manager in advance, or (iii) investor is not prepared to go through periods of underperformance; in practice investors that wish to have exposure to index rely on one of many ETFs that exist in this space.\n\nCorrect. Per the reading: 'expectation that (i) an active manager cannot consistently outperform the index on a risk-adjusted basis, (ii) the investor cannot identify a skilled manager in advance, or (iii) the investor is not prepared to go through periods of underperformance. Initial index replication does not require manager analysis but rather involves sourcing a wide range of securities in exact proportion to the index, many of which may be thinly traded.'",
+            "C": "Incorrect. Low cost and reliable benchmark tracking are the purposes replication serves."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.f",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Passive Methods — replication rationale",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "liability_driven_and_index_based_strategies.g",
+      "los_letter": "g",
+      "los_text": "discuss criteria for selecting a benchmark and justify the selection of a benchmark",
+      "reading_id": "liability_driven_and_index_based_strategies",
+      "reading_name": "Liability-Driven and Index-Based Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r18_ldi_los_g_q1",
+          "number": 1,
+          "stem": "*Benchmark selection* choice *most likely*:",
+          "options": {
+            "A": "trivial choice.",
+            "B": "no importance.",
+            "C": "perhaps investment manager's most important decision beyond passive vs active decision or form investment takes."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Critical decision.",
+            "B": "Highly important.",
+            "C": "Full statement: perhaps investment manager's most important decision beyond passive vs active decision or form investment takes; one of final steps in broader asset allocation process; process starts with clear delineation of portfolio manager's investment goals and objectives.\n\nCorrect. Per the reading: 'The choice of a benchmark is perhaps an investment manager's most important decision beyond the passive versus active decision or the form that the investment takes, as described earlier. Benchmark selection is one of the final steps in the broader asset allocation process.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.g",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Benchmark Selection — importance",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_g_q2",
+          "number": 2,
+          "stem": "*Benchmark selection criteria for indexes* *most likely* require:",
+          "options": {
+            "A": "clear, transparent rules for security inclusion and weighting, investability, daily valuation and availability of past returns, and turnover.",
+            "B": "Bond benchmark selection is unconstrained by any criteria; any published index qualifies.",
+            "C": "The only requirement for a benchmark index is that it contain more than 100 securities."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per the reading: 'Benchmark selection must factor in the broad range of issuers and characteristics available in the fixed-income markets. In general, the use of an index as a widely accepted benchmark requires clear, transparent rules for security inclusion and weighting, investability, daily valuation and availability of past returns, and turnover.'",
+            "B": "Incorrect. Clear rules, investability, daily valuation, availability of history, and turnover data are required criteria.",
+            "C": "Incorrect. No security-count threshold exists; rule transparency and investability are the tests."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.g",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Benchmark Selection — criteria",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_g_q3",
+          "number": 3,
+          "stem": "*Fixed-income market dynamics vs equity* driving benchmark deviation *most likely*:",
+          "options": {
+            "A": "no difference.",
+            "B": "(1) finite maturity of bonds in static portfolio implies duration will drift downward over time.",
+            "C": "no distinction."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Distinct dynamics.",
+            "B": "Full statement: (1) finite maturity of bonds in static portfolio implies duration will drift downward over time; (2) market dynamics and issuer preferences tend to dictate both issuer composition for broad-based indexes as well as maturity selection for narrower indexes (e.g., Bloomberg Barclays US Aggregate Bond Index composition changed significantly during years prior to and after 2008 global financial crisis with large increase in securitized debt pre-crisis and significant rise in government debt thereafter).\n\nCorrect. Per the reading: 'Unlike in equity indexes, fixed-income market dynamics can drive deviation from a stable benchmark sought by investors for several reasons: The finite maturity of bonds in a static portfolio implies that duration will drift downward over time. Market dynamics and issuer preferences tend to dictate both issuer composition for broad-based indexes as well as maturity selection for narrower indexes. For example, as shown in Exhibit 25, the composition of the Bloomberg Barclays US Aggregate Bond Index changed significantly during the years prior to and after the 2008 global financial crisis, with a large increase in securitized debt pre-crisis and a significant rise in government debt thereafter.'",
+            "C": "Duration drift + composition."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.g",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Benchmark Selection — dynamics",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_g_q4",
+          "number": 4,
+          "stem": "*Bloomberg Barclays US Aggregate composition Exhibit 25 evolution* *most likely*:",
+          "options": {
+            "A": "static.",
+            "B": "no evolution.",
+            "C": "1993: Government 53.0%, Corporate 17.0%, Securitized 30.0%."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Detailed history.",
+            "B": "Real evolution.",
+            "C": "Full statement: 1993: Government 53.0%, Corporate 17.0%, Securitized 30.0%; 2000: Government 38.0%, Corporate 24.0%, Securitized 39.0%; 2005: Government 40.2%, Corporate 19.5%, Securitized 40.2%; 2008: Government 38.6%, Corporate 17.7%, Securitized 43.7%; 2010: Government 45.8%, Corporate 18.8%, Securitized 35.5%; 2020: Government 43.4%, Corporate 27.3%, Securitized 29.3%.\n\nCorrect. Per Exhibit 25 (Bloomberg Barclays US Aggregate Bond Index Sector Allocation, Selected Years): '1993: Government 53.0%, Corporate 17.0%, Securitized 30.0%. 1998: 46.0%, 22.0%, 32.0%. 2000: 38.0%, 24.0%, 39.0%. 2005: 40.2%, 19.5%, 40.2%. 2008: 38.6%, 17.7%, 43.7%. 2010: 45.8%, 18.8%, 35.5%. 2015: 44.8%, 24.2%, 31.0%. 2020: 43.4%, 27.3%, 29.3%.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.g",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Benchmark Selection — Exhibit 25",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_g_q5",
+          "number": 5,
+          "stem": "*Portfolio beta* for fixed income *most likely*:",
+          "options": {
+            "A": "desired duration profile may be considered portfolio 'beta' with targeted duration equal to investor's preferred duration exposure.",
+            "B": "Fixed-income portfolios have no analog to the equity beta concept.",
+            "C": "The fixed-income beta is credit rating rather than any duration measure."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: desired duration profile may be considered portfolio 'beta' with targeted duration equal to investor's preferred duration exposure; once parameters clear, investors may combine several well-defined sub-benchmark categories into overall benchmark; examples of sub-benchmark categories: Treasuries (or domestic sovereign bonds), US agencies or other asset-backed securities, corporate bonds, high-yield bonds, bank loans, developed markets global debt, or emerging markets debt.\n\nCorrect. Per the reading: 'The dynamics of fixed-income markets require investors to more actively understand and define their underlying duration preferences as well as a desired risk and return profile within their fixed-income allocation when conducting benchmark selection. Expressed differently, the desired duration profile may be considered the portfolio \"beta,\" with the targeted duration equal to an investor's preferred duration exposure. Once these parameters are clear, investors may wish to combine several well-defined sub-benchmark categories into an overall benchmark. Examples of sub-benchmark categories might include Treasuries (or domestic sovereign bonds), US agencies or other asset-backed securities, corporate bonds, high-yield bonds, bank loans, developed markets global debt, or emerging markets debt.'",
+            "B": "Incorrect. The targeted duration profile plays the beta role — the portfolio's systematic exposure choice.",
+            "C": "Incorrect. Duration, not rating, is the primary systematic exposure treated as the portfolio's 'beta'."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.g",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Benchmark Selection — portfolio beta",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_g_q6",
+          "number": 6,
+          "stem": "*Smart beta in fixed income* *most likely*:",
+          "options": {
+            "A": "no strategy.",
+            "B": "involves use of simple, transparent, rules-based strategies as basis for investment decisions.",
+            "C": "no application."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Rules-based.",
+            "B": "Full statement: involves use of simple, transparent, rules-based strategies as basis for investment decisions; starting point for smart beta investors is analysis of well-established, static strategies that tend to drive excess portfolio returns; in theory, asset managers who can isolate and pursue such strategies can capture significant proportion of these excess returns without significantly higher fees associated with active management; use of smart beta strategies more established among equity managers but fixed-income managers increasing use.\n\nCorrect. Per the reading: 'For investors seeking to combine the potential outperformance of active management with a broad exposure to an index, a smart beta approach might be suitable. Smart beta involves the use of simple, transparent, rules-based strategies as a basis for investment decisions. The starting point for smart beta investors is an analysis of the well-established, static strategies that tend to drive excess portfolio returns. In theory, asset managers who can isolate and pursue such strategies can capture a significant proportion of these excess returns without the significantly higher fees associated with active management. Although the use of smart beta strategies is more established among equity managers, fixed-income managers are increasing their use of these techniques as well.'",
+            "C": "Rules-based strategy."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.g",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Benchmark Selection — smart beta",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_g_q7",
+          "number": 7,
+          "stem": "*Investor implicit or explicit duration preferences* *most likely*:",
+          "options": {
+            "A": "Investor-specific duration preferences play no role in fixed-income benchmark choice.",
+            "B": "Duration preference is a minor stylistic factor without structural grounding.",
+            "C": "choosing a fixed-income benchmark is unique in that investor usually has some degree of fixed-income exposure embedded within its asset/liability portfolio as outlined in immunization and liability-driven investing examples."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Embedded asset/liability duration makes the investor's implicit or explicit duration preference central to the choice.",
+            "B": "Incorrect. The preference is structural — fixed-income exposure already embedded in the investor's balance sheet shapes the appropriate benchmark.",
+            "C": "Full statement: choosing a fixed-income benchmark is unique in that investor usually has some degree of fixed-income exposure embedded within its asset/liability portfolio as outlined in immunization and liability-driven investing examples; investment manager must therefore consider these implicit or explicit duration preferences when choosing fixed-income benchmark.\n\nCorrect. Per the reading: 'Choosing a fixed-income benchmark is unique, however, in that the investor usually has some degree of fixed-income exposure embedded within its asset/liability portfolio, as outlined in the foregoing immunization and liability-driven investing examples. The investment manager must therefore consider these implicit or explicit duration preferences when choosing a fixed-income benchmark.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.g",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Benchmark Selection — duration prefs",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_g_q8",
+          "number": 8,
+          "stem": "*Next Europe Case study — Risk-averse investor* *most likely* prefers:",
+          "options": {
+            "A": "highly risk-averse investor sensitive to fluctuations in portfolio value would prefer index with short or intermediate duration with limited credit risk to limit market value risk.",
+            "B": "The highly risk-averse investor in the case study prefers the longest-duration index available.",
+            "C": "The case study finds risk aversion irrelevant to index preference."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: highly risk-averse investor sensitive to fluctuations in portfolio value would prefer index with short or intermediate duration with limited credit risk to limit market value risk; of alternatives listed, S&P Eurozone Sovereign Bond 1-3 Years Index or FTSE 1-3 Years Pfandbrief Index (given high credit quality of covered bonds) would be appropriate.\n\nCorrect. Per case study solution: 'Given this investor's high degree of risk aversion, an index with short or intermediate duration with limited credit risk would be most appropriate to limit market value risk. Of the alternatives listed, the S&P Eurozone Sovereign Bond 1–3 Years Index or the FTSE 1–3 Years Pfandbrief Index (given the high credit quality of covered bonds) would be appropriate choices.'",
+            "B": "Incorrect. Sensitivity to value fluctuations points to SHORT or intermediate duration with strong credit quality.",
+            "C": "Incorrect. Risk aversion drives the recommendation directly — limited duration and high quality."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.g",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Benchmark Selection — risk-averse investor",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_g_q9",
+          "number": 9,
+          "stem": "*Pfandbriefs* *most likely* are:",
+          "options": {
+            "A": "no concept.",
+            "B": "the largest segment of German private debt market.",
+            "C": "no concept."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Covered bonds.",
+            "B": "Full statement: the largest segment of German private debt market; bond issued by German mortgage banks, collateralized by long-term assets such as real estate or public sector loans; also referred to as covered bonds and are being used as model for similar issuance in other European countries; FTSE Pfandbrief indexes include jumbo Pfandbriefs from German issuers as well as those of comparable structure and quality from other Eurozone countries.\n\nCorrect. Per the case study: 'FTSE Pfandbrief Index. The Pfandbrief, which represents the largest segment of the German private debt market, is a bond issued by German mortgage banks, collateralized by long-term assets, such as real estate or public sector loans. These securities are also referred to as covered bonds and are being used as a model for similar issuance in other European countries. The FTSE Pfandbrief indexes include jumbo Pfandbriefs from German issuers as well as those of comparable structure and quality from other Eurozone countries.'",
+            "C": "Real instrument."
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.g",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Benchmark Selection — Pfandbrief",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r18_ldi_los_g_q10",
+          "number": 10,
+          "stem": "*Asset allocation process before benchmark* *most likely*:",
+          "options": {
+            "A": "Benchmark selection precedes and determines the investor's goals and objectives.",
+            "B": "No structured process links investor objectives to benchmark choice.",
+            "C": "starts with clear delineation of portfolio manager's investment goals and objectives (protection of funds against inflation, broad market replication, predictable returns within acceptable risk parameters, or maximum absolute returns)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. The sequence runs the other way — goals and objectives are delineated FIRST, then the benchmark follows.",
+            "B": "Incorrect. The process is structured: objectives (inflation protection, market returns, liability funding) drive the benchmark decision.",
+            "C": "Full statement: starts with clear delineation of portfolio manager's investment goals and objectives (protection of funds against inflation, broad market replication, predictable returns within acceptable risk parameters, or maximum absolute returns); manager must agree on investment policy with asset owners/beneficiaries/other constituents outlining return objectives, risk tolerance, and constraints; strategic asset allocation targeting specific weightings for each permissible asset class results from process; tactical asset allocation range often provides investment manager some short-term flexibility to deviate from these weightings.\n\nCorrect. Per the reading: 'The asset allocation process starts with a clear delineation of the portfolio manager's investment goals and objectives. Examples of such goals might include the protection of funds (especially against inflation), broad market replication, predictable returns within acceptable risk parameters, or maximum absolute returns through opportunistic means. The manager must agree on an investment policy with the asset owners, beneficiaries, and other constituents outlining return objectives, risk tolerance, and constraints to narrow choices available in the broader capital markets to meet these objectives. Recall that a strategic asset allocation targeting specific weightings for each permissible asset class is the result of this process, while a tactical asset allocation range often provides the investment manager some short-term flexibility to deviate from these weightings in response to anticipated market changes.'"
+          },
+          "type": "mc",
+          "primary_los": "liability_driven_and_index_based_strategies.g",
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Benchmark Selection — asset allocation",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    }
+  ]
+}

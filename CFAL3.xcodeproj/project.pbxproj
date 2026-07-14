@@ -1,0 +1,836 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		37F059B92C2B48D9A52ED9A0 /* CFAL3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDCF412EF2E4FC38183FC47 /* CFAL3App.swift */; };
+		BE7E8F6AB4CF4802A79F0609 /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0CEF3B19F040D59EC39545 /* Case.swift */; };
+		DD018F6FA14B43D0937C129A /* ContentTargets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE42BB078A74F84A544376E /* ContentTargets.swift */; };
+		99D4564C915E431FA905121B /* LOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9E790DBB444208677CDD1 /* LOS.swift */; };
+		C50DD90ECA554C23998AEBA2 /* LOSDrill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BDD78E8E544EEEB6D9FE7E /* LOSDrill.swift */; };
+		BCECC9697FCB4036B4891FA5 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4860E685BC434EAEBA07C302 /* Question.swift */; };
+		AC455290363F4CFAB2E334F5 /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D13B921CC4824BBC94734 /* QuestionBank.swift */; };
+		979C13854A9442ED8FA2E1EC /* ReadingNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABAB6F86CC24253B0FA4263 /* ReadingNotes.swift */; };
+		B965A03D3F0D496AA48CC376 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C4A9C54F3045719F7F2D0E /* Topic.swift */; };
+		165AE0C3D8474BCCB8179241 /* Attempt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A420D454149A58C1091BA /* Attempt.swift */; };
+		4B0CA23E33B04AC38EF047A6 /* LOSStudyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE6DEE270349F5A1EF8C56 /* LOSStudyStatus.swift */; };
+		1827533E86AB440E9FAE0776 /* ReviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A414E02D98894F9288EBF49D /* ReviewCard.swift */; };
+		ED5D31E84F7742D6BF472EF3 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715844A6B8F54E02BA44051B /* Session.swift */; };
+		59DD68E931EF40EBAC6F7BE8 /* AdaptiveLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9E9852D9E410E99BB9DE0 /* AdaptiveLayout.swift */; };
+		ECEF4FEA02AC4F2693D1E50E /* Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E24D9679A5F4B2FBA510F21 /* Formatting.swift */; };
+		F6601FC9FFEB4E4BBDC18063 /* NotesContentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F8AE21334BDF89A1CFAE /* NotesContentParser.swift */; };
+		7C0245D5C2744CA399F50AA7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57257F26A58C43D180C33403 /* Theme.swift */; };
+		262BF878F7F14162953141AD /* APIKeySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256C1F5C8F0A4C8981E6FD47 /* APIKeySheet.swift */; };
+		D3C1ABBE9A2C4BB1A3B8032E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEE3AA553A646EB816A3E32 /* SettingsView.swift */; };
+		DFC5798C481B45AC8A948CC9 /* LOSChecklistPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAA8AFAADAC4E8CB4C25267 /* LOSChecklistPanel.swift */; };
+		F73781C445F541C0B8CE059D /* LOSChecklistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9EECF81D4C4878A81F0BA5 /* LOSChecklistRow.swift */; };
+		52DC1F72D2DC4F1E98A4E2AF /* LOSDrillAttemptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE27669F5349F2850274E9 /* LOSDrillAttemptView.swift */; };
+		ED8776163038423180A2247C /* LOSDrillReadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410357AD55F34FC5A0AFC8B8 /* LOSDrillReadingView.swift */; };
+		6171C6FEDF1246BEA44C6660 /* ReadingNotesBlocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC67AF5A15A24A53B7FC6D1F /* ReadingNotesBlocksView.swift */; };
+		35164E7AC00F4B16997DEE58 /* ReadingNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE7D26B8464198BD47C65F /* ReadingNotesView.swift */; };
+		30C4A2A9D74B4D0490E909E5 /* StudyAreaDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12FC62CECD4EDCAFCEFA12 /* StudyAreaDetailView.swift */; };
+		E276C35324BC407FB880AA73 /* StudyPlannerSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DB5A98B63F4F6B925F92C6 /* StudyPlannerSplitView.swift */; };
+		15299BBB2A96478B8DC75FEA /* StudyPlannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A6C7A644B4941BD76E07F /* StudyPlannerView.swift */; };
+		43B3E2FAC9304742A03974B3 /* StudyReadingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0086898FB01483EBEA340EB /* StudyReadingDetailView.swift */; };
+		0B3EF277052C475CA3203D6E /* ContentDensitySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E325BD3D614A269B397F9F /* ContentDensitySection.swift */; };
+		1519A846B52F4B1B8D5EC527 /* LOSCoverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EF769FC8D5480F9F3EFC56 /* LOSCoverageView.swift */; };
+		2123245EB6F445CEB79F1C47 /* ProgressDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F24F90B4564D518EB9E31B /* ProgressDashboardView.swift */; };
+		869DF8C93DDF4932BA541E0A /* TopicProgressRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B349AF45DC324816ADBD8BBC /* TopicProgressRow.swift */; };
+		432F68B592FD4E29AE24A172 /* EssayInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985FD41B0C0D4969860CB4EE /* EssayInput.swift */; };
+		DDE0792D589A4CE6B2604FBF /* GradingResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFDCACB37A495B8D2B7B98 /* GradingResultView.swift */; };
+		70F92777487A4258B280B842 /* MultipleChoiceInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C594482D6F48B78CF0ACB0 /* MultipleChoiceInput.swift */; };
+		00DBED509A734E4592D9C922 /* QuestionAttemptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0B85CA9C654A9D9570B141 /* QuestionAttemptView.swift */; };
+		FCE5063D0D2B41889866DFAF /* VignetteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B303D3BD9D4799802188B3 /* VignetteView.swift */; };
+		0FB8346AA2AE44A99C50FBC3 /* SessionRunnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBE83B2CE1E48F1998DC0EB /* SessionRunnerView.swift */; };
+		CEE67D5DEDA14F8D91245808 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A58A6D8AF4566A2640A0B /* HomeView.swift */; };
+		AFAB734F67384C9BBDD9C446 /* RootSidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE9987351F14F99AEAFE430 /* RootSidebarView.swift */; };
+		39A5F7702F234CE28B76B1E3 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E17186295A478E9A2A370B /* RootTabView.swift */; };
+		09DF79CEE685482A8E0DAEEA /* BrowseSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1730AB6C124292A970C82F /* BrowseSplitView.swift */; };
+		96A0F59A66B047AEBC7CE084 /* CaseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D8F18933F4E87BDF3AFC3 /* CaseDetailView.swift */; };
+		1FBE925B6A9E493AAB3E9408 /* CaseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A898383B794C919DFAEF9D /* CaseListView.swift */; };
+		EFDB681B76B3483C9E79EDAA /* LOSFilterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9FC53BE59D4812B69348B9 /* LOSFilterSheet.swift */; };
+		6C707F5F7EE1496DBBA5D8D0 /* TopicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE144559A0E94BF582F19413 /* TopicListView.swift */; };
+		D296140AAB594793BEE89C01 /* PracticeBuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A949026A87474996ADABAF01 /* PracticeBuilderView.swift */; };
+		415812DBAE3C41909B6E787D /* ClaudeGrader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985CEB71E7A84AFA8EE109C4 /* ClaudeGrader.swift */; };
+		873B927E2C574CB7ACCE4451 /* ContentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4624DE0AD0A24E958AF77A84 /* ContentLoader.swift */; };
+		BAB7A1AA8CA449D185EB61B8 /* GradingResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CD2430A9B24E41B87E88A5 /* GradingResponseParser.swift */; };
+		193D60075A474803A26861AF /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E17FE561E74DA8BA89A181 /* KeychainStore.swift */; };
+		D9FF953AE57A4616AED28F07 /* PracticeBuilderPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2EF2BB39484BC189B43894 /* PracticeBuilderPreference.swift */; };
+		0FA06AC85F6545C48B4DCCF8 /* ProgressStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CEAD39CDCC482587BC0B6E /* ProgressStats.swift */; };
+		FDB276FEBECE4BA2A964A4D6 /* QuizAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9309E0CB460459EBA726C19 /* QuizAssembler.swift */; };
+		ACE2822844744B92AEAE188E /* ReviewScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC5749FCE0C483A904AFD67 /* ReviewScheduler.swift */; };
+		F5C08A90725F410F8C6A4555 /* StudyPlannerStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91DAC60A3444A7C911B4939 /* StudyPlannerStats.swift */; };
+		F78036A6898C47F7A2DD81D3 /* StudySessionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A814FC1518144496A700667D /* StudySessionCoordinator.swift */; };
+		DF7A22B460E04677AD3BF416 /* ClaudeGraderErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC3E5B635A49A7ACE46C79 /* ClaudeGraderErrorTests.swift */; };
+		9ED761D13F324B788E503FDC /* GradingResponseParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2539C2D2C5AA406394E11B11 /* GradingResponseParserTests.swift */; };
+		B06FA7373680405D97650DC7 /* NotesContentParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6E760692534BDCBFEC240C /* NotesContentParserTests.swift */; };
+		871A35A75565439F9D3E06F4 /* QuestionBankIntegrityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807DE1904ED14E5F8579D19D /* QuestionBankIntegrityTests.swift */; };
+		43C77369661847E9AE8FEF4F /* ReviewSchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D16F706E0469EB794F245 /* ReviewSchedulerTests.swift */; };
+		6EF8ED2995504DD0A4C58924 /* question_bank.json in Resources */ = {isa = PBXBuildFile; fileRef = E58E45FEDB59448DA4AC82B5 /* question_bank.json */; };
+		63874CBCDDAE4C4EB13D18DD /* los_master.json in Resources */ = {isa = PBXBuildFile; fileRef = AC192F0D06D748E59F3036C4 /* los_master.json */; };
+		CDB755D49EDE4AB1A50C359E /* topics.json in Resources */ = {isa = PBXBuildFile; fileRef = 67BB664ADD654A6FA496C900 /* topics.json */; };
+		3F0CEFDC4CAD4A2A9822E717 /* reading_notes.json in Resources */ = {isa = PBXBuildFile; fileRef = 713CE77450214A8AB18C7A75 /* reading_notes.json */; };
+		85FF3BD22DE04A8AAE080D84 /* content_targets.json in Resources */ = {isa = PBXBuildFile; fileRef = 96F403C8F9684E838AD07AEB /* content_targets.json */; };
+		3976E3C749BA40D8A69DCB17 /* los_drills_index.json in Resources */ = {isa = PBXBuildFile; fileRef = A0FCC12FD4724686A3D450EA /* los_drills_index.json */; };
+		25D8D9E4748D43ABB1F29C7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E124D6F04BB4A51A4702160 /* Assets.xcassets */; };
+		85C7B9A956D04FFB90A54D0E /* los_drills_r1.json in Resources */ = {isa = PBXBuildFile; fileRef = 94BDC36863AC49A9B7230077 /* los_drills_r1.json */; };
+		78423B5DAF834EE0B898E827 /* los_drills_r10.json in Resources */ = {isa = PBXBuildFile; fileRef = 579F6DC9A23D489983113DCC /* los_drills_r10.json */; };
+		916AA1D4F316467AB8BDB8C8 /* los_drills_r11.json in Resources */ = {isa = PBXBuildFile; fileRef = 87E14C6BFB9D40BC90ED1C16 /* los_drills_r11.json */; };
+		B4691CCAE17A487CAD9535DA /* los_drills_r12.json in Resources */ = {isa = PBXBuildFile; fileRef = B5971AD4801D4F0D8B6A30B6 /* los_drills_r12.json */; };
+		7DCF369442A840CA9AD0C71C /* los_drills_r13.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BB85CFA34E644AFBA20F24D /* los_drills_r13.json */; };
+		744AEA4960AB48ACBD689728 /* los_drills_r14.json in Resources */ = {isa = PBXBuildFile; fileRef = 53C6BAC5014D41AF9354DB1A /* los_drills_r14.json */; };
+		49455F0B459F459DBE6A3536 /* los_drills_r15.json in Resources */ = {isa = PBXBuildFile; fileRef = BA77ADDAE6124D6D9A04B997 /* los_drills_r15.json */; };
+		4C634EBEE6624AD783DA6B0B /* los_drills_r16.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3A42122B98452DBE0EE332 /* los_drills_r16.json */; };
+		B962E85CA4704BDBAAEE91EB /* los_drills_r17.json in Resources */ = {isa = PBXBuildFile; fileRef = BEE15AA004ED40C8A561CE0B /* los_drills_r17.json */; };
+		47F947399C074087B579CE2B /* los_drills_r18.json in Resources */ = {isa = PBXBuildFile; fileRef = 8804B7CBA4EF4E4492AFD856 /* los_drills_r18.json */; };
+		A0B0973EB06944BCA2C6C964 /* los_drills_r19.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A97BFFAA0744683AC09E7A1 /* los_drills_r19.json */; };
+		D0A3A375CD27463C9A7ADDE5 /* los_drills_r2.json in Resources */ = {isa = PBXBuildFile; fileRef = 01415D1420CE4B8AA6AAB597 /* los_drills_r2.json */; };
+		014FD88E1B674AE9BE268876 /* los_drills_r20.json in Resources */ = {isa = PBXBuildFile; fileRef = 551AC231ADE1420497C6C998 /* los_drills_r20.json */; };
+		2852ADD5FEF14E61B5CDDAAF /* los_drills_r21.json in Resources */ = {isa = PBXBuildFile; fileRef = D3C9F8D99E1C4488BE4F074E /* los_drills_r21.json */; };
+		0E5A11E4A0A944B3B34420A2 /* los_drills_r22.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C69C54943DC461B8DE30961 /* los_drills_r22.json */; };
+		B826DD13185D4DE690E707F6 /* los_drills_r23.json in Resources */ = {isa = PBXBuildFile; fileRef = C84ED6DF83B645CB8BC316C6 /* los_drills_r23.json */; };
+		A10446F7BC704CCD97C8EB0A /* los_drills_r24.json in Resources */ = {isa = PBXBuildFile; fileRef = AD487EA093754885BFE8773A /* los_drills_r24.json */; };
+		589D8C6B5CBC4988981BE657 /* los_drills_r25.json in Resources */ = {isa = PBXBuildFile; fileRef = 01C6EA7A922A44C8804879FA /* los_drills_r25.json */; };
+		879D1354F3FC49868DF3F2CC /* los_drills_r26.json in Resources */ = {isa = PBXBuildFile; fileRef = 06C94520701748F2A13E1F3A /* los_drills_r26.json */; };
+		E2EE131A7983455EB1084A18 /* los_drills_r27.json in Resources */ = {isa = PBXBuildFile; fileRef = 477646BC3AEE40429BDBE1FB /* los_drills_r27.json */; };
+		C6906449343B49568C43F4A3 /* los_drills_r28.json in Resources */ = {isa = PBXBuildFile; fileRef = F8AB25653E8B4F7D881590FD /* los_drills_r28.json */; };
+		FACE47AD277A4911867F3C72 /* los_drills_r29.json in Resources */ = {isa = PBXBuildFile; fileRef = ACC5FA414CF04DA781C997A4 /* los_drills_r29.json */; };
+		8B423519B028482C817213EA /* los_drills_r3.json in Resources */ = {isa = PBXBuildFile; fileRef = 79621CC92352457E97559A85 /* los_drills_r3.json */; };
+		A77835D9C1BC43FAA8EE7E5E /* los_drills_r30.json in Resources */ = {isa = PBXBuildFile; fileRef = 05BCD5E571CB482EA01F1E8A /* los_drills_r30.json */; };
+		3E83BF4AB4244C90A3A34686 /* los_drills_r31.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A821969D99A426A982A97BE /* los_drills_r31.json */; };
+		D0D168D1B23F410AB01F18CD /* los_drills_r32.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E3E834BD751461AA1E20A58 /* los_drills_r32.json */; };
+		1613B77A652F49C99EE6885A /* los_drills_r33.json in Resources */ = {isa = PBXBuildFile; fileRef = C2161EC7E16E42148140381D /* los_drills_r33.json */; };
+		8F5B4301608B44C299C8C3C5 /* los_drills_r34.json in Resources */ = {isa = PBXBuildFile; fileRef = 783B2E7EBFE14504B6F82EEA /* los_drills_r34.json */; };
+		50FE16E0FBF348458712D5D0 /* los_drills_r35.json in Resources */ = {isa = PBXBuildFile; fileRef = 78A3FE1C97944F75BA4309E0 /* los_drills_r35.json */; };
+		6F5F6DD00E524E4BA905D986 /* los_drills_r4.json in Resources */ = {isa = PBXBuildFile; fileRef = E8532AE9526C40D5B5AA0730 /* los_drills_r4.json */; };
+		1518CB3EA36642BAB30B0CC3 /* los_drills_r5.json in Resources */ = {isa = PBXBuildFile; fileRef = A16B1C9DCC624F208145C5C6 /* los_drills_r5.json */; };
+		AB38FA05F4474E1B9B473E66 /* los_drills_r6.json in Resources */ = {isa = PBXBuildFile; fileRef = 0EB10D9D4BCA4CE984355AA6 /* los_drills_r6.json */; };
+		3D3ED4029E0B466B82ED3FF4 /* los_drills_r7.json in Resources */ = {isa = PBXBuildFile; fileRef = 74883145939544A6B7C5010E /* los_drills_r7.json */; };
+		1DE2A2CA9AD7472497780476 /* los_drills_r8.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D6AA2BCA772438096BE232C /* los_drills_r8.json */; };
+		F06D47407C5E4A7E816CC8A8 /* los_drills_r9.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B31D47E102941C795A4FA20 /* los_drills_r9.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BEA7794A509B4FC4B5A10F40 /* CFAL3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CFAL3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBB920B99961450E9C60C18E /* CFAL3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CFAL3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CDCF412EF2E4FC38183FC47 /* CFAL3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFAL3App.swift; sourceTree = "<group>"; };
+		CB0CEF3B19F040D59EC39545 /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
+		CCE42BB078A74F84A544376E /* ContentTargets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTargets.swift; sourceTree = "<group>"; };
+		38E9E790DBB444208677CDD1 /* LOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOS.swift; sourceTree = "<group>"; };
+		25BDD78E8E544EEEB6D9FE7E /* LOSDrill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSDrill.swift; sourceTree = "<group>"; };
+		4860E685BC434EAEBA07C302 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		D92D13B921CC4824BBC94734 /* QuestionBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
+		6ABAB6F86CC24253B0FA4263 /* ReadingNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingNotes.swift; sourceTree = "<group>"; };
+		30C4A9C54F3045719F7F2D0E /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		3A3A420D454149A58C1091BA /* Attempt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attempt.swift; sourceTree = "<group>"; };
+		25CE6DEE270349F5A1EF8C56 /* LOSStudyStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSStudyStatus.swift; sourceTree = "<group>"; };
+		A414E02D98894F9288EBF49D /* ReviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCard.swift; sourceTree = "<group>"; };
+		715844A6B8F54E02BA44051B /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		96C9E9852D9E410E99BB9DE0 /* AdaptiveLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveLayout.swift; sourceTree = "<group>"; };
+		7E24D9679A5F4B2FBA510F21 /* Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatting.swift; sourceTree = "<group>"; };
+		CF02F8AE21334BDF89A1CFAE /* NotesContentParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesContentParser.swift; sourceTree = "<group>"; };
+		57257F26A58C43D180C33403 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		256C1F5C8F0A4C8981E6FD47 /* APIKeySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeySheet.swift; sourceTree = "<group>"; };
+		0FEE3AA553A646EB816A3E32 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0AAA8AFAADAC4E8CB4C25267 /* LOSChecklistPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSChecklistPanel.swift; sourceTree = "<group>"; };
+		0C9EECF81D4C4878A81F0BA5 /* LOSChecklistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSChecklistRow.swift; sourceTree = "<group>"; };
+		FFCE27669F5349F2850274E9 /* LOSDrillAttemptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSDrillAttemptView.swift; sourceTree = "<group>"; };
+		410357AD55F34FC5A0AFC8B8 /* LOSDrillReadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSDrillReadingView.swift; sourceTree = "<group>"; };
+		CC67AF5A15A24A53B7FC6D1F /* ReadingNotesBlocksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingNotesBlocksView.swift; sourceTree = "<group>"; };
+		F8EE7D26B8464198BD47C65F /* ReadingNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingNotesView.swift; sourceTree = "<group>"; };
+		5B12FC62CECD4EDCAFCEFA12 /* StudyAreaDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyAreaDetailView.swift; sourceTree = "<group>"; };
+		F0DB5A98B63F4F6B925F92C6 /* StudyPlannerSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPlannerSplitView.swift; sourceTree = "<group>"; };
+		BB7A6C7A644B4941BD76E07F /* StudyPlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPlannerView.swift; sourceTree = "<group>"; };
+		E0086898FB01483EBEA340EB /* StudyReadingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyReadingDetailView.swift; sourceTree = "<group>"; };
+		73E325BD3D614A269B397F9F /* ContentDensitySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDensitySection.swift; sourceTree = "<group>"; };
+		55EF769FC8D5480F9F3EFC56 /* LOSCoverageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSCoverageView.swift; sourceTree = "<group>"; };
+		39F24F90B4564D518EB9E31B /* ProgressDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDashboardView.swift; sourceTree = "<group>"; };
+		B349AF45DC324816ADBD8BBC /* TopicProgressRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicProgressRow.swift; sourceTree = "<group>"; };
+		985FD41B0C0D4969860CB4EE /* EssayInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssayInput.swift; sourceTree = "<group>"; };
+		2FAFDCACB37A495B8D2B7B98 /* GradingResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradingResultView.swift; sourceTree = "<group>"; };
+		18C594482D6F48B78CF0ACB0 /* MultipleChoiceInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceInput.swift; sourceTree = "<group>"; };
+		FD0B85CA9C654A9D9570B141 /* QuestionAttemptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAttemptView.swift; sourceTree = "<group>"; };
+		63B303D3BD9D4799802188B3 /* VignetteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VignetteView.swift; sourceTree = "<group>"; };
+		DEBE83B2CE1E48F1998DC0EB /* SessionRunnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRunnerView.swift; sourceTree = "<group>"; };
+		7E8A58A6D8AF4566A2640A0B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		CBE9987351F14F99AEAFE430 /* RootSidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSidebarView.swift; sourceTree = "<group>"; };
+		51E17186295A478E9A2A370B /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		3A1730AB6C124292A970C82F /* BrowseSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseSplitView.swift; sourceTree = "<group>"; };
+		538D8F18933F4E87BDF3AFC3 /* CaseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDetailView.swift; sourceTree = "<group>"; };
+		15A898383B794C919DFAEF9D /* CaseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseListView.swift; sourceTree = "<group>"; };
+		CF9FC53BE59D4812B69348B9 /* LOSFilterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSFilterSheet.swift; sourceTree = "<group>"; };
+		AE144559A0E94BF582F19413 /* TopicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListView.swift; sourceTree = "<group>"; };
+		A949026A87474996ADABAF01 /* PracticeBuilderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeBuilderView.swift; sourceTree = "<group>"; };
+		985CEB71E7A84AFA8EE109C4 /* ClaudeGrader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeGrader.swift; sourceTree = "<group>"; };
+		4624DE0AD0A24E958AF77A84 /* ContentLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLoader.swift; sourceTree = "<group>"; };
+		D9CD2430A9B24E41B87E88A5 /* GradingResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradingResponseParser.swift; sourceTree = "<group>"; };
+		98E17FE561E74DA8BA89A181 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
+		FD2EF2BB39484BC189B43894 /* PracticeBuilderPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeBuilderPreference.swift; sourceTree = "<group>"; };
+		20CEAD39CDCC482587BC0B6E /* ProgressStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStats.swift; sourceTree = "<group>"; };
+		B9309E0CB460459EBA726C19 /* QuizAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizAssembler.swift; sourceTree = "<group>"; };
+		1DC5749FCE0C483A904AFD67 /* ReviewScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewScheduler.swift; sourceTree = "<group>"; };
+		B91DAC60A3444A7C911B4939 /* StudyPlannerStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPlannerStats.swift; sourceTree = "<group>"; };
+		A814FC1518144496A700667D /* StudySessionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySessionCoordinator.swift; sourceTree = "<group>"; };
+		E58E45FEDB59448DA4AC82B5 /* question_bank.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = question_bank.json; sourceTree = "<group>"; };
+		AC192F0D06D748E59F3036C4 /* los_master.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_master.json; sourceTree = "<group>"; };
+		67BB664ADD654A6FA496C900 /* topics.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = topics.json; sourceTree = "<group>"; };
+		713CE77450214A8AB18C7A75 /* reading_notes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = reading_notes.json; sourceTree = "<group>"; };
+		96F403C8F9684E838AD07AEB /* content_targets.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = content_targets.json; sourceTree = "<group>"; };
+		A0FCC12FD4724686A3D450EA /* los_drills_index.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_index.json; sourceTree = "<group>"; };
+		1E124D6F04BB4A51A4702160 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		94BDC36863AC49A9B7230077 /* los_drills_r1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r1.json; sourceTree = "<group>"; };
+		579F6DC9A23D489983113DCC /* los_drills_r10.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r10.json; sourceTree = "<group>"; };
+		87E14C6BFB9D40BC90ED1C16 /* los_drills_r11.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r11.json; sourceTree = "<group>"; };
+		B5971AD4801D4F0D8B6A30B6 /* los_drills_r12.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r12.json; sourceTree = "<group>"; };
+		0BB85CFA34E644AFBA20F24D /* los_drills_r13.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r13.json; sourceTree = "<group>"; };
+		53C6BAC5014D41AF9354DB1A /* los_drills_r14.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r14.json; sourceTree = "<group>"; };
+		BA77ADDAE6124D6D9A04B997 /* los_drills_r15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r15.json; sourceTree = "<group>"; };
+		9B3A42122B98452DBE0EE332 /* los_drills_r16.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r16.json; sourceTree = "<group>"; };
+		BEE15AA004ED40C8A561CE0B /* los_drills_r17.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r17.json; sourceTree = "<group>"; };
+		8804B7CBA4EF4E4492AFD856 /* los_drills_r18.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r18.json; sourceTree = "<group>"; };
+		0A97BFFAA0744683AC09E7A1 /* los_drills_r19.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r19.json; sourceTree = "<group>"; };
+		01415D1420CE4B8AA6AAB597 /* los_drills_r2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r2.json; sourceTree = "<group>"; };
+		551AC231ADE1420497C6C998 /* los_drills_r20.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r20.json; sourceTree = "<group>"; };
+		D3C9F8D99E1C4488BE4F074E /* los_drills_r21.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r21.json; sourceTree = "<group>"; };
+		6C69C54943DC461B8DE30961 /* los_drills_r22.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r22.json; sourceTree = "<group>"; };
+		C84ED6DF83B645CB8BC316C6 /* los_drills_r23.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r23.json; sourceTree = "<group>"; };
+		AD487EA093754885BFE8773A /* los_drills_r24.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r24.json; sourceTree = "<group>"; };
+		01C6EA7A922A44C8804879FA /* los_drills_r25.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r25.json; sourceTree = "<group>"; };
+		06C94520701748F2A13E1F3A /* los_drills_r26.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r26.json; sourceTree = "<group>"; };
+		477646BC3AEE40429BDBE1FB /* los_drills_r27.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r27.json; sourceTree = "<group>"; };
+		F8AB25653E8B4F7D881590FD /* los_drills_r28.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r28.json; sourceTree = "<group>"; };
+		ACC5FA414CF04DA781C997A4 /* los_drills_r29.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r29.json; sourceTree = "<group>"; };
+		79621CC92352457E97559A85 /* los_drills_r3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r3.json; sourceTree = "<group>"; };
+		05BCD5E571CB482EA01F1E8A /* los_drills_r30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r30.json; sourceTree = "<group>"; };
+		2A821969D99A426A982A97BE /* los_drills_r31.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r31.json; sourceTree = "<group>"; };
+		2E3E834BD751461AA1E20A58 /* los_drills_r32.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r32.json; sourceTree = "<group>"; };
+		C2161EC7E16E42148140381D /* los_drills_r33.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r33.json; sourceTree = "<group>"; };
+		783B2E7EBFE14504B6F82EEA /* los_drills_r34.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r34.json; sourceTree = "<group>"; };
+		78A3FE1C97944F75BA4309E0 /* los_drills_r35.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r35.json; sourceTree = "<group>"; };
+		E8532AE9526C40D5B5AA0730 /* los_drills_r4.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r4.json; sourceTree = "<group>"; };
+		A16B1C9DCC624F208145C5C6 /* los_drills_r5.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r5.json; sourceTree = "<group>"; };
+		0EB10D9D4BCA4CE984355AA6 /* los_drills_r6.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r6.json; sourceTree = "<group>"; };
+		74883145939544A6B7C5010E /* los_drills_r7.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r7.json; sourceTree = "<group>"; };
+		3D6AA2BCA772438096BE232C /* los_drills_r8.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r8.json; sourceTree = "<group>"; };
+		1B31D47E102941C795A4FA20 /* los_drills_r9.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r9.json; sourceTree = "<group>"; };
+		B5CC3E5B635A49A7ACE46C79 /* ClaudeGraderErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeGraderErrorTests.swift; sourceTree = "<group>"; };
+		2539C2D2C5AA406394E11B11 /* GradingResponseParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradingResponseParserTests.swift; sourceTree = "<group>"; };
+		FD6E760692534BDCBFEC240C /* NotesContentParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesContentParserTests.swift; sourceTree = "<group>"; };
+		807DE1904ED14E5F8579D19D /* QuestionBankIntegrityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBankIntegrityTests.swift; sourceTree = "<group>"; };
+		0A6D16F706E0469EB794F245 /* ReviewSchedulerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSchedulerTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		80F736B270434A239F2E460C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4737383E5FC43FF9013DB9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		78CBB0E9552D4E139D3C6851 = {
+			isa = PBXGroup;
+			children = (
+				628E04C12B114D5C8EF39145 /* CFAL3 */,
+				E73DCE377A7F45D88378F803 /* CFAL3Tests */,
+				FE2306AF44B94F6798354D3A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FE2306AF44B94F6798354D3A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BEA7794A509B4FC4B5A10F40 /* CFAL3.app */,
+				DBB920B99961450E9C60C18E /* CFAL3Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E4F75990848F4C5582D40B3E /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				CB0CEF3B19F040D59EC39545 /* Case.swift */,
+				CCE42BB078A74F84A544376E /* ContentTargets.swift */,
+				38E9E790DBB444208677CDD1 /* LOS.swift */,
+				25BDD78E8E544EEEB6D9FE7E /* LOSDrill.swift */,
+				4860E685BC434EAEBA07C302 /* Question.swift */,
+				D92D13B921CC4824BBC94734 /* QuestionBank.swift */,
+				6ABAB6F86CC24253B0FA4263 /* ReadingNotes.swift */,
+				30C4A9C54F3045719F7F2D0E /* Topic.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		51823326390544CEB9EB03DD /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				3A3A420D454149A58C1091BA /* Attempt.swift */,
+				25CE6DEE270349F5A1EF8C56 /* LOSStudyStatus.swift */,
+				A414E02D98894F9288EBF49D /* ReviewCard.swift */,
+				715844A6B8F54E02BA44051B /* Session.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		16A5E1C2FA8C4A30A6D34F36 /* Browse */ = {
+			isa = PBXGroup;
+			children = (
+				3A1730AB6C124292A970C82F /* BrowseSplitView.swift */,
+				538D8F18933F4E87BDF3AFC3 /* CaseDetailView.swift */,
+				15A898383B794C919DFAEF9D /* CaseListView.swift */,
+				CF9FC53BE59D4812B69348B9 /* LOSFilterSheet.swift */,
+				AE144559A0E94BF582F19413 /* TopicListView.swift */,
+			);
+			path = Browse;
+			sourceTree = "<group>";
+		};
+		87CA756B9E12472AA5A64900 /* Practice */ = {
+			isa = PBXGroup;
+			children = (
+				A949026A87474996ADABAF01 /* PracticeBuilderView.swift */,
+			);
+			path = Practice;
+			sourceTree = "<group>";
+		};
+		83DFBFDA90E247D195E4917D /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				73E325BD3D614A269B397F9F /* ContentDensitySection.swift */,
+				55EF769FC8D5480F9F3EFC56 /* LOSCoverageView.swift */,
+				39F24F90B4564D518EB9E31B /* ProgressDashboardView.swift */,
+				B349AF45DC324816ADBD8BBC /* TopicProgressRow.swift */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
+		FD230BED72604A49BC90DE25 /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				985FD41B0C0D4969860CB4EE /* EssayInput.swift */,
+				2FAFDCACB37A495B8D2B7B98 /* GradingResultView.swift */,
+				18C594482D6F48B78CF0ACB0 /* MultipleChoiceInput.swift */,
+				FD0B85CA9C654A9D9570B141 /* QuestionAttemptView.swift */,
+				63B303D3BD9D4799802188B3 /* VignetteView.swift */,
+			);
+			path = Question;
+			sourceTree = "<group>";
+		};
+		E5845651A540418181CF0618 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				DEBE83B2CE1E48F1998DC0EB /* SessionRunnerView.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		E013AD6FE7B543E984FB01C3 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				7E8A58A6D8AF4566A2640A0B /* HomeView.swift */,
+				CBE9987351F14F99AEAFE430 /* RootSidebarView.swift */,
+				51E17186295A478E9A2A370B /* RootTabView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		554524AE22C341C2A95B278F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				256C1F5C8F0A4C8981E6FD47 /* APIKeySheet.swift */,
+				0FEE3AA553A646EB816A3E32 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		426430D9A9B441E398ED7CC3 /* Study */ = {
+			isa = PBXGroup;
+			children = (
+				0AAA8AFAADAC4E8CB4C25267 /* LOSChecklistPanel.swift */,
+				0C9EECF81D4C4878A81F0BA5 /* LOSChecklistRow.swift */,
+				FFCE27669F5349F2850274E9 /* LOSDrillAttemptView.swift */,
+				410357AD55F34FC5A0AFC8B8 /* LOSDrillReadingView.swift */,
+				CC67AF5A15A24A53B7FC6D1F /* ReadingNotesBlocksView.swift */,
+				F8EE7D26B8464198BD47C65F /* ReadingNotesView.swift */,
+				5B12FC62CECD4EDCAFCEFA12 /* StudyAreaDetailView.swift */,
+				F0DB5A98B63F4F6B925F92C6 /* StudyPlannerSplitView.swift */,
+				BB7A6C7A644B4941BD76E07F /* StudyPlannerView.swift */,
+				E0086898FB01483EBEA340EB /* StudyReadingDetailView.swift */,
+			);
+			path = Study;
+			sourceTree = "<group>";
+		};
+		0448982BFF1E422F8999167C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0CDCF412EF2E4FC38183FC47 /* CFAL3App.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		9CC6A55ED1BD4AE9BFB469C6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E4F75990848F4C5582D40B3E /* Content */,
+				51823326390544CEB9EB03DD /* Persistence */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0182A9091DB44A86B64D10CE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				96F403C8F9684E838AD07AEB /* content_targets.json */,
+				A0FCC12FD4724686A3D450EA /* los_drills_index.json */,
+				94BDC36863AC49A9B7230077 /* los_drills_r1.json */,
+				579F6DC9A23D489983113DCC /* los_drills_r10.json */,
+				87E14C6BFB9D40BC90ED1C16 /* los_drills_r11.json */,
+				B5971AD4801D4F0D8B6A30B6 /* los_drills_r12.json */,
+				0BB85CFA34E644AFBA20F24D /* los_drills_r13.json */,
+				53C6BAC5014D41AF9354DB1A /* los_drills_r14.json */,
+				BA77ADDAE6124D6D9A04B997 /* los_drills_r15.json */,
+				9B3A42122B98452DBE0EE332 /* los_drills_r16.json */,
+				BEE15AA004ED40C8A561CE0B /* los_drills_r17.json */,
+				8804B7CBA4EF4E4492AFD856 /* los_drills_r18.json */,
+				0A97BFFAA0744683AC09E7A1 /* los_drills_r19.json */,
+				01415D1420CE4B8AA6AAB597 /* los_drills_r2.json */,
+				551AC231ADE1420497C6C998 /* los_drills_r20.json */,
+				D3C9F8D99E1C4488BE4F074E /* los_drills_r21.json */,
+				6C69C54943DC461B8DE30961 /* los_drills_r22.json */,
+				C84ED6DF83B645CB8BC316C6 /* los_drills_r23.json */,
+				AD487EA093754885BFE8773A /* los_drills_r24.json */,
+				01C6EA7A922A44C8804879FA /* los_drills_r25.json */,
+				06C94520701748F2A13E1F3A /* los_drills_r26.json */,
+				477646BC3AEE40429BDBE1FB /* los_drills_r27.json */,
+				F8AB25653E8B4F7D881590FD /* los_drills_r28.json */,
+				ACC5FA414CF04DA781C997A4 /* los_drills_r29.json */,
+				79621CC92352457E97559A85 /* los_drills_r3.json */,
+				05BCD5E571CB482EA01F1E8A /* los_drills_r30.json */,
+				2A821969D99A426A982A97BE /* los_drills_r31.json */,
+				2E3E834BD751461AA1E20A58 /* los_drills_r32.json */,
+				C2161EC7E16E42148140381D /* los_drills_r33.json */,
+				783B2E7EBFE14504B6F82EEA /* los_drills_r34.json */,
+				78A3FE1C97944F75BA4309E0 /* los_drills_r35.json */,
+				E8532AE9526C40D5B5AA0730 /* los_drills_r4.json */,
+				A16B1C9DCC624F208145C5C6 /* los_drills_r5.json */,
+				0EB10D9D4BCA4CE984355AA6 /* los_drills_r6.json */,
+				74883145939544A6B7C5010E /* los_drills_r7.json */,
+				3D6AA2BCA772438096BE232C /* los_drills_r8.json */,
+				1B31D47E102941C795A4FA20 /* los_drills_r9.json */,
+				AC192F0D06D748E59F3036C4 /* los_master.json */,
+				E58E45FEDB59448DA4AC82B5 /* question_bank.json */,
+				713CE77450214A8AB18C7A75 /* reading_notes.json */,
+				67BB664ADD654A6FA496C900 /* topics.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		95694296D5004D22ABB024D0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				985CEB71E7A84AFA8EE109C4 /* ClaudeGrader.swift */,
+				4624DE0AD0A24E958AF77A84 /* ContentLoader.swift */,
+				D9CD2430A9B24E41B87E88A5 /* GradingResponseParser.swift */,
+				98E17FE561E74DA8BA89A181 /* KeychainStore.swift */,
+				FD2EF2BB39484BC189B43894 /* PracticeBuilderPreference.swift */,
+				20CEAD39CDCC482587BC0B6E /* ProgressStats.swift */,
+				B9309E0CB460459EBA726C19 /* QuizAssembler.swift */,
+				1DC5749FCE0C483A904AFD67 /* ReviewScheduler.swift */,
+				B91DAC60A3444A7C911B4939 /* StudyPlannerStats.swift */,
+				A814FC1518144496A700667D /* StudySessionCoordinator.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0A773C753FC34D08859FC16D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				96C9E9852D9E410E99BB9DE0 /* AdaptiveLayout.swift */,
+				7E24D9679A5F4B2FBA510F21 /* Formatting.swift */,
+				CF02F8AE21334BDF89A1CFAE /* NotesContentParser.swift */,
+				57257F26A58C43D180C33403 /* Theme.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0376F86B961247B1A23B29E0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				16A5E1C2FA8C4A30A6D34F36 /* Browse */,
+				87CA756B9E12472AA5A64900 /* Practice */,
+				83DFBFDA90E247D195E4917D /* Progress */,
+				FD230BED72604A49BC90DE25 /* Question */,
+				E5845651A540418181CF0618 /* Review */,
+				E013AD6FE7B543E984FB01C3 /* Root */,
+				554524AE22C341C2A95B278F /* Settings */,
+				426430D9A9B441E398ED7CC3 /* Study */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		628E04C12B114D5C8EF39145 /* CFAL3 */ = {
+			isa = PBXGroup;
+			children = (
+				0448982BFF1E422F8999167C /* App */,
+				9CC6A55ED1BD4AE9BFB469C6 /* Models */,
+				0182A9091DB44A86B64D10CE /* Resources */,
+				95694296D5004D22ABB024D0 /* Services */,
+				0A773C753FC34D08859FC16D /* Utilities */,
+				0376F86B961247B1A23B29E0 /* Views */,
+				1E124D6F04BB4A51A4702160 /* Assets.xcassets */,
+			);
+			path = CFAL3;
+			sourceTree = "<group>";
+		};
+		E73DCE377A7F45D88378F803 /* CFAL3Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B5CC3E5B635A49A7ACE46C79 /* ClaudeGraderErrorTests.swift */,
+				2539C2D2C5AA406394E11B11 /* GradingResponseParserTests.swift */,
+				FD6E760692534BDCBFEC240C /* NotesContentParserTests.swift */,
+				807DE1904ED14E5F8579D19D /* QuestionBankIntegrityTests.swift */,
+				0A6D16F706E0469EB794F245 /* ReviewSchedulerTests.swift */,
+			);
+			path = CFAL3Tests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2478654E5A4F4D09B750EC3C /* CFAL3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D93DE09F5FB4D14AED35826 /* Build configuration list for PBXNativeTarget "CFAL3" */;
+			buildPhases = (
+				6071137DEE41446AAF9F187B /* Sources */,
+				80F736B270434A239F2E460C /* Frameworks */,
+				C38CCC03DB5447B3B782E4B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CFAL3;
+			productName = CFAL3;
+			productReference = BEA7794A509B4FC4B5A10F40 /* CFAL3.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9C59CDB46819471F99437E40 /* CFAL3Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06D372EB9DCE4554B86C8D5E /* Build configuration list for PBXNativeTarget "CFAL3Tests" */;
+			buildPhases = (
+				D1109390192341E3B031A2AB /* Sources */,
+				D4737383E5FC43FF9013DB9A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CFAL3Tests;
+			productName = CFAL3Tests;
+			productReference = DBB920B99961450E9C60C18E /* CFAL3Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFCDDC8CB1BA42E1B8F25EF3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 48CD57F150D64777BD601BC9 /* Build configuration list for PBXProject "CFAL3" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 78CBB0E9552D4E139D3C6851;
+			productRefGroup = FE2306AF44B94F6798354D3A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2478654E5A4F4D09B750EC3C /* CFAL3 */,
+				9C59CDB46819471F99437E40 /* CFAL3Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C38CCC03DB5447B3B782E4B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EF8ED2995504DD0A4C58924 /* question_bank.json in Resources */,
+				63874CBCDDAE4C4EB13D18DD /* los_master.json in Resources */,
+				CDB755D49EDE4AB1A50C359E /* topics.json in Resources */,
+				3F0CEFDC4CAD4A2A9822E717 /* reading_notes.json in Resources */,
+				85FF3BD22DE04A8AAE080D84 /* content_targets.json in Resources */,
+				3976E3C749BA40D8A69DCB17 /* los_drills_index.json in Resources */,
+				25D8D9E4748D43ABB1F29C7F /* Assets.xcassets in Resources */,
+				85C7B9A956D04FFB90A54D0E /* los_drills_r1.json in Resources */,
+				78423B5DAF834EE0B898E827 /* los_drills_r10.json in Resources */,
+				916AA1D4F316467AB8BDB8C8 /* los_drills_r11.json in Resources */,
+				B4691CCAE17A487CAD9535DA /* los_drills_r12.json in Resources */,
+				7DCF369442A840CA9AD0C71C /* los_drills_r13.json in Resources */,
+				744AEA4960AB48ACBD689728 /* los_drills_r14.json in Resources */,
+				49455F0B459F459DBE6A3536 /* los_drills_r15.json in Resources */,
+				4C634EBEE6624AD783DA6B0B /* los_drills_r16.json in Resources */,
+				B962E85CA4704BDBAAEE91EB /* los_drills_r17.json in Resources */,
+				47F947399C074087B579CE2B /* los_drills_r18.json in Resources */,
+				A0B0973EB06944BCA2C6C964 /* los_drills_r19.json in Resources */,
+				D0A3A375CD27463C9A7ADDE5 /* los_drills_r2.json in Resources */,
+				014FD88E1B674AE9BE268876 /* los_drills_r20.json in Resources */,
+				2852ADD5FEF14E61B5CDDAAF /* los_drills_r21.json in Resources */,
+				0E5A11E4A0A944B3B34420A2 /* los_drills_r22.json in Resources */,
+				B826DD13185D4DE690E707F6 /* los_drills_r23.json in Resources */,
+				A10446F7BC704CCD97C8EB0A /* los_drills_r24.json in Resources */,
+				589D8C6B5CBC4988981BE657 /* los_drills_r25.json in Resources */,
+				879D1354F3FC49868DF3F2CC /* los_drills_r26.json in Resources */,
+				E2EE131A7983455EB1084A18 /* los_drills_r27.json in Resources */,
+				C6906449343B49568C43F4A3 /* los_drills_r28.json in Resources */,
+				FACE47AD277A4911867F3C72 /* los_drills_r29.json in Resources */,
+				8B423519B028482C817213EA /* los_drills_r3.json in Resources */,
+				A77835D9C1BC43FAA8EE7E5E /* los_drills_r30.json in Resources */,
+				3E83BF4AB4244C90A3A34686 /* los_drills_r31.json in Resources */,
+				D0D168D1B23F410AB01F18CD /* los_drills_r32.json in Resources */,
+				1613B77A652F49C99EE6885A /* los_drills_r33.json in Resources */,
+				8F5B4301608B44C299C8C3C5 /* los_drills_r34.json in Resources */,
+				50FE16E0FBF348458712D5D0 /* los_drills_r35.json in Resources */,
+				6F5F6DD00E524E4BA905D986 /* los_drills_r4.json in Resources */,
+				1518CB3EA36642BAB30B0CC3 /* los_drills_r5.json in Resources */,
+				AB38FA05F4474E1B9B473E66 /* los_drills_r6.json in Resources */,
+				3D3ED4029E0B466B82ED3FF4 /* los_drills_r7.json in Resources */,
+				1DE2A2CA9AD7472497780476 /* los_drills_r8.json in Resources */,
+				F06D47407C5E4A7E816CC8A8 /* los_drills_r9.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6071137DEE41446AAF9F187B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37F059B92C2B48D9A52ED9A0 /* CFAL3App.swift in Sources */,
+				BE7E8F6AB4CF4802A79F0609 /* Case.swift in Sources */,
+				DD018F6FA14B43D0937C129A /* ContentTargets.swift in Sources */,
+				99D4564C915E431FA905121B /* LOS.swift in Sources */,
+				C50DD90ECA554C23998AEBA2 /* LOSDrill.swift in Sources */,
+				BCECC9697FCB4036B4891FA5 /* Question.swift in Sources */,
+				AC455290363F4CFAB2E334F5 /* QuestionBank.swift in Sources */,
+				979C13854A9442ED8FA2E1EC /* ReadingNotes.swift in Sources */,
+				B965A03D3F0D496AA48CC376 /* Topic.swift in Sources */,
+				165AE0C3D8474BCCB8179241 /* Attempt.swift in Sources */,
+				4B0CA23E33B04AC38EF047A6 /* LOSStudyStatus.swift in Sources */,
+				1827533E86AB440E9FAE0776 /* ReviewCard.swift in Sources */,
+				ED5D31E84F7742D6BF472EF3 /* Session.swift in Sources */,
+				59DD68E931EF40EBAC6F7BE8 /* AdaptiveLayout.swift in Sources */,
+				ECEF4FEA02AC4F2693D1E50E /* Formatting.swift in Sources */,
+				F6601FC9FFEB4E4BBDC18063 /* NotesContentParser.swift in Sources */,
+				7C0245D5C2744CA399F50AA7 /* Theme.swift in Sources */,
+				262BF878F7F14162953141AD /* APIKeySheet.swift in Sources */,
+				D3C1ABBE9A2C4BB1A3B8032E /* SettingsView.swift in Sources */,
+				DFC5798C481B45AC8A948CC9 /* LOSChecklistPanel.swift in Sources */,
+				F73781C445F541C0B8CE059D /* LOSChecklistRow.swift in Sources */,
+				52DC1F72D2DC4F1E98A4E2AF /* LOSDrillAttemptView.swift in Sources */,
+				ED8776163038423180A2247C /* LOSDrillReadingView.swift in Sources */,
+				6171C6FEDF1246BEA44C6660 /* ReadingNotesBlocksView.swift in Sources */,
+				35164E7AC00F4B16997DEE58 /* ReadingNotesView.swift in Sources */,
+				30C4A2A9D74B4D0490E909E5 /* StudyAreaDetailView.swift in Sources */,
+				E276C35324BC407FB880AA73 /* StudyPlannerSplitView.swift in Sources */,
+				15299BBB2A96478B8DC75FEA /* StudyPlannerView.swift in Sources */,
+				43B3E2FAC9304742A03974B3 /* StudyReadingDetailView.swift in Sources */,
+				0B3EF277052C475CA3203D6E /* ContentDensitySection.swift in Sources */,
+				1519A846B52F4B1B8D5EC527 /* LOSCoverageView.swift in Sources */,
+				2123245EB6F445CEB79F1C47 /* ProgressDashboardView.swift in Sources */,
+				869DF8C93DDF4932BA541E0A /* TopicProgressRow.swift in Sources */,
+				432F68B592FD4E29AE24A172 /* EssayInput.swift in Sources */,
+				DDE0792D589A4CE6B2604FBF /* GradingResultView.swift in Sources */,
+				70F92777487A4258B280B842 /* MultipleChoiceInput.swift in Sources */,
+				00DBED509A734E4592D9C922 /* QuestionAttemptView.swift in Sources */,
+				FCE5063D0D2B41889866DFAF /* VignetteView.swift in Sources */,
+				0FB8346AA2AE44A99C50FBC3 /* SessionRunnerView.swift in Sources */,
+				CEE67D5DEDA14F8D91245808 /* HomeView.swift in Sources */,
+				AFAB734F67384C9BBDD9C446 /* RootSidebarView.swift in Sources */,
+				39A5F7702F234CE28B76B1E3 /* RootTabView.swift in Sources */,
+				09DF79CEE685482A8E0DAEEA /* BrowseSplitView.swift in Sources */,
+				96A0F59A66B047AEBC7CE084 /* CaseDetailView.swift in Sources */,
+				1FBE925B6A9E493AAB3E9408 /* CaseListView.swift in Sources */,
+				EFDB681B76B3483C9E79EDAA /* LOSFilterSheet.swift in Sources */,
+				6C707F5F7EE1496DBBA5D8D0 /* TopicListView.swift in Sources */,
+				D296140AAB594793BEE89C01 /* PracticeBuilderView.swift in Sources */,
+				415812DBAE3C41909B6E787D /* ClaudeGrader.swift in Sources */,
+				873B927E2C574CB7ACCE4451 /* ContentLoader.swift in Sources */,
+				BAB7A1AA8CA449D185EB61B8 /* GradingResponseParser.swift in Sources */,
+				193D60075A474803A26861AF /* KeychainStore.swift in Sources */,
+				D9FF953AE57A4616AED28F07 /* PracticeBuilderPreference.swift in Sources */,
+				0FA06AC85F6545C48B4DCCF8 /* ProgressStats.swift in Sources */,
+				FDB276FEBECE4BA2A964A4D6 /* QuizAssembler.swift in Sources */,
+				ACE2822844744B92AEAE188E /* ReviewScheduler.swift in Sources */,
+				F5C08A90725F410F8C6A4555 /* StudyPlannerStats.swift in Sources */,
+				F78036A6898C47F7A2DD81D3 /* StudySessionCoordinator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1109390192341E3B031A2AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF7A22B460E04677AD3BF416 /* ClaudeGraderErrorTests.swift in Sources */,
+				9ED761D13F324B788E503FDC /* GradingResponseParserTests.swift in Sources */,
+				B06FA7373680405D97650DC7 /* NotesContentParserTests.swift in Sources */,
+				871A35A75565439F9D3E06F4 /* QuestionBankIntegrityTests.swift in Sources */,
+				43C77369661847E9AE8FEF4F /* ReviewSchedulerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D1F21620E3C34A5E88574829 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		28E442B4F7E1492B8BC041F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		BA5909ADD77744739CD6F435 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = CFAL3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandonkeeny.CFAL3;
+				CURRENT_PROJECT_VERSION = 1;
+				MARKETING_VERSION = 1.0;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "CFA L3";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_FILE = CFAL3/Info.plist;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3448E3F31D1040B7B6BC320B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = CFAL3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandonkeeny.CFAL3;
+				CURRENT_PROJECT_VERSION = 1;
+				MARKETING_VERSION = 1.0;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "CFA L3";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_FILE = CFAL3/Info.plist;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		87AAEF38380D485D9F9992C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandonkeeny.CFAL3Tests;
+				PRODUCT_NAME = CFAL3Tests;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CFAL3.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CFAL3";
+			};
+			name = Debug;
+		};
+		7F9EF30332A742ADAA70F916 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandonkeeny.CFAL3Tests;
+				PRODUCT_NAME = CFAL3Tests;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CFAL3.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CFAL3";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		48CD57F150D64777BD601BC9 /* Build configuration list */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1F21620E3C34A5E88574829 /* Debug */,
+				28E442B4F7E1492B8BC041F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D93DE09F5FB4D14AED35826 /* Build configuration list */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA5909ADD77744739CD6F435 /* Debug */,
+				3448E3F31D1040B7B6BC320B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06D372EB9DCE4554B86C8D5E /* Build configuration list */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87AAEF38380D485D9F9992C4 /* Debug */,
+				7F9EF30332A742ADAA70F916 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CFCDDC8CB1BA42E1B8F25EF3 /* Project object */;
+}

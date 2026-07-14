@@ -1,0 +1,1875 @@
+{
+  "schema_version": 2,
+  "generated_by": "los_drills_r22_build.py",
+  "curriculum_source": "CFA Program 2027 Level III, Volume 4 (Derivatives and Risk Management), Learning Module 2: Swaps, Forwards, and Futures Strategies",
+  "content_type": "mc_only",
+  "reading": {
+    "reading_id": "swaps_forwards_and_futures_strategies",
+    "reading_name": "Swaps, Forwards, and Futures Strategies",
+    "area_id": "derivatives_risk_management",
+    "los_count": 6,
+    "question_count": 75
+  },
+  "drills": [
+    {
+      "los_id": "swaps_forwards_and_futures_strategies.a",
+      "los_letter": "a",
+      "los_text": "demonstrate how interest rate swaps, forwards, and futures can be used to modify a portfolio's risk and return",
+      "reading_id": "swaps_forwards_and_futures_strategies",
+      "reading_name": "Swaps, Forwards, and Futures Strategies",
+      "area_id": "derivatives_risk_management",
+      "questions": [
+        {
+          "id": "r17_swf_los_a_q1",
+          "number": 1,
+          "stem": "*Interest rate swap* *most likely*:",
+          "options": {
+            "A": "over-the-counter (OTC) contract between two parties that agree to exchange cash flows on specified payment dates — one based on variable (floating) interest rate and the other based on a fixed rate (the 'swap rate') determined at time swap is initiated.",
+            "B": "An interest rate swap is an exchange-traded contract standardized by the futures clearinghouse.",
+            "C": "An interest rate swap involves the exchange of notional principal amounts at initiation and maturity."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: over-the-counter (OTC) contract between two parties that agree to exchange cash flows on specified payment dates — one based on variable (floating) interest rate and the other based on a fixed rate (the 'swap rate') determined at time swap is initiated; swap tenor is when the swap is agreed to expire; both interest rates applied to swap's notional value to determine size of each payment; normally two payments (one fixed, one floating) are in same currency but not equal, so typically netted with party owing greater amount paying difference to other party; party that currently has fixed (floating) risk can effectively convert it into floating (fixed) one.\n\nCorrect. Per the reading: 'An interest rate swap is an over-the-counter (OTC) contract between two parties that agree to exchange cash flows on specified payment dates — one based on a variable (floating) interest rate and the other based on a fixed rate (the \"swap rate\") — determined at the time the swap is initiated. The swap tenor is when the swap is agreed to expire. Both interest rates are applied to the swap's notional value to determine the size of each payment. Normally, the resulting two payments (one fixed, one floating) are in the same currency but will not be equal, so they are typically netted, with the party owing the greater amount paying the difference to the other party. In this manner, a party that currently has a fixed (floating) risk or other obligation can effectively convert it into a floating (fixed) one.'",
+            "B": "Incorrect. The IRS is an OTC bilateral contract, not exchange-traded — customization is its hallmark.",
+            "C": "Incorrect. In a single-currency IRS the notional is NOT exchanged; only the fixed-versus-floating cash flows change hands."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.a",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "IR Swaps — definition",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_a_q2",
+          "number": 2,
+          "stem": "*Synthetic fixed security from floating debt + pay-fixed swap* Example 1 case *most likely*:",
+          "options": {
+            "A": "The Example 1 firm issues fixed-rate debt and swaps it to floating using a receive-fixed swap.",
+            "B": "firm sells £20 million of three-year floating-rate bonds that pay semiannual coupon equal to six-month reference rate plus 50 bps.",
+            "C": "The Example 1 firm leaves its floating-rate exposure unhedged for the full three years."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The direction is reversed — the firm sells FLOATING-rate bonds and PAYS fixed on the swap to synthesize fixed-rate funding.",
+            "B": "Full statement: firm sells £20 million of three-year floating-rate bonds that pay semiannual coupon equal to six-month reference rate plus 50 bps; firm enters pay-fixed 1.25%, receive-floating six-month reference rate swap; at first coupon date reference rate is 0.75%: coupon on bonds = (0.75% + 0.50%) × £20M × 180/360 = £125,000; on swap: receive 0.75%×£20M×180/360 = £75,000, pay 1.25%×£20M×180/360 = £125,000, net payment £50,000; total = £175,000; at second date rate rises to 1.50%: bond coupon = £200,000, receive £25,000 net on swap, total still £175,000; firm has effectively fixed its all-in borrowing costs.\n\nCorrect. Per Example 1: 'An investment firm has sold £20 million of three-year floating-rate bonds that pay a semiannual coupon equal to the six-month market reference rate plus 50 bps... The firm enters into an interest rate swap with a tenor of approximately three years and semiannual payments, where the firm pays a fixed par swap rate of 1.25% and receives the six-month reference rate. At the first swap settlement date, the six-month reference rate is 0.75%.' Solution shows: 'Receive based on the reference rate: 0.75% × £20 million × (180/360) = £75,000. Pay based on the fixed rate: 1.25% × £20 million × (180/360) = £125,000. Net payment made by the firm to swap dealer: £125,000 − £75,000 = £50,000. At the same time, the first semiannual coupon payment on the securities will be (0.75% + 0.50%) × £20 million × (180/360) = £125,000. The total payment made by the investment firm on the securities and the swap is £175,000 (= £125,000 + £50,000)... The investment firm has effectively fixed its all-in borrowing costs.'",
+            "C": "Incorrect. The pay-fixed swap converts the £20M floating exposure (reference rate + 50 bps semiannual) into a known all-in fixed cost."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.a",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "IR Swaps — Example 1",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_a_q3",
+          "number": 3,
+          "stem": "*Modified duration of pay-fixed receive-floating swap* *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "no framework.",
+            "C": "modified duration of a swap is net of modified durations of the equivalent positions in fixed- and floating-rate bonds."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Negative for pay-fixed.",
+            "B": "Negative duration for payer.",
+            "C": "Full statement: modified duration of a swap is net of modified durations of the equivalent positions in fixed- and floating-rate bonds; position of pay-fixed party has modified duration of floating-rate bond MINUS modified duration of fixed-rate bond; because duration of fixed-rate bond is positive and larger than duration of floating-rate bond (which is near zero), pay-fixed receive-floating swap has NEGATIVE duration from perspective of fixed-rate payer (positive from perspective of receiver); makes sense — pay-fixed position benefits from rising interest rates.\n\nCorrect. Per the reading: 'The modified duration of a swap (MDURS) is the net of the modified durations of the equivalent positions in fixed- and floating-rate bonds. Thus, the position of the pay-fixed party in a pay-fixed, receive-floating swap has the modified duration of a floating-rate bond minus the modified duration of a fixed-rate bond, where the floating- and fixed-rate bonds have cash flows equivalent to the corresponding cash flows of the swap. A pay-fixed, receive-floating swap has a negative (positive) duration from the perspective of a fixed-rate payer (receiver), because the duration of a fixed-rate bond is positive and larger than the duration of a floating-rate bond, which is near zero. Moreover, the negative duration of this position to the fixed-rate payer/floating-rate receiver makes sense in that the position would be expected to benefit from rising interest rates.'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.a",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "IR Swaps — swap duration",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_a_q4",
+          "number": 4,
+          "stem": "*Swap notional principal formula for target duration* *most likely*:",
+          "options": {
+            "A": "N_S = [(MDUR_T - MDUR_P) / MDUR_S] × MV_P where MDUR_T is target modified duration, MDUR_P is portfolio modified duration, MDUR_S is swap modified duration, MV_P is market value of bond portfolio.",
+            "B": "The swap notional for a duration target is N_S = (MDUR_T × MDUR_P) / MDUR_S × MV_P.",
+            "C": "The swap notional for a duration target is N_S = MV_P × MDUR_S / (MDUR_T − MDUR_P)."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: N_S = [(MDUR_T - MDUR_P) / MDUR_S] × MV_P where MDUR_T is target modified duration, MDUR_P is portfolio modified duration, MDUR_S is swap modified duration, MV_P is market value of bond portfolio; equivalence ΔP = N_S × ΔS becomes (MV_P)(MDUR_T - MDUR_P) = (N_S)(MDUR_S).\n\nCorrect. Per Equation 1: 'By properly choosing the notional value and the tenor of the swap, the portfolio manager can achieve a combination of the existing portfolio and the interest rate swap that sets the overall portfolio duration to the target duration: (MVP)(MDURP) + (NS)(MDURS) = (MVP)(MDURT). The equivalence ΔP = (NS)(ΔS) becomes (MVP)(MDURT − MDURP) = (NS)(MDURS). To find the swap notional principal, NS, we need to solve for the following formula: NS = [(MDURT − MDURP)/MDURS](MVP).'",
+            "B": "Incorrect. The numerator is the duration GAP (MDUR_T − MDUR_P), not the product of durations.",
+            "C": "Incorrect. The swap duration DIVIDES the gap; this arrangement inverts the ratio — N_S = [(MDUR_T − MDUR_P)/MDUR_S] × MV_P."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.a",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "IR Swaps — notional formula",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_a_q5",
+          "number": 5,
+          "stem": "*Duration reduction example* €50M portfolio, MDUR 5.5, target 4.5, 2-year swap MDUR -2.00 *most likely*:",
+          "options": {
+            "A": "no calc.",
+            "B": "N_S = [(4.5 - 5.5) / (-2.00)] × €50,000,000 = €25,000,000.",
+            "C": "no data."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "€25M notional.",
+            "B": "Full statement: N_S = [(4.5 - 5.5) / (-2.00)] × €50,000,000 = €25,000,000; manager pays fixed and receives floating on €25M notional to reduce duration; adds negative-duration position.\n\nCorrect. Per Example 2: 'Consider a portfolio manager with an investment portfolio of €50 million of fixed-rate German bonds with an average modified duration of 5.5. Because he fears that interest rates will rise, he wants to reduce the modified duration of the portfolio to 4.5, but he does not want to sell any of the securities. One way to do this would be to add a negative-duration position by entering into an interest rate swap where he pays the fixed rate and receives the floating rate. A two-year interest rate swap has an estimated modified duration of −2.00 from the perspective of the fixed-rate payer... NS = [(4.50 − 5.50)/(−2.00)] × €50,000,000 = €25,000,000.'",
+            "C": "€25M."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.a",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "IR Swaps — duration example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_a_q6",
+          "number": 6,
+          "stem": "*Basis risk in interest rate swap hedging* *most likely*:",
+          "options": {
+            "A": "no risk.",
+            "B": "no framework.",
+            "C": "most of the time, hedging instrument and asset or portfolio to be hedged are imperfect substitutes."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Basis + spread risk.",
+            "B": "Real basis risk.",
+            "C": "Full statement: most of the time, hedging instrument and asset or portfolio to be hedged are imperfect substitutes; result is market risk called basis risk or spread risk — difference between market performance of asset and derivative instrument used to hedge it; when using interest rate swap to hedge, possible that changes in underlying rate of derivative contract and thus in value of swap do not perfectly mirror changes in value of bond portfolio; composition of bond portfolio could bear additional market risks other than interest rate risk (e.g., corporate bond hedged with IRS remains exposed to credit spread risk).\n\nCorrect. Per the reading: 'It is important to keep in mind that most of the time, the hedging instrument and the asset or portfolio to be hedged are imperfect substitutes. The result is a market risk, called basis risk or spread risk — the difference between the market performance of the asset and the derivative instrument used to hedge it. When using an interest rate swap to hedge, it is possible that the changes in the underlying rate of the derivative contract, and thus in the value of the swap, do not perfectly mirror changes in the value of the bond portfolio. Furthermore, the composition of the bond portfolio could bear additional market risks other than interest rate risk. For instance, suppose a portfolio of corporate bonds is hedged with an interest rate swap. In this case, even if interest rate risk is hedged, the investor is still exposed to credit spread risk.'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.a",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "IR Swaps — basis risk",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_a_q7",
+          "number": 7,
+          "stem": "*Forward rate agreement (FRA)* *most likely*:",
+          "options": {
+            "A": "OTC derivative instrument used mainly to hedge a loan expected to be taken out in the near future or to hedge against changes in the level of interest rates in the future.",
+            "B": "A forward rate agreement is an exchange-traded contract on physical delivery of government bonds.",
+            "C": "A forward rate agreement obligates both parties to exchange the full notional loan amount at settlement."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: OTC derivative instrument used mainly to hedge a loan expected to be taken out in the near future or to hedge against changes in the level of interest rates in the future; with advanced settled at maturity, FRA will settle only the discounted difference between the interest rate agreed on in the contract and the actual rate prevailing at time of settlement, applied on the notional amount of the contract.\n\nCorrect. Per the reading: 'A forward rate agreement is an OTC derivative instrument that is used mainly to hedge a loan expected to be taken out in the near future or to hedge against changes in the level of interest rates in the future. In fact, with advanced settled at maturity, an FRA will settle only the discounted difference between the interest rate agreed on in the contract and the actual rate prevailing at the time of settlement, applied on the notional amount of the contract.'",
+            "B": "Incorrect. The FRA is OTC and cash-settled on a RATE, hedging an expected borrowing or rate exposure.",
+            "C": "Incorrect. Only the discounted interest DIFFERENCE settles; the notional never moves."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.a",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "IR Swaps — FRA",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_a_q8",
+          "number": 8,
+          "stem": "*Forwards vs futures for interest rate hedging* *most likely*:",
+          "options": {
+            "A": "Forwards and futures are identical instruments for interest rate hedging in every practical respect.",
+            "B": "forwards, like swaps, are OTC instruments and especially useful because they can be customized, but they have counterparty risk.",
+            "C": "Futures carry counterparty risk while forwards are guaranteed by a central clearinghouse."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The venue difference matters — OTC customization versus exchange standardization drives the choice.",
+            "B": "Full statement: forwards, like swaps, are OTC instruments and especially useful because they can be customized, but they have counterparty risk; in contrast, exchange-traded interest rate futures contracts are standardized and guaranteed by a clearinghouse, so counterparty risk is virtually zero; regulatory changes in global markets are moving both OTC swaps and forward contracts toward a clearing process — reduces risk that one counterparty will default (by requiring collateral for trades and by daily marking to market of open positions); however, still risk that major counterparty will fail to carry out its obligations (e.g., Lehman Brothers).\n\nCorrect. Per the reading: 'Forwards, like swaps, are OTC instruments and are especially useful because they can be customized, but they do have counterparty risk. In contrast, exchange-traded interest rate futures contracts are standardized and guaranteed by a clearinghouse, so counterparty risk is virtually zero.' Footnote: 'Regulatory changes in global markets are moving both over-the-counter swaps and forward contracts toward a clearing process as well. The clearing process reduces the risk that one counterparty will default on its obligations (by requiring collateral for trades and by daily marking to market of open positions), and for this reason, the counterparty risk associated with each single trade is virtually zero. However, there is still the risk that a major counterparty will fail to carry out its obligations (e.g., Lehman Brothers), causing operational risks for investors.'",
+            "C": "Incorrect. The credit arrangement is the REVERSE: futures are clearinghouse-guaranteed; OTC forwards bear counterparty risk in exchange for customization."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.a",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "IR Swaps — fwd vs fut",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_a_q9",
+          "number": 9,
+          "stem": "*Immunizing bond portfolio* *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "no framework.",
+            "C": "when a bond portfolio is fully hedged, its value is immunized with respect to changes in yields."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Duration reduction.",
+            "B": "Duration reduction.",
+            "C": "Full statement: when a bond portfolio is fully hedged, its value is immunized with respect to changes in yields; stated as ΔP = N_S × ΔS where ΔP is change in value of bond portfolio and ΔS is change in value of swap for a given change in interest rates; to reduce changes in value of fixed-rate portfolio, manager will want to lower the overall duration by exchanging part of this fixed-rate income stream for a floating-rate stream — done by entering interest rate swap where portfolio manager pays fixed and receives floating.\n\nCorrect. Per the reading: 'When a bond portfolio is fully hedged, its value is immunized with respect to changes in yields. This can be stated as ΔP = (Ns)(ΔS), where ΔP is the change in the value of the bond portfolio and ΔS is the change in the value of the swap for a given change in interest rates. The notional principal of the swap (Ns) will be determined as Ns = ΔP/ΔS. To reduce changes in value of a fixed-rate portfolio, the manager will want to lower the overall duration by exchanging part of this fixed-rate income stream for a floating-rate stream. This can be done by entering an interest rate swap where the portfolio manager will pay the fixed rate and receive the floating rate.'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.a",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "IR Swaps — immunization",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_a_q10",
+          "number": 10,
+          "stem": "*BPV hedge ratio formula* for futures duration hedging *most likely*:",
+          "options": {
+            "A": "BPV_HR = [(BPV_T - BPV_P) / BPV_F] where BPV_F ≈ BPV_CTD / CF.",
+            "B": "no formula.",
+            "C": "no framework."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: BPV_HR = [(BPV_T - BPV_P) / BPV_F] where BPV_F ≈ BPV_CTD / CF; more general Equation 9: BPV_HR = [(BPV_T - BPV_P) / BPV_CTD] × CF where BPV_T is target basis point value, BPV_P is portfolio basis point value, BPV_CTD is BPV of cheapest-to-deliver bond, CF is conversion factor.\n\nCorrect. Per Equation 9: 'BPVHR = [(BPVT − BPVP)/BPVF] = [(BPVT − BPVP)/(BPVCTD/CFP)] = [(BPVT − BPVP)/BPVCTD] × CF.' Referenced in the reading discussion of duration hedging with futures where BPVP + BPVHR × BPVF = BPVT.",
+            "B": "BPV_HR formula.",
+            "C": "BPV_HR."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.a",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "IR Swaps — BPV hedge ratio",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_a_q11",
+          "number": 11,
+          "stem": "*BPV of CTD bond* worked calc — CTD MDUR 8.623, price 98.14, contract size €100,000 *most likely*:",
+          "options": {
+            "A": "no calc.",
+            "B": "0.619489.",
+            "C": "no data."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "€84.63.",
+            "B": "BPV_CTD = MDUR_CTD × 0.0001 × [(price/100) × contract size] = 8.623 × 0.0001 × (98.14/100 × €100,000) = €84.63; conversion factor = 0.619489; this feeds into futures hedge ratio calculation.\n\nCorrect. Per the reading: 'BPVCTD = 8.623 × 0.0001 × [(98.14/100) × €100,000] = €84.63. So, the BPV of the CTD bond (BPVCTD) is €84.63.' The Euro-Bund CTD bond DBR 0.25% 02/15/27 has these parameters and a conversion factor of 0.619489.",
+            "C": "€84.63 CTD."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.a",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "IR Swaps — CTD BPV",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_a_q12",
+          "number": 12,
+          "stem": "*Decreasing duration with futures* — MDUR from 9.50 to 8.50 on €49,531,000 portfolio *most likely*:",
+          "options": {
+            "A": "no calc.",
+            "B": "no data.",
+            "C": "BPV_P = 9.50 × 0.0001 × €49,531,000 = €47,054.50."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "36 contracts short.",
+            "B": "Sell 36.",
+            "C": "Full statement: BPV_P = 9.50 × 0.0001 × €49,531,000 = €47,054.50; BPV_T = 8.50 × 0.0001 × €49,531,000 = €42,101.35; N_futures = [(€42,101.35 - €47,054.50)/€84.63] × 0.619489 = -36.26 ≈ -36 contracts (short); need to sell 36 Euro-Bund futures.\n\nCorrect. Per Example 6: 'the portfolio's target basis point value (BPVT) will be BPVT = 8.50 × 0.0001 × €49,531,000 = €42,101.35... To achieve the target modified duration of 8.50, the portfolio manager must implement a short position in Euro-Bund futures. Using the same cheapest-to-deliver bond with a BPVCTD of €84.63 and a conversion factor of 0.619489, the number of Euro-Bund futures to sell to decrease the portfolio's duration is calculated using Equation 9: BPVHR = [(€42,101.35 − €47,054.50)/€84.63] × 0.619489 = −36.26 ≈ −36 futures contracts.'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.a",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "IR Swaps — Example 6",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_a_q13",
+          "number": 13,
+          "stem": "*Hedging imperfections in real world* *most likely*:",
+          "options": {
+            "A": "hedging results are imperfect because (1) hedge is done with cheapest-to-deliver bond, and since CTD bond can change over holding period, duration of futures contract can also change.",
+            "B": "Interest rate hedges with futures execute perfectly in practice, with no residual basis or duration error.",
+            "C": "The only hedging imperfection is broker commission on the futures trades."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: hedging results are imperfect because (1) hedge is done with cheapest-to-deliver bond, and since CTD bond can change over holding period, duration of futures contract can also change; (2) relationship between interest rates and bond prices is not linear, owing to convexity; (3) term structure of interest rates often changes via non-parallel moves.\n\nCorrect. Per the reading: 'In the real world, however, the hedging results are imperfect because (1) the hedge is done with the cheapest-to-deliver bond, and since the CTD bond can change over the holding period, the duration of the futures contract can also change; (2) the relationship between interest rates and bond prices is not linear, owing to convexity; and (3) the term structure of interest rates often changes via non-parallel moves.'",
+            "B": "Incorrect. Imperfections are structural — the CTD bond can change over the horizon, durations drift, and yield changes are non-parallel.",
+            "C": "Incorrect. Commissions are trivial next to CTD switching, duration measurement error, and curve-shape risk."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.a",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "IR Swaps — imperfections",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "swaps_forwards_and_futures_strategies.b",
+      "los_letter": "b",
+      "los_text": "demonstrate how currency swaps, forwards, and futures can be used to modify a portfolio's risk and return",
+      "reading_id": "swaps_forwards_and_futures_strategies",
+      "reading_name": "Swaps, Forwards, and Futures Strategies",
+      "area_id": "derivatives_risk_management",
+      "questions": [
+        {
+          "id": "r17_swf_los_b_q1",
+          "number": 1,
+          "stem": "*Currency swap vs interest rate swap* *most likely*:",
+          "options": {
+            "A": "A currency swap is identical to an interest rate swap in structure and cash flows.",
+            "B": "currency swap is similar to interest rate swap but different in two ways: (1) interest rates are associated with different currencies.",
+            "C": "Currency swaps never involve any exchange of principal amounts."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Two differences separate them — the rates reference DIFFERENT currencies, and notional principals are typically exchanged.",
+            "B": "Full statement: currency swap is similar to interest rate swap but different in two ways: (1) interest rates are associated with different currencies; (2) notional principal amounts may or may not be exchanged at beginning and end of swap's life; currency swaps help parties hedge against risk of exchange rate fluctuations and achieve better rate outcomes; some hedge transactions are designed to hedge only foreign interest cash flows and not principal payments so principal exchange would not be necessary.\n\nCorrect. Per the reading: 'A currency swap is similar to an interest rate swap, but it is different in two ways: (1) The interest rates are associated with different currencies, and (2) the notional principal amounts may or may not be exchanged at the beginning and end of the swap's life. Currency swaps help the parties in the swap to hedge against the risk of exchange rate fluctuations and to achieve better rate outcomes.' Footnote: 'Although an exchange of notional principals often occurs, the parties may agree not to do this. Some types of hedge transactions are designed to hedge only foreign interest cash flows and not principal payments, so a principal exchange on a currency swap would not be necessary.'",
+            "C": "Incorrect. Principal exchange (at initiation and maturity) is one of the currency swap's two distinguishing features."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.b",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Currency — swap definition",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_b_q2",
+          "number": 2,
+          "stem": "*Cross-currency basis swap* *most likely*:",
+          "options": {
+            "A": "A cross-currency basis swap avoids exchanging notional principals to minimize settlement risk.",
+            "B": "A cross-currency basis swap exchanges fixed rates in one currency for fixed rates in the same currency.",
+            "C": "exchanges notional principals because goal of transaction is to issue at more favorable funding rate and swap the amount back to currency of choice."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Notionals ARE exchanged — the transaction's purpose is funding in one currency swapped into another.",
+            "B": "Incorrect. Same-currency fixed-for-fixed is not a cross-currency structure; the basis swap moves favorable funding across currencies.",
+            "C": "Full statement: exchanges notional principals because goal of transaction is to issue at more favorable funding rate and swap the amount back to currency of choice; firms that need foreign-denominated cash can obtain funding in local currency and then swap local currency for required foreign currency using cross-currency basis swap; swap periodically sets interest rate payments, mostly floating for floating, separately in two different currencies; net effect is to use loan in local currency to take out loan in foreign currency while avoiding foreign exchange risk; exchange rate is fixed.\n\nCorrect. Per the reading: 'In particular, a cross-currency basis swap exchanges notional principals because the goal of the transaction is to issue at a more favorable funding rate and swap the amount back to the currency of choice. Firms that need foreign-denominated cash can obtain the funding in their local currency and then swap the local currency for the required foreign currency using a cross-currency basis swap. The swap periodically sets interest rate payments, mostly floating for floating, separately in two different currencies. The net effect is to use a loan in a local currency to take out a loan in a foreign currency while avoiding any foreign exchange risk. In fact, the exchange rate is fixed.'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.b",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Currency — cross-currency basis",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_b_q3",
+          "number": 3,
+          "stem": "*Canadian PE LBO Example 7* setup *most likely*:",
+          "options": {
+            "A": "Canadian PE firm executing $40M LBO of US electronics manufacturer.",
+            "B": "no data.",
+            "C": "no framework."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: Canadian PE firm executing $40M LBO of US electronics manufacturer; rate on US dollar loan is semiannual USD reference floating + 100 bps; PE firm borrows CAD50M for three years at Canadian dollar reference floating rate + 65 bps; three-year CAD-USD cross-currency basis swap quoted at -15 bps at USD/CAD 0.8000; PE firm receives Canadian dollar reference rate minus 15 bps every six months in exchange for paying US dollar reference rate; effective spread paid = 65 bps + 15 bps = 80 bps vs 100 bps if borrowed in USD.\n\nCorrect. Per Example 7: 'The PE firm discovers that it can borrow more cheaply in the local Canadian market and decides to fund the LBO in Canadian dollars (CAD) by borrowing CAD50 million for three years at the semiannual Canadian dollar reference floating rate plus 65 bps. Then it contacts a New York–based dealer and requests a quote for a three-year cross-currency basis swap with semiannual interest payments to exchange the CAD50 million into US dollars. The three-year CAD–USD cross-currency basis swap is quoted at −15 bps at a rate of USD/CAD 0.8000... The Canadian PE firm, the \"lender\" of the Canadian dollars in the swap, will receive the Canadian dollar reference rate, assumed to be 1.95%, minus 15 bps every six months in exchange for paying the US dollar reference rate for the US dollars it has \"borrowed.\" Given that the PE firm pays the Canadian dollar floating rate plus 65 bps on its bank loan, the effective spread paid becomes 80 bps (= 65bps + 15 bps). This compares with a spread of 100 bps if instead it borrowed in US dollars.'",
+            "B": "80 bps vs 100 bps.",
+            "C": "Cheaper via swap."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.b",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Currency — Example 7 setup",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_b_q4",
+          "number": 4,
+          "stem": "*Basis in cross-currency swap* *most likely*:",
+          "options": {
+            "A": "no definition.",
+            "B": "basis is quoted on non-USD leg of the swap.",
+            "C": "no framework."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Basis explanation.",
+            "B": "Full statement: basis is quoted on non-USD leg of the swap; 'paying' the basis would mean borrowing the other currency versus lending US dollars, whereas 'receiving' the basis implies lending the other currency versus borrowing US dollars; if covered interest rate parity holds, forward exchange rate is determined by spot exchange rate and interest rate differential between foreign and domestic currencies over term of forward rate; however, usually covered interest rate parity does not hold and thus gives rise to the basis.\n\nCorrect. Per the reading: 'Here the basis is the difference between interest rates in the cross-currency basis swap and those used to determine the forward exchange rates. If covered interest rate parity holds, a forward exchange rate is determined by the spot exchange rate and the interest rate differential between foreign and domestic currencies over the term of the forward rate. However, usually covered interest rate parity does not hold and thus gives rise to the basis. The basis is quoted on the non-USD leg of the swap. \"Paying\" the basis would mean borrowing the other currency versus lending US dollars, whereas \"receiving\" the basis implies lending the other currency versus borrowing US dollars.'",
+            "C": "Basis defined."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.b",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Currency — basis",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_b_q5",
+          "number": 5,
+          "stem": "*Cash flow at swap inception* Example 7 *most likely*:",
+          "options": {
+            "A": "no flows.",
+            "B": "no data.",
+            "C": "at inception, Canadian PE firm delivers Canadian dollars (N) in exchange for US dollars (at rate of N × S_0)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "CAD50M for USD40M.",
+            "B": "Inception flows.",
+            "C": "Full statement: at inception, Canadian PE firm delivers Canadian dollars (N) in exchange for US dollars (at rate of N × S_0); PE firm delivers CAD50 million to swap dealer, receives USD40 million (= CAD50 million × 0.8000 USD/CAD).\n\nCorrect. Per Example 7: 'Flows at the inception of the swap. At inception, the Canadian PE firm delivers Canadian dollars (N) in exchange for US dollars (at a rate of N × S0). CAD50 million PE Firm → Swap Dealer, USD40 million (= CAD50 million × 0.8000 USD/CAD).'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.b",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Currency — inception flows",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_b_q6",
+          "number": 6,
+          "stem": "*Periodic payments Example 7* first settlement *most likely*:",
+          "options": {
+            "A": "on first settlement date CAD reference rate 1.95%, basis -15 bps → CAD rate on swap is 1.80% (= 1.95% - 15 bps).",
+            "B": "On the first settlement date, the CAD rate on the swap equals the 1.95% reference rate plus the 15 bp basis, or 2.10%.",
+            "C": "The basis adjustment applies to the USD leg of the swap rather than the CAD leg."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: on first settlement date CAD reference rate 1.95%, basis -15 bps → CAD rate on swap is 1.80% (= 1.95% - 15 bps); assume USD rate 2.50%; PE firm receives CAD50M × 1.80% × 180/360 = CAD450,000; PE firm pays CAD50M × 0.8000 USD/CAD × 2.50% × 180/360 = USD500,000; interest on PE firm's loan is CAD50M × (1.95% + 0.65%) × 180/360 = CAD650,000; net Canadian dollar payment = CAD200,000 (= CAD650,000 - CAD450,000); at USD/CAD 0.8000 this equals USD160,000, plus USD500,000 on swap = USD660,000 total vs USD700,000 (= USD40M × 3.5% × 180/360) if firm had taken USD loan.\n\nCorrect. Per Example 7: 'the Canadian dollar rate on the swap is 1.80% (= 1.95% − 15 bps), and we assume the US dollar rate is 2.50%... CAD50 million × 1.80% × 180/360 = CAD450,000 (A). PE Firm → Swap Dealer. CAD50million × 0.8000 USD/CAD × 2.50% × 180/360 = USD500,000 (B). The interest rate payment on the PE firm's loan is CAD50 million × (1.95% + 0.65%) × (180/360) = CAD650,000. Considering the CAD450,000 received on the swap (A), the PE firm's net payment is CAD200,000. At USD/CAD 0.8000, this net payment of CAD200,000 corresponds to a payment of USD160,000, which when added to the USD500,000 paid on the swap (B) totals USD660,000. Importantly, note that had the Canadian PE firm taken out the US loan instead, it would have paid periodically USD700,000 (= USD40 million × [2.50% + 1.0%] × [180/360]).'",
+            "B": "Incorrect. The basis is NEGATIVE — it subtracts: 1.95% − 15 bps = 1.80%.",
+            "C": "Incorrect. The −15 bp basis attaches to the CAD leg in this structure, lowering the CAD rate to 1.80%."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.b",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Currency — periodic payments",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_b_q7",
+          "number": 7,
+          "stem": "*Cash flows at maturity* Example 7 *most likely*:",
+          "options": {
+            "A": "At maturity of the cross-currency swap there are no cash flows, since all principal was settled at initiation.",
+            "B": "at maturity of swap (after successful exit from LBO via US IPO), Canadian PE firm swaps back US dollars in exchange for Canadian dollars at same rate: PE Firm returns USD40 million to swap dealer, receives CAD50 million (= USD40M × 1/0.8000).",
+            "C": "At maturity the Canadian PE firm keeps the US dollars and pays only accrued interest."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Maturity brings the REVERSE principal exchange — that is how the firm unwinds the funding.",
+            "B": "Full statement: at maturity of swap (after successful exit from LBO via US IPO), Canadian PE firm swaps back US dollars in exchange for Canadian dollars at same rate: PE Firm returns USD40 million to swap dealer, receives CAD50 million (= USD40M × 1/0.8000); PE firm uses CAD50M to pay off local lender.\n\nCorrect. Per Example 7: 'Flows at maturity. At the maturity of the swap (and after a successful exit from the LBO via a US IPO), the Canadian PE firm swaps back US dollars in exchange for Canadian dollars (USD × 1/S0). CAD50 million (= USD40million × 1/0.8000) PE Firm → Swap Dealer, USD40 million.' Also from setup: 'the PE firm returns the USD40 million to the dealer and in return receives the CAD50 million, which it uses to pay off its lender.'",
+            "C": "Incorrect. Following the IPO exit, the firm swaps the US dollars BACK for Canadian dollars at the original S₀."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.b",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Currency — maturity flows",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_b_q8",
+          "number": 8,
+          "stem": "*Currency risk definition* *most likely*:",
+          "options": {
+            "A": "Currency risk is the risk that domestic interest rates rise, lowering domestic bond prices.",
+            "B": "Currency risk applies only to assets, never to liabilities denominated in foreign currencies.",
+            "C": "risk that value of a current or future asset (liability) in a foreign currency will decrease (increase) when converted into the domestic currency."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Domestic rate risk is interest rate risk; currency risk concerns CONVERSION values across currencies.",
+            "B": "Incorrect. Liabilities carry it symmetrically — a foreign-currency liability grows in domestic terms when the foreign currency appreciates.",
+            "C": "Full statement: risk that value of a current or future asset (liability) in a foreign currency will decrease (increase) when converted into the domestic currency; currency swaps, forwards, and futures can be used to effectively alter currency risk exposures.\n\nCorrect. Per the reading: 'Currency swaps, forwards, and futures can be used to effectively alter currency risk exposures. Currency risk is the risk that the value of a current or future asset (liability) in a foreign currency will decrease (increase) when converted into the domestic currency.'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.b",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Currency — currency risk",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_b_q9",
+          "number": 9,
+          "stem": "*Fixed exchange rate S_0 for all payments in cross-currency swap* *most likely*:",
+          "options": {
+            "A": "N is notional principal of Canadian dollar leg of swap, and S_0 (agreed at start) is spot exchange rate for all payments (at inception, on interest payment dates, and at maturity).",
+            "B": "The exchange rate for each payment in a cross-currency swap resets to the prevailing spot rate at each settlement date.",
+            "C": "The notional principal of the swap is redenominated at every payment date using updated market rates."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: N is notional principal of Canadian dollar leg of swap, and S_0 (agreed at start) is spot exchange rate for all payments (at inception, on interest payment dates, and at maturity); for Canadian PE firm this means N = CAD50 million and S_0 = USD/CAD 0.8000; the exchange rate is fixed for all cash flows over life of swap, avoiding FX risk on principal exchange.\n\nCorrect. Per Example 7: 'We now examine the cash flows in the cross-currency basis swap, where N is the notional principal of the Canadian dollar leg of the swap and S0, agreed at the start, is the spot exchange rate for all payments (at inception, on interest payment dates, and at maturity). For the Canadian PE firm, this means that N = CAD50 million and S0 = USD/CAD 0.8000.'",
+            "B": "Incorrect. S₀ is FIXED at inception and governs all payments — initial exchange, periodic interest, and final re-exchange.",
+            "C": "Incorrect. The notional and its conversion rate are locked at the start; no redenomination occurs."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.b",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Currency — fixed S_0",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_b_q10",
+          "number": 10,
+          "stem": "*Cross-currency basis and forward rate connection* *most likely*:",
+          "options": {
+            "A": "The cross-currency basis is fully explained by covered interest rate parity holding at all times.",
+            "B": "if covered interest rate parity held perfectly, forward exchange rate would be determined solely by spot exchange rate and interest rate differential between currencies.",
+            "C": "Forward exchange rates are set independently of spot rates and interest differentials."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The basis exists precisely because CIRP does NOT hold perfectly — funding frictions leave a residual.",
+            "B": "Full statement: if covered interest rate parity held perfectly, forward exchange rate would be determined solely by spot exchange rate and interest rate differential between currencies; deviations from covered interest rate parity give rise to the basis in cross-currency basis swaps; the basis represents difference between interest rates in the cross-currency basis swap and those implied by forward exchange rates; typically not zero.\n\nCorrect. Per the reading: 'Here the basis is the difference between interest rates in the cross-currency basis swap and those used to determine the forward exchange rates. If covered interest rate parity holds, a forward exchange rate is determined by the spot exchange rate and the interest rate differential between foreign and domestic currencies over the term of the forward rate. However, usually covered interest rate parity does not hold and thus gives rise to the basis.'",
+            "C": "Incorrect. Spot and rate differentials remain the forward's foundation; the basis is the deviation layered on top."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.b",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Currency — basis and CIRP",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_b_q11",
+          "number": 11,
+          "stem": "*Basis direction interpretation* *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "no framework.",
+            "C": "'paying' the basis means borrowing the other currency versus lending US dollars."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Basis interpretation.",
+            "B": "Pay vs receive.",
+            "C": "Full statement: 'paying' the basis means borrowing the other currency versus lending US dollars; 'receiving' the basis means lending the other currency versus borrowing US dollars; in Example 7, three-year CAD-USD cross-currency swap quoted at -15 bps means Canadian PE firm as lender of Canadian dollars in swap will receive CAD reference rate minus 15 bps every six months in exchange for paying USD reference rate.\n\nCorrect. Per the reading: 'The basis is quoted on the non-USD leg of the swap. \"Paying\" the basis would mean borrowing the other currency versus lending US dollars, whereas \"receiving\" the basis implies lending the other currency versus borrowing US dollars. The three-year CAD–USD cross-currency swap in this case is quoted at −15 bps. This means that the Canadian PE firm, the \"lender\" of the Canadian dollars in the swap, will receive the Canadian dollar reference rate, assumed to be 1.95%, minus 15 bps every six months in exchange for paying the US dollar reference rate for the US dollars it has \"borrowed.\"'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.b",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Currency — basis direction",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_b_q12",
+          "number": 12,
+          "stem": "*Currency forwards and futures vs swaps* *most likely*:",
+          "options": {
+            "A": "currency swaps, forwards, and futures can all be used to effectively alter currency risk exposures.",
+            "B": "identical.",
+            "C": "no distinction."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: currency swaps, forwards, and futures can all be used to effectively alter currency risk exposures; forwards are OTC and can be customized (but have counterparty risk), while futures are exchange-traded, standardized, and cleared (virtually no counterparty risk); swaps typically involve series of cash flow exchanges over time, whereas forwards and futures involve single settlement at maturity (or via marking to market for futures); currency swaps may involve principal exchange at beginning/end while forwards and futures typically do not.\n\nCorrect. Per the reading: 'Currency swaps, forwards, and futures can be used to effectively alter currency risk exposures.' And referencing the discussion of OTC vs exchange-traded: 'Forwards, like swaps, are OTC instruments and are especially useful because they can be customized, but they do have counterparty risk. In contrast, exchange-traded futures contracts are standardized and guaranteed by a clearinghouse, so counterparty risk is virtually zero.' Currency swaps differ in that principal exchange may occur.",
+            "B": "Distinct instruments.",
+            "C": "Different instruments."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.b",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Currency — instruments comparison",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "swaps_forwards_and_futures_strategies.c",
+      "los_letter": "c",
+      "los_text": "demonstrate how equity swaps, forwards, and futures can be used to modify a portfolio's risk and return",
+      "reading_id": "swaps_forwards_and_futures_strategies",
+      "reading_name": "Swaps, Forwards, and Futures Strategies",
+      "area_id": "derivatives_risk_management",
+      "questions": [
+        {
+          "id": "r17_swf_los_c_q1",
+          "number": 1,
+          "stem": "*Total return swap on concentrated stock position* *most likely*:",
+          "options": {
+            "A": "A total return swap on a concentrated stock position increases the holder's exposure to the stock's price movements.",
+            "B": "investor holding large concentrated position paying dividends can enter total return swap requiring her to transfer total performance of stock to counterparty for prespecified fee.",
+            "C": "A total return swap requires the investor to sell the concentrated position, triggering immediate capital gains tax."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The TRS NEUTRALIZES the exposure — total performance (dividends and price change) is paid away for a floating receipt.",
+            "B": "Full statement: investor holding large concentrated position paying dividends can enter total return swap requiring her to transfer total performance of stock to counterparty for prespecified fee; under swap she pays counterparty share price appreciation plus dividends received over life of contract; if stock price decreases, she receives share price depreciation but net of dividends; investor receives agreed-on floating-rate interest payment based on swap notional; allows temporary neutralization of long exposure without losing ownership or voting rights.\n\nCorrect. Per the reading: 'Consider now a private high-net-worth investor who holds a large, concentrated position in a particular company's stock that pays dividends on a regular basis. She expects that in the next six months the total return from the stock, including the dividends received, will be negative, so she wants to temporarily neutralize her long exposure. At the same time, she does not wish to lose ownership and her voting rights by selling the stock on an exchange. This investor can enter into a total return swap requiring her to transfer the total performance of the stock (i.e., total return) to the counterparty of the swap, at prespecified dates for an agreed-on fee. Under the terms of the swap, she will pay to the counterparty the share price appreciation plus the dividends received over the life of the contract. If the stock price decreases, she will receive the share price depreciation but net of the dividends. At the same prespecified dates, the investor will receive in exchange from the counterparty an agreed-on floating-rate interest payment based on the swap notional.'",
+            "C": "Incorrect. No sale occurs; deferring the tax event while shedding economic exposure is the structure's appeal."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.c",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Equity — concentrated stock TRS",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_c_q2",
+          "number": 2,
+          "stem": "*Equity swap cash vs physical settlement* *most likely*:",
+          "options": {
+            "A": "same.",
+            "B": "no framework.",
+            "C": "equity swaps that have single stock as underlying can be cash settled or physically settled."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Cash vs physical.",
+            "B": "Two settlement modes.",
+            "C": "Full statement: equity swaps that have single stock as underlying can be cash settled or physically settled; if cash settled, on termination date equity swap receiver will receive (pay) equity appreciation (depreciation) in cash; if physically settled, on termination date equity swap receiver will receive quantity of single stock specified in contract and pay notional amount.\n\nCorrect. Per the reading: 'Equity swaps that have a single stock as underlying can be cash settled or physically settled. If the swap is cash settled, on the termination date of the contract the equity swap receiver will receive (pay) the equity appreciation (depreciation) in cash. If the swap is physically settled, on the termination date the equity swap receiver will receive the quantity of single stock specified in the contract and pay the notional amount.'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.c",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Equity — swap settlement",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_c_q3",
+          "number": 3,
+          "stem": "*Physical vs cash-settled Generali example* *most likely*:",
+          "options": {
+            "A": "portfolio manager is receiver in six-month equity swap with notional principal €4.5 million and no interim cash flows requiring physical settlement at maturity of 300,000 shares of Italian insurer Generali.",
+            "B": "In the Generali example, physical and cash settlement produce materially different economic outcomes for the manager.",
+            "C": "The Generali equity swap requires daily margin postings and interim cash flows throughout its six-month term."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: portfolio manager is receiver in six-month equity swap with notional principal €4.5 million and no interim cash flows requiring physical settlement at maturity of 300,000 shares of Italian insurer Generali; at maturity manager receives 300,000 shares and pays €4.5 million (purchase price per share €15 = €4.5M/300,000); also pays interest on swap; at swap maturity Generali price is €16 implying gain of €300,000 (= [€16 - €15] × 300,000); if cash settled instead of physical, manager would have received €300,000 = (€16 - €15) × 300,000.\n\nCorrect. Per the reading: 'Let us assume for example that a portfolio manager is the receiver in a six-month equity swap with notional principal of €4.5 million and no interim cash flows that requires physical settlement, at maturity, of 300,000 shares of the Italian insurer Generali. At maturity of the swap, the portfolio manager will receive 300,000 shares of Generali and will pay €4.5 million, which corresponds to a purchase price per share of €15 (= €4.5 million/300,000). He will also pay the interest on the swap based on the agreed-on rate. Now let us also assume that at the swap's maturity the price of Generali is €16. This price implies a gain of €300,000 (= [€16 − €15] × 300,000) for the portfolio manager, assuming he sells the shares received in the swap at €16. If the same swap had cash settlement, instead of physical settlement, at maturity the portfolio manager would have received €300,000 — given by €16 (the swap settlement price) less €15 (the agreed price on the swap) and multiplied by 300,000 — against the payment of the interest on the swap.'",
+            "B": "Incorrect. The €300K economic outcome is the SAME either way — settlement mechanics differ, economics do not.",
+            "C": "Incorrect. The structure has NO interim cash flows; the receiver's position settles at the six-month maturity on the €4.5M notional."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.c",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Equity — Generali example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_c_q4",
+          "number": 4,
+          "stem": "*Equity index futures uses* *most likely*:",
+          "options": {
+            "A": "Equity index futures are used only by speculators and have no role in portfolio management.",
+            "B": "indispensable tool for many investment managers: low-cost instrument to implement tactical allocation decisions, achieve portfolio diversification, and attain international exposure.",
+            "C": "Equity index futures are too expensive for tactical asset allocation relative to trading the underlying stocks."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. They are an indispensable MANAGER tool — tactical shifts, beta adjustment, cash equitization, rebalancing.",
+            "B": "Full statement: indispensable tool for many investment managers: low-cost instrument to implement tactical allocation decisions, achieve portfolio diversification, and attain international exposure; standardized contracts listed on exchange; when underlying is stock index, only cash settlement is available at contract expiration; single stock futures also available to acquire desired exposure to specific stock (this exposure also achievable with equity forwards which are OTC contracts used when counterparties need customized agreement); at expiration, single stock futures contract could require cash settlement or physical settlement using stock.\n\nCorrect. Per the reading: 'Equity index futures are an indispensable tool for many investment managers: They are a low-cost instrument to implement tactical allocation decisions, achieve portfolio diversification, and attain international exposure. They are standardized contracts listed on an exchange, and when the underlying is a stock index, only cash settlement is available at contract expiration. Single stock futures are also available to investors to acquire the desired exposure to a specific stock. This exposure is also achievable with equity forwards, which are OTC contracts that are used when the counterparties need a customized agreement. The underlying of a single stock futures contract is one specified stock, and the investor can receive or pay its performance. At expiration, the contract could require cash settlement or physical settlement using the stock.'",
+            "C": "Incorrect. Cost runs the other way: futures are typically the CHEAPEST route to index exposure changes."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.c",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Equity — futures uses",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_c_q5",
+          "number": 5,
+          "stem": "*Hedge ratio for beta targeting with futures* *most likely*:",
+          "options": {
+            "A": "The futures hedge ratio for beta targeting is N_f = (β_T + β_S) / β_f × (F/S).",
+            "B": "The futures hedge ratio for beta targeting is N_f = β_T × β_S × β_f × (S/F).",
+            "C": "N_f = [(β_T - β_S) / β_f] × (S/F) where β_T is target beta, β_S is portfolio beta, β_f is beta of futures, S is market value of stock portfolio, F is value per futures contract."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. The numerator is the beta GAP (β_T − β_S), and the value ratio is S/F, not F/S.",
+            "B": "Incorrect. Multiplying the betas has no meaning — N_f = [(β_T − β_S)/β_f] × (S/F).",
+            "C": "Full statement: N_f = [(β_T - β_S) / β_f] × (S/F) where β_T is target beta, β_S is portfolio beta, β_f is beta of futures, S is market value of stock portfolio, F is value per futures contract; if investor wants to increase portfolio's beta, β_T > β_S and N_f is positive (must buy futures); if she wants to decrease beta, β_T < β_S and N_f is negative (must sell futures); special case eliminating market risk β_T = 0 reduces to N_f = -(β_S/β_f)(S/F).\n\nCorrect. Per Equation 10: 'N_f = [(βT − βS)/βf] × (S/F). Note that if the investor wants to increase the portfolio's beta, βT will exceed βS and the sign of Nf will be positive, which means that she must buy futures. If she wants to decrease the beta, βT will be less than βS, the sign of Nf will be negative, and she must sell futures. This relationship should make sense: Selling futures will offset some of the risk of holding the stock, whereas buying futures will add risk. In the special case in which the goal is to eliminate market risk, βT would be set to zero and the formula would reduce to Nf = −(βS/βf)(S/F). In this case, the sign of Nf will always be negative, which makes sense.'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.c",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Equity — beta hedge formula",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_c_q6",
+          "number": 6,
+          "stem": "*Increasing beta example Bianchi* £40M, β_S 0.85 to β_T 1.10, FTSE 100 futures £73,000 per contract *most likely*:",
+          "options": {
+            "A": "1.10.",
+            "B": "no calc.",
+            "C": "no data."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "N_f = [(1.10 - 0.85)/1.00] × (£40,000,000/£73,000) = 136.99 ≈ 137 contracts; must BUY 137 FTSE 100 futures; verification: FTSE rises 2%, portfolio rises 2% × 0.85 = 1.7% = £680,000, futures profit = 137 × (£74,460 - £73,000) = £200,020, total gain £880,020, effective return 2.20%, effective beta = 2.20%/2% = 1.10 (matches target).\n\nCorrect. Per Example 10: 'the appropriate number of futures contracts to buy to increase the portfolio's beta to 1.10 would be 137. Nf = [(βT − βS)/βf](S/F) = [(1.10 − 0.85)/1.00] × (£40,000,000/£73,000) = 136.99 (rounded to 137).' Verification: 'The profit on the futures contracts is 137 × (£74,460 − £73,000) = £200,020. Adding the profit from the futures to the value of the stock portfolio gives a total market value of £40,680,000 + £200,020 = £40,880,020. The rate of return for the combined position is £40,880,020/£40,000,000 − 1 = 0.0220, or 2.2%. Because the market went up by 2% and the overall gain was 2.2%, the effective beta of the portfolio was 0.0220/0.020 = 1.10. Thus, the effective beta matched the target beta of 1.10.'",
+            "B": "137 buy.",
+            "C": "Buy 137 futures."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.c",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Equity — Bianchi example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_c_q7",
+          "number": 7,
+          "stem": "*Cash equitization* *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "also known as 'cash securitization' or 'cash overlay'.",
+            "C": "no purpose."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Cash overlay.",
+            "B": "Full statement: also known as 'cash securitization' or 'cash overlay'; strategy designed to boost returns by finding ways to 'equitize' unintended cash holdings; by purchasing futures contracts, fund managers attempt to replicate performance of underlying market in which cash would have been invested; alternative solution could be to purchase calls and sell puts on underlying asset with same exercise price and expiry date; formula assumes β_S = 0 so N_f = (β_T/β_f)(S/F).\n\nCorrect. Per the reading: 'Cash securitization (also known as \"cash equitization\" or \"cash overlay\") is a strategy designed to boost returns by finding ways to \"equitize\" unintended cash holdings. By purchasing futures contracts, fund managers attempt to replicate the performance of the underlying market in which the cash would have been invested. Given the liquidity of the futures market, doing so would be relatively easy. An alternative solution could be to purchase calls and sell puts on the underlying asset with the same exercise price and expiry date. In this case, we have a cash holding, implying βS = 0, so the number of futures (with beta of βf) that would need to be purchased in a cash equitization transaction is given by Nf = (βT/βf)(S/F).'",
+            "C": "Cash equitization."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.c",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Equity — cash equitization",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_c_q8",
+          "number": 8,
+          "stem": "*Fujiwara cash equitization Example 11* JPY140M excess cash, Nikkei 225 futures JPY23M/contract *most likely*:",
+          "options": {
+            "A": "no calc.",
+            "B": "no data.",
+            "C": "N_f = (β_T/β_f)(S/F) = (1.00/1.00)(JPY140,000,000/JPY23,000,000) = 6.087 rounded to 6 contracts."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "6 contracts.",
+            "B": "6 contracts.",
+            "C": "Full statement: N_f = (β_T/β_f)(S/F) = (1.00/1.00)(JPY140,000,000/JPY23,000,000) = 6.087 rounded to 6 contracts; appropriate number of futures to buy to equitize portfolio's excess cash position is six contracts.\n\nCorrect. Per Example 11: 'Akari Fujiwara manages a large equity fund denominated in Japanese yen that is indexed to the Nikkei 225 stock index. She determines that the current level of excess cash that has built up in the portfolio amounts to JPY140 million. She decides to purchase futures contracts to replicate the return on her fund's target index. Nikkei 225 index futures currently trade at a price of JPY23,000 per contract, the contract multiplier is JPY1,000 per index point (so each futures contract is worth JPY23 million), and the beta, βf, is 1.00... Using Equation 11, which assumes βS = 0, the answer is found as follows: Nf = (βT/βf)(S/F) = (1.00/1.00)(JPY140,000,000/JPY23,000,000) = 6.087 (rounded to 6). The appropriate number of futures to buy to equitize the portfolio's excess cash position, based on the data provided, would be six contracts.'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.c",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Equity — Fujiwara example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_c_q9",
+          "number": 9,
+          "stem": "*Hedging equity with S&P 500 futures* $100M portfolio, hedge 30%, S&P 500 futures at 2,700, multiplier $250 *most likely*:",
+          "options": {
+            "A": "actual futures contract price = 2,700 × $250 = $675,000.",
+            "B": "no calc.",
+            "C": "no framework."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: actual futures contract price = 2,700 × $250 = $675,000; assume portfolio beta 1.0; to hedge 30% ($30M) of $100M portfolio: sell $30,000,000 / (2,700 × $250) = 44.444 ≈ 44 S&P 500 futures contracts; if portfolio carried above-market risk with beta of 1.10, number of contracts needed would increase by this factor.\n\nCorrect. Per the reading: 'assume that a one-month futures contract on the S&P 500 is quoted at 2,700. Given the multiplier of $250, the actual futures price is equal to $675,000 (= 2,700 × $250). We also assume that the portfolio to be hedged carries average market risk, meaning a beta of 1.0. To hedge 30% of the $100 million portfolio, the portfolio manager would want to sell 44 S&P 500 futures contracts, determined as follows: $30 million/(2,700 × $250) = 44.444 ≈ 44 contracts.' Footnote 8: 'If the portfolio carried above-market risk—say, with a beta of 1.10—the number of contracts needed to hedge would increase by this factor.'",
+            "B": "44 contracts short.",
+            "C": "44 contracts."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.c",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Equity — S&P hedge",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_c_q10",
+          "number": 10,
+          "stem": "*Total return swap risk transfer* *most likely*:",
+          "options": {
+            "A": "A total return swap leaves the equity risk of the swapped portion in place while adding funding cost.",
+            "B": "total return swap effectively removes risk associated with portion of equity portfolio allocation and converts it into money market equivalent returns.",
+            "C": "The TRS converts the equity allocation into additional equity exposure at higher beta."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The swap REMOVES the equity risk of the covered portion — that is the transfer.",
+            "B": "Full statement: total return swap effectively removes risk associated with portion of equity portfolio allocation and converts it into money market equivalent returns; test of reasonableness: portfolio comprising 70% equities and 30% money market instruments assumed to earn 2% (1% over six months) would achieve return of 3.8% (= 0.7 × 5% + 0.3 × [2%/2]) or $3.8M on $100M in bullish scenario; in bearish scenario return would be -3.2% (= 0.7 × -5% + 0.3 × [2%/2]) or -$3.2M.\n\nCorrect. Per the reading: 'To test the reasonableness of the result, a portfolio comprising 70% equities and 30% money market instruments assumed to earn 2% (1% over the six months) would achieve a return of 3.8% (= 0.7 × 5% + 0.3 × [2%/2]) or $3.8 million on $100 million in the bullish scenario (Scenario 1). In the bearish scenario (Scenario 2), the return would be −3.2% (= 0.7 × −5% + 0.3 × [2%/2]) or −$3.2 million on the initial $100 million portfolio. The total return swap effectively removes the risk associated with 30% of the equity portfolio allocation and converts it into money market equivalent returns.'",
+            "C": "Incorrect. The conversion runs equity → money-market-like return, not equity → leveraged equity."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.c",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Equity — TRS risk transfer",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_c_q11",
+          "number": 11,
+          "stem": "*Effective beta verification* *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "no test.",
+            "C": "1.10."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Effective beta match.",
+            "B": "Effective beta calc.",
+            "C": "effective beta of combined portfolio is calculated as combined return divided by market return; if combined position yields 2.2% return when market returns 2%, effective beta = 2.2%/2% = 1.10 which matches target beta; this verifies that hedge ratio formula worked correctly to achieve target market exposure.\n\nCorrect. Per Example 10 solution: 'Because the market went up by 2% and the overall gain was 2.2%, the effective beta of the portfolio was 0.0220/0.020 = 1.10. Thus, the effective beta matched the target beta of 1.10.'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.c",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Equity — effective beta",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_c_q12",
+          "number": 12,
+          "stem": "*Direction of futures trade for beta change* *most likely*:",
+          "options": {
+            "A": "if investor wants to increase portfolio's beta, β_T will exceed β_S and sign of N_f will be positive (must buy futures).",
+            "B": "no framework.",
+            "C": "no framework."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: if investor wants to increase portfolio's beta, β_T will exceed β_S and sign of N_f will be positive (must buy futures); if she wants to decrease beta, β_T will be less than β_S, sign of N_f will be negative (must sell futures); selling futures offsets some of risk of holding stock; buying futures adds risk; in special case of eliminating market risk β_T = 0 sign will always be negative — futures must be sold.\n\nCorrect. Per the reading: 'Note that if the investor wants to increase the portfolio's beta, βT will exceed βS and the sign of Nf will be positive, which means that she must buy futures. If she wants to decrease the beta, βT will be less than βS, the sign of Nf will be negative, and she must sell futures. This relationship should make sense: Selling futures will offset some of the risk of holding the stock, whereas buying futures will add risk.' Also: 'In the special case in which the goal is to eliminate market risk, βT would be set to zero and the formula would reduce to Nf = −(βS/βf)(S/F). In this case, the sign of Nf will always be negative, which makes sense, because in order to hedge away all the market risk, futures must be sold.'",
+            "B": "Sign of N_f.",
+            "C": "Buy or sell based on sign."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.c",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Equity — direction",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "swaps_forwards_and_futures_strategies.d",
+      "los_letter": "d",
+      "los_text": "demonstrate the use of volatility derivatives and variance swaps",
+      "reading_id": "swaps_forwards_and_futures_strategies",
+      "reading_name": "Swaps, Forwards, and Futures Strategies",
+      "area_id": "derivatives_risk_management",
+      "questions": [
+        {
+          "id": "r17_swf_los_d_q1",
+          "number": 1,
+          "stem": "*Long volatility exposure as hedge* *most likely*:",
+          "options": {
+            "A": "Long volatility exposure amplifies losses in an equity sell-off because volatility falls when prices fall.",
+            "B": "long volatility exposure can be effective hedge against sell-off in long equity portfolio, notably during periods of extreme market movements.",
+            "C": "Volatility exposure bears no relationship to equity portfolio performance."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Volatility RISES in sell-offs — the negative price-volatility correlation is what makes long vol a hedge.",
+            "B": "Full statement: long volatility exposure can be effective hedge against sell-off in long equity portfolio, notably during periods of extreme market movements; empirical studies have identified a negative correlation between volatility and stock index returns that becomes pronounced during stock market downturns; variance swaps have valuable convexity feature — as realized volatility increases (decreases), positive (negative) swap payoffs increase (decrease) — that makes them particularly attractive for hedging long equity portfolios.\n\nCorrect. Per the reading: 'With the introduction of volatility futures and variance swaps, many investors now consider volatility an asset class in itself. In particular, long volatility exposure can be an effective hedge against a sell-off in a long equity portfolio, notably during periods of extreme market movements. Empirical studies have identified a negative correlation between volatility and stock index returns that becomes pronounced during stock market downturns. Importantly, variance swaps... have a valuable convexity feature — as realized volatility increases (decreases), the positive (negative) swap payoffs increase (decrease) — that makes them particularly attractive for hedging long equity portfolios.'",
+            "C": "Incorrect. The relationship is strong and negative, and most powerful in extreme downturns — precisely when the hedge is needed."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.d",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Volatility — long vol hedge",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_d_q2",
+          "number": 2,
+          "stem": "*VIX index* *most likely*:",
+          "options": {
+            "A": "The VIX index measures realized volatility of the S&P 500 over the past 30 days.",
+            "B": "The VIX index measures expected dividend yields on the S&P 500 over the next year.",
+            "C": "CBOE Volatility Index or 'fear index' is a measure of investors' expectations of volatility in S&P 500 over next 30 days."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. The VIX is FORWARD-looking — implied, not realized, volatility.",
+            "B": "Incorrect. Dividends are not its subject; it gauges expected S&P 500 volatility over the NEXT 30 days — the 'fear index'.",
+            "C": "Full statement: CBOE Volatility Index or 'fear index' is a measure of investors' expectations of volatility in S&P 500 over next 30 days; calculated and published by Chicago Board Options Exchange (CBOE) and based on prices of S&P 500 Index options; CBOE began publishing real-time VIX data in 1993, and in 2004 VIX futures were introduced; investors cannot invest directly in VIX but must use VIX futures contracts that offer investors pure play on level of expected stock market volatility regardless of direction of S&P 500.\n\nCorrect. Per the reading: 'The CBOE Volatility Index, known as the VIX or the \"fear index,\" is a measure of investors' expectations of volatility in the S&P 500 over the next 30 days. It is calculated and published by the Chicago Board Options Exchange (CBOE) and is based on the prices of S&P 500 Index options. The CBOE began publishing real-time VIX data in 1993, and in 2004, VIX futures were introduced. Investors cannot invest directly in the VIX but instead must use VIX futures contracts that offer investors a pure play on the level of expected stock market volatility, regardless of the direction of the S&P 500.'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.d",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Volatility — VIX",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_d_q3",
+          "number": 3,
+          "stem": "*European volatility indexes* *most likely*:",
+          "options": {
+            "A": "family of volatility indexes has been introduced for European equity markets designed to reflect market expectations of near-term to long-term volatility.",
+            "B": "No volatility indexes exist for European equity markets.",
+            "C": "European volatility indexes measure realized historical volatility rather than market expectations."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: family of volatility indexes has been introduced for European equity markets designed to reflect market expectations of near-term to long-term volatility; most well known is VSTOXX index, based on real-time option prices on EURO STOXX 50 index; family also includes VDAX-NEW Index, based on DAX stock index options.\n\nCorrect. Per the reading: 'A family of volatility indexes has also been introduced for European equity markets, and they are designed to reflect market expectations of near-term to long-term volatility. The most well known of these is the VSTOXX index, based on real-time option prices on the EURO STOXX 50 index. The family of volatility indexes also includes the VDAX-NEW Index, based on DAX stock index options.'",
+            "B": "Incorrect. A family exists — VSTOXX on the EURO STOXX 50 and VDAX-NEW among them.",
+            "C": "Incorrect. Like the VIX, they are implied-volatility gauges of near-term market EXPECTATIONS."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.d",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Volatility — EU indexes",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_d_q4",
+          "number": 4,
+          "stem": "*VIX futures term structure shapes* *most likely*:",
+          "options": {
+            "A": "no shapes.",
+            "B": "flat when volatility expected to remain stable over near to long term.",
+            "C": "no framework."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Three shapes.",
+            "B": "Full statement: flat when volatility expected to remain stable over near to long term; backwardation typically signal that investors expect more volatility in short term and thus require higher prices for shorter-term contracts than for longer-term ones; contango is upward sloped curve — higher longer-term VIX futures prices interpreted as expectation VIX will rise because of increasing long-term volatility; shape reflects current volatility environment, investors' expectations, and buying/selling activity — can change from positively sloped to flat or inverted in months' time.\n\nCorrect. Per the reading: 'The shape of the VIX futures curve is always changing... Day 1 illustrates what happens when volatility is expected to remain stable over the near to long term: The term structure of VIX futures is flat. Day 60 shows the VIX futures in backwardation. This situation typically is a signal that investors expect more volatility in the short term and thus require higher prices for shorter-term contracts than for longer-term ones. In contrast, Day 120 is an example of the VIX futures being in contango. The curve is upward sloped, and it is steep for VIX buyers, with nearly 4.3 volatility points between the April and May expiries. Higher longer-term VIX futures prices are interpreted as an expectation that the VIX will rise because of increasing long-term volatility.'",
+            "C": "Flat/backwardation/contango."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.d",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Volatility — VIX term structure",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_d_q5",
+          "number": 5,
+          "stem": "*VIX futures roll-down effect* *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "no framework.",
+            "C": "VIX futures converge to spot VIX as expiration approaches, so two must be equal at expiration."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Roll to spot.",
+            "B": "Roll-down loss/profit.",
+            "C": "Full statement: VIX futures converge to spot VIX as expiration approaches, so two must be equal at expiration; when VIX futures curve is in contango (backwardation) and volatility expectations remain unchanged, VIX futures price will get 'pulled' closer to VIX spot price, decreasing (increasing) in price as they approach expiration; traders calculate daily roll as difference between front-month VIX futures price and VIX spot price divided by business days until VIX futures contract settles; assuming basis declines linearly until settlement, when term structure is in contango (backwardation), trader long in back-month VIX futures would realize roll-down losses (profits).\n\nCorrect. Per the reading: 'The VIX futures converge to the spot VIX as expiration approaches, so the two must be equal at expiration. When the VIX futures curve is in contango (backwardation) and assuming volatility expectations remain unchanged, the VIX futures price will get \"pulled\" closer to the VIX spot price, and they will decrease (increase) in price as they approach expiration. Traders calculate the daily roll as the difference between the front-month VIX futures price and the VIX spot price, divided by the number of business days until the VIX futures contract settles. Assuming that the basis declines linearly until settlement, when the term structure is in contango (backwardation), the trader who is long in back-month VIX futures would realize roll-down losses (profits).'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.d",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Volatility — VIX roll-down",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_d_q6",
+          "number": 6,
+          "stem": "*VIX options* *most likely*:",
+          "options": {
+            "A": "in 2006 VIX options were introduced providing asymmetrical exposure to potential increases or decreases in anticipated volatility.",
+            "B": "VIX options provide symmetric linear exposure to volatility, identical to a futures position.",
+            "C": "VIX options were never introduced because volatility is not a tradable underlying."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: in 2006 VIX options were introduced providing asymmetrical exposure to potential increases or decreases in anticipated volatility; VIX options are European style, and their prices depend on prices of VIX futures with similar expirations because market makers of VIX options typically hedge risk of their option positions using VIX futures; trader or investor would purchase VIX call options when he expects volatility will increase owing to significant sell-off in equity market; VIX put options would be bought to profit from expectation that volatility will decrease because of stable equity market conditions.\n\nCorrect. Per the reading: 'In 2006, VIX options were introduced, providing an asymmetrical exposure to potential increases or decreases in anticipated volatility. VIX options are European style, and their prices depend on the prices of VIX futures with similar expirations because the market makers of VIX options typically hedge the risk of their option positions using VIX futures. To understand the use of VIX calls and puts, it is very important to recognize that the increases in the VIX (and VIX futures) are negatively correlated with the prices of equity assets. In particular, a trader or investor would purchase VIX call options when he expects that volatility will increase owing to a significant sell-off in the equity market. In contrast, VIX put options would be bought to profit from an expectation that volatility will decrease because of stable equity market conditions.'",
+            "B": "Incorrect. Options provide ASYMMETRIC exposure — the defining advantage over linear futures.",
+            "C": "Incorrect. VIX options launched in 2006 and trade actively on anticipated volatility moves."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.d",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Volatility — VIX options",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_d_q7",
+          "number": 7,
+          "stem": "*Variance swap definition* *most likely*:",
+          "options": {
+            "A": "A variance swap is an exchange-traded option on the VIX index.",
+            "B": "instrument used by investors for taking directional bets on implied versus realized volatility for speculative or hedging purposes.",
+            "C": "A variance swap pays off linearly in realized volatility rather than variance."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The variance swap is an OTC instrument, not a listed VIX option.",
+            "B": "Full statement: instrument used by investors for taking directional bets on implied versus realized volatility for speculative or hedging purposes; term 'variance swap' refers to payoff analogous to that of a swap; buyer of contract will pay difference between fixed variance strike agreed on in contract and realized variance (annualized) on underlying over period specified applied to variance notional; no exchange of cash at contract inception or during life of swap; payoff at expiration of long variance position will be positive (negative) when realized variance is greater (less) than swap's variance strike.\n\nCorrect. Per the reading: 'Variance swaps are instruments used by investors for taking directional bets on implied versus realized volatility for speculative or hedging purposes. The term \"variance swap\" refers to the fact that these instruments have a payoff analogous to that of a swap. In a variance swap, the buyer of the contract will pay the difference between the fixed variance strike agreed on in the contract and the realized variance (annualized) on the underlying over the period specified and applied to a variance notional. In variance swaps, there is no exchange of cash at the contract inception or during the life of the swap. The payoff at expiration of a long variance position will be positive (negative) when realized variance is greater (less) than the swap's variance strike.'",
+            "C": "Incorrect. The payoff is linear in VARIANCE (volatility squared) — convex in volatility — used for implied-versus-realized bets and hedging."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.d",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Volatility — variance swap def",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_d_q8",
+          "number": 8,
+          "stem": "*Variance swap settlement formula* *most likely*:",
+          "options": {
+            "A": "no formula.",
+            "B": "no framework.",
+            "C": "Settlement amount_T = Variance notional × (Realized variance - Variance strike)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Settlement + realized var.",
+            "B": "Settlement formula.",
+            "C": "Full statement: Settlement amount_T = Variance notional × (Realized variance - Variance strike); if payment amount is positive (negative), swap seller (buyer) pays swap buyer (seller); Realized variance = 252 × [Σ R_i² / (N-1)] where R_i = ln(P_i+1/P_i) and N is number of days observed.\n\nCorrect. Per Equations 12-13: 'Settlement amountT = (Variance notional)(Realized variance − Variance strike). If the payment amount is positive (negative), the swap seller (buyer) pays the swap buyer (seller). The realized variance is calculated as follows, where Ri = ln(Pi+1/Pi) and N is the number of days observed: Realized variance = 252 × [Σ Ri² / (N − 1)].'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.d",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Volatility — settlement formula",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_d_q9",
+          "number": 9,
+          "stem": "*Vega notional vs variance notional* *most likely*:",
+          "options": {
+            "A": "variance swap traders typically agree on: (1) variance swap trade size expressed in vega notional N_Vega (not in variance notional).",
+            "B": "Vega notional and variance notional are the same quantity under two names.",
+            "C": "Variance swap sizes are quoted only in variance notional, never in vega terms."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: variance swap traders typically agree on: (1) variance swap trade size expressed in vega notional N_Vega (not in variance notional); (2) strike (X) which represents expected future variance of underlying, expressed as volatility (not variance); vega notional represents average profit and loss of variance swap for 1% change in volatility from strike; e.g., when vega notional is $50,000, profit and loss for one volatility point of difference between realized volatility and strike will be close to $50,000; Variance notional = Vega notional / (2 × Strike price); this is approximation because variance swap payoff is convex.\n\nCorrect. Per the reading: 'variance swap traders typically agree on the following two things: (1) a variance swap trade size expressed in vega notional, NVega (not in variance notional), and (2) the strike (X), which represents the expected future variance of the underlying, expressed as volatility (not variance). This approach is intuitive because the vega notional represents the average profit and loss of the variance swap for a 1% change in volatility from the strike. For example, when the vega notional is $50,000, the profit and loss for one volatility point of difference between the realized volatility and the strike will be close to $50,000. We must bear in mind that this is an approximation because the variance swap payoff is convex and the profit and loss is not linear for changes in the realized volatility. Specifically, to calculate the exact payoff, the variance strike is the strike squared and the variance notional, Nvariance, is defined and calculated as Variance notional = Vega notional / (2 × Strike price).'",
+            "B": "Incorrect. They differ by construction — variance notional = vega notional / (2 × strike).",
+            "C": "Incorrect. Market convention QUOTES vega notional, the approximate P&L per volatility point, and converts to variance notional for settlement."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.d",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Volatility — vega notional",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_d_q10",
+          "number": 10,
+          "stem": "*Santos variance swap Example 12* $50,000 vega notional, 20% strike, 6-month realized 16%, new 6-month fair strike 19%, r 2.5% *most likely*:",
+          "options": {
+            "A": "no calc.",
+            "B": "Variance notional = 50,000/(2 × 20) = 1,250.",
+            "C": "no data."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "$112,963 gain for short.",
+            "B": "Full statement: Variance notional = 50,000/(2 × 20) = 1,250; variance strike = 20² = 400; RealizedVol² = 16² = 256; ImpliedVol² = 19² = 361; PV factor = 1/(1 + 2.5% × 6/12) = 0.987654; VarSwap_t = 1,250 × 0.987654 × [(6/12) × 256 + (6/12) × 361 - 400] = -$112,962.93; since Santos is short, mark-to-market value is POSITIVE for her at $112,963.\n\nCorrect. Per Example 12: 'The value of the variance swap sold by Santos is found using Equation 16... Volatility strike on existing swap = 20. Variance strike on existing swap = 20² = 400. Variance notional = Vega notional / (2 × Strike) = $50,000 / (2 × 20) = 1,250. RealizedVol(0,t)² = 16² = 256. ImpliedVol(t,T)² = 19² = 361. t = 6 months. T = 12 months. PVt(T) = 1/[1 + (2.5% × 6/12)] = 0.987654. The current value of the swap is VarSwapt = 1,250 × (0.987654) × [(6/12) × 256 + (6/12) × 361 − 400] = −$112,962.9263. Given that Santos is short the variance swap, the mark-to-market value is positive for her, and it equals $112,963.'",
+            "C": "$112,963 positive short."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.d",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Volatility — Santos value",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_d_q11",
+          "number": 11,
+          "stem": "*Santos settlement at expiration* 18% one-year realized *most likely*:",
+          "options": {
+            "A": "Santos receives $95,000 at settlement because realized volatility of 18% fell below the 20% strike.",
+            "B": "The settlement equals the vega notional times the volatility difference: 1,250 × (18 − 20) = −$2,500.",
+            "C": "SettlementT = Variance notional × (Realized variance - Variance strike) = 1,250 × (18² - 20²) = 1,250 × (324 - 400) = -$95,000."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. As the LONG variance party with realized below strike, Santos PAYS — the settlement is negative to him.",
+            "B": "Incorrect. Settlement runs on VARIANCE units: 1,250 × (18² − 20²) = 1,250 × (−76) = −$95,000.",
+            "C": "Full statement: SettlementT = Variance notional × (Realized variance - Variance strike) = 1,250 × (18² - 20²) = 1,250 × (324 - 400) = -$95,000; since settlement is negative, swap buyer pays swap seller; Santos (seller) receives $95,000 from swap buyer.\n\nCorrect. Per Example 12: 'The settlement amount is calculated using Equation 12 as follows: SettlementT = Variance notional × (Realized variance − Variance strike) = 1,250 × (18² − 20²) = −$95,000. If the payment amount is positive (negative), the swap seller (buyer) pays the swap buyer (seller). So, in this case, Santos would receive $95,000 from the swap buyer.'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.d",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Volatility — Santos settlement",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_d_q12",
+          "number": 12,
+          "stem": "*Convexity of variance swap payoff* *most likely*:",
+          "options": {
+            "A": "variance swap payoff is convex in volatility.",
+            "B": "linear.",
+            "C": "no framework."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: variance swap payoff is convex in volatility; convexity occurs because being long a variance swap is equivalent to being long a basket of options and short the underlying asset (typically by selling a futures contract); long position in variance swap is thus long gamma and has convex payoff; this characteristic allows volatility sellers to sell variance swaps at higher price than at-the-money options because swap's convex payoff profile is attractive to investors who desire long volatility position as tail risk hedge.\n\nCorrect. Per the reading: 'A feature of variance swaps that makes them particularly interesting to investors is that their payoffs are convex in volatility, as seen Exhibit 4. This convexity occurs because being long a variance swap is equivalent to be long a basket of options and short the underlying asset (typically by selling a futures contract). A long position in a variance swap is thus long gamma and has a convex payoff. This characteristic allows volatility sellers to sell variance swaps at a higher price than at-the-money options because the swap's convex payoff profile is attractive to investors who desire a long volatility position as a tail risk hedge.'",
+            "B": "Convex payoff.",
+            "C": "Convexity."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.d",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Volatility — convex payoff",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_d_q13",
+          "number": 13,
+          "stem": "*Sensitivity to implied volatility over time* *most likely*:",
+          "options": {
+            "A": "constant.",
+            "B": "sensitivity of a variance swap to changes in implied volatility diminishes over time.",
+            "C": "increases."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Diminishing.",
+            "B": "Full statement: sensitivity of a variance swap to changes in implied volatility diminishes over time; as swap approaches expiration, changes in implied volatility have less effect on swap value because remaining time period T - t decreases.\n\nCorrect. Per the reading: 'Importantly, the sensitivity of a variance swap to changes in implied volatility diminishes over time.'",
+            "C": "Diminishes."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.d",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Volatility — sensitivity",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "swaps_forwards_and_futures_strategies.e",
+      "los_letter": "e",
+      "los_text": "demonstrate the use of derivatives to achieve targeted equity and interest rate risk exposures",
+      "reading_id": "swaps_forwards_and_futures_strategies",
+      "reading_name": "Swaps, Forwards, and Futures Strategies",
+      "area_id": "derivatives_risk_management",
+      "questions": [
+        {
+          "id": "r17_swf_los_e_q1",
+          "number": 1,
+          "stem": "*Total return swap to protect concentrated stock position* *most likely*:",
+          "options": {
+            "A": "For the Tundra concentrated position, exchange-traded options provide the complete hedging solution.",
+            "B": "The client should simply sell the 100,000 Tundra shares, since transaction costs are the only consideration.",
+            "C": "example: client holding 100,000 shares of Tundra at €14/share (position €1.4M) with low tax basis, exchange-traded options unavailable."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Listed options are UNAVAILABLE (or insufficient) on the name — that gap is why the OTC total return swap enters.",
+            "B": "Incorrect. The LOW TAX BASIS makes an outright sale costly; the TRS sheds the €1.4M exposure without triggering the gain.",
+            "C": "Full statement: example: client holding 100,000 shares of Tundra at €14/share (position €1.4M) with low tax basis, exchange-traded options unavailable; solution: enter equity swap trading Tundra stock return for floating reference rate; agree to exchange total return on shares (price performance and dividends) for reference rate return on same sum of money; must determine time protection is needed and match swap tenor to that period; six-month tenor with reference rate 0.34% annually.\n\nCorrect. Per the reading example: 'Bernhard Steinbacher has a client with a holding of 100,000 shares in Tundra Corporation, currently trading for €14 per share. The client has owned the shares for many years and thus has a very low tax basis on this stock. Steinbacher wants to safeguard the value of the position since the client does not want to sell the shares. He cannot find exchange-traded options on the stock... A possible solution is to enter into an equity swap trading the Tundra stock return for the floating reference interest rate. Given Tundra's current share price of €14, the position is worth €1.4 million. Steinbacher can agree to exchange the total return on the shares (which includes the price performance and the dividends received) for the reference rate return on this sum of money. Now he needs to determine the time over which the protection is needed and must match the swap tenor to this period.'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.e",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Targeted Exposures — Tundra TRS",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_e_q2",
+          "number": 2,
+          "stem": "*Tundra Scenario A calc* — €0.10 dividend, price +1%, six months, reference 0.34% *most likely*:",
+          "options": {
+            "A": "total return on stock = [(14 × 1.01) - 14 + 0.10]/14 = 1.71%.",
+            "B": "no calc.",
+            "C": "no data."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: total return on stock = [(14 × 1.01) - 14 + 0.10]/14 = 1.71%; six-month reference rate return = 0.17% (half of 0.34%); Tundra total return exceeds reference rate: (1.71% - 0.17%) × €1.4M = €21,620 positive, so client pays swap counterparty €21,620.\n\nCorrect. Per Scenario A: 'Over the six months, Tundra pays a €0.10 dividend and the share price rises 1%. The total return on the stock is [(14 × 1.01) − 14 + 0.10]/14 = 1.71%. For a six-month period, the reference rate return would be half the annual rate, or 0.17%. Tundra's total return exceeds the six-month reference rate return: (1.71% − 0.17%) × €1.4 million = €21,620, which is a positive amount, so Steinbacher's client would need to pay the swap counterparty.'",
+            "B": "Client pays €21,620.",
+            "C": "€21,620 pays."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.e",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Targeted Exposures — Tundra Scenario A",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_e_q3",
+          "number": 3,
+          "stem": "*Tundra Scenario B* — €0.10 dividend, price -1% *most likely*:",
+          "options": {
+            "A": "no calc.",
+            "B": "total return on stock = [(14 × 0.99) - 14 + 0.10]/14 = -0.29%.",
+            "C": "no data."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Client receives €6,380.",
+            "B": "Full statement: total return on stock = [(14 × 0.99) - 14 + 0.10]/14 = -0.29%; Tundra total return less than six-month reference rate return: (-0.29% - 0.17%) × €1.4M = -€6,380 negative; client receives negative return + reference rate return from counterparty = positive cash inflow of €6,380.\n\nCorrect. Per Scenario B: 'Over the six months, Tundra pays a €0.10 dividend and the share price falls 1%. The total return on the stock is [(14 × 0.99) − 14 + 0.10]/14 = −0.29%. Tundra's total return is less than the six-month reference rate return: (−0.29% − 0.17%) × €1.4 million = −€6,380, which is a negative amount, so Steinbacher's client would receive the negative return and the reference rate return from the swap counterparty (meaning the client will receive a positive cash inflow of €6,380).'",
+            "C": "€6,380 receive."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.e",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Targeted Exposures — Tundra Scenario B",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_e_q4",
+          "number": 4,
+          "stem": "*McMillian FTSE 100 cash equitization* £20M cash, FTSE futures £79,000/contract *most likely*:",
+          "options": {
+            "A": "no calc.",
+            "B": "no data.",
+            "C": "N_f = (β_T/β_f)(S/F) = (1.0/1.0)(20,000,000/79,000) = 253.16 ≈ 253 contracts."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "253 contracts.",
+            "B": "253 futures buy.",
+            "C": "Full statement: N_f = (β_T/β_f)(S/F) = (1.0/1.0)(20,000,000/79,000) = 253.16 ≈ 253 contracts; McMillian buys 253 FTSE 100 futures to gain exposure on notional amount of £20M; both target and futures beta are 1.0; strategy attempts to minimize tracking error by replicating FTSE 100 performance on cash reserves.\n\nCorrect. Per the reading: 'McMillian engages in a synthetic index strategy to gain exposure on a notional amount of £20 million to the FTSE 100 by purchasing equity index futures. The number of futures she must purchase is given by the following: Nf = (βT/βf)(S/F) = (1.0/1.0)(20,000,000/79,000) = 253.16 ≈ 253 where the beta of the futures contract, βf, and the target beta, βT, are both equal to 1.0.'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.e",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Targeted Exposures — McMillian",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_e_q5",
+          "number": 5,
+          "stem": "*McMillian outcome after 5% FTSE gain* *most likely*:",
+          "options": {
+            "A": "FTSE 100 increases 5%: original £230M UK stocks increases to £241.5M.",
+            "B": "no calc.",
+            "C": "no data."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: FTSE 100 increases 5%: original £230M UK stocks increases to £241.5M; FTSE futures rise from £7,900 to £8,282.5; interest on cash at 0.63% floating rate = £20M × 0.63% × 90/360 = £31,500; futures profit = 382.5 index points × £10 × 253 contracts = £967,725; total portfolio value = £241.5M + £20M + £967,725 + £31,500 = £262,499,225; rate of return = £262,499,225/£250M - 1 = 5%; without strategy return would have been just over 4.6%.\n\nCorrect. Per the reading: 'Three months later, the FTSE 100 has increased by 5%, and the original value of £230 million invested in UK stocks has increased to £241.5 million. The price of the FTSE 100 Index futures contract has increased to £8,282.5. Interest on the cash invested at the three-month floating rate amounts to £31,500 (£20,000,000 × 0.63% × 90/360). McMillian bought the futures at £7,900, and the cash settlement of the contract at is £8,282.5. So, there is a \"gain\" of 382.5 index points, each point being worth £10, on 253 contracts for a total cash inflow of £967,725 (382.5 points per contract × £10 per point × 253 contracts). Adding to the portfolio the profit from the futures and the cash reserves plus the interest earned on the cash gives a total market value for McMillian's portfolio of £262,499,225 (= £241,500,000 + £20,000,000 + £967,725 + £31,500). The rate of return for the combined position is: £262,499,225/£250,000,000 − 1 = 0.05, or 5%. Importantly, without implementing this strategy, McMillian's return would have been slightly over 4.6%.'",
+            "B": "5% vs 4.6%.",
+            "C": "5% total."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.e",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Targeted Exposures — McMillian result",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_e_q6",
+          "number": 6,
+          "stem": "*Rossi rebalancing €500M portfolio* — reduce stocks 70%→60%, rebalance between Italian/German shares, increase Italian bonds 30%→40% *most likely*:",
+          "options": {
+            "A": "The Rossi portfolio holds 60% German equities and 40% French government bonds before rebalancing.",
+            "B": "€500M portfolio 70% stocks (all Italian, β=1.1 vs FTSE MIB) / 30% Italian govt bonds (BTPs, MDUR 6.45).",
+            "C": "Rossi's rebalancing program requires liquidating the underlying Italian shares and BTPs in the cash market."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The starting book is 70% ITALIAN stocks (β 1.1 vs FTSE MIB) and 30% Italian government bonds (BTPs, MDUR 6.45).",
+            "B": "Full statement: €500M portfolio 70% stocks (all Italian, β=1.1 vs FTSE MIB) / 30% Italian govt bonds (BTPs, MDUR 6.45); target: 60% stocks split €150M Italian/€150M German (β 0.9 vs DAX) / 40% Italian bonds €200M; needs to remove €100M Italian stock exposure, add €50M German stock exposure, add €50M Italian bond exposure; can use futures on FTSE MIB, DAX, and BTP.\n\nCorrect. Per the reading: 'Mario Rossi manages a €500 million portfolio that is allocated 70% to stocks and 30% to bonds. Over the next three-month horizon, he is bearish on eurozone stocks, except for German shares, and is bullish on Italian bonds. So, Rossi wants to reduce the overall allocation to stocks by 10%, to 60%, and achieve the same weight (30%) in Italian stocks (which have a beta of 1.1 with respect to the FTSE MIB Index) and German stocks (which have a beta of 0.9 with respect to the DAX index). He also wants to increase the overall allocation to Italian government bonds (BTPs) by 10%, to 40%. The bond portion of his portfolio has a modified duration of 6.45. In summary... Rossi needs to remove €100 million of exposure to Italian stocks, add €50 million of exposure to German stocks, and add €50 million of exposure to Italian bonds in his portfolio.'",
+            "C": "Incorrect. The derivatives overlay accomplishes the shift — futures on equities and bonds — without disturbing the cash positions."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.e",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Targeted Exposures — Rossi setup",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_e_q7",
+          "number": 7,
+          "stem": "*Grant rebalancing example* — target 40/60 stock/bond, portfolio grown to €106M with €46M stocks/€60M bonds, EURO STOXX 50 futures €35,000 per contract, β=1.2, target β=0 for reduction *most likely*:",
+          "options": {
+            "A": "no calc.",
+            "B": "no data.",
+            "C": "want to reduce stock exposure by €3.6M (from €46M to €42.4M)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Sell 124 stock futures.",
+            "B": "Sell 124.",
+            "C": "Full statement: want to reduce stock exposure by €3.6M (from €46M to €42.4M); N_f = [(0.0 - 1.2)/1.0] × (€3,604,000/€35,000) = -123.57 → sell 124 futures contracts (rounded).\n\nCorrect. Per the reading: 'The market value of the European stocks is €46,000,000, and Grant wants to reduce the exposure to this market to 40% or 0.40(€106,000,000) = €42,400,000. She decides to sell enough futures contracts on the EURO STOXX 50 to reduce the allocation to European stocks by 0.034(€106,000,000) = €3,604,000. To achieve the desired reduction in exposure to European stocks, the market value of the stocks involved in the transaction (S) will be €3,604,000. The European stocks' beta (βS) is 1.2, and the target beta is βT = 0. The EURO STOXX 50 index futures have a contract value (F) of €35,000, with a beta (βf) of 1.0, so Nf = [(0.0 − 1.2)/1.0] × (€3,604,000/€35,000) = −123.57. Grant sells 124 futures contracts (after rounding).'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.e",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Targeted Exposures — Grant stocks",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_e_q8",
+          "number": 8,
+          "stem": "*Grant bond leg* — add €3.6M German bunds, MDUR target 9.5, CTD BPV €84.63, CF 0.619489 *most likely*:",
+          "options": {
+            "A": "BPV_T = 9.5 × 0.0001 × €3,604,000 = €3,424.",
+            "B": "no calc.",
+            "C": "no data."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: BPV_T = 9.5 × 0.0001 × €3,604,000 = €3,424; BPV_HR = [(BPV_T - 0)/BPV_CTD] × CF = [(€3,424 - 0)/€84.63] × 0.619489 = 25.06 ≈ 25 contracts; Grant should BUY 25 Euro-Bund futures contracts to gain €3.6M bond exposure at target duration 9.5.\n\nCorrect. Per the reading: 'The market value of the German bunds is €60,000,000, and Grant wants to increase the exposure to this market to 0.60(€106,000,000) = €63,600,000. She decides to purchase enough Euro-Bund futures so that €3,604,000 (= 0.034 × €106,000,000) of exposure to German bonds is added to the portfolio. The target basis point value (BPVT) is given by Equation 4, as follows: BPVT = MDURT × 0.01% × MVP = 9.5 × 0.0001 × €3,604,000 = €3,424. The cheapest-to-deliver bond has a BPVCTD of €84.63 and a conversion factor of 0.619489. The number of Euro-Bund futures to buy... is found using Equation 9: BPVHR = [(BPVT − BPVP)/BPVCTD] × CF = [(€3,424 − 0)/€84.63] × 0.619489 = 25.06 ≈ 25 contracts. So, Grant should buy 25 Euro-Bund futures contracts.'",
+            "B": "Buy 25 bond futures.",
+            "C": "Buy 25."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.e",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Targeted Exposures — Grant bonds",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_e_q9",
+          "number": 9,
+          "stem": "*Using derivatives to achieve exposures without disturbing underlying* *most likely* advantage:",
+          "options": {
+            "A": "no advantage.",
+            "B": "derivatives can achieve targeted equity and interest rate risk exposures without disturbing underlying holdings.",
+            "C": "no benefit."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Multiple benefits.",
+            "B": "Full statement: derivatives can achieve targeted equity and interest rate risk exposures without disturbing underlying holdings; benefits include: preserving tax bases (avoiding realized gains), maintaining voting rights (no ownership transfer), avoiding transaction costs of physical rebalancing, achieving desired exposures quickly and efficiently, and reversing positions relatively easily; Rossi example: he wants to change allocations quickly, and TMM example: 'TMM decides to execute a series of swaps that would enable it to change its position temporarily but more easily and less expensively than by executing the physical transactions.'\n\nCorrect. Per the reading (TMM section): 'TMM knows these changes would entail a considerable amount of trading in stocks and bonds. So, TMM decides to execute a series of swaps that would enable it to change its position temporarily but more easily and less expensively than by executing the physical transactions.' Preserving positions and avoiding tax consequences is also implicit in the Tundra example.",
+            "C": "Efficiency + preservation."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.e",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Targeted Exposures — advantages",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_e_q10",
+          "number": 10,
+          "stem": "*Total return swap replication of asset allocation change* *most likely*:",
+          "options": {
+            "A": "Asset allocation changes cannot be replicated with total return swaps.",
+            "B": "The TMM example uses a single swap on one index to accomplish the entire reallocation.",
+            "C": "e.g., TMM decides to increase allocation in large-cap sector by investing in S&P 500 Index, increase small-cap by investing in S&P SmallCap 600 Index (SPSC)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Replication is exactly what the example demonstrates.",
+            "B": "Incorrect. The structure uses MULTIPLE legs — receiving S&P 500 (large-cap) and small-cap index returns while paying away exposures being reduced.",
+            "C": "Full statement: e.g., TMM decides to increase allocation in large-cap sector by investing in S&P 500 Index, increase small-cap by investing in S&P SmallCap 600 Index (SPSC); to reduce allocation in fixed-income sector, replicate performance of Bloomberg Barclays US Treasury Index (BBT) for government bond sector and BofA Merrill Lynch US Corporate Index (BAMLC) for corporate; equity swap: receives total return of S&P 500, pays floating rate tied to MRR minus agreed-on spread; fixed-income swap: pays total return of BBT, receives floating payments tied to MRR minus agreed-on spread.\n\nCorrect. Per the reading: 'TMM decides to increase the allocation in the large-cap sector by investing in the S&P 500 Index and to increase that in the small-cap sector by investing in the S&P SmallCap 600 Index (SPSC). To reduce the allocation in the overall fixed-income sector, TMM decides to replicate the performance of the Bloomberg Barclays US Treasury Index (BBT) for the government bond sector and the BofA Merrill Lynch US Corporate Index (BAMLC) for the corporate bond sector... Equity swap 1: TMM receives the total return of the S&P 500 and makes a floating payment tied to the market reference rate (MRR) minus the agreed-on spread, both on a notional principal of $27 million... Fixed-income swap 1: TMM pays the total return of the BBT and receives floating payments tied to the MRR minus the agreed-on spread, both on notional principal of $25 million.'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.e",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Targeted Exposures — TMM swaps",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_e_q11",
+          "number": 11,
+          "stem": "*Swap replication limitations* *most likely*:",
+          "options": {
+            "A": "transaction will not perfectly replicate performance of TMM's equity and fixed-income portfolios unless they are indexed to indexes selected as underlying of swaps.",
+            "B": "Swap replication of an allocation change is always perfect regardless of how the portfolios are constructed.",
+            "C": "The only limitation of swap-based replication is exchange margin requirements."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: transaction will not perfectly replicate performance of TMM's equity and fixed-income portfolios unless they are indexed to indexes selected as underlying of swaps; TMM could encounter cash flow problem if its fixed-income payments exceed its equity receipts and its portfolio does not generate enough cash to fund its net obligation; stock and bond portfolio will generate cash only from dividends and interest; capital gains will not be received in cash unless portion of portfolio is sold — but avoiding selling portion of portfolio is very reason why TMM wants to use swaps.\n\nCorrect. Per the reading: 'It is important to recognize that this transaction will not perfectly replicate the performance of TMM's equity and fixed-income portfolios, unless they are indexed to the indexes selected as underlying of the swaps. In addition, TMM could encounter a cash flow problem if its fixed-income payments exceed its equity receipts and its portfolio does not generate enough cash to fund its net obligation. The stock and bond portfolio will generate cash only from dividends and interest. Capital gains will not be received in cash unless a portion of the portfolio is sold. But avoiding selling a portion of the portfolio is the very reason why TMM wants to use swaps.'",
+            "B": "Incorrect. Perfection requires the underlying portfolios to be INDEXED to the swap indexes — active portfolios leave tracking gaps.",
+            "C": "Incorrect. OTC swaps carry no exchange margin; the limitations are tracking mismatch and cash flow timing."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.e",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Targeted Exposures — swap limitations",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_e_q12",
+          "number": 12,
+          "stem": "*Cash equitization purpose* for indexed fund *most likely*:",
+          "options": {
+            "A": "no purpose.",
+            "B": "cash equitization used to minimize tracking error risk.",
+            "C": "no framework."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Tracking error min.",
+            "B": "Full statement: cash equitization used to minimize tracking error risk; portfolio manager without expectation on direction of underlying market implements cash equitization strategy attempting to replicate performance of relevant index on cash reserves; McMillian's motive was to accomplish goal of minimizing tracking error by following this strategy; comparing outcomes with and without strategy shows 5% return vs 4.6% return demonstrates strategy effectiveness.\n\nCorrect. Per the reading: 'McMillian does not have an expectation on the direction of UK stocks over the next quarter. However, she is keen to minimize tracking error risk, so she implements a cash equitization strategy attempting to replicate the performance of the FTSE 100 on the cash reserves.' And: 'she accomplished her goal of minimizing tracking error by following this strategy.'",
+            "C": "Tracking error."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.e",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Targeted Exposures — cash equitization purpose",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_e_q13",
+          "number": 13,
+          "stem": "*Portfolio manager unwinding swap position* *most likely*:",
+          "options": {
+            "A": "A swap position cannot be exited before its scheduled maturity under any circumstances.",
+            "B": "Unwinding a swap requires physically delivering the underlying index constituents.",
+            "C": "TMM could decide to unwind position before one year elapses, which it could do by executing new swap with opposite payments for remainder of life of original swap."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Early exit is routine — via an offsetting swap or negotiated termination.",
+            "B": "Incorrect. No physical delivery is involved; TMM executes a NEW swap with opposite payments for the remaining term.",
+            "C": "Full statement: TMM could decide to unwind position before one year elapses, which it could do by executing new swap with opposite payments for remainder of life of original swap; also if TMM wishes to extend period, would need to renegotiate swap at expiration; provides flexibility to reverse or extend positions as market conditions change.\n\nCorrect. Per the reading: 'If it wishes to extend this period, TMM would need to renegotiate the swap at expiration. Likewise, TMM could decide to unwind the position before one year elapses, which it could do by executing a new swap with opposite payments for the remainder of the life of the original swap.'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.e",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Targeted Exposures — unwinding",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "swaps_forwards_and_futures_strategies.f",
+      "los_letter": "f",
+      "los_text": "demonstrate the use of derivatives in asset allocation, rebalancing, and inferring market expectations",
+      "reading_id": "swaps_forwards_and_futures_strategies",
+      "reading_name": "Swaps, Forwards, and Futures Strategies",
+      "area_id": "derivatives_risk_management",
+      "questions": [
+        {
+          "id": "r17_swf_los_f_q1",
+          "number": 1,
+          "stem": "*Typical uses of swaps, forwards, and futures* *most likely* include:",
+          "options": {
+            "A": "modifying portfolio returns and risk exposures (hedging and directional bets) using interest rate/currency/equity swaps and futures, fixed-income futures, variance swaps.",
+            "B": "Swaps, forwards, and futures serve no purpose in modern portfolio management.",
+            "C": "The only use of these derivatives is short-term speculation on price direction."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: modifying portfolio returns and risk exposures (hedging and directional bets) using interest rate/currency/equity swaps and futures, fixed-income futures, variance swaps; creating desired payoffs using forwards, futures, total return swaps; performing asset allocation and portfolio rebalancing using equity index futures, government bond futures, index swaps; inferring market expectations for interest rates, inflation, and volatility using Fed funds futures, inflation swaps, VIX futures.\n\nCorrect. Per the reading table: 'Common Uses of Swaps, Forwards, and Futures | Typical Derivatives Used | Modifying Portfolio Returns and Risk Exposures (Hedging and Directional Bets) | Interest Rate, Currency, and Equity Swaps and Futures; Fixed-Income Futures; Variance Swaps | Creating Desired Payoffs | Forwards, Futures, Total Return Swaps | Performing Asset Allocation and Portfolio Rebalancing | Equity Index Futures, Government Bond Futures, Index Swaps | Inferring Market Expectations for Interest Rates, Inflation, and Volatility | Fed Funds Futures, Inflation Swaps, VIX Futures.'",
+            "B": "Incorrect. They are core implementation tools across hedging, exposure modification, and allocation.",
+            "C": "Incorrect. Speculation is one corner; risk modification, hedging, rebalancing, and inferring market expectations complete the map."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.f",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Asset Allocation — uses",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_f_q2",
+          "number": 2,
+          "stem": "*Rebalancing via futures* Grant example rationale *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "Grant manages portfolio with target 40% stocks/60% bonds.",
+            "C": "no framework."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Rebalance to target.",
+            "B": "Full statement: Grant manages portfolio with target 40% stocks/60% bonds; portfolio grew from €100M to €106M so current €46M stocks (43.4%) and €60M bonds (56.6%); wants to rebalance back to target 40/60 (€42.4M stocks, €63.6M bonds); will use stock index futures and bond futures to achieve objective; once notional values to be traded are known, determines how many futures contracts should be purchased or sold to achieve desired asset allocation.\n\nCorrect. Per the reading: 'Yolanda Grant manages a portfolio with a target allocation of 40% in stocks and 60% in bonds. Over the last month, the value of the portfolio has increased from €100 million to €106 million, and Grant wants to rebalance it back to the target allocation (40% stocks/60% bonds). As shown in Exhibit 6, the current portfolio has €46 million (43.4%) in European stocks (with beta of 1.2 with respect to the EURO STOXX 50 index) and €60 million (56.6%) in German bunds. The bonds have a modified duration of 9.5... Grant will use stock index futures and bond futures to achieve this objective. Once the notional values to be traded are known, she determines how many futures contracts should be purchased or sold to achieve the desired asset allocation.'",
+            "C": "Rebalance."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.f",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Asset Allocation — Grant rationale",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_f_q3",
+          "number": 3,
+          "stem": "*Fed funds futures for inferring FOMC expectations* *most likely*:",
+          "options": {
+            "A": "Market expectations for FOMC policy are inferred primarily from equity index dividend futures.",
+            "B": "No traded instrument allows inference of expected Federal Reserve policy moves.",
+            "C": "commonly followed metric is probability of change in federal funds rate at upcoming FOMC meetings implied by prices of fed funds futures contracts."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Dividend futures price payout streams, not policy rates.",
+            "B": "Incorrect. FED FUNDS FUTURES are the canonical instrument — their prices imply probabilities of rate changes at upcoming meetings.",
+            "C": "Full statement: commonly followed metric is probability of change in federal funds rate at upcoming FOMC meetings implied by prices of fed funds futures contracts; when US central bank began rate hiking cycle in 2015, declared intention to maintain 25 bp target range (lower and upper bounds) for federal funds rate; Fed regularly communicates 'forward guidance' along with 'dot plot' which shows where each FOMC meeting participant believes federal funds rate should be at end of year for next few years and in longer run; implied probabilities represent market's view and may diverge from Fed's guidance.\n\nCorrect. Per the reading: 'A commonly followed metric is the probability of a change in the federal funds rate at upcoming FOMC meetings that is implied by the prices of fed funds futures contracts. When the US central bank began its rate hiking cycle in 2015, it declared an intention to maintain a 25 bp \"target range\" (lower and upper bounds) for the federal funds rate. The Fed regularly communicates its \"forward guidance\" along with the so-called dot plot, which shows where each FOMC meeting participant believes the federal funds rate should be at the end of the year, for the next few years, and in the longer run.'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.f",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Asset Allocation — Fed funds",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_f_q4",
+          "number": 4,
+          "stem": "*Fed funds futures pricing formula* *most likely*:",
+          "options": {
+            "A": "100.",
+            "B": "no formula.",
+            "C": "no framework."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "fed funds futures traded on Chicago Board of Trade; contract price quoted as 100 minus market's expectation for effective federal funds (FFE) rate: Fed funds futures contract price = 100 - Expected FFE rate; at expiration, contract is cash settled to simple average (overnight) effective federal funds rate for delivery month; overnight rate calculated and reported daily by Federal Reserve Bank of New York; underlying assumption is that implied futures market rates are predicting monthly average effective federal funds rate.\n\nCorrect. Per Equation 17: 'Fed funds futures are traded on the Chicago Board of Trade, and the contract price is quoted as 100 minus the market's expectation for the FFE rate, as follows: Fed funds futures contract price = 100 − Expected FFE rate. At expiration, the contract is cash settled to the simple average (overnight) effective federal funds rate for the delivery month. The overnight rate is calculated and reported daily by the Federal Reserve Bank of New York.'",
+            "B": "100 - Expected FFE.",
+            "C": "Price = 100 - rate."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.f",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Asset Allocation — fed funds price",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_f_q5",
+          "number": 5,
+          "stem": "*Probability of rate hike formula* *most likely*:",
+          "options": {
+            "A": "P(hike) = Current federal funds rate / FFE rate implied by futures.",
+            "B": "P(hike) = (FFE rate implied by futures - Current federal funds rate) / (Federal funds rate assuming rate hike - Current federal funds rate).",
+            "C": "P(hike) = FFE rate implied by futures × Federal funds rate assuming a hike."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. A simple ratio of levels carries no probability content.",
+            "B": "Full statement: P(hike) = (FFE rate implied by futures - Current federal funds rate) / (Federal funds rate assuming rate hike - Current federal funds rate); current federal funds rate is midpoint of current target range.\n\nCorrect. Per Equation 18: 'To determine the probability of a change in the federal funds rate, the following formula is used, where the current federal funds rate is the midpoint of the current target range: (Effective federal funds rate implied by futures contract − Current federal funds rate) / (Federal funds rate assuming a rate hike − Current federal funds rate).'",
+            "C": "Incorrect. The formula interpolates: (FFE implied − current rate) / (post-hike rate − current rate)."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.f",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Asset Allocation — P(hike)",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_f_q6",
+          "number": 6,
+          "stem": "*Okyung fed funds probability calc* fed funds futures price 97.90, current target range 1.75%-2.00% *most likely*:",
+          "options": {
+            "A": "no calc.",
+            "B": "no data.",
+            "C": "FFE implied = 100 - 97.90 = 2.10%."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "90% probability.",
+            "B": "90% hike.",
+            "C": "Full statement: FFE implied = 100 - 97.90 = 2.10%; current midpoint = 1.875%; assumed new range 2.00%-2.25% with midpoint 2.125%; P(hike) = (2.10% - 1.875%) / (2.125% - 1.875%) = 0.225/0.25 = 0.90 or 90%; high probability of 25 bp rate hike.\n\nCorrect. Per Example: 'the current price for the fed funds futures contract expiring after the next FOMC meeting is 97.90. The current federal funds rate target range is set between 1.75% and 2.00%... The FFE rate implied by the futures contract price is 2.10% (= 100 − 97.90)... given that the FFE rate embedded in the fed funds futures price is 2.10%, there is a high probability that the FOMC will increase rates by 25 bps from its current target range of 1.75%–2.00% to the new target range of 2.00%–2.25%. Given the Fed's declared incremental move size of 25 bps, he calculates the probability of a rate hike as (2.100% − 1.875%)/(2.125% − 1.875%) = 0.90, or 90% where 1.875% is the midpoint of the current target range (1.75%–2.00%) and 2.125% is the midpoint of the new target range (2.00%–2.25%) assuming a rate hike.'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.f",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Asset Allocation — Okyung calc",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_f_q7",
+          "number": 7,
+          "stem": "*End-of-month bias in FFE rate* *most likely*:",
+          "options": {
+            "A": "0.30.",
+            "B": "no bias.",
+            "C": "no framework."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "typical end-of-month (EOM) activity by large financial and banking institutions often induces 'dips' in FFE rate that create bias issues when using rate as basis for probability calculations of potential FOMC rate moves; if such activity increased price for relevant fed funds futures contract to 98.05, FFE rate would decline to 1.95% (= 100 - 98.05); using same equation, probability of FOMC rate hike decreases from 90% to just 30%: (1.950 - 1.875)/0.25 = 0.30; data providers implement smoothing methods.\n\nCorrect. Per the reading: 'Importantly, typical end-of-month (EOM) activity by large financial and banking institutions often induces \"dips\" in the FFE rate that create bias issues when using the rate as the basis for probability calculations of potential FOMC rate moves. For example, if such activity increased the price for the relevant fed funds futures contract to 98.05, then the FFE rate would decline to 1.95% (= 100 − 98.05). In this case, using the same equation as before, the probability of an FOMC rate hike decreases from 90% to just 30%: (1.950 − 1.875)/0.25 = 0.30, or 30%. To overcome this end-of-month bias, data providers have implemented various methods of \"smoothing\" the EOM dips.'",
+            "B": "EOM dips.",
+            "C": "EOM smoothing."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.f",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Asset Allocation — EOM bias",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_f_q8",
+          "number": 8,
+          "stem": "*Smoothing method* for EOM bias *most likely*:",
+          "options": {
+            "A": "No method exists to correct fed funds futures inference for end-of-month rate distortions.",
+            "B": "one prominent data provider uses method that builds forward rate structure based on where market believes interest rates will settle in non-FOMC meeting months and then uses these forward rates to make appropriate adjustments.",
+            "C": "The smoothing correction discards futures data entirely in favor of survey-based expectations."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. A prominent data provider's smoothing method addresses exactly this bias.",
+            "B": "Full statement: one prominent data provider uses method that builds forward rate structure based on where market believes interest rates will settle in non-FOMC meeting months and then uses these forward rates to make appropriate adjustments; for each FOMC meeting month, assumed that effective rate prevails until meeting date and then some rate prevails after meeting, with average effective rate over month being implied by futures price.\n\nCorrect. Per the reading: 'One prominent data provider uses a method that builds a forward rate structure based on where the market believes interest rates will settle in non-FOMC meeting months and then uses these forward rates to make appropriate adjustments. For each FOMC meeting month, it is assumed that an effective rate prevails until the meeting date, and then some rate prevails after the meeting, with the average effective rate over the month being implied by the futures price.'",
+            "C": "Incorrect. Futures remain the input — the method builds a forward rate structure from where the market expects rates to be, smoothing EOM artifacts."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.f",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Asset Allocation — smoothing method",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_f_q9",
+          "number": 9,
+          "stem": "*Divergence between market expectations and Fed forward guidance* *most likely*:",
+          "options": {
+            "A": "always aligned.",
+            "B": "no distinction.",
+            "C": "implied market expectations can diverge significantly from Fed's forward guidance."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Market vs Fed dots.",
+            "B": "Divergence possible.",
+            "C": "Full statement: implied market expectations can diverge significantly from Fed's forward guidance; implied probabilities represent market's view and may diverge from guidance provided by central banks in their regular communications about likely future course of monetary policy actions; especially for longer-term horizon, these inferred probabilities usually do not have strong predictive power; the 'dot plot' shows where each FOMC meeting participant believes federal funds rate should be at end of year for next few years and in longer run.\n\nCorrect. Per the reading: 'Note that such implied probabilities represent the market's view and may diverge from the guidance provided by central banks in their regular communications about the likely future course of monetary policy actions. Furthermore, especially for the longer-term horizon, these inferred probabilities usually do not have strong predictive power.' And: 'implied market expectations (dotted line) can diverge significantly from the Fed's forward guidance (solid line, the median of the dots).'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.f",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Asset Allocation — divergence",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_f_q10",
+          "number": 10,
+          "stem": "*Inferences represent current expectations of future events* *most likely*:",
+          "options": {
+            "A": "important to emphasize that inferences from derivatives relate to current expectations of future events — they do NOT foretell what will actually happen — which can change with the arrival of new information.",
+            "B": "Derivatives-implied probabilities reliably foretell the actual outcome of future central bank decisions.",
+            "C": "Inferences from derivatives prices are meaningless noise with no informational content."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: important to emphasize that inferences from derivatives relate to current expectations of future events — they do NOT foretell what will actually happen — which can change with the arrival of new information; useful for gauging market sentiment and pricing expectations but not for predicting actual outcomes with certainty.\n\nCorrect. Per the reading: 'It is important to emphasize that these inferences relate to current expectations of future events — they do not foretell what will actually happen — which can change with the arrival of new information.'",
+            "B": "Incorrect. They are CURRENT EXPECTATIONS, not predictions — outcomes routinely diverge from priced-in paths.",
+            "C": "Incorrect. The information is real and closely watched; the caveat is its nature as a snapshot of expectations."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.f",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Asset Allocation — expectations vs outcomes",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_f_q11",
+          "number": 11,
+          "stem": "*Sum of probabilities* at each FOMC meeting *most likely*:",
+          "options": {
+            "A": "The probabilities of all possible rate outcomes at a given FOMC meeting sum to more than one when uncertainty is high.",
+            "B": "probability of rate hike or cut is represented as probability of move from current target range at specified meeting date, and probabilities of all three actions (hike/no change/cut) at a particular meeting date sum to 1.",
+            "C": "Probabilities across meeting outcomes are unrelated to one another."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The outcome probabilities always sum to EXACTLY one — they exhaust the possibilities.",
+            "B": "Full statement: probability of rate hike or cut is represented as probability of move from current target range at specified meeting date, and probabilities of all three actions (hike/no change/cut) at a particular meeting date sum to 1; data providers show trends in implied probabilities over time.\n\nCorrect. Per the reading: 'Note that the probability of a rate hike or cut is represented as the probability of a move from the current target range at the specified meeting date, and of course, the probabilities of all three actions at a particular meeting date sum to 1.'",
+            "C": "Incorrect. They are jointly constrained: move probabilities plus the no-change probability complete the unit mass."
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.f",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Asset Allocation — probabilities",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r17_swf_los_f_q12",
+          "number": 12,
+          "stem": "*Changing allocations via TMM swap example* structure *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "no framework.",
+            "C": "TMM invested $200M as 75% stocks, 25% bonds."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "TMM structure.",
+            "B": "TMM detailed.",
+            "C": "Full statement: TMM invested $200M as 75% stocks, 25% bonds; wants 90% stocks/10% bonds; equity target: $27M more S&P 500 (large-cap 60%→65%), $3M more S&P SmallCap 600 (10% unchanged); bond target: sell $25M BBT (govt), sell $5M BAMLC (corporate); TMM structures swaps to have all payments occur on same dates six months apart with maturity of one year; if desired to extend, must renegotiate at expiration; unwinding possible by opposite swap.\n\nCorrect. Per the reading: 'To achieve the desired asset allocation, TMM takes the following exposures: A long position of $27 million in the S&P 500. A long position of $3 million in the SPSC. A short position of $25 million in the BBT. A short position of $5 million in the BAMLC. The mid-cap exposure of $45 million does not change, so TMM does not need to incorporate a mid-cap index into the swap. TMM uses a combination of equity and fixed-income swaps to achieve its target allocation and structures the swap to have all payments occur on the same dates six months apart. TMM also decides that the swap should mature in one year. If it wishes to extend this period, TMM would need to renegotiate the swap at expiration. Likewise, TMM could decide to unwind the position before one year elapses, which it could do by executing a new swap with opposite payments for the remainder of the life of the original swap.'"
+          },
+          "type": "mc",
+          "primary_los": "swaps_forwards_and_futures_strategies.f",
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "area_id": "derivatives_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Asset Allocation — TMM structure",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    }
+  ]
+}

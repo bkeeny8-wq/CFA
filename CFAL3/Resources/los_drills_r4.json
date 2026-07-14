@@ -1,0 +1,1958 @@
+{
+  "schema_version": 2,
+  "generated_by": "claude_r4_paa_drills_curriculum_grounded",
+  "curriculum_source": "CFA Program 2027 Level III Volume 1, Learning Module 4",
+  "content_type": "mc_only",
+  "drills": [
+    {
+      "los_id": "principles_of_asset_allocation.a",
+      "los_letter": "a",
+      "los_text": "describe and evaluate the use of mean--variance optimization in asset allocation",
+      "reading_id": "principles_of_asset_allocation",
+      "reading_name": "Principles of Asset Allocation",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r4_paa_los_a_q1",
+          "number": 1,
+          "stem": "The MVO objective function as presented in the reading is U_m = E(R_m) − 0.005λσ²_m, where returns are expressed as percentages. For an investor with λ = 2, E(R) = 10.0%, and σ = 20%, the utility (certainty-equivalent return) is *closest to*:",
+          "options": {
+            "A": "6.0%.",
+            "B": "2.0%.",
+            "C": "10.0%."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. U = 10.0 − 0.005(2)(20²) = 10.0 − 0.005(2)(400) = 10.0 − 4.0 = 6.0%. The 0.005 constant applies when returns are expressed as percentages (omit % signs); if returns were in decimals, 0.005 would become 0.5.",
+            "B": "This is too low; the penalty term is not this large.",
+            "C": "This ignores the risk penalty."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.a",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "MVO Overview — Equation 1, Example 1",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_a_q2",
+          "number": 2,
+          "stem": "The reading identifies six primary criticisms of MVO. Which of the following is *least likely* one of the six?",
+          "options": {
+            "A": "Outputs are highly sensitive to small changes in the inputs.",
+            "B": "MVO cannot mathematically incorporate an investor's risk aversion.",
+            "C": "Asset allocations tend to be highly concentrated in a subset of the available asset classes."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This is criticism #1.",
+            "B": "Correct. Risk aversion (λ) is a central input to the MVO objective function, not a limitation. The six criticisms are: (1) input sensitivity, (2) concentrated allocations, (3) MVO focuses on mean/variance while investors care about higher moments, (4) sources of risk may not be diversified even when assets appear diversified, (5) MVO allocations aren't connected to liabilities/consumption, (6) single-period framework ignoring rebalancing costs and taxes.",
+            "C": "This is criticism #2."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.a",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Criticisms of MVO",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_a_q3",
+          "number": 3,
+          "stem": "The reading notes that of MVO's three sets of inputs — expected returns, volatilities, and correlations — the composition of efficient portfolios is *most sensitive* to:",
+          "options": {
+            "A": "volatility estimates.",
+            "B": "correlation estimates.",
+            "C": "expected return estimates."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Volatility estimates matter but not as much as expected returns for output composition.",
+            "B": "Correlation estimates matter but are not the primary sensitivity.",
+            "C": "Correct. The reading states that in MVO, the composition of efficient portfolios is typically more sensitive to expected return estimates than to volatility or correlation estimates. Expected returns are also generally more difficult to estimate accurately than volatilities and correlations. This is why techniques to address input sensitivity focus on expected return inputs."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.a",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Addressing the Criticisms of MVO",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_a_q4",
+          "number": 4,
+          "stem": "For an unconstrained MVO problem (no budget constraint that weights sum to 1), the reading notes that the closed-form solution *most likely* produces:",
+          "options": {
+            "A": "a single set of weights that is typically relatively extreme, with very large long and short positions, and which will not sum to 100% except in special reverse-optimization cases.",
+            "B": "well-diversified positive weights that always sum to 100%.",
+            "C": "a smooth efficient frontier requiring numerical optimization."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states that in the absence of constraints there is a closed-form solution — a single set of weights that is typically relatively extreme, with very large long and short positions. Except in the special case where expected returns are derived using Sharpe's (1974) reverse-optimization process, the expected-utility-maximizing weights will not add up to 100%.",
+            "B": "Unconstrained solutions do not sum to 100% except under reverse optimization.",
+            "C": "The closed-form solution is a single point, not a frontier."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.a",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "MVO Overview",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_a_q5",
+          "number": 5,
+          "stem": "The reading states that for typical MVO applications with real-world constraints, an investor with 'moderate' risk aversion has a λ value *most likely* around:",
+          "options": {
+            "A": "λ = 0.5.",
+            "B": "λ = 4.",
+            "C": "λ = 15."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "λ = 0.5 corresponds to an aggressive investor with low risk aversion.",
+            "B": "Correct. The reading states most investors' risk aversion is consistent with λ between 1 and 10. Empirically, λ = 4 can be taken to represent a moderately risk-averse investor, although the specific value is sensitive to the opportunity set and market volatility.",
+            "C": "λ = 15 is above the typical 1–10 range and would represent extreme risk aversion."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.a",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "MVO Overview — risk aversion",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "principles_of_asset_allocation.b",
+      "los_letter": "b",
+      "los_text": "recommend and justify an asset allocation using mean--variance optimization",
+      "reading_id": "principles_of_asset_allocation",
+      "reading_name": "Principles of Asset Allocation",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r4_paa_los_b_q1",
+          "number": 1,
+          "stem": "In Example 1, Aimée Goddard (λ = 2) has three allocations: A (E(R) 10%, σ 20%), B (E(R) 7%, σ 10%), C (E(R) 5.25%, σ 5%). Utilities are U_A = 6.0%, U_B = 6.0%, U_C = 5.0%. Given that Goddard must withdraw €60,000 (5% of €1.2 million) in 12 months without invading principal, the *most appropriate* allocation is:",
+          "options": {
+            "A": "Allocation B, because its lower volatility offers greater capital preservation for the endowment.",
+            "B": "Allocation C, because its 5.25% expected return most closely matches the 5% withdrawal threshold.",
+            "C": "Allocation A, because it has the highest safety-first ratio (E(R) − 5%)/σ = 0.25 among allocations with equal top utility."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. B ties A on utility at 6.0% but its safety-first ratio (7% − 5%)/10% = 0.20 falls below A's 0.25.",
+            "B": "Incorrect. C has both LOWER utility and the lowest safety-first ratio (5.25% − 5%)/5% = 0.05 — nearest-to-threshold return is not the criterion.",
+            "C": "Correct. Both A and B tie on utility (6.0%). Applying Roy's safety-first ratio (E(R_P) − R_L)/σ_P with R_L = 5%: A = (10−5)/20 = 0.25; B = (7−5)/10 = 0.20; C = (5.25−5)/5 = 0.05. A has the highest probability of exceeding the 5% threshold and is therefore recommended."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.b",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Example 1 — Mean-Variance-Efficient Portfolio Choice",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_b_q2",
+          "number": 2,
+          "stem": "The Caflandia Foundation for the Fine Arts (Example 2) requires a nominal return that supports: 4% annual distribution, 2% expected inflation, and 40 bp investment cost. The required nominal return objective calculation is *most likely*:",
+          "options": {
+            "A": "(1.04)(1.02)(1.004) − 1 = 6.5%.",
+            "B": "4% + 2% + 0.4% = 6.4%.",
+            "C": "4% × 1.02 × 1.004 = 4.09%."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading uses (1.04)(1.02)(1.004) − 1 = 0.065, or 6.5%. This is the geometric linking of the spending rate, inflation rate, and cost of earning investment returns, which is more precise than simple addition.",
+            "B": "Simple addition understates the compounded requirement.",
+            "C": "This multiplies instead of adding and drops the distribution rate."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.b",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Example 2 — CFFA nominal return objective",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_b_q3",
+          "number": 3,
+          "stem": "The reading notes that constraints can be applied to MVO for two primary reasons. Which of the following is *most likely* the reading's recommendation regarding constraint usage?",
+          "options": {
+            "A": "Constraints should always be applied to force diversification, regardless of input quality.",
+            "B": "Good constraints model the actual circumstances; constraints intended merely to control MVO output should be used cautiously — a perceived need to add such constraints suggests the inputs should be revisited.",
+            "C": "Constraints should never be applied because they eliminate the theoretical optimality of MVO."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The reading warns against constraints intended merely to control output.",
+            "B": "Correct. The reading states good constraints are those that model the actual circumstances/context. Constraints intended merely to control MVO output should be used cautiously — a perceived need for such constraints suggests inputs should be revisited. If very many constraints are imposed, one is no longer optimizing but specifying an allocation through binding constraints.",
+            "C": "The reading endorses constraints when they model real circumstances."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.b",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Adding Constraints Beyond Budget",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_b_q4",
+          "number": 4,
+          "stem": "The reading identifies three primary approaches to addressing MVO's input sensitivity and concentrated allocations. Which of the following is *least likely* one of them?",
+          "options": {
+            "A": "Reverse optimization (Sharpe 1974) using market-cap weights and CAPM.",
+            "B": "The Black-Litterman model, which allows analyst views to tilt reverse-optimized returns.",
+            "C": "Setting all expected returns equal so MVO reduces to a risk-only optimization."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This is one of the reading's approaches.",
+            "B": "This is one of the reading's approaches.",
+            "C": "Correct. Setting all expected returns equal is not among the reading's approaches. The three primary approaches are: (1) reverse optimization, (2) the Black-Litterman model (extension of reverse optimization allowing analyst views), and (3) adding constraints. A fourth is resampled MVO (Michaud 1998), which combines MVO with Monte Carlo."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.b",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Addressing the Criticisms of MVO",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_b_q5",
+          "number": 5,
+          "stem": "Reverse optimization applied to a global market portfolio with risk-free rate 2.5% and market risk premium 4%: an asset class with beta 1.03 relative to the global market has an implied expected return *closest to*:",
+          "options": {
+            "A": "6.6%.",
+            "B": "4.5%.",
+            "C": "8.6%."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. E(R_i) = r_f + β_i × MRP = 2.5% + 1.03 × 4% = 2.5% + 4.12% = 6.62%, or approximately 6.6%. The reading's Exhibit 12 uses this exact CAPM structure to derive reverse-optimized returns for the 12 asset classes.",
+            "B": "This is below the correct answer.",
+            "C": "This uses a beta higher than 1.03."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.b",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Reverse Optimization — Exhibit 12",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "principles_of_asset_allocation.c",
+      "los_letter": "c",
+      "los_text": "interpret and evaluate an asset allocation in relation to an investor's economic balance sheet",
+      "reading_id": "principles_of_asset_allocation",
+      "reading_name": "Principles of Asset Allocation",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r4_paa_los_c_q1",
+          "number": 1,
+          "stem": "The economic balance sheet approach to asset allocation *most likely* extends the traditional financial balance sheet by including:",
+          "options": {
+            "A": "only tradable financial assets and current legal liabilities.",
+            "B": "non-tradable assets (such as human capital and residential real estate) and quasi-liabilities (such as expected consumption needs and bequest goals).",
+            "C": "only the after-tax value of financial assets while excluding all non-financial items."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The economic balance sheet extends BEYOND traditional financial-only items.",
+            "B": "Correct. The reading applies a total balance sheet approach that includes non-tradable assets (human capital, residential real estate) and quasi-liabilities (expected consumption, bequest goals). The Beel example holds UK residential real estate and UK human capital as constrained asset-class allocations, and the optimizer then determines the remaining liquid financial allocations.",
+            "C": "The economic balance sheet is broader than just financial assets."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.c",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Applying the Total Balance Sheet Approach",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_c_q2",
+          "number": 2,
+          "stem": "In the Beel example, allocations to UK residential real estate and UK human capital are held as *constrained* inputs to the MVO. The remaining liquid-financial allocations *most likely* have this characteristic:",
+          "options": {
+            "A": "They tend to include high allocations to UK equities and UK fixed income to concentrate exposure.",
+            "B": "They ignore the constrained allocations entirely.",
+            "C": "They tend to exclude UK equities and UK fixed income because these are highly correlated with UK residential real estate and UK human capital."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This is the opposite of the observed pattern.",
+            "B": "The optimizer explicitly accounts for the constrained allocations by adjusting the liquid mix.",
+            "C": "Correct. The reading states that looking past the constrained allocations to human capital and UK residential real estate, the remaining allocations associated with Beel's liquid financial assets do NOT include UK equities or UK fixed income. Each of these three asset classes is relatively highly correlated with either UK residential real estate or UK human capital, so the optimizer diversifies away from them."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.c",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Applying the Total Balance Sheet Approach — Beel example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_c_q3",
+          "number": 3,
+          "stem": "The reading treats human capital in the economic balance sheet as *most likely*:",
+          "options": {
+            "A": "having both equity-like and bond-like components, with the specific mix depending on the worker's occupation and career stability.",
+            "B": "purely equity-like exposure for all workers regardless of occupation.",
+            "C": "irrelevant to asset allocation decisions."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading treats human capital as having both equity-like and bond-like components. For example, a tenured professor's human capital is largely bond-like, while a commissioned salesperson's may be highly equity-like. The economic balance sheet incorporates this to make the financial asset allocation account for the total risk picture.",
+            "B": "The reading treats human capital as having mixed characteristics, not purely equity-like.",
+            "C": "Human capital is a key input in the total balance sheet approach."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.c",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Applying the Total Balance Sheet Approach",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_c_q4",
+          "number": 4,
+          "stem": "One implication of the economic balance sheet approach is that a young investor with high, stable human capital should *most likely* have a financial-asset allocation that is:",
+          "options": {
+            "A": "less risky than a peer without stable human capital, since human capital already provides growth exposure.",
+            "B": "more risky than a peer without stable human capital, because their bond-like human capital allows the financial portfolio to take more equity risk.",
+            "C": "identical to that of any other investor of the same age, regardless of human capital characteristics."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This reverses the correct relationship.",
+            "B": "Correct. The reading's total balance sheet approach implies that stable, bond-like human capital acts as a diversifying anchor, allowing the financial portfolio to take more equity risk while maintaining total balance sheet risk at a target level. A young investor with substantial stable human capital can hold a more aggressive financial allocation than an otherwise similar investor without such human capital.",
+            "C": "The economic balance sheet approach individualizes the recommendation."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.c",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Applying the Total Balance Sheet Approach",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "principles_of_asset_allocation.d",
+      "los_letter": "d",
+      "los_text": "recommend and justify an asset allocation based on the global market portfolio",
+      "reading_id": "principles_of_asset_allocation",
+      "reading_name": "Principles of Asset Allocation",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r4_paa_los_d_q1",
+          "number": 1,
+          "stem": "The theoretical foundation for using the global market portfolio as a starting point in asset allocation is *most likely* rooted in:",
+          "options": {
+            "A": "the Modigliani-Miller propositions.",
+            "B": "empirical observations of home-country bias in investor portfolios.",
+            "C": "the CAPM and Tobin's two-fund separation, where investors combine the risk-free asset with the tangency (market) portfolio."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "MM is a capital-structure theorem, not the AA foundation.",
+            "B": "Home-country bias is a deviation from — not justification for — the global market portfolio approach.",
+            "C": "Correct. The reading grounds the global market portfolio approach in Tobin's two-fund separation and CAPM equilibrium: investors combine the risk-free asset with the tangency portfolio (which under CAPM is the market portfolio). Reverse optimization from market-cap weights recovers CAPM-implied returns, providing a disciplined starting point."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.d",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Reverse Optimization — CAPM linkage",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_d_q2",
+          "number": 2,
+          "stem": "The reading notes that some practitioners find the link between reverse optimization and CAPM equilibrium 'elegant', while others see it as a shortcoming. For those with minor objections to using market-cap weights alone, the reading recommends *most likely*:",
+          "options": {
+            "A": "using the Black-Litterman model, which starts from reverse-optimized returns and allows the expression of alternative forecasts or views.",
+            "B": "Abandoning reverse optimization entirely and returning to unconstrained MVO with sample means.",
+            "C": "Using purely historical mean returns as the expected return inputs instead of any model-based approach."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states that for those with minor objections to market-cap weights, the Black-Litterman model allows the expression of alternative forecasts or views on top of the reverse-optimized baseline. This provides a disciplined framework for tilting expected returns away from CAPM equilibrium in the direction of the investor's views.",
+            "B": "Incorrect. The reading's remedy is a MIDDLE path, not abandonment — Black-Litterman preserves the equilibrium anchor while admitting views.",
+            "C": "Incorrect. Historical means are the pre-1990s approach whose estimation error problems motivated reverse optimization in the first place."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.d",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Reverse Optimization / Black-Litterman",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_d_q3",
+          "number": 3,
+          "stem": "The reading notes that empirically, investors exhibit a strong *home-country bias*. In the context of building an allocation based on the global market portfolio, home-country bias implies that:",
+          "options": {
+            "A": "the global market portfolio precisely reflects the average investor's actual holdings.",
+            "B": "investors deviate from the theoretical global market portfolio by overweighting domestic assets, and this can be a valid consideration in setting the strategic asset allocation.",
+            "C": "home-country bias eliminates any role for global diversification."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The global market portfolio is a theoretical benchmark, not the observed average.",
+            "B": "Correct. The reading notes investors typically exhibit a strong home country bias for domestic assets. This is a well-documented deviation from the theoretical global market portfolio. When starting from the global market portfolio, an adviser may reasonably adjust based on the investor's country of domicile, tax situation, and reference-currency preferences.",
+            "C": "Even with home bias, global diversification improves the risk-return trade-off."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.d",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Portfolio Balance / Home-Country Bias",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_d_q4",
+          "number": 4,
+          "stem": "The Norway Government Pension Fund Global — 'Norway model' — is presented as an asset allocation approach based on *most likely*:",
+          "options": {
+            "A": "large allocations to non-traditional assets and active management, with the goal of illiquidity premium capture.",
+            "B": "risk parity allocation with heavy leverage on bonds.",
+            "C": "highly committed passive investment in publicly traded securities (subject to ESG concerns), reflecting a belief in market informational efficiency, with an approximate 60/40 stock/bond mix since 2009."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This describes the Yale/endowment model, not the Norway model.",
+            "B": "Risk parity is a different heuristic entirely.",
+            "C": "Correct. The reading describes the Norway model as highly committed to passive investment in publicly traded securities (subject to ESG concerns), reflecting a belief in the market's informational efficiency. Since 2009 the asset allocation has followed an approximate 60/40 stock/bond mix — 'almost diametrical contrast' to the endowment/Yale model."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.d",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Heuristics — Norway model",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "principles_of_asset_allocation.e",
+      "los_letter": "e",
+      "los_text": "discuss the use of Monte Carlo simulation and scenario analysis to evaluate the robustness of an asset allocation",
+      "reading_id": "principles_of_asset_allocation",
+      "reading_name": "Principles of Asset Allocation",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r4_paa_los_e_q1",
+          "number": 1,
+          "stem": "The reading identifies Monte Carlo simulation as *most helpful* in addressing which specific limitation of MVO?",
+          "options": {
+            "A": "MVO's single-period framework, which cannot easily incorporate the interaction between multi-period cash flows, rebalancing costs, taxes, and returns.",
+            "B": "The requirement of pair-wise correlations as inputs.",
+            "C": "The need to specify a risk aversion coefficient."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states Monte Carlo simulation complements MVO by addressing MVO's limitations as a single-period framework. In multi-period settings, portfolios will predictably be rebalanced (triggering capital gains/losses), different strategic allocations produce different patterns of tax payments and transaction costs, and cash flows into/out of the portfolio make outcomes path-dependent. These are difficult or impossible to formulate analytically.",
+            "B": "Correlations remain an input to Monte Carlo simulation as well.",
+            "C": "The risk aversion coefficient is not addressed by Monte Carlo."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.e",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Monte Carlo Simulation",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_e_q2",
+          "number": 2,
+          "stem": "The reading argues that the need for Monte Carlo simulation depends primarily on whether the portfolio experiences *cash flows* over time. The reasoning is that:",
+          "options": {
+            "A": "with cash flows, terminal wealth becomes path independent so Monte Carlo simulation is unnecessary.",
+            "B": "with no cash flows, the sequence of returns is irrelevant and ending wealth is path independent, so Monte Carlo simulation is unnecessary.",
+            "C": "cash flows have no impact on terminal wealth."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This is the opposite: cash flows make wealth path dependent.",
+            "B": "Correct. The reading states that for a given asset allocation with no cash flows, the sequence of returns is irrelevant; ending wealth will be path independent (unaffected by the sequence of returns). With cash flows, the sequence becomes relevant because of the interaction of cash flows and returns — terminal wealth becomes path dependent, and Monte Carlo simulation is needed. If simulated returns are IID, path independence holds even with cash flows and analytical methods work.",
+            "C": "Cash flows affect terminal wealth significantly."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.e",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Monte Carlo Simulation — path dependence",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_e_q3",
+          "number": 3,
+          "stem": "In Example 3, Malala Ali (65 years old) has CAF$1 million and wants to withdraw CAF$40,000/year (in nominal terms initially, then presumably indexed) for 25 years. Simulation shows the median real terminal wealth at age 90 is below her CAF$1 million (real) bequest goal. The reading's suggested response is *most likely*:",
+          "options": {
+            "A": "invest more aggressively regardless of her risk tolerance to meet the bequest goal.",
+            "B": "ignore the simulation results because past markets may not repeat.",
+            "C": "recognize the trade-off: the bequest goal may be unrealistic given her spending, and Ali must make a tough choice between living standard, bequest size, or delaying retirement."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "The reading calls this 'imprudent' given her age and risk tolerance.",
+            "B": "The reading uses simulation results to make substantive recommendations.",
+            "C": "Correct. The reading concludes the current allocation will not likely satisfy Ali's investment objectives. Investing more aggressively seems imprudent given her age and risk tolerance. An adviser may need to counsel that the bequest desire may be unrealistic given her desired income. Ali must choose among (1) spending less, (2) reducing the bequest goal, or (3) delaying retirement."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.e",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Monte Carlo Simulation — Example 3, Ali retirement",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_e_q4",
+          "number": 4,
+          "stem": "The reading notes that Monte Carlo simulation tools *vary significantly* in their ability to model certain features. Which of the following is *most likely* one of the modeling capabilities where implementations differ?",
+          "options": {
+            "A": "The ability to model non-normal multivariate returns, serial and cross-correlations, tax rates, evolving asset allocation schedules (target-date glide paths), non-traditional investments, and human capital.",
+            "B": "The ability to compute geometric mean returns from simulated paths, which only the most advanced commercial platforms can perform.",
+            "C": "The ability to compute standard deviations of terminal wealth, a feature restricted to institutional-grade simulation software."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states not all Monte Carlo simulation tools are the same: they vary significantly in their ability to model non-normal multivariate returns, serial and cross-correlations, tax rates, distribution requirements, evolving asset allocation schedules (target-date glide paths), non-traditional investments (e.g., annuities), and human capital.",
+            "B": "Incorrect. Geometric mean computation is elementary and universal — every Monte Carlo tool does it identically.",
+            "C": "Incorrect. Standard deviation calculation does not differentiate tools; non-normal multivariate returns, serial/cross-correlations, taxes, and evolving allocation paths do."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.e",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Monte Carlo Simulation",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_e_q5",
+          "number": 5,
+          "stem": "In Ali's Monte Carlo output (Exhibit 9), the vertical axis uses a *logarithmic scale*. This choice is *most likely* motivated by:",
+          "options": {
+            "A": "the need to show negative wealth values, which cannot be shown on a linear scale.",
+            "B": "the very wide range of possible outcomes across percentiles (e.g., 10th percentile might be CAF$300K while 90th percentile might exceed CAF$10 million), making a linear scale visually uninformative for lower percentiles.",
+            "C": "regulatory requirements for retirement projections."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Wealth cannot be negative in this setup.",
+            "B": "Correct. The reading footnote explains that Exhibit 9's y-axis is a logarithmic scale — CAF$1 million is the same distance from CAF$100K as CAF$10 million is from CAF$1 million because both are 10× ratios. This is helpful because the range of outcomes from 10th to 90th percentile is very wide, and a linear scale would compress the lower-percentile information.",
+            "C": "There is no such regulatory requirement described in the reading."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.e",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Monte Carlo Simulation — Exhibit 9 log scale",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "principles_of_asset_allocation.f",
+      "los_letter": "f",
+      "los_text": "discuss asset class liquidity considerations in asset allocation",
+      "reading_id": "principles_of_asset_allocation",
+      "reading_name": "Principles of Asset Allocation",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r4_paa_los_f_q1",
+          "number": 1,
+          "stem": "The reading identifies a *twofold problem* with less liquid asset classes (direct real estate, infrastructure, private equity) in the asset allocation decision. The problem is *most likely*:",
+          "options": {
+            "A": "(1) they always have negative expected returns, and (2) their volatility is undefined.",
+            "B": "(1) they are always tax-exempt, and (2) they are unavailable to institutional investors.",
+            "C": "(1) lack of accurate indexes makes capital market assumptions challenging, and (2) even with accurate indexes, there are no low-cost passive vehicles to track them."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This is false as stated.",
+            "B": "This is the opposite of the true situation.",
+            "C": "Correct. The reading identifies the twofold problem: (1) due to the lack of accurate indexes, it is more challenging to make capital market assumptions for these less liquid asset classes, and (2) even if there were accurate indexes, there are no low-cost passive investment vehicles to track them."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.f",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Allocating to Less Liquid Asset Classes",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_f_q2",
+          "number": 2,
+          "stem": "The reading identifies three practical options for addressing less liquid asset classes in asset allocation. Which is *least likely* one of them?",
+          "options": {
+            "A": "Always allocate exactly zero to any less liquid asset class regardless of investor circumstances.",
+            "B": "Exclude less liquid asset classes from the asset allocation decision and instead consider real estate funds, infrastructure funds, or private equity funds as implementation vehicles.",
+            "C": "Include less liquid asset classes in the asset allocation decision and model the inputs to represent the specific characteristics of the likely implementation vehicles."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading offers three practical options, none of which is a blanket zero allocation. The three are: (1) exclude from AA decision and use funds as implementation vehicles, (2) include and model implementation-vehicle characteristics, and (3) include and model diversified true asset-class characteristics.",
+            "B": "This is option 1.",
+            "C": "This is option 2."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.f",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Allocating to Less Liquid Asset Classes",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_f_q3",
+          "number": 3,
+          "stem": "For a smaller investor who *does not have access* to direct real estate, infrastructure, or private equity funds, the reading's most common recommendation is *most likely*:",
+          "options": {
+            "A": "avoid these asset classes entirely and increase allocations to public equities.",
+            "B": "use an index based on listed equities (e.g., global REITs) to represent the asset class and implement with a fund that invests similarly.",
+            "C": "use only cash to preserve liquidity."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The reading offers a specific alternative rather than avoidance.",
+            "B": "Correct. For investors who lack access to direct real estate funds, infrastructure funds, and private equity funds — for example, small investors — the reading states the most common approach is to use one of the indexes based on listed equities to represent the asset class and then implement the target allocation with a fund that invests similarly. Thus global REITs might be used to represent (approximately) global real estate.",
+            "C": "The reading recommends specific liquid substitutes, not blanket cash."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.f",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Allocating to Less Liquid Asset Classes",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_f_q4",
+          "number": 4,
+          "stem": "The reading warns that using listed alternative indexes (e.g., listed real estate indexes as a proxy for direct real estate) *most likely* creates:",
+          "options": {
+            "A": "perfectly diversified representation of the underlying asset class.",
+            "B": "no problems whatsoever.",
+            "C": "a violation of the recommendation that asset classes be mutually exclusive (securities appear in multiple indexes), typically resulting in higher correlations among different asset classes."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Listed alternatives are imperfect proxies for private assets.",
+            "B": "There is a documented downside — higher correlations.",
+            "C": "Correct. The reading notes that the use of listed alternative indexes often violates the recommendation that asset classes be mutually exclusive — the securities in these indexes are likely also included in indexes representing other asset classes. This typically results in higher correlations among different asset classes, which has the negative impact of increasing input sensitivity in most optimization settings."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.f",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Allocating to Less Liquid Asset Classes",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_f_q5",
+          "number": 5,
+          "stem": "For less liquid asset classes like private equity, the reading notes that the *risk and return characteristics of actual investment vehicles* often differ significantly from those of the asset class itself because:",
+          "options": {
+            "A": "a typical private equity fund is dominated by company-specific (idiosyncratic) risk, in direct contrast to the diversified nature of the underlying asset class.",
+            "B": "the vehicles perfectly replicate all constituents of the asset class.",
+            "C": "the vehicles all use the same benchmark index."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states that the risk and return characteristics associated with actual investment vehicles (direct real estate funds, infrastructure funds, private equity funds) are typically significantly different from the characteristics of the asset classes themselves. For example, the private equity 'asset class' should represent the characteristics of owning all private equity, whereas a typical PE fund is dominated by company-specific (idiosyncratic) risk.",
+            "B": "Vehicles rarely perfectly replicate the asset class.",
+            "C": "There are no universal benchmarks for these vehicles."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.f",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Allocating to Less Liquid Asset Classes",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "principles_of_asset_allocation.g",
+      "los_letter": "g",
+      "los_text": "explain absolute and relative risk budgets and their use in determining and implementing an asset allocation",
+      "reading_id": "principles_of_asset_allocation",
+      "reading_name": "Principles of Asset Allocation",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r4_paa_los_g_q1",
+          "number": 1,
+          "stem": "The reading defines the *marginal contribution to total risk* (MCTR) for asset class i as:",
+          "options": {
+            "A": "MCTR_i = (Weight_i) × (Portfolio return volatility).",
+            "B": "MCTR_i = (Beta of asset class i with respect to portfolio) × (Portfolio return volatility).",
+            "C": "MCTR_i = (Variance of asset class i) / (Portfolio return volatility)."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This is not the MCTR definition (it's closer to the ACTR calculation which multiplies weight by MCTR).",
+            "B": "Correct. The reading defines MCTR_i = (Beta of asset class i with respect to portfolio)(Portfolio return volatility). Critically, beta takes account not only of the asset's own volatility but also of the asset's correlations with other portfolio assets.",
+            "C": "This is not the MCTR formula."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.g",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Risk Budgeting",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_g_q2",
+          "number": 2,
+          "stem": "The *absolute contribution to total risk* (ACTR) for asset class i is *most likely* computed as:",
+          "options": {
+            "A": "ACTR_i = MCTR_i / (Weight_i).",
+            "B": "ACTR_i = (Beta_i)² × (Portfolio variance).",
+            "C": "ACTR_i = (Weight_i) × MCTR_i."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This is inverted.",
+            "B": "This is not the ACTR formula.",
+            "C": "Correct. The reading defines ACTR_i = (Weight_i)(MCTR_i). The ACTR measures how much asset i contributes to portfolio return volatility. Dividing each ACTR by total portfolio risk gives the percentage of total risk that each position contributes. The sum of ACTRs equals the portfolio's expected standard deviation."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.g",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Risk Budgeting",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_g_q3",
+          "number": 3,
+          "stem": "An asset allocation is *optimal from a risk-budgeting perspective* when *most likely*:",
+          "options": {
+            "A": "the ratio of excess return (over the risk-free rate) to MCTR is the same for all assets and matches the Sharpe ratio of the tangency portfolio.",
+            "B": "the weight of each asset class equals its market-cap weight.",
+            "C": "each asset class contributes an equal absolute contribution to total risk."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states an asset allocation is optimal from a risk-budgeting perspective when the ratio of excess return (over the risk-free rate) to MCTR is the same for all assets and matches the Sharpe ratio of the tangency portfolio. In the reading's UK example, all assets exhibit the same 0.368 ratio at the Sharpe-ratio-maximizing allocation.",
+            "B": "This is market-cap weighting, not the risk-budgeting optimality condition.",
+            "C": "This is the risk-parity approach — a separate heuristic, not the risk-budgeting optimality condition."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.g",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Risk Budgeting — optimality condition",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_g_q4",
+          "number": 4,
+          "stem": "Two asset classes A and B are in a portfolio. Asset A has twice the weight of B. Under what condition would B have a larger ACTR than A?",
+          "options": {
+            "A": "B's expected return must be more than twice A's expected return.",
+            "B": "B's beta with respect to the portfolio must be more than twice A's beta with respect to the portfolio.",
+            "C": "B's correlation with the risk-free rate must exceed A's."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Expected return doesn't enter the ACTR calculation directly.",
+            "B": "Correct. Since ACTR_i = (Weight_i)(Beta_i with respect to portfolio)(Portfolio return volatility), for B to contribute more than A when A has twice B's weight, the beta of B would have to be more than twice as large as the beta of A. This is exactly Example 5's answer in the reading.",
+            "C": "This does not enter the ACTR formula."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.g",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Risk Budgeting — Example 5",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_g_q5",
+          "number": 5,
+          "stem": "The reading distinguishes between *total*, *active*, and *residual* risk as three types of risk that risk budgets may address. The marginal contribution to a given type of risk is *most likely* defined as:",
+          "options": {
+            "A": "the historical realized volatility divided by the number of assets.",
+            "B": "the correlation coefficient between the asset and the total portfolio.",
+            "C": "the partial derivative of the risk in question with respect to the applicable type of portfolio holding."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This does not match the reading's definition.",
+            "B": "Correlation appears within the beta calculation but is not the definition of MCTR.",
+            "C": "Correct. The reading defines the marginal contribution to a type of risk as the partial derivative of the risk in question (total risk, active risk, or residual risk) with respect to the applicable type of portfolio holding (asset allocation holdings, active holdings, or residual holdings). Knowing MCTR allows one to (1) approximate the change in portfolio risk from small changes in an individual holding, (2) determine which positions are optimal, and (3) create a risk budget."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.g",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Risk Budgeting",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "principles_of_asset_allocation.h",
+      "los_letter": "h",
+      "los_text": "describe how client needs and preferences regarding investment risks can be incorporated into asset allocation",
+      "reading_id": "principles_of_asset_allocation",
+      "reading_name": "Principles of Asset Allocation",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r4_paa_los_h_q1",
+          "number": 1,
+          "stem": "In assessing an investor's risk aversion coefficient (λ), the reading identifies two conceptually distinct components that should be blended. These are *most likely*:",
+          "options": {
+            "A": "willingness to take risk (risk preference — subjective) and ability to take risk (risk capacity — objective).",
+            "B": "historical portfolio volatility and prospective portfolio volatility.",
+            "C": "asset-side volatility and liability-side volatility."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states best practices suggest examining both the investor's preference for risk (willingness to take risk — a subjective measure focused on how the investor feels about and reacts to portfolio ups and downs) and the investor's capacity for taking risk (an objective measure of the investor's ability to tolerate portfolio losses and the potential decrease in future consumption). Risk preference and capacity are sometimes referred to as willingness and ability to take risk, respectively.",
+            "B": "These are both quantitative volatility measures, not the willingness/ability distinction.",
+            "C": "This is a different framework."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.h",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "MVO Overview — risk aversion (sidebar)",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_h_q2",
+          "number": 2,
+          "stem": "The reading notes that psychometric literature has developed validated questionnaires (e.g., Grable and Joo 2004) to approximately locate an investor's risk preference. For individuals, risk *capacity* is affected by factors *most likely* including:",
+          "options": {
+            "A": "the investor's political views.",
+            "B": "net worth, income, size of an emergency fund relative to consumption needs, and the savings rate out of gross income.",
+            "C": "the size of the investor's home country's stock market."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Political views are not identified as affecting risk capacity.",
+            "B": "Correct. The reading cites Grable (2008) noting that for individuals, risk capacity is affected by factors such as net worth, income, the size of an emergency fund in relation to consumption needs, and the rate at which the individual saves out of gross income.",
+            "C": "Home-country market size is not a factor for individual risk capacity."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.h",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "MVO Overview — risk capacity",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_h_q3",
+          "number": 3,
+          "stem": "A shortfall risk concern like Aimée Goddard's (need to withdraw €60,000 in 12 months without invading principal) can be incorporated into asset allocation by *most likely*:",
+          "options": {
+            "A": "Abandoning the utility-based framework entirely, since shortfall concerns cannot coexist with utility maximization.",
+            "B": "Adopting a 100% cash allocation to guarantee the €60,000 withdrawal is available.",
+            "C": "using Roy's safety-first ratio [E(R_P) − R_L]/σ_P to differentiate among efficient allocations that tie on utility, or by adding a shortfall constraint to the optimization."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. The utility framework ACCOMMODATES shortfall concerns — the safety-first ratio differentiates among utility-tied allocations.",
+            "B": "Incorrect. All-cash guarantees the withdrawal but abandons the return objective; the trade-off is managed, not escaped.",
+            "C": "Correct. In Example 1, Goddard's utility U_A = U_B = 6.0%, but the safety-first ratio (E(R_P) − R_L)/σ_P uses the shortfall threshold R_L = 5% to select A (ratio 0.25) over B (ratio 0.20). The reading references the Level I Common Probability Distributions reading for Roy's safety-first criterion. This lets specific goal-based concerns override pure utility-tie situations."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.h",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "MVO — Example 1 shortfall",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_h_q4",
+          "number": 4,
+          "stem": "The reading identifies *five* general types of constraints that can be added to MVO to incorporate client circumstances. Which is *least likely* one of them?",
+          "options": {
+            "A": "Specify that the covariance matrix be diagonal.",
+            "B": "Specify a set allocation to a specific asset (e.g., 30% to real estate).",
+            "C": "Specify an asset allocation range (e.g., emerging markets between 5% and 20%)."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Requiring a diagonal covariance matrix is not one of the reading's five listed constraints. The five listed are: (1) set allocation to a specific asset (e.g., non-tradable asset), (2) allocation range, (3) upper limit on alternatives from liquidity, (4) relative allocation of two assets (e.g., EM equity < DM equity), (5) in liability-relative setting, hold assets representing the systematic characteristics of the liability short.",
+            "B": "This is a typical constraint.",
+            "C": "This is a typical constraint."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.h",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Adding Constraints Beyond Budget",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_h_q5",
+          "number": 5,
+          "stem": "The reading notes that the mean-variance optimization objective function can be extended beyond mean-variance to incorporate additional client preferences. Which of the following approaches *most likely* addresses investors who care about downside risk asymmetrically (prospect theory)?",
+          "options": {
+            "A": "Reverse optimization using market-cap weights.",
+            "B": "Mean-CVaR (conditional value-at-risk) optimization, mean-semivariance optimization, or mean-variance-skewness-kurtosis optimization.",
+            "C": "Setting the risk-aversion coefficient to zero."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Reverse optimization does not itself address downside asymmetry.",
+            "B": "Correct. The reading identifies extensions in Exhibit 17: mean-semivariance (Markowitz 1959), mean-conditional value-at-risk (Rockafellar and Uryasev 2000; Goldberg et al 2013; Xiong and Idzorek 2011), mean-variance-skewness (Briec et al 2007; Harvey et al 2010), and mean-variance-skewness-kurtosis (Athayde and Flôres 2003; Beardsley et al 2012). These reflect Prospect theory — the pain of a loss is approximately twice as significant as the joy of an equivalent gain.",
+            "C": "Zero risk aversion would ignore risk entirely, not asymmetrize it."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.h",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Other Non-Normal Optimization Approaches — Exhibit 17",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "principles_of_asset_allocation.i",
+      "los_letter": "i",
+      "los_text": "describe the use of investment factors in constructing and analyzing an asset allocation",
+      "reading_id": "principles_of_asset_allocation",
+      "reading_name": "Principles of Asset Allocation",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r4_paa_los_i_q1",
+          "number": 1,
+          "stem": "In factor-based asset allocation, the reading identifies typical factors used *besides* the market factor. Which of the following is *least likely* one of them?",
+          "options": {
+            "A": "Size, valuation (value-growth), momentum.",
+            "B": "Duration/term, credit, liquidity, volatility.",
+            "C": "Book-to-price weighted by CEO tenure."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "These are typical factors.",
+            "B": "These are typical factors.",
+            "C": "Correct. This is not a standard factor. The reading identifies size, valuation, momentum, liquidity, duration (term), credit, and volatility as typical factors used in factor-based asset allocation, along with the all-important market (equity) exposure. Most were originally identified as return drivers that help explain returns not explained by CAPM."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.i",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Factor-Based Asset Allocation",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_i_q2",
+          "number": 2,
+          "stem": "The reading notes that with the exception of the market factor, factors in factor-based asset allocation are typically *zero-investment* (self-financing). Specifically, the size factor is *most likely* constructed as:",
+          "options": {
+            "A": "Size factor return = Small-cap stock return − Large-cap stock return.",
+            "B": "Size factor return = Weighted average of Small-cap and Large-cap returns.",
+            "C": "Size factor return = Large-cap stock return + Small-cap stock return."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states factors typically represent zero-investment (self-financing) investments in which the underperforming attribute is sold short to finance an offsetting long position in the better-performing attribute. For the size factor: Size factor return = Small-cap stock return − Large-cap stock return. If large-caps outperform small-caps, the size factor return is negative.",
+            "B": "This is not a zero-investment factor construction.",
+            "C": "This is not a factor return."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.i",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Factor-Based Asset Allocation — size factor",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_i_q3",
+          "number": 3,
+          "stem": "The reading notes that zero-investment factor construction *most likely* has an important property regarding correlation:",
+          "options": {
+            "A": "Factors constructed this way are perfectly correlated with the market.",
+            "B": "Factors have most market exposure removed (because short positions offset long positions), giving them low correlations with the market and with one another.",
+            "C": "Factors have identical correlations across all major asset classes."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Zero-investment construction removes, not preserves, market exposure.",
+            "B": "Correct. The reading states constructing factors as zero-investment positions removes most market exposure from the factors (because the short positions offset long positions). As a result, the factors generally have low correlations with the market and with one another.",
+            "C": "Correlations vary across asset classes."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.i",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Factor-Based Asset Allocation",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_i_q4",
+          "number": 4,
+          "stem": "In practice, when factor-based asset allocation is done in 'total return space' alongside traditional asset classes, the factor return *most likely* needs to be augmented by:",
+          "options": {
+            "A": "The return on the market portfolio, so every factor carries the equity premium.",
+            "B": "A random walk term calibrated to the factor's tracking error.",
+            "C": "the return on the risk-free asset (cash), so that the factor's total return equals the risk-free rate plus the excess factor return."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. The market is itself a separate factor; adding its return to every factor would double-count equity beta.",
+            "B": "Incorrect. No random term is added — the RISK-FREE rate converts excess factor returns into total-return space alongside asset classes.",
+            "C": "Correct. The reading states that in order to stay in 'total return space,' the factor return needs to include the return on the assumed collateral (in the example, three-month Treasury bills). This adjustment is also needed if one plans to include both risk factors and some traditional asset classes in the same optimization. One way to think about a self-financing allocation to a risk factor is that in order to invest in it, one must put up an equivalent amount of collateral invested in cash."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.i",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Factor-Based Asset Allocation",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_i_q5",
+          "number": 5,
+          "stem": "The reading's overall recommendation regarding asset-class-based vs factor-based asset allocation is *most likely*:",
+          "options": {
+            "A": "practitioners should choose the space (risk factors or asset classes) in which they are most equipped to make capital market assumptions; expanding the opportunity set to include new, weakly-correlated risk factors or asset classes should improve risk-return trade-offs.",
+            "B": "always use asset-class-based approaches; factor-based approaches lack theoretical foundation.",
+            "C": "always use factor-based approaches; asset-class approaches are outdated."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states practitioners should choose to carry out asset allocation in the particular space — risk factors or asset classes — in which they are most equipped to make capital market assumptions. Regardless of which space a practitioner prefers, expanding one's opportunity set to include new, weakly correlated risk factors or asset classes should improve the potential risk-return trade-offs.",
+            "B": "The reading takes a balanced view rather than dismissing factor-based approaches.",
+            "C": "The reading does not favor one approach over the other categorically."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.i",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Factor-Based Asset Allocation",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "principles_of_asset_allocation.j",
+      "los_letter": "j",
+      "los_text": "describe and evaluate characteristics of liabilities that are relevant to asset allocation",
+      "reading_id": "principles_of_asset_allocation",
+      "reading_name": "Principles of Asset Allocation",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r4_paa_los_j_q1",
+          "number": 1,
+          "stem": "The reading distinguishes *fixed* from *contingent* liabilities. An example of a contingent liability is *most likely*:",
+          "options": {
+            "A": "a fixed-coupon corporate bond issued at par.",
+            "B": "the liabilities of a defined benefit (DB) pension plan, where the exact dates and amounts of payments depend on employees' retirement dates, longevity, and cash payout rules.",
+            "C": "a mortgage with a fixed interest rate and fixed monthly payments."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "A fixed-coupon bond has known amounts and timing — a fixed liability.",
+            "B": "Correct. The reading states DB pension plans are an important example of contingent liabilities: the plan sponsor has a legal commitment to pay beneficiaries, but the exact dates depend on employees' retirement dates, longevity, and cash payout rules. Insurance company liabilities are also contingent — payments depend on the occurrence of a predefined event.",
+            "C": "A mortgage with fixed payments is a fixed liability."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.j",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Characterizing the Liabilities",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_j_q2",
+          "number": 2,
+          "stem": "The reading distinguishes *legal liabilities* from *quasi-liabilities*. An example of a quasi-liability is *most likely*:",
+          "options": {
+            "A": "A corporate bond obligation issued by the university's financing arm.",
+            "B": "An insurance policy payout owed to a policyholder.",
+            "C": "the endowment support expected by a university, which contributes a major part of the operating budget but is not legally required."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. A bond coupon and principal schedule is a LEGAL liability — enforceable in court.",
+            "B": "Incorrect. Policy payouts are contractual legal liabilities; the QUASI-liability is expected but not legally required, like endowment support of the operating budget.",
+            "C": "Correct. The reading distinguishes legal liabilities from cash payments that are expected to be made in the future and are essential to the mission of an institution but are not legal liabilities. The endowment of a university fits this category — the endowment contributes a major part of the university's operating budget and assures stakeholders it will continue such support, but there is no legal enforceability. Similarly, an individual's spending needs represent quasi-liabilities."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.j",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Characterizing the Liabilities",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_j_q3",
+          "number": 3,
+          "stem": "The reading (Exhibit 23) lists seven characteristics of liabilities relevant to asset allocation. Which of the following is *least likely* one of them?",
+          "options": {
+            "A": "Historical dividend yield of the sponsor's equity.",
+            "B": "Duration and convexity of liability cash flows.",
+            "C": "Factors driving future liability cash flows (inflation, economic conditions, interest rates, risk premium)."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Sponsor equity dividend yield is not among the seven listed characteristics. The seven are: (1) fixed vs contingent cash flows, (2) legal vs quasi-liabilities, (3) duration/convexity of liability cash flows, (4) value of liabilities vs size of sponsoring organization, (5) factors driving future cash flows (inflation, economy, rates, risk premium), (6) timing considerations (longevity risk), (7) regulations affecting liability cash flow calculations.",
+            "B": "This is one of the seven listed characteristics.",
+            "C": "This is one of the seven listed characteristics."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.j",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Characterizing the Liabilities — Exhibit 23",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_j_q4",
+          "number": 4,
+          "stem": "The LOWTECH company's frozen DB pension has projected liabilities with PV of US$2.261 billion at a 4% discount rate versus US$3.039 billion at a 2% discount rate. Given US$2.5 billion of assets, the funding ratio at 4% is *closest to*:",
+          "options": {
+            "A": "0.82.",
+            "B": "1.11.",
+            "C": "1.32."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This is the funding ratio at 2% discount rate (2.5/3.039 = 0.8226).",
+            "B": "Correct. Funding ratio = Market value of assets / PV of liabilities = US$2.5 billion / US$2.261 billion = 1.1057, so the plan is about 10.6% overfunded at the 4% discount rate. The surplus is US$2.5B − US$2.261B = US$0.239 billion. At 2%, the plan becomes underfunded (funding ratio = 0.8226; surplus = −US$0.539B).",
+            "C": "This is above the correct value."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.j",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "LOWTECH Case — funding ratio",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_j_q5",
+          "number": 5,
+          "stem": "The reading argues that the discount rate for liabilities is *most likely* determined by:",
+          "options": {
+            "A": "The fund's expected return on assets, so higher-returning portfolios discount liabilities at higher rates.",
+            "B": "The plan sponsor's weighted-average cost of debt.",
+            "C": "regulations, tradition, and (from economic theory) the rate on assets that could perfectly hedge the liability cash flows."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Discounting at expected asset returns makes the liability value depend on the asset mix — circular and theoretically unsound.",
+            "B": "Incorrect. Sponsor debt cost is not the theoretical answer; regulations, tradition, and the rate on assets that would perfectly HEDGE the cash flows govern.",
+            "C": "Correct. The reading states the choice of discount rate is generally set by regulations and tradition. From the standpoint of economic theory, if the liability cash flows can be hedged perfectly by a set of market-priced assets, the discount rate can be determined by reference to the discount rate for those assets. For example, if pension liabilities are fixed, the discount rate should be the risk-free rate with reference to the duration of the liability cash flows."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.j",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Characterizing the Liabilities — discount rate",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "principles_of_asset_allocation.k",
+      "los_letter": "k",
+      "los_text": "discuss approaches to liability-relative asset allocation",
+      "reading_id": "principles_of_asset_allocation",
+      "reading_name": "Principles of Asset Allocation",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r4_paa_los_k_q1",
+          "number": 1,
+          "stem": "The reading identifies three approaches to liability-relative asset allocation. Which of the following is *least likely* one of them?",
+          "options": {
+            "A": "Equal-weight liability apportionment across all liability tranches.",
+            "B": "Surplus optimization — an extension of MVO using surplus (asset value minus PV of liabilities) volatility as the risk measure.",
+            "C": "Hedging/return-seeking portfolios (two-portfolio) — separating assets into a hedging portfolio and a return-seeking portfolio."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Equal-weight liability apportionment is not one of the reading's three approaches. The three are: (1) surplus optimization, (2) hedging/return-seeking portfolios (two-portfolio approach), and (3) integrated asset-liability approach (used by banks, insurance companies, and long-short hedge funds).",
+            "B": "This is one of the three approaches.",
+            "C": "This is one of the three approaches."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.k",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Approaches to Liability-Relative Asset Allocation",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_k_q2",
+          "number": 2,
+          "stem": "Surplus optimization is *most likely* best described as:",
+          "options": {
+            "A": "A completely different framework from MVO, replacing expected returns with minimum expectations and discarding the objective function.",
+            "B": "an extension of MVO where the objective function U_LR = E(R_s) − 0.005λσ²(R_s) uses surplus return E(R_s) = (Change in asset value − Change in liability value)/(Initial asset value) instead of asset return.",
+            "C": "A strict cash-flow-matching technique that pairs each liability payment with a dedicated bond, involving no optimization at all."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Surplus optimization is an EXTENSION of MVO — the same mean-variance machinery applied to surplus returns.",
+            "B": "Correct. The reading states surplus optimization involves adapting asset-only MVO by substituting surplus return for asset return over any given time horizon. The objective function is U_LR = E(R_s,m) − 0.005λσ²(R_s,m), where surplus return equals (Change in asset value − Change in liability value)/(Initial asset value). This is a straightforward extension of the asset-only portfolio model.",
+            "C": "Incorrect. Cash flow matching is a hedging-portfolio construction; surplus optimization maximizes U_LR = E(R_s) − 0.005λσ²(R_s) over the surplus."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.k",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Surplus Optimization",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_k_q3",
+          "number": 3,
+          "stem": "The reading identifies *six steps* in the surplus optimization approach. Which is *least likely* one of them?",
+          "options": {
+            "A": "Select asset categories and determine planning horizon.",
+            "B": "Estimate expected returns and volatilities for asset categories, and estimate liability returns.",
+            "C": "Adjust the discount rate to make the funding ratio equal to 1."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This is step 1.",
+            "B": "This is step 2.",
+            "C": "Correct. Adjusting the discount rate to force funding ratio = 1 is not a step. The six steps are: (1) select asset categories and horizon, (2) estimate expected returns/volatilities for assets and liabilities (expanded matrix), (3) determine investment mix constraints, (4) estimate expanded correlation matrix and volatilities, (5) compute the surplus efficient frontier and compare with the asset-only frontier, (6) select a recommended portfolio mix."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.k",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Surplus Optimization — six steps",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_k_q4",
+          "number": 4,
+          "stem": "The *hedging/return-seeking* (two-portfolio) approach in its *basic case* is *most likely*:",
+          "options": {
+            "A": "most appropriate for conservative investors (e.g., insurance companies) and for overfunded pension plans that wish to reduce or eliminate the risk of not paying future liabilities.",
+            "B": "most appropriate for underfunded plans that must take on more risk to close the deficit.",
+            "C": "used only when there is no market for hedging instruments."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states the basic two-portfolio approach is most appropriate for conservative investors, such as insurance companies, and for overfunded pension plans that wish to reduce or eliminate the risk of not being able to pay future liabilities. In LOWTECH's basic application, US$2.261B goes to the hedging portfolio (long bonds at the 4% discount rate) and the US$0.239B surplus goes to the return-seeking portfolio.",
+            "B": "Underfunded plans require variants, not the basic approach.",
+            "C": "The approach relies on well-functioning hedging markets and applies in many contexts."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.k",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Hedging/Return-Seeking Portfolios",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_k_q5",
+          "number": 5,
+          "stem": "The *integrated asset-liability approach* is *most appropriate* for institutional investors that:",
+          "options": {
+            "A": "make asset allocation decisions independently of liability decisions.",
+            "B": "must render significant decisions regarding the composition of their liabilities jointly with asset allocation — e.g., banks, insurance companies, re-insurers, and long-short hedge funds.",
+            "C": "have no legal liabilities to consider."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This describes when surplus optimization or the two-portfolio approach applies, not integrated.",
+            "B": "Correct. The reading states integrated asset-liability approaches are appropriate for institutions where asset and liability decisions can be integrated and jointly optimized — banks, long-short hedge funds (where shorts are liabilities), insurance companies, and reinsurance companies. Approach names include ALM (banks) and DFA (insurance). These are often implemented in multi-period models.",
+            "C": "Integrated approaches are used precisely where liabilities are central."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.k",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Integrated Asset-Liability Approach",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "principles_of_asset_allocation.l",
+      "los_letter": "l",
+      "los_text": "recommend and justify a liability-relative asset allocation",
+      "reading_id": "principles_of_asset_allocation",
+      "reading_name": "Principles of Asset Allocation",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r4_paa_los_l_q1",
+          "number": 1,
+          "stem": "For an *overfunded* pension plan with fixed (frozen) liabilities that wishes to reduce risk of underfunding, the *most appropriate* liability-relative approach is *most likely*:",
+          "options": {
+            "A": "an aggressive equity-only allocation to maximize surplus growth.",
+            "B": "the integrated asset-liability approach with dynamic multi-period optimization.",
+            "C": "the basic hedging/return-seeking approach — invest PV(liabilities) in a hedging portfolio and the surplus in a return-seeking portfolio."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Aggressive equity allocation ignores the liability structure.",
+            "B": "Integrated ALM applies where liability composition itself is a decision (banks, insurance) — not to frozen DB plans.",
+            "C": "Correct. The reading identifies the basic two-portfolio approach as most appropriate for conservative investors and overfunded pension plans wishing to eliminate the risk of not paying liabilities. LOWTECH exemplifies this: with US$2.5B assets against US$2.261B liabilities at 4%, US$2.261B goes to hedging (long bonds) and US$0.239B to return-seeking."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.l",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Hedging/Return-Seeking — LOWTECH case",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_l_q2",
+          "number": 2,
+          "stem": "For an *underfunded* pension plan, the reading notes the *basic* two-portfolio approach *most likely* does not apply because:",
+          "options": {
+            "A": "there is no surplus to allocate to the return-seeking portfolio; the plan sponsor must increase contributions or apply a *variant* of the two-portfolio approach (partial hedge, dynamic glide path).",
+            "B": "the two-portfolio approach requires perfect market liquidity in all liability-hedging instruments.",
+            "C": "surplus optimization always outperforms the two-portfolio approach in this case."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states that when the plan is underfunded (e.g., LOWTECH at 2% discount rate has surplus −US$0.539B), the sponsor would either develop a strategy to increase the funding ratio (higher contributions) or apply a variant of the two-portfolio approach. Variants include a partial hedge (reduce hedging portfolio allocation to seek higher returns) and dynamic versions (glide path — increase hedging as funding improves).",
+            "B": "The reading does not require perfect liquidity for the basic approach.",
+            "C": "The reading does not make this claim."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.l",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Hedging/Return-Seeking Portfolios — underfunded case",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_l_q3",
+          "number": 3,
+          "stem": "On the LOWTECH surplus efficient frontier, comparing two efficient asset mixes — one at low expected surplus return (US$0.26 billion) and one at higher expected surplus return (US$0.32 billion) — the reading notes the *composition difference* is *most likely*:",
+          "options": {
+            "A": "the higher-surplus-return mix holds substantially more corporate bonds because they are the hedging asset.",
+            "B": "the lower-surplus-return mix holds substantially more corporate bonds because they are the hedging asset for the liabilities; the higher-surplus-return mix reduces or eliminates them.",
+            "C": "both mixes hold identical corporate bond allocations."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This reverses the relationship.",
+            "B": "Correct. The reading states the low-surplus-return portfolio has a substantial position in corporate bonds while the high-surplus-return mix does not include them. The allocation to corporate bonds declines with increasing surplus return because of the positive correlation of bond price with the present value of liabilities — corporate bonds serve as the hedging asset, employed more heavily at the low end of the surplus efficient frontier.",
+            "C": "The mixes are substantively different in the hedging-asset allocation."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.l",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Surplus Optimization — Example 6",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_l_q4",
+          "number": 4,
+          "stem": "For a property/casualty insurance company facing catastrophic-risk liabilities (earthquakes, hurricanes), the reading argues that:",
+          "options": {
+            "A": "The hedging portfolio for catastrophic insurance liabilities is well-defined and easily constructed from listed securities.",
+            "B": "The company should avoid writing catastrophe-exposed policies entirely, eliminating the allocation problem.",
+            "C": "the hedging portfolio is not well-defined, so liabilities may need to be addressed via customized products or by purchasing re-insurance, and the assets and liabilities are integrated so worst-case events can be analyzed on both sides of the balance sheet."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Earthquake and hurricane liabilities have NO well-defined hedging portfolio in traditional markets.",
+            "B": "Incorrect. Bearing such risks IS the P&C business; the response is customized products or reinsurance, not exit.",
+            "C": "Correct. The reading states that for property/casualty insurance with catastrophic liabilities, the hedging portfolio is not well-defined; it is difficult to hedge liabilities for a book of catastrophic-risk policies. Liabilities might be addressed via customized products or by purchasing re-insurance. The assets and liabilities are integrated so worst-case events can be analyzed on both sides of the balance sheet. Tail risks (1% VaR/CVaR) determine capital needs."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.l",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Integrated Asset-Liability Approach — P/C insurance",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_l_q5",
+          "number": 5,
+          "stem": "For a *factor-based approach* to liability-relative asset allocation, the reading argues this is particularly credible because:",
+          "options": {
+            "A": "in many applications, liability cash flows depend on multiple uncertainties (economic conditions, inflation, salary changes), and a fully hedged portfolio cannot be constructed.",
+            "B": "Liability cash flows are always known with certainty, so factor modeling adds no information.",
+            "C": "Factor-based approaches eliminate all uncertainty in the liability-relative allocation."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: in many applications, liability cash flows depend on multiple uncertainties (economic conditions, inflation, salary changes), and a fully hedged portfolio cannot be constructed — the best that can be done is to add asset categories positively correlated with the underlying risk factors (e.g., inflation-linked bonds).\n\nCorrect. The reading states a factor-based approach for liability-relative allocation has gained credibility because in many applications the liability cash flows are dependent on multiple uncertainties. The two primary macro factors are future economic conditions and inflation. A fully hedged portfolio cannot be constructed when liabilities are impacted by these uncertain factors. For ongoing pension schemes, the best that can be done is to add asset categories positively correlated with the underlying driving risk factors, such as inflation-linked bonds.",
+            "B": "Incorrect. Certainty is the exception — inflation, salary growth, and economic conditions drive liability cash flows.",
+            "C": "Incorrect. Factors organize and manage the uncertainty across assets and liabilities; nothing eliminates it."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.l",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Factor Modeling in Liability-Relative Approaches",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "principles_of_asset_allocation.m",
+      "los_letter": "m",
+      "los_text": "recommend and justify an asset allocation using a goals-based approach",
+      "reading_id": "principles_of_asset_allocation",
+      "reading_name": "Principles of Asset Allocation",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r4_paa_los_m_q1",
+          "number": 1,
+          "stem": "The goals-based asset allocation process *most likely* disaggregates the investor's portfolio into:",
+          "options": {
+            "A": "a single portfolio optimized against one comprehensive utility function.",
+            "B": "a number of sub-portfolios, each designed to fund an individual goal (or 'mental account') with its own time horizon and required probability of success.",
+            "C": "an equal-weighted portfolio of all available asset classes."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This describes the traditional single-portfolio approach.",
+            "B": "Correct. The reading states a goals-based asset allocation process disaggregates the investor's portfolio into a number of sub-portfolios, each of which is designed to fund an individual goal (or 'mental account') with its own time horizon and required probability of success. This addresses the Shefrin-Statman behavioral portfolio concept and Das-Markowitz-Scheid-Statman (2010, 2011) equivalence of traditional and behavioral finance when risk is redefined from volatility to probability of not achieving a goal.",
+            "C": "This is the 1/N heuristic, not goals-based."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.m",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Developing Goals-Based Asset Allocations",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_m_q2",
+          "number": 2,
+          "stem": "The reading identifies key differences between institutional and individual investors' definitions of goals. Which of the following is *most likely* one of the differences?",
+          "options": {
+            "A": "Individuals typically have single goals; institutions have multiple.",
+            "B": "Both groups define risk identically as return volatility.",
+            "C": "Individuals typically have multiple goals with multiple time horizons; institutions typically have a single goal and single time horizon."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This reverses the reading's Exhibit 33 comparison.",
+            "B": "The risk measures differ per Exhibit 33.",
+            "C": "Correct. Per Exhibit 33, institutions have single goals with single horizons, while individuals have multiple goals with multiple horizons. Institutions typically use volatility (return or surplus) as the risk measure; individuals use probability of missing goal. Institutions use mathematical expectations for return determination; individuals use minimum expectations. Institutions are often tax-exempt; individuals are mostly taxable."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.m",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Developing Goals-Based Asset Allocations — Exhibit 33",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_m_q3",
+          "number": 3,
+          "stem": "*Minimum expectations* in goals-based asset allocation are *most likely* defined as:",
+          "options": {
+            "A": "the minimum return expected to be earned over the given time horizon with a given minimum required probability of success.",
+            "B": "The arithmetic mean of expected returns across the goal's investment horizon.",
+            "C": "The lowest return observed historically for the recommended asset mix."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading defines minimum expectations as the minimum return expected to be earned over a given time horizon with a given minimum required probability of success. For example, a portfolio with 7% expected return, 10% volatility, over 5 years with 90% required probability produces only about 1.3% per year compound return at the 90% probability level — a considerably lower discount rate than the 7% average, requiring a higher capital reservation to defease the goal.",
+            "B": "Incorrect. The plain expected return carries no success-probability qualifier; minimum expectations attach a REQUIRED PROBABILITY to the horizon return.",
+            "C": "Incorrect. Historical minima are backward-looking; the concept is a forward-looking return floor at a stated confidence level."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.m",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Developing Goals-Based Asset Allocations — minimum expectations",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_m_q4",
+          "number": 4,
+          "stem": "Under the goals-based approach, a portfolio with expected annual return 7%, volatility 10%, target 5-year horizon, and 90% required probability of success *most likely* implies a defeasance discount rate *closest to*:",
+          "options": {
+            "A": "7% per year — the expected return.",
+            "B": "about 1.3% per year — the return expected to be exceeded with 90% probability over 5 years.",
+            "C": "0% — because probability of success requires certainty."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Using the expected return ignores the required probability of success.",
+            "B": "Correct. The reading works through this example: over 5 years, the portfolio is expected to produce total returns of 35% (= 5 × 7%) with 5-year volatility of 22.4% (= 10% × √5, under IID assumption). The 90% probability return level (mean minus 1.28σ approximately) is much lower than the median, implying about 1.3% per year compound return at the 90% probability level. This lower rate must be used to determine required capital.",
+            "C": "The reading uses a non-zero probability-adjusted rate."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.m",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Developing Goals-Based Asset Allocations — worked example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_m_q5",
+          "number": 5,
+          "stem": "The goals-based approach's most distinctive risk measure differs from the traditional volatility-based measure. Under goals-based allocation, risk is *most likely*:",
+          "options": {
+            "A": "the volatility of overall portfolio returns.",
+            "B": "the tracking error against a policy benchmark.",
+            "C": "the probability of not achieving each specific goal — with different goals allowed to have different required probabilities."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This is the traditional MVO risk measure, not goals-based.",
+            "B": "This is a professional-portfolio-management measure, not goals-based.",
+            "C": "Correct. The reading cites Das, Markowitz, Scheid, and Statman (2010, 2011) showing that traditional and behavioral finance are equivalent if one changes the definition of risk from volatility of returns to the probability of not achieving a goal. Per Exhibit 33, individuals' risk measure is 'probability of missing goal', with each goal allowed its own required probability of success."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.m",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Developing Goals-Based Asset Allocations",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "principles_of_asset_allocation.n",
+      "los_letter": "n",
+      "los_text": "describe and evaluate heuristic and other approaches to asset allocation",
+      "reading_id": "principles_of_asset_allocation",
+      "reading_name": "Principles of Asset Allocation",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r4_paa_los_n_q1",
+          "number": 1,
+          "stem": "The '120 minus your age' heuristic (or the older '100 minus your age') *most likely* implies:",
+          "options": {
+            "A": "a linear decrease in equity allocation as the investor ages, fitting the general glide paths of target-date funds.",
+            "B": "constant equity allocation regardless of age.",
+            "C": "an increase in equity allocation with age."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states '120 − Age = Percentage allocated to stocks'. Although the reading identifies no theoretic basis for this heuristic, it results in a linear decrease in equity exposure that seems to fit the general equity glide paths of target-date funds — including those based on a total balance sheet approach incorporating human capital. A 25-year-old would allocate 95% to stocks; a 76-year-old would allocate 44%.",
+            "B": "The heuristic is age-linked, not constant.",
+            "C": "This reverses the relationship."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.n",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Heuristics — 120 Minus Your Age Rule",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_n_q2",
+          "number": 2,
+          "stem": "The *60/40 stock/bond* heuristic is *most likely*:",
+          "options": {
+            "A": "purely arbitrary with no empirical basis.",
+            "B": "supported by some evidence that the global financial asset market portfolio is close to a prototypical 60/40 split.",
+            "C": "recommended by the reading as optimal for all investors."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The reading identifies partial empirical support.",
+            "B": "Full statement: supported by some evidence that the global financial asset market portfolio is close to a prototypical 60/40 split — equities, private equity, and real estate accounted for slightly more than 60% in about 7 of 23 years from 1990-2012.\n\nCorrect. The reading states there is some evidence that the global financial asset market portfolio is close to this prototypical 60/40 split. Doeswijk, Lam, and Swinkels (2014) show that in approximately 7 of 23 years from 1990-2012, equities, private equity, and real estate account for slightly more than 60% of the global market portfolio; for the rest of the time, the combined percentage is slightly less. This is heuristic support, not endorsement.",
+            "C": "The reading treats 60/40 as a heuristic, not universally optimal."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.n",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Heuristics — 60/40",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_n_q3",
+          "number": 3,
+          "stem": "The Yale endowment model (or 'Yale model') as described by Swensen is *most likely* characterized by:",
+          "options": {
+            "A": "highly passive investment in publicly traded securities matching global market-cap weights.",
+            "B": "risk parity allocation with equal risk contribution from each asset.",
+            "C": "large allocations to non-traditional investments, commitment to active management, and seeking illiquidity premiums that endowments with long time horizons are well-positioned to capture."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This describes the Norway model.",
+            "B": "Risk parity is a separate approach.",
+            "C": "Correct. The reading states the endowment model (Yale model, pioneered by Swensen) is characterized by large allocations to non-traditional investments, including equity-oriented investments driven by manager skill (e.g., private equities), commitment to active management, and seeking illiquidity premiums. Yale's 2014 allocation showed 33.0% private equity, 17.6% real estate, 17.4% absolute return — far higher than US educational institution means."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.n",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Heuristics — Yale endowment model",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_n_q4",
+          "number": 4,
+          "stem": "A *risk parity* asset allocation is based on the notion that:",
+          "options": {
+            "A": "each asset (asset class or risk factor) should contribute equally to the total risk of the portfolio for the portfolio to be well diversified.",
+            "B": "each asset should equal the market-cap weight in the global portfolio.",
+            "C": "the highest-Sharpe-ratio asset should receive the largest weight."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states a risk parity asset allocation is based on the notion that each asset (asset class or risk factor) should contribute equally to the total risk of the portfolio for a portfolio to be well diversified. The mathematical form is w_i × Cov(r_i, r_P) = (1/n) × σ²_P. This addresses the criticism that MVO allocations may appear diversified across assets while sources of risk are not.",
+            "B": "This is market-cap weighting, not risk parity.",
+            "C": "This is not the risk-parity criterion."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.n",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Heuristics — Risk Parity",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_n_q5",
+          "number": 5,
+          "stem": "The 1/N rule (equal-weight allocation to N assets) *most likely* has this empirical characteristic:",
+          "options": {
+            "A": "consistently underperforms all optimization-based methods.",
+            "B": "has been found to perform considerably better than theory might suggest, based on Sharpe ratios and certainty equivalents.",
+            "C": "produces zero return in all market conditions."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The reading identifies the opposite.",
+            "B": "Correct. The reading states that although in principle 1/N portfolios should be dominated by methods that optimize asset class weights to exploit differences in investment characteristics, empirical studies (DeMiguel, Garlappi, and Uppal 2009) have found 1/N performs considerably better than theory might suggest. One possible explanation is that the 1/N rule sidesteps problems caused by optimizing when there is estimation error in inputs.",
+            "C": "This is not accurate."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.n",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Heuristics — 1/N rule",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_n_q6",
+          "number": 6,
+          "stem": "The Norway model — the Norway Government Pension Fund Global — is *most likely* in *diametrical contrast* to the endowment model because it:",
+          "options": {
+            "A": "It invests exclusively in Norwegian assets to concentrate returns in the domestic economy.",
+            "B": "It uses leverage aggressively to raise the risk contribution of its bond holdings.",
+            "C": "is highly committed to passive investment in publicly traded securities (subject to ESG concerns), reflecting a belief in market informational efficiency, with an approximate 60/40 stock/bond mix since 2009."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. The fund is deliberately GLOBAL — domestic concentration is what it avoids.",
+            "B": "Incorrect. Leveraged bonds describe RISK PARITY; Norway's contrast with the endowment model is passive public-market investing with minimal alternatives.",
+            "C": "Correct. The reading identifies the Norway model as 'in almost diametrical contrast' to the endowment model: highly committed to passive investment in publicly traded securities (subject to ESG concerns), reflecting a belief in market informational efficiency. Since 2009 the asset allocation has followed an approximate 60/40 stock/bond mix."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.n",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Heuristics — Norway model",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "principles_of_asset_allocation.o",
+      "los_letter": "o",
+      "los_text": "discuss factors affecting rebalancing policy",
+      "reading_id": "principles_of_asset_allocation",
+      "reading_name": "Principles of Asset Allocation",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r4_paa_los_o_q1",
+          "number": 1,
+          "stem": "The reading identifies two common approaches to rebalancing an asset allocation. These are *most likely*:",
+          "options": {
+            "A": "calendar rebalancing (fixed-interval) and percent-range rebalancing (contingent on market movements).",
+            "B": "buy-and-hold rebalancing and dollar-cost-averaging rebalancing.",
+            "C": "immediate rebalancing and delayed rebalancing."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading defines calendar rebalancing (fixed periodic intervals such as monthly, quarterly, semi-annually, or annually) and percent-range rebalancing (contingent on market movements, using corridors around target weights). Calendar rebalancing involves lower monitoring costs; percent-range is a more disciplined risk control policy because it makes rebalancing contingent on actual drift.",
+            "B": "These are not rebalancing categories.",
+            "C": "These are not standard rebalancing frameworks."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.o",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Portfolio Rebalancing in Practice",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_o_q2",
+          "number": 2,
+          "stem": "The reading argues that rebalancing has empirically tended to *reduce risk while incrementally adding to returns*. Two interpretations are offered. These are *most likely*:",
+          "options": {
+            "A": "A momentum premium and a value premium harvested through disciplined rebalancing.",
+            "B": "a diversification return (compound growth of a rebalanced portfolio exceeds the weighted-average compound growth of components) and a return from being short volatility.",
+            "C": "A size premium and a quality premium embedded in the rebalancing trades."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Momentum and value are EQUITY factor premia; the rebalancing interpretations are the diversification return and being a supplier of liquidity (buying weakness, selling strength).",
+            "B": "Correct. The reading offers two interpretations: (1) rebalancing earns a diversification return — the compound growth rate of a portfolio is greater than the weighted-average compound growth rate of components (with sufficiently low transaction costs, this leads to a 'diversification return' from frequent rebalancing to a well-diversified portfolio, per Willenbrock 2011). (2) Rebalancing earns a return from being short volatility — the return to a rebalanced portfolio can be replicated by buy-and-hold plus writing OTM puts and calls on the risky asset.",
+            "C": "Incorrect. Size and quality are cross-sectional stock factors — unrelated to the asset-class rebalancing benefit."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.o",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Portfolio Rebalancing — benefits",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_o_q3",
+          "number": 3,
+          "stem": "In percent-range rebalancing, the *optimal corridor width* for an asset class *increases* (all else equal) with which of the following factors?",
+          "options": {
+            "A": "Lower transaction costs and higher volatility of the rest of the portfolio.",
+            "B": "Only with higher liquidity of the asset class.",
+            "C": "Higher transaction costs, higher risk tolerance, and higher correlation with the rest of the portfolio."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Lower transaction costs would narrow corridors; higher rest-of-portfolio volatility narrows corridors.",
+            "B": "Liquidity is not the factor identified.",
+            "C": "Correct. Per the reading's Exhibit 48, factors positively related to optimal corridor width are: transaction costs (higher costs → wider corridor, so the benefits must exceed a higher hurdle); risk tolerance (higher tolerance → less sensitivity to divergences → wider corridor); and correlation with the rest of the portfolio (higher correlation → further divergence less likely → wider corridor). For taxable investors, higher capital gains tax rates also widen corridors."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.o",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Rebalancing — Exhibit 48 corridor factors",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_o_q4",
+          "number": 4,
+          "stem": "The reading identifies which of the following factors as *inversely* related to the optimal corridor width (all else equal)?",
+          "options": {
+            "A": "Volatility of the rest of the portfolio.",
+            "B": "Transaction costs of the asset class.",
+            "C": "Risk tolerance of the investor."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per Exhibit 48, the volatility of the rest of the portfolio is inversely related to the optimal corridor width. Higher volatility of the rest of the portfolio makes large divergences from the strategic asset allocation more likely, pointing to a narrower optimal corridor.",
+            "B": "Transaction costs are positively related.",
+            "C": "Risk tolerance is positively related."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.o",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Rebalancing — Exhibit 48",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_o_q5",
+          "number": 5,
+          "stem": "For an asset class's *own volatility*, the reading notes that 'holding all else equal' is not really meaningful. When considering the trade-off, *practical* corridor width for an asset class is *most likely*:",
+          "options": {
+            "A": "specified to be proportionally smaller with higher own volatility, ignoring transaction costs.",
+            "B": "specified to be proportionally greater the higher an asset class's own volatility, focused on controlling transaction costs.",
+            "C": "always equal to the volatility of the rest of the portfolio."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This ignores transaction costs.",
+            "B": "Correct. The reading states that in practice, corridor width is often specified to be proportionally greater the higher an asset class's own volatility, with a focus on transaction cost control. In *volatility-based rebalancing*, corridor width is set proportionally to the asset class's own volatility. In *equal probability rebalancing* (McCalla 1997), the manager specifies a corridor for each asset class in terms of a common multiple of the standard deviation.",
+            "C": "This is not the standard practice."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.o",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Rebalancing — own volatility",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r4_paa_los_o_q6",
+          "number": 6,
+          "stem": "In liability-relative asset allocation, *rebalancing* *most likely* includes:",
+          "options": {
+            "A": "only adjusting the asset side of the portfolio to strategic asset weights.",
+            "B": "adjusting tax rates to match jurisdictional norms.",
+            "C": "adjusting a liability-hedging portfolio to account for changes in net duration exposures from the passage of time, in addition to correcting drift in strategic asset weights."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Rebalancing in liability-relative frameworks is broader.",
+            "B": "Tax rates are not investor-controlled.",
+            "C": "Correct. The reading states that rebalancing is defined as the discipline of adjusting portfolio weights to more closely align with the strategic asset allocation. In liability-relative asset allocation, adjusting a liability-hedging portfolio to account for changes in net duration exposures from the passage of time would fall under the rubric of rebalancing. This ensures the hedge maintains its intended relationship with the liability."
+          },
+          "type": "mc",
+          "primary_los": "principles_of_asset_allocation.o",
+          "reading_id": "principles_of_asset_allocation",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Rebalancing — meanings",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    }
+  ]
+}

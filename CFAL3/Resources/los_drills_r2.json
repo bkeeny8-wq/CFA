@@ -1,0 +1,1888 @@
+{
+  "schema_version": 2,
+  "generated_by": "claude_r2_cme2_drills_curriculum_grounded",
+  "curriculum_source": "CFA Program 2027 Level III Volume 1, Learning Module 2",
+  "content_type": "mc_only",
+  "drills": [
+    {
+      "los_id": "capital_market_expectations_part_2_forecasting_asset_class_returns.a",
+      "los_letter": "a",
+      "los_text": "discuss approaches to setting expectations for fixed-income returns",
+      "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+      "reading_name": "Capital Market Expectations, Part 2: Forecasting Asset Class Returns",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r2_cme2_los_a_q1",
+          "number": 1,
+          "stem": "The reading identifies three main approaches to forecasting fixed-income returns. These are *most likely*:",
+          "options": {
+            "A": "discounted cash flow, risk premium (building block), and equilibrium models.",
+            "B": "historical averages, forward rates, and consensus surveys.",
+            "C": "duration matching, immunization, and cash-flow matching."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading identifies three approaches: (1) discounted cash flow (DCF), (2) risk premium / building block, and (3) equilibrium models (useful as a first step in Black–Litterman).",
+            "B": "These are inputs or techniques but not the three main approaches.",
+            "C": "These are portfolio-management strategies for matching liabilities, not CME approaches."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.a",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Forecasting Fixed Income Returns",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_a_q2",
+          "number": 2,
+          "stem": "A portfolio manager holds a bond portfolio with Macaulay duration of 4.89 years and current YTM of 1%. If yields rise 200 bps immediately and then remain constant, over a horizon equal to the portfolio's Macaulay duration, the realized return will *most likely* be:",
+          "options": {
+            "A": "significantly below the initial YTM because of capital losses.",
+            "B": "close to the initial YTM as capital-loss and reinvestment effects roughly offset.",
+            "C": "significantly above the initial YTM because of reinvestment gains."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Over the Macaulay duration horizon, capital losses are offset, not dominant.",
+            "B": "Correct. The reading states that if the investment horizon equals the Macaulay duration, capital gain/loss and reinvestment effects will roughly offset, leaving realized return close to the original YTM. This is exact if the curve is flat and the rate change is immediate and in a single step.",
+            "C": "Reinvestment gains do not dominate at exactly the Macaulay-duration horizon."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.a",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Applying DCF to Fixed Income (Example 1)",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_a_q3",
+          "number": 3,
+          "stem": "For horizons *shorter* than the bond's Macaulay duration, the reading argues that:",
+          "options": {
+            "A": "reinvestment effects dominate, so rising rates raise realized returns.",
+            "B": "the two effects always exactly cancel.",
+            "C": "capital gain/loss effects dominate, so rising (falling) rates lower (raise) realized return."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This describes the longer-than-duration case.",
+            "B": "The two effects only exactly cancel at the Macaulay-duration horizon under the flat-curve/immediate-step assumption.",
+            "C": "Correct. The reading states that over horizons shorter than the duration, the capital gain/loss impact tends to dominate — rising rates imply lower return, falling rates imply higher return."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.a",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Applying DCF to Fixed Income",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_a_q4",
+          "number": 4,
+          "stem": "The building block approach to fixed-income expected returns identifies four components. These are *most likely*:",
+          "options": {
+            "A": "the one-period default-free rate, the term premium, the credit premium, and the liquidity premium.",
+            "B": "the risk-free rate, the market risk premium, alpha, and expected inflation.",
+            "C": "the short-rate expectation, forward premium, convexity adjustment, and roll yield."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading identifies the four components as the one-period default-free rate, the term premium, the credit premium, and the liquidity premium — compensating for interest-rate risk, duration risk, credit risk, and illiquidity respectively.",
+            "B": "These mix equity and other components not in the FI building block model.",
+            "C": "These are yield-decomposition concepts but not the four building blocks."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.a",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "The Building Block Approach to Fixed-Income Returns",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_a_q5",
+          "number": 5,
+          "stem": "Which of the four building block components is *most likely* directly observable in market data?",
+          "options": {
+            "A": "The term premium.",
+            "B": "The short-term default-free rate.",
+            "C": "The credit premium."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The term premium is embedded in yield spreads but not equal to the observed spread.",
+            "B": "Correct. The reading states that only one of the four components — the short-term default-free rate — is (potentially) observable. It is usually taken to be a government zero-coupon bill at a frequently issued maturity, closely tied to the central bank's policy rate.",
+            "C": "The credit premium is embedded in credit spreads but not equal to them."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.a",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "The Short-term Default-free Rate",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_a_q6",
+          "number": 6,
+          "stem": "Based on Ilmanen (2012) as presented in Exhibit 1, the indicator with the *strongest* relationship to future excess bond returns across all horizons (1 quarter, 1 year, 5 years) is *most likely*:",
+          "options": {
+            "A": "the yield curve slope (10 year − 3 month).",
+            "B": "the unemployment rate.",
+            "C": "the ex ante real yield."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "The yield curve slope has the weakest 5-year relationship (0.06).",
+            "B": "The unemployment rate has the weakest 1-year correlation (0.18) among the eight indicators.",
+            "C": "Correct. The reading's Exhibit 1 shows the ex ante real yield has the strongest correlation with subsequent excess bond returns across all three horizons: 0.28 at 1 quarter, 0.48 at 1 year, and 0.69 at 5 years."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.a",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "The Term Premium (Exhibit 1)",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_a_q7",
+          "number": 7,
+          "stem": "Ilmanen (2012) identifies four main drivers of the term premium for nominal bonds. Which of the following is *least likely* one of them?",
+          "options": {
+            "A": "Momentum in credit spreads.",
+            "B": "Level-dependent inflation uncertainty.",
+            "C": "Ability of bonds to hedge recession risk."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Credit spread momentum is not one of the four term-premium drivers. The four drivers are: (1) level-dependent inflation uncertainty, (2) ability to hedge recession risk, (3) supply and demand, and (4) cyclical effects.",
+            "B": "Level-dependent inflation uncertainty is one of the four drivers.",
+            "C": "The ability to hedge recession risk is one of the four drivers."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.a",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "The Term Premium",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_a_q8",
+          "number": 8,
+          "stem": "The reading argues that when growth and inflation are driven primarily by *aggregate supply* shocks (rather than aggregate demand), the term premium on nominal bonds should be *most likely*:",
+          "options": {
+            "A": "lower, because bonds hedge recessions.",
+            "B": "higher, because bond returns become positively correlated with growth.",
+            "C": "unaffected by the supply/demand shock distinction."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This is the demand-shock case, not supply-shock.",
+            "B": "Correct. The reading states that when growth and inflation are primarily driven by aggregate supply, nominal bond returns tend to be positively correlated with growth, necessitating a higher term premium. Under demand shocks, the correlation is negative and a lower premium is warranted.",
+            "C": "The distinction is central to the term-premium framework."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.a",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "The Term Premium",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_a_q9",
+          "number": 9,
+          "stem": "The reading notes that credit premiums are *most likely* generous at the:",
+          "options": {
+            "A": "long end of the credit curve, due to greater default risk over long horizons.",
+            "B": "intermediate portion of the credit curve, where duration and default risks balance.",
+            "C": "short end of the credit curve, driving strategies like credit barbell portfolios."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "The historical evidence contradicts this intuition.",
+            "B": "Credit premiums are strongest at the short end, not intermediate.",
+            "C": "Correct. The reading states credit premiums tend to be especially generous at the short end of the curve — possibly due to 'event risk' (a default could still cause a huge proportional loss even if unlikely) and illiquidity of old short-maturity issues. This leads to the 'credit barbell' strategy: credit exposure at short maturities, duration risk via long-maturity governments."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.a",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "The Credit Premium",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_a_q10",
+          "number": 10,
+          "stem": "According to Ilmanen's Exhibit 2 as presented in the reading, an increase in *VIX implied equity volatility* is *most likely* associated with:",
+          "options": {
+            "A": "higher expected excess returns on investment-grade corporate bonds.",
+            "B": "lower expected excess returns on investment-grade corporate bonds.",
+            "C": "no meaningful relationship with corporate excess returns."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Exhibit 2 shows a positive correlation (0.28 at 1 quarter, 0.39 at 1 year) between VIX implied equity volatility and subsequent US IG corporate excess returns. The reading interprets this as risk-averse pricing: high risk premiums across all markets are bullish for future corporate performance.",
+            "B": "This reverses the empirical relationship.",
+            "C": "The empirical relationship is meaningful and positive."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.a",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "The Credit Premium (Exhibit 2)",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "capital_market_expectations_part_2_forecasting_asset_class_returns.b",
+      "los_letter": "b",
+      "los_text": "discuss risks faced by investors in emerging market fixed-income securities and the country risk analysis techniques used to evaluate emerging market economies",
+      "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+      "reading_name": "Capital Market Expectations, Part 2: Forecasting Asset Class Returns",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r2_cme2_los_b_q1",
+          "number": 1,
+          "stem": "The reading categorizes the risks specific to emerging market debt investments into two broad categories. These are *most likely*:",
+          "options": {
+            "A": "market risk and liquidity risk.",
+            "B": "economic risks / ability to pay and political-and-legal risks / willingness to pay.",
+            "C": "sovereign risk and corporate risk."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Market and liquidity risks apply to all bonds, not EM-specific.",
+            "B": "Correct. The reading categorizes EM debt risks as (1) economic risks — ability to pay — and (2) political and legal risks — willingness to pay.",
+            "C": "This distinction is not the reading's categorization."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.b",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Risks in Emerging Market Bonds",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_b_q2",
+          "number": 2,
+          "stem": "In evaluating an emerging market economy, the reading suggests a fiscal deficit-to-GDP ratio *most likely* becomes a cause for concern when it persistently exceeds:",
+          "options": {
+            "A": "2%.",
+            "B": "8%.",
+            "C": "4%."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This threshold is lower than the reading's guideline.",
+            "B": "This threshold is too high; the reading's guideline is 4%.",
+            "C": "Correct. The reading states that a persistent fiscal deficit-to-GDP ratio above 4% is likely a cause for concern in an emerging market."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.b",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Economic Risks/Ability to Pay",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_b_q3",
+          "number": 3,
+          "stem": "The reading's country-risk analysis guidelines suggest that a debt-to-GDP ratio for an emerging market becomes a sign of vulnerability when it exceeds *most likely*:",
+          "options": {
+            "A": "70%–80%.",
+            "B": "40%.",
+            "C": "150%."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states a debt-to-GDP ratio exceeding 70%–80%, though perhaps of only mild concern for a developed market, is a sign of vulnerability for an emerging market.",
+            "B": "This is below the reading's threshold.",
+            "C": "Well above the threshold — the guideline sits at 70–80%."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.b",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Economic Risks/Ability to Pay",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_b_q4",
+          "number": 4,
+          "stem": "The reading's guideline for the level of foreign exchange reserves that constitutes an *ample* buffer for an emerging market is *most likely* a ratio of FX reserves to short-term debt of at least:",
+          "options": {
+            "A": "50%.",
+            "B": "200%.",
+            "C": "100%."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "50% is inadequate per the reading.",
+            "B": "Correct. The reading states FX reserves less than 100% of short-term debt is risky, whereas a ratio greater than 200% is ample.",
+            "C": "100% is the minimum threshold below which the reading suggests reserves are risky, not the 'ample' level."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.b",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Economic Risks/Ability to Pay",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_b_q5",
+          "number": 5,
+          "stem": "A persistent current account deficit for an emerging market becomes a sign of potential lack of competitiveness when it exceeds *most likely*:",
+          "options": {
+            "A": "1% of GDP.",
+            "B": "10% of GDP.",
+            "C": "4% of GDP."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This is well below the reading's guideline.",
+            "B": "This threshold is far above the reading's guideline.",
+            "C": "Correct. The reading states persistent current account deficits greater than 4% of GDP probably indicate lack of competitiveness."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.b",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Economic Risks/Ability to Pay",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_b_q6",
+          "number": 6,
+          "stem": "Which of the following is *least likely* an economic vulnerability characteristic of emerging market economies as described in the reading?",
+          "options": {
+            "A": "Diversified financial markets with a broad set of sophisticated institutions.",
+            "B": "Greater concentration of wealth and income; less diverse tax base.",
+            "C": "Reliance on foreign borrowing, often in hard currencies not their own."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading identifies small/less-sophisticated financial markets and institutions as a vulnerability of emerging markets — the opposite of diversified sophisticated markets.",
+            "B": "This is listed as a vulnerability.",
+            "C": "This is listed as a vulnerability."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.b",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Economic Risks/Ability to Pay",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_b_q7",
+          "number": 7,
+          "stem": "Political and legal risk factors that particularly affect EM debt investors *most likely* include:",
+          "options": {
+            "A": "convergence of legal systems toward global standards.",
+            "B": "sovereign immunity making it difficult to force a sovereign borrower to pay.",
+            "C": "abolition of capital controls in all EM economies."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The reading does not describe convergence; weak enforcement is one of the identified risks.",
+            "B": "Correct. The reading identifies sovereign immunity as a factor making it very difficult to force a sovereign borrower to pay its debts. It also identifies weak property rights, weak contract enforcement, confiscation, nationalization, corruption, and capital controls as political/legal risks.",
+            "C": "Capital controls are noted as an ongoing risk in EM economies."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.b",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Political and Legal Risks/Willingness to Pay",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_b_q8",
+          "number": 8,
+          "stem": "The reading warns that a foreign debt greater than *most likely*:",
+          "options": {
+            "A": "20% of GDP or greater than 100% of current account receipts is a sign of danger.",
+            "B": "100% of GDP or greater than 500% of current account receipts is a sign of danger.",
+            "C": "50% of GDP or greater than 200% of current account receipts is a sign of danger."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Lower than the reading's threshold.",
+            "B": "Higher than the reading's threshold.",
+            "C": "Correct. The reading states foreign debt greater than 50% of GDP or greater than 200% of current account receipts is also a sign of danger."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.b",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Economic Risks/Ability to Pay",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_b_q9",
+          "number": 9,
+          "stem": "In the Belvia example (Example 3), Peter Valt declines to invest in a 10-year local-currency government bond partly because of governance in *most likely* the following circumstance:",
+          "options": {
+            "A": "A coalition government that is fragile, with the likely alternative being a return to a previously dominant fiscally-irresponsible anti-investor party.",
+            "B": "A stable single-party government with predictable investor-friendly policies.",
+            "C": "A history of never having engaged in nationalization or expropriation."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading identifies as key concerns: coalition governments are often unstable, and the most likely alternative was a return to the previously dominant party that lacked fiscal discipline, which could undo pro-growth policies or even disavow the debt. This governance and political-transition risk is central to Valt's decision.",
+            "B": "The reading identifies coalition instability as the actual risk.",
+            "C": "This would reduce risk, not raise the concerns Valt actually cites."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.b",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Emerging Market Bonds (Example 3)",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "capital_market_expectations_part_2_forecasting_asset_class_returns.c",
+      "los_letter": "c",
+      "los_text": "discuss approaches to setting expectations for equity investment market returns",
+      "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+      "reading_name": "Capital Market Expectations, Part 2: Forecasting Asset Class Returns",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r2_cme2_los_c_q1",
+          "number": 1,
+          "stem": "The reading argues that historical equity return statistics as estimates of expected future returns are *most likely*:",
+          "options": {
+            "A": "highly reliable because of long available histories.",
+            "B": "very imprecise because equity return volatility is large relative to mean returns.",
+            "C": "unbiased and efficient across all developed and emerging markets."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The reading demonstrates the opposite — long histories still yield imprecise estimates.",
+            "B": "Correct. The reading shows historical mean equity returns across countries range from 5.0% (Austria) to 9.4% (South Africa), but every one of these values sits within the 95% confidence interval for every country. Statistically there is no meaningful difference — sample averages are very imprecise unless volatility is small relative to the mean.",
+            "C": "Historical statistics do not achieve this — the reading treats them skeptically."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.c",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Historical Statistics Approach to Equity Returns",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_c_q2",
+          "number": 2,
+          "stem": "The Grinold–Kroner model expresses the expected equity return as *most likely*:",
+          "options": {
+            "A": "E(Re) ≈ rf + β × (Rm − rf) + α.",
+            "B": "E(Re) ≈ Cap rate + NOI growth rate.",
+            "C": "E(Re) ≈ D/P + (%ΔE − %ΔS) + %ΔP/E."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This is the CAPM.",
+            "B": "This is the real estate cap-rate expected return model.",
+            "C": "Correct. The Grinold–Kroner model is E(Re) ≈ D/P + (%ΔE − %ΔS) + %ΔP/E, where D/P is dividend yield, (%ΔE − %ΔS) is growth of earnings per share (%ΔS < 0 for net repurchases increases EPS growth), and %ΔP/E is repricing return."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.c",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "DCF Approach to Equity Returns",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_c_q3",
+          "number": 3,
+          "stem": "In the Grinold–Kroner model, a rearrangement decomposes the expected return into three components. These are *most likely*:",
+          "options": {
+            "A": "expected cash flow (income) return D/P − %ΔS, expected nominal earnings growth return %ΔE, and expected repricing return %ΔP/E.",
+            "B": "dividend yield, real growth, and inflation.",
+            "C": "risk-free rate, systematic risk premium, and idiosyncratic residual."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading gives the three components as: (1) expected cash flow (income) return = D/P − %ΔS, (2) expected nominal earnings growth return = %ΔE, and (3) expected repricing return = %ΔP/E. The sum of the last two constitutes the expected capital gains.",
+            "B": "This is a different decomposition.",
+            "C": "This is a CAPM-style decomposition, not Grinold–Kroner."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.c",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "DCF Approach to Equity Returns",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_c_q4",
+          "number": 4,
+          "stem": "Cynthia Casey applies the Grinold–Kroner model with these inputs: dividend yield 2.25%, net share repurchase 1%, earnings growth 6%, P/E multiple expansion 0.25%. The implied expected equity return is *closest to*:",
+          "options": {
+            "A": "6.50%.",
+            "B": "9.50%.",
+            "C": "7.50%."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This value is below the correct answer.",
+            "B": "Correct. E(Re) ≈ 2.25% + [6.0% − (−1.0%)] + 0.25% = 2.25% + 7.00% + 0.25% = 9.50%. Net repurchases (%ΔS = −1%) mean EPS grows faster than total earnings, adding 1% to the growth term.",
+            "C": "This is below the correct answer."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.c",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Forecasting Equity Return Using Grinold–Kroner (Example 4)",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_c_q5",
+          "number": 5,
+          "stem": "Casey's Grinold–Kroner inputs (6% corporate earnings growth vs. 5% nominal GDP, plus 0.25% annual P/E expansion) are described in the reading as *most likely*:",
+          "options": {
+            "A": "plausible for the very long run because earnings can grow faster than GDP indefinitely.",
+            "B": "implausible for any horizon because earnings can never outgrow GDP.",
+            "C": "plausible for a 10-year horizon but not for the very long run."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "The reading explicitly identifies this as implausible long-run.",
+            "B": "The reading accepts these inputs for finite horizons.",
+            "C": "Correct. The reading states these assumptions are not plausible for the very long run (earnings can't grow faster than GDP indefinitely without ratio pathologies; P/E can't expand forever), but they are plausible for a 10-year horizon. Over 10 years the E/GDP ratio rises about 10.5%, shares shrink about 9.6%, and P/E rises about 2.5% — all reasonable."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.c",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Forecasting Equity Return Using Grinold–Kroner (Example 4)",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_c_q6",
+          "number": 6,
+          "stem": "The cyclically adjusted P/E (CAPE) *most likely* divides the current price level by:",
+          "options": {
+            "A": "the average level of earnings for the last 10 years, adjusted for inflation.",
+            "B": "the most recent quarter's earnings.",
+            "C": "the trailing 12 months of forward-looking analyst earnings estimates."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading defines CAPE as the current price level divided by the average level of earnings for the last 10 years (adjusted for inflation), rather than by the most current earnings. The idea is to average away cyclical variation in earnings and provide a more reliable base against which to assess the current market price.",
+            "B": "This is the standard trailing P/E, not the cyclically adjusted version.",
+            "C": "This is not the CAPE construction."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.c",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "DCF Approach to Equity Returns",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_c_q7",
+          "number": 7,
+          "stem": "The 'equity-versus-bills' premium and the 'equity-versus-bonds' premium differ *most likely* by:",
+          "options": {
+            "A": "the credit premium built into corporate bond yields.",
+            "B": "the term premium built into the expected return on default-free bonds.",
+            "C": "the country risk premium for the market in question."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Credit premium relates to corporate bonds, not the equity premium definition.",
+            "B": "Correct. The reading states the difference between the two definitions is the term premium built into the expected return on default-free bonds. Equity-versus-bonds reflects an incremental (building-block) approach; equity-versus-bills reflects a single composite premium for the risk of equity investment.",
+            "C": "Country risk is not the source of the differential."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.c",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Risk Premium Approaches to Equity Returns",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_c_q8",
+          "number": 8,
+          "stem": "The Singer–Terhaar model of expected equity returns is *most likely* best described as:",
+          "options": {
+            "A": "a purely domestic CAPM model.",
+            "B": "a factor model with size, value, and momentum factors.",
+            "C": "a weighted combination of a fully integrated global CAPM risk premium and a fully segmented market CAPM risk premium."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Singer–Terhaar is a global model with both integrated and segmented components.",
+            "B": "This is a different family of models.",
+            "C": "Correct. The Singer–Terhaar model combines two underlying CAPMs: one assuming full global integration (using a single global market portfolio) and one assuming complete segmentation (each asset priced in isolation). The final risk premium is a weighted average: RP_i = φ × RP_i^G + (1 − φ) × RP_i^S, where φ is the degree of integration."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.c",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Risk Premium Approaches to Equity Returns",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_c_q9",
+          "number": 9,
+          "stem": "Under the Singer–Terhaar model with representative integration parameters cited in the reading, developed-market equities are *most likely* assigned an integration parameter (φ) in the range of:",
+          "options": {
+            "A": "0.75–0.90.",
+            "B": "0.10–0.30.",
+            "C": "0.50–0.75."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states developed market equities and bonds are highly integrated, so a range of 0.75–0.90 would be reasonable for φ.",
+            "B": "This range is too low for developed markets.",
+            "C": "This is the reading's suggested range for emerging market equities and bonds."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.c",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Risk Premium Approaches to Equity Returns",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_c_q10",
+          "number": 10,
+          "stem": "In the Singer–Terhaar example for German equities (Example 5 setup), volatility 17%, correlation with the global market 0.70, integration parameter 0.85, global Sharpe ratio 0.30, and segmented-market Sharpe ratio 0.35. The blended equity risk premium is *closest to*:",
+          "options": {
+            "A": "3.57%.",
+            "B": "3.93%.",
+            "C": "5.95%."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This is the fully integrated component alone.",
+            "B": "Correct. Fully integrated RP = 0.70 × 17.0% × 0.30 = 3.57%. Fully segmented RP = 17.0% × 0.35 = 5.95%. Weighted: (0.85 × 3.57%) + (0.15 × 5.95%) = 3.03% + 0.89% = 3.93%.",
+            "C": "This is the fully segmented component alone."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.c",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Risk Premium Approaches to Equity Returns",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "capital_market_expectations_part_2_forecasting_asset_class_returns.d",
+      "los_letter": "d",
+      "los_text": "discuss risks faced by investors in emerging market equity securities",
+      "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+      "reading_name": "Capital Market Expectations, Part 2: Forecasting Asset Class Returns",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r2_cme2_los_d_q1",
+          "number": 1,
+          "stem": "The reading argues that in global equity markets, particularly for emerging markets, the relative importance of country versus industry effects is *most likely*:",
+          "options": {
+            "A": "industry effects dominate country effects for both developed and emerging markets.",
+            "B": "the two effects are approximately equal in all markets.",
+            "C": "country effects tend to be more important than global industry effects, particularly for emerging markets."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "The reading emphasizes country dominance, particularly in EM.",
+            "B": "The reading identifies asymmetry, with country effects dominating.",
+            "C": "Correct. The reading states the empirical evidence is 'vast and contradictory,' but on the whole country effects still tend to be more important than global industry effects — particularly for emerging markets, which are less fully integrated into global economy/markets."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.d",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Risks in Emerging Market Equities",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_d_q2",
+          "number": 2,
+          "stem": "Political, legal, and regulatory weaknesses that affect emerging market equity investors *most likely* include which of the following?",
+          "options": {
+            "A": "Manipulation of company capital structures and misuse of business assets by interested parties, enabled by weak corporate governance.",
+            "B": "Enforcement of internationally consistent accounting standards across all EM.",
+            "C": "Strong disclosure rules limiting insider advantages."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading identifies weak corporate governance standards as allowing interested parties to manipulate capital structures and misuse business assets.",
+            "B": "The reading emphasizes inadequate accounting standards, not enforcement of consistent ones.",
+            "C": "The reading emphasizes weak disclosure that favors insiders."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.d",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Risks in Emerging Market Equities",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_d_q3",
+          "number": 3,
+          "stem": "The reading notes that emerging market equity investors need to focus on risks that are *most likely* different from those facing emerging market debt investors. The key distinction is:",
+          "options": {
+            "A": "EM debt investors face no political risks; EM equity investors face all political risks.",
+            "B": "EM debt investors focus on ability and willingness to pay specific obligations; EM equity investors need to focus on a variety of risks beyond traditional credit and counterparty risks, especially during macro/political distress.",
+            "C": "EM equity investors face no informational efficiency issues; EM debt investors face all such issues."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Both types of investors face political risks, though of somewhat different forms.",
+            "B": "Correct. The reading states EM debt investors focus on ability and willingness to pay specific obligations, whereas EM equity investors need to focus on a variety of risks beyond traditional credit/counterparty risks, especially in times of macroeconomic and political distress.",
+            "C": "Both face informational efficiency issues."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.d",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Risks in Emerging Market Equities",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_d_q4",
+          "number": 4,
+          "stem": "In the Belvia example (Example 6), Bill Dwight is likely underestimating a specific structural risk: the country's rapid growth is being driven primarily by *most likely*:",
+          "options": {
+            "A": "sustainable productivity improvements across all sectors.",
+            "B": "conservative monetary policy and a strong fiscal position.",
+            "C": "a large and growing fiscal deficit (redistributive social payments) and foreign-capital-financed investment spending."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This is the opposite of what the reading identifies.",
+            "B": "The reading describes exactly the opposite of this — Belvia has poor fiscal discipline.",
+            "C": "Correct. The reading states Belvia's growth is being driven by a large and growing fiscal deficit, particularly rapidly rising redistributive social payments and foreign-capital-financed investment spending. When the government is forced to tighten fiscal policy or capital flows shrink, the domestic economy is likely to be hit hard."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.d",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Emerging Market Equity Risks (Example 6)",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_d_q5",
+          "number": 5,
+          "stem": "The Belvia case highlights a specific accounting/transparency risk: Listed firms are required to have published two years of financial statements conforming to standards set by the *Belvia Public Accounting Board*, which is made up of *most likely*:",
+          "options": {
+            "A": "the heads of the three largest domestic accounting firms — a self-regulatory conflict of interest.",
+            "B": "an independent international body of certified public accountants.",
+            "C": "government-appointed regulators separate from the audit profession."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading identifies that local standards are set by the auditing firms themselves — the three largest domestic firms — creating a conflict of interest and highlighting a transparency/governance risk.",
+            "B": "The Belvian standard-setter is not independent international.",
+            "C": "The reading identifies self-regulation by audit firms, not government oversight."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.d",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Emerging Market Equity Risks (Example 6)",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_d_q6",
+          "number": 6,
+          "stem": "The reading identifies emerging markets as generally *less* fully integrated into the global economy. A practical implication for EM equity investors is that:",
+          "options": {
+            "A": "global factors dominate, making country selection irrelevant.",
+            "B": "local economic and market factors exert greater influence on risk and return than in developed markets.",
+            "C": "returns are perfectly correlated with developed-market returns."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The opposite of the reading's point.",
+            "B": "Correct. The reading states that because emerging markets are generally less fully integrated, local economic and market factors exert greater influence on risk and return in these markets than in developed markets.",
+            "C": "EM correlations with DM are significant but far from perfect."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.d",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Risks in Emerging Market Equities",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_d_q7",
+          "number": 7,
+          "stem": "Weak checks and balances on government actions in emerging markets *most likely* create a risk of:",
+          "options": {
+            "A": "excessive stock buybacks and shareholder-friendly capital returns.",
+            "B": "over-regulation and excessive disclosure requirements.",
+            "C": "seizure of property, nationalization of companies, and prejudicial or unpredictable regulatory actions."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This is not the risk identified.",
+            "B": "The reading identifies the opposite — weak, inconsistent regulation.",
+            "C": "Correct. The reading identifies weak property rights laws, lack of enforcement, and weak checks and balances on governmental actions as enabling seizure of property, nationalization of companies, and prejudicial and unpredictable regulatory actions."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.d",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Risks in Emerging Market Equities",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_d_q8",
+          "number": 8,
+          "stem": "In the Belvia case (Example 6), Dwight also faces high concentration risk in the equity market because *most likely*:",
+          "options": {
+            "A": "roughly half of the public equity market is represented by companies in the natural resources sector, with most listed firms closely held by dominant shareholders.",
+            "B": "the equity market is dominated by a single global technology company.",
+            "C": "the equity market only includes small-cap firms and no large-cap exposure."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states roughly half of the public equity market is represented by natural resource companies, with the other half a mix of firms that remain closely held after floating minority stakes. This creates sector concentration risk plus corporate governance / expropriation risk from dominant shareholders.",
+            "B": "This is not the concentration described.",
+            "C": "The reading does not describe this concentration."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.d",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Emerging Market Equity Risks (Example 6)",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "capital_market_expectations_part_2_forecasting_asset_class_returns.e",
+      "los_letter": "e",
+      "los_text": "explain how economic and competitive factors can affect expectations for real estate investment markets and sector returns",
+      "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+      "reading_name": "Capital Market Expectations, Part 2: Forecasting Asset Class Returns",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r2_cme2_los_e_q1",
+          "number": 1,
+          "stem": "The reading identifies a specific data issue in real estate: because properties trade infrequently and appraisals reflect slowly-moving averages of past conditions, the observed returns series *most likely* results in:",
+          "options": {
+            "A": "unbiased volatility estimates and unbiased correlation estimates.",
+            "B": "biased-downward volatility estimates and understated correlations with other assets.",
+            "C": "biased-upward volatility estimates and overstated correlations with other assets."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The smoothing does distort volatility and correlations.",
+            "B": "Correct. The reading states this appraisal-based smoothing does not generally bias the mean return, but it significantly distorts estimates of volatility and correlations. Sample volatility substantially understates the true volatility. Smoothing also disguises the timing of response to market information, causing the strength of contemporaneous correlations with other market variables to be understated.",
+            "C": "The bias goes the opposite direction."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.e",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Historical Real Estate Returns",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_e_q2",
+          "number": 2,
+          "stem": "The reading defines the capitalization (cap) rate as *most likely*:",
+          "options": {
+            "A": "NOI plus expected growth divided by the price of the property.",
+            "B": "annual gross rental income divided by the price paid at acquisition.",
+            "C": "net operating income (NOI) in the current period divided by the property value."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This adds a growth term that is not part of the cap-rate definition.",
+            "B": "Gross rental income is not NOI; also 'price paid at acquisition' is not current value.",
+            "C": "Correct. The reading defines the cap rate as NOI in the current period divided by the property value. It is analogous to EBITDA/EV for a corporate issuer. It is not strictly a cash-flow yield because a portion of NOI may be reinvested in the property."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.e",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Capitalization Rates",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_e_q3",
+          "number": 3,
+          "stem": "Applying the Gordon growth model to real estate, the long-run expected return can be expressed as *most likely*:",
+          "options": {
+            "A": "E(Rre) = Cap rate + NOI growth rate.",
+            "B": "E(Rre) = Cap rate − NOI growth rate.",
+            "C": "E(Rre) = Cap rate × (1 + NOI growth rate)."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading gives E(Rre) = Cap rate + NOI growth rate, using the Gordon growth model applied to real estate under a constant NOI growth assumption. The long-run steady-state NOI growth rate should be reasonably close to nominal GDP growth.",
+            "B": "This is not the Gordon-model formulation.",
+            "C": "This is not the correct algebraic form."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.e",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Capitalization Rates",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_e_q4",
+          "number": 4,
+          "stem": "The reading identifies real estate as subject to a *classic boom–bust cycle*. This cycle *most likely* arises because:",
+          "options": {
+            "A": "leases are perfectly flexible, allowing rents to adjust instantly to demand.",
+            "B": "perceptions of rising demand and profitability induce overbuilding, and property's long life, immobility, and multi-year staggered leases make excess supply slow to absorb.",
+            "C": "central banks explicitly time construction cycles as part of monetary policy."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The reading emphasizes the opposite — leases are typically multi-year and staggered, creating slow adjustment.",
+            "B": "Correct. The reading describes the classic boom-bust: perceptions of rising demand → new property development that helps sustain the economy → optimistic overbuilding → declining property values, lease rates, and occupancy → slow absorption of excess supply because property has a very long life and is immobile, and leases are typically for multiple years and staggered across tenants.",
+            "C": "This is not a mechanism the reading identifies."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.e",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Real Estate Cycles",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_e_q5",
+          "number": 5,
+          "stem": "The reading argues that as a very long-lived asset with high effective duration, real estate must earn a *term premium*, and *most likely* also:",
+          "options": {
+            "A": "only a term premium — no other premiums are relevant.",
+            "B": "only an equity risk premium — no credit or liquidity premiums are relevant.",
+            "C": "a credit premium (from tenant credit risk), an equity risk premium (from property-value fluctuations), and a liquidity premium."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "The reading identifies multiple premiums beyond the term premium.",
+            "B": "The reading identifies credit and liquidity premiums as well.",
+            "C": "Correct. The reading states real estate must earn a significant term premium (long duration), a credit premium (income-earning properties are exposed to tenant credit risk — the landlord demands what the average tenant would have to pay to issue such debt), a significant equity risk premium (owner bears full property-value fluctuations and lease/vacancy uncertainty), and a liquidity premium."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.e",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "The Risk Premium Perspective on Real Estate Expected Return",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_e_q6",
+          "number": 6,
+          "stem": "Ang, Papanikolaou, and Westerfield (2014) as cited in the reading suggest that for direct real estate with liquidity available *on average every 2 years*, a reasonable liquidity premium is *most likely*:",
+          "options": {
+            "A": "2%.",
+            "B": "0.60%.",
+            "C": "6%."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading cites Ang et al. (2014) suggesting liquidity premiums of 0.60% for quarterly, 0.90% for annual, and 2%, 4%, and 6% for 2, 5, and 10 years respectively. The reading concludes a liquidity premium of 2%–4% would seem reasonable for commercial real estate overall.",
+            "B": "This is for quarterly average liquidity.",
+            "C": "This is for 10-year average liquidity."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.e",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "The Risk Premium Perspective on Real Estate Expected Return",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_e_q7",
+          "number": 7,
+          "stem": "The reading argues that direct-real-estate cap rates are *most likely*:",
+          "options": {
+            "A": "purely countercyclical, always rising during business expansions.",
+            "B": "pro-cyclical (rising and falling with long-term rates) but mitigated by countercyclical credit spreads.",
+            "C": "unaffected by interest rates and credit conditions."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Cap rates are pro-cyclical in the reading's account, not countercyclical.",
+            "B": "Correct. The reading states cap rates reflect long-term discount rates and should rise/fall with the general level of long-term interest rates, making them pro-cyclical. However, they are also sensitive to credit spreads and credit availability; because credit spreads are countercyclical, this mitigates the cyclicality of cap rates. Higher vacancy rates also induce higher cap rates.",
+            "C": "Cap rates respond to both."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.e",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Capitalization Rates",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_e_q8",
+          "number": 8,
+          "stem": "Incorporating real estate into an equilibrium framework like the Singer–Terhaar model *most likely* requires which of the following adjustments?",
+          "options": {
+            "A": "Using raw appraisal-based volatility and correlations as reported.",
+            "B": "Treating real estate as a purely global rather than local asset.",
+            "C": "Removing the impact of smoothing from risk/return data and adding a liquidity premium to reflect illiquidity."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "The reading warns against using smoothed data directly.",
+            "B": "The reading identifies the opposite — real estate is more local than global.",
+            "C": "Correct. The reading identifies three considerations for equilibrium models: (1) the impact of smoothing must be removed from real estate risk/return data (else inclusion distorts results for all asset classes), (2) equilibrium models implicitly assume perfectly liquid assets, so adjusting the equilibrium for illiquidity by adding a liquidity premium is important, and (3) real estate is location-specific and may be more related to local than global factors."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.e",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Real Estate in Equilibrium",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_e_q9",
+          "number": 9,
+          "stem": "The 2011 study by Clayton et al. attributed the *unusual character* of the US commercial real estate crash following the global financial crisis to *most likely*:",
+          "options": {
+            "A": "capital markets forces, excess leverage, and investment in more speculative properties — a first departure from the historical boom-bust pattern driven by fundamentals.",
+            "B": "a typical boom-bust cycle in real estate fundamentals with overbuilding.",
+            "C": "unusually restrictive lending standards limiting overbuilding."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states Clayton et al. (2011) suggested this crash was the first to be driven by the capital markets rather than by a boom-bust in real estate fundamentals. The catalyst was excess leverage and investment in speculative property types. Both the collapse and recovery were unusually rapid, attributed to appraisers responding more vigorously to REIT and commercial-MBS market signals.",
+            "B": "This is the traditional pattern the crash was NOT, per the reading.",
+            "C": "The reading identifies excess (not restrictive) leverage."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.e",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Real Estate Cycles",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_e_q10",
+          "number": 10,
+          "stem": "According to the reading's data on direct real estate vs REITs (Exhibit 7), an important characteristic of REITs relative to unlevered direct real estate is *most likely*:",
+          "options": {
+            "A": "REITs consistently sacrifice performance to obtain liquidity.",
+            "B": "REITs offer similar or higher aggregate returns and equivalent liquidity to direct real estate.",
+            "C": "REITs lag the direct market with significantly lower volatility."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The reading explicitly states REIT investors are not sacrificing performance to obtain the liquidity afforded by REITs.",
+            "B": "Correct. The reading's analysis (Exhibit 7 as summarized in text) supports the point that REIT investors are not sacrificing performance to obtain the liquidity afforded by REITs. Aggregate mean returns are comparable (direct 8.80% vs. unlevered REITs 9.29%), and the reading emphasizes REITs offer better liquidity without a return penalty.",
+            "C": "This does not match the reading's characterization."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.e",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Public vs. Private Real Estate",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "capital_market_expectations_part_2_forecasting_asset_class_returns.g",
+      "los_letter": "g",
+      "los_text": "discuss major approaches to forecasting exchange rates",
+      "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+      "reading_name": "Capital Market Expectations, Part 2: Forecasting Asset Class Returns",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r2_cme2_los_g_q1",
+          "number": 1,
+          "stem": "The reading argues that *trade flows*—exports minus imports—in general influence contemporaneous exchange rate movements *most likely*:",
+          "options": {
+            "A": "significantly, because trade flows dominate all foreign exchange transactions.",
+            "B": "not at all, since trade never crosses the foreign exchange market.",
+            "C": "modestly, because net trade flows are typically small relative to actual and potential financial flows."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This overstates trade flows' influence.",
+            "B": "Trade does affect exchange rates through financing needs.",
+            "C": "Correct. The reading states trade flows do not, in general, exert a significant impact on contemporaneous exchange rate movements, provided they can be financed. Net trade flows are typically much smaller relative to the economy and to actual and potential financial flows. If trade-related flows become large relative to financing/investment flows, it likely indicates an emerging crisis."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.g",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Focus on Goods and Services, Trade, and the Current Account",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_g_q2",
+          "number": 2,
+          "stem": "Purchasing power parity (PPP), applied to exchange rates, states that *most likely*:",
+          "options": {
+            "A": "the expected percentage change in the exchange rate equals the difference in expected inflation rates.",
+            "B": "the expected percentage change in the exchange rate equals the difference in nominal interest rates.",
+            "C": "exchange rates should always equal 1.0 across all currencies."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Relative PPP states that the expected percentage change in the exchange rate should equal the difference in expected inflation rates. Equivalently, if the real exchange rate is the ratio of price levels converted to a common currency, PPP says the expected change in the real exchange rate should be zero.",
+            "B": "This is the interest rate parity / UIP relationship, not PPP.",
+            "C": "This is not PPP."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.g",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Purchasing Power Parity",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_g_q3",
+          "number": 3,
+          "stem": "The reading argues empirically that PPP is *most likely* a:",
+          "options": {
+            "A": "reliable predictor of exchange rates over daily and weekly horizons.",
+            "B": "poor predictor over short/intermediate horizons but a better guide over multi-year horizons.",
+            "C": "consistently accurate predictor at all horizons."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "PPP is a poor short-run predictor per the reading.",
+            "B": "Correct. The reading states PPP is a poor predictor of exchange rates over short to intermediate horizons but is a better guide to currency movements over progressively longer multi-year horizons. The impact of PPP tends to be most evident when inflation differentials are large, persistent, and driven primarily by monetary conditions.",
+            "C": "PPP is not consistently accurate."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.g",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Purchasing Power Parity",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_g_q4",
+          "number": 4,
+          "stem": "Uncovered interest rate parity (UIP) asserts that the expected percentage change in the exchange rate equals the nominal interest rate differential. Empirically, the reading argues that:",
+          "options": {
+            "A": "UIP holds well as a predictor of exchange rates.",
+            "B": "carry trades consistently lose money, confirming UIP.",
+            "C": "carry trades — borrowing in low-rate currencies and lending in high-rate currencies — earn meaningful average profits, contradicting UIP."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "UIP does not hold up empirically.",
+            "B": "The empirical evidence is opposite.",
+            "C": "Correct. The reading states empirical evidence consistently shows that carry trades earn meaningful profits on average, contradicting UIP. Burnside et al. (2011) documented carry-trade returns of 4.31%/year vs. USD (2.88%/year vs. GBP) from 1976 to 2009. The profitability is usually ascribed to a risk premium — consistent with the idea that risk premiums matter for exchange rates."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.g",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Focus on Capital Flows (UIP subsection)",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_g_q5",
+          "number": 5,
+          "stem": "*Hot money flows*—vigorous capital flows in response to interest rate differentials—are *most likely* problematic for central banks because:",
+          "options": {
+            "A": "they limit the central bank's ability to run effective monetary policy (per the Mundell–Fleming model) and can encourage short-term funding of long-term needs, setting up crisis conditions.",
+            "B": "Hot money flows immediately reduce a country's exchange rate volatility by deepening its capital markets.",
+            "C": "Hot money simplifies monetary policy transmission by aligning domestic and foreign interest rates."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading identifies three problems from hot money flows: (1) they limit monetary policy effectiveness (Mundell–Fleming with free capital flow), (2) short-term financing may encourage firms to fund long-term needs with short-term money, setting the stage for a crisis when financing dries up, (3) the nearly inevitable currency overshooting disrupts non-financial businesses.",
+            "B": "Incorrect. The flows INCREASE exchange rate volatility — rapid inflows and reversals whipsaw the currency.",
+            "C": "Incorrect. Per Mundell-Fleming, the flows COMPLICATE policy — limiting monetary independence and encouraging short-term speculative capital."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.g",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Focus on Capital Flows",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_g_q6",
+          "number": 6,
+          "stem": "According to the reading, when a country experiences hot money flowing *in* and the central bank wishes to prevent excessive currency appreciation and inflation, it will *most likely*:",
+          "options": {
+            "A": "sell foreign currency and buy government securities.",
+            "B": "buy foreign currency to prevent appreciation and sell government securities to sterilize.",
+            "C": "raise policy rates aggressively to attract more inflows."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This is the opposite response.",
+            "B": "Correct. When hot money flows in, central banks may intervene by buying foreign currency (offsetting the exchange rate impact) and selling government securities to sterilize the impact on domestic liquidity — limiting the growth of bank reserves or maintaining a target level of interest rates. When hot money flows out, the opposite: sell foreign currency and buy securities.",
+            "C": "Raising rates would attract more inflows, worsening the problem."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.g",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Focus on Capital Flows",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_g_q7",
+          "number": 7,
+          "stem": "The 'portfolio balance' perspective on exchange rates argues that in the long run, the relative size of each currency portfolio in the global market depends *most likely* on:",
+          "options": {
+            "A": "central bank reserves alone.",
+            "B": "fixed exchange-rate targets set by international agreement.",
+            "C": "relative trend growth rates and current account balances."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Central bank reserves are one factor but not the primary long-run driver.",
+            "B": "Fixed exchange-rate agreements do not govern the long-run portfolio balance.",
+            "C": "Correct. The reading states that in the long run, the relative size of each currency portfolio depends primarily on relative trend growth rates and current account balances. Rapid economic growth expands the share of the global market portfolio denominated in that currency; large persistent current-account deficits also gradually shift currency shares."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.g",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Portfolio Balance, Portfolio Composition, and Sustainability Issues",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_g_q8",
+          "number": 8,
+          "stem": "The reading identifies *reserve currency status* — particularly held by the US dollar — as a specific factor that *most likely*:",
+          "options": {
+            "A": "allows a small current account deficit in the reserve-currency country to be welcome as it helps provide liquidity to the global financial system, though reserve status has not proven permanent.",
+            "B": "guarantees permanent appreciation of the reserve currency.",
+            "C": "requires the reserve-currency country to maintain zero current account deficit."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states that a few currencies (notably USD) have a special status because most official reserves are held in these currencies, the associated sovereign debt is viewed as a safe haven, major commodities are priced in them, and international trade often settles in them. A small current-account deficit in a reserve-currency country is welcome — it helps provide global liquidity. Historically, however, reserve currency status has not proven to be permanent.",
+            "B": "Reserve status does not guarantee permanent appreciation.",
+            "C": "Reserve-currency status accommodates modest current-account deficits, not a zero-deficit requirement."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.g",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Portfolio Balance, Portfolio Composition, and Sustainability Issues",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_g_q9",
+          "number": 9,
+          "stem": "When investors perceive a currency's underlying assets offer higher risk-adjusted returns, the initial surge of capital tends to *most likely*:",
+          "options": {
+            "A": "drive the exchange rate down immediately.",
+            "B": "drive the exchange rate up to a level from which it is more likely to depreciate than to continue appreciating.",
+            "C": "have no impact on the exchange rate."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This is the opposite direction.",
+            "B": "Correct. The reading states that when a currency's assets are perceived as offering higher risk-adjusted returns, the initial surge of capital drives the exchange rate higher, often to a level from which it is more likely to depreciate than continue to appreciate. This is the 'overshooting' pattern — the currency appreciates enough to generate the expectation of subsequent depreciation that equalizes risk-adjusted expected returns.",
+            "C": "Capital flows have a strong exchange-rate impact."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.g",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Portfolio Balance, Portfolio Composition, and Sustainability Issues",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_g_q10",
+          "number": 10,
+          "stem": "The reading identifies the *monetary approach* to exchange rates as *most likely* boiling down to two assumptions:",
+          "options": {
+            "A": "UIP holds, and interest rates equal the risk-free rate globally.",
+            "B": "Fixed exchange rates, and capital controls are maintained.",
+            "C": "PPP holds, and inflation is determined by the money supply."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This is not the monetary approach's framing.",
+            "B": "These are conditions from the impossible trinity, not the monetary approach.",
+            "C": "Correct. The reading identifies the well-known 'monetary approach' to exchange rates as essentially boiling down to two assumptions: (1) PPP holds, and (2) inflation is determined by the money supply. Under these conditions PPP may describe exchange rate movements reasonably well over all but the shortest horizons."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.g",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Purchasing Power Parity",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "capital_market_expectations_part_2_forecasting_asset_class_returns.h",
+      "los_letter": "h",
+      "los_text": "discuss methods of forecasting volatility",
+      "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+      "reading_name": "Capital Market Expectations, Part 2: Forecasting Asset Class Returns",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r2_cme2_los_h_q1",
+          "number": 1,
+          "stem": "The reading identifies two main problems with using sample statistics to estimate a constant variance–covariance (VCV) matrix. These are *most likely*:",
+          "options": {
+            "A": "the method cannot be used when the number of assets exceeds the number of observations; and it is subject to substantial sampling error even when it can be used.",
+            "B": "the method requires strong assumptions about normality; and it cannot handle time variation.",
+            "C": "the method requires factor structure specifications; and it is biased under all conditions."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading identifies both problems: (1) given typical sample periods, the method cannot be used to estimate the VCV matrix for large numbers of assets — if assets exceed observations, some portfolios will erroneously appear riskless; and (2) given typical sample sizes, the method is subject to substantial sampling error. A useful rule of thumb: observations should be at least 10 times the number of assets.",
+            "B": "Neither of these is the specific pair identified.",
+            "C": "The sample VCV method does not require factor structure; sample statistics are unbiased on average."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.h",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Estimating a Constant VCV Matrix with Sample Statistics",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_h_q2",
+          "number": 2,
+          "stem": "The reading's rule of thumb for the number of observations needed for a reliable sample VCV matrix for N assets is *most likely*:",
+          "options": {
+            "A": "at least 3 × N.",
+            "B": "at least 10 × N.",
+            "C": "at least 100 × N."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This threshold is well below the reading's guideline.",
+            "B": "Correct. The reading states a useful rule of thumb is that the number of observations should be at least 10 times the number of assets for the sample VCV matrix to be deemed reliable.",
+            "C": "This is far above the reading's guideline."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.h",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Estimating a Constant VCV Matrix with Sample Statistics",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_h_q3",
+          "number": 3,
+          "stem": "The primary advantage of a multi-factor VCV matrix over the sample statistics approach is *most likely* that:",
+          "options": {
+            "A": "factor models perfectly capture asset return dynamics.",
+            "B": "factor models are always unbiased regardless of the factor structure specification.",
+            "C": "factor models allow the number of assets to be very large relative to observations, and dramatically reduce the number of unique parameters to estimate."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Factor models are approximations, not exact.",
+            "B": "Factor-model-based VCV matrices are biased unless the factor structure is exactly correct.",
+            "C": "Correct. The reading states factor models' main advantage is that the number of assets can be very large relative to observations. With N=100 assets and K=5 factors, factor models reduce estimation from 4,950 distinct covariances to about 500 sensitivities plus 15 factor-VCV elements — nearly 90% reduction. They also improve cross-sectional consistency."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.h",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "VCV Matrices from Multi-Factor Models",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_h_q4",
+          "number": 4,
+          "stem": "Shrinkage estimation for the VCV matrix *most likely* combines:",
+          "options": {
+            "A": "the sample VCV matrix and a target VCV matrix, using weights applied uniformly to all elements.",
+            "B": "two independent sample VCV matrices from non-overlapping time periods.",
+            "C": "the sample VCV matrix with a matrix of identity variance."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The shrinkage estimator is a weighted average of the sample VCV matrix and a target VCV matrix that reflects assumed 'prior' knowledge of the true VCV structure. The same weights are used for all elements of the matrix. A factor-model-based VCV matrix would be a reasonable candidate for the target.",
+            "B": "This is not the shrinkage approach.",
+            "C": "A specific target VCV matrix is used, not an arbitrary identity matrix."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.h",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Shrinkage Estimation of VCV Matrices",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_h_q5",
+          "number": 5,
+          "stem": "The reading argues that virtually any choice of a plausible target matrix for shrinkage estimation *most likely*:",
+          "options": {
+            "A": "produces a matrix with higher mean-squared error than the sample VCV alone.",
+            "B": "increases (or at least does not decrease) the efficiency of the estimates versus the sample VCV, meaning smaller mean-squared error, though the shrinkage estimator is biased.",
+            "C": "guarantees unbiased estimation."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The opposite is true.",
+            "B": "Correct. The reading states aside from a technical condition ruling out riskless portfolios, virtually any choice of target VCV matrix will increase (or at least not decrease) the efficiency of the estimates versus the sample VCV matrix. Efficiency means smaller mean-squared error (variance plus squared bias). Although the shrinkage estimator is biased, its MSE will in general be smaller than the MSE of the unbiased sample VCV.",
+            "C": "Shrinkage introduces bias — the trade-off is efficiency vs. bias."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.h",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Shrinkage Estimation of VCV Matrices",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_h_q6",
+          "number": 6,
+          "stem": "The 'un-smoothing' model for private asset returns as presented in the reading assumes the observed return R_t is a weighted average of the current true return r_t and the previous *observed* return R_(t-1), with λ between 0 and 1: R_t = (1−λ)r_t + λR_(t-1). If λ = 0.8, the variance of the true return is *closest to*:",
+          "options": {
+            "A": "the same as the observed variance.",
+            "B": "0.11 times the observed variance.",
+            "C": "9 times the observed variance."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Smoothing distorts variance meaningfully.",
+            "B": "This is the reciprocal — the observed underestimates the true, not the other way around.",
+            "C": "Correct. The reading gives var(r) = ((1+λ)/(1−λ)) × var(R). With λ = 0.8: (1+0.8)/(1−0.8) = 1.8/0.2 = 9. The true variance is 9× the observed variance; equivalently, the true standard deviation is 3× larger."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.h",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Estimating Volatility from Smoothed Returns",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_h_q7",
+          "number": 7,
+          "stem": "Autoregressive conditional heteroskedasticity (ARCH) models *most likely* address which characteristic of asset returns?",
+          "options": {
+            "A": "Volatility clustering — periods of high and low volatility that persist over time.",
+            "B": "The tendency for returns to exhibit fat tails and skewness.",
+            "C": "The tendency of returns to mean-revert toward a long-run average."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states ARCH models address time-varying volatilities specifically to capture the well-known tendency of financial asset returns to exhibit volatility clustering — periods of high and low volatility that persist. The current variance depends on its own recent history and recent shocks.",
+            "B": "Fat tails and skewness are related but not the primary target of ARCH.",
+            "C": "Return mean-reversion is a different phenomenon."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.h",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Time-Varying Volatility: ARCH Models",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_h_q8",
+          "number": 8,
+          "stem": "In the simple ARCH model given as σ²_t = γ + α × σ²_(t-1) + β × η²_t (where non-negative parameters α, β, γ and (α+β) < 1), the unconditional expected value of the variance is *most likely*:",
+          "options": {
+            "A": "γ / (1 − α).",
+            "B": "γ / (1 − α − β).",
+            "C": "γ × (α + β)."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This omits β from the denominator.",
+            "B": "Correct. The reading gives the unconditional expected value of the variance as γ / (1 − α − β). For example, with γ = 0.000002, α = 0.9, β = 0.08: variance = 0.000002 / 0.02 = 0.0001, implying a daily standard deviation of 1%.",
+            "C": "This is not the correct formula."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.h",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Time-Varying Volatility: ARCH Models",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_h_q9",
+          "number": 9,
+          "stem": "According to the reading, the reason volatility 'clusters' at high or low levels in an ARCH model is *most likely* that:",
+          "options": {
+            "A": "the parameter β = 0 always eliminates persistence.",
+            "B": "the variance is always deterministic and never depends on prior periods.",
+            "C": "the higher the parameter (α + β), the more the variance 'remembers' what happened in the past."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "β = 0 would eliminate the shock effect but the reading points to (α+β) as controlling persistence.",
+            "B": "The variance is stochastic in ARCH models, not deterministic.",
+            "C": "Correct. The reading states the quantity (α + β) determines the extent to which the variance in future periods is influenced by the current level of volatility. The higher (α + β) is, the more the variance 'remembers' what happened in the past and the more it 'clusters' at high or low levels."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.h",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Time-Varying Volatility: ARCH Models",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "capital_market_expectations_part_2_forecasting_asset_class_returns.i",
+      "los_letter": "i",
+      "los_text": "recommend and justify changes in the component weights of a global investment portfolio based on trends and expected changes in macroeconomic factors",
+      "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+      "reading_name": "Capital Market Expectations, Part 2: Forecasting Asset Class Returns",
+      "area_id": "asset_allocation",
+      "questions": [
+        {
+          "id": "r2_cme2_los_i_q1",
+          "number": 1,
+          "stem": "The reading identifies an increase in a country's *trend growth rate* (all else equal) as *most likely* implying:",
+          "options": {
+            "A": "a positive signal for equities and a negative signal for currently outstanding bonds.",
+            "B": "a negative signal for equities and a positive signal for bonds.",
+            "C": "no directional impact on either asset class."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states an increase in trend growth favors equities because it implies more rapid long-run earnings growth (especially if driven by productivity). However, higher trend growth generally results in somewhat higher real interest rates — a negative for currently outstanding bonds.",
+            "B": "This reverses the correct relationship.",
+            "C": "Trend growth changes have directional implications."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.i",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trend Growth",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_i_q2",
+          "number": 2,
+          "stem": "A market's expected increase in *global integration* (per the Singer–Terhaar framework) *most likely* implies:",
+          "options": {
+            "A": "a rise in required return, so an overweight allocation is not warranted.",
+            "B": "a decline in required return, and as prices adjust the market should deliver a higher return than was previously expected.",
+            "C": "no change in required return."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This has the wrong direction.",
+            "B": "Full statement: a decline in required return, and as prices adjust the market should deliver a higher return than was previously expected. This is a rationale for reallocating toward that market, often meaning a shift from developed markets to emerging markets.\n\nCorrect. The reading states that when a market becomes more globally integrated, its required return should decline (per Singer–Terhaar). As prices adjust, the market should deliver a higher return than previously required. Expected increases in integration provide a rationale for reallocating toward those markets. This typically entails shifting from developed markets to emerging markets.",
+            "C": "Integration does change required returns per the model."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.i",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Global Integration",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_i_q3",
+          "number": 3,
+          "stem": "When an analyst judges that the economy is approaching the *trough* of the business cycle, the reading argues that within a global equity/bond portfolio, one should *most likely*:",
+          "options": {
+            "A": "reduce equity allocation, increase bond allocation, extend duration.",
+            "B": "keep the allocation unchanged since business cycle timing is unreliable.",
+            "C": "increase equity allocation, reduce bond allocation, reduce duration in bonds, and increase credit exposure ('down in quality')."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This is the opposite of the trough-approaching prescription.",
+            "B": "The reading endorses cycle-based adjustment.",
+            "C": "Correct. The reading states the best time to buy equities is when the economy is approaching the trough. At this stage, valuation multiples and earnings growth are low and set to rise, the term premium is high (steep yield curve), and the credit premium is high (wide spreads). Short-term rates are likely to start rising, so within bonds: overall duration should be reduced, use a 'barbell' posture (short + some long) with the desired duration, and increase credit exposure."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.i",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Phases of the Business Cycle",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_i_q4",
+          "number": 4,
+          "stem": "The reading argues that significant opportunities to add value by reallocating a portfolio based on *monetary and fiscal policies* are *most likely* to arise from:",
+          "options": {
+            "A": "structural policy changes or evidence that responses to policy measures are outside the range policymakers would have expected.",
+            "B": "policymakers doing exactly what one would expect at a given stage of the business cycle.",
+            "C": "small tactical adjustments to short-term interest rate targets."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states significant opportunities are more likely to arise from structural policy changes (e.g., a shift from interest-rate targeting to money-growth targeting, QE, tax restructuring) or evidence that the response to policy measures is not within the range policymakers would have expected (e.g., massive QE inducing little inflation response).",
+            "B": "Expected policy responses should already be reflected in prices.",
+            "C": "Small tactical adjustments would already be priced in."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.i",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Monetary and Fiscal Policies",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_i_q5",
+          "number": 5,
+          "stem": "A country experiencing a *rising secular current-account deficit* is *most likely* to require:",
+          "options": {
+            "A": "downward pressure on real returns as capital automatically flows in.",
+            "B": "upward pressure on real required returns (downward pressure on asset prices) to induce higher domestic saving and attract foreign capital.",
+            "C": "no adjustment in real returns as current-account deficits are self-correcting."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This has the wrong direction.",
+            "B": "Correct. The reading states a rising current account deficit will tend to put upward pressure on real required returns (downward pressure on asset prices) to induce a higher saving rate in the deficit country and attract the increased capital inflow required to fund the deficit. This suggests reallocating portfolio assets from countries with secularly rising deficits to those with secularly rising surpluses.",
+            "C": "Current-account trends require price adjustments to induce funding."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.i",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Current Account Balances",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_i_q6",
+          "number": 6,
+          "stem": "The reading identifies the *checklist of questions* for adjusting a global portfolio based on macro considerations. Which of the following is *least likely* one of them?",
+          "options": {
+            "A": "Are current account balances trending and sustainable?",
+            "B": "Where does each country stand within its business cycle? Are they synchronized?",
+            "C": "What is the trailing 12-month total return of each asset class?"
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "The reading includes this among its checklist questions.",
+            "B": "The reading includes this among its checklist questions.",
+            "C": "Correct. Trailing return is not one of the reading's checklist questions. The checklist includes: (1) drivers of trend growth changes, (2) global integration changes, (3) business cycle position and synchronization, (4) monetary/fiscal policy consistency, (5) current account trends and sustainability, (6) currency pressures and capital flows."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.i",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Macro-Based Recommendations",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_i_q7",
+          "number": 7,
+          "stem": "Once macro views have been assessed, the reading emphasizes one final question that *most likely* must be asked for all asset classes and currencies:",
+          "options": {
+            "A": "What is already reflected in asset prices?",
+            "B": "What is the trailing correlation with the benchmark?",
+            "C": "What is the credit rating of the sovereign issuer?"
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading emphasizes: 'What is already reflected in asset prices? There is no avoiding the fact that valuations matter.' This is presented as the essential question after all macro analysis — whether views are already priced in.",
+            "B": "This is not the reading's final question.",
+            "C": "Credit rating is a specific factor but not the general final question."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.i",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Capital Accounts and Currencies",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_i_q8",
+          "number": 8,
+          "stem": "The reading notes that when an analyst considers reallocating a portfolio *toward* assets denominated in a particular currency, they must *most likely* assess:",
+          "options": {
+            "A": "only the domestic-currency return, since currency movements will average out.",
+            "B": "whether the currency has already 'overshot' its equilibrium level and whether the assets remain attractive after considering hedging costs.",
+            "C": "only the historical exchange rate volatility."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Currency exposure directly affects returns and must be assessed.",
+            "B": "Correct. The reading states an analyst recommending reallocation toward assets denominated in a particular currency must assess whether the attractiveness of the assets has already caused an 'overshoot' in the currency, or whether meaningful appreciation is yet to come. In the former case, the analyst needs to consider whether the assets remain attractive after taking account of the cost of currency hedging.",
+            "C": "Historical volatility alone is insufficient."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.i",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Capital Accounts and Currencies",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r2_cme2_los_i_q9",
+          "number": 9,
+          "stem": "When business cycles are *not synchronized* across markets, the reading recommends reallocating equities *most likely*:",
+          "options": {
+            "A": "toward markets nearest the peak and away from markets nearest the trough.",
+            "B": "leaving allocations unchanged and only adjusting bond exposures.",
+            "C": "away from markets nearest the peak of their cycle and toward markets nearest the trough."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This reverses the recommended direction.",
+            "B": "The reading recommends adjusting both equities and bonds.",
+            "C": "Correct. The reading recommends reallocating equities from (to) markets nearest the peak (trough) of their respective cycles, and doing the opposite within the bond portfolio, with corresponding adjustments to duration, yield curve positioning, and credit exposure within each market."
+          },
+          "type": "mc",
+          "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.i",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "area_id": "asset_allocation",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Phases of the Business Cycle",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    }
+  ]
+}

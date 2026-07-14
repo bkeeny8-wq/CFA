@@ -1,0 +1,1878 @@
+{
+  "schema_version": 2,
+  "generated_by": "claude_r8_ycs_drills_curriculum_grounded",
+  "curriculum_source": "CFA Program 2027 Level III Volume 6, PM Pathway, Learning Module 5",
+  "content_type": "mc_only",
+  "drills": [
+    {
+      "los_id": "yield_curve_strategies.a",
+      "los_letter": "a",
+      "los_text": "describe the factors affecting fixed-income portfolio returns due to a change in benchmark yields",
+      "reading_id": "yield_curve_strategies",
+      "reading_name": "Yield Curve Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r8_ycs_los_a_q1",
+          "number": 1,
+          "stem": "The reading's Equation 1 for expected FI portfolio return includes *most likely* five components:",
+          "options": {
+            "A": "Coupon income; rolldown return.",
+            "B": "Only yield to maturity.",
+            "C": "Only coupon income and price."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: Coupon income; rolldown return; E(ΔPrice due to investor's view of benchmark yields); E(ΔPrice due to investor's view of yield spreads); and E(ΔPrice due to investor's view of currency value changes).\n\nCorrect. Per Equation 1: E(R) ≈ Coupon income +/− Rolldown return +/− E(ΔPrice due to investor's view of benchmark yields) +/− E(ΔPrice due to investor's view of yield spreads) +/− E(ΔPrice due to investor's view of currency value changes). The reading focuses on actively managing the first three components (yield curve strategies) and adds currency in Section 4; credit/spread strategies come later.",
+            "B": "YTM is a summary yield measure, not the decomposition.",
+            "C": "Two components ignore the yield/spread/FX views."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.a",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Equation 1 — factors affecting FI returns",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_a_q2",
+          "number": 2,
+          "stem": "The reading describes the yield curve as *most likely*:",
+          "options": {
+            "A": "a fixed, unambiguous curve identical for all investors and all uses.",
+            "B": "a stylized representation of the yields-to-maturity available at various maturities for a specific issuer or group of issuers — different models and assumptions produce different curves.",
+            "C": "always the exact curve of on-the-run bonds only."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Yield curves depend on model and issuer selection.",
+            "B": "Correct. The reading emphasizes that a yield curve is a stylized representation of yields-to-maturity available at various maturities for a specific issuer or group of issuers. Yield curve models make certain assumptions that vary by investor or intended use — raising issues such as asynchronous observations, maturity gaps requiring interpolation/smoothing, apparent outliers, use of on-the-run vs off-the-run bonds, and differences in accounting/regulatory/tax treatment. Different models produce different curves.",
+            "C": "The reading discusses on-the-run vs including off-the-run."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.a",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Yield Curve Dynamics",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_a_q3",
+          "number": 3,
+          "stem": "*Off-the-run* bonds are *most likely*:",
+          "options": {
+            "A": "more liquid than on-the-run bonds and priced with lower yields-to-maturity.",
+            "B": "the same as on-the-run bonds.",
+            "C": "typically less liquid than on-the-run bonds, and hence have a lower price (higher yield-to-maturity); inclusion of off-the-run bonds tends to 'pull' the yield curve higher."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This reverses the liquidity relationship.",
+            "B": "They differ meaningfully in liquidity.",
+            "C": "Correct. The reading states off-the-run bonds are typically less liquid than on-the-run bonds and hence have a lower price (higher yield-to-maturity). Inclusion of off-the-run bonds will tend to 'pull' the yield curve higher. This is one of the reasons different yield curve constructions can produce different curves."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.a",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Yield Curve Dynamics — off-the-run",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_a_q4",
+          "number": 4,
+          "stem": "A *constant maturity yield* is *most likely* estimated by:",
+          "options": {
+            "A": "interpolating the yields-to-maturity on actively traded bonds with maturities near the target constant maturity.",
+            "B": "using the current on-the-run bond's yield at face value.",
+            "C": "using only zero-coupon rates."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: interpolating the yields-to-maturity on actively traded bonds with maturities near the target constant maturity — for example, a hypothetical 5-year yield may be interpolated from bonds with maturities near five years since the on-the-run 5-year Treasury issued before today has maturity < 5 years.\n\nCorrect. The reading states a constant maturity yield estimates, for example, what a hypothetical 5-year yield-to-maturity would be if a bond were available with exactly five years to maturity. While some derivatives reference the daily constant maturity yield, the current on-the-run 5-year Treasury issued before today has a maturity of less than five years. Estimating a constant maturity 5-year yield typically requires interpolating the yields-to-maturity on actively traded bonds with maturities near five years.",
+            "B": "The on-the-run bond has less than exactly the target maturity.",
+            "C": "Not the reading's methodology."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.a",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Yield Curve Dynamics — constant maturity yield",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_a_q5",
+          "number": 5,
+          "stem": "The reading identifies three primary yield curve risk factors from principal components analysis. These are *most likely*:",
+          "options": {
+            "A": "The three primary yield curve risk factors from principal components analysis are all forms of issuer-specific credit risk.",
+            "B": "level (parallel shift ~82% of yield curve changes), slope (twist/flattening or steepening ~12%), and curvature/shape (butterfly movement ~4%).",
+            "C": "PCA identifies a single yield curve risk factor: central bank policy risk, explaining virtually all curve movement."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Credit spread risk is a separate factor family; the PCA factors are level, slope, and curvature.",
+            "B": "Correct. The reading states primary yield curve risk factors are categorized by three types: (1) change in level (parallel shift), (2) change in slope (flattening or steepening twist), and (3) change in shape or curvature (butterfly movement). Principal components analysis was used to decompose yield curve changes: level, slope, and curvature movements over time accounted for approximately 82%, 12%, and 4%, respectively, of US Treasury yield curve changes. The consistency of these results over time and across global markets underscores their importance in active yield curve strategies.",
+            "C": "Incorrect. The decomposition yields THREE factors — level (~82%), slope (~12%), and curvature (~4%) — not a single policy factor."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.a",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Yield Curve Dynamics — level/slope/curvature PCA",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_a_q6",
+          "number": 6,
+          "stem": "*Yield curve slope* is *most likely* measured as:",
+          "options": {
+            "A": "Yield curve slope is measured as the average yield across all maturities on the curve.",
+            "B": "Yield curve slope is measured as the standard deviation of yields across the maturity spectrum.",
+            "C": "the difference in basis points between the yield-to-maturity on a long-maturity bond and the yield-to-maturity on a shorter-maturity bond (e.g., the 2s30s spread of 127 bps in July 2020: 30-year at 1.43% minus 2-year at 0.16%)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. An average describes the curve's LEVEL; slope is the long-minus-short yield difference.",
+            "B": "Incorrect. A standard deviation describes yield dispersion, not the directional difference between long and short maturities.",
+            "C": "Full statement: the difference in basis points between the yield-to-maturity on a long-maturity bond and the yield-to-maturity on a shorter-maturity bond (e.g., the 2s30s spread of 127 bps in July 2020: 30-year at 1.43% minus 2-year at 0.16%); widening spread is a steepening, narrowing is a flattening, and negative spread means an inverted curve.\n\nCorrect. The reading defines yield curve slope as the difference in basis points between the yield-to-maturity on a long-maturity bond and a shorter-maturity bond. Example: as of July 2020, the slope measured by the 2s30s spread — the difference between the 30-year Treasury bond (1.43%) and the 2-year Treasury note (0.16%) yields-to-maturity — was 127 bps. As the spread widens the curve steepens; as it narrows it flattens; if the spread turns negative (as just before the 2008 GFC), the yield curve is inverted."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.a",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Yield Curve Dynamics — slope",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_a_q7",
+          "number": 7,
+          "stem": "The reading's *butterfly spread* formula is *most likely*:",
+          "options": {
+            "A": "Butterfly spread = −(Short-term yield) + (2 × Medium-term yield) − Long-term yield — positive spread indicates a 'humped' or concave shape at the midpoint; negative spread indicates a 'saucer' or convex shape.",
+            "B": "The butterfly spread is computed as short-term yield minus twice the medium-term yield plus the long-term yield.",
+            "C": "The butterfly spread equals the long-term yield minus the short-term yield."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per Equation 2, Butterfly spread = −(Short-term yield) + (2 × Medium-term yield) − Long-term yield. The butterfly spread takes on larger positive values when the yield curve has more curvature. Positive butterfly spread indicates a 'humped' or concave shape to the midpoint of the curve; negative butterfly spread indicates a 'saucer' or convex shape. It changes when intermediate-term yield changes are of a different magnitude than those on the wings (short and long ends). Exhibit 3 uses 2y, 10y, and 30y tenors.",
+            "B": "Incorrect. The signs are reversed — the formula is minus short, PLUS twice medium, minus long.",
+            "C": "Incorrect. Long minus short is the SLOPE; the butterfly measures curvature with the 2× medium-term center."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.a",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Yield Curve Dynamics — butterfly spread formula",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_a_q8",
+          "number": 8,
+          "stem": "The percentage change in the full price of a bond due to investor's view of yields is *most likely* estimated by:",
+          "options": {
+            "A": "%ΔPV_Full = ModDur × ΔYield.",
+            "B": "%ΔPV_Full ≈ −(ModDur × ΔYield) + [½ × Convexity × (ΔYield)²].",
+            "C": "%ΔPV_Full = Convexity × ΔYield only."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Missing convexity term and sign.",
+            "B": "Correct. Per Equation 3: %ΔPV_Full ≈ −(ModDur × ΔYield) + [½ × Convexity × (ΔYield)²]. Duration is a first-order (linear) effect and convexity is a second-order (curvature) correction. For a portfolio, MV-weighted averages of modified duration and convexity are substituted into Equation 3. Duration is the first-order effect and typically dominates portfolio performance, so duration management (accounting for level changes) is usually more important than convexity management. Convexity management is more closely associated with yield curve slope and shape changes.",
+            "C": "Missing the duration term."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.a",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Duration and Convexity — Equation 3",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_a_q9",
+          "number": 9,
+          "stem": "The reading uses two portfolios of US Treasuries (2y ModDur 1.994/Conv 5.0; 5y ModDur 4.880/Conv 26.5; 10y ModDur 9.023/Conv 90.8): Portfolio A fully in 5-year (bullet, ModDur 4.88, Conv 26.5); Portfolio B a barbell of 58.94% 2y + 41.06% 10y (also ~4.88 duration but Conv 40.229). For a 50 bp *fall* in all yields, Portfolio B *most likely*:",
+          "options": {
+            "A": "gains less than Portfolio A.",
+            "B": "loses value while Portfolio A gains.",
+            "C": "gains more than Portfolio A ($8,607 more on a $50M portfolio) because Portfolio B has higher convexity."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Higher convexity means higher gain on decline.",
+            "B": "Both gain on rate declines.",
+            "C": "Correct. Per Example 1: for a 50 bp decline, Portfolio A returns +2.473% ($1,236,563) and Portfolio B returns +2.490% ($1,245,170) on $50M — Portfolio B gains $8,607 more due to higher convexity (40.229 vs 26.5). Barbell losses are also smaller on a 50 bp rise: A −2.407% ($1,203,438) vs B −2.390% ($1,194,883) — $8,555 less loss for B."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.a",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Duration and Convexity — Example 1",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_a_q10",
+          "number": 10,
+          "stem": "The reading identifies *positive convexity* as *most likely* valuable because:",
+          "options": {
+            "A": "if a bond has higher positive convexity than an otherwise identical bond, the bond price increases more if rates fall (and decreases less if rates rise) than the duration estimate would suggest.",
+            "B": "Positive convexity is worth nothing to investors because its effects cancel across rising and falling rate environments.",
+            "C": "Higher positive convexity always causes greater losses than an otherwise identical lower-convexity bond."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: if a bond has higher positive convexity than an otherwise identical bond, the bond price increases more if rates fall (and decreases less if rates rise) than the duration estimate would suggest; therefore a bond with higher convexity might be expected to have a lower yield-to-maturity than a similar-duration bond with less convexity.\n\nCorrect. The reading states, 'All else equal, positive convexity is a valuable feature in bonds. If a bond has higher positive convexity than an otherwise identical bond, then the bond price increases more if interest rates decrease (and decreases less if interest rates increase) than the duration estimate would suggest. This price behavior is valuable to investors; therefore, a bond with higher convexity might be expected to have a lower yield-to-maturity than a similar-duration bond with less convexity.' Convexity is affected by cash flow dispersion — higher dispersion → higher convexity.",
+            "B": "Incorrect. The effects reinforce rather than cancel — gaining more when rates fall AND losing less when rates rise is valuable asymmetry.",
+            "C": "Incorrect. Convexity cushions losses; the higher-convexity bond loses LESS when rates rise."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.a",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Duration and Convexity — value of convexity",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_a_q11",
+          "number": 11,
+          "stem": "*Convexity* is *most likely* related to *cash flow dispersion* by:",
+          "options": {
+            "A": "Higher cash flow dispersion produces lower convexity, which is why barbells carry less convexity than bullets.",
+            "B": "higher cash flow dispersion → higher convexity, so barbell portfolios (with widely dispersed cash flows) have more convexity than bullet portfolios (with concentrated cash flows) for the same duration.",
+            "C": "Cash flow dispersion has no impact on convexity; the two properties are independent."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The relationship runs the other way — dispersion RAISES convexity, and barbells out-convex bullets.",
+            "B": "Correct. The reading states convexity is affected by the dispersion of cash flows — the variance of the times to receipt of cash flow. Higher cash flow dispersion leads to an increase in convexity. This is in contrast to Macaulay duration, which measures the weighted average of the times to cash flow receipt. All else equal, bonds with longer durations also have higher convexity. This is why the barbell portfolio in Example 1 has 40.229 convexity vs 26.5 for the bullet with the same duration.",
+            "C": "Incorrect. Dispersion directly drives convexity; spreading cash flows around the duration point is what creates it."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.a",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Duration and Convexity — cash flow dispersion",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "yield_curve_strategies.b",
+      "los_letter": "b",
+      "los_text": "formulate a portfolio positioning strategy given forward interest rates and an interest rate view that coincides with the market view",
+      "reading_id": "yield_curve_strategies",
+      "reading_name": "Yield Curve Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r8_ycs_los_b_q1",
+          "number": 1,
+          "stem": "When a manager's yield curve forecast *coincides* with the current yield curve (a static/stable YC view), active strategies *most likely* focus on:",
+          "options": {
+            "A": "selling all bond holdings.",
+            "B": "reducing duration to zero.",
+            "C": "adding risk by adding either duration or leverage to the portfolio."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This exits FI exposure entirely.",
+            "B": "Zero-duration abandons all bond returns.",
+            "C": "Full statement: adding risk by adding either duration or leverage to the portfolio — an upward-sloping curve means longer duration exposure earns higher YTM over time and 'repo carry' generates excess return.\n\nCorrect. The reading states the two basic ways to actively position a bond portfolio versus a benchmark index to generate excess return from a static or stable yield curve is to increase risk by adding either duration or leverage to the portfolio. If the yield curve is upward-sloping, longer duration exposure results in higher YTM over time. The 'repo carry' trade (difference between higher-yielding instrument purchased and lower-yielding financing instrument) generates excess return."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.b",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Static Yield Curve strategies",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_b_q2",
+          "number": 2,
+          "stem": "The reading identifies three cash-based static YC strategies. Which of the following is *least likely* one of them?",
+          "options": {
+            "A": "Callable bond writing to generate premium.",
+            "B": "Buy-and-hold: constant portfolio without active trading — add duration beyond target given a static view.",
+            "C": "Rolling down the yield curve: constant portfolio with price change as maturity shortens — extra return from time passage and selling at higher price."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Callable bond writing is a *volatility* strategy, not a static YC strategy. The three cash-based static YC strategies (Exhibit 5) are: (1) buy-and-hold, (2) rolling down the yield curve, and (3) repo carry trade (finance bond purchase in repo market — earn repo carry when coupon plus rolldown exceeds financing cost).",
+            "B": "This is one of the three.",
+            "C": "This is one of the three."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.b",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Static Yield Curve — Exhibit 5",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_b_q3",
+          "number": 3,
+          "stem": "*Rolling down the yield curve* is *most likely*:",
+          "options": {
+            "A": "Rolling down the yield curve means selling all bonds immediately at the initial purchase date to capture the entry spread.",
+            "B": "buying bonds with maturity beyond the investment horizon and selling them at the end at a higher price (lower YTM due to the upward-sloping curve as the bond has aged).",
+            "C": "Rolling down the yield curve means continuously shifting the portfolio into shorter maturities as time passes."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The strategy HOLDS the bond, capturing the price appreciation from riding down the upward-sloping curve.",
+            "B": "Full statement: buying bonds with maturity beyond the investment horizon and selling them at the end at a higher price (lower YTM due to the upward-sloping curve as the bond has aged); with an upward-sloping curve, this offers a total return (higher coupon plus price appreciation) greater than buying a bond with maturity matching the horizon.\n\nCorrect. The reading states that 'rolling down' the yield curve incorporates coupon income (adjusted over time for any price difference from par) but also additional return from time passage and the investor's ability to sell the shorter-maturity bond in the future at a higher price (lower YTM due to the upward-sloping curve). If the yield curve is upward-sloping, buying bonds with maturity beyond the investment horizon offers a total return (higher coupon plus price appreciation) greater than the purchase of a bond with maturity matching the investment horizon if the curve remains static.",
+            "C": "Incorrect. No shifting is required; the bond's own aging lowers its YTM (on an upward-sloping curve) and lifts its price."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.b",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Static Yield Curve — rolling down",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_b_q4",
+          "number": 4,
+          "stem": "The *repo carry trade* is *most likely*:",
+          "options": {
+            "A": "The repo carry trade involves borrowing at long-term rates and lending at short-term rates.",
+            "B": "The repo carry trade involves trading cash for stocks to capture the equity risk premium.",
+            "C": "buying a long-term security and financing it at a short-term rate below the long-term YTM — that is, earning a positive 'repo carry'."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. That reverses the direction — the trade FUNDS long-term bond positions at LOWER short-term repo rates.",
+            "B": "Incorrect. The trade is a fixed-income financing structure, not an equity strategy.",
+            "C": "Full statement: buying a long-term security and financing it at a short-term rate below the long-term YTM — that is, earning a positive 'repo carry'; at the end of the trade the bond is sold and the repo is unwound.\n\nCorrect. The reading defines the repo carry trade as buying a long-term security and financing it at a short-term rate below the long-term YTM — earning a positive 'repo carry'. At the end of the trade, the bond is sold and the repo is unwound. This uses the repo market for leverage: cash-based strategy but with leverage risk added."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.b",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Static Yield Curve — repo carry",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_b_q5",
+          "number": 5,
+          "stem": "Exhibit 7 identifies derivatives-based static YC strategies. These *most likely* include:",
+          "options": {
+            "A": "Long futures position (purchase contract for future bond delivery) and receive-fixed swap (fixed-rate receiver on an interest rate swap) — both synthetically increase duration.",
+            "B": "Exhibit 7's derivatives-based static strategies consist of cash bond purchases only, with no derivative instruments.",
+            "C": "Exhibit 7's strategies are short-only positions designed to reduce portfolio duration."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: Long futures position (purchase contract for future bond delivery) and receive-fixed swap (fixed-rate receiver on an interest rate swap) — both synthetically increase duration; long futures relies on price appreciation, receive-fixed generates 'swap carry' (receive fixed swap rate, pay MRR).\n\nCorrect. Per Exhibit 7, derivatives-based static YC strategies to synthetically increase duration are: (1) long futures position — purchase contract for future bond delivery; targeted return = (ΔPrice / ΔBond yield) − Margin cost; (2) receive-fixed swap — fixed-rate receiver on interest rate swap; targeted return = (Swap rate − MRR) + (ΔSwap MTM / ΔSwap yield). Similar to receive-fixed swap being like the cash-based repo carry but with 'swap carry' component.",
+            "B": "Incorrect. The exhibit's subject is DERIVATIVES — long futures and receive-fixed swaps.",
+            "C": "Incorrect. Both listed positions ADD duration synthetically; they are duration-extending, not duration-reducing."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.b",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Static Yield Curve — Exhibit 7 derivatives strategies",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_b_q6",
+          "number": 6,
+          "stem": "The reading notes that *derivatives* have implicit leverage because *most likely*:",
+          "options": {
+            "A": "Derivatives require full cash payment upfront equal to the notional value, which is the source of their leverage.",
+            "B": "the initial cash outlay for a derivative is limited to initial margin or collateral — as opposed to the full price for a cash bond purchase — so derivatives have a high degree of implicit leverage.",
+            "C": "Derivatives cannot be leveraged because clearinghouses require one-for-one collateralization."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Full upfront payment is the OPPOSITE of the leverage mechanism — only margin or collateral is posted.",
+            "B": "Full statement: the initial cash outlay for a derivative is limited to initial margin or collateral — as opposed to the full price for a cash bond purchase — so derivatives have a high degree of implicit leverage; a small move in price/yield can have a very large effect on a derivative's MTM value relative to the margin posted.\n\nCorrect. The reading states, 'since the initial cash outlay for a derivative is limited to initial margin or collateral as opposed to the full price for a cash bond purchase, derivatives have a high degree of implicit leverage. A small move in price/yield can have a very large effect on a derivative's mark-to-market value (MTM) relative to the margin posted. This outsized price effect makes derivatives effective instruments for fixed-income portfolio management.'",
+            "C": "Incorrect. Margin-based exposure IS the implicit leverage; collateral is a fraction of notional."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.b",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Static Yield Curve — derivatives leverage",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_b_q7",
+          "number": 7,
+          "stem": "The reading notes that following the 2008 GFC, derivatives central counterparty (CCP) clearing was mandated. This *most likely* means:",
+          "options": {
+            "A": "OTC derivatives face no margin requirements.",
+            "B": "OTC derivatives are prohibited.",
+            "C": "the advent of derivatives CCP clearing has given rise to similar cash flow implications for OTC derivatives."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "CCP clearing extended margining to OTC.",
+            "B": "OTC derivatives continue to exist under CCP clearing.",
+            "C": "Full statement: the advent of derivatives CCP clearing has given rise to similar cash flow implications for OTC derivatives — active managers using both exchange-traded and OTC derivatives must maintain sufficient cash or eligible collateral to fulfill margin/collateral requirements, and factor any foregone portfolio return into overall performance.\n\nCorrect. The reading states, 'the advent of derivatives central counterparty (CCP) clearing mandated by regulatory authorities following the 2008 global financial crisis to mitigate counterparty risk has given rise to similar cash flow implications for OTC derivatives. Active managers using both exchange-traded and OTC derivatives must therefore maintain sufficient cash or eligible collateral to fulfill margin or collateral requirements. They must also factor any resulting foregone portfolio return into their overall performance.'"
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.b",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Static Yield Curve — CCP clearing",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_b_q8",
+          "number": 8,
+          "stem": "The reading's formula for *futures BPV* is *most likely*:",
+          "options": {
+            "A": "Futures BPV ≈ BPV_CTD / CF_CTD, where CF_CTD is the conversion factor for the cheapest-to-deliver security.",
+            "B": "Futures BPV = BPV_CTD × CF_CTD.",
+            "C": "Futures BPV = Notional value / Margin."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: Futures BPV ≈ BPV_CTD / CF_CTD, where CF_CTD is the conversion factor for the cheapest-to-deliver security. The 'duration' of the bond futures contract is assumed to match that of the CTD security.\n\nCorrect. Per Equation 6: Futures BPV ≈ BPV_CTD / CF_CTD, where CF_CTD is the conversion factor for the cheapest-to-deliver (CTD) security. Most government bond futures are traded and settled using the least-costly or CTD bond. The Ultra 10-Year US Treasury Note Futures contract specifies delivery of an original 10-year issue Treasury with 9-9.5 years to maturity, assumed 6% YTM, contract size $100,000. For government bond futures with a fixed underlying basket (like Australian Treasury bond futures), futures BPV equals the BPV of the underlying basket.",
+            "B": "This inverts the correct formula.",
+            "C": "This is futures leverage."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.b",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Static Yield Curve — futures BPV",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_b_q9",
+          "number": 9,
+          "stem": "In Example 1, the manager wants to replicate the 10-year Treasury exposure ($20.53M with BPV $18,524) using futures. Given CTD bond of 9.5y ModDur 8.84, conversion factor 0.684, futures BPV = $88.40/0.684 = $129.24 per $100,000 contract. The manager must buy *approximately*:",
+          "options": {
+            "A": "20 contracts.",
+            "B": "143 contracts ($18,524 / $129.24).",
+            "C": "500 contracts."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Too few for the required BPV replication.",
+            "B": "Correct. The reading calculates: with the CTD being a Treasury bond priced at par with 9.5 years remaining, ModDur 8.84, CF 0.684, each $100,000 futures contract has a BPV of $129.24 = $88.40/0.684. The manager must buy approximately 143 futures contracts = $18,524 / $129.24 to replicate the $20.53M exposure. This involves initial margin plus margin movements from MTM changes rather than full principal investment.",
+            "C": "Too many by an order of magnitude."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.b",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Static Yield Curve — futures replication example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_b_q10",
+          "number": 10,
+          "stem": "The reading's *swap BPV* formula is *most likely*:",
+          "options": {
+            "A": "Swap BPV = Notional value.",
+            "B": "Swap BPV = MRR / 100.",
+            "C": "Swap BPV = ModDur_Swap × Swap Notional / 10,000."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Notional alone doesn't give BPV.",
+            "B": "MRR is the floating leg rate, not BPV.",
+            "C": "Correct. Per Equation 7: Swap BPV = ModDur_Swap × Swap Notional / 10,000. The receive-fixed swap position is 'long' a fixed-rate term bond and 'short' a floating-rate bond, mimicking a long cash bond position by increasing duration. The fixed-rate payer swap is a short duration position. The swap MTM change may be approximated by multiplying swap BPV by the yield change."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.b",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Static Yield Curve — Swap BPV formula",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_b_q11",
+          "number": 11,
+          "stem": "In Example 3 (UK gilt vs GBP swap, 10-year, £100M notional, 50 bp rate fall over 6 months): 10y UK gilt at 2.25% coupon priced £93.947, YTM 2.9535%, vs 10y GBP receive-fixed swap at 2.8535%, 6m MRR 0.5925%, swap ModDur 8.318. The bond total 6-month gain is *closest to* £5,462,778 (income £1,125,000 + price appreciation £4,337,779). The swap 6-month gain is *closest to*:",
+          "options": {
+            "A": "£5,364,760 (carry £1,130,500 + MTM £4,234,260).",
+            "B": "£10,000,000.",
+            "C": "£100,000."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per Example 3: The 10y GBP receive-fixed swap gains £5,364,760 over 6 months: (1) swap carry = £1,130,500 = [(2.8535% − 0.5925%)/2] × £100M; (2) swap MTM gain = £4,234,260 (difference between fixed leg PV and floating leg at par). Approximate swap MTM using Equation 7: Swap BPV × 50 bps = (8.318 × £100M / 10,000) × 50 = £4,159,000. Cash outlay for the swap is limited to required collateral or margin — not full bond cash price. The swap gain (£5,364,760) is slightly less than the bond gain (£5,462,778) but requires far less capital.",
+            "B": "Too large by an order of magnitude.",
+            "C": "Too small — misses main components."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.b",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Static Yield Curve — Example 3 swap vs bond",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "yield_curve_strategies.c",
+      "los_letter": "c",
+      "los_text": "formulate a portfolio positioning strategy given forward interest rates and an interest rate view that diverges from the market view in terms of rate level, slope, and shape",
+      "reading_id": "yield_curve_strategies",
+      "reading_name": "Yield Curve Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r8_ycs_los_c_q1",
+          "number": 1,
+          "stem": "A *divergent rate level view* implies an *most likely* expectation of:",
+          "options": {
+            "A": "no change in the yield curve.",
+            "B": "a parallel shift in the yield curve.",
+            "C": "a curvature change only."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "That's a static view.",
+            "B": "Full statement: a parallel shift in the yield curve — positioning the portfolio to increase profit as yield levels fall (extend duration) or minimize losses as yield levels rise (reduce duration) is of primary importance.\n\nCorrect. The reading states, 'To be clear, a divergent rate level view implies an expectation of a parallel shift in the yield curve.' For active managers with a divergent rate level view, positioning the portfolio to increase profit as yield levels fall or minimize losses as yield levels rise is of primary importance. Exhibit 10 shows upward and downward parallel shifts.",
+            "C": "Curvature is a shape view, not a level view."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.c",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Divergent Yield Level View",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_c_q2",
+          "number": 2,
+          "stem": "The reading identifies three major yield curve strategies to *increase* portfolio duration (Exhibit 11). Which is *least likely* one of them?",
+          "options": {
+            "A": "Cash bond purchase (bullet) — extend duration with longer-dated bonds; price appreciation as YTM declines; downside risk = higher yield levels.",
+            "B": "Receive-fixed swap — swap MTM gain plus carry (fixed minus floating rate); downside risk = higher swap yield levels and/or higher floating rates.",
+            "C": "Short futures position — profit from lower bond prices."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This is one of the three (Exhibit 11).",
+            "B": "This is one of the three (Exhibit 11).",
+            "C": "Correct. Short futures reduce duration; it belongs in Exhibit 12 (strategies to reduce duration). Per Exhibit 11 (to increase duration), the three are: (1) cash bond purchase (bullet), (2) receive-fixed swap, and (3) long futures position (purchase contract for forward bond delivery; futures MTM gain − margin cost; downside risk = higher bond yields and/or higher margin cost)."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.c",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Divergent Yield Level View — Exhibit 11 increase duration",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_c_q3",
+          "number": 3,
+          "stem": "The reading identifies three major yield curve strategies to *reduce* portfolio duration (Exhibit 12). These *most likely* include:",
+          "options": {
+            "A": "Both A and B, plus short futures position.",
+            "B": "Cash bond sale (bullet) — reduce duration with short sale/switch to shorter-dated bonds; smaller price decline as YTM increases; downside = lower yield levels.",
+            "C": "Pay-fixed interest rate swap — fixed-rate payer; swap MTM gain plus swap carry (MRR − fixed swap rate); downside = swap MTM loss amid lower swap yields."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per Exhibit 12, three strategies to reduce duration are: (1) cash bond sale (bullet), (2) pay-fixed interest rate swap (fixed-rate payer), (3) short futures position (sell contract for forward bond delivery; futures MTM gain − margin cost; downside = futures MTM loss amid lower bond yields and/or higher margin cost).",
+            "B": "This is one of the three.",
+            "C": "This is one of the three."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.c",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Divergent Yield Level View — Exhibit 12 reduce duration",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_c_q4",
+          "number": 4,
+          "stem": "For an 'index' Treasury portfolio equally weighted 2y/5y/10y (ModDur 5.299, Conv 40.8) vs a 20/20/60 'active' portfolio (ModDur 6.79, Conv 60.8), for a *40 bp rise* in all yields, the active portfolio *most likely* declines by:",
+          "options": {
+            "A": "$181,197 more than the index portfolio.",
+            "B": "$289,915 more than the index portfolio (on $50M).",
+            "C": "$289,915 less than the index portfolio."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Wrong magnitude.",
+            "B": "Correct. Per Example 5: for a 40 bp rise: Index %ΔPV = (−5.299 × 0.004) + [½ × 40.8 × (0.004)²] = −2.087%; Active %ΔPV = (−6.79 × 0.004) + [½ × 60.8 × (0.004)²] = −2.667%. Difference of −0.58% × $50M = −$289,915. The higher-duration active portfolio declines by $289,915 more than the index. This reinforces the danger of higher-duration positions if the manager's rate view proves wrong.",
+            "C": "The active portfolio has higher duration and declines more."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.c",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Divergent Yield Level View — Example 5",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_c_q5",
+          "number": 5,
+          "stem": "The reading notes that most fixed-income managers taking a divergent rate level view *most likely* favor:",
+          "options": {
+            "A": "callable bonds due to their embedded options.",
+            "B": "putable bonds only.",
+            "C": "option-free bonds over callable bonds due to the greater liquidity of option-free bonds."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Callable bonds have embedded options limiting upside.",
+            "B": "Putable bonds are specific volatility choices.",
+            "C": "Full statement: option-free bonds over callable bonds due to the greater liquidity of option-free bonds; an exception arises when investors formulate strategies based on expected changes in interest rate volatility.\n\nCorrect. The reading states, 'note that most fixed-income managers will tend to favor option-free over callable bonds if taking a divergent rate level view due to the greater liquidity of option-free bonds. An exception to this arises when investors formulate portfolio positioning strategies based upon expected changes in interest rate volatility.' Callable/putable bonds' embedded options add complexity when the primary view is on rate level."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.c",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Divergent Yield Level View — option-free preference",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_c_q6",
+          "number": 6,
+          "stem": "For *yield curve slope* strategies, a *duration-neutral steepener* (bear steepener alternative) with net zero duration is *most likely* achieved by:",
+          "options": {
+            "A": "combining a 'long' shorter-dated bond position with a 'short' longer-dated bond position — this generates a gain from an increase in yield curve slope (long shorter maturity gains as short-end rates decrease or shorter rates fall less than longer rates rise).",
+            "B": "A duration-neutral steepener is achieved by purchasing longer-dated bonds only, concentrating exposure at the long end.",
+            "C": "A duration-neutral steepener is achieved by buying both short- and long-term bonds in market-value-matched amounts."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: combining a 'long' shorter-dated bond position with a 'short' longer-dated bond position — this generates a gain from an increase in yield curve slope (long shorter maturity gains as short-end rates decrease or shorter rates fall less than longer rates rise); downside risk is yield curve flattening.\n\nCorrect. Per the reading, yield curve steepener strategies seek to gain from an increase in yield curve slope (or a greater difference between long-term and short-term YTM). This may be achieved by combining a 'long' shorter-dated bond position with a 'short' longer-dated bond position. Example: buying the 2-year Treasury and selling the 10-year Treasury at par with position weights that give zero net portfolio duration; portfolio gains if slope increases (whether from decline in 2-year yield or rise in 10-year yield). Downside risk is yield curve flattening.",
+            "B": "Incorrect. A long-end bullet has large net duration and loses as the curve steepens — the opposite structure.",
+            "C": "Incorrect. Long both wings is a barbell, not a steepener; the steepener pairs LONG short-dated against SHORT long-dated positions at net zero duration."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.c",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Divergent Slope View — steepener",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_c_q7",
+          "number": 7,
+          "stem": "A *bull steepener* is *most likely*:",
+          "options": {
+            "A": "a scenario where long-term yields rise more than short-term yields.",
+            "B": "a scenario where short-term yields fall by more than long-term yields.",
+            "C": "a scenario with no slope change."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "That's a bear steepener.",
+            "B": "Full statement: a scenario where short-term yields fall by more than long-term yields — often follows monetary policy cuts to stimulate economic activity during a recession (e.g., UK 2008 GFC when the BoE cut base rate six times from 5.75% to 2.00%).\n\nCorrect. The reading defines bull steepening: short-term YTM fall by more than long-term YTM, typically when the monetary authority cuts benchmark rates to stimulate economic activity during a recession. Example: UK 2008 GFC — Bank of England cut base rate six times from a peak of 5.75% (July 2007) to 2.00% (December 2008). Exhibit 15 shows this bull steepening in the UK gilt yield curve.",
+            "C": "That's a static view."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.c",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Divergent Slope View — bull vs bear steepener",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_c_q8",
+          "number": 8,
+          "stem": "A *bear steepener* is *most likely*:",
+          "options": {
+            "A": "A bear steepener is a fall in long-term yields greater than the fall in short-term yields.",
+            "B": "A bear steepener describes a stable-yield environment in which the curve's slope drifts without direction.",
+            "C": "a rise in long-term yields more than short-term yields — could result from a jump in long-term rates amid higher growth and inflation expectations while short-term rates remain unchanged."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Falling yields are BULL moves; that pattern is a bull steepener only if short rates fall faster.",
+            "B": "Incorrect. The bear steepener is a directional RISE — long-term yields up more than short-term, often on growth and inflation expectations.",
+            "C": "Full statement: a rise in long-term yields more than short-term yields — could result from a jump in long-term rates amid higher growth and inflation expectations while short-term rates remain unchanged; an analyst might expect the next central bank policy change to be tightening.\n\nCorrect. The reading describes bear steepening: long-term YTM rise more than short-term YTM. This could result from a jump in long-term rates amid higher growth and inflation expectations while short-term rates remain unchanged. In this case, an analyst might expect the next central bank policy change to be a monetary tightening to curb inflation."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.c",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Divergent Slope View — bear steepener",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_c_q9",
+          "number": 9,
+          "stem": "*Yield curve flattener* strategies are *most likely*:",
+          "options": {
+            "A": "reverse the exposure profile of a steepener — namely, a 'short' short-term bond position and a 'long' long-term bond position.",
+            "B": "Yield curve flattener strategies are structured to gain from an increase in the curve's slope.",
+            "C": "Flattener strategies are unaffected by changes in the slope of the yield curve."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: reverse the exposure profile of a steepener — namely, a 'short' short-term bond position and a 'long' long-term bond position; gain from an anticipated narrowing of the difference between long-term and short-term yields.\n\nCorrect. The reading states flattener strategies may use a barbell that reverses the exposure profile of a steepener — namely, a 'short' short-term bond position and a 'long' long-term bond position. Yield curve flattening involves an anticipated narrowing of the difference between long-term and short-term YTM. Two variations: bear flattening (short-term rates rise) and bull flattening (long-term rates fall — often flight-to-quality). Flatteners may be duration-neutral, net long duration (bull flattener), or net short duration (bear flattener).",
+            "B": "Incorrect. Gaining from slope INCREASES is the steepener; the flattener profits when slope decreases.",
+            "C": "Incorrect. Slope sensitivity is the trade's entire purpose — short the short end, long the long end."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.c",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Divergent Slope View — flatteners",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_c_q10",
+          "number": 10,
+          "stem": "The reading's *butterfly strategy* for curvature is *most likely*:",
+          "options": {
+            "A": "The butterfly strategy for curvature uses bullet-only exposure concentrated at a single maturity point.",
+            "B": "combining a long bullet with a short barbell portfolio (or vice versa) — short-term and long-term bond positions of the barbell form the 'wings', while the intermediate-term bullet forms the 'body'.",
+            "C": "The butterfly strategy purchases all maturities in equal amounts across the curve."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. A lone bullet is one wing of the trade; the butterfly PAIRS a bullet body against barbell wings.",
+            "B": "Full statement: combining a long bullet with a short barbell portfolio (or vice versa) — short-term and long-term bond positions of the barbell form the 'wings', while the intermediate-term bullet forms the 'body'; the investor is either long or short both a short-term and long-term bond and enters an intermediate-term bullet in the opposite direction.\n\nCorrect. Per the reading, 'The most common yield curve curvature strategy combines a long bullet with a short barbell portfolio (or vice versa) in what is referred to as a butterfly strategy to capitalize on expected yield curve shape changes.' The short-term and long-term bond positions of the barbell form the 'wings', while the intermediate-term bullet forms the 'body' of the butterfly. Unlike steepener/flatteners, the investor is either 'long' or 'short' both a short-term and long-term bond and enters into an intermediate-term bullet trade in the opposite direction.",
+            "C": "Incorrect. Equal weighting across maturities is a ladder, not a butterfly; the butterfly is long bullet/short barbell or the reverse."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.c",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Divergent Shape View — butterfly strategy",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_c_q11",
+          "number": 11,
+          "stem": "A *negative butterfly* strategy expects lower short- and long-term yields but higher medium-term yields. The active position (Exhibit 21) is *most likely*:",
+          "options": {
+            "A": "long bullet, short barbell.",
+            "B": "long everything equally.",
+            "C": "short bullet, long barbell (long positions in short- and long-term bonds, short intermediate)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "That's a positive butterfly.",
+            "B": "Directional views drive the positioning.",
+            "C": "Correct. Per Exhibit 21, negative butterfly = lower short- and long-term yields, higher medium-term yields → active position is short bullet (short intermediate to profit from expected rise in medium-term yields), long barbell (long the wings expecting lower short- and long-term yields). Positive butterfly = opposite: higher short- and long-term yields, lower medium-term yields → long bullet (long intermediate), short barbell."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.c",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Divergent Shape View — negative butterfly",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_c_q12",
+          "number": 12,
+          "stem": "For an example butterfly portfolio: long 2y ($110M), short 5y ($248.3M), long 10y ($110M), net portfolio $28.3M short with duration ~0 and convexity −139.9. If 2y and 10y yields fall 25 bp each and 5y yield rises 50 bp, the portfolio *most likely*:",
+          "options": {
+            "A": "gains approximately $9.04 million (duration-based approximation $9,088,175.",
+            "B": "loses $9 million.",
+            "C": "gains nothing since the portfolio is duration-neutral."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: gains approximately $9.04 million (duration-based approximation $9,088,175; convexity-adjusted $9,038,877) — this coincides with an increase in butterfly spread from −50 bps to +100 bps.\n\nCorrect. Per the reading's negative butterfly example: duration-based approximation = (+25 bps × $21,934) + −(50 bps × −$121,170) + (+25 bps × $99,253) = $9,088,175. Precise answer incorporating convexity = $9,038,877. The 5y increase (50 bps) is larger than the 2y/10y decreases (25 bps each), so the convexity impact of the short bullet position outweighs that of the long barbell. Although the portfolio is nearly duration-neutral, it gains substantially from the change in butterfly spread from −50 bps to +100 bps.",
+            "B": "Wrong sign.",
+            "C": "Duration-neutrality doesn't preclude gain from curvature changes."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.c",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Divergent Shape View — butterfly example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "yield_curve_strategies.d",
+      "los_letter": "d",
+      "los_text": "formulate a portfolio positioning strategy based upon expected changes in interest rate volatility",
+      "reading_id": "yield_curve_strategies",
+      "reading_name": "Yield Curve Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r8_ycs_los_d_q1",
+          "number": 1,
+          "stem": "The reading notes that in markets like the US where a significant portion of outstanding FI bonds have embedded options, investors *most likely* use:",
+          "options": {
+            "A": "stand-alone options exclusively.",
+            "B": "cash bond positions with embedded options more frequently than stand-alone options to manage volatility.",
+            "C": "no options at all."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The reading identifies cash bonds with embedded options as more common.",
+            "B": "Full statement: cash bond positions with embedded options more frequently than stand-alone options to manage volatility — approximately 30% of the Bloomberg Barclays US Aggregate Bond Index (as of 2019) was securitized debt (mostly with embedded options).\n\nCorrect. The reading states, 'In markets such as in the United States where a significant portion of outstanding fixed-income bonds, such as asset-backed securities, have embedded options, investors use cash bond positions with embedded options more frequently than stand-alone options to manage volatility. For example, as of 2019 approximately 30% of the Bloomberg Barclays US Aggregate Bond Index was comprised of securitized debt, which mostly includes bonds with embedded options.'",
+            "C": "Options are used, just often via embedded structures."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.d",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Yield Curve Volatility Strategies",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_d_q2",
+          "number": 2,
+          "stem": "A *callable* bond is *most likely*:",
+          "options": {
+            "A": "one where the bond investor is 'long' the call option.",
+            "B": "identical in all respects to an option-free bond.",
+            "C": "one where the bond investor is 'short' volatility — has sold the right to call a bond at a fixed price to the issuer."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "The investor is short the call (issuer holds it).",
+            "B": "The embedded option makes them behave differently.",
+            "C": "Full statement: one where the bond investor is 'short' volatility — has sold the right to call a bond at a fixed price to the issuer; the issuer will call the bond if yields fall, so the callable bond's price appreciates less than an option-free bond as yields decline.\n\nCorrect. Per the reading, with a callable bond, the embedded call option is owned by the issuer, who can exercise if YTM decreases (the bond investor is 'short' the call option — 'short' volatility). Exhibit 22A shows the callable bond price becomes capped as yields decline: the callable bond's price appreciation is limited above the call price. For a decrease in YTM, the value of the embedded call option increases (helping the issuer), so a long position in a callable bond underperforms a long position in an option-free bond."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.d",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Yield Curve Volatility — callable",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_d_q3",
+          "number": 3,
+          "stem": "A *putable* bond is *most likely*:",
+          "options": {
+            "A": "one where the bond investor is 'long' volatility — owns the right to sell the bond at a fixed price to the issuer.",
+            "B": "one where the bond investor is 'short' the put option.",
+            "C": "identical in all respects to a callable bond."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: one where the bond investor is 'long' volatility — owns the right to sell the bond at a fixed price to the issuer; the investor benefits from an increase in yields (which raises the value of the put).\n\nCorrect. Per the reading, with a putable bond, the embedded put option is owned by the bond investor, who can exercise if YTM increases ('long' volatility). Exhibit 22B shows the putable bond has a flatter downward slope than the option-free bond as yields rise (the put limits downside). For an increase in YTM, the value of the embedded put option increases (helping the investor), partially offsetting the decline in the putable bond relative to the option-free bond.",
+            "B": "The investor is long the put.",
+            "C": "Options work in opposite directions."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.d",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Yield Curve Volatility — putable",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_d_q4",
+          "number": 4,
+          "stem": "For an expected *downward* parallel shift in the yield curve, the most profitable position among callable/putable/option-free bonds is *most likely*:",
+          "options": {
+            "A": "long a callable bond.",
+            "B": "long an option-free bond.",
+            "C": "short a putable bond."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Callable underperforms option-free on rate declines.",
+            "B": "Correct. Per Example 8: for a decrease in YTM, the value of the embedded call option increases and the value of the embedded put option decreases. A long position in a callable bond underperforms a long position in an option-free bond because the call option value increase penalizes the callable bondholder. A short position in a putable bond would also underperform (losses on both the bond and the option). Thus long an option-free bond is the best choice.",
+            "C": "Short putable would lose on rate declines too."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.d",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Yield Curve Volatility — Example 8",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_d_q5",
+          "number": 5,
+          "stem": "*Effective duration* and *effective convexity* are *most likely* used when:",
+          "options": {
+            "A": "the bond is option-free with fixed cash flows.",
+            "B": "yield spreads are widening only.",
+            "C": "future bond cash flows are contingent on interest rate changes."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Modified duration works for option-free bonds.",
+            "B": "Not the relevant condition.",
+            "C": "Full statement: future bond cash flows are contingent on interest rate changes — Equations 8 and 9 apply: EffDur = [PV_− − PV_+] / [2 × ΔCurve × PV_0] and EffCon = [PV_− + PV_+ − 2 × PV_0] / [(ΔCurve)² × PV_0].\n\nCorrect. Per the reading, effective duration and convexity are relevant when future bond cash flows are contingent upon interest rate changes — for example, callable, putable, mortgage-backed securities. Equations 8 and 9 use portfolio values at PV_− (decreased yield), PV_+ (increased yield), and PV_0 (original) to compute effective statistics that account for the option-adjusted cash flow response."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.d",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Yield Curve Volatility — effective duration/convexity",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_d_q6",
+          "number": 6,
+          "stem": "*Long a purchased bond call option* has *most likely* the following portfolio impact:",
+          "options": {
+            "A": "increases portfolio duration — adds convexity to the portfolio and is exercised if the bond price appreciates beyond the strike (i.e., generally at a lower YTM).",
+            "B": "A purchased bond call option decreases portfolio duration, offsetting long cash bond exposure.",
+            "C": "A purchased bond call option has no duration impact because option positions carry only volatility exposure."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: increases portfolio duration — adds convexity to the portfolio and is exercised if the bond price appreciates beyond the strike (i.e., generally at a lower YTM); payoff = Max(Bond price at lower yield − Strike, 0) − Call premium.\n\nCorrect. Per Exhibit 24, a long bond call option is the purchase of the right to take forward bond delivery. Targeted return = Max(Bond price at lower yield − Strike, 0) − Call premium. Portfolio duration impact: increase portfolio duration (long bond position exposure via option). A call option adds convexity to the portfolio and is exercised if the bond price appreciates beyond the strike (at lower YTM).",
+            "B": "Incorrect. Duration reduction comes from PUT purchases; the call gains as bond prices rise, adding duration.",
+            "C": "Incorrect. The call has positive delta to bond prices — a genuine duration (and convexity) contribution."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.d",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Yield Curve Volatility — call option",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_d_q7",
+          "number": 7,
+          "stem": "A *long payer swaption* is *most likely*:",
+          "options": {
+            "A": "the right to receive-fixed on an interest rate swap.",
+            "B": "the right to pay-fixed on an interest rate swap at a strike rate — used to benefit from higher rates.",
+            "C": "no rate exposure."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "That's a receiver swaption.",
+            "B": "Full statement: the right to pay-fixed on an interest rate swap at a strike rate — used to benefit from higher rates; payoff = Max(Strike rate − Swap rate, 0) − Swaption premium; portfolio duration impact: decrease in duration (pay-fixed is short duration).\n\nCorrect. Per Exhibit 24, a long payer swaption is the ownership of the right to pay-fixed on an interest rate swap at a strike rate. Targeted return = Max(Strike rate − Swap rate, 0) − Swaption premium. Portfolio duration impact: decrease in portfolio duration. Exhibit 23 shows this instrument: a manager expecting higher rates buys a payer swaption to gain from higher rates using an option-based strategy — the option to enter into a pay-fixed swap.",
+            "C": "Swaptions have significant rate exposure."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.d",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Yield Curve Volatility — payer swaption",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_d_q8",
+          "number": 8,
+          "stem": "The reading's *long receiver swaption* is *most likely*:",
+          "options": {
+            "A": "the right to pay-fixed.",
+            "B": "identical to a payer swaption.",
+            "C": "the right to receive-fixed on an interest rate swap at a strike rate — used to benefit from lower rates."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "That's a payer swaption.",
+            "B": "They are opposite duration effects.",
+            "C": "Full statement: the right to receive-fixed on an interest rate swap at a strike rate — used to benefit from lower rates; payoff = Max(Swap rate − Strike rate, 0) − Swaption premium; portfolio duration impact: increase in portfolio duration.\n\nCorrect. Per Exhibit 24, a long receiver swaption is the ownership of the right to receive-fixed on an interest rate swap at a strike rate. Targeted return = Max(Swap rate − Strike rate, 0) − Swaption premium. Portfolio duration impact: increase in portfolio duration (receive-fixed is long duration)."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.d",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Yield Curve Volatility — receiver swaption",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_d_q9",
+          "number": 9,
+          "stem": "For a *parallel upward shift* in the yield curve, the best option strategy is *most likely*:",
+          "options": {
+            "A": "long a put option on a bond futures contract.",
+            "B": "long a receiver swaption.",
+            "C": "short a payer swaption."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per Example 9: with an expected upward shift in the yield curve, the manager wants to reduce portfolio duration in anticipation of lower bond prices. A put option increases in value as the yield curve shifts upward, while the price of the underlying bond declines below the strike. A is incorrect because a receiver swaption is an option to receive-fixed — with bond prices expected to fall, the manager would not want to exercise. B is incorrect because a short payer swaption gains from lower rates; a long payer swaption would benefit from higher rates.",
+            "B": "Receiver swaption benefits from lower rates.",
+            "C": "Short payer swaption loses in rising rates."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.d",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Yield Curve Volatility — Example 9",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_d_q10",
+          "number": 10,
+          "stem": "For an expected parallel *upward* shift in the yield curve, the most likely ordering (least to most decline) of otherwise comparable *deep out-of-the-money* callable, putable, and option-free bonds is *most likely*:",
+          "options": {
+            "A": "callable, option-free, putable.",
+            "B": "putable, callable, option-free.",
+            "C": "putable, option-free, callable."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Reverses the correct answer.",
+            "B": "Correct. Per Example 10: For a putable bond, the investor has the option to 'put' the bond back — the more rates rise, the more valuable this embedded option becomes; this increasing option value partially offsets the decline. For a callable bond, the issuer has an option to 'call' the bond — the more rates rise, the lower the call option value; since the investor is short the embedded option and its value has fallen, this partially offsets the decline. As rates continue rising, the embedded put option rises in value more quickly at the margin as it shifts toward being in-the-money. The deep out-of-the-money embedded call moves further out-of-the-money as rates increase — marginal impact of further rate increases declines. Ordering: putable declines least, then callable, then option-free.",
+            "C": "Callable does not decline the most."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.d",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Yield Curve Volatility — Example 10",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "yield_curve_strategies.e",
+      "los_letter": "e",
+      "los_text": "evaluate a portfolio's sensitivity using key rate durations of the portfolio and its benchmark",
+      "reading_id": "yield_curve_strategies",
+      "reading_name": "Yield Curve Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r8_ycs_los_e_q1",
+          "number": 1,
+          "stem": "*Key rate duration* is *most likely* defined as:",
+          "options": {
+            "A": "the aggregate portfolio duration only.",
+            "B": "the standard deviation of yield changes.",
+            "C": "a measure of portfolio sensitivity over a set of maturities along the yield curve."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Aggregate duration alone doesn't capture curve shape sensitivity.",
+            "B": "That's volatility, not duration.",
+            "C": "Full statement: a measure of portfolio sensitivity over a set of maturities along the yield curve: KeyRateDur_k = −(1/PV) × (ΔPV / Δr_k), and the sum of key rate durations equals the effective duration.\n\nCorrect. Per Equations 10 and 11: KeyRateDur_k = −(1/PV) × (ΔPV / Δr_k), where r_k represents the kth key rate and PV is the portfolio value. Σ KeyRateDur_k = EffDur. Key rate durations help identify 'shaping risk' for a bond portfolio — a portfolio's sensitivity to changes in the shape of the benchmark yield curve. By breaking down a portfolio into individual duration components by maturity, an active manager can pinpoint and quantify key exposures along the curve."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.e",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Key Rate Duration — definition",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_e_q2",
+          "number": 2,
+          "stem": "For an *index* zero-coupon US Treasury bond portfolio equally weighted by price (2y $98.03M, 5y $90.57M, 10y $74.40M) with total value $263M, the *portfolio modified duration* is *closest to*:",
+          "options": {
+            "A": "5.173.",
+            "B": "1.98.",
+            "C": "9.71."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per the reading: Portfolio ModDur = [1.98 × (98.03/263)] + [4.902 × (90.57/263)] + [9.709 × (74.40/263)] = 5.173. Alternatively, the sum of key rate durations = 0.738 + 1.688 + 2.747 = 5.173. This confirms Equation 11: sum of KRDs equals effective duration.",
+            "B": "That's just the 2-year duration.",
+            "C": "That's the 10-year duration alone."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.e",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Key Rate Duration — index portfolio",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_e_q3",
+          "number": 3,
+          "stem": "For an *active* zero-coupon Treasury portfolio (2y $51.4M, short 5y $46M, long 10y $257.6M) with total value $263M, portfolio ModDur is *closest to*:",
+          "options": {
+            "A": "5.173.",
+            "B": "9.039 (with the short 5y contributing a negative KRD of −0.857).",
+            "C": "0.0."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "That's the index duration.",
+            "B": "Correct. Per the reading: Active Portfolio ModDur = [1.98 × (51.4/263)] + [4.902 × (−46/263)] + [9.709 × (257.6/263)] = 9.039. The short 5-year active position has a negative key rate duration of −0.857 = 4.902 × (−46/263), the long 2-year has KRD of 0.387, and the long 10-year has KRD of 9.509. The manager is positioned for a combination of a negative butterfly and a bull flattening at the long end of the yield curve.",
+            "C": "The portfolio has significant duration despite mixed positions."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.e",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Key Rate Duration — active portfolio",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_e_q4",
+          "number": 4,
+          "stem": "In the KRD comparison of active vs index for the reading's zero-coupon Treasury example — active 2y KRD 0.39 vs index 0.74 (diff −0.35); active 5y KRD −0.86 vs index 1.69 (diff −2.55); active 10y KRD 9.51 vs index 2.75 (diff +6.76). This *most likely* indicates:",
+          "options": {
+            "A": "the active portfolio matches the index across all maturities.",
+            "B": "the active portfolio has lower 10-year exposure.",
+            "C": "the active portfolio has lower exposure to short-term rates than the index and far greater exposure to 10-year yield changes."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "The differences show significant deviations.",
+            "B": "The 10-year difference is +6.76 (larger exposure).",
+            "C": "Correct. Per the reading: 'the negative differences for 2-year and 5-year maturities (−0.35 and −2.55, respectively) indicate that the active portfolio has lower exposure to short-term rates than the index portfolio. The large positive difference in the 10-year tenor shows that the active portfolio has far greater exposure to 10-year yield-to-maturity changes.' The KRD analysis provides more information than aggregate duration comparison alone."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.e",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Key Rate Duration — active vs index comparison",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_e_q5",
+          "number": 5,
+          "stem": "The reading emphasizes that KRD analysis provides *more information* than aggregate duration comparison alone because *most likely*:",
+          "options": {
+            "A": "aggregate portfolio duration cannot capture how a portfolio responds to non-parallel yield curve shifts.",
+            "B": "aggregate portfolio duration captures all shaping risk.",
+            "C": "KRD analysis is only used to check aggregate duration."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: aggregate portfolio duration cannot capture how a portfolio responds to non-parallel yield curve shifts — KRD analysis identifies specific exposure differences at each maturity point (shaping risk).\n\nCorrect. The reading demonstrates this in its zero-coupon Treasury example: 'a comparison of the active versus index portfolio duration summary statistic does not tell the entire story. Instead, we can compare the key rate or partial durations for specific maturities across the index and active portfolios to better understand exposure differences.' KRDs identify where portfolios deviate along the curve — essential when non-parallel shifts occur.",
+            "B": "Aggregate duration hides curve-shape mismatches.",
+            "C": "KRD provides additional detail."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.e",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Key Rate Duration — importance",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_e_q6",
+          "number": 6,
+          "stem": "In Example 11, an active manager has KRD differences: 5y −2.821 (short), 10y −0.291 (small short), 30y +2.933 (long), portfolio ModDur difference −0.179. Using only derivatives on top of the index bond portfolio, the manager's synthetic positions *most likely* are:",
+          "options": {
+            "A": "receive-fixed 5y swap, short 10y futures, pay-fixed 30y swap.",
+            "B": "pay-fixed 5y swap, short 10y futures, receive-fixed 30y swap.",
+            "C": "short 5y futures, long 10y futures, receive-fixed 30y swap."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Receive-fixed 5y adds duration, but the manager is net short 5y KRD.",
+            "B": "Correct. Per Example 11 solution: The KRD summary shows the investor net short 5y and 10y KRD and long 30y KRD versus the index. A pay-fixed 5y swap = short duration on 5y, matches the negative diff. Short 10y futures = short 10y duration, matches. Receive-fixed 30y swap = long duration on 30y, matches the positive diff. This combination correctly produces the observed KRD deviations.",
+            "C": "Long 10y futures adds 10y duration, but the manager is short 10y."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.e",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Key Rate Duration — Example 11",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_e_q7",
+          "number": 7,
+          "stem": "The concept of *shaping risk* is *most likely*:",
+          "options": {
+            "A": "portfolio sensitivity to parallel shifts only.",
+            "B": "the risk of managers reshaping their portfolios.",
+            "C": "a portfolio's sensitivity to changes in the shape of the benchmark yield curve."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Duration alone captures parallel shifts, not shape.",
+            "B": "Not the reading's meaning.",
+            "C": "Full statement: a portfolio's sensitivity to changes in the shape of the benchmark yield curve — captured by KRDs across specific maturities rather than a single aggregate duration statistic.\n\nCorrect. Per the reading, 'In contrast to effective duration, key rate durations help identify \"shaping risk\" for a bond portfolio — that is, a portfolio's sensitivity to changes in the shape of the benchmark yield curve. By breaking down a portfolio into its individual duration components by maturity, an active manager can pinpoint and quantify key exposures along the curve.'"
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.e",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Key Rate Duration — shaping risk",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_e_q8",
+          "number": 8,
+          "stem": "The reading notes that a *short* position in a maturity bucket produces *most likely*:",
+          "options": {
+            "A": "a negative KRD contribution — for example, the short 5-year active position has KRD of −0.857 = 4.902 × (−46/263).",
+            "B": "A short position in a maturity bucket produces a positive key rate duration contribution.",
+            "C": "Short positions produce no key rate duration contribution because KRD is defined only for long holdings."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per the reading's active portfolio example: the short 5-year active position has a negative key rate duration of −0.857 = 4.902 × (−46/263). Negative position values (representing 'short' positions) produce negative KRD contributions. This allows active managers to explicitly express short views on specific parts of the yield curve.",
+            "B": "Incorrect. Positive contributions come from LONG positions; the short's sign flips negative.",
+            "C": "Incorrect. Shorts contribute with negative sign — e.g., the short 5-year position's KRD of −0.857 = 4.902 × (−46/263)."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.e",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Key Rate Duration — short position KRD",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_e_q9",
+          "number": 9,
+          "stem": "The reading extends the zero-coupon KRD example to *most likely* apply also to:",
+          "options": {
+            "A": "only zero-coupon bonds.",
+            "B": "fixed-coupon bonds, swaps, and other rate-sensitive instruments that may be included in a fixed-income portfolio.",
+            "C": "only equities."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "The framework generalizes.",
+            "B": "Full statement: fixed-coupon bonds, swaps, and other rate-sensitive instruments that may be included in a fixed-income portfolio — as shown in Example 11 (5y/10y/30y swaps and futures).\n\nCorrect. Per the reading, 'This simple zero-coupon bond example may be extended to portfolios consisting of fixed-coupon bonds, swaps, and other rate-sensitive instruments that may be included in a fixed-income portfolio, as seen in the following example.' Example 11 uses swaps and futures alongside the underlying index bond portfolio.",
+            "C": "KRD applies to interest-rate-sensitive instruments."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.e",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Key Rate Duration — extending framework",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_e_q10",
+          "number": 10,
+          "stem": "The reading notes that if the active manager is *net long 30y KRD* by +2.933 vs index while *net short 5y* by −2.821 and *net short 10y* by a small −0.291, the portfolio *most likely* has:",
+          "options": {
+            "A": "a positive butterfly view (long medium, short wings).",
+            "B": "a bear steepening view.",
+            "C": "a bull flattening view — long the long end (expecting long yields to fall) and short the shorter end (via pay-fixed swap and short futures on shorter tenors)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Long 30y is not consistent with positive butterfly.",
+            "B": "Bear steepening would be opposite: short duration on long end.",
+            "C": "Correct. Being net long 30y KRD combined with short 5y and 10y KRD is consistent with a bull flattening view — the manager expects long-term yields to fall more than short-term yields (or short-term yields to rise). Long 30y captures the fall in long yields; short 5y and 10y positions reduce loss (or gain) from short/mid-yield rises. The bull flattening pattern is common in flight-to-quality environments."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.e",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Key Rate Duration — bull flattening interpretation",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "yield_curve_strategies.f",
+      "los_letter": "f",
+      "los_text": "discuss yield curve strategies across currencies",
+      "reading_id": "yield_curve_strategies",
+      "reading_name": "Yield Curve Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r8_ycs_los_f_q1",
+          "number": 1,
+          "stem": "For a foreign-currency bond position, the *domestic-currency return* is *most likely*:",
+          "options": {
+            "A": "R_DC = (1 + R_FC)(1 + R_FX) − 1, for a single asset — combining foreign-currency return with FX return.",
+            "B": "The domestic-currency return on a foreign bond is the product of the two component returns: R_DC = R_FC × R_FX.",
+            "C": "The domestic-currency return is the simple sum of the foreign-currency return and the FX return: R_DC = R_FC + R_FX."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: R_DC = (1 + R_FC)(1 + R_FX) − 1, for a single asset — combining foreign-currency return with FX return; portfolio version uses weighted sums.\n\nCorrect. Per Equations 12-13: For a single asset, R_DC = (1 + R_FC)(1 + R_FX) − 1. For a portfolio, R_DC = Σ ω_i (1 + R_FC,i)(1 + R_FX,i) − 1. R_DC and R_FC are domestic and foreign currency returns; R_FX is percentage change of domestic vs foreign currency; ω_i are portfolio weights summing to 1. This combines the third factor (E(ΔPrice due to view of benchmark yield)) and fifth factor (E(ΔPrice due to view of currency value changes)) from Equation 1.",
+            "B": "Incorrect. Multiplying the returns is not the compounding relationship.",
+            "C": "Incorrect. The simple sum drops the cross-term; the returns compound as (1 + R_FC)(1 + R_FX) − 1."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.f",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Cross-Currency — Equations 12/13",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_f_q2",
+          "number": 2,
+          "stem": "*Covered interest rate parity* (CIP) establishes *most likely*:",
+          "options": {
+            "A": "Covered interest rate parity establishes no relationship between spot and forward exchange rates.",
+            "B": "F(DC/FC, T) = S_0(DC/FC) × [(1 + r_DC)^T / (1 + r_FC)^T], where F is forward rate, S is spot, r_DC and r_FC are domestic and foreign risk-free rates.",
+            "C": "Covered interest rate parity states that the forward rate equals the spot rate in all circumstances."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. CIP defines the relationship precisely through the interest rate differential.",
+            "B": "Correct. Per Equation 14: F(DC/FC, T) = S_0(DC/FC) × [(1 + r_DC)^T / (1 + r_FC)^T]. If an investor uses a forward contract to fully hedge foreign currency cash flows, she should expect to earn the domestic risk-free rate. This implies a higher-yielding currency trades at a forward discount, while a lower-yielding currency trades at a premium. In the reading's example: 1.1218 spot vs 1.187 2-year forward, consistent with USD > EUR rates in 2019.",
+            "C": "Incorrect. F = S only when the two risk-free rates are equal; generally F = S × (1 + r_DC)^T / (1 + r_FC)^T."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.f",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Cross-Currency — CIP formula",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_f_q3",
+          "number": 3,
+          "stem": "*Uncovered interest rate parity* suggests *most likely*:",
+          "options": {
+            "A": "unhedged exposure always outperforms domestic.",
+            "B": "hedging always outperforms unhedged.",
+            "C": "the returns on unhedged foreign currency exposure will be the same as on a domestic currency investment over time."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This is only a persistent bias, not a theorem.",
+            "B": "Trade-offs exist.",
+            "C": "Full statement: the returns on unhedged foreign currency exposure will be the same as on a domestic currency investment over time — forward FX rates should in theory be an unbiased predictor of future spot FX rates.\n\nCorrect. Per the reading, uncovered interest rate parity suggests that over time, the returns on unhedged foreign currency exposure will be the same as on a domestic currency investment. Although forward FX rates should in theory be an unbiased predictor of future spot FX rates if uncovered interest rate parity holds, in practice investors sometimes seek to exploit a persistent divergence from interest rate parity conditions (known as the *forward rate bias*) by investing in higher-yielding currencies (sometimes enhanced by borrowing in lower-yielding currencies — carry trade)."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.f",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Cross-Currency — UIP",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_f_q4",
+          "number": 4,
+          "stem": "A *cross-currency carry trade* is *most likely* an extension of the single-currency repo carry: an investor borrows short-term in one currency and invests in *most likely*:",
+          "options": {
+            "A": "another higher-yielding currency.",
+            "B": "the same-currency short-term bill.",
+            "C": "domestic bonds only."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: another higher-yielding currency — this is a potential source of additional income subject to short-term availability if the positive interest rate differential persists for the life of the transaction.\n\nCorrect. Per the reading, 'The European fixed-income manager in our example might use leverage instead of cash by borrowing in euros when buying the 2-year US Treasury zero. This is an extension of the single currency repo carry trade shown in Exhibit 5, in which an investor borrows short-term in one currency and invests in another higher-yielding currency. This carry trade across currencies is a potential source of additional income subject to short-term availability if the positive interest rate differential persists for the life of the transaction.'",
+            "B": "That's same-currency financing, not cross-currency carry.",
+            "C": "Carry trade specifically goes across currencies."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.f",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Cross-Currency — carry trade",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_f_q5",
+          "number": 5,
+          "stem": "In Example 12 (MXN carry): borrow USD 1-year at 1.85%, invest in 90-day MXN T-bills at 7.70% annualized, MXN/USD spot 19.15. If rates and FX remain stable, expected profit is *closest to*:",
+          "options": {
+            "A": "0.5%.",
+            "B": "6.08%: (1 + 0.077/4)^4 − (1 + 0.0185).",
+            "C": "10%."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Too low.",
+            "B": "Correct. Per Example 12: expected carry trade profit = (1 + 0.077/4)^4 − (1 + 0.0185) ≈ 6.08%. This is the annualized difference between the MXN rate (compounded quarterly rolling over 90-day T-bills) and the USD 1-year loan rate. Assumes 90-day MXN rates and MXN/USD exchange rate remain stable over the year.",
+            "C": "Too high."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.f",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Cross-Currency — Example 12 MXN carry",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_f_q6",
+          "number": 6,
+          "stem": "The reading's Example 12 MXN carry ultimately realizes *~3.61% return* rather than the expected 6.08%. This is *most likely* because:",
+          "options": {
+            "A": "The MXN carry trade fell short of expectations because Mexican rates fell dramatically over the horizon.",
+            "B": "The shortfall arose because the USD funding rate changed dramatically during the trade.",
+            "C": "over the horizon, 90-day MXN yields rose (from 7.70% to 8.20% at 270 days) and MXN depreciated against USD by year-end (from 19.15 to 19.65)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. MXN 90-day yields ROSE (7.70% to 8.20% by day 270), hurting the reinvestment leg — they did not fall.",
+            "B": "Incorrect. The USD borrowing cost was FIXED on the one-year loan; the drag came from rising MXN yields and peso depreciation (19.15 to 19.65).",
+            "C": "Full statement: over the horizon, 90-day MXN yields rose (from 7.70% to 8.20% at 270 days) and MXN depreciated against USD by year-end (from 19.15 to 19.65); late-period MXN depreciation undercut trade profitability despite higher MXN yields.\n\nCorrect. Per Example 12: 'Note that 90-day MXN YTMs rose and that MXN depreciated slightly versus USD over the 360-day period. If the manager had rolled over this trade for the full 12 months, the realized return would have been ~3.61%. While the cross-currency carry trade was ultimately profitable, it was exposed to risks over the horizon; moreover, despite the rise in 90-day MXN YTMs, a late-period MXN depreciation undercut the profitability of the trade.' Carry trades are unhedged and most successful in stable (low volatility) markets."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.f",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Cross-Currency — Example 12 realized return",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_f_q7",
+          "number": 7,
+          "stem": "The reading identifies that the fully-hedged German investor in US Treasuries with a *2-year cross-currency forward hedge* receives *most likely*:",
+          "options": {
+            "A": "an annualized EUR return equal to the 2-year German zero-coupon bond YTM upon inception (in this case, ~−0.60%).",
+            "B": "a return above US Treasury rates.",
+            "C": "zero EUR return."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: an annualized EUR return equal to the 2-year German zero-coupon bond YTM upon inception (in this case, ~−0.60%) — this matches covered interest rate parity: hedging away FX risk should give the domestic risk-free rate.\n\nCorrect. Per the reading: 'If fully hedged, the expected annualized return, R_DC, in EUR terms on the 2-year US Treasury zero-coupon bond hedged EUR investment over two years is equal to −0.60% = (€84,245,998/€85,270,102)^0.5 − 1, which matches the 2-year annualized German government zero-coupon bond yield-to-maturity upon inception.' The fully hedged investment example illustrates covered interest rate parity: hedging away FX risk yields the domestic risk-free rate.",
+            "B": "The forward hedge locks in domestic risk-free rate, not FX gains.",
+            "C": "Negative but not zero — reflects negative EUR rates."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.f",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Cross-Currency — hedged investment example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_f_q8",
+          "number": 8,
+          "stem": "*Cross-currency basis* is *most likely* defined as:",
+          "options": {
+            "A": "The cross-currency basis is always zero under all market conditions, as arbitrage instantly closes any gap.",
+            "B": "the difference between the direct USD interest rate and the synthetic USD interest rate derived from swapping JPY into US dollars — a positive (negative) basis means the direct rate is higher (lower) than the synthetic rate.",
+            "C": "The cross-currency basis is simply the difference between EUR and USD policy rates."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Persistent non-zero basis is well documented — post-crisis funding frictions keep arbitrage from closing it.",
+            "B": "Full statement: the difference between the direct USD interest rate and the synthetic USD interest rate derived from swapping JPY into US dollars — a positive (negative) basis means the direct rate is higher (lower) than the synthetic rate; covered interest rate parity suggests it should be close to zero, but Exhibit 29 shows persistent negative basis for JPY and EUR post-2008 GFC.\n\nCorrect. Per the reading, 'The \"basis\" or spread, as shown in the cross-currency basis swap, is the difference between the USD interest rate and the synthetic USD interest rate derived from swapping JPY into US dollars. A positive (negative) currency basis means that the direct USD interest rate is higher (lower) than the synthetic USD interest rate. While covered interest rate parity suggests that cross-currency basis should be close to zero, Exhibit 29 shows that the JPY and EUR cross-currency basis was persistently negative following the 2008 global financial crisis.' Du, Tepper, and Verdelhan (2018) attribute this to higher post-2008 financial intermediation costs and international imbalances.",
+            "C": "Incorrect. The basis is the gap between DIRECT USD funding and SYNTHETIC USD funding created by swapping (e.g., JPY) into dollars."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.f",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Cross-Currency — cross-currency basis",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_f_q9",
+          "number": 9,
+          "stem": "The reading identifies *three potential risks* facing an active cross-currency yield curve strategy. These are *most likely*:",
+          "options": {
+            "A": "only exchange rate risk.",
+            "B": "only interest rate risk in one currency.",
+            "C": "yield curve movements — level, slope, or curvature — in the overweight currency."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Interest rate risks in both currencies also apply.",
+            "B": "Both currencies' rate curves and FX are exposed.",
+            "C": "Full statement: yield curve movements — level, slope, or curvature — in the overweight currency; yield curve changes in the underweight currency; and exchange rate changes.\n\nCorrect. Per the reading, 'The resulting yield curve strategy faces three potential risks: (1) yield curve movements — level, slope, or curvature — in the overweight currency; (2) yield curve changes in the underweight currency; and (3) exchange rate changes.' Active cross-currency yield curve strategies must factor in views on currency appreciation vs depreciation as well as yield curve changes across countries."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.f",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Cross-Currency — three risk sources",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_f_q10",
+          "number": 10,
+          "stem": "In Example 13, if a manager expects *bear flattening* in the higher-yielding foreign currency market (short-term yields rise more than long-term) and a *stable, upward-sloping* domestic curve, the strategy generating the largest carry benefit is *most likely*:",
+          "options": {
+            "A": "receive-floating in foreign, pay-floating in domestic.",
+            "B": "receive-fixed in foreign, pay-fixed in domestic.",
+            "C": "receive-fixed in foreign, pay-floating in domestic."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per Example 13: 'If the higher-yielding foreign currency experiences a bear flattening in the yield curve as the manager expects, then foreign currency short-term YTM will increase by more than long-term YTM; thus she will want receive-floating in foreign currency. Given the upward-sloping domestic yield curve, we would expect the carry difference between receiving foreign currency floating rates and paying domestic currency floating rates to be the highest.' The receive-floating leg captures the rising short-term foreign yields.",
+            "B": "Receive-fixed foreign misses the bear flattening (rising short rates).",
+            "C": "Same issue with receive-fixed foreign."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.f",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Cross-Currency — Example 13 bear flattening",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "yield_curve_strategies.g",
+      "los_letter": "g",
+      "los_text": "evaluate the expected return and risks of a yield curve strategy",
+      "reading_id": "yield_curve_strategies",
+      "reading_name": "Yield Curve Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r8_ycs_los_g_q1",
+          "number": 1,
+          "stem": "The reading describes *scenario analysis* as *most likely*:",
+          "options": {
+            "A": "changing only one variable at a time.",
+            "B": "changing multiple assumptions at once to assess the overall impact of unexpected market changes on a portfolio's value.",
+            "C": "using only historical data."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "That's a single-variable sensitivity, not scenario analysis.",
+            "B": "Full statement: changing multiple assumptions at once to assess the overall impact of unexpected market changes on a portfolio's value — managers may use historical rate and currency changes or conduct specific stress tests.\n\nCorrect. Per the reading, 'Practitioners frequently evaluate fixed-income portfolio risk using scenario analysis, which involves changing multiple assumptions at once to assess the overall impact of unexpected market changes on a portfolio's value. Managers may use historical rate and currency changes or conduct specific stress tests using this analysis. For example, a leveraged investor might evaluate how much rates or currencies must move before she faces a collateral or margin call or is forced to unwind a position.'",
+            "C": "Historical is one option among stress tests."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.g",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Framework for Evaluating YC Strategies — scenario analysis",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_g_q2",
+          "number": 2,
+          "stem": "In Example 14 scenario analysis (Portfolio A fully in 5y Treasury; Portfolio B barbell 58.94% 2y + 41.06% 10y — both duration 4.88), under a *bear steepening* (5y yield +50 bp, 10y yield +100 bp), the expected outcomes are *most likely*:",
+          "options": {
+            "A": "Both portfolios gain.",
+            "B": "Both portfolios lose the same amount.",
+            "C": "Portfolio A −2.407% ($1,203,437 loss); Portfolio B −3.518% ($1,759,216 loss)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Bear steepening produces losses on long-duration positions.",
+            "B": "Portfolio B has higher 10y exposure (loss).",
+            "C": "Correct. Per Example 14: under bear steepening (5y +50 bp, 10y +100 bp), using Equation 3: Portfolio A −2.407% ($1,203,437), Portfolio B −3.518% ($1,759,216). Under bull flattening (5y −50 bp, 10y −100 bp): Portfolio A +2.473% ($1,236,563), Portfolio B +3.891% ($1,945,628). Although both have same duration and perform similarly under parallel shifts, they perform very differently under yield curve slope scenarios."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.g",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Framework for Evaluating YC Strategies — Example 14",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_g_q3",
+          "number": 3,
+          "stem": "Under a *bull flattening* of the reading's Example 14 (5y −50 bp, 10y −100 bp), Portfolio B *most likely* gains:",
+          "options": {
+            "A": "$1,945,628 (3.891%) — larger than Portfolio A's $1,236,563 due to Portfolio B's higher 10y exposure (which sees the 100 bp yield decline).",
+            "B": "Under the bull flattening scenario, Portfolio B gains $1,236,563 (2.473%), less than Portfolio A.",
+            "C": "Portfolio B gains nothing under the bull flattening because barbell structures are immune to curve changes."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per Example 14: under bull flattening (5y −50 bp, 10y −100 bp), Portfolio A gains 2.473% ($1,236,563) while Portfolio B gains 3.891% ($1,945,628). Portfolio B's larger gain reflects its 41.06% weight in the 10-year Treasury which experienced the 100 bp yield decline. This demonstrates that duration-matched portfolios perform differently under slope scenarios.",
+            "B": "Incorrect. $1,236,563 is PORTFOLIO A's gain; B's larger 10-year exposure captures the 100 bp long-end rally.",
+            "C": "Incorrect. The barbell is highly exposed to the long end — it gains the MOST from the 10-year yield decline."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.g",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Framework for Evaluating YC Strategies — bull flattening",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_g_q4",
+          "number": 4,
+          "stem": "The reading identifies that under *parallel shift* scenarios, portfolios of similar duration *most likely*:",
+          "options": {
+            "A": "perform very differently.",
+            "B": "perform similarly (except for a convexity difference).",
+            "C": "always identically."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Only slope/shape scenarios produce large differences.",
+            "B": "Full statement: perform similarly (except for a convexity difference) — this is one of the key limitations of using duration alone to gauge portfolio risk.\n\nCorrect. The reading emphasizes that Portfolios A and B in Example 1/14 have similar duration (both ~4.88) and perform similarly under parallel shifts (except for a convexity difference). Portfolio B has higher convexity (40.229 vs 26.5), so it gains slightly more on rate declines and loses slightly less on rate rises for the same magnitude of parallel shift. Under yield curve slope or shape changes, however, the portfolios perform very differently.",
+            "C": "Not identical — convexity differences matter."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.g",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Framework for Evaluating YC Strategies — parallel shift comparison",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_g_q5",
+          "number": 5,
+          "stem": "In evaluating an *AUD bullet vs barbell* trade (Example 15), a US manager forecasts a 60 bp downward parallel shift in the Australian zero-coupon yield curve and 0.25% AUD appreciation against USD. Both bullet and barbell have investment horizon 1 year, average price today $98, expected effective duration in 1 year 3.95. The primary point in evaluating this trade is *most likely*:",
+          "options": {
+            "A": "The AUD bullet and barbell trades are identical in outcome, making the evaluation moot.",
+            "B": "The manager's evaluation depends only on the FX view, since AUD appreciation dominates any rate effect.",
+            "C": "portfolio value change combines rolldown return (bullet 99.75 vs barbell 100.00 expected end-of-horizon price under stable curve), duration effect (60 bp × 3.95), plus FX return from 0.25% AUD appreciation."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. The structures respond differently to the parallel shift through their differing duration, convexity, and rolldown profiles.",
+            "B": "Incorrect. Both legs matter — rolldown and rate effects on portfolio value combine with the 0.25% AUD appreciation in the total return.",
+            "C": "Full statement: portfolio value change combines rolldown return (bullet 99.75 vs barbell 100.00 expected end-of-horizon price under stable curve), duration effect (60 bp × 3.95), plus FX return from 0.25% AUD appreciation — expected total AUD return then converted using R_DC = (1+R_FC)(1+R_FX) − 1.\n\nCorrect. Per the AUD Example 15 framework, evaluating cross-currency yield curve strategy return requires combining: (1) rolldown return (bullet 99.75 vs barbell 100.00 in 1 year under stable curve = different rolldown magnitudes), (2) duration-based response to 60 bp parallel decline (60 bp × 3.95 duration ≈ 2.37% price gain), (3) any convexity contribution, and (4) FX return of 0.25%. Total return per Equation 12: R_DC = (1 + R_FC)(1 + R_FX) − 1. This scenario illustrates how the reading's framework integrates all elements of Equation 1."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.g",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Framework for Evaluating YC Strategies — Example 15 AUD",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_g_q6",
+          "number": 6,
+          "stem": "The reading emphasizes that for a leveraged investor, scenario analysis *most likely* evaluates:",
+          "options": {
+            "A": "how much rates or currencies must move before she faces a collateral or margin call or is forced to unwind a position.",
+            "B": "only expected returns.",
+            "C": "no risks at all."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per the reading, 'For example, a leveraged investor might evaluate how much rates or currencies must move before she faces a collateral or margin call or is forced to unwind a position. Fixed-income portfolio models offer practitioners a variety of historical or user-defined scenarios.' This is a key risk consideration for leveraged FI strategies, since forced unwinds at unfavorable times can severely damage returns.",
+            "B": "Downside scenarios are also examined.",
+            "C": "Risk management is central."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.g",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Framework for Evaluating YC Strategies — leveraged investor risk",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_g_q7",
+          "number": 7,
+          "stem": "The reading integrates the return decomposition (Equation 1) with portfolio duration and convexity (Equation 3) and cross-currency return formulas (Equations 12-13). *Most likely*, this integrated framework:",
+          "options": {
+            "A": "The integrated framework handles only single-currency exposures, leaving foreign bonds outside its scope.",
+            "B": "quantifies how unexpected changes to level/slope/shape of the yield curve as well as currency changes can impact portfolio value.",
+            "C": "The integrated framework ignores convexity, treating price responses as linear in yield changes."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The cross-currency return equations (12-13) extend the framework to foreign-currency positions.",
+            "B": "Full statement: quantifies how unexpected changes to level/slope/shape of the yield curve as well as currency changes can impact portfolio value — Equation 3 for single-currency and Equation 13 for multi-currency portfolios.\n\nCorrect. Per the reading, 'The factors affecting the expected return of a fixed-income portfolio were summarized in Equation 1. The key underlying assumption in this calculation is that the inputs rely on the fixed-income manager's expectations under an active strategy. As we have seen earlier, unexpected changes to the level, slope, and shape of the yield curve as well as currency changes can impact a portfolio's value in a number of ways — as quantified by the use of portfolio duration and convexity statistics in Equation 3 for a single currency and in Equation 13 for a multi-currency portfolio.'",
+            "C": "Incorrect. Convexity enters through Equation 3 — second-order price effects are part of the quantification."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.g",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Framework for Evaluating YC Strategies — integrated approach",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_g_q8",
+          "number": 8,
+          "stem": "The reading notes that a *carry trade* is *most likely*:",
+          "options": {
+            "A": "hedged and low-risk.",
+            "B": "always profitable.",
+            "C": "unhedged and most successful in stable (low volatility) markets."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Carry trades are typically unhedged.",
+            "B": "Carry trades can suffer large losses in volatile periods.",
+            "C": "Full statement: unhedged and most successful in stable (low volatility) markets — unforeseen market volatility can quickly erase even the most attractive cross-currency carry opportunities.\n\nCorrect. Per Example 12: 'This underscores the fact that carry trades are unhedged and are most successful in stable (low volatility) markets: Unforeseen market volatility can quickly erase even the most attractive cross-currency carry opportunities. For example, in the first quarter of 2020 at the start of the COVID-19 pandemic, MXN depreciated against the USD by approximately 25% in just over a month.' Q1 2020 vividly illustrated this risk."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.g",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Framework for Evaluating YC Strategies — carry trade risk",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_g_q9",
+          "number": 9,
+          "stem": "For an active manager pursuing static YC strategies (Exhibit 5) who *unexpectedly* faces *yield curve inversion* (long-term yields decline, short-term yields rise sharply) instead of static conditions, the *least likely* portfolio outcome is:",
+          "options": {
+            "A": "loss on the rolling down strategy (long-term bond price appreciates as long-yield falls, so this actually *gains*).",
+            "B": "loss on the repo carry trade (financing cost rises, long-term yield falls).",
+            "C": "loss on the buy-and-hold strategy from higher short-term borrowing costs."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per Example 4 (Static YC Strategies under Curve Inversion): the least likely outcome is a loss on rolling down — the long-term bond position actually gains from a decline in long-term yields. This is because rolling down the yield curve is a long-duration bond position; falling long-term yields cause price appreciation. Other cash-based static strategies suffer: buy-and-hold long bonds may be OK on long-yield decline but repo carry breaks down (short-rate rises make financing expensive relative to long-yield income).",
+            "B": "Repo carry breaks down when short-rate rises above long-rate.",
+            "C": "Buy-and-hold long bonds financed short may suffer."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.g",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Framework — Example 4 curve inversion",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_g_q10",
+          "number": 10,
+          "stem": "The reading emphasizes that fixed-income portfolio risk and return impact analysis is *most likely* best illustrated by:",
+          "options": {
+            "A": "Portfolio risk and return impact analysis is best illustrated using duration alone, which captures all relevant yield curve risk.",
+            "B": "a pair of examples (like Examples 14 and 15) that integrate rolldown vs carry, changes in level/slope/shape of a single-currency yield curve, and extension to multiple currencies with spot and forward FX rates related to relative interest rates.",
+            "C": "The analysis is best conducted through purely qualitative discussion without numerical scenarios."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Duration alone misses slope and shape effects — the integrated examples exist to capture them.",
+            "B": "Correct. Per the reading, 'The fixed-income portfolio risk and return impact of rolldown return versus carry, changes in the level, slope, and shape of a single currency yield curve, and an extension to multiple currencies (where spot and forward FX rates are related to relative interest rates) are best illustrated with a pair of examples.' Examples 14 (single-currency Treasury scenarios) and 15 (AUD bullet vs barbell) integrate all key elements.",
+            "C": "Incorrect. Quantitative worked examples (rolldown vs carry, level/slope/shape changes, FX) are the reading's chosen vehicle."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.g",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Framework for Evaluating YC Strategies — pair of examples",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_ycs_los_g_q11",
+          "number": 11,
+          "stem": "In summary, the reading emphasizes that active yield curve managers who *most likely* successfully generate excess return:",
+          "options": {
+            "A": "Successful active yield curve managers focus exclusively on parallel level shifts of the curve, since level movements explain most yield variance and render slope and shape views an unnecessary complication.",
+            "B": "Successful active yield curve managers avoid all derivative instruments, implementing their curve views exclusively through cash bond purchases and sales to eliminate counterparty and margin complexity.",
+            "C": "integrate views on level, slope, and shape of the yield curve using appropriate strategies (cash and derivatives), account for convexity effects when relevant, use KRDs to identify shaping risk, evaluate cross-currency exposures via CIP and cross-currency swaps, and use scenario analysis to stress-test against potential adverse outcomes."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Slope and curvature views are integral — level-only focus leaves most of the toolkit unused.",
+            "B": "Incorrect. Futures, swaps, and options are central instruments; avoiding them forfeits efficient implementation.",
+            "C": "Correct. Per the reading's overall framework: successful active YC management integrates: (1) yield level view driving bullet/barbell/synthetic duration adjustments; (2) slope view driving steepener/flattener strategies; (3) shape view driving butterfly strategies; (4) volatility view driving option/embedded-option choices; (5) KRD analysis to detect shaping risk between portfolio and benchmark; (6) cross-currency strategies where uncovered interest parity divergence provides carry opportunities but exchange rate volatility can undermine profitability; (7) scenario analysis to quantify tail risks. This holistic framework is essential."
+          },
+          "type": "mc",
+          "primary_los": "yield_curve_strategies.g",
+          "reading_id": "yield_curve_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Framework — comprehensive summary",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    }
+  ]
+}

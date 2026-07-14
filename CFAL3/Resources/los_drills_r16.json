@@ -1,0 +1,1915 @@
+{
+  "schema_version": 2,
+  "generated_by": "los_drills_r33_build.py",
+  "curriculum_source": "CFA Program 2027 Level III, Volume 4 (Derivatives and Risk Management), Learning Module 1: Options Strategies",
+  "content_type": "mc_only",
+  "reading": {
+    "reading_id": "options_strategies",
+    "reading_name": "Options Strategies",
+    "area_id": "derivatives_and_risk_management",
+    "los_count": 10,
+    "question_count": 75
+  },
+  "drills": [
+    {
+      "los_id": "options_strategies.a",
+      "los_letter": "a",
+      "los_text": "demonstrate how an asset's returns may be replicated by using options",
+      "reading_id": "options_strategies",
+      "reading_name": "Options Strategies",
+      "area_id": "derivatives_and_risk_management",
+      "questions": [
+        {
+          "id": "r16_opt_los_a_q1",
+          "number": 1,
+          "stem": "Put-call parity relates the following portfolios *most likely*:",
+          "options": {
+            "A": "call + risk-free bond = put + underlying; S₀ + p₀ = c₀ + X/(1 + r)^T.",
+            "B": "call + underlying = put + risk-free bond.",
+            "C": "no relationship."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per Position Equivalencies: 'put-call parity shows the equivalence (or parity) of a portfolio of a call and a risk-free bond with a portfolio of a put and the underlying, which leads to the relationship between put and call prices... S₀ + p₀ = c₀ + X/(1 + r)^T.'",
+            "B": "Wrong pairing.",
+            "C": "Parity exists."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.a",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §2 put-call parity",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_a_q2",
+          "number": 2,
+          "stem": "Put-call-forward parity *most likely*:",
+          "options": {
+            "A": "no relationship.",
+            "B": "F₀(T)/(1+r)^T + p₀ = c₀ + X/(1+r)^T.",
+            "C": "no framework."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Parity exists.",
+            "B": "Full statement: F₀(T)/(1+r)^T + p₀ = c₀ + X/(1+r)^T — identifies equivalence between buying a fiduciary call (call + risk-free bond) and a synthetic protective put (put + forward on the underlying expiring at same time as put).\n\nCorrect. Per Position Equivalencies: 'put-call-forward parity, which identifies the equivalence between buying a fiduciary call, given by the purchase of a call and the risk-free bond, and a synthetic protective put. The latter involves the purchase of a put option and a forward contract on the underlying that expires at the same time as the put option... F₀(T)/(1+r)^T + p₀ = c₀ + X/(1+r)^T.'",
+            "C": "PCF parity."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.a",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §2 put-call-forward parity",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_a_q3",
+          "number": 3,
+          "stem": "*Synthetic long forward position* — the combination of a long call and a short put with identical strike price and expiration, on the same underlying, is equivalent to:",
+          "options": {
+            "A": "synthetic long put.",
+            "B": "long straddle.",
+            "C": "long forward position — the long call creates the upside and the short put creates the downside on the underlying."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Synthetic long forward.",
+            "B": "Different strategy.",
+            "C": "Full statement: long forward position — the long call creates the upside and the short put creates the downside on the underlying; whatever the stock price at expiration, one of the two options will be in the money and the investor effectively buys the underlying at the strike price.\n\nCorrect. Per Position Equivalencies: 'The combination of a long call and a short put with identical strike price and expiration, traded at the same time on the same underlying, is equivalent to a synthetic long forward position. In fact, the long call creates the upside and the short put creates the downside on the underlying.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.a",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §2 synthetic long forward",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_a_q4",
+          "number": 4,
+          "stem": "*Synthetic short forward position* is created by:",
+          "options": {
+            "A": "selling a call and buying a put at the same strike price and maturity — payoff is exact opposite of synthetic long forward.",
+            "B": "buying both a call and a put with same strike.",
+            "C": "no framework."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per Position Equivalencies: 'the trader can create a synthetic short forward position by selling a call and buying a put at the same strike price and maturity... the payoff is the exact opposite of the synthetic long forward position.'",
+            "B": "That's a straddle.",
+            "C": "Synthetic short."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.a",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §2 synthetic short forward",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_a_q5",
+          "number": 5,
+          "stem": "*Synthetic long put* is created by:",
+          "options": {
+            "A": "A synthetic long put is created by combining long stock with a short call on the same underlying.",
+            "B": "short stock (or short forward/futures) + long call — the symmetric payoff of a short stock position becomes asymmetrical if transformed into a synthetic long put by buying a call.",
+            "C": "A synthetic long put is created by combining long stock with a long call on the same underlying."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Long stock plus short call is a COVERED CALL — its payoff resembles a short put, not a long put.",
+            "B": "Full statement: short stock (or short forward/futures) + long call — the symmetric payoff of a short stock position becomes asymmetrical if transformed into a synthetic long put by buying a call; payoffs are identical to a long put at the same strike.\n\nCorrect. Per Synthetic Put and Call: 'the symmetric payoff of a short stock position can become asymmetrical if the investor transforms it into a synthetic long put position by buying a call... payoffs from this synthetic put position at various stock prices at option expiration are identical to those of a long put with a 50-strike price.'",
+            "C": "Incorrect. Long stock plus long call doubles the bullish exposure; the synthetic long put pairs a SHORT stock (or forward) position with a long call."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.a",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §2 synthetic long put",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_a_q6",
+          "number": 6,
+          "stem": "*Motivation for creating a synthetic long forward position* *most likely*:",
+          "options": {
+            "A": "The only motivation for a synthetic long forward is avoiding margin requirements on the actual forward.",
+            "B": "Synthetic forward positions are created solely to increase transaction costs for tax purposes.",
+            "C": "to exploit an ARBITRAGE opportunity presented by the actual forward price OR the need for an ALTERNATIVE to the outright purchase of a long forward position."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Margin treatment is incidental; the motivations are ARBITRAGE against the actual forward price or an alternative route to the exposure.",
+            "B": "Incorrect. Cost inflation is never the goal — mispricing capture or an outright-purchase alternative drives the construction.",
+            "C": "Full statement: to exploit an ARBITRAGE opportunity presented by the actual forward price OR the need for an ALTERNATIVE to the outright purchase of a long forward position; frequently a forward contract is used instead of futures to acquire a stock position because it allows for contract customization.\n\nCorrect. Per Position Equivalencies: 'The motivation to create a synthetic long forward position could be to exploit an arbitrage opportunity presented by the actual forward price or the need for an alternative to the outright purchase of a long forward position. Frequently, a forward contract is used instead of futures to acquire a stock position because it allows for contract customization.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.a",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §2 motivation",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_a_q7",
+          "number": 7,
+          "stem": "*Market maker hedge of a short forward using synthetic long forward* — she purchases a call and sells a put both with the strike equal to the forward price and same expiration; at expiry if stock is ABOVE strike:",
+          "options": {
+            "A": "the market maker exercises her call, pays the strike × shares, receives the shares, then delivers to client and receives the forward price × shares.",
+            "B": "The market maker hedging a short forward simply waits until expiration and buys shares in the open market at the prevailing price.",
+            "C": "The market maker's synthetic hedge leaves her exposed to unlimited losses if the stock rallies before delivery."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: the market maker exercises her call, pays the strike × shares, receives the shares, then delivers to client and receives the forward price × shares; if BELOW strike, the long put owner exercises, the market maker receives the shares for the strike, then delivers to the client and receives the forward price — either way the position is fully hedged.\n\nCorrect. Per Example 1: 'At the expiry of the forward contract, if the stock price is above 200.35p, the market maker exercises her call, pays £20,035, and receives 10,000 Vodafone shares. She then delivers these shares to the client and receives £20,035. At the expiry of the forward contract, if the stock price is below 200.35p, the owner of the long put will exercise his option, and the market maker receives the 10,000 Vodafone shares for £20,035. She then delivers these shares to the client and receives £20,035.'",
+            "B": "Incorrect. Open-market purchase at expiry leaves the price risk unhedged throughout — the synthetic (long call + short put at the forward strike) locks the price now.",
+            "C": "Incorrect. The synthetic long forward neutralizes the rally scenario: she exercises the call, pays the strike, receives shares, and delivers to the client."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.a",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §2 Ex 1 Vodafone",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "options_strategies.b",
+      "los_letter": "b",
+      "los_text": "discuss the investment objective(s), structure, payoff, risk(s), value at expiration, profit, maximum profit, maximum loss, and breakeven underlying price at expiration of a covered call position",
+      "reading_id": "options_strategies",
+      "reading_name": "Options Strategies",
+      "area_id": "derivatives_and_risk_management",
+      "questions": [
+        {
+          "id": "r16_opt_los_b_q1",
+          "number": 1,
+          "stem": "*Covered call structure* consists of:",
+          "options": {
+            "A": "long stock + long call.",
+            "B": "long stock + SHORT call — a long position in 100 shares of the underlying is required for each short call contract.",
+            "C": "long stock + long put."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "That's a straddle-like combo.",
+            "B": "Full statement: long stock + SHORT call — a long position in 100 shares of the underlying is required for each short call contract; no additional cash margin is needed if the long position in the underlying is maintained; if the stock price exceeds strike at expiry, shares are 'called away' from the writer to the option holder at the strike price.\n\nCorrect. Per Investment Objectives of Covered Calls: 'For a covered call, a long position in 100 shares of the underlying is required for each short call contract. No additional cash margin is needed if the long position in the underlying is maintained. If the stock price exceeds the strike price at expiry, the underlying shares will be \"called away\" from the covered call writer and then delivered to satisfy the option holder's right to buy shares at the strike price.'",
+            "C": "That's protective put."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.b",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §3 CC structure",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_b_q2",
+          "number": 2,
+          "stem": "*Most common motivation for writing covered calls* *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "no framework.",
+            "C": "CASH GENERATION in anticipation of limited upside moves in the underlying."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Cash generation.",
+            "B": "CC motivation.",
+            "C": "Full statement: CASH GENERATION in anticipation of limited upside moves in the underlying; the call option writer keeps the premium regardless of what happens; some view the premium as an additional source of income similar to cash dividends; essentially expressing the view that volatility of the underlying will be LOWER than the pricing of the option suggests.\n\nCorrect. Per Investment Objectives of Covered Calls: 'The most common motivation for writing covered calls is cash generation in anticipation of limited upside moves in the underlying. The call option writer keeps the premium regardless of what happens in the future... essentially, writing the call expresses the view that the volatility of the underlying asset will be lower than the pricing of the option suggests.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.b",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §3 CC motivation",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_b_q3",
+          "number": 3,
+          "stem": "*Covered call maximum gain, loss, and breakeven* formulas *most likely*:",
+          "options": {
+            "A": "Max gain = (X − S₀) + c₀; Max loss = S₀ − c₀.",
+            "B": "Max gain = X + c₀; Max loss = S₀ + c₀; Breakeven = X − c₀.",
+            "C": "Max gain = c₀; Max loss = unlimited; Breakeven = X + c₀."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: Max gain = (X − S₀) + c₀; Max loss = S₀ − c₀; Breakeven = S₀ − c₀ — the maximum gain is appreciation to exercise price plus premium; maximum loss occurs if stock becomes worthless (equals original price minus premium); breakeven occurs when the stock falls by the premium received.\n\nCorrect. Per Investment Objective of Covered Calls: 'Maximum gain = (X − S₀) + c₀; Maximum loss = S₀ − c₀; Breakeven price = S₀ − c₀.' The maximum gain is the appreciation to the exercise price plus the option premium; the breakeven occurs when the stock falls by the premium received; the maximum loss would occur if the stock became worthless — the investor loses the stock price but keeps the premium.",
+            "B": "Wrong sign.",
+            "C": "Uncapped loss wrong."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.b",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §3 CC formulas",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_b_q4",
+          "number": 4,
+          "stem": "*Value of covered call at expiration and profit* *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "Expiration value = S_T − Max[(S_T − X), 0].",
+            "C": "no framework."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "CC expiration formulas.",
+            "B": "Full statement: Expiration value = S_T − Max[(S_T − X), 0]; Profit at expiration = S_T − Max[(S_T − X), 0] + c₀ − S₀ — at option expiration, the value is the stock price minus the exercise value of the call; any appreciation beyond the exercise price belongs to the option buyer.\n\nCorrect. Per Investment Objective of Covered Calls: 'Covered Call Expiration Value = S_T − Max[(S_T − X),0]. The profit at option expiration is the covered call value plus the option premium received minus the original price of the stock: Covered Call Profit at Expiration = S_T − Max[(S_T − X),0] + c₀ − S₀.'",
+            "C": "Formulas."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.b",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §3 CC value",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_b_q5",
+          "number": 5,
+          "stem": "*Covered call breakeven = maximum loss* — a specific relationship for the covered call *most likely*:",
+          "options": {
+            "A": "different values.",
+            "B": "no framework.",
+            "C": "with a covered call, the breakeven price and the maximum loss are THE SAME VALUE (both equal S₀ − c₀)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Same value.",
+            "B": "Same relationship.",
+            "C": "Full statement: with a covered call, the breakeven price and the maximum loss are THE SAME VALUE (both equal S₀ − c₀); the breakeven represents where the position exactly recovers the stock price; the maximum loss is the initial cost of the position (stock price less premium received) when the stock goes to zero.\n\nCorrect. Per Investment Objective of Covered Calls footnote: 'Note that with a covered call, the breakeven price and the maximum loss are the same value.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.b",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §3 CC BE=Max loss",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_b_q6",
+          "number": 6,
+          "stem": "*Example: S₀=25, X=30, S_T=31.33, c₀=1.55.* Maximum gain from covered call *most likely*:",
+          "options": {
+            "A": "(X − S₀) + c₀ = 30.00 − 25.00 + 1.55 = 6.55 — the covered call writer participates in gains up to the exercise price, after which further appreciation is lost to the call buyer.",
+            "B": "Maximum gain = (S_T − X) + c₀ = 31.33 − 30.00 + 1.55 = 2.88.",
+            "C": "Maximum gain = (S_T − S₀) − c₀ = 31.33 − 25.00 − 1.55 = 4.78."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: (X − S₀) + c₀ = 30.00 − 25.00 + 1.55 = 6.55 — the covered call writer participates in gains up to the exercise price, after which further appreciation is lost to the call buyer; X − S₀ = 5.00 in appreciation to the strike, plus 1.55 premium.\n\nCorrect. Per Example 3: 'C is correct. The covered call writer participates in gains up to the exercise price, after which further appreciation is lost to the call buyer. That is, X − S₀ = 30.00 − 25.00 = 5.00. The call writer also keeps c₀, the option premium, which is 1.55. So, the total maximum gain is 5.00 + 1.55 = 6.55.'",
+            "B": "Incorrect. This uses the terminal price as the gain endpoint; the covered call's upside stops at the STRIKE — (X − S₀) + c₀.",
+            "C": "Incorrect. This nets the premium in the wrong direction and ignores the call-away at 30; the writer keeps c₀ = 1.55 and gains only up to the strike."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.b",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §3 Ex 3",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_b_q7",
+          "number": 7,
+          "stem": "*Same setup S₀=25, X=30, c₀=1.55.* Breakeven stock price *most likely*:",
+          "options": {
+            "A": "S_T − c₀ = 31.33 − 1.55 = 29.78.",
+            "B": "S₀ − c₀ = 25.00 − 1.55 = 23.45.",
+            "C": "X + c₀ = 30.00 + 1.55 = 31.55."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Wrong term.",
+            "B": "Full statement: S₀ − c₀ = 25.00 − 1.55 = 23.45 — the call premium of 1.55 offsets a decline in the stock price by the amount of the premium received.\n\nCorrect. Per Example 3: 'A is correct. The call premium of 1.55 offsets a decline in the stock price by the amount of the premium received: 25.00 − 1.55 = 23.45.'",
+            "C": "Wrong formula."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.b",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §3 Ex 3 BE",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_b_q8",
+          "number": 8,
+          "stem": "*Same setup.* Maximum loss from covered call *most likely*:",
+          "options": {
+            "A": "S_T − c₀ = 31.33 − 1.55 = 29.78.",
+            "B": "S_T − X + c₀ = 31.33 − 30.00 + 1.55 = 2.88.",
+            "C": "23.45."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Wrong logic.",
+            "B": "Wrong formula.",
+            "C": "S₀ − c₀ = 25.00 − 1.55 = 23.45 — the stock price can fall to zero, causing a loss of the entire investment, but the option writer still keeps the option premium.\n\nCorrect. Per Example 3: 'A is correct. The stock price can fall to zero, causing a loss of the entire investment, but the option writer still keeps the option premium received: 25.00 − 1.55 = 23.45.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.b",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §3 Ex 3 Max loss",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_b_q9",
+          "number": 9,
+          "stem": "*Reducing a position at a favorable price* using covered calls (Porto/PBR example, holds 5,000 shares, writes PBR SEP 15 calls at 1.64 with stock at 15.84) — if the option is exercised, the effective sale price *most likely*:",
+          "options": {
+            "A": "16.64.",
+            "B": "15.84.",
+            "C": "15.00."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "she receives 1.64 when she writes the option and 15 when the option is exercised; a price improvement of 0.80 per share vs the original 15.84 market price (about 5.05% in a month).\n\nCorrect. Per Market Participant #2 Reducing a Position at a Favorable Price: 'If the option is exercised, she has effectively sold the stock at 16.64. She receives 1.64 when she writes the option, and she receives 15 when the option is exercised. Porto could have simply sold the shares at their original price of 15.84, but in this specific situation, the option strategy resulted in a price improvement of 0.80 ([15 + 1.64] − 15.84) per share, or 5.05%.'",
+            "B": "Original market price.",
+            "C": "Strike only, ignoring premium."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.b",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §3 Ex Porto",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_b_q10",
+          "number": 10,
+          "stem": "*American call premium decomposition* under covered call writing *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "Call Premium = Time Value + Intrinsic (Exercise) Value = Time Value + Max(0, S − X).",
+            "C": "no framework."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "TV + IV.",
+            "B": "Full statement: Call Premium = Time Value + Intrinsic (Exercise) Value = Time Value + Max(0, S − X); the covered call writer who writes to improve on the market is capturing the TIME VALUE, which augments the stock selling price; giving up part of the return distribution would result in an opportunity loss if the underlying goes up.\n\nCorrect. Per Investment Objectives of Covered Calls: 'An American option premium can be viewed as having two parts: exercise value (also called intrinsic value) and time value. Call Premium = Time Value + Intrinsic Value = Time Value + Max(0,S − X)... Someone who writes covered calls to improve on the market is capturing the time value, which augments the stock selling price. Remember, though, that giving up part of the return distribution would result in an opportunity loss if the underlying goes up.'",
+            "C": "Time + intrinsic value."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.b",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §3 CC decomposition",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "options_strategies.c",
+      "los_letter": "c",
+      "los_text": "discuss the investment objective(s), structure, payoff, risk(s), value at expiration, profit, maximum profit, maximum loss, and breakeven underlying price at expiration of a protective put position",
+      "reading_id": "options_strategies",
+      "reading_name": "Options Strategies",
+      "area_id": "derivatives_and_risk_management",
+      "questions": [
+        {
+          "id": "r16_opt_los_c_q1",
+          "number": 1,
+          "stem": "*Protective put analogy to insurance* *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "no framework.",
+            "C": "the protective put is a classic example of buying INSURANCE."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Strike ~coverage, S − X ~deductible.",
+            "B": "PP insurance analogy.",
+            "C": "Full statement: the protective put is a classic example of buying INSURANCE; the exercise price of the put is similar to the coverage amount for an insurance policy; the insurance policy DEDUCTIBLE is similar to the difference between the current asset price and the strike price of the put; a lower-strike put is like a higher-deductible policy — less expensive but greater price exposure before payoff kicks in.\n\nCorrect. Per Investment Objectives of Protective Puts: 'The protective put is often viewed as a classic example of buying insurance. The investor holds a risky asset and wants protection against a loss in value. He then buys insurance in the form of the put... The exercise price of the put is similar to the coverage amount for an insurance policy. The insurance policy deductible is similar to the difference between the current asset price and the strike price of the put. A protective put with a low exercise price is like an insurance policy with a high deductible.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.c",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §4 PP insurance",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_c_q2",
+          "number": 2,
+          "stem": "*Protective put maximum gain, loss, breakeven* *most likely*:",
+          "options": {
+            "A": "Max gain = UNLIMITED (theoretically).",
+            "B": "Max gain = capped at X; Max loss = p₀; Breakeven = X + p₀.",
+            "C": "Max gain = X + p₀; Max loss = unlimited; Breakeven = X."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: Max gain = UNLIMITED (theoretically); Max loss = S₀ − X + p₀ (depreciation to strike + premium); Breakeven = S₀ + p₀ — the stock can rise to any level; losses are 'cut off' once stock falls to exercise price; at expiration value is greater of stock price or exercise price.\n\nCorrect. Per Investment Objectives of Protective Puts: 'The stock can rise to any level, and the position would benefit fully from the appreciation; the maximum gain is unlimited. On the downside, losses are \"cut off\" once the stock price falls to the exercise price. With a protective put, the maximum loss is the depreciation to the exercise price plus the premium paid, or S₀ − X + p₀... Breakeven = Initial Stock Price + Option Premium.'",
+            "B": "PP gain is uncapped.",
+            "C": "Wrong loss direction."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.c",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §4 PP formulas",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_c_q3",
+          "number": 3,
+          "stem": "*Value and profit of protective put at expiration* *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "Value of Protective Put at Expiration = S_T + Max[(X − S_T), 0].",
+            "C": "no framework."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "PP formulas.",
+            "B": "Full statement: Value of Protective Put at Expiration = S_T + Max[(X − S_T), 0]; Profit of Protective Put at Expiration = S_T + Max[(X − S_T), 0] − S₀ − p₀; the value is the greater of the stock price or the exercise price because the stock can rise to any level but has a floor value of the put exercise price.\n\nCorrect. Per Investment Objectives of Protective Puts: 'the value of the protective put is the greater of the stock price or the exercise price... Value of Protective Put at Expiration = S_T + Max[(X − S_T),0]. The profit or loss at expiration is the ending value minus the beginning value... Profit of Protective Put at Expiration = S_T + Max[(X − S_T),0] − S₀ − p₀.'",
+            "C": "PP value/profit."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.c",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §4 PP value",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_c_q4",
+          "number": 4,
+          "stem": "*Reducing cost of protection by increasing the 'deductible'* *most likely*:",
+          "options": {
+            "A": "The cost of put protection is reduced by choosing a HIGHER strike price closer to the current stock price.",
+            "B": "The deductible in a protective put is fixed by the exchange and cannot be adjusted by the portfolio manager.",
+            "C": "the portfolio manager can REDUCE the cost of insurance by INCREASING the size of the deductible (current stock price minus put exercise price) — for example, using a lower exercise price."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. A higher strike SHRINKS the deductible and RAISES the premium — the opposite of the cost-reduction move.",
+            "B": "Incorrect. The deductible (current price minus put strike) is entirely the manager's choice through strike selection — a lower strike means a larger deductible and cheaper insurance.",
+            "C": "Full statement: the portfolio manager can REDUCE the cost of insurance by INCREASING the size of the deductible (current stock price minus put exercise price) — for example, using a lower exercise price; a lower-strike put has a lower premium but does not protect against losses until the stock falls to that lower strike.\n\nCorrect. Per Loss Protection/Upside Preservation: 'The portfolio manager can also reduce the cost of insurance by increasing the size of the deductible (i.e., the current stock price minus the put exercise price), perhaps by using a put option with a 14 exercise price. A put option with an exercise price of 14 would have a lower premium but would not protect against losses in the stock until it falls to 14.00 per share.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.c",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §4 PP cost",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_c_q5",
+          "number": 5,
+          "stem": "*Nonlinear relationship between put value and time to expiration* *most likely*:",
+          "options": {
+            "A": "there is NOT a linear relationship between the put value and its time until expiration.",
+            "B": "linear scaling.",
+            "C": "linear scaling."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: there is NOT a linear relationship between the put value and its time until expiration; a two-month option does NOT sell for twice the price of a one-month option, nor does a three-month option sell for three times the price of a one-month option.\n\nCorrect. Per Loss Protection/Upside Preservation: 'Note that there is not a linear relationship between the put value and its time until expiration. A two-month option does not sell for twice the price of a one-month option, nor does a three-month option sell for three times the price of a one-month option.'",
+            "B": "Nonlinear.",
+            "C": "Nonlinear time premium."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.c",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §4 PP time",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_c_q6",
+          "number": 6,
+          "stem": "*Theta of protective puts as expiration approaches* *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "all theta values are NEGATIVE, approximating daily losses on option positions as time passes.",
+            "C": "no framework."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Short-term higher theta decay.",
+            "B": "Full statement: all theta values are NEGATIVE, approximating daily losses on option positions as time passes; a NOV 15 put (90 days) has theta of −0.009 while a SEP 15 put (30 days) has theta of −0.015; the shorter-term option has GREATER daily erosion of value than the longer-term option; if PBR remains at 15.84 for the last 10 days to maturity, the BSM put value erodes at varying rates averaging about −0.03/day.\n\nCorrect. Per Loss Protection/Upside Preservation: 'The NOV 15 put (90 days) has a theta of −0.009 and the SEP 15 put (30 days) has a theta of −0.015... If he were to buy the cheaper SEP put, the daily erosion of value (−0.015) would be greater than for the more expensive NOV put (−0.009).' And: 'if the price of PBR remains at 15.84 for the last 10 days to maturity, the BSM put option value will erode to 0 at varying rates averaging about −0.03/day.'",
+            "C": "Theta decay pattern."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.c",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §4 PP theta",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_c_q7",
+          "number": 7,
+          "stem": "*Sell put early after adverse event materializes* *most likely*:",
+          "options": {
+            "A": "After an adverse event materializes, the protective put holder should always hold the put to expiration to collect remaining time value.",
+            "B": "Once purchased, a protective put cannot be sold before its expiration date.",
+            "C": "a price shock to the underlying may INCREASE the market's expectations of future volatility, thereby likely increasing the put premium."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Holding surrenders the volatility premium — the shock typically RAISES implied volatility and the put's price, favoring an early sale.",
+            "B": "Incorrect. Exchange-listed puts trade continuously; selling early after the event captures both intrinsic gain and the inflated volatility component.",
+            "C": "Full statement: a price shock to the underlying may INCREASE the market's expectations of future volatility, thereby likely increasing the put premium; by selling the option early, the investor would capture this increase; once the adverse event has occurred there may be no reason to continue holding the insurance — sell the put and recapture some of its cost.\n\nCorrect. Per Investment Objectives of Protective Puts footnote: 'A price shock to the underlying asset might increase the market's expectations of future volatility, thereby likely increasing the put premium. By selling the option early, the investor would capture this increase. Also, once the adverse event occurred, there may be no reason to continue to hold the insurance. If the investor no longer needs it, he should cancel it and get part of the purchase price back. In other words, he should sell the put and recapture some of its cost.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.c",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §4 sell early",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_c_q8",
+          "number": 8,
+          "stem": "*Continuous purchase of protective puts long-term* *most likely*:",
+          "options": {
+            "A": "such continuous purchasing of puts to protect against a possible stock price decline is an EXPENSIVE strategy that would wipe out most of the long-term gain on an otherwise good investment.",
+            "B": "Continuously purchasing protective puts over the long term is always advisable for any equity portfolio.",
+            "C": "The cost of a rolling protective put program is negligible relative to portfolio returns."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: such continuous purchasing of puts to protect against a possible stock price decline is an EXPENSIVE strategy that would wipe out most of the long-term gain on an otherwise good investment; the occasional purchase of a protective put to manage a temporary situation, however, can be a sensible risk-reducing activity.\n\nCorrect. Per Protective Puts: 'Such continuous purchasing of puts to protect against a possible stock price decline is an expensive strategy that would wipe out most of the long-term gain on an otherwise good investment. The occasional purchase of a protective put to manage a temporary situation, however, can be a sensible risk-reducing activity.'",
+            "B": "Incorrect. The strategy is EXPENSIVE — repeated premium outlays can consume the equity risk premium the portfolio exists to earn.",
+            "C": "Incorrect. Rolling premiums compound into a material drag; the reading flags long-term continuous protection as wealth-eroding."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.c",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §6 continuous PP",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "options_strategies.d",
+      "los_letter": "d",
+      "los_text": "compare the delta of covered call and protective put positions with the position of being long an asset and short a forward on the underlying asset",
+      "reading_id": "options_strategies",
+      "reading_name": "Options Strategies",
+      "area_id": "derivatives_and_risk_management",
+      "questions": [
+        {
+          "id": "r16_opt_los_d_q1",
+          "number": 1,
+          "stem": "*Position delta of an ATM covered call (long 100 shares + short ATM call)* *most likely*:",
+          "options": {
+            "A": "0.",
+            "B": "+50.",
+            "C": "+100."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "+50 for ATM CC.",
+            "B": "the long stock delta is +100, the ATM short call has delta approximately −0.5 × 100 = −50 (short call loses money as underlying rises); overall +100 − 50 = +50.\n\nCorrect. Per Delta section: 'The delta of the 100-share position will be 100 × +1 = +100. Because the call is at the money, meaning that the stock price and exercise price are equal, it will have a delta of approximately 0.5. The portfolio, however, is short one call contract. From the perspective of the portfolio, the delta of the short call contract is −0.5 × 100 = −50... this covered call has a position delta of 50, consisting of +100 points for the stock and −50 points for the short call.'",
+            "C": "Not just stock delta."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.d",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §5 CC delta",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_d_q2",
+          "number": 2,
+          "stem": "*Position delta of an ATM protective put (long 100 shares + long ATM put)* *most likely*:",
+          "options": {
+            "A": "The position delta of long 100 shares plus one long ATM put is approximately +100.",
+            "B": "The position delta of long 100 shares plus one long ATM put is approximately 0.",
+            "C": "+50 — long stock delta +100 plus ATM long put delta approximately −0.5 × 100 = −50; overall +100 − 50 = +50."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. +100 ignores the put entirely; the ATM put's ≈ −0.5 × 100 = −50 offsets half the stock delta.",
+            "B": "Incorrect. Zero would require a deep-ITM put with delta near −1; the ATM put only halves the exposure to +50.",
+            "C": "Correct. Per Delta section: 'Compare this call with a protective put, in which someone buys 100 shares of stock and one contract of an ATM put. Its position delta would also be 50: +100 points for the stock and −50 points for the long put.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.d",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §5 PP delta",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_d_q3",
+          "number": 3,
+          "stem": "*Position delta of long 100 shares + short 50 shares in forwards on non-dividend stock* *most likely*:",
+          "options": {
+            "A": "+50.",
+            "B": "+100.",
+            "C": "0."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "futures and forwards on non-dividend-paying stocks are essentially proxies for the stock, so their deltas are +1.0 (long) or −1.0 (short); short 50-share forward 'cancels' half the long stock position, giving position delta 50.\n\nCorrect. Per Delta section: 'Finally, consider a long stock position of 100 shares and a short forward position of 50 shares. Because futures and forwards on non-dividend-paying stocks are essentially proxies for the stock, their deltas are also 1.0 for a long position and −1.0 for a short position. In this example, the short forward position \"cancels\" half the long stock position, so the position delta is also 50.'",
+            "B": "+50 for stock+50%-short forward.",
+            "C": "Cancels half."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.d",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §5 long-short forward delta",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_d_q4",
+          "number": 4,
+          "stem": "*Comparison of ATM covered call, ATM protective put, and long stock/short forward positions with equal position deltas of +50* *most likely*:",
+          "options": {
+            "A": "all completely equivalent.",
+            "B": "+50.",
+            "C": "no framework."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Local equivalence only.",
+            "B": "for SMALL movements in the price of the underlying asset, these positions will show VERY SIMILAR GAINS AND LOSSES (all have position delta = +50); however they differ in their FULL payoff profiles, gamma, vega, and theta characteristics — so they behave the same only locally.\n\nCorrect. Per Delta section: 'These examples show three different positions: an ATM covered call, an ATM protective put, and a long stock/short forward position that all have the same delta. For small movements in the price of the underlying asset, these positions will show very similar gains and losses.'",
+            "C": "Small-move equivalence."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.d",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §5 delta equivalence",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "options_strategies.e",
+      "los_letter": "e",
+      "los_text": "compare the effect of buying a call on a short underlying position with the effect of selling a put on a short underlying position",
+      "reading_id": "options_strategies",
+      "reading_name": "Options Strategies",
+      "area_id": "derivatives_and_risk_management",
+      "questions": [
+        {
+          "id": "r16_opt_los_e_q1",
+          "number": 1,
+          "stem": "*Buying a call on a short underlying position* *most likely*:",
+          "options": {
+            "A": "unlimited loss.",
+            "B": "no framework.",
+            "C": "the long call OFFSETS portfolio losses when the share price INCREASES."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Bounded loss on upside.",
+            "B": "Call caps upside loss.",
+            "C": "Full statement: the long call OFFSETS portfolio losses when the share price INCREASES; as the share price rises above the strike, the call payoff offsets losses in the short position; portfolio losses are BOUNDED (never exceed strike − short entry + premium paid).\n\nCorrect. Per Buying Calls and Writing Puts on a Short Position: 'To offset the risks of a short position, an investor may purchase a call. The new portfolio will be (Call − Stock). The long call will offset portfolio losses when the share price increases.' In the example: 'As the share price increases, portfolio losses never exceed 1.13.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.e",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §6 call on short",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_e_q2",
+          "number": 2,
+          "stem": "*Selling a put on a short underlying position* *most likely*:",
+          "options": {
+            "A": "as the stock drops in value, the investor profits from the short stock position but portfolio gains will be REDUCED by the short put.",
+            "B": "Selling a put against a short stock position increases the portfolio's profit as the stock falls without limit.",
+            "C": "Selling a put against a short stock position provides complete protection against a rally in the stock."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: as the stock drops in value, the investor profits from the short stock position but portfolio gains will be REDUCED by the short put; when share price increases, short position loses money, the put expires worthless and the investor keeps the put premium — the loss on the short can still be substantial but is somewhat reduced by the put option premium.\n\nCorrect. Per Buying Calls and Writing Puts on a Short Position: 'To generate income from option premiums, the investor may also sell a put. As the stock drops in value, the investor profits from the short stock position, but the portfolio (− Put − Stock) gains will be reduced by the short put. When the share price increases, the short position loses money. The put expires worthless, meaning the investor will keep the put premium. The loss on the short position can still be substantial but is somewhat reduced by the put option premium.'",
+            "B": "Incorrect. The short put CAPS the downside gain — below the strike, put losses offset short-stock profits.",
+            "C": "Incorrect. The premium is only a small cushion against a rally; upside losses on the short stock continue beyond it."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.e",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §6 put on short",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_e_q3",
+          "number": 3,
+          "stem": "*Portfolio delta comparison: short stock (delta −1) + long SEP 16 PBR call (delta 0.516)* — vs *short stock + short SEP 15 PBR put (delta −0.335)* *most likely*:",
+          "options": {
+            "A": "Both structures produce identical portfolio deltas, since a long call and a short put carry the same delta.",
+            "B": "long call + short stock: portfolio delta = 0.516 − 1 = −0.484 (bearish, less bearish than short alone due to call).",
+            "C": "The short stock plus long call combination has a positive portfolio delta, making it a bullish position."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The deltas differ: 0.516 − 1 = −0.484 for the call variant versus −0.335 − 1 = −1.335 for the short-put variant.",
+            "B": "Full statement: long call + short stock: portfolio delta = 0.516 − 1 = −0.484 (bearish, less bearish than short alone due to call); short put + short stock: portfolio delta = − (−0.335) − 1 = −0.665 (still bearish, only slightly less due to put premium); both remain bearish overall.\n\nCorrect. Per Buying Calls and Writing Puts on a Short Position: 'The delta from the short PBR shares is −1. The SEP 16 call delta is 0.516. The overall portfolio delta is still negative at −0.484, making this a bearish strategy.' And: 'The delta of the short PBR shares is −1, and the delta of the short put is −(−0.335), so the position delta is −1 + 0.335 = −0.665.'",
+            "C": "Incorrect. The combined delta remains NEGATIVE (−0.484) — still bearish, merely less bearish than short stock alone."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.e",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §6 delta comparison",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_e_q4",
+          "number": 4,
+          "stem": "*Vega and theta of long call on short vs short put on short* *most likely*:",
+          "options": {
+            "A": "The long call on short stock and the short put on short stock have the same vega and theta signs.",
+            "B": "Neither structure carries any vega or theta exposure, since the stock leg dominates.",
+            "C": "long call + short stock: the investor is LONG VEGA (from purchasing call) and exposed to negative theta (time decay hurts)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. The signs FLIP between the structures — long call is long vega/negative theta; short put is short vega/positive theta.",
+            "B": "Incorrect. The option legs carry real Greeks; the long call buyer pays time decay for positive volatility exposure.",
+            "C": "Full statement: long call + short stock: the investor is LONG VEGA (from purchasing call) and exposed to negative theta (time decay hurts); short put + short stock: the investor is SHORT VEGA (from writing put) and BENEFITS from time decay (positive theta on short put).\n\nCorrect. Per Buying Calls and Writing Puts on a Short Position: 'The investor is also long vega from purchasing the call, 0.018, and the position is exposed to time decay, because theta is −0.018 per day.' And: 'She is also short vega from writing the put, (−0.017), and benefits from time decay, as theta of the short put is +0.015 (= −[−0.015]).'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.e",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §6 vega theta",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_e_q5",
+          "number": 5,
+          "stem": "*Reason writing a put and writing a covered call have similar risk/reward profiles* *most likely*:",
+          "options": {
+            "A": "the two strategies are very similar due to PUT-CALL PARITY.",
+            "B": "no framework.",
+            "C": "no framework."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: the two strategies are very similar due to PUT-CALL PARITY; recall P = C − S + PV of X, implying that −P ≈ −C + S (ignoring PV of X), thus showing that a SHORT PUT payoff profile is similar to that of a COVERED CALL.\n\nCorrect. Per Writing Puts footnote: 'The two strategies are very similar due to put-call parity. Recall that P = C − S + PV of X, implying that −P ≈ −C + S (ignoring PV of X), thus showing that a short put payoff profile is similar to that of a covered call.'",
+            "B": "Put-call parity link.",
+            "C": "PCP link."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.e",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §5 short put ≈ CC",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "options_strategies.f",
+      "los_letter": "f",
+      "los_text": "discuss the investment objective(s), structure, payoffs, risk(s), value at expiration, profit, maximum profit, maximum loss, and breakeven underlying price at expiration of the following option strategies: bull spread, bear spread, straddle, and collar",
+      "reading_id": "options_strategies",
+      "reading_name": "Options Strategies",
+      "area_id": "derivatives_and_risk_management",
+      "questions": [
+        {
+          "id": "r16_opt_los_f_q1",
+          "number": 1,
+          "stem": "*Money spread definition* *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "in a money spread, the two options differ only by EXERCISE PRICE.",
+            "C": "no framework."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Same expiry, different strikes.",
+            "B": "Full statement: in a money spread, the two options differ only by EXERCISE PRICE; the investor buys an option with a given expiration and exercise price and sells an option with the SAME expiration but a DIFFERENT exercise price; the term 'spread' is used because the payoff is based on the difference or spread between option exercise prices.\n\nCorrect. Per Spreads and Combinations: 'We first consider money spreads, in which the two options differ only by exercise price. The investor buys an option with a given expiration and exercise price and sells an option with the same expiration but a different exercise price. Of course, the options are on the same underlying asset. The term spread is used here because the payoff is based on the difference, or spread, between option exercise prices.'",
+            "C": "Money spread."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.f",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §7 money spread",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_f_q2",
+          "number": 2,
+          "stem": "*Debit spread vs credit spread* *most likely*:",
+          "options": {
+            "A": "A debit spread is one in which the investor receives a net cash inflow at initiation.",
+            "B": "The debit/credit distinction refers to whether the options are calls or puts.",
+            "C": "if establishing the spread requires a cash payment by the investor, it is a DEBIT SPREAD (long option value exceeds short option value)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. A net INFLOW defines a CREDIT spread; the debit spread requires a net payment because the long leg costs more than the short leg brings in.",
+            "B": "Incorrect. Either calls or puts can form debit or credit spreads; the distinction is the direction of the initial cash flow.",
+            "C": "Full statement: if establishing the spread requires a cash payment by the investor, it is a DEBIT SPREAD (long option value exceeds short option value); if the spread initially results in a cash INFLOW, it is a CREDIT SPREAD (short option value exceeds long option value).\n\nCorrect. Per Bull Spreads and Bear Spreads: 'If establishing the spread requires a cash payment by the investor, it is referred to as a debit spread. Debit spreads are effectively long because the long option value exceeds the short option value. If the spread initially results in a cash inflow to the investor, it is referred to as a credit spread. Credit spreads are effectively short because the short option value exceeds the long option value.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.f",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §7 debit/credit",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_f_q3",
+          "number": 3,
+          "stem": "*Bull call spread structure and cash flow* *most likely*:",
+          "options": {
+            "A": "buy the LOWER-strike call (more expensive, c_L) and write the HIGHER-strike call (less expensive, c_H).",
+            "B": "no framework.",
+            "C": "no framework."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: buy the LOWER-strike call (more expensive, c_L) and write the HIGHER-strike call (less expensive, c_H); because c_L > c_H, a bull call spread involves an INITIAL CASH OUTFLOW (DEBIT SPREAD); net premium V₀ = c_L − c_H.\n\nCorrect. Per Bull Spread: 'Regardless of whether someone constructs a bull spread with puts or with calls, the strategy requires buying one option and writing another with a higher exercise price. Because the higher exercise price call is less expensive than the lower strike, a call bull spread involves an initial cash outflow (debit spread).'",
+            "B": "Long low K, short high K, debit.",
+            "C": "Bull call spread."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.f",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §7 bull call",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_f_q4",
+          "number": 4,
+          "stem": "*Bull spread payoff profile* — max gain, max loss, breakeven *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "Max gain = X_H − X_L − (c_L − c_H) (occurs when S_T ≥ X_H).",
+            "C": "no framework."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Bull spread formulas.",
+            "B": "Full statement: Max gain = X_H − X_L − (c_L − c_H) (occurs when S_T ≥ X_H); Max loss = c_L − c_H (occurs when S_T ≤ X_L; both expire OTM); Breakeven: S_T* = X_L + c_L − c_H (lower exercise price plus cost of spread).\n\nCorrect. Per Bull Spread: 'If ST is below XL, the strategy will lose a limited amount of money. When both options expire out of the money, the investor loses the net premium, cL − cH. The profit on the upside, if ST is at least XH, is also limited to the difference in strike prices minus the net premium... Mathematically, the breakeven price for a call bull spread can be derived from Π = ST* − XL − cL + cH = 0 and is ST* = XL + cL − cH, which represents the lower exercise price plus the cost of the spread.'",
+            "C": "Bull spread formulas."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.f",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §7 bull formulas",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_f_q5",
+          "number": 5,
+          "stem": "*Example: S₀=44.50; OCT 45 call = 2.55, OCT 50 call = 1.45.* Maximum gain from OCT 45/50 bull call spread *most likely*:",
+          "options": {
+            "A": "Maximum gain on the OCT 45/50 bull call spread is 1.10.",
+            "B": "Maximum gain on the OCT 45/50 bull call spread is 3.05.",
+            "C": "3.90 — at S_T ≥ 50, spread is worth 50 − 45 = 5; net cost = 2.55 − 1.45 = 1.10; max gain = 5 − 1.10 = 3.90."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. 1.10 is the NET COST (2.55 − 1.45), not the gain.",
+            "B": "Incorrect. The maximum gain is the strike width minus the net cost: (50 − 45) − 1.10 = 3.90.",
+            "C": "Correct. Per Example 6: 'C is correct. With a bull spread, the maximum gain occurs at the high exercise price. At an underlying price of 50 or higher, the spread is worth the difference in the strike prices, or 50 − 45 = 5. The cost of establishing the spread is the price paid for the lower-strike option minus the price received for the higher-strike option: 2.55 − 1.45 = 1.10. The maximum gain is 5.00 − 1.10 = 3.90.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.f",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §7 Ex 6.1",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_f_q6",
+          "number": 6,
+          "stem": "*Bear put spread structure* *most likely*:",
+          "options": {
+            "A": "buy the HIGHER-strike put (more expensive, p_H) and write the LOWER-strike put (less expensive, p_L).",
+            "B": "buy low-strike put, write high-strike put.",
+            "C": "no framework."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: buy the HIGHER-strike put (more expensive, p_H) and write the LOWER-strike put (less expensive, p_L); a bear put spread is a DEBIT SPREAD with initial cash outlay = p_H − p_L, which equals the maximum loss.\n\nCorrect. Per Example 6.2: 'With a bear spread, an investor buys the higher exercise price and writes the lower exercise price. When this strategy is done with puts, the higher exercise price option costs more than the lower exercise price option. Thus, the investor has a debit spread with an initial cash outlay, which is the most he can lose.'",
+            "B": "Buy high K put, sell low K put.",
+            "C": "Bear put debit."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.f",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §7 bear put",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_f_q7",
+          "number": 7,
+          "stem": "*Example: OCT 45 put = 2.92, OCT 50 put = 6.80.* Maximum loss from OCT 45/50 bear put spread *most likely*:",
+          "options": {
+            "A": "1.12.",
+            "B": "3.88.",
+            "C": "4.38."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Wrong.",
+            "B": "the initial cash outlay is the cost of OCT 50 put minus the premium received from writing OCT 45 put: 6.80 − 2.92 = 3.88.\n\nCorrect. Per Example 6.2: 'B is correct... The initial cash outlay is the cost of the OCT 50 put minus the premium received from writing the OCT 45 put: 6.80 − 2.92 = 3.88.'",
+            "C": "Wrong."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.f",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §7 Ex 6.2",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_f_q8",
+          "number": 8,
+          "stem": "*Example: OCT 45 call = 2.55, OCT 50 call = 1.45.* Breakeven price for OCT 45/50 bull call spread *most likely*:",
+          "options": {
+            "A": "47.50.",
+            "B": "48.88.",
+            "C": "46.10 — lower exercise price of 45 plus 1.10 cost of the spread: 45 + 1.10 = 46.10."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Wrong.",
+            "B": "Wrong.",
+            "C": "Correct. Per Example 6.3: 'A is correct... She breaks even when the position is worth the price she paid. The long call is worth 1.10 at a stock price of 46.10, and the OCT 50 call will expire out of the money and thus be worthless. The breakeven price is the lower exercise price of 45 plus the 1.10 cost of the spread, or 46.10.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.f",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §7 Ex 6.3",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_f_q9",
+          "number": 9,
+          "stem": "*Long straddle structure and objective* *most likely*:",
+          "options": {
+            "A": "a long straddle buys both a put AND a call with the SAME exercise price and SAME expiration date on the SAME underlying.",
+            "B": "no framework.",
+            "C": "no framework."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: a long straddle buys both a put AND a call with the SAME exercise price and SAME expiration date on the SAME underlying; a long straddle is long VOLATILITY — betting that volatility will INCREASE from current levels; because the buyer pays premium for two options, a large price movement (up or down) is needed to make a profit.\n\nCorrect. Per Straddle: 'A long straddle is an option combination in which one buys both puts and calls, with the same exercise price and same expiration date, on the same underlying asset.' And: 'A straddle is an example of a directional play on the underlying volatility, expressing the view that volatility will either increase, for a long straddle, or decrease, for a short straddle... The long (short) straddle trade is said to be long (short) volatility.'",
+            "B": "Same K same T call+put; long vol.",
+            "C": "Long straddle."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.f",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §8 straddle",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_f_q10",
+          "number": 10,
+          "stem": "*Long straddle initial delta and gamma at ATM* *most likely*:",
+          "options": {
+            "A": "high delta, low gamma.",
+            "B": "very LOW DELTA (near zero when ATM) with HIGH GAMMA.",
+            "C": "no framework."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Low delta + high gamma.",
+            "B": "Full statement: very LOW DELTA (near zero when ATM) with HIGH GAMMA; trader does not initially favor an increase or decrease in the share price but knows the delta may change quickly once a direction asserts itself.\n\nCorrect. Per Straddle: 'The long straddle initially has a very low delta (+0.069 for this example) with a high gamma (0.139). The trader does not initially favor an increase or a decrease in the share price but knows the delta may quickly change. Once a direction (increase or decrease in the underlying price) asserts itself, the trader's position will take on a non-zero delta value.'",
+            "C": "ATM straddle greeks."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.f",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §8 straddle greeks",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_f_q11",
+          "number": 11,
+          "stem": "*Long straddle two breakevens and value at expiration* *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "no framework.",
+            "C": "V_T = Max(0, S_T − X) + Max(0, X − S_T)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Two BEs formulas.",
+            "B": "Two BEs.",
+            "C": "Full statement: V_T = Max(0, S_T − X) + Max(0, X − S_T); Profit Π = V_T − c₀ − p₀; two breakeven points: LOWER = X − c₀ − p₀ and UPPER = X + c₀ + p₀; the range in between produces a loss.\n\nCorrect. Per Straddle: 'The value of a straddle at expiration is the combined value of the call and the put: VT = Max(0,ST − X) + Max(0,X − ST)... The profit is VT − V0, or Π = Max(0,ST − X) + Max(0,X − ST) − c0 − p0.' And: 'The lower breakeven for the straddle is STL* = X − c0 − p0, and the upper breakeven is STH* = X + c0 + p0.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.f",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §8 straddle BE",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_f_q12",
+          "number": 12,
+          "stem": "*Long straddle max gain and max loss* *most likely*:",
+          "options": {
+            "A": "MAXIMUM GAIN is theoretically UNLIMITED on the upside from the long call.",
+            "B": "no framework.",
+            "C": "no framework."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: MAXIMUM GAIN is theoretically UNLIMITED on the upside from the long call; MAXIMUM LOSS is limited to the total premium paid (c₀ + p₀), which occurs when the stock closes exactly at the strike price (both options expire worthless).\n\nCorrect. Per Straddle: 'Theoretically, the stock can rise to any level, so the maximum profit with the long call is unlimited... For the straddle buyer, the worst outcome is if the stock closes exactly at 50, meaning both the put and the call would expire worthless. At any other price, one of the options will have a positive exercise value... The risk of a long straddle is limited to the amount paid for the two option positions.'",
+            "B": "Unlimited gain, limited loss.",
+            "C": "Long straddle range."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.f",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §8 straddle max",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_f_q13",
+          "number": 13,
+          "stem": "*Collar structure* *most likely*:",
+          "options": {
+            "A": "A collar is a position combining a short underlying with a long ATM call and a long ATM put.",
+            "B": "a collar is an option position in which the investor is LONG the underlying, BUYS a put with exercise price BELOW current stock price (downside protection), and WRITES a call with exercise price ABOVE current stock price (finances put).",
+            "C": "A collar consists of two calls at different strikes with no position in the underlying."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The collar is built on a LONG underlying — protected below by an OTM put and financed by a written OTM call.",
+            "B": "Full statement: a collar is an option position in which the investor is LONG the underlying, BUYS a put with exercise price BELOW current stock price (downside protection), and WRITES a call with exercise price ABOVE current stock price (finances put); the profit and loss on the equity position is limited by the option positions.\n\nCorrect. Per Collars: 'A collar is an option position in which the investor is long shares of stock and then buys a put with an exercise price below the current stock price and writes a call with an exercise price above the current stock price. Collars allow a shareholder to acquire downside protection through a protective put but reduce the cash outlay by writing a covered call. By carefully selecting the options, an investor can often offset most of the put premium paid by the call premium received.'",
+            "C": "Incorrect. Two calls at different strikes is a call SPREAD; the collar requires the underlying plus the put/call combination around it."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.f",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §7 collar",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_f_q14",
+          "number": 14,
+          "stem": "*Zero-cost collar* *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "no framework.",
+            "C": "a ZERO-COST COLLAR involves the purchase of a put and sale of a call with the SAME PREMIUM."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Zero-cost = matched premiums.",
+            "B": "Zero-cost collar.",
+            "C": "Full statement: a ZERO-COST COLLAR involves the purchase of a put and sale of a call with the SAME PREMIUM; a collar written in the over-the-counter market can be easily structured to provide a precise offset of the put premium with the call premium; most collars are structured and transacted OTC because the exercise price on the call must be a specific one.\n\nCorrect. Per Collars on an Existing Holding: 'A zero-cost collar involves the purchase of a put and sale of a call with the same premium... A collar written in the over-the-counter market can be easily structured to provide a precise offset of the put premium with the call premium.' And in footnote: 'Most collars are structured and transacted in the over-the-counter market because the exercise price on the call must be a specific one.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.f",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §7 zero-cost",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_f_q15",
+          "number": 15,
+          "stem": "*Collar value at expiration* *most likely*:",
+          "options": {
+            "A": "V_T = S_T + Max(0, X_1 − S_T) − Max(0, S_T − X_2), where X_2 > X_1 (X_1 = long put strike, X_2 = short call strike).",
+            "B": "Collar value at expiration: V_T = S_T − Max(0, X_1 − S_T) + Max(0, S_T − X_2).",
+            "C": "Collar value at expiration: V_T = Max(S_T, X_2) − Min(S_T, X_1)."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: V_T = S_T + Max(0, X_1 − S_T) − Max(0, S_T − X_2), where X_2 > X_1 (X_1 = long put strike, X_2 = short call strike); profit Π = S_T + Max(0, X_1 − S_T) − Max(0, S_T − X_2) − S₀ − p₀ + c₀.\n\nCorrect. Per Collars on an Existing Holding: 'The value of the collar at expiration is the sum of the value of the underlying asset, the value of the long put (struck at X1), and the value of the short call (struck at X2): VT = ST + Max(0,X1 − ST) − Max(0,ST − X2), where X2 > X1. The profit is the profit on the underlying share plus the profit on the long put and the short call so that: Π = ST + Max(0,X1 − ST) − Max(0,ST − X2) − S0 − p0 + c0.'",
+            "B": "Incorrect. The signs are reversed — the LONG put value is added and the SHORT call value subtracted.",
+            "C": "Incorrect. This max/min construction does not reproduce the collar's payoff; V_T = S_T + Max(0, X_1 − S_T) − Max(0, S_T − X_2)."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.f",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §7 collar value",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_f_q16",
+          "number": 16,
+          "stem": "*Collar risk-return profile* *most likely*:",
+          "options": {
+            "A": "As the collar's strikes move farther apart, the position converges toward a riskless fixed-income payoff.",
+            "B": "as chosen put and call exercise prices move successively FARTHER in opposite directions from the current price, the collar begins to replicate the underlying gain/loss pattern of a LONG POSITION in the underlying security.",
+            "C": "The collar's risk-return profile is unaffected by the choice of put and call strikes."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. WIDER strikes make the collar MORE equity-like; convergence toward fixed income comes from moving both strikes toward the current price.",
+            "B": "Full statement: as chosen put and call exercise prices move successively FARTHER in opposite directions from the current price, the collar begins to replicate the underlying gain/loss pattern of a LONG POSITION in the underlying security; conversely, as the strikes APPROACH each other, expected returns and volatility become less equity-like and converge on a RISK-FREE FIXED-INCOME return; a collar is economically INTERMEDIATE between pure equity and fixed-income exposure.\n\nCorrect. Per Collars on an Existing Holding: 'As the chosen put and call exercise prices move successively farther in opposite directions from the current price, the combined collar position begins to replicate the underlying gain/loss pattern of a long position in the underlying security. Conversely, as the chosen strike prices approach and meet each other, the expected returns and volatility become less and less equity-like and eventually converge on those of a risk-free, fixed income return to the time horizon. Thus, a collar position is, economically, intermediate between pure equity and fixed-income exposure.'",
+            "C": "Incorrect. Strike placement is the profile's whole lever — the collar spans the spectrum between pure equity and near-fixed-income."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.f",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §7 collar profile",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_f_q17",
+          "number": 17,
+          "stem": "*Bear spread with puts breakeven and profit ranges* *most likely*:",
+          "options": {
+            "A": "For a bear put spread, breakeven is S_T* = X_L + p_H, with maximum profit when the stock rallies above X_H.",
+            "B": "A bear put spread has no defined breakeven point because both legs are puts.",
+            "C": "for a bear put spread with lower strike X_L (short put p_L) and higher strike X_H (long put p_H), breakeven S_T* = X_H − p_H + p_L."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Breakeven sits at X_H minus the NET premium (p_H − p_L), and maximum profit arrives when the stock FALLS to or below X_L.",
+            "B": "Incorrect. The breakeven is well-defined: S_T* = X_H − (p_H − p_L), the higher strike less the net cost.",
+            "C": "Full statement: for a bear put spread with lower strike X_L (short put p_L) and higher strike X_H (long put p_H), breakeven S_T* = X_H − p_H + p_L; profit = X_H − S_T − p_H + p_L when X_L < S_T < X_H; max loss (occurs above X_H) = −(p_H − p_L) = p_L − p_H; max gain (occurs at or below X_L) = X_H − X_L − p_H + p_L.\n\nCorrect. Per Bear Spread section (V4 LM1 §7): 'The breakeven point, ST* = XH − pH + pL, sets the profit equal to zero between the strike prices. In this example, 16 − 1.96 + 1.46 = 15.50.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.f",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §7 bear formulas",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "options_strategies.g",
+      "los_letter": "g",
+      "los_text": "describe uses of calendar spreads",
+      "reading_id": "options_strategies",
+      "reading_name": "Options Strategies",
+      "area_id": "derivatives_and_risk_management",
+      "questions": [
+        {
+          "id": "r16_opt_los_g_q1",
+          "number": 1,
+          "stem": "*Calendar spread definition* *most likely*:",
+          "options": {
+            "A": "a strategy in which one SELLS an option and BUYS the same type of option (put or call) but with DIFFERENT EXPIRATION DATES on the SAME underlying asset and with the SAME STRIKE.",
+            "B": "A calendar spread combines options of the same type and expiration on two different underlyings.",
+            "C": "A calendar spread combines a call and a put with the same strike and expiration."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: a strategy in which one SELLS an option and BUYS the same type of option (put or call) but with DIFFERENT EXPIRATION DATES on the SAME underlying asset and with the SAME STRIKE; when the investor buys the more distant option and sells the near-term option, it is a LONG calendar spread; buying near-term and selling longer-dated is a SHORT calendar spread.\n\nCorrect. Per Calendar Spread: 'A strategy in which one sells an option and buys the same type of option but with different expiration dates, on the same underlying asset and with the same strike, is commonly referred to as a calendar spread. When the investor buys the more distant call and sells the near-term call, it is a long calendar spread. The investor could also buy a near-term call and sell a longer-dated one, known as a short calendar spread.'",
+            "B": "Incorrect. Same UNDERLYING is required; the legs differ only in expiration date.",
+            "C": "Incorrect. Call-plus-put at one strike/expiry is a STRADDLE; the calendar spread is same type, same strike, DIFFERENT expiries."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.g",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §7 calendar def",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_g_q2",
+          "number": 2,
+          "stem": "*Primary motivation for long calendar spread* *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "taking advantage of TIME DECAY.",
+            "C": "no framework."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Time decay differential.",
+            "B": "Full statement: taking advantage of TIME DECAY; time decay is more PRONOUNCED for a SHORT-TERM option than for a long-term option; a long calendar spread seeks to exploit this by purchasing a longer-term option and writing a shorter-term option so that the short option's time value erodes faster.\n\nCorrect. Per Calendar Spread: 'As discussed previously, a portion of the option premium is time value. Time value decays over time and approaches zero as the option expiration date nears. Taking advantage of this time decay is a primary motivation behind a calendar spread. Time decay is more pronounced for a short-term option than for one with a long time until expiration. A calendar spread trade seeks to exploit this characteristic by purchasing a longer-term option and writing a shorter-term option.'",
+            "C": "Time decay motive."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.g",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §7 calendar motive",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_g_q3",
+          "number": 3,
+          "stem": "*Trader outlook consistent with long calendar spread* *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "no framework.",
+            "C": "a directional opinion on the stock but not believing the price movement is IMMINENT."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Longer-term direction + near-term neutral.",
+            "B": "Calendar outlook.",
+            "C": "Full statement: a directional opinion on the stock but not believing the price movement is IMMINENT; sees an opportunity to capture time value in one or more shorter-lived options that are expected to expire worthless; combines a longer-term bullish or bearish outlook with a near-term neutral outlook.\n\nCorrect. Per Calendar Spread: 'In this example, the calendar spread trader has a directional opinion on the stock but does not believe that the price movement is imminent. Rather, the trader sees an opportunity to capture time value in one or more shorter-lived options that are expected to expire worthless.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.g",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §7 calendar outlook",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_g_q4",
+          "number": 4,
+          "stem": "*Vega characteristics of long calendar spread* *most likely*:",
+          "options": {
+            "A": "a long calendar spread is a LONG VOLATILITY trading strategy because the longer-term option has a HIGHER VEGA than the shorter-term option.",
+            "B": "A long calendar spread is vega-neutral because the two option legs' vegas cancel exactly.",
+            "C": "A long calendar spread is a short volatility strategy that profits when implied volatility falls."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: a long calendar spread is a LONG VOLATILITY trading strategy because the longer-term option has a HIGHER VEGA than the shorter-term option; maximum profit is obtained when the short-term option expires worthless, then implied volatility surges, increasing the price of the remaining long-term option.\n\nCorrect. Per Investment Objectives and Strategy Selection: 'a long calendar spread—wherein the shorter-maturity option is sold and the longer-maturity option is purchased—is a long volatility trading strategy because the longer-term option has a higher vega than the shorter-term option. The maximum profit is obtained when the short-term option expires worthless, then implied volatility surges, increasing the price of the remaining long-term option.'",
+            "B": "Incorrect. The vegas do NOT cancel — the longer-dated leg's vega exceeds the shorter-dated leg's.",
+            "C": "Incorrect. The net vega is POSITIVE (long the higher-vega distant option), making the position long volatility."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.g",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §10 calendar vega",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_g_q5",
+          "number": 5,
+          "stem": "*Long vs short calendar spread — what benefits each* *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "a big move in the underlying market or a DECREASE in implied volatility will help a SHORT calendar spread.",
+            "C": "no framework."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Long calendar: stable/vol up; short: big move/vol down.",
+            "B": "Full statement: a big move in the underlying market or a DECREASE in implied volatility will help a SHORT calendar spread; a stable market or an INCREASE in implied volatility will help a LONG calendar spread; calendar spreads are sensitive to movement of the underlying but also to changes in implied volatility.\n\nCorrect. Per Calendar Spread: 'In sum, a big move in the underlying market or a decrease in implied volatility will help a short calendar spread, whereas a stable market or an increase in implied volatility will help a long calendar spread. Thus, calendar spreads are sensitive to movement of the underlying but also sensitive to changes in implied volatility.'",
+            "C": "Long/short benefits."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.g",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §7 calendar comparison",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "options_strategies.h",
+      "los_letter": "h",
+      "los_text": "discuss volatility skew and smile",
+      "reading_id": "options_strategies",
+      "reading_name": "Options Strategies",
+      "area_id": "derivatives_and_risk_management",
+      "questions": [
+        {
+          "id": "r16_opt_los_h_q1",
+          "number": 1,
+          "stem": "*Implied volatility definition* *most likely*:",
+          "options": {
+            "A": "Implied volatility is the historical standard deviation of the underlying's returns over the past year.",
+            "B": "Implied volatility is a forecast published by the options exchange each morning.",
+            "C": "implied volatility is derived from an option pricing model (such as BSM) and is the value that EQUATES THE MODEL PRICE OF AN OPTION TO ITS MARKET PRICE."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Historical (realized) volatility looks backward; implied volatility is extracted from CURRENT option prices.",
+            "B": "Incorrect. No exchange publishes it as a forecast — it is the volatility input that equates the model (e.g., BSM) price to the observed market price.",
+            "C": "Full statement: implied volatility is derived from an option pricing model (such as BSM) and is the value that EQUATES THE MODEL PRICE OF AN OPTION TO ITS MARKET PRICE; all other BSM inputs (strike, underlying price, time to expiration, risk-free rate) are observable; implied volatilities incorporate investors' expectations about future asset returns and market uncertainty.\n\nCorrect. Per Implied Volatility and Volatility Skew: 'Implied volatility is not observable per se, but it is derived from an option pricing model—such as the Black-Scholes-Merton (BSM) model—and it is value that equates the model price of an option to its market price. Note that all other input variables to the BSM model, including the option's strike price, the price of the underlying, the time to option expiration, and the risk-free interest rate, are observable. Implied volatilities incorporate investors' expectations about the future course of financial asset returns and the level of market uncertainty associated with them.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.h",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §9 IV def",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_h_q2",
+          "number": 2,
+          "stem": "*OTM puts vs OTM calls implied volatility* *most likely*:",
+          "options": {
+            "A": "out-of-the-money (OTM) puts TYPICALLY COMMAND HIGHER implied volatilities than ATM or OTM calls.",
+            "B": "no framework.",
+            "C": "no framework."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: out-of-the-money (OTM) puts TYPICALLY COMMAND HIGHER implied volatilities than ATM or OTM calls; this phenomenon is attributed to investors' reassessments of the probabilities of negative 'fat-tailed' market events such as the 2007-2009 global financial crisis.\n\nCorrect. Per Implied Volatility and Volatility Skew: 'Implied volatilities for options on a specific asset may differ with strike price (i.e., moneyness), side (i.e., put or call), and time to expiration. In particular, out-of-the-money (OTM) puts typically command higher implied volatilities than ATM or OTM calls. This phenomenon is attributed to investors' reassessments of the probabilities of negative \"fat-tailed\" market events such as the 2007-2009 global financial crisis.'",
+            "B": "OTM puts higher IV (fat-tail fear).",
+            "C": "OTM put skew."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.h",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §9 OTM puts",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_h_q3",
+          "number": 3,
+          "stem": "*Volatility smile vs volatility skew shapes* *most likely*:",
+          "options": {
+            "A": "A volatility smile is a downward-sloping line, while a skew is any flat volatility curve.",
+            "B": "when implied volatilities of both OTM puts and OTM calls trade at a premium to ATM implied volatilities, the curve is U-shaped — a VOLATILITY SMILE.",
+            "C": "Smile and skew are interchangeable terms for the same implied volatility shape."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The smile is U-SHAPED — both OTM puts and OTM calls trade above ATM implied volatility.",
+            "B": "Full statement: when implied volatilities of both OTM puts and OTM calls trade at a premium to ATM implied volatilities, the curve is U-shaped — a VOLATILITY SMILE; the more common shape is a VOLATILITY SKEW where implied volatility INCREASES for OTM puts and DECREASES for OTM calls as strike moves from current price; skew persists because investors have less interest in OTM calls while OTM puts have universal demand as portfolio insurance.\n\nCorrect. Per Implied Volatility and Volatility Skew: 'When the implied volatilities priced into both OTM puts and calls trade at a premium to implied volatilities of ATM options... the curve is U-shaped and is called a volatility smile, because it resembles the shape of a smile. The more common shape of the implied volatility curve, however, is a volatility skew, where the implied volatility increases for OTM puts and decreases for OTM calls, as the strike price moves away from the current price. This shape persists across asset classes and over time because investors have generally less interest in OTM calls whereas OTM put options have found universal demand as portfolio insurance against a market sell-off.'",
+            "C": "Incorrect. The shapes differ: the smile is symmetric-U; the skew is ASYMMETRIC, with OTM put IV elevated relative to OTM calls."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.h",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §9 skew/smile",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_h_q4",
+          "number": 4,
+          "stem": "*Sharp increase in the level of the skew accompanied by a surge in implied volatility indicates* *most likely*:",
+          "options": {
+            "A": "A sharp rise in skew alongside surging implied volatility signals strong bullish sentiment among institutions.",
+            "B": "Skew level changes carry no information about market sentiment.",
+            "C": "when the implied volatility is significantly higher (relative to historical levels) for PUTS with strike prices below the underlying's price, it means an IMBALANCE in the supply and demand for options."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. The signal runs BEARISH — investors bidding up downside puts reveals demand for crash protection.",
+            "B": "Incorrect. The skew is a sentiment gauge; elevated put IV relative to history flags hedging demand and downside fear.",
+            "C": "Full statement: when the implied volatility is significantly higher (relative to historical levels) for PUTS with strike prices below the underlying's price, it means an IMBALANCE in the supply and demand for options; a sharp increase in skew accompanied by a surge in absolute implied volatility is an INDICATOR THAT MARKET SENTIMENT IS TURNING BEARISH; in contrast, higher IVs for OTM CALLS indicate BULLISH sentiment.\n\nCorrect. Per Implied Volatility and Volatility Skew: 'when the implied volatility is significantly higher (relative to historical levels) for puts with strike prices below the underlying asset's price, it means that there is an imbalance in the supply and demand for options... A sharp increase in the level of the skew, accompanied with a surge in the absolute level of implied volatility, is an indicator that market sentiment is turning bearish. In contrast, higher implied volatilities (relative to historical levels) for calls with strike prices above the underlying asset's price indicate that investors are bullish and the demand for OTM calls to take on upside exposure is strong.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.h",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §9 skew as signal",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_h_q5",
+          "number": 5,
+          "stem": "*Volatility skew measurement (90-110 skew)* *most likely*:",
+          "options": {
+            "A": "the 90% moneyness option is a put with strike (X) equal to 90% of the current underlying price (X/S = 90%).",
+            "B": "In the 90-110 skew measure, the 90% moneyness option is a call with strike at 110% of spot.",
+            "C": "The 90-110 skew compares two ATM options with different expiration dates."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: the 90% moneyness option is a put with strike (X) equal to 90% of the current underlying price (X/S = 90%); the 110% moneyness of the call is calculated similarly (110%); the volatility skew is calculated as the DIFFERENCE between the IVs of the 90% put and the 110% call; a positive skew number (put IV > call IV) reflects the fat-tail insurance premium demanded for downside protection.\n\nCorrect. Per Implied Volatility and Volatility Skew: 'The 90% moneyness option is a put with strike (X) equal to 90% of the current underlying price (S); thus X/S = 90%. The 110% moneyness of the call is calculated similarly. Also shown is the skew, calculated as the difference between the implied volatilities of the 90% put and the 110% call.'",
+            "B": "Incorrect. The 90% moneyness leg is a PUT with X/S = 90%; the call leg sits at 110% moneyness.",
+            "C": "Incorrect. Expiry is held constant; the measure differences IV across STRIKES — IV(90% put) minus IV(110% call)."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.h",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §9 skew measurement",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_h_q6",
+          "number": 6,
+          "stem": "*Implied volatility surface* *most likely*:",
+          "options": {
+            "A": "The implied volatility surface is a two-dimensional plot of implied volatility against strike price only.",
+            "B": "a THREE-DIMENSIONAL plot, for put and call options on the same underlying, of days to expiration (x-axis), option strike prices (y-axis), and implied volatilities (z-axis).",
+            "C": "The implied volatility surface plots realized volatility against trading volume."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Strike-only is a single smile/skew slice; the surface adds the EXPIRATION dimension.",
+            "B": "Full statement: a THREE-DIMENSIONAL plot, for put and call options on the same underlying, of days to expiration (x-axis), option strike prices (y-axis), and implied volatilities (z-axis); it SIMULTANEOUSLY shows the volatility skew (smile) and the term structure of implied volatility; typically NOT FLAT as BSM would suggest.\n\nCorrect. Per Implied Volatility and Volatility Skew: 'The implied volatility surface can be thought of as a three-dimensional plot, for put and call options on the same underlying asset, of days to expiration (x-axis), option strike prices (y-axis), and implied volatilities (z-axis). It simultaneously shows the volatility skew (smile) and the term structure of implied volatility. Considering that implied volatility varies across different option maturities and displays skew, the implied volatility surface is typically not flat as the BSM model may suggest.'",
+            "C": "Incorrect. The surface is built from IMPLIED (not realized) volatility across the strike × expiry grid — three dimensions."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.h",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §9 IV surface",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "options_strategies.i",
+      "los_letter": "i",
+      "los_text": "identify and evaluate appropriate option strategies consistent with given investment objectives",
+      "reading_id": "options_strategies",
+      "reading_name": "Options Strategies",
+      "area_id": "derivatives_and_risk_management",
+      "questions": [
+        {
+          "id": "r16_opt_los_i_q1",
+          "number": 1,
+          "stem": "*Exhibit 32: Bearish outlook + expected volatility DECREASE* — most appropriate strategy *most likely*:",
+          "options": {
+            "A": "buy puts.",
+            "B": "buy straddle.",
+            "C": "WRITE CALLS — bearish view + declining volatility."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Puts require increasing vol to be optimal.",
+            "B": "Straddle needs vol move.",
+            "C": "Full statement: WRITE CALLS — bearish view + declining volatility; writing calls generates premium income and profits from the market not rising, with vega working in the writer's favor as volatility decreases.\n\nCorrect. Per Exhibit 32 (Choosing Options Strategies Based on Direction and Volatility of the Underlying Asset): Bearish outlook + Decrease in implied volatility → 'Write calls.' Also per commentary: 'If instead he believes that volatilities are expected to fall, writing a call would likely be a profitable strategy.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.i",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §10 Ex 32 bearish",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_i_q2",
+          "number": 2,
+          "stem": "*Exhibit 32: Bullish outlook + expected volatility DECREASE* — most appropriate strategy *most likely*:",
+          "options": {
+            "A": "WRITE PUTS — bullish view + declining volatility.",
+            "B": "buy calls.",
+            "C": "buy straddle."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: WRITE PUTS — bullish view + declining volatility; writing puts represents an alternative to take advantage of a bullish market view with declining volatility; as the stock rises and implied volatility decreases, the short put moves farther OTM and its price falls, benefiting the writer.\n\nCorrect. Per Exhibit 32: Bullish outlook + Decrease in implied volatility → 'Write puts.' Also: 'When implied volatilities are expected to fall, writing a put represents an alternative strategy to take advantage of a bullish market view with declining volatility. If this happens, the position will likely be profitable, because as the stock rises and implied volatility decreases, the short put moves farther out of the money and its price will decrease.'",
+            "B": "Buy calls prefers rising vol.",
+            "C": "Straddle vol-directional."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.i",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §10 Ex 32 bullish/vol down",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_i_q3",
+          "number": 3,
+          "stem": "*Exhibit 32: Neutral outlook (trading range) + expected volatility INCREASE* — most appropriate strategy *most likely*:",
+          "options": {
+            "A": "sell straddle.",
+            "B": "BUY STRADDLE — neutral on direction + expecting vol increase.",
+            "C": "no framework."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Long straddle for range + vol up.",
+            "B": "Full statement: BUY STRADDLE — neutral on direction + expecting vol increase; the long straddle takes advantage of an increase in call/put option prices in response to the expected surge in volatility, vega, and gamma; profitable if price of call (put) exceeds upper (lower) breakeven.\n\nCorrect. Per Exhibit 32 and commentary: Trading Range/Neutral outlook + Increase in implied volatility → 'Buy straddle.' Also: 'If the investor is neutral on market direction, the appropriate strategy will be a long straddle, because this strategy takes advantage of an increase in the long call or long put option prices in response to realization of the expected surge in volatility, vega, and gamma.'",
+            "C": "Buy straddle."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.i",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §10 Ex 32 range/vol up",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_i_q4",
+          "number": 4,
+          "stem": "*Exhibit 32: Neutral outlook (trading range) + expected volatility UNCHANGED* — most appropriate strategy *most likely*:",
+          "options": {
+            "A": "no framework.",
+            "B": "no framework.",
+            "C": "CALENDAR SPREAD — combines longer-term directional outlook with near-term neutral outlook."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Calendar spread for range/stable vol.",
+            "B": "Calendar spread selection.",
+            "C": "Full statement: CALENDAR SPREAD — combines longer-term directional outlook with near-term neutral outlook; the calendar spread is typically implemented in option markets characterized by LOW implied volatility when the underlying stock is expected to remain in a trading range, but only until the maturity of the short-term option; delta approximately zero, gamma not zero.\n\nCorrect. Per Exhibit 32: Trading Range + Volatility unchanged → 'Calendar spread.' Per commentary: 'the calendar spread is typically implemented in option markets characterized by low implied volatility when the underlying stock is expected to remain in a trading range, but only until the maturity of the short-term option.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.i",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §10 Ex 32 range/stable",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_i_q5",
+          "number": 5,
+          "stem": "*Long risk reversal* strategy *most likely*:",
+          "options": {
+            "A": "long calls + short puts; used to implement a BULLISH view (the investor buys the calls) while LOWERING the cost (the investor sells the puts) of the long position in the underlying asset that will be established upon exercising the options.",
+            "B": "A long risk reversal combines a long put with a short call to implement a bearish view.",
+            "C": "A long risk reversal is a delta-neutral volatility position with no directional exposure."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: long calls + short puts; used to implement a BULLISH view (the investor buys the calls) while LOWERING the cost (the investor sells the puts) of the long position in the underlying asset that will be established upon exercising the options; combined position aligned with bullish view + declining volatility outlook.\n\nCorrect. Per Investment Objectives and Strategy Selection: 'The combined position in which the investor is long calls and short puts (i.e., a long risk reversal) is used to implement a bullish view (the investor buys the calls) while lowering the cost (the investor sells the puts) of the long position in the underlying asset that will be established upon exercising the options.'",
+            "B": "Incorrect. Long put plus short call is the SHORT risk reversal — the bearish mirror image.",
+            "C": "Incorrect. The structure is directional and BULLISH: long calls financed by short puts, lowering the cost of the upside view."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.i",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §10 risk reversal",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_i_q6",
+          "number": 6,
+          "stem": "*When to use call bull spread vs put bear spread over outright directional bets* *most likely*:",
+          "options": {
+            "A": "Spreads are most appropriate when the investor expects an extreme move far beyond the short strike.",
+            "B": "the purchase of call or put SPREADS is most appropriate when the investor has a bullish view (call bull spread) or a bearish view (put bear spread) but the underlying market is NOT clearly trending upward or downward.",
+            "C": "Outright option purchases are always cheaper than spreads for the same directional view."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Extreme-move conviction favors OUTRIGHT options — the spread's short leg caps the payoff.",
+            "B": "Full statement: the purchase of call or put SPREADS is most appropriate when the investor has a bullish view (call bull spread) or a bearish view (put bear spread) but the underlying market is NOT clearly trending upward or downward; spreads are a way to REDUCE the total cost by buying one option and writing another.\n\nCorrect. Per Investment Objectives and Strategy Selection: 'The purchase of call or put spreads tends to be most appropriate when the investor has a bullish view (call bull spread) or a bearish view (put bear spread) but the underlying market is not clearly trending upward or downward. Furthermore, such spreads are a way to reduce the total cost, given that the spread is normally constructed by buying one option and writing another.'",
+            "C": "Incorrect. The spread is the CHEAPER structure; the short leg's premium offsets the long leg's cost for a modest directional view."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.i",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §10 spread selection",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_i_q7",
+          "number": 7,
+          "stem": "*Impact of skewed IV curve on bear put spread cost* *most likely*:",
+          "options": {
+            "A": "A skewed implied volatility curve leaves the cost of a bear put spread unaffected.",
+            "B": "Put skew makes the bear put spread cheaper, since the long put's volatility premium falls.",
+            "C": "if the implied volatility curve is SKEWED — with the implied volatility of OTM puts relatively higher than for nearer-to-the-money options — the cost of a BEARISH SPREAD is EVEN LOWER."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. The two legs sit at different points on the skew, so the curve's shape prices directly into the spread.",
+            "B": "Incorrect. The effect is the reverse — the deeper-OTM SHORT put carries relatively higher IV, worth less premium offset... the skewed curve makes the spread MORE expensive as the long leg's relative cost rises.",
+            "C": "Full statement: if the implied volatility curve is SKEWED — with the implied volatility of OTM puts relatively higher than for nearer-to-the-money options — the cost of a BEARISH SPREAD is EVEN LOWER; this is because in the put bear spread, the lower exercise price, more OTM (but relatively more expensive) put is SOLD and the higher exercise price, nearer-to-the-money (but relatively less expensive) put is PURCHASED.\n\nCorrect. Per Investment Objectives and Strategy Selection: 'Importantly, if the implied volatility curve is skewed, with the implied volatility of OTM puts relatively higher than for nearer-to-the-money options, the cost of a bearish spread is even lower. This is because in the put bear spread, the lower exercise price, more OTM (but relatively more expensive) put is sold and the higher exercise price, nearer-to-the-money (but relatively less expensive) put is purchased.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.i",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §10 skew bear spread",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "options_strategies.j",
+      "los_letter": "j",
+      "los_text": "demonstrate the use of options to achieve targeted equity risk exposures",
+      "reading_id": "options_strategies",
+      "reading_name": "Options Strategies",
+      "area_id": "derivatives_and_risk_management",
+      "questions": [
+        {
+          "id": "r16_opt_los_j_q1",
+          "number": 1,
+          "stem": "*Rivera/Parker covered call recommendation*: Parker holds 5,000 MNZA shares at $169; needs $30,000 quickly; firm bearish 6-month outlook; Rivera recommends writing 50 MAY 170 calls at $6.45. Reasons *most likely*:",
+          "options": {
+            "A": "the 170 call generates $32,250 (adequate cash), and given the firm's bearish outlook plus Parker's willingness to sell soon, the risk of shares being called at 170 is acceptable.",
+            "B": "Rivera should recommend the MAY 160 call, since a deep-ITM strike maximizes premium income with no assignment risk.",
+            "C": "Rivera should recommend buying protective puts instead, since Parker's need is income generation."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: the 170 call generates $32,250 (adequate cash), and given the firm's bearish outlook plus Parker's willingness to sell soon, the risk of shares being called at 170 is acceptable; the 165 call is in-the-money with high exercise likelihood (undesirable given target is to write, not to be assigned); 175 call would only generate $20,150 (insufficient); 180 call generates $12,500 (also insufficient).\n\nCorrect. Per Covered Call Writing (Rivera/Parker): 'If Rivera were to write the MAY 180 calls, doing so would not generate the required cash, $2.50 × 100 × 50 = $12,500. Writing the MAY 165 calls would generate more than enough income: $9.10 × 100 × 50 = $45,500. However, the May 165 call is in the money... Rivera feels there is a high likelihood of Parker's MNZA shares being called away at expiration. Writing the May 175 call would generate only $4.03 × 100 × 50 = $20,150. Although Rivera believes the 175 call would not be exercised, the cash generated would be only about two-thirds of the client's projected need. The May 170 call would generate $6.45 × 100 × 50 = $32,250, which looks good from a cash-generation perspective.'",
+            "B": "Incorrect. Deep-ITM writing courts near-certain assignment below the current price; the 170 strike balances the $32,250 cash need against assignment terms Parker can accept.",
+            "C": "Incorrect. Puts COST premium — the opposite of raising $30,000 quickly; the covered call generates the cash while fitting the firm's bearish outlook."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.j",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §11 Rivera/Parker",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_j_q2",
+          "number": 2,
+          "stem": "*Put writing to buy stock at a target price* — Quintera wants 50,000 MNZA shares but only at $165 or below; current $169; writes 500 MAY 165 puts at $5.30. Effective purchase price if stock is below strike at expiration *most likely*:",
+          "options": {
+            "A": "$165.00.",
+            "B": "$159.70.",
+            "C": "$169.00."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Ignores premium.",
+            "B": "the firm keeps 500 × 100 × $5.30 = $265,000 premium regardless; if put is exercised, pays 50,000 × $165 = $8,250,000 for shares; net cost = $8,250,000 − $265,000 = $7,985,000; per share = $7,985,000/50,000 = $159.70 = X − p.\n\nCorrect. Per Put Writing (Quintera): 'The cost is 50,000 × $165 = $8,250,000. Quintera is satisfied with the outcome, because the firm keeps the premium income of $265,000, so the net cost of purchase is $8,250,000 − $265,000 = $7,985,000. On 50,000 shares, this means the effective purchase price is $7,985,000/50,000 = $159.70... If the price of MNZA shares drops below 165, the effective purchase price will always be X − p = 165 − 5.30 = $159.70. This is the breakeven point for the short put position.'",
+            "C": "Current price."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.j",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §11 Quintera",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_j_q3",
+          "number": 3,
+          "stem": "*Wu tail-risk hedge using VIX options*: VIX = 14.87, VIX front-month futures = 15.60; buys 15.60 VIX call at 2.00, sells 14.75 VIX put at 1.55. Total net cost and breakeven *most likely*:",
+          "options": {
+            "A": "net cost 3.55, breakeven 19.15.",
+            "B": "net cost 3.55, breakeven 14.30.",
+            "C": "net cost 0.45, breakeven 16.05 — net cost = 2.00 − 1.55 = 0.45 per contract."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Wrong.",
+            "B": "Wrong.",
+            "C": "Full statement: net cost 0.45, breakeven 16.05 — net cost = 2.00 − 1.55 = 0.45 per contract; at expiry the strategy is profitable if VIX futures increase above 16.05 (call strike 15.60 + net cost 0.45); below 14.75 loses proportionally to short put exposure.\n\nCorrect. Per Hedging an Expected Increase in Equity Market Volatility (Wu): 'Wu decides to purchase the 15.60 call on the VIX and, to partially finance the purchase, he sells an equal number of the 14.75 VIX puts. The total cost of the options strategy is 0.45 (= 2.00 − 1.55) per contract.' And: 'at the expiry the strategy will be profitable if volatility spikes up (as anticipated) and the VIX futures increase above 16.05. This is calculated as the call strike of 15.60 plus the net cost of the options (15.60 + 0.45). Above this level, the strategy will gain proportionally. In contrast, Wu's option strategy will lose proportionally to its exposure to the short puts if the VIX futures' settlement price is below 14.75 (put strike).'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.j",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §12 Wu VIX",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_j_q4",
+          "number": 4,
+          "stem": "*Sanchez long call recommendation to bullish clients*: Markle stock at £60, expected to reach £70 in 3 months, IV expected unchanged. Option A: £58 strike, £4.00, delta 0.6295; Option B: £60 strike, £3.00, delta 0.5227; Option C: £70 strike, £0.40, delta 0.1184. Best choice *most likely*:",
+          "options": {
+            "A": "2.3.",
+            "B": "Option A — highest delta.",
+            "C": "Option C — cheapest premium."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Option B (£60 strike) — breakeven £63 = £60 + £3, so at option expiry profitable at any stock price above £63 (below the £70 target); Option A breakeven £62 but profit per unit premium is lower; Option C breakeven £70.40, ABOVE target so unusable; £60 strike offers largest profit per unit of premium if stock reaches £70: (£70 − £63)/£3 = 2.3, best of the three.\n\nCorrect. Per Long Call (Sanchez): 'The best strategy would be a long position in the £60 strike calls (option B). The breakeven price of the position is £63 (£60 + £3)... In contrast, the breakeven price of the 58-strike call (option A) is £62 (£58 + £4) and for the 70-strike call (option C) the breakeven is £70.40 (£70 + £0.40). Therefore, Sanchez would not use option C to implement his strategy because the breakeven price is above his target price of £70/share... Call strike £58: (£70 − £62)/£4 = 2.0; Call strike £60: (£70 − £63)/£3 = 2.3.'",
+            "B": "Higher delta ≠ better $ profit per premium.",
+            "C": "C's BE > target."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.j",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §12 Sanchez",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_j_q5",
+          "number": 5,
+          "stem": "*McLaire protective put selection for Relais Corp*: 100,000 shares at €42.00; expects earnings miss with max 10% drawdown to €37.80. Option A (€40 put at €1.45), Option B (€42.50 put at €1.72), Option C (€45 put at €3.46). Best choice for minimum-cost adequate protection *most likely*:",
+          "options": {
+            "A": "Option A — cheapest.",
+            "B": "Option B (€42.50 strike) — breakevens: A €38.55, B €40.78, C €41.54.",
+            "C": "Option C — highest strike."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "A protection barely above drawdown target.",
+            "B": "Full statement: Option B (€42.50 strike) — breakevens: A €38.55, B €40.78, C €41.54; if stock hits €37.80: Option A profit €0.75 (limited); Option B profit-per-premium = (€40.78 − €37.80)/€1.72 = 1.73 vs Option C = (€41.54 − €37.80)/€3.46 = 1.08; also B has more gamma than C (0.0460 vs 0.0346), so it benefits more from a stock drop.\n\nCorrect. Per Risk Management: Protective Put Position (McLaire): 'The put with strike price of 42.50 (option B) best fits the objective of keeping the cost of adequate protection to a minimum. This is because the 40-strike put (option A) offers limited protection because it is profitable only below €38.55, offering a profit of just €0.75 if the stock falls to €37.80. Furthermore, the 42.50-strike put offers a larger profit per unit of premium paid than the 45.00-strike put if the stock price decreases to €37.80. Put strike 42.5: (€40.78 − €37.80)/€1.72 = 1.73; Put strike 45.0: (€41.54 − €37.80)/€3.46 = 1.08.'",
+            "C": "Too costly."
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.j",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §12 McLaire",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r16_opt_los_j_q6",
+          "number": 6,
+          "stem": "*Investor's rationale for including options versus futures/forwards for equity exposure* *most likely*:",
+          "options": {
+            "A": "The choice between options and futures/forwards for equity exposure depends only on which instrument has lower commissions.",
+            "B": "Options and futures provide identical exposures, so the choice is arbitrary.",
+            "C": "the choice of derivative depends on the OUTLOOK for the underlying asset, the INVESTMENT HORIZON, and EXPECTATIONS FOR IMPLIED VOLATILITY over that horizon."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Commissions are secondary; the drivers are the OUTLOOK for the underlying, the investment HORIZON, and IMPLIED VOLATILITY expectations.",
+            "B": "Incorrect. The payoff shapes differ fundamentally — asymmetric (options) versus symmetric (futures/forwards) — so the view determines the vehicle.",
+            "C": "Full statement: the choice of derivative depends on the OUTLOOK for the underlying asset, the INVESTMENT HORIZON, and EXPECTATIONS FOR IMPLIED VOLATILITY over that horizon; options have asymmetric payoffs while futures have symmetric; futures require margin but no premium; the relative advantage depends on differences in leverage, payoff profiles (asymmetrical vs symmetrical), the shape of the volatility futures term structure, and the cost of the options vs index futures.\n\nCorrect. Per Establishing or Modifying Equity Risk Exposure and Solution 3 for Wu: 'The choice of derivative that will satisfy the investment goal depends on the outlook for the underlying asset, the investment horizon, and expectations for implied volatility over that horizon.' And: 'the relative advantage of implementing this long volatility hedging strategy by purchasing calls on the VIX over buying VIX futures depends on the difference in leverage available, the difference in payoff profiles (asymmetrical for options and symmetrical for futures), and the shape of the volatility futures term structure, as well as the cost of the options compared with the cost of the index futures.'"
+          },
+          "type": "mc",
+          "primary_los": "options_strategies.j",
+          "reading_id": "options_strategies",
+          "area_id": "derivatives_and_risk_management",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "V4 LM1 §12 selection factors",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    }
+  ]
+}

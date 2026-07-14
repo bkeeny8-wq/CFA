@@ -1,0 +1,1918 @@
+{
+  "schema_version": 2,
+  "generated_by": "claude_r9_cs_drills_curriculum_grounded",
+  "curriculum_source": "CFA Program 2027 Level III Volume 6, PM Pathway, Learning Module 6",
+  "content_type": "mc_only",
+  "drills": [
+    {
+      "los_id": "fixed_income_active_management_credit_strategies.a",
+      "los_letter": "a",
+      "los_text": "describe risk considerations for spread-based fixed-income portfolios",
+      "reading_id": "fixed_income_active_management_credit_strategies",
+      "reading_name": "Fixed-Income Active Management: Credit Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r9_cs_los_a_q1",
+          "number": 1,
+          "stem": "A bond's yield spread over a comparable government bond is *most likely* compensation for:",
+          "options": {
+            "A": "credit risk and liquidity risk — a risk premium above the default risk-free benchmark.",
+            "B": "only reinvestment risk.",
+            "C": "call risk only."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states yield spreads for a specific bond issuance over a comparable government bond cannot be directly observed but are derived from market information. The yield spread is a risk premium that primarily compensates investors for assuming credit and liquidity risks. Credit risk depends on likelihood of default and loss severity; liquidity risk depends on the ability to readily buy/sell.",
+            "B": "Reinvestment is a separate consideration.",
+            "C": "Call risk is captured separately via effective duration."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.a",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Key Credit and Spread Concepts for Active Management",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_a_q2",
+          "number": 2,
+          "stem": "The reading's *credit valuation adjustment* (CVA) framework identifies key components. Expected loss (EL) is *most likely* computed as:",
+          "options": {
+            "A": "Expected loss is computed as the probability of default alone: EL = POD.",
+            "B": "EL = LGD × POD, where LGD = EE × (1 − RR) and POD is the probability of default; CVA is Σ(PV of Expected Loss).",
+            "C": "Expected loss is computed as the loss given default alone: EL = LGD."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. POD alone carries no dollar magnitude; it must be weighted by the loss severity LGD.",
+            "B": "Correct. Per Exhibit 2 CVA framework: Expected Exposure (EE) × (1 − Recovery Rate) = LGD (Loss Given Default). LGD × POD (Probability of Default) = EL (Expected Loss). PV of EL discounted at risk-free rate, summed = CVA. This provides the PV of credit risk for a loan, bond, or derivative.",
+            "C": "Incorrect. LGD alone ignores likelihood; the probability weight POD completes EL = LGD × POD, with CVA the sum of PV of expected losses."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.a",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "CVA framework",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_a_q3",
+          "number": 3,
+          "stem": "The reading's one-period spread approximation is *most likely*:",
+          "options": {
+            "A": "Spread = POD only.",
+            "B": "Spread = coupon − YTM.",
+            "C": "Spread ≈ LGD × POD, so POD ≈ Spread/LGD."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Missing loss severity.",
+            "B": "Not the reading's relationship.",
+            "C": "Full statement: Spread ≈ LGD × POD, so POD ≈ Spread/LGD; this works well for bonds near par but as default becomes likely, distressed bonds trade on price basis approaching (1 − LGD).\n\nCorrect. The reading states the one-period credit spread estimate (ignoring time value) equals LGD × POD. Rearranging: POD ≈ Spread/LGD. This works well for bonds trading close to par. Distressed bonds tend to trade on a price rather than spread basis, with prices approaching the recovery rate (1 − LGD) as default becomes likely."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.a",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Default Probabilities and Recovery Rates",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_a_q4",
+          "number": 4,
+          "stem": "Per Moody's data, high-yield bond credit loss rates over 1983-2019 *most likely*:",
+          "options": {
+            "A": "averaged 2.53% for high-yield vs 0.05% average for US investment-grade (max 0.41%).",
+            "B": "were lower than investment-grade.",
+            "C": "were always zero."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: averaged 2.53% for high-yield vs 0.05% average for US investment-grade (max 0.41%); several HY years exceeded 5% during recessions.\n\nCorrect. Per the reading, according to Moody's Investors Service, the highest annual credit loss rate for US investment-grade corporate bonds from 1983 to 2019 was 0.41%, with an average of just 0.05%. For high-yield bonds, the average credit loss rate over the same period was 2.53%, and in several years, usually around economic recessions, losses exceeded 5%.",
+            "B": "HY loss rates are much higher.",
+            "C": "Losses occur regularly, especially in HY."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.a",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Default Probabilities and Recovery Rates — Moody's data",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_a_q5",
+          "number": 5,
+          "stem": "Per Exhibit 4 (Moody's US corporate debt recovery rates 1983-2019), the *lowest* volume-weighted recovery rate is *most likely*:",
+          "options": {
+            "A": "first lien bank loan at 64%.",
+            "B": "junior subordinated bond at 14%.",
+            "C": "senior unsecured bond at 35%."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "First lien bank loans have among the highest recoveries.",
+            "B": "Correct. Per Exhibit 4, junior subordinated bond has the lowest recovery rate at 14%. Rankings (highest to lowest): First lien bank loan 64%, First lien bond 55%, Second lien bond 45%, Senior unsecured bank loan 44%, Senior unsecured bond 35%, Second lien bank loan 29%, Subordinated bond 28%, Senior subordinated bond 27%, Junior subordinated bond 14%. Position in capital structure and secured vs unsecured status drive recovery.",
+            "C": "Senior unsecured is higher than junior sub."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.a",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Default and Recovery — capital structure recovery",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_a_q6",
+          "number": 6,
+          "stem": "*Credit migration* (change in credit rating) is *most likely*:",
+          "options": {
+            "A": "always net positive for bondholders.",
+            "B": "irrelevant to fixed-income returns.",
+            "C": "usually has a negative effect on bond prices."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Migration is asymmetric — downside dominates.",
+            "B": "Migration is a key credit risk component.",
+            "C": "Full statement: usually has a negative effect on bond prices — the chance of downgrade exceeds that of upgrade, and yield spread increase at lower ratings is far greater than spread decrease from upgrade.\n\nCorrect. The reading states, 'Although actual defaults are relatively rare among higher-rated bond issuers, changes in the relative assessment of creditworthiness occur more frequently. Credit migration, or the likelihood of a change in a bond's public credit rating, usually has a negative effect on bond prices. This occurs because the chance of downgrade exceeds that of an upgrade, and the yield spread increase at lower credit ratings is far greater than the spread decrease in the event of a credit upgrade.'"
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.a",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Default vs Credit Migration",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_a_q7",
+          "number": 7,
+          "stem": "*Empirical duration* differs from analytical duration because *most likely*:",
+          "options": {
+            "A": "empirical duration is derived by regressing bond price returns on changes in benchmark rates using historical market data.",
+            "B": "empirical duration is only used for government bonds.",
+            "C": "empirical duration ignores market data."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: empirical duration is derived by regressing bond price returns on changes in benchmark rates using historical market data — used because high-yield credit spreads often show negative correlation with government yields (flight to quality), causing HY bond prices to move less with benchmark rate changes than analytical duration would predict.\n\nCorrect. The reading states, 'This observed negative correlation between high-yield credit spreads and government benchmark yields to maturity often leads fixed-income practitioners to use statistical models and historical bond market data to estimate empirical duration rather than rely on analytical duration estimates based on duration and convexity.' Example 3 shows analytical duration of 4.234 vs empirical 2.95 for a HY bond — a 50 bp decline in benchmarks produces 2.117% vs 1.475% price change (analytical overestimates gain by $339,769 on $50M).",
+            "B": "Empirical is specifically for high-yield.",
+            "C": "Empirical uses market/regression data."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.a",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Empirical vs Analytical Duration — Example 3",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "fixed_income_active_management_credit_strategies.b",
+      "los_letter": "b",
+      "los_text": "discuss the advantages and disadvantages of credit spread measures for spread-based fixed-income portfolios, and explain why option-adjusted spread is considered the most",
+      "reading_id": "fixed_income_active_management_credit_strategies",
+      "reading_name": "Fixed-Income Active Management: Credit Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r9_cs_los_b_q1",
+          "number": 1,
+          "stem": "The simple *yield spread* (benchmark spread) is *most likely*:",
+          "options": {
+            "A": "the spread over swap rates.",
+            "B": "the difference between a bond's YTM and the YTM of an on-the-run government bond of similar maturity.",
+            "C": "the spread over the CDS market."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "That's I-spread.",
+            "B": "Full statement: the difference between a bond's YTM and the YTM of an on-the-run government bond of similar maturity — simple to calculate, but subject to maturity mismatch, curve slope bias, and inconsistent over time.\n\nCorrect. The reading defines yield spread as the simple difference between a bond's YTM and the YTM of an on-the-run government bond of similar maturity. Advantages: simple to calculate and observe. Disadvantages: maturity mismatch, curve slope bias, inconsistent over time because government benchmarks change as a bond nears maturity.",
+            "C": "That's CDS basis."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.b",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Yield Spread — Exhibit 13",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_b_q2",
+          "number": 2,
+          "stem": "The *G-spread* is *most likely*:",
+          "options": {
+            "A": "identical to the yield spread.",
+            "B": "the spread over swaps.",
+            "C": "the spread over an interpolated government bond (using constant maturity Treasury YTMs)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "G-spread differs from yield spread when curve isn't flat.",
+            "B": "That's I-spread.",
+            "C": "Full statement: the spread over an interpolated government bond (using constant maturity Treasury YTMs) — addresses maturity mismatch of yield spread but subject to changes in government bond demand.\n\nCorrect. Per the reading, the G-spread uses constant maturity Treasury YTMs as the benchmark. Example 4: bank bond with 8y maturity, YTM 2.68% — G-spread interpolates 7y government YTM (1.39%) and 10y (1.66%) using weights (66.7% and 33.3%) to get 1.48% interpolated 8y government rate, giving G-spread = 2.68% − 1.48% = 1.20%. Advantages: transparent and maturity-matching default risk-free bond. Disadvantages: subject to changes in government bond demand."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.b",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "G-Spread — Example 4",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_b_q3",
+          "number": 3,
+          "stem": "The *I-spread* (interpolated spread) is *most likely*:",
+          "options": {
+            "A": "spread over an interpolated swap rate of same tenor — versus MRR-based measure often used as hedge or for carry trade; limited to option-free bonds.",
+            "B": "the difference between government and Treasury bonds.",
+            "C": "the CDS basis."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per the reading, the I-spread uses interest rate swaps as the benchmark. Swap rates are derived using MRRs. Advantages: spread versus market-based (MRR) measure often used as hedge or for carry trade; can be used across all maturities (swaps quoted at all tenors). Disadvantages: point estimate of term structure; limited to option-free bonds as a credit risk measure.",
+            "B": "Not the reading's meaning.",
+            "C": "CDS basis is different."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.b",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "I-Spread",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_b_q4",
+          "number": 4,
+          "stem": "The *asset swap spread* (ASW) is *most likely*:",
+          "options": {
+            "A": "The asset swap spread is identical to the Z-spread for every bond, differing only in name.",
+            "B": "the difference between the bond's fixed coupon rate and the fixed rate on an interest rate swap versus MRR — matches the coupon dates for the remaining life of the bond.",
+            "C": "The asset swap spread is the bond issuer's CDS spread quoted in the derivatives market."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The Z-spread is measured over the zero (spot) curve; the ASW references the swap fixed rate versus MRR against the bond's coupon.",
+            "B": "Full statement: the difference between the bond's fixed coupon rate and the fixed rate on an interest rate swap versus MRR — matches the coupon dates for the remaining life of the bond; if bond priced at par, this spread approximately equals the credit risk over MRR.\n\nCorrect. Per the reading, ASW is the difference between the bond's fixed coupon rate and the fixed rate on an interest rate swap versus MRR that matches the coupon dates for the remaining life of the bond. If purchased at par, the asset swap transforms the fixed-rate coupon to an equivalent spread over MRR for the life of the bond. Example 5: bank bond coupon 2.75% vs 8y swap rate 1.647% → ASW = 110.3 bps. Under bond default, the asset manager still faces mark-to-market settlement of the swap.",
+            "C": "Incorrect. CDS spreads come from the credit derivatives market; the ASW is a cash-bond-versus-swap construct."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.b",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Asset Swap Spread",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_b_q5",
+          "number": 5,
+          "stem": "The *Z-spread* (zero-volatility spread) is *most likely*:",
+          "options": {
+            "A": "The Z-spread is identical to the simple yield spread over a single benchmark bond.",
+            "B": "The Z-spread measures the bond's spread attributable to interest rate volatility over the zero curve.",
+            "C": "a constant spread over a government (or interest rate swap) spot curve added to each spot rate such that PV of bond cash flows equals the bond price — accurately captures term structure of zero rates."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. The yield spread uses one benchmark point; the Z-spread is a constant addition to EVERY spot rate on the curve.",
+            "B": "Incorrect. 'Zero-volatility' means volatility is assumed away — the same constant spread across the curve equates PV to price.",
+            "C": "Full statement: a constant spread over a government (or interest rate swap) spot curve added to each spot rate such that PV of bond cash flows equals the bond price — accurately captures term structure of zero rates; more complex than G-spread/I-spread but limited to option-free bonds.\n\nCorrect. Per Equation 2 and the reading, the Z-spread is a constant spread over a government (or swap) spot curve such that PV = Σ [PMT/(1 + z_i + Z)^i + FV/(1 + z_N + Z)^N]. Where the bond price is a function of cash flows in the numerator with respective benchmark spot rates z_1...z_N derived from the swap or government yield curve and a constant Z-spread per period. More accurate than G-spread or I-spread but more complex; limited to option-free bonds."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.b",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Z-Spread",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_b_q6",
+          "number": 6,
+          "stem": "The *option-adjusted spread* (OAS) is *most likely*:",
+          "options": {
+            "A": "a generalization of the Z-spread calculation that incorporates bond option pricing based on assumed interest rate volatility.",
+            "B": "The option-adjusted spread is identical to the Z-spread for all bonds, whether or not options are embedded.",
+            "C": "The option-adjusted spread is defined only for callable bonds and cannot be computed for other structures."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: a generalization of the Z-spread calculation that incorporates bond option pricing based on assumed interest rate volatility — the constant yield spread over the zero curve which makes the arbitrage-free value of a bond with embedded options equal to its market price.\n\nCorrect. Per the reading, the OAS is a generalization of the Z-spread calculation that incorporates bond option pricing based on assumed interest rate volatility. The OAS is the constant yield spread over the zero curve which makes the arbitrage-free value of such a bond equal to its market price. Note that the Z-spread for an option-free bond is simply its OAS, assuming zero volatility. OAS provides a consistent basis for comparing credit risk yield spreads for option-free, callable, putable, and structured fixed-income instruments.",
+            "B": "Incorrect. Equality holds ONLY for option-free bonds; embedded options drive the two apart.",
+            "C": "Incorrect. OAS generalizes across option-free, callable, putable, and structured instruments — that generality is its point."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.b",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "OAS",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_b_q7",
+          "number": 7,
+          "stem": "OAS is considered the *most appropriate* yield spread measure for active FI managers *most likely* because:",
+          "options": {
+            "A": "OAS is considered most appropriate because it is the simplest spread measure to compute.",
+            "B": "it provides a consistent basis for comparing credit risk yield spreads for option-free, callable, putable, and structured fixed-income instruments.",
+            "C": "OAS is considered most appropriate because it ignores interest rate volatility entirely."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. OAS is among the most COMPLEX measures — its value is consistency, not simplicity.",
+            "B": "Full statement: it provides a consistent basis for comparing credit risk yield spreads for option-free, callable, putable, and structured fixed-income instruments — despite its main drawbacks (highly dependent on volatility and other model assumptions).\n\nCorrect. Per the reading, 'The OAS approach is the most appropriate yield spread measure for active fixed-income portfolio managers because it provides a consistent basis for comparing credit risk yield spreads for option-free, callable, putable, and structured fixed-income instruments.' OAS calculations rely on models incorporating current term structure, interest rate volatility, term structure model factors, and specific option-based features. Main drawback: highly dependent on volatility and other model assumptions. For structured instruments, returns are highly dependent on prepayment vs extension risk.",
+            "C": "Incorrect. OAS INCORPORATES assumed volatility through option pricing; ignoring volatility is the Z-spread's limitation."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.b",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "OAS — most appropriate measure",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_b_q8",
+          "number": 8,
+          "stem": "For FRNs, the *discount margin* (DM) is *most likely*:",
+          "options": {
+            "A": "always equal to the quoted margin.",
+            "B": "the fixed coupon rate.",
+            "C": "the yield spread versus the MRR such that the FRN is priced at par on a rate reset date."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "QM is fixed at issuance; DM changes with credit risk.",
+            "B": "DM is spread, not fixed coupon.",
+            "C": "Full statement: the yield spread versus the MRR such that the FRN is priced at par on a rate reset date; when QM = DM the FRN trades at par; QM < DM → discount (PV < FV); QM > DM → premium (PV > FV).\n\nCorrect. Per the reading and Exhibit 14: the DM is the yield spread over MRR such that the FRN is priced at par on a rate reset date. If issuer credit risk remains unchanged, DM = QM (par pricing). If issuer's credit deteriorates and DM rises above QM → discount. If issuer's credit improves and DM falls below QM → premium. The Z-DM is a more precise measure incorporating forward MRR rates (spread over MRR curve)."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.b",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "FRN Discount Margin",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "fixed_income_active_management_credit_strategies.c",
+      "los_letter": "c",
+      "los_text": "discuss bottom-up approaches to credit strategies",
+      "reading_id": "fixed_income_active_management_credit_strategies",
+      "reading_name": "Fixed-Income Active Management: Credit Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r9_cs_los_c_q1",
+          "number": 1,
+          "stem": "A *bottom-up* credit approach *most likely*:",
+          "options": {
+            "A": "divides the credit universe into sectors of comparable companies, then evaluates each issuer's implied credit risk by comparing company-specific financial information to spread-related compensation for assuming default, credit migration, and liquidity risks.",
+            "B": "A bottom-up credit approach focuses only on macroeconomic factors such as growth, inflation, and policy rates.",
+            "C": "A bottom-up credit approach ignores individual bond issuers entirely, allocating by sector aggregates alone."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. The reading states, 'Once the credit universe has been divided into sectors and prospective bonds identified, the investor evaluates each issuer's implied credit risk comparing company-specific financial information to spread-related compensation for assuming default, credit migration, and liquidity risks for comparative purposes. Beyond the prospects within a company's industry, its competitive position within that industry, and operating history, financial ratios are a valuable tool to compare creditworthiness across firms.'",
+            "B": "Incorrect. Macro-first analysis is the TOP-DOWN approach.",
+            "C": "Incorrect. Issuer-level comparison within sectors of comparable companies is the essence of bottom-up."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.c",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Bottom-Up Credit Analysis",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_c_q2",
+          "number": 2,
+          "stem": "The reading identifies three key financial ratios for bottom-up credit analysis (Exhibit 16). Which is *least likely* one of them?",
+          "options": {
+            "A": "EBITDA/Total Assets (profitability).",
+            "B": "Price-to-earnings ratio.",
+            "C": "Debt/Capital (leverage) and EBITDA/Interest Expense (coverage)."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This is one of the three.",
+            "B": "Correct. P/E is an equity valuation ratio, not a credit ratio. Per Exhibit 16, the three key ratios are: (1) EBITDA/Total Assets — profitability/cash flow, (2) Debt/Capital — leverage (fraction of capital financed with debt), (3) EBITDA/Interest Expense — coverage (cash flow available to service debt). Advantages of financial ratios include comparability across firms; disadvantages include historical nature and industry comparability issues.",
+            "C": "These are two of the three."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.c",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Bottom-Up — Exhibit 16 key ratios",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_c_q3",
+          "number": 3,
+          "stem": "*Reduced form* credit models are *most likely*:",
+          "options": {
+            "A": "Reduced form credit models use market-based variables only, inferring default from equity prices and asset volatility.",
+            "B": "Reduced form models are based purely on qualitative analyst judgment without quantitative inputs.",
+            "C": "solve for default intensity (POD over a specific time period) using observable company-specific variables such as financial ratios and recovery assumptions as well as macroeconomic variables (economic growth, market volatility measures)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Equity-market-based asset-value inference describes STRUCTURAL models.",
+            "B": "Incorrect. Reduced form models are quantitative — solving for default intensity from observable company variables such as financial ratios.",
+            "C": "Full statement: solve for default intensity (POD over a specific time period) using observable company-specific variables such as financial ratios and recovery assumptions as well as macroeconomic variables (economic growth, market volatility measures) — Altman's Z-score is an early example.\n\nCorrect. Per the reading, reduced form models solve for default intensity, or the POD over a specific time period, using observable company-specific variables such as financial ratios and recovery assumptions as well as macroeconomic variables, including economic growth and market volatility measures. Altman's (1968) Z-score combined liquidity (working capital/total assets), profitability (retained earnings/total assets), asset efficiency (EBIT/total assets), market vs book equity, and asset turnover (sales/total assets) into a composite score to classify manufacturing firms as likely to remain solvent or go bankrupt."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.c",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Reduced Form Credit Models — Altman Z-score",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_c_q4",
+          "number": 4,
+          "stem": "*Structural* credit models are *most likely*:",
+          "options": {
+            "A": "use market-based variables to estimate the market value of an issuer's assets and the volatility of asset value.",
+            "B": "use only financial ratios.",
+            "C": "have no default threshold."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: use market-based variables to estimate the market value of an issuer's assets and the volatility of asset value; likelihood of default is defined as the probability of the asset value falling below liabilities — sometimes called 'distance to default' models (Moody's EDF, Bloomberg DRSK).\n\nCorrect. Per the reading, structural credit models use market-based variables to estimate the market value of an issuer's assets and the volatility of asset value. The likelihood of default is defined as the probability of the asset value falling below that of liabilities. Both Moody's Analytics Expected Default Frequency (EDF) and Bloomberg's Default Risk (DRSK) are structural models providing daily POD estimates. These are sometimes called 'distance to default' models because a probability distribution determines how far an issuer's current market value of assets is from the default threshold.",
+            "B": "That's reduced form.",
+            "C": "Default threshold is the point where asset value falls below liabilities."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.c",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Structural Credit Models — EDF and DRSK",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_c_q5",
+          "number": 5,
+          "stem": "In a *structural credit model*, an *increase* in the issuer's *stock price volatility* would *most likely*:",
+          "options": {
+            "A": "An increase in the issuer's stock price volatility would decrease the structural model's probability of default.",
+            "B": "increase the POD, because higher equity volatility increases the likelihood that the market value of the issuer's assets will fall below the default threshold.",
+            "C": "Stock price volatility has no effect on the probability of default in a structural model."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Higher volatility widens the distribution of asset values, RAISING the chance assets fall below the default threshold.",
+            "B": "Correct. Per Example 15: 'Higher equity volatility increases the likelihood that the market value of the issuer's assets will fall below the default threshold.' Structural models use asset volatility to determine the likelihood of reaching the default point. In contrast, a higher coverage ratio (higher cash flow) implies improved ability to service debt (lower POD), and a decrease in leverage ratio (less debt vs equity) reduces likelihood of financial distress.",
+            "C": "Incorrect. Equity volatility is a critical structural-model input — it drives the asset-value distribution."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.c",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Structural Credit Models — Example 15",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_c_q6",
+          "number": 6,
+          "stem": "In deriving a spread curve for an issuer, the reading uses example data of Eli Lilly (LLY) and Bristol-Myers Squibb (BMS), both A2/A+ rated. Their spread curves are *most likely*:",
+          "options": {
+            "A": "completely divergent.",
+            "B": "identical.",
+            "C": "closely aligned except in ~5-year and near-30-year maturities where BMS spreads are ~10 bps wider than LLY."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "The curves are aligned.",
+            "B": "Some spread differences exist.",
+            "C": "Correct. Per the reading's Exhibit 18: LLY and BMS spread curves are closely aligned except in roughly 5-year and near-30-year maturities, where BMS spreads are approximately 10 bps wider than those of LLY. If the bonds have similar features and liquidity, a manager might conclude the market perceives BMS credit risk slightly higher than LLY. If the manager believes BMS is stronger, several actions are possible depending on portfolio objectives (overweight BMS/underweight LLY, or long-short CDS strategy)."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.c",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Bottom-Up Relative Value — Exhibit 18",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_c_q7",
+          "number": 7,
+          "stem": "Bottom-up relative value analysis for two bonds with *similar credit risk* *most likely* leads the investor to:",
+          "options": {
+            "A": "choose bonds of the issuer with the higher yield spread, given the greater potential for excess returns.",
+            "B": "avoid both bonds.",
+            "C": "choose the lower-yielding bond."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per the reading, 'Given two issuers with similar credit risk, the investor will typically choose bonds of the issuer with the higher yield spread, given the greater potential for excess returns.' For issuers with different credit-related risk, the investor must decide whether the additional spread is sufficient compensation for the incremental exposure — captured by expected excess return calculation.",
+            "B": "That forgoes return.",
+            "C": "That's a lower expected excess return."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.c",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Bottom-Up Relative Value Analysis",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "fixed_income_active_management_credit_strategies.d",
+      "los_letter": "d",
+      "los_text": "discuss top-down approaches to credit strategies",
+      "reading_id": "fixed_income_active_management_credit_strategies",
+      "reading_name": "Fixed-Income Active Management: Credit Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r9_cs_los_d_q1",
+          "number": 1,
+          "stem": "A *top-down* credit approach *most likely* focuses on:",
+          "options": {
+            "A": "individual company financial ratios only.",
+            "B": "a broader set of macro factors.",
+            "C": "individual bond identifiers only."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "That's bottom-up.",
+            "B": "Full statement: a broader set of macro factors — economic growth, real rates and inflation, expected market volatility and risk appetite, recent credit spread changes, industry trends, geopolitical risk, currency movements — guiding sector allocation and rating category selection.\n\nCorrect. Per the reading, 'A top-down approach to credit strategy focuses on a broader set of factors affecting the bond universe in contrast to the more detailed and issuer-specific bottom-up approach. Macro factors critical to credit investors include economic growth, real rates and inflation, changes in expected market volatility and risk appetite, recent credit spread changes, industry trends, geopolitical risk, and currency movements. Assessment of these factors guides investors in selecting credit market sectors with attractive relative value characteristics.'",
+            "C": "That's bottom-up scope."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.d",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Top-Down Credit Strategies",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_d_q2",
+          "number": 2,
+          "stem": "The reading identifies the credit cycle relationship with *GDP growth* as *most likely*:",
+          "options": {
+            "A": "GDP growth and default rates are unrelated.",
+            "B": "Higher GDP growth causes higher default rates.",
+            "C": "GDP growth is critical to the credit cycle."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "The relationship is strong.",
+            "B": "Higher growth reduces defaults.",
+            "C": "Full statement: GDP growth is critical to the credit cycle — sharp declines in GDP growth are often associated with rising default rates, as shown in Exhibit 19 (global speculative-grade default rate vs G7 real GDP growth 1962-2019).\n\nCorrect. Per the reading, 'GDP growth is critical to the credit cycle, as seen in Exhibit 19, which shows global speculative-grade default rates versus the real GDP growth rate among G7 countries from 1962 to 2019. Sharp declines in GDP growth are often associated with rising default rates.' An above-consensus GDP growth forecast might lead to increased HY allocation if future defaults are expected below market expectations."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.d",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "GDP Growth and Credit Cycle",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_d_q3",
+          "number": 3,
+          "stem": "The reading distinguishes *weighted* vs *ordinal* rating categories (Exhibit 20). This is *most likely* because:",
+          "options": {
+            "A": "940,.",
+            "B": "ratings should be treated identically.",
+            "C": "there is no difference in risk between ratings."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "default risk rises much more rapidly as ratings decline than ordinal 1-2-3-... spacing suggests; Moody's weighted factors (AAA=1, AA+=10, ... Baa3=610, Ba1=940, ... etc.) better capture the exponential nature of default risk across the credit spectrum.\n\nCorrect. Per the reading, 'As investors compare investments across credit ratings, the fact that default risk rises more rapidly as ratings decline is important to consider. The use of weighted factors, such as those established by Moody's based on the likelihood of credit loss over a specific period versus ordinal factors across the credit spectrum, enables managers to capture this effect more accurately.' Per Exhibit 20: AAA=1, AA+=10, AA=20, AA-=40, A+=70, A=120, A-=180, BBB+=260, BBB=360, BBB-=610, BB+=940, BB=1350, etc.",
+            "B": "The reading emphasizes their difference.",
+            "C": "Risk varies dramatically."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.d",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Top-Down — weighted vs ordinal ratings",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_d_q4",
+          "number": 4,
+          "stem": "The reading identifies *four* fixed-income *factor-based* strategies (Israel, Palhares, Richardson 2018) with positive risk-adjusted returns. These are *most likely*:",
+          "options": {
+            "A": "Only size and value.",
+            "B": "Carry, defensive, momentum, and value.",
+            "C": "Only credit rating."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "These are equity factors.",
+            "B": "Correct. Per the reading and Exhibit 23: 'The authors found strong evidence of positive risk-adjusted returns to measures of carry, defensive, momentum, and value.' Carry (OAS-based expected return if POD/aggregate risk premium unchanged). Defensive (safer low-risk assets deliver higher risk-adjusted returns — market-based leverage, gross profitability, low duration). Momentum (bonds with higher recent returns outperform — trailing 6-month excess returns). Value (low market vs fundamental value — bond spread less default probability measure).",
+            "C": "Credit rating alone isn't a factor."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.d",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Factor-Based Credit Strategies — Exhibit 23",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_d_q5",
+          "number": 5,
+          "stem": "Active credit investors *most likely* incorporate ESG in one of three basic ways:",
+          "options": {
+            "A": "Active credit investors incorporate ESG through purely random issuer selection weighted by market values.",
+            "B": "Active credit investors ignore ESG entirely, treating it as immaterial to credit outcomes.",
+            "C": "screens (exclude industries or issuers below ESG threshold), targeting relatively favorable ESG issuers within a given sector/rating while matching index risk/return, and directly funding ESG-specific initiatives."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Random selection is not a strategy; the three ways are screens, best-in-class targeting, and thematic/impact approaches.",
+            "B": "Incorrect. ESG adoption in credit is growing and structured — exclusionary screens, favorable-issuer tilts, and dedicated mandates.",
+            "C": "Correct. Per the reading: 'Active credit investors usually incorporate ESG factors into portfolio strategies in one of three basic ways: (1) The use of screens to either exclude specific industries with less favorable ESG characteristics (firearms, tobacco, coal), or to rule out specific companies or sovereign issuers with ESG-specific ratings below a threshold; (2) Use of ESG ratings to target issuers within a given sector or rating category with relatively favorable ESG characteristics while matching a specific index risk and return; (3) Targeting fixed-income investments that directly fund ESG-specific initiatives.' ESG and credit ratings tend to be positively correlated."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.d",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "ESG Factors in Credit Strategy",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_d_q6",
+          "number": 6,
+          "stem": "The reading's *credit cycle* framework identifies four phases. In the *late expansion* phase, credit spreads are *most likely*:",
+          "options": {
+            "A": "beginning to widen (rising), with corporate profits stable/peak and defaults rising.",
+            "B": "at their tightest levels.",
+            "C": "unchanged."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per the reading's credit cycle framework: In the late expansion phase, corporate leverage is stable to rising, defaults are rising, credit spreads are rising, and credit spread slope is steeper for both higher and lower ratings. Spreads reach peak in the downturn phase. The credit cycle sequence: early expansion (falling leverage, peak defaults falling, stable spreads, stable/inverted low-rating slope) → late expansion (rising leverage, rising defaults, rising spreads, steeper slopes) → downturn (peak everything) → recovery.",
+            "B": "That's earlier in the cycle.",
+            "C": "The cycle drives systematic changes."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.d",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Top-Down — credit cycle phases",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_d_q7",
+          "number": 7,
+          "stem": "In an *economic downturn*, *high-yield* issuers' spread curves *most likely*:",
+          "options": {
+            "A": "In an economic downturn, high-yield spread curves steepen dramatically as long-dated risk dominates.",
+            "B": "flatten or invert — because the probability of downgrade or default is higher in the near term than the long term, HY often experience more pronounced flattening/inversion than investment-grade.",
+            "C": "High-yield spread curves remain unchanged across the economic cycle."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Dramatic steepening characterizes recovery/expansion phases; downturns concentrate default risk in the NEAR term.",
+            "B": "Correct. Per Example 2 solution: 'High-yield issuers often experience more pronounced flattening or credit spread curve inversion in an economic downturn because the probability of downgrade or default is higher in the near term than the long term.' While investment-grade and high-yield issuers both experience declining profitability, this usually leads to a flatter credit spread curve for investment-grade issuers and often to credit spread curve inversion for high-yield issuers.",
+            "C": "Incorrect. The cycle reshapes credit curves — downturns flatten or invert HY curves as near-term default probability jumps."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.d",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Top-Down — Example 2 credit curve",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_d_q8",
+          "number": 8,
+          "stem": "In selecting rating categories in a top-down approach using expected excess return E[ExcessSpread] ≈ Spread_0 − (EffSpreadDur × ΔSpread) − (POD × LGD), the most attractive category is *most likely*:",
+          "options": {
+            "A": "always the highest rated.",
+            "B": "always the lowest rated.",
+            "C": "3.50%."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Not always — depends on excess spread.",
+            "B": "B is dominated in this example by expected loss.",
+            "C": "the one with the highest expected excess return — for example: A (1.05%, ΔOAS −0.25%, EL 0.06%, EffSpreadDur 5.5) → 2.37%; Baa → 3.15%; Ba (2.45%, ΔOAS −0.50%, EL 0.60%, EffSpreadDur 4.5) → 4.10% (best); B → 3.50%.\n\nCorrect. Per the reading's example: rating category A: 1.05% − (5.5 × −0.25%) − 0.06% = 2.37%; Baa: 1.35% − (6.0 × −0.35%) − 0.30% = 3.15%; Ba: 2.45% − (4.5 × −0.50%) − 0.60% = 4.10%; B: 3.50% − (4.0 × −0.75%) − 3.00% = 3.50%. Ba has the highest expected excess return (4.10%) and is the most attractive rating category to overweight — reflecting the balance of high spread with modest expected loss."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.d",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Top-Down — expected excess return by rating",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "fixed_income_active_management_credit_strategies.e",
+      "los_letter": "e",
+      "los_text": "discuss liquidity risk in credit markets and how liquidity risk can be managed in a credit portfolio",
+      "reading_id": "fixed_income_active_management_credit_strategies",
+      "reading_name": "Fixed-Income Active Management: Credit Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r9_cs_los_e_q1",
+          "number": 1,
+          "stem": "Corporate bond market liquidity is *most likely* characterized by:",
+          "options": {
+            "A": "OTC markets — liquidity rests with individual dealers, their specific portfolio and depth of inventory, and appetite to supply liquidity at a cost.",
+            "B": "Corporate bond market liquidity is characterized by highly liquid centralized exchange trading like equities.",
+            "C": "Corporate bond markets have no liquidity at all, making secondary trading impossible."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: OTC markets — liquidity rests with individual dealers, their specific portfolio and depth of inventory, and appetite to supply liquidity at a cost; higher regulatory capital requirements post-2008 reduced bond inventories, driving growth of electronic trading platforms.\n\nCorrect. Per the reading: 'Bonds primarily trade in over-the-counter (OTC) markets as opposed to on an exchange. OTC market liquidity rests with individual dealers, their specific portfolio and depth of inventory, and appetite to supply liquidity at a cost. Corporate bonds are traditionally traded on a request-for-quote basis. The use of electronic trading platforms for bond trading has grown because higher regulatory capital requirements reduced bond inventories among dealers after the 2008-09 global financial crisis. While electronic trading platforms comprised less than one-third of individual corporate bond trading volume as of 2020, trading in bond portfolios and bond ETFs has grown in importance.'",
+            "B": "Incorrect. Bond markets are OTC-dominated; liquidity rests with individual dealers' inventories and risk appetite.",
+            "C": "Incorrect. Liquidity exists but is dealer-intermediated and uneven across issues."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.e",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Liquidity — OTC dealer market",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_e_q2",
+          "number": 2,
+          "stem": "For estimating trading costs, the reading identifies *TRACE* as *most likely*:",
+          "options": {
+            "A": "TRACE is a US equity exchange where corporate bonds are listed for order-book trading.",
+            "B": "a separate ex-post liquidity gauge specific to the US corporate bond market — the Trade Reporting and Compliance Engine reporting system introduced in 2002 to track real-time price and volume reporting for bond transactions.",
+            "C": "TRACE is an exchange-traded fund tracking the US corporate bond market."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. TRACE is a REPORTING system for OTC bond transactions, not a trading venue.",
+            "B": "Full statement: a separate ex-post liquidity gauge specific to the US corporate bond market — the Trade Reporting and Compliance Engine reporting system introduced in 2002 to track real-time price and volume reporting for bond transactions; portfolio managers review recent TRACE trading activity to gauge estimated cost of trading a bond position.\n\nCorrect. Per the reading, TRACE is 'a separate, ex-post liquidity gauge specific to the US corporate bond market... the TRACE (Trade Reporting and Compliance Engine) reporting system introduced in 2002 to track real-time price and volume reporting for bond transactions. Portfolio managers will often review recent TRACE trading activity to gauge the estimated cost of trading a bond position.' Complements the effective spread transaction cost statistic for actively quoted bonds.",
+            "C": "Incorrect. It is the Trade Reporting and Compliance Engine — an ex-post transaction-reporting gauge, not an investment product."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.e",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Liquidity — TRACE",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_e_q3",
+          "number": 3,
+          "stem": "The reading identifies steps active managers *most likely* take to manage liquidity risk in bond portfolios:",
+          "options": {
+            "A": "Managers control liquidity risk by trading their most illiquid positions as frequently as possible.",
+            "B": "Managers control liquidity risk by avoiding all fixed-income exposure whenever spreads widen.",
+            "C": "favor on-the-run government bonds or most recently issued corporate/other bonds for short-term tactical positioning while reserving relatively illiquid positions for buy-and-hold strategies."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. High-frequency trading of illiquid names maximizes transaction costs — the opposite of the practice.",
+            "B": "Incorrect. Exposure avoidance is not the technique; using on-the-run and recent issues for tactical trades while reserving illiquid positions for buy-and-hold is.",
+            "C": "Full statement: favor on-the-run government bonds or most recently issued corporate/other bonds for short-term tactical positioning while reserving relatively illiquid positions for buy-and-hold strategies; consider liquid alternatives such as CDS and bond ETFs to close portfolio gaps or react quickly to changing markets.\n\nCorrect. Per the reading: 'First, active managers will usually favor on-the-run government bonds or most recently issued corporate or other bonds for short-term tactical portfolio positioning, while reserving relatively illiquid positions for buy-and-hold strategies or strategic positioning to minimize expected return erosion due to trading costs. Second, active managers might consider liquid alternatives to individual bond trades to close portfolio gaps where active management adds little value, or to react quickly to rapidly changing markets. These alternatives include CDS and bond ETFs.'"
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.e",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Liquidity — management strategies",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_e_q4",
+          "number": 4,
+          "stem": "Fixed-income *ETFs* are *most likely*:",
+          "options": {
+            "A": "liquid, exchange-traded bond portfolios that create and redeem shares using an OTC primary market between institutional investors and the ETF sponsor.",
+            "B": "Fixed-income ETFs are economically identical to holding the individual underlying bonds directly.",
+            "C": "Fixed-income ETFs are actively managed products carrying high management fees."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: liquid, exchange-traded bond portfolios that create and redeem shares using an OTC primary market between institutional investors and the ETF sponsor; ETF shares trade on an exchange, overcoming liquidity constraints of OTC-traded bonds; usually offer relatively constant portfolio duration (with exception of target-maturity ETFs).\n\nCorrect. Per the reading, 'Fixed-income ETFs are liquid, exchange-traded bond portfolios that create and redeem shares using an OTC primary market that exists between a set of institutional investors (or authorized participants) and the ETF sponsor. These ETF shares trade in the secondary market on an exchange, overcoming the liquidity constraints of individual OTC-traded bonds. Bond ETFs have enjoyed significant growth. As ETF sponsors target a specific index or profile, ETFs offer relatively constant portfolio duration and pay variable monthly interest based on the overall portfolio.' Active credit managers use ETFs to quickly overweight/underweight exposures in rapidly changing markets.",
+            "B": "Incorrect. Exchange tradability, the creation/redemption mechanism, and unit economics distinguish ETFs from direct bond ownership.",
+            "C": "Incorrect. Most bond ETFs are index-tracking with LOW fees; the creation/redemption OTC primary market underpins their liquidity."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.e",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Liquidity — bond ETFs",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_e_q5",
+          "number": 5,
+          "stem": "For managing benchmark interest rate risk during a slow bond position sale via TRACE data suggesting long execution time, the reading recommends *most likely*:",
+          "options": {
+            "A": "unhedged exposure only.",
+            "B": "enter into an asset swap (pay fixed, receive floating), unwinding the swap position *over time* in proportion to the amount of the bond sold.",
+            "C": "an asset swap paying floating, receiving fixed."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Unhedged leaves benchmark risk exposed.",
+            "B": "Correct. Per Example 19: 'Because the investor's bond position represents a long position (i.e., long both spread duration and benchmark duration), the best hedge would be a short-duration (or pay-fixed swap) position rather than [A: receive-fixed]. As for [B: unwind at once], the hedge unwind occurs once the bond position is sold rather than over time, which exposes the investor to benchmark interest rate risk for the portion of the bond sold. The proportional swap unwind in C ensures that the offsetting swap position matches the benchmark interest rate risk of the bond.'",
+            "C": "Receive-fixed adds duration (long) — wrong direction."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.e",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Liquidity — Example 19 asset swap hedge",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_e_q6",
+          "number": 6,
+          "stem": "The reading identifies bond dealers' *bid-ask spreads* on illiquid bonds are *most likely*:",
+          "options": {
+            "A": "Dealers quote narrower bid-ask spreads on illiquid bonds to compensate buyers for holding them.",
+            "B": "Bid-ask spreads on illiquid bonds are identical to those on liquid bonds under competitive quoting.",
+            "C": "wider because dealers must finance inventories, less liquid bonds remain in inventory longer, and dealers seek to cover funding/holding costs and profit through the spread."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. The direction is opposite — illiquidity WIDENS quoted spreads.",
+            "B": "Incorrect. Spreads vary systematically with liquidity: longer inventory residence and financing costs are passed into wider quotes.",
+            "C": "Full statement: wider because dealers must finance inventories, less liquid bonds remain in inventory longer, and dealers seek to cover funding/holding costs and profit through the spread; some illiquid bonds won't have quotes.\n\nCorrect. Per the reading, dealers cover their costs and make a profit through the bid-ask spread — the spread will be higher for illiquid bonds that are likely to remain in inventory longer. Bond dealers often carry inventory because buy/sell orders don't arrive simultaneously. Riskier bonds have higher bid-ask spreads due to dealers' aversion to hold them. Government bond spreads are lowest of all; conventional corporate spreads lower than complex/embedded-option corporates."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.e",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Liquidity — bid-ask spread drivers",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "fixed_income_active_management_credit_strategies.f",
+      "los_letter": "f",
+      "los_text": "describe how to assess and manage tail risk in credit portfolios",
+      "reading_id": "fixed_income_active_management_credit_strategies",
+      "reading_name": "Fixed-Income Active Management: Credit Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r9_cs_los_f_q1",
+          "number": 1,
+          "stem": "*Tail events* are *most likely*:",
+          "options": {
+            "A": "extreme adverse outcomes that exceed those expected from a normally distributed portfolio.",
+            "B": "average market outcomes.",
+            "C": "always positive."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: extreme adverse outcomes that exceed those expected from a normally distributed portfolio — measurement and management of tail risk involves stress testing based on the key FI return factors.\n\nCorrect. Per the reading, 'Extreme adverse outcomes that exceed those to be expected from a normally distributed portfolio are often referred to as tail events. In the context of active fixed-income management, the measurement and management of tail risk involves stress testing a portfolio's value based on the key fixed-income returns factors in Equation 1.' VaR was introduced to measure minimum expected loss over a period at a specific confidence level.",
+            "B": "Tails are extreme, not average.",
+            "C": "Tail risk is specifically about losses."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.f",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Tail Risk — definition",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_f_q2",
+          "number": 2,
+          "stem": "A *5% daily VaR* of €8.7 million *most likely* implies:",
+          "options": {
+            "A": "the portfolio always loses €8.7M daily.",
+            "B": "a portfolio manager should expect a daily portfolio loss of at least €8.7 million on 5% of all trading days.",
+            "C": "a €8.7M daily gain."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "VaR is a probabilistic minimum loss, not certain.",
+            "B": "Full statement: a portfolio manager should expect a daily portfolio loss of at least €8.7 million on 5% of all trading days; assuming normally distributed returns, 5% confidence = at least 1.65 SD below mean, and 1% confidence = at least 2.33 SD below mean.\n\nCorrect. Per the reading, 'a 5% daily VaR of €8.7 million implies that a portfolio manager should expect a daily portfolio loss of at least €8.7 million on 5% of all trading days. Assuming normally distributed portfolio returns, the 5% confidence level translates to an outcome at least 1.65 standard deviations below the mean, while a 1% confidence interval lies at least 2.33 standard deviations below the mean.' Risk managers use expected returns, volatilities, and correlations for parametric VaR, historical simulation, or Monte Carlo methods.",
+            "C": "VaR measures losses, not gains."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.f",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Tail Risk — VaR",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_f_q3",
+          "number": 3,
+          "stem": "The reading identifies key *limitations* of VaR as a tool for quantifying tail risk. Which is *least likely* one of them?",
+          "options": {
+            "A": "VaR tends to underestimate the frequency and severity of extreme adverse events.",
+            "B": "VaR fails to capture the downside correlation and liquidity risks associated with market stress scenarios.",
+            "C": "VaR provides no useful information about portfolio risk."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This is one of the limitations.",
+            "B": "This is one of the limitations.",
+            "C": "Correct. VaR does provide useful info — it just has specific limitations. Per the reading: 'The simplicity and transparency of VaR can be misleading if it is used as a tool for quantifying tail risk for several reasons. First, VaR tends to underestimate the frequency and severity of extreme adverse events. It also fails to capture the downside correlation and liquidity risks associated with market stress scenarios. Finally, although VaR addresses minimum loss for a specific confidence level, it fails to quantify the average or expected loss under an extreme adverse market scenario.' CVaR addresses this last limitation."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.f",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Tail Risk — VaR limitations",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_f_q4",
+          "number": 4,
+          "stem": "*Conditional VaR* (CVaR) is *most likely*:",
+          "options": {
+            "A": "expected loss over a specific time period conditional on that loss exceeding the VaR threshold.",
+            "B": "same as VaR.",
+            "C": "a maximum gain measure."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: expected loss over a specific time period conditional on that loss exceeding the VaR threshold — computationally more complex, often measured using historical simulation or Monte Carlo techniques.\n\nCorrect. Per the reading, 'Conditional value at risk (CVaR), or expected loss, measures the average loss over a specific time period conditional on that loss exceeding the VaR threshold. While computationally more complex and beyond the scope of this lesson, CVaR is often measured using historical simulation or Monte Carlo techniques.' CVaR addresses VaR's inability to quantify expected loss beyond the threshold.",
+            "B": "CVaR and VaR differ.",
+            "C": "CVaR is about losses."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.f",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Tail Risk — CVaR",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_f_q5",
+          "number": 5,
+          "stem": "For a manager considering increasing an overweight allocation to BBB health care, the *most appropriate* VaR measure is *most likely*:",
+          "options": {
+            "A": "Relative VaR only.",
+            "B": "Incremental VaR (measures the impact of a specific portfolio position change on VaR).",
+            "C": "CVaR only."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Relative VaR is for benchmark-relative analysis.",
+            "B": "Correct. Per Example 21: 'Incremental VaR measures the impact of a specific portfolio position change on VaR, while relative VaR in [B] evaluates all active portfolio positions versus the benchmark index and could be important for an active fixed-income mandate that aims to beat an index once the portfolio change has been made. CVaR in [C] measures a portfolio's average loss over a specific time period conditional on that loss exceeding the VaR threshold.' For a specific position change decision, incremental VaR is best.",
+            "C": "CVaR is for tail loss magnitude, not specific position impact."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.f",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Tail Risk — Example 21",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_f_q6",
+          "number": 6,
+          "stem": "The three methods to assess portfolio tail risk (Exhibit 24) are *most likely*:",
+          "options": {
+            "A": "only historical simulation.",
+            "B": "only Monte Carlo analysis.",
+            "C": "parametric method, historical simulation, and Monte Carlo analysis."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "That's just one of three.",
+            "B": "That's just one of three.",
+            "C": "Correct. Per Exhibit 24, three methods to assess portfolio tail risk are: (1) Parametric Method — uses expected value and standard deviation of risk factors assuming normal distribution; simple and transparent; not well suited for non-normal distributions or option-based portfolios. (2) Historical Simulation — prices existing portfolio using historical parameters and ranking results; actual results, accommodates options; highly dependent on historical period. (3) Monte Carlo Analysis — generates random outcomes using portfolio measures and sensitivities; accommodates options; highly dependent on model assumptions. Hypothetical scenario analyses often supplement these methods."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.f",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Tail Risk — Exhibit 24 methods",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "fixed_income_active_management_credit_strategies.g",
+      "los_letter": "g",
+      "los_text": "discuss the use of credit default swap strategies in active fixed-income portfolio management",
+      "reading_id": "fixed_income_active_management_credit_strategies",
+      "reading_name": "Fixed-Income Active Management: Credit Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r9_cs_los_g_q1",
+          "number": 1,
+          "stem": "The reading's *CDS price* at contract inception (Equation 14) is *most likely* approximated by:",
+          "options": {
+            "A": "CDS Price ≈ 1 − ((Fixed Coupon − CDS Spread) × EffSpreadDur_CDS).",
+            "B": "CDS Price = notional × spread.",
+            "C": "CDS Price = 1 always."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: CDS Price ≈ 1 − ((Fixed Coupon − CDS Spread) × EffSpreadDur_CDS); if CDS Spread < Fixed Coupon, protection buyer *receives* upfront payment; if CDS Spread > Fixed Coupon, protection buyer *pays* upfront.\n\nCorrect. Per Equation 14: CDS Price ≈ 1 − ((Fixed Coupon − CDS Spread) × EffSpreadDur_CDS). Per Exhibit 26: If CDS Spread = Fixed Coupon → no upfront. If CDS Spread < Fixed Coupon → protection buyer receives ((Fixed Coupon − CDS Spread) × EffSpreadDur_CDS) upfront (in exchange for paying above-market coupon). If CDS Spread > Fixed Coupon → protection buyer pays ((CDS Spread − Fixed Coupon) × EffSpreadDur_CDS) upfront.",
+            "B": "Not the reading's formula.",
+            "C": "Price varies with spread differential."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.g",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "CDS Price — Equation 14",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_g_q2",
+          "number": 2,
+          "stem": "In Example 22 (5y IG CDS at 0.5% spread, EffSpreadDur_CDS 4.75, fixed coupon 1.00%), the protection buyer *most likely*:",
+          "options": {
+            "A": "The protection buyer pays 2.375% upfront because the CDS spread exceeds the standard coupon.",
+            "B": "receives 2.375% upfront (= (1.00% − 0.50%) × 4.75) because CDS spread is below the standard IG coupon of 1.00%.",
+            "C": "The protection buyer receives 0.5% upfront, equal to the CDS spread itself."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The buyer RECEIVES the upfront — the 0.50% spread is BELOW the 1.00% standard IG coupon.",
+            "B": "Correct. Per Example 22: 'Because investment-grade CDS contracts have a fixed coupon of 1.00% p.a. versus the 0.50% p.a. CDS market spread, the investor buying protection should receive the difference from par upfront in exchange for paying an above-market coupon under the contract.' Upfront premium: 2.375% of CDS notional = (1.00% − 0.50%) × 4.75. Standard fixed coupons post-2008 are 1.00% for IG and 5.00% for HY.",
+            "C": "Incorrect. The upfront applies the spread-coupon gap times EffSpreadDur: (1.00% − 0.50%) × 4.75 = 2.375%."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.g",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "CDS Strategies — Example 22",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_g_q3",
+          "number": 3,
+          "stem": "*CDS price changes* for a given spread change are *most likely* quantified as (Equation 15):",
+          "options": {
+            "A": "Δ(CDS Price) = Δ(CDS Spread).",
+            "B": "Δ(CDS Price) = 0.",
+            "C": "Δ(CDS Price) ≈ −(Δ(CDS Spread) × EffSpreadDur_CDS)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Missing duration and sign.",
+            "B": "CDS prices are highly sensitive to spread changes.",
+            "C": "Correct. Per Equation 15: Δ(CDS Price) ≈ −(Δ(CDS Spread) × EffSpreadDur_CDS). A widening CDS spread reduces the CDS price. Active FI managers buy or sell CDS protection across issuers, maturities, and/or sectors to alter portfolio exposure."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.g",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "CDS — Equation 15",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_g_q4",
+          "number": 4,
+          "stem": "In Example 23, a European manager underweighting a BBB French media issuer (5y CDS at 110 bps, EffSpreadDur_CDS 4.595, €10M notional). If spreads widen 15 bps (to 125 bps), her position *most likely*:",
+          "options": {
+            "A": "gains €68,925 = −€10,000,000 × (−0.15% × 4.595).",
+            "B": "loses €68,925.",
+            "C": "gains €150,000."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per Example 23: 'The manager can underweight the issuer's credit by purchasing protection in the CDS market. This short risk position will realize a gain if the issuer's spreads widen. If the issuer's credit spreads widen from 110 bps to 125 bps, we can estimate the change in CDS contract value by multiplying (−Δ(CDS Spread) × EffSpreadDur_CDS) from Equation 15 by the CDS notional to get €68,925 (= −€10,000,000 × (−0.15% × 4.595)).'",
+            "B": "Buying protection gains from spread widening.",
+            "C": "Formula applies duration multiplier."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.g",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "CDS Strategies — Example 23 underweight",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_g_q5",
+          "number": 5,
+          "stem": "The reading identifies *four* CDS strategy types (Exhibit 27). These *most likely* include:",
+          "options": {
+            "A": "Only interest rate swaps.",
+            "B": "Single-name CDS, Index-based CDS, Payer Option on CDS Index, Receiver Option on CDS Index.",
+            "C": "Only OTC forwards."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "IRS are separate from CDS.",
+            "B": "Correct. Per Exhibit 27, the four CDS strategies are: (1) Single-Name CDS — protection buyer pays premium in exchange for payment if credit event occurs; short (buyer) or long (seller) single-name credit spread. (2) Index-Based CDS — similar but on CDS index members. (3) Payer Option on CDS Index — right to buy protection at a future date; payoff Max(Credit Spread at expiration − Strike, 0) − Option Premium; short exposure. (4) Receiver Option on CDS Index — right to sell protection at a future date; payoff Max(Strike − Spread at expiration, 0) − Premium; long exposure. Markit CDX North American Investment Grade index consists of 125 equally weighted CDS contracts.",
+            "C": "OTC forwards different from CDS."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.g",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "CDS Strategies — Exhibit 27",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_g_q6",
+          "number": 6,
+          "stem": "In Example 24 long-short strategy (buy French protection at 110 bps EffSpreadDur 4.697, sell German protection at 130 bps EffSpreadDur 4.669, €10M each), if French spread *widens* 10 bps and German spread *narrows* 25 bps, total gain *most likely*:",
+          "options": {
+            "A": "€46,970 only.",
+            "B": "loss of €70,000.",
+            "C": "€163,695 = short risk gain €46,970 (French widens) + long risk gain €116,725 (German narrows)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Missing the long-risk German gain.",
+            "B": "Both trades are profitable in this scenario.",
+            "C": "Correct. Per Example 24: 'Short risk (French issuer): €46,970 = −€10,000,000 × (−0.10% × 4.697). Long risk (German issuer): €116,725 = €10,000,000 × (−(−0.25%) × 4.669). The total gain on the long-short strategy is €163,695 (= €46,970 + €116,725).' The manager purchases protection on the French issuer (short risk) and simultaneously sells protection on the German issuer (long risk)."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.g",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "CDS Strategies — Example 24 long-short",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_g_q7",
+          "number": 7,
+          "stem": "The reading's most frequently traded CDS index for US IG is *most likely*:",
+          "options": {
+            "A": "Markit CDX North American Investment Grade index consisting of 125 equally weighted CDS contracts on entities (with six subindexes.",
+            "B": "The most frequently traded US investment-grade CDS index is the European iTraxx Crossover index.",
+            "C": "The most frequently traded US investment-grade CDS index is the S&P 500 index."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: Markit CDX North American Investment Grade index consisting of 125 equally weighted CDS contracts on entities (with six subindexes: High Volatility, Consumer Cyclical, Energy, Financials, Industrial, Telecom Media & Technology).\n\nCorrect. Per the reading: 'For example, the Markit CDX North American Investment Grade index consists of 125 equally weighted CDS contracts on entities, including six subindexes (High Volatility, Consumer Cyclical, Energy, Financials, Industrial, and Telecom, Media, and Technology).' The 5-year tenor is generally the most frequently traded contract.",
+            "B": "Incorrect. iTraxx Crossover covers European sub-investment-grade names.",
+            "C": "Incorrect. The S&P 500 is an equity index; the CDX North American Investment Grade (125 equally weighted names) is the instrument."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.g",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "CDS Strategies — CDX index",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_g_q8",
+          "number": 8,
+          "stem": "For a *credit curve steepening* view (expecting near-term default probability to decline), a *duration-weighted* single-name CDS curve strategy *most likely* involves:",
+          "options": {
+            "A": "only buying short-term protection.",
+            "B": "selling short-term protection and buying long-term protection using the same reference entity.",
+            "C": "no positioning is possible."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Missing the long-term protection buy.",
+            "B": "Full statement: selling short-term protection and buying long-term protection using the same reference entity — requires duration matching of the positions.\n\nCorrect. Per the reading: 'An upward-sloping credit curve implies relatively low near-term expected default probability that rises over time. An investor might expect an issuer's CDS curve to steepen if its near-term default probability declines as a result of higher than expected profits and stable leverage. This investor can capitalize on this view by selling short-term protection using a single-name CDS contract and buying long-term protection on that same reference entity.' Capitalizing on spread changes for different maturities requires duration matching (Example 25 duration-weighted single-name CDS curve steepener uses 5y and 10y CDS contracts).",
+            "C": "Duration-matched steepener is a well-defined strategy."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.g",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "CDS Strategies — Example 25 curve steepener",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "fixed_income_active_management_credit_strategies.h",
+      "los_letter": "h",
+      "los_text": "discuss various portfolio positioning strategies that managers can use to implement a specific credit spread view",
+      "reading_id": "fixed_income_active_management_credit_strategies",
+      "reading_name": "Fixed-Income Active Management: Credit Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r9_cs_los_h_q1",
+          "number": 1,
+          "stem": "Under a *static credit curve* view (constant spreads over horizon), the buy-and-hold credit strategy *most likely* rewards:",
+          "options": {
+            "A": "greater return from lower spread duration.",
+            "B": "no return.",
+            "C": "greater return from higher spread duration — buying risky bonds with durations above the benchmark without active trading."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Higher duration is rewarded under stable curves.",
+            "B": "Buy-and-hold generates coupon and rolldown.",
+            "C": "Full statement: greater return from higher spread duration — buying risky bonds with durations above the benchmark without active trading; if the relationship between long- and short-term spreads remains stable, the manager is rewarded with greater return from the higher spread duration.\n\nCorrect. Per the reading, 'The first involves buying risky bonds with durations above the benchmark without active trading during a subsequent period. If the relationship between long- and short-term credit spreads remains stable over the investment horizon, the manager is rewarded with greater return from the higher spread duration.' 'Rolling down' the credit curve generates incremental coupon income (adjusted for any price difference from par) due to wider spreads, plus return from time passage."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.h",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Static Credit Curve — buy-and-hold",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_h_q2",
+          "number": 2,
+          "stem": "In Example 26 (AUD static credit curve, roll 15y to 14.5y over 6 months on AUD 50M face), rolling-down total gain is $506,500. The portion *attributable to credit spread roll-down* is *most likely*:",
+          "options": {
+            "A": "$292,250 (= $217,250 from price appreciation + $75,000 from incremental coupon income due to credit spreads).",
+            "B": "None of the $506,500 rolldown gain is attributable to credit spreads; the entire amount reflects the government curve.",
+            "C": "The full $506,500 gain is attributable to credit spread roll-down, with no benchmark contribution."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per Example 26: The total incremental roll-down strategy generates $506,500 (= $344,000 price appreciation + $162,500 coupon income), of which $292,250 (= $217,250 + $75,000) is estimated to be due to credit spread curve roll down. The $75,000 is the credit-spread portion of incremental coupon ($225,000 − $150,000). The $217,250 is half the 0.07% YTM decline attributable to yield spread narrowing (from 0.85% to 0.815% at 14.5y).",
+            "B": "Incorrect. The credit component is substantial — $292,250 of the total.",
+            "C": "Incorrect. $506,500 is the TOTAL; the spread portion is $292,250 ($217,250 price appreciation plus $75,000 incremental spread-driven coupon)."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.h",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Static Credit Curve — Example 26",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_h_q3",
+          "number": 3,
+          "stem": "For *tactical* credit spread strategies, a manager expecting *widening HY vs IG spreads* in an economic slowdown *most likely*:",
+          "options": {
+            "A": "Expecting HY spreads to widen versus IG, the manager buys HY bonds and sells IG bonds.",
+            "B": "sells (goes short in) HY bonds and buys (goes long in) IG bonds, or synthetically: buys protection on HY CDS index and sells protection on IG CDS index (Example 29.",
+            "C": "Expecting relative spread widening, the manager makes no portfolio changes."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Long HY loses as HY spreads widen — the position is backwards for the view.",
+            "B": "Full statement: sells (goes short in) HY bonds and buys (goes long in) IG bonds, or synthetically: buys protection on HY CDS index and sells protection on IG CDS index (Example 29 — CDX HY vs CDX IG).\n\nCorrect. Per the reading: 'an active manager expects a weaker economy and a widening of high-yield versus investment-grade credit spread levels. The manager can capitalize on this view by buying five-year protection on a high-yield CDS index and selling protection on an investment-grade CDS index for the same tenor.' Example 29 shows this: sell CDX IG protection, buy CDX HY protection; under an economic downturn where IG spreads rise 50% and HY spreads double, the strategy gains $697,000.",
+            "C": "Incorrect. The view demands positioning: short HY/long IG in cash, or buy HY index protection and sell IG index protection synthetically."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.h",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Tactical Strategies — Example 29 CDX HY/IG",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_h_q4",
+          "number": 4,
+          "stem": "Example 30 (tactical portfolio 33.3% each Ba/B, remaining 33.3% split A/Baa) under expected 33% spread narrowing scenario. The tactical portfolio *most likely*:",
+          "options": {
+            "A": "matches the equally weighted portfolio.",
+            "B": "underperforms.",
+            "C": "returns 7.795% vs 7.059% for the passive equally weighted portfolio."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Recovery differentially benefits HY.",
+            "B": "The tactical trumps passive.",
+            "C": "Full statement: returns 7.795% vs 7.059% for the passive equally weighted portfolio — the tilt toward HY (with steeper spread compression) generates outperformance in the recovery scenario.\n\nCorrect. Per Example 30: With spreads and expected loss rates falling by one-third: A → 3.898%, Baa → 5.80%, Ba → 8.705%, B → 9.832%. Passive portfolio (equally weighted): 7.059% = (3.898% + 5.80% + 8.705% + 9.832%)/4. Tactical portfolio (33.3% Ba, 33.3% B, 33.3% split A/Baa): 7.795% = 3.898%/6 + 5.80%/6 + 8.705%/3 + 9.832%/3. Overweight to HY captures more of the recovery spread compression."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.h",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Tactical Strategies — Example 30",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_h_q5",
+          "number": 5,
+          "stem": "A *duration-neutral* CDX HY curve steepener (Example 31 — expected economic recovery, 5y CDX HY 450 bps, 10y 375 bps) *most likely* involves:",
+          "options": {
+            "A": "selling protection on 5y CDX HY (with notional adjusted to BPV-match) and buying protection on 10y CDX HY.",
+            "B": "buying protection on both maturities.",
+            "C": "selling protection on both maturities."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: selling protection on 5y CDX HY (with notional adjusted to BPV-match) and buying protection on 10y CDX HY — capitalizes on expected steepening (5y spread declining more than 10y).\n\nCorrect. Per Example 31: 'The appropriate strategy is to sell protection on the 5-year CDX HY and buy protection on the 10-year CDX HY.' Calculate 5y notional to match BPV of 10y: (EffSpreadDur_10y / EffSpreadDur_5y) × $10M = (8.656/4.637) × $10M = $18,667,000. For 175 bp fall in 5y and 25 bp fall in 10y: 5y gain = $1,514,780, 10y loss = −$216,400, portfolio gain = $1,298,380.",
+            "B": "Same-direction on both would not be duration-neutral or steepener.",
+            "C": "Would be duration-matched but not directional."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.h",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Tactical Strategies — Example 31 curve steepener",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_h_q6",
+          "number": 6,
+          "stem": "For *credit spread carry-and-roll-down* strategies to be effective, the reading identifies the manager must *most likely* assume:",
+          "options": {
+            "A": "spreads move dramatically.",
+            "B": "credit spreads and benchmark yields remain stable over the horizon.",
+            "C": "no assumptions needed."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Stability is the key assumption.",
+            "B": "Full statement: credit spreads and benchmark yields remain stable over the horizon; if spreads widen unexpectedly, the position suffers price losses.\n\nCorrect. Per the reading, static credit curve strategies (buy-and-hold, carry-and-roll-down) require the assumption of stable benchmark yields and credit spreads over the horizon. If spreads widen unexpectedly during the investment horizon, the position experiences unrealized losses. The reading uses Example 26 explicitly with 'an investor expects stable benchmark yields and credit spreads over the next six months.' Deviations from static assumption drive risk.",
+            "C": "Assumptions are essential."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.h",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Static Credit Curve — assumptions",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_h_q7",
+          "number": 7,
+          "stem": "The reading identifies *derivative-based* credit strategies to add spread duration or increase exposure. These *most likely* include:",
+          "options": {
+            "A": "Derivative-based strategies to add credit spread exposure consist only of buying CDS protection.",
+            "B": "Managers seeking additional spread duration must avoid derivatives entirely and buy cash bonds.",
+            "C": "selling CDS single-name or index protection for longer maturities or lower credit quality, or using a long-short approach."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Buying protection REDUCES credit exposure; selling protection adds it.",
+            "B": "Incorrect. Selling single-name or index protection — longer maturity or lower quality — is the derivative route to added spread duration.",
+            "C": "Correct. Per the reading, 'Derivative-based credit strategies to add credit spread duration or increase credit exposure include selling CDS single-name or index protection for longer maturities or lower credit quality or using a long-short approach to achieve a similar objective.' Selling protection creates 'long risk' exposure (analogous to owning bonds); buying protection creates 'short risk' exposure (analogous to shorting bonds)."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.h",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Positioning — derivative-based",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "fixed_income_active_management_credit_strategies.i",
+      "los_letter": "i",
+      "los_text": "discuss considerations in constructing and managing portfolios across international credit markets",
+      "reading_id": "fixed_income_active_management_credit_strategies",
+      "reading_name": "Fixed-Income Active Management: Credit Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r9_cs_los_i_q1",
+          "number": 1,
+          "stem": "In Example 32, an investor combining US corporate bonds (equally weighted A/Baa/Ba/B) with an iTraxx-Xover position (matching the US HY allocation with EUR appreciation 1%, EUR HY spreads narrowing 25%, US spreads narrowing 10%), the total portfolio USD return is *most likely*:",
+          "options": {
+            "A": "5.86%.",
+            "B": "3.30%.",
+            "C": "1.5%."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "comprising US 3.30% return + iTraxx-Xover USD return of 5.118% weighted at half of US portfolio (or 5.118%/2 = 2.559%): 3.30% + 2.559% ≈ 5.86%.\n\nCorrect. Per Example 32: 'Return on the equally weighted portfolio is equal to 3.30%. We solve for US dollar iTraxx-Xover returns as 5.118% (= (1 + 4.077%) × (1 + 1.00%) − 1). Given that iTraxx-Xover carries a weight equal to one-half of the US corporate bond portfolio, the strategy returns 5.86% (or 3.30% + 5.118%/2).' The iTraxx-Xover 5-year gains 4.077% in EUR terms (= (1.085 − 1.0425)/1.0425), converted to USD at 5.118% via R_DC = (1+R_FC)(1+R_FX) − 1.",
+            "B": "That's just the US portfolio return.",
+            "C": "Only reflects FX return."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.i",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "International Credit — Example 32",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_i_q2",
+          "number": 2,
+          "stem": "The reading's *Bloomberg SRSK model* estimates sovereign credit risk using *most likely*:",
+          "options": {
+            "A": "The Bloomberg SRSK model estimates sovereign credit risk using political risk as its only input.",
+            "B": "a combination of quantitative and qualitative factors — external debt to GDP, currency reserves, GDP growth, and political risk — to estimate a sovereign issuer's one-year POD.",
+            "C": "The SRSK model relies only on historical default rates, extrapolating past sovereign defaults forward."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Political risk is one factor among several — external debt/GDP, currency reserves, and GDP growth join it.",
+            "B": "Full statement: a combination of quantitative and qualitative factors — external debt to GDP, currency reserves, GDP growth, and political risk — to estimate a sovereign issuer's one-year POD; similar to DRSK, users can change model inputs.\n\nCorrect. Per the reading, 'The Bloomberg Sovereign Risk (SRSK) model shown in Exhibit 30 combines quantitative and qualitative factors such as external debt to GDP, currency reserves, GDP growth, and political risk to estimate a sovereign issuer's one-year POD. Similar to the DRSK model discussed earlier, the SRSK model allows users to change model inputs and also derives a \"model\" CDS spread, which could be compared to the market CDS spread.' Costa Rica example: 1.28% one-year default risk.",
+            "C": "Incorrect. The model is forward-looking, combining quantitative macro-financial variables with qualitative factors."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.i",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "International Credit — SRSK",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_i_q3",
+          "number": 3,
+          "stem": "For assessing a *sovereign borrower's short-term (12-month) liquidity position* (ability to meet interest payments on USD-denominated bonds), the *most appropriate* ratio is *most likely*:",
+          "options": {
+            "A": "Government budget deficit/GDP.",
+            "B": "External debt/GDP.",
+            "C": "Currency reserves/GDP."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "That's fiscal stability, not liquidity.",
+            "B": "That's financial leverage to foreign lenders, not near-term liquidity.",
+            "C": "Correct. Per Example 33: 'The government budget deficit as a percentage of GDP is a gauge of fiscal stability for the domestic economy, while the external debt-to-GDP ratio is a measure of financial leverage to foreign lenders. Currency reserves as a percentage of GDP measure the available liquidity in foreign currency to meet external obligations.' For USD-denominated obligations, the sovereign must have USD/foreign currency reserves to service the debt."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.i",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "International Credit — Example 33",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_i_q4",
+          "number": 4,
+          "stem": "The *sovereign ceiling* is *most likely*:",
+          "options": {
+            "A": "the concept that a company's rating is typically no higher than the sovereign credit rating of its domicile.",
+            "B": "an upper bound on all corporate spreads.",
+            "C": "a US federal debt limit."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: the concept that a company's rating is typically no higher than the sovereign credit rating of its domicile — reflects that emerging market corporates often concentrate in lower investment-grade and upper high-yield due to their sovereign's ceiling.\n\nCorrect. Per the reading: 'Credit quality in the emerging market credit universe exhibits a high concentration in lower investment-grade and upper high-yield ratings categories. This concentration of credit ratings is largely a reflection of the sovereign ratings of emerging markets but also reflects the fact that a \"sovereign ceiling\" is usually applied to corporate issuers globally. This ceiling implies that a company's rating is typically no higher than the sovereign credit rating of its domicile.'",
+            "B": "Not a spread concept.",
+            "C": "Sovereign ceiling is a rating concept."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.i",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "International Credit — sovereign ceiling",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_i_q5",
+          "number": 5,
+          "stem": "*Emerging markets* are *most likely* characterized by:",
+          "options": {
+            "A": "Emerging markets exhibit characteristics identical to developed markets across growth, risk, and market access.",
+            "B": "higher, more volatile, and less balanced economic growth than developed markets, greater geopolitical risk, currency restrictions, and capital controls.",
+            "C": "Emerging market investments carry no currency risk because local currencies are pegged to the dollar."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. EM growth is higher, more volatile, and less balanced, with greater geopolitical and capital-flow risk.",
+            "B": "Full statement: higher, more volatile, and less balanced economic growth than developed markets, greater geopolitical risk, currency restrictions, and capital controls — sovereign credit risk is a critical starting point.\n\nCorrect. Per the reading, 'Emerging markets are characterized by higher, more volatile, and less balanced economic growth than developed markets, often in addition to greater geopolitical risk, currency restrictions, and capital controls. Sovereign credit risk is therefore a critical starting point in considering fixed-income investments in emerging markets, where both the ability and willingness of issuers to repay debt is of importance.' Institutional considerations include political stability, transparency, adherence to property rights and contract law.",
+            "C": "Incorrect. EM currencies are often volatile, and currency restrictions and controls add to — rather than remove — FX risk."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.i",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "International Credit — EM characteristics",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_i_q6",
+          "number": 6,
+          "stem": "Emerging market *currency risk* is *most likely*:",
+          "options": {
+            "A": "typically negligible.",
+            "B": "always stable.",
+            "C": "significant — restrictive currency regimes and derivative markets amplify volatility."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "EM currencies frequently exhibit high volatility.",
+            "B": "Crises trigger devaluations.",
+            "C": "Full statement: significant — restrictive currency regimes and derivative markets amplify volatility; higher YTMs in EM currencies typically suggest depreciation over time (interest rate parity), but investors exploit divergence (forward rate bias); during crises: exchange rate regime change, central bank intervention, and/or devaluation are common.\n\nCorrect. Per the reading, 'Currency volatility can be particularly significant in emerging markets as a result of restrictive currency regimes and derivative markets. Higher YTMs available in emerging market currencies versus developed markets typically suggest that these emerging currencies will depreciate over time. That said, emerging markets offer investors the opportunity to exploit divergence from interest rate parity conditions (known as the forward rate bias) by investing in higher-yielding currencies. Although temporary deviations from a fixed exchange rate are possible under such regimes, what is more common during economic crises is exchange rate regime change, central bank intervention, and/or devaluation.'"
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.i",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "International Credit — EM currency risk",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_i_q7",
+          "number": 7,
+          "stem": "For a US-based investor choosing between an EM *local-currency* bond (higher YTM) and a US-dollar-denominated bond (lower YTM) of the same issuer, the choice *most likely* depends on:",
+          "options": {
+            "A": "the relationship between the higher local currency YTM, the lower USD bond YTM, and the local currency's expected depreciation vs USD over the investment horizon.",
+            "B": "The choice between the local-currency and USD bond depends only on the yield-to-maturity differential.",
+            "C": "The choice depends only on the issuer's credit risk, which differs between the two bonds."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: the relationship between the higher local currency YTM, the lower USD bond YTM, and the local currency's expected depreciation vs USD over the investment horizon; if bullish on the emerging economy's growth prospects, the investor may earn higher USD return from the unhedged local currency bond if the local currency depreciates less than expected under interest rate parity conditions (forward rate bias).\n\nCorrect. Per Example 34 solution: 'A United States-based investor seeking to maximize US-dollar-denominated return must consider the relationship between the higher local currency bond YTM, the lower US dollar bond YTM, and the local currency's expected depreciation (or appreciation) versus the US dollar over the investment horizon. While uncovered interest rate parity suggests that local currency depreciation vs the US dollar would offset any benefit of a higher YTM, an investor with a bullish view of the emerging economy's growth prospects would benefit from forward rate bias and earn a higher return in US dollar terms from an unhedged investment in the local currency bond if the local currency were to depreciate less than expected.'",
+            "B": "Incorrect. The higher local yield can be consumed by currency depreciation — the FX view is essential.",
+            "C": "Incorrect. The issuer is the SAME; the decision weighs the YTM gap against expected local-currency depreciation versus USD."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.i",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "International Credit — Example 34",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "fixed_income_active_management_credit_strategies.j",
+      "los_letter": "j",
+      "los_text": "describe the use of structured financial instruments as an alternative to corporate bonds in credit portfolios",
+      "reading_id": "fixed_income_active_management_credit_strategies",
+      "reading_name": "Fixed-Income Active Management: Credit Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r9_cs_los_j_q1",
+          "number": 1,
+          "stem": "The reading identifies *five categories* of structured financial instruments as alternatives to corporate bonds (Exhibit 31). Which is *least likely* one of them?",
+          "options": {
+            "A": "Collateralized Debt Obligations (CDOs) and Collateralized Loan Obligations (CLOs).",
+            "B": "Individual corporate bonds.",
+            "C": "Mortgage-Backed Securities (MBS), Asset-Backed Securities (ABS), and Covered Bonds."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Both are structured instruments per Exhibit 31.",
+            "B": "Correct. Individual corporate bonds are NOT structured instruments — they are the alternative that structured products offer diversification from. Per Exhibit 31, the five structured alternatives to corporate bonds are: (1) Collateralized Debt Obligations (CDOs) — backed by diversified pool of debt; (2) Collateralized Loan Obligations (CLOs) — backed by diversified floating-rate leveraged loans; (3) Mortgage-Backed Securities (MBS) — commercial or residential mortgage pool; (4) Asset-Backed Securities (ABS) — credit card, auto, and other loans; (5) Covered Bonds — senior debt backed by real estate/public sector assets with dual recourse.",
+            "C": "All three are per Exhibit 31."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.j",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Structured Credit — Exhibit 31",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_j_q2",
+          "number": 2,
+          "stem": "Structured products *most likely* offer active credit managers:",
+          "options": {
+            "A": "Structured products offer active credit managers no additional benefits over corporate bonds, since securitized cash flows carry the same risk-return profile as the issuing institutions' senior unsecured debt.",
+            "B": "Structured products offer only lower returns than corporate bonds of comparable rating, because the costs of structuring and servicing consume any yield advantage the underlying collateral provides.",
+            "C": "the ability to access fixed-income cash flows (commercial/residential real estate, consumer loans), enhance returns by increasing exposure to interest rate volatility (via mortgage prepayment/extension risk), and add debt exposure created by redistribution of default risk into tranches across the credit spectrum."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Access to distinct cash-flow pools (real estate, consumer loans) and exposure tailoring are genuine benefits.",
+            "B": "Incorrect. Tranche selection and structural leverage can ENHANCE returns relative to comparable corporates.",
+            "C": "Correct. Per the reading, 'Structured financial instruments can offer active credit managers the ability to access fixed-income cash flows such as commercial or residential real estate, enhance returns by increasing portfolio exposure to interest rate volatility (via mortgage prepayment and extension risk), and add debt exposure created by the redistribution of default risk into different tranches across the credit spectrum.'"
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.j",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Structured Credit — role",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_j_q3",
+          "number": 3,
+          "stem": "*Tranching* in ABS and CDO transactions *most likely*:",
+          "options": {
+            "A": "establishes higher-rated tranches via internal credit enhancement or overcollateralization, with successively lower-rated tranches absorbing a greater proportion of the associated default risk.",
+            "B": "Tranching gives all tranches in an ABS or CDO identical risk, differing only in coupon convention.",
+            "C": "Tranching eliminates default risk entirely from the securitization structure."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: establishes higher-rated tranches via internal credit enhancement or overcollateralization, with successively lower-rated tranches absorbing a greater proportion of the associated default risk — an SPV owns the underlying asset pool and issues debt across several tranches backed by the asset pool cash flows.\n\nCorrect. Per the reading and Exhibit 32: 'This is achieved by establishing higher-rated tranches via internal credit enhancement or overcollateralization, with successively lower-rated tranches absorbing a greater proportion of the associated default risk. An active investor might overweight default risk by choosing a lower-rated ABS tranche based on a tactical view. Alternatively, a portfolio manager might underweight credit exposure using a higher-rated tranche in a downturn.' The ABS issuer is a special purpose vehicle (SPV) that owns the underlying asset pool.",
+            "B": "Incorrect. Stratification is the point — senior tranches are protected by subordination while lower tranches absorb losses first.",
+            "C": "Incorrect. Default risk is REDISTRIBUTED across the capital structure, not eliminated."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.j",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Structured Credit — tranching",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_j_q4",
+          "number": 4,
+          "stem": "*Covered bonds* differ from ABS *most likely* because:",
+          "options": {
+            "A": "Covered bonds differ from ABS in offering no recourse to the issuing institution.",
+            "B": "covered bonds offer dual recourse (i.e., to both the issuing financial institution and the underlying asset pool) as well as substitution of non-performing assets.",
+            "C": "Covered bonds differ from ABS in always carrying the highest yield among secured instruments."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. DUAL recourse — to issuer AND asset pool — is the covered bond's defining feature.",
+            "B": "Full statement: covered bonds offer dual recourse (i.e., to both the issuing financial institution and the underlying asset pool) as well as substitution of non-performing assets — this results in lower credit risk and lower yield than ABS.\n\nCorrect. Per the reading, 'While covered bonds offer real estate cash flow exposure similar to that of ABS, given the dual recourse (i.e., to both the issuing financial institution and the underlying asset pool), as well as the substitution of non-performing assets, covered bonds usually involve lower credit risk and a lower yield.' Covered bonds are senior debt obligations backed by a pool of commercial/residential mortgages or public sector assets.",
+            "C": "Incorrect. Their stronger protections typically produce LOWER yields, not the highest."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.j",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Structured Credit — covered bonds",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_j_q5",
+          "number": 5,
+          "stem": "For a manager anticipating *residential housing price decline*, the most appropriate structured product strategy is *most likely*:",
+          "options": {
+            "A": "Shift exposure from A rated to BB rated tranche of a credit card ABS.",
+            "B": "Increase A rated CDO and reduce BBB rated CDO exposure.",
+            "C": "Increase exposure to an A rated MBS tranche and decrease exposure to a BBB rated MBS tranche."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "This increases credit exposure — wrong direction.",
+            "B": "This reduces overall market risk, not a targeted MBS view.",
+            "C": "Correct. Per Example 35: 'As the housing sector slows and default rates rise, credit spreads of lower-rated MBS tend to widen by more than those of higher-rated MBS. The investor retains exposure to real estate cash flows while reducing exposure to spread widening.' The shift from BBB to A within MBS specifically targets the housing sector view. A shift within credit card ABS doesn't address housing; a CDO shift isn't housing-specific."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.j",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Structured Credit — Example 35",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_j_q6",
+          "number": 6,
+          "stem": "For a manager anticipating *economic recovery with rising short-term rates and flatter benchmark yield curve*, the most appropriate structured product strategy is *most likely*:",
+          "options": {
+            "A": "Shift exposure from A rated CDO tranche to BBB rated CLO tranche.",
+            "B": "Increase covered bonds, decrease MBS.",
+            "C": "Shift from BB to A rated auto ABS."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per Example 35: 'Economic recovery is typically associated with lower defaults and greater credit spread tightening among lower-rated issuers and debt tranches. CLO tranches benefit more from short-term rate rises than CDOs because CLOs comprise leveraged loans based on MRRs plus a credit spread.' The shift to BBB CLO captures both lower rated credit spread compression AND floating-rate MRR benefit.",
+            "B": "This reduces credit risk (dual recourse) but doesn't capture short-rate rise.",
+            "C": "Reduces credit exposure, limiting benefit from recovery."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.j",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Structured Credit — Example 35 recovery",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "fixed_income_active_management_credit_strategies.k",
+      "los_letter": "k",
+      "los_text": "describe key inputs, outputs, and considerations in using analytical tools to manage fixed-income portfolios",
+      "reading_id": "fixed_income_active_management_credit_strategies",
+      "reading_name": "Fixed-Income Active Management: Credit Strategies",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r9_cs_los_k_q1",
+          "number": 1,
+          "stem": "The primary *inputs* for fixed-income analytical models *most likely* include:",
+          "options": {
+            "A": "The primary inputs for fixed-income analytical models are limited to cash bond positions, since derivatives and financing transactions are tracked separately in settlement systems rather than analytics platforms.",
+            "B": "all long and short cash bond and derivative positions, repurchase agreements, and cash across currencies, using CUSIP or ISIN identifiers to capture features like interest/principal dates, day count conventions, put-call features, plus derivative and repo details.",
+            "C": "The primary inputs are real-time market feeds only, with no position-level data required because models infer holdings from custodial records automatically."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Derivatives, repos, and cash across currencies belong in the position inputs alongside cash bonds.",
+            "B": "Correct. Per the reading: 'Primary inputs for fixed-income models include all long and short cash bond and derivative positions, repurchase agreements, and cash across currencies. Fixed-income security inputs use CUSIP or ISIN identifiers to capture all relevant features such as interest and principal payment dates, day count conventions, and put-call features. Portfolio derivative and repo position inputs also include details of such agreements, such as settlement dates, option strike prices, and collateral terms necessary to satisfy derivative counterparty or clearing requirements based on market changes.'",
+            "C": "Incorrect. Positions (identified by CUSIP/ISIN) are required inputs alongside market data."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.k",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Analytical Tools — inputs",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_k_q2",
+          "number": 2,
+          "stem": "*Real-time market data feeds* from vendors *most likely* include:",
+          "options": {
+            "A": "Real-time vendor market data feeds for fixed-income models include only stock prices.",
+            "B": "Real-time feeds include only currency data, with rates and credit curves sourced manually.",
+            "C": "spot and forward rates, credit curves, implied volatilities, and exchange rates — used to value historical, existing, and potential future new portfolio positions."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. FI models need rates, curves, and volatilities — equity prices alone are insufficient.",
+            "B": "Incorrect. Spot and forward rates, credit curves, implied volatilities, AND exchange rates all flow through the feeds.",
+            "C": "Full statement: spot and forward rates, credit curves, implied volatilities, and exchange rates — used to value historical, existing, and potential future new portfolio positions; matrix pricing (or evaluated pricing) values inactively traded FI instruments based on observable liquid benchmarks.\n\nCorrect. Per the reading: 'Real-time market data feeds usually sourced from vendors via application programming interfaces include spot and forward rates, credit curves, implied volatilities, and exchange rates that are used to value historical, existing, and potential future new portfolio positions. These tools value inactively traded fixed-income instruments using matrix pricing (or evaluated pricing) based on observable liquid benchmark YTMs of similar maturity and duration and credit spreads of actively traded bonds with comparable times to maturity, credit quality, and sector. Additional model inputs include index subscriptions, ESG and credit ratings, and issuer balance sheet data.'"
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.k",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Analytical Tools — market data",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_k_q3",
+          "number": 3,
+          "stem": "In contrast to more static equity indexes, fixed-income indexes *most likely*:",
+          "options": {
+            "A": "are subject to constant change as a result of both new debt issuance and bond maturities as well as ratings changes, bond callability, and prepayment.",
+            "B": "Fixed-income indexes, like equity indexes, are fully static between annual reconstitutions.",
+            "C": "Fixed-income indexes never change composition once constructed."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: are subject to constant change as a result of both new debt issuance and bond maturities as well as ratings changes, bond callability, and prepayment — a critical consideration in analytical models.\n\nCorrect. Per the reading: 'In contrast to more static equity indexes, fixed-income indexes are subject to constant change as a result of both new debt issuance and bond maturities as well as ratings changes, bond callability, and prepayment.' This is a key differentiator between fixed-income and equity index management. As new bonds are issued and old ones mature or are called/prepaid, the index composition changes.",
+            "B": "Incorrect. Bond indexes change CONSTANTLY — issuance, maturities, ratings migration, calls, and prepayments all move membership.",
+            "C": "Incorrect. Constant turnover is their defining operational feature relative to equity indexes."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.k",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Analytical Tools — FI vs equity indexes",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_k_q4",
+          "number": 4,
+          "stem": "*Model assumptions* in fixed-income analytical tools *most likely* include:",
+          "options": {
+            "A": "Model assumptions in fixed-income analytics are limited to market data supplied by vendors.",
+            "B": "user-defined parameters such as term structure models, investment time horizon, VaR methodology, historical and/or specific market scenarios, and portfolio filters (inclusion/exclusion of specific sectors or minimum ESG threshold).",
+            "C": "Fixed-income analytical tools accept no user input, running entirely on default settings."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Assumptions are USER-defined — term structure model, horizon, VaR methodology, scenarios.",
+            "B": "Correct. Per the reading: 'Model assumptions include user-defined parameters such as term structure models, investment time horizon, VaR methodology, historical and/or specific market scenarios, and portfolio filters that could involve inclusion or exclusion of specific sectors or a minimum ESG rating threshold for consideration.' Different assumptions can lead to different portfolio outcomes.",
+            "C": "Incorrect. User specification of parameters and scenarios is essential to meaningful output."
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.k",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Analytical Tools — model assumptions",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r9_cs_los_k_q5",
+          "number": 5,
+          "stem": "The *outputs* of fixed-income analytical models *most likely* support:",
+          "options": {
+            "A": "Model outputs support only portfolio construction, with risk analysis handled outside the tools.",
+            "B": "Model outputs support only ratings analysis for surveillance purposes.",
+            "C": "each stage of the active portfolio management process — portfolio selection and construction, risk analysis of existing/prospective positions, and trading/position management."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Risk analysis of existing and prospective positions is a core output alongside construction.",
+            "B": "Incorrect. Outputs span the full active management workflow — selection, construction, risk, and trading support.",
+            "C": "Full statement: each stage of the active portfolio management process — portfolio selection and construction, risk analysis of existing/prospective positions, and trading/position management; typically includes a portfolio summary or landing page that aggregates current portfolio risk and return across sectors, ratings, and currencies vs the benchmark index.\n\nCorrect. Per the reading: 'Fixed-income analytical model outputs support each stage of the active portfolio management process, namely portfolio selection and construction, risk analysis of existing and prospective portfolio positions, and trading and position management. A portfolio summary or landing page typically aggregates current portfolio risk and return across sectors, ratings, and currencies versus the benchmark index. Model applications supporting research and portfolio construction allow managers to assess the expected change in portfolio performance by including incremental long or short.'"
+          },
+          "type": "mc",
+          "primary_los": "fixed_income_active_management_credit_strategies.k",
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Analytical Tools — outputs",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1898 @@
+{
+  "schema_version": 2,
+  "generated_by": "claude_r10_tse_drills_curriculum_grounded",
+  "curriculum_source": "CFA Program 2027 Level III Volume 6, PM Pathway, Learning Module 7",
+  "content_type": "mc_only",
+  "drills": [
+    {
+      "los_id": "trade_strategy_and_execution.a",
+      "los_letter": "a",
+      "los_text": "discuss motivations to trade and how they relate to trading strategy",
+      "reading_id": "trade_strategy_and_execution",
+      "reading_name": "Trade Strategy and Execution",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r10_tse_los_a_q1",
+          "number": 1,
+          "stem": "The reading identifies *four broad categories* of motivations to trade. Which is *least likely* one of them?",
+          "options": {
+            "A": "Employee compensation adjustments.",
+            "B": "Profit seeking.",
+            "C": "Risk management/hedging needs."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Employee compensation is not a portfolio trading motivation. Per the reading, the four broad categories of motivations to trade are: (1) profit seeking, (2) risk management/hedging needs, (3) cash flow needs, and (4) corporate actions/index reconstitutions/margin calls.",
+            "B": "This is one of the four.",
+            "C": "This is one of the four."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.a",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Motivations to Trade",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_a_q2",
+          "number": 2,
+          "stem": "*Trade urgency* is *most likely*:",
+          "options": {
+            "A": "Trade urgency refers to the total notional value of the trade being executed.",
+            "B": "how quickly or slowly the order is executed over the trading time horizon — greater urgency = shorter execution horizon.",
+            "C": "Trade urgency refers to the number of counterparties involved in filling the order."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Notional measures size; urgency measures SPEED — how quickly the order executes over the horizon.",
+            "B": "Full statement: how quickly or slowly the order is executed over the trading time horizon — greater urgency = shorter execution horizon; lower urgency = longer execution horizon.\n\nCorrect. Per the reading, 'Trade urgency refers to how quickly (aggressively) or slowly (patiently) the order is executed over the trading time horizon. Greater trade urgency is associated with executing over shorter execution horizons, whereas lower trade urgency is associated with executing over longer execution horizons.' Trade urgency is driven by expected alpha decay rate, market conditions, and manager risk aversion.",
+            "C": "Incorrect. Counterparty count is an execution detail; urgency is the time dimension of the strategy."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.a",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Motivations to Trade — trade urgency",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_a_q3",
+          "number": 3,
+          "stem": "*Alpha decay* in a trading context is *most likely*:",
+          "options": {
+            "A": "long-term underperformance of active managers.",
+            "B": "the difference between benchmark and portfolio returns over a full year.",
+            "C": "erosion or deterioration in short-term alpha once an investment decision is made — high rates of alpha decay require faster, more accelerated trading before other market participants act on the information."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Not the reading's meaning.",
+            "B": "That's active return.",
+            "C": "Correct. Per the reading, 'In a trading context, alpha decay refers to the erosion or deterioration in short-term alpha once an investment decision is made. A portfolio manager with a short-term event-driven strategy will trade with greater urgency if the expected alpha... is likely to be rapidly acted on by other market participants. In this case, the rate or level of expected alpha decay is high. Portfolio managers following a longer-term strategy based on company fundamentals will trade more patiently, with less urgency, if the rate or level of expected alpha decay is lower.'"
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.a",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Motivations to Trade — alpha decay",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_a_q4",
+          "number": 4,
+          "stem": "The Hu/Pan/Wang (2017) study of the University of Michigan ICS *most likely* found that:",
+          "options": {
+            "A": "most of the price adjustment happened within the first 200 milliseconds.",
+            "B": "market prices took months to incorporate ICS releases.",
+            "C": "the ICS had no market impact."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: most of the price adjustment happened within the first 200 milliseconds — an example of profit-driven trading with high trade urgency and extremely short-term execution horizon.\n\nCorrect. Per the reading, 'Hu, Pan, and Wang (2017) examined how quickly the information contained in the ICS was incorporated into S&P 500 Index prices during the period of the two-tiered process. They found that most of the price adjustment happened within the first 200 milliseconds. This is an example of profit-driven trading with high associated trade urgency and an extremely short-term execution horizon.'",
+            "B": "Adjustment is very rapid, not slow.",
+            "C": "Prices adjusted meaningfully."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.a",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Motivations to Trade — ICS example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_a_q5",
+          "number": 5,
+          "stem": "A *value manager* holding positions for months or years is *most likely* an example of:",
+          "options": {
+            "A": "high alpha decay, high trade urgency.",
+            "B": "low alpha decay, no/low trade urgency — long-term profit seeking.",
+            "C": "risk management trades."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Value managers hold long-term.",
+            "B": "Full statement: low alpha decay, no/low trade urgency — long-term profit seeking; minimal trading required, executions carried out patiently.\n\nCorrect. Per the reading: 'An investment manager following a value strategy might attempt to identify undervalued companies... To capitalize on their views, individual positions may be held for months or years by value managers. Minimal trading is required, and any necessary trading can often be carried out in a more patient manner. Trading in this case has no trade urgency, given the managers' much longer trade execution horizons.'",
+            "C": "That's a different motivation category."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.a",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Motivations to Trade — value manager example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_a_q6",
+          "number": 6,
+          "stem": "For *cash flow needs*, urgency *most likely*:",
+          "options": {
+            "A": "Cash flow needs always generate low trading urgency, since cash requirements can be anticipated.",
+            "B": "Cash flow needs always generate high trading urgency, requiring immediate liquidation in every case.",
+            "C": "varies — collateral/margin calls require close-to-immediate liquidation (high urgency), whereas a fund redemption due to longer-term client allocation changes may not require immediate liquidation (low urgency)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Margin and collateral calls demand near-immediate liquidation — high urgency.",
+            "B": "Incorrect. A fund redemption on a longer settlement cycle permits patient execution — urgency VARIES with the need.",
+            "C": "Correct. Per the reading, 'Cash flow needs may involve high or low trade urgency depending on their nature. For example, collateral/margin calls could require close-to-immediate liquidation, whereas a fund redemption due to longer-term client asset allocation changes might not require immediate liquidation.' Fund inflows require capital to be invested; outflows require positions to be liquidated."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.a",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Motivations to Trade — cash flow urgency",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_a_q7",
+          "number": 7,
+          "stem": "*Equitization* is *most likely*:",
+          "options": {
+            "A": "a strategy of temporarily investing cash using futures or ETFs to gain desired equity exposure before investing in underlying securities longer term.",
+            "B": "Equitization is a strategy for hedging the currency risk of foreign equity holdings.",
+            "C": "Equitization is the tax equalization process applied to globally mobile employees."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: a strategy of temporarily investing cash using futures or ETFs to gain desired equity exposure before investing in underlying securities longer term — used to minimize cash drag on the portfolio when inflows are hindered by lack of liquidity in underlying securities.\n\nCorrect. Per the reading: 'Equitization in this case refers to a strategy of temporarily investing cash using futures or ETFs to gain the desired equity exposure before investing in the underlying securities longer term. Equitization may be required if large inflows into a portfolio are hindered by lack of liquidity in the underlying securities. For example, a large inflow into a small-capitalization equity portfolio often cannot be invested immediately in the underlying stocks owing to limited market liquidity. Instead, the manager may equitize the cash using equity futures or ETFs and then gradually trade into the underlying positions.'",
+            "B": "Incorrect. Currency hedging is a separate overlay; equitization converts CASH into equity exposure via futures or ETFs.",
+            "C": "Incorrect. The term names temporary market exposure for uninvested cash, not a tax process."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.a",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Motivations to Trade — equitization",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_a_q8",
+          "number": 8,
+          "stem": "For *hedge funds* with *lockup periods*, redemptions *most likely*:",
+          "options": {
+            "A": "occur daily without limitation.",
+            "B": "are made according to a regular schedule (e.g., calendar quarter-ends).",
+            "C": "are never permitted."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "That's daily-liquidity funds, not lockup.",
+            "B": "Full statement: are made according to a regular schedule (e.g., calendar quarter-ends); stated objective is to protect remaining investors from incurring transaction charges from other investors' redemptions; must be requested in advance to allow fund managers time to trade out of potentially illiquid positions.\n\nCorrect. Per the reading: 'Hedge funds often have lockup periods in which fund redemptions are made according to a regular schedule, such as calendar quarter-ends. The stated objective is to protect remaining investors from incurring transaction charges resulting from other investors' redemption activity. These types of fund liquidations generally must be requested in advance to allow fund managers time to trade out of potentially illiquid positions and thereby minimize trading costs.'",
+            "C": "Lockups delay, not prohibit."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.a",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Motivations to Trade — HF lockups",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_a_q9",
+          "number": 9,
+          "stem": "For *index tracking portfolios*, when the index has additions, deletions, or constituent weight changes, the manager *most likely*:",
+          "options": {
+            "A": "ignores the changes.",
+            "B": "trades only at the open.",
+            "C": "trades index changes at the closing price to ensure the same price is used for fund and benchmark valuation."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Passive funds must adjust for index changes.",
+            "B": "Close alignment is the goal.",
+            "C": "Full statement: trades index changes at the closing price to ensure the same price is used for fund and benchmark valuation — this minimizes tracking error to the benchmark since fund NAV is calculated at official market close.\n\nCorrect. Per the reading: 'For index tracking portfolios, such index changes as additions, deletions, and constituent weight changes are generally traded in the manager's portfolio to reflect benchmark exposure. Since the fund's NAV is calculated using the official market close for each security, trading index changes at the closing price ensures that the same price is used for fund and benchmark valuation (which also uses the closing price in its calculation) and thus minimizes the fund's tracking error to the benchmark index.'"
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.a",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Motivations to Trade — index tracking",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "trade_strategy_and_execution.b",
+      "los_letter": "b",
+      "los_text": "discuss inputs to the selection of a trading strategy",
+      "reading_id": "trade_strategy_and_execution",
+      "reading_name": "Trade Strategy and Execution",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r10_tse_los_b_q1",
+          "number": 1,
+          "stem": "The reading identifies *four key input categories* for trade strategy selection. Which is *least likely* one of them?",
+          "options": {
+            "A": "Compensation of the portfolio manager.",
+            "B": "Order characteristics (side, size, relative size).",
+            "C": "Security characteristics (type, short-term alpha, price volatility, liquidity)."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Compensation is not a trade strategy input. Per the reading, key inputs for trade strategy selection are: (1) order characteristics — side (buy/sell/cover/short), size, relative size (% of ADV); (2) security characteristics — type (underlying/ETF/ADR/GDR), short-term alpha, price volatility, security liquidity; (3) market conditions — liquidity crises deviations; (4) individual risk aversion — trader/manager willingness to accept risk during trading.",
+            "B": "This is one of the four.",
+            "C": "This is one of the four."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.b",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trading Strategies and Selection — inputs",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_b_q2",
+          "number": 2,
+          "stem": "*Relative order size* (% of ADV) is *most likely*:",
+          "options": {
+            "A": "unimportant.",
+            "B": "the order size divided by the security's average daily volume — a consistent measure across securities.",
+            "C": "the trade size in dollars."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "It's a key input.",
+            "B": "Full statement: the order size divided by the security's average daily volume — a consistent measure across securities; the larger the trade as a percentage of ADV, the larger the expected market impact cost.\n\nCorrect. Per the reading: 'To have a consistent order size measure across securities, portfolio managers often divide the order size by the security's ADV. For example, a 1 million share order in Stock ABC may be much different than a 1 million share order in Stock XYZ. If Stock ABC has an average daily volume of 50 million shares, the 1 million share order represents 2% (1 million/50 million) of ADV. If Stock XYZ has an average daily volume of 4 million shares, its order represents 25% (1 million/4 million) of ADV. The larger the size of the trade expressed as a percentage of ADV, the larger the expected market impact cost.'",
+            "C": "Dollar size doesn't standardize across securities."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.b",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trading Strategies — order size as % of ADV",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_b_q3",
+          "number": 3,
+          "stem": "*Market impact* is *most likely*:",
+          "options": {
+            "A": "the difference between decision price and execution price.",
+            "B": "commissions and fees only.",
+            "C": "the adverse price movement in a security caused by trading an order — one of the most significant costs in trading."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "That's implementation shortfall.",
+            "B": "Impact is separate from explicit fees.",
+            "C": "Full statement: the adverse price movement in a security caused by trading an order — one of the most significant costs in trading; larger orders cause greater market impact; all else equal, trading larger orders more quickly increases market impact cost.\n\nCorrect. Per the reading, 'Market impact is the adverse price movement in a security caused by trading an order and is one of the most significant costs in trading. Larger orders usually take longer to trade than smaller orders do, and portfolio managers will often trade larger orders in a more patient manner (lower trade urgency) to reduce market impact. All else equal, trading larger order sizes more quickly will increase market impact cost whereas trading smaller order sizes more slowly will decrease market impact cost.'"
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.b",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trading Strategies — market impact",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_b_q4",
+          "number": 4,
+          "stem": "*Short-term alpha* (or trading alpha) in a trading context is *most likely*:",
+          "options": {
+            "A": "expected movement in security price over the trading horizon (independent of the trade's impact).",
+            "B": "long-term risk-adjusted excess return.",
+            "C": "the manager's compensation."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: expected movement in security price over the trading horizon (independent of the trade's impact) — may arise from appreciation, depreciation, or reversion (reversal) in security price.\n\nCorrect. Per the reading: 'Short-term alpha in a trading context is the expected movement in security price over the trading horizon (independent of the trade's impact). Short-term alpha (also called trading alpha or trade alpha) may arise from an appreciation, a depreciation, or a reversion (i.e., reversal) in security price.' Alpha decay results from price movement in the direction of the investment forecast and occurs regardless of whether the trade takes place.",
+            "B": "That's classical alpha.",
+            "C": "Not compensation."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.b",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trading Strategies — short-term alpha",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_b_q5",
+          "number": 5,
+          "stem": "In an *adversely trending market* (buying in a rising market or selling in a falling market), portfolio managers *most likely*:",
+          "options": {
+            "A": "trade patiently.",
+            "B": "trade at an accelerated rate to capture prices before less favorable prices are expected later in the trading horizon.",
+            "C": "make no adjustments."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Patience worsens outcome in adverse trend.",
+            "B": "Correct. Per the reading: 'In an adversely trending market — for example, buying in a rising market or selling in a falling market — portfolio managers may trade at an accelerated rate if less favorable prices are expected later in the trading horizon. In a favorably trending market — for example, buying in a falling market or selling in a rising market — portfolio managers are better off trading more slowly to execute at more favorable prices expected later in the trading horizon.'",
+            "C": "Direction of trend must inform urgency."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.b",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trading Strategies — trend and urgency",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_b_q6",
+          "number": 6,
+          "stem": "*Execution risk* is *most likely*:",
+          "options": {
+            "A": "Execution risk is the same concept as market impact under a different name.",
+            "B": "Execution risk is the risk that a completed trade fails to settle.",
+            "C": "the risk of an adverse price movement occurring over the trading horizon due to a change in fundamental value or trading-induced volatility — often proxied by price volatility."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Market impact is the trader's own price pressure; execution risk is ADVERSE PRICE MOVEMENT over the horizon from value changes or induced volatility.",
+            "B": "Incorrect. Settlement failure is operational risk; execution risk concerns prices during the trading horizon.",
+            "C": "Full statement: the risk of an adverse price movement occurring over the trading horizon due to a change in fundamental value or trading-induced volatility — often proxied by price volatility; higher volatility → greater execution risk.\n\nCorrect. Per the reading: 'Execution risk is the risk of an adverse price movement occurring over the trading horizon owing to a change in the fundamental value of the security or because of trading-induced volatility. Execution risk is often proxied by price volatility. Securities with higher levels of price volatility have greater exposure to execution risk than securities with lower price volatility.'"
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.b",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trading Strategies — execution risk",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_b_q7",
+          "number": 7,
+          "stem": "A high level of *individual risk aversion* in a trader *most likely* results in:",
+          "options": {
+            "A": "higher trade urgency — more concerned about market risk and tends to trade quickly to avoid greater market exposure associated with trading patiently.",
+            "B": "High individual risk aversion in a trader results in lower trade urgency and more patient execution.",
+            "C": "A trader's risk aversion has no impact on the chosen trading strategy."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per the reading: 'A portfolio manager or trader with a high level of risk aversion is likely to be more concerned about market risk and will tend to trade with greater trade urgency to avoid the greater market exposure associated with trading more patiently. A portfolio manager with a low level of risk aversion might be less concerned about market risk and may tend to trade more patiently (more passively), with lower levels of trade urgency.'",
+            "B": "Incorrect. Patience is the LOW-risk-aversion posture; the risk-averse trader shortens market exposure by trading quickly.",
+            "C": "Incorrect. Risk aversion is a direct strategy input — it raises urgency to cut exposure to execution risk."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.b",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trading Strategies — risk aversion",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_b_q8",
+          "number": 8,
+          "stem": "*Temporary market impact* vs *permanent market impact* differ *most likely* because:",
+          "options": {
+            "A": "temporary impact is longer-lasting.",
+            "B": "temporary impact is the short-lived price effect from buying/selling pressure (with subsequent price reversion).",
+            "C": "they are identical concepts."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Opposite meanings of temporary and permanent.",
+            "B": "Full statement: temporary impact is the short-lived price effect from buying/selling pressure (with subsequent price reversion) — permanent impact is the price change from the *information content* of the trade (market participants adjust valuations, no reversion).\n\nCorrect. Per the reading: 'The temporary market impact cost of trading an order is the often short-lived impact on security price from trading to meet the need to buy or sell... post-trade prices should revert, with prices decreasing after buy order completion and increasing after sell order completion. The permanent component of price change associated with trading an order is the market price impact caused by the information content of the trade. Trading in the market often conveys information to other market participants that the asset may be under- or overvalued.'",
+            "C": "They differ in duration and cause."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.b",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trading Strategies — temporary vs permanent impact",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "trade_strategy_and_execution.c",
+      "los_letter": "c",
+      "los_text": "compare benchmarks for trade execution",
+      "reading_id": "trade_strategy_and_execution",
+      "reading_name": "Trade Strategy and Execution",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r10_tse_los_c_q1",
+          "number": 1,
+          "stem": "The reading identifies *four categories* of reference price benchmarks. These *most likely* include:",
+          "options": {
+            "A": "only pre-trade benchmarks.",
+            "B": "only post-trade benchmarks.",
+            "C": "pre-trade, intraday, post-trade, and price target benchmarks."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Multiple categories exist.",
+            "B": "Multiple categories exist.",
+            "C": "Correct. Per the reading, the four categories are: (1) pre-trade benchmarks (reference price known before start of trading — decision price, previous close, opening price, arrival price); (2) intraday benchmarks (based on prices during the trading period — VWAP, TWAP); (3) post-trade benchmarks (reference price determined at end of trading — closing price); (4) price target benchmarks (reference price is a specified price to meet or beat)."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.c",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Reference Prices — categories",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_c_q2",
+          "number": 2,
+          "stem": "The *decision price* benchmark is *most likely*:",
+          "options": {
+            "A": "the security price at the time the portfolio manager made the decision to buy or sell — commonly specified by quantitative portfolio managers who have exact records of this price.",
+            "B": "The decision price benchmark is the security's closing price on the day of the trade.",
+            "C": "The decision price benchmark is the volume-weighted average price over the trading day."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: the security price at the time the portfolio manager made the decision to buy or sell — commonly specified by quantitative portfolio managers who have exact records of this price; may be used as inputs into their quantitative models.\n\nCorrect. Per the reading: 'The decision price benchmark represents the security price at the time the portfolio manager made the decision to buy or sell the security. In many situations, portfolio managers have exact records of the price when they decided to buy or sell the security. Quantitative portfolio managers will often have records of their decision price because these prices may be inputs into their quantitative models.'",
+            "B": "Incorrect. The close is its own benchmark; decision price is struck when the MANAGER DECIDES to trade.",
+            "C": "Incorrect. VWAP is a separate intraday benchmark; decision price anchors cost to the moment of the investment decision."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.c",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Reference Prices — decision price",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_c_q3",
+          "number": 3,
+          "stem": "The *arrival price* benchmark is *most likely*:",
+          "options": {
+            "A": "the previous close.",
+            "B": "the price of the security at the time the order is entered into the market for execution.",
+            "C": "an average of intraday prices."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Previous close is different.",
+            "B": "Full statement: the price of the security at the time the order is entered into the market for execution — often specified by managers buying/selling on alpha expectations or market mispricing.\n\nCorrect. Per the reading: 'The arrival price is the price of the security at the time the order is entered into the market for execution. Portfolio managers who are buying or selling on the basis of alpha expectations or a current market mispricing will often specify an arrival price benchmark. In these cases, the portfolio manager's goal is to transact at or close to current market prices in order to complete trade execution and realize as much potential alpha as possible. Portfolio managers looking to minimize trading cost will also in many cases specify the arrival price as their benchmark.'",
+            "C": "VWAP/TWAP are intraday averages."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.c",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Reference Prices — arrival price",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_c_q4",
+          "number": 4,
+          "stem": "*VWAP* is *most likely*:",
+          "options": {
+            "A": "the average of high and low prices.",
+            "B": "the last price of the day.",
+            "C": "the volume-weighted average price of all trades executed over the day or trading horizon."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Not the reading's definition.",
+            "B": "That's the close.",
+            "C": "Full statement: the volume-weighted average price of all trades executed over the day or trading horizon — often specified by managers who wish to participate with volume patterns or by managers rebalancing with two-sided (buy/sell) lists.\n\nCorrect. Per the reading: 'The VWAP benchmark price is the volume-weighted average price of all trades executed over the day or the trading horizon. Portfolio managers may specify the VWAP benchmark when they wish to participate with volume patterns over the day. Portfolio managers who are rebalancing their portfolios over the day and have both buy and sell orders may select the VWAP as a price benchmark.' Exposure to market risk is reduced by two-sided (buy/sell) trade lists."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.c",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Reference Prices — VWAP",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_c_q5",
+          "number": 5,
+          "stem": "*TWAP* is *most likely*:",
+          "options": {
+            "A": "an equal-weighted average price of all trades executed over the day or trading horizon — does NOT consider volume traded.",
+            "B": "TWAP is identical to VWAP, differing only in the naming convention used by vendors.",
+            "C": "TWAP is the volume-weighted price of trades executed within the horizon."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: an equal-weighted average price of all trades executed over the day or trading horizon — does NOT consider volume traded; chosen when managers wish to exclude potential trade outliers (large trades at day's low/high).\n\nCorrect. Per the reading: 'The TWAP benchmark price is defined as an equal-weighted average price of all trades executed over the day or trading horizon. Unlike VWAP, TWAP price does not consider volume traded and is simply the average price of trades executed over the specified time horizon. Portfolio managers may choose TWAP when they wish to exclude potential trade outliers. Trade outliers may be caused by trading a large buy order at the day's low or a large sell order at the day's high.'",
+            "B": "Incorrect. The two differ structurally — VWAP weights by volume, TWAP weights each period equally.",
+            "C": "Incorrect. Volume weighting defines VWAP; TWAP is the EQUAL-weighted average and ignores volume entirely."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.c",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Reference Prices — TWAP",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_c_q6",
+          "number": 6,
+          "stem": "The *closing price* benchmark is *most likely* used by:",
+          "options": {
+            "A": "The closing price benchmark is used primarily by high-turnover quantitative funds.",
+            "B": "index managers and mutual funds that wish to execute transactions at the closing price for the day — important for managers with index mandates where fund securities are valued using official market close.",
+            "C": "The closing price benchmark is used exclusively by intraday day traders."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Quantitative funds typically benchmark to decision or arrival prices tied to signal generation.",
+            "B": "Full statement: index managers and mutual funds that wish to execute transactions at the closing price for the day — important for managers with index mandates where fund securities are valued using official market close; minimizes tracking error to the benchmark.\n\nCorrect. Per the reading: 'The closing price is typically used by index managers and mutual funds that wish to execute transactions at the closing price for the day. For managers with index mandates, where the fund's securities are typically valued using the official market close for each security, it is important to know how close their executions are to the benchmark price, which also uses the official market close in its calculation. A portfolio manager who is managing tracking error to a benchmark will generally select a closing price benchmark since the closing price is the price used to compute the fund's valuation.'",
+            "C": "Incorrect. Day traders close positions before the close; INDEX managers and mutual funds valued at the close are the natural users."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.c",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Reference Prices — closing price",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_c_q7",
+          "number": 7,
+          "stem": "The *opening price* benchmark is *most likely* preferred over previous close or decision price because:",
+          "options": {
+            "A": "it is easier to obtain.",
+            "B": "it eliminates all trading costs.",
+            "C": "it does not have associated overnight risk."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "All three are equally observable.",
+            "B": "Not related to fees.",
+            "C": "Full statement: it does not have associated overnight risk — the risk that prices will adjust at market open to incorporate information released after the previous close.\n\nCorrect. Per the reading: 'Portfolio managers may choose an opening price instead of the decision price or previous close because, unlike a reference price from the prior day or earlier, the opening price does not have associated overnight risk, or the risk that prices will adjust at market open to incorporate information released after the close of the previous business day.' Cannot use opening as benchmark if trade is in the opening auction itself."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.c",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Reference Prices — opening price",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_c_q8",
+          "number": 8,
+          "stem": "The *price target* benchmark is *most likely*:",
+          "options": {
+            "A": "a benchmark specifying a price to meet or beat (transact more favorably).",
+            "B": "always the previous close.",
+            "C": "always the closing price."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: a benchmark specifying a price to meet or beat (transact more favorably) — used by managers seeking short-term alpha who wish to transact at a more favorable price (e.g., buy at $20.50 or better when stock is at $20 believed undervalued by $0.50).\n\nCorrect. Per the reading: 'Portfolio managers seeking short-term alpha may select an alternative benchmark known as a price target benchmark. In this case, a portfolio manager would like to transact in a security — believed to be undervalued or overvalued — at a more favorable price. For example, if a stock currently trading in the market at $20.00 is believed to be undervalued by $0.50, the portfolio manager will seek to purchase shares by specifying a price target of $20.50 or better (better being lower than $20.50 in the case of a buy). In this example, the benchmark price is specified as the perceived fair value price of $20.50.'",
+            "B": "Not previous close.",
+            "C": "Not closing price."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.c",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Reference Prices — price target",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_c_q9",
+          "number": 9,
+          "stem": "The main *disadvantage* of the closing price benchmark is *most likely*:",
+          "options": {
+            "A": "unrelated to trading activity.",
+            "B": "the benchmark price is not known until after trading is completed.",
+            "C": "it is subject to overnight risk."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Not the disadvantage.",
+            "B": "Full statement: the benchmark price is not known until after trading is completed — portfolio managers have no way of knowing whether they are performing more or less favorably relative to the benchmark until after trading is done.\n\nCorrect. Per the reading: 'An advantage of the closing price benchmark is that it provides portfolio managers with the price used for fund valuation and thus minimizes potential tracking error. A disadvantage is that the benchmark price is not known until after trading is completed. Thus, portfolio managers have no way of knowing whether they are performing more or less favorably relative to the benchmark until after trading is completed.'",
+            "C": "Closing price has no overnight risk (uses today's close)."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.c",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Reference Prices — closing price disadvantage",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "trade_strategy_and_execution.d",
+      "los_letter": "d",
+      "los_text": "recommend and justify a trading strategy (given relevant facts)",
+      "reading_id": "trade_strategy_and_execution",
+      "reading_name": "Trade Strategy and Execution",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r10_tse_los_d_q1",
+          "number": 1,
+          "stem": "For a *short-term alpha-driven equity trade* (high urgency, XYZ trading at significant pre-market discount believed to be an overreaction), the *most appropriate* trading strategy is *most likely*:",
+          "options": {
+            "A": "For the high-urgency alpha trade, the most appropriate strategy is passive VWAP or TWAP over the whole day routed through dark pools.",
+            "B": "The most appropriate strategy is waiting until the closing auction to execute the entire order.",
+            "C": "trade portion in the opening auction and continue any residual in the open market (using price target benchmark, e.g., $60 limit) — provides greater execution certainty given trade urgency."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Passive full-day scheduling surrenders the short-term alpha the pre-market discount offers.",
+            "B": "Incorrect. Waiting until the close forfeits the overreaction opportunity; the opening auction plus open-market residual (with a price target/limit) captures it.",
+            "C": "Full statement: trade portion in the opening auction and continue any residual in the open market (using price target benchmark, e.g., $60 limit) — provides greater execution certainty given trade urgency; avoid dark pool venues due to risk of unfilled executions.\n\nCorrect. Per the reading's short-term alpha example: 'Given the possibility of short-term price increases in XYZ, this order has associated trade urgency and the trader does not have the benefit of trading the order passively (such as using a VWAP or TWAP participation strategy) during the day, since XYZ's price could increase to fair value at any time. To trade this order, the trader would not likely attempt to use dark pool venues, given their greater risk of unfilled executions if offsetting orders do not arrive. The trader will likely want to trade a portion of the order in the opening auction and then continue trading any residual in the open market.'"
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.d",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trading Strategies — short-term alpha",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_d_q2",
+          "number": 2,
+          "stem": "For a *long-term alpha-driven fixed-income trade* (low urgency, longer-term view), the *most appropriate* strategy is *most likely*:",
+          "options": {
+            "A": "trade patiently, over extended horizon, potentially in illiquid corporate bond markets via broker agency execution.",
+            "B": "trade all at once at the open.",
+            "C": "use the closing auction."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per the reading, longer-term alpha-driven strategies (like value investing or long-term FI mandates) have low trade urgency; managers trade patiently, spreading executions over longer horizons to capture favorable prices. In fixed-income markets (particularly illiquid corporate bonds), large non-urgent trades are generally implemented via broker agency trades — brokers act as agents to source liquidity rather than principal trades. This provides more favorable execution over longer periods but requires patience.",
+            "B": "Long-term views don't require urgency.",
+            "C": "Closing auction is for index/NAV-related trades."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.d",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trading Strategies — long-term FI trade",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_d_q3",
+          "number": 3,
+          "stem": "For a *risk rebalance* trade (macro hedge fund with balanced buy/sell list to reduce volatility), the *most appropriate* strategy is *most likely*:",
+          "options": {
+            "A": "aggressive full-day trading with dark pools only.",
+            "B": "TWAP algorithm with TWAP reference price over the next day or two.",
+            "C": "single trade at market open."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Aggressive doesn't match controlled reduction.",
+            "B": "Correct. Per the reading's risk rebalance example: 'Since the portfolio is not in breach of its guidelines and the portfolio manager wishes to reduce risk on a controlled and gradual basis, the trader can trade this order in a passive manner to lower the fund's risk level. In this situation, using a TWAP reference price for the trade and a TWAP algorithm to execute over the next day or two (or longer, depending on the size of the position) would be an appropriate trading strategy. By trading all the orders over the same trading horizon using a TWAP strategy, the trader is maintaining the hedge that exists between the buys and sells, which helps reduce execution risk.'",
+            "C": "Single trade concentrates risk."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.d",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trading Strategies — risk rebalance",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_d_q4",
+          "number": 4,
+          "stem": "For a *client redemption* trade where the client will receive fund NAV at closing, the *most appropriate* strategy is *most likely*:",
+          "options": {
+            "A": "trade at market open only.",
+            "B": "trade throughout the day using arrival price.",
+            "C": "send the order to the closing auction (or similar closing mechanism) to receive the auction-guaranteed closing price on all orders."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Market open doesn't match NAV pricing.",
+            "B": "Arrival price doesn't match NAV.",
+            "C": "Full statement: send the order to the closing auction (or similar closing mechanism) to receive the auction-guaranteed closing price on all orders — eliminates risk of executing at prices different from those used to calculate the fund's NAV.\n\nCorrect. Per the reading: 'In this scenario, the client will receive the NAV of the fund regardless of how well or poorly the trader executes the trade. Therefore, the trader bears risk (for executing at any price other than the closing price) unless she can guarantee that each position is executed at the closing price. A closing price reference price is, therefore, most appropriate for this trade. On various exchanges such as NASDAQ, NYSE, TSE, Deutsche Börse (Xetra), and HKEX, the trader can send the order to the closing auction... and receive the auction-guaranteed closing price on all orders submitted to the auction.' If order is large relative to closing auction volume, may split: e.g., 90% to close, 10% VWAP during day."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.d",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trading Strategies — client redemption",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_d_q5",
+          "number": 5,
+          "stem": "For a *new mandate trade* (€100M into MDAX with 3% TE, performance measurement begins today's close), the *most appropriate* strategy is *most likely*:",
+          "options": {
+            "A": "buy MDAX futures immediately to gain full €100M index exposure (equitize the cash), then build underlying stock positions over time and unwind the futures.",
+            "B": "For the new €100M MDAX mandate, the appropriate strategy is investing slowly in the underlying stocks over many days without interim exposure.",
+            "C": "The appropriate strategy is holding the €100M in cash indefinitely until attractive entry prices emerge."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: buy MDAX futures immediately to gain full €100M index exposure (equitize the cash), then build underlying stock positions over time and unwind the futures — eliminates opportunity cost of holding cash relative to the benchmark.\n\nCorrect. Per the reading's new mandate example: 'The trader can get more immediate exposure to the MDAX by buying €100 million worth of MDAX futures traded on Eurex, a major European derivatives exchange. After establishing this initial exposure, the trader can begin building the underlying stock positions over time and unwinding (selling) the equivalent futures exposure. This approach allows the client mandate to achieve full €100 million exposure to the MDAX, eliminating the opportunity cost of holding cash balances in the fund.' For smaller mandates in liquid securities, may skip the equitization-via-futures step.",
+            "B": "Incorrect. Slow uncovered investing risks underperformance from day one if the MDAX rises — measurement begins at today's close.",
+            "C": "Incorrect. Cash drag against an equity benchmark is the guaranteed way to trail; futures equitization removes it immediately."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.d",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trading Strategies — new mandate",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_d_q6",
+          "number": 6,
+          "stem": "For a *balanced buy/sell list with net beta ~0*, the trader *most likely* has:",
+          "options": {
+            "A": "greater trade urgency than a directional trade.",
+            "B": "lower trade urgency because market risk exposure is reduced when a list is balanced in market exposure.",
+            "C": "no urgency considerations."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Directional trades have more urgency, not less.",
+            "B": "Full statement: lower trade urgency because market risk exposure is reduced when a list is balanced in market exposure — trades containing all buys or all sells have significantly more risk from potential market movement.\n\nCorrect. Per the reading: 'Although volatility has significantly increased, the risk exposure of the trade is more limited if the list of buys and sells is balanced in market risk exposure, such as a buy/sell trade list with a net beta of approximately zero... Therefore, the trader does not have the same trade urgency as a trade with a positive or negative net beta, such as one containing all buys or all sells, which might involve significantly more risk arising from exposure to potential market movement. Risk-averse market participants will typically have greater trade urgency for trades that have directional market exposure than for trades that are balanced, or hedged, in market exposure.'",
+            "C": "Urgency exists but is lower."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.d",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trading Strategies — balanced list urgency",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_d_q7",
+          "number": 7,
+          "stem": "For trading through the *opening auction*, the reading notes US opening auctions typically make up *most likely*:",
+          "options": {
+            "A": "50% of daily volume.",
+            "B": "over 30% of daily volume.",
+            "C": "between 1-1.25% of a day's volume."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Far too high.",
+            "B": "Auctions are much smaller.",
+            "C": "Full statement: between 1-1.25% of a day's volume — sending an entire order (e.g., 2% of expected volume) into the opening auction would result in the order being roughly the entire auction volume.\n\nCorrect. Per the reading's short-term alpha example: 'Since the order represents approximately 2% of expected volume, the trader would not likely place the full order into the opening auction. Research shows the US opening auction typically makes up between 1-1.25% of a day's volume, so sending the entire order into the opening auction would result in the ordering being roughly [equal to the entire auction].' Managers must size opening auction submissions relative to auction volume."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.d",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trading Strategies — opening auction volume",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_d_q8",
+          "number": 8,
+          "stem": "For managers concerned about *large sell orders impacting closing auction NAV*, the reading suggests *most likely*:",
+          "options": {
+            "A": "execute portion in the market prior to close (e.g., 10% VWAP up to close) and send remainder (e.g., 90%) to closing auction.",
+            "B": "For large sell orders threatening closing-auction NAV, the reading suggests trading the entire order in the closing auction.",
+            "C": "The reading suggests cancelling the order entirely to avoid any auction impact."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: execute portion in the market prior to close (e.g., 10% VWAP up to close) and send remainder (e.g., 90%) to closing auction — some brokers offer 'close algorithms' automating this.\n\nCorrect. Per the reading: 'From a fiduciary standpoint, however, trading in a manner that will lead to a poorer (less favorable) execution for a client is inappropriate. An alternative approach that portfolio managers follow when their trades are large relative to expected liquidity in the closing auction is to execute in the market and in the closing auction. For example, they would identify a reasonable amount to send to the closing auction (e.g., 90% of the order to be sent to the closing auction), trade the order remainder in the market prior to the close of trading (e.g., 10% of the order to be traded VWAP in the market up to the close of trading), and then send the identified amount (90% of the order) to the closing auction.'",
+            "B": "Incorrect. Full concentration in the auction is exactly what creates the adverse NAV impact.",
+            "C": "Incorrect. Cancellation abandons the investment decision; splitting (e.g., 10% VWAP before the close, 90% to the auction) manages the impact."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.d",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trading Strategies — split close vs VWAP",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_d_q9",
+          "number": 9,
+          "stem": "The primary goal of any trading strategy is *most likely* to:",
+          "options": {
+            "A": "The primary goal of any trading strategy is to always execute at the lowest possible price.",
+            "B": "balance the expected costs and risks associated with trading the order in the market consistent with the portfolio manager's trading objectives, risk aversion, and other known constraints.",
+            "C": "The primary goal is to always trade at the fastest achievable speed."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. The lowest price is rarely achievable and chasing it invites opportunity cost; the goal is the cost/risk balance.",
+            "B": "Correct. Per the reading: 'The primary goal of any trading strategy is to balance the expected costs and risks associated with trading the order in the market consistent with the portfolio manager's trading objectives, risk aversion, and other known constraints. A portfolio manager's motivation to trade, risk aversion, trade urgency for the order, and other factors, such as order size and market conditions at the time of trading, are thus key in determining an appropriate trade strategy.'",
+            "C": "Incorrect. Speed minimizes execution risk but maximizes impact; the objective BALANCES both, consistent with the manager's trading objectives."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.d",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trading Strategies — primary goal",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "trade_strategy_and_execution.e",
+      "los_letter": "e",
+      "los_text": "describe factors that typically determine the selection of a trading algorithm class",
+      "reading_id": "trade_strategy_and_execution",
+      "reading_name": "Trade Strategy and Execution",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r10_tse_los_e_q1",
+          "number": 1,
+          "stem": "The reading identifies *two primary purposes* of trading algorithms. These are *most likely*:",
+          "options": {
+            "A": "only trade execution.",
+            "B": "only market making.",
+            "C": "trade execution and profit generation."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Profit-seeking is also a primary purpose.",
+            "B": "Market making is a specific case of profit-seeking.",
+            "C": "Correct. Per the reading: 'Trading algorithms are primarily used for two purposes — trade execution and profit generation.' Execution algorithms transact investment decisions made by the portfolio manager. Profit-seeking algorithms determine what to buy/sell then implement decisions efficiently — used by electronic market makers, quantitative funds, and high-frequency traders."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.e",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Algorithmic Trading — purposes",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_e_q2",
+          "number": 2,
+          "stem": "*Scheduled algorithms* (POV, VWAP, TWAP) *most likely* send orders following:",
+          "options": {
+            "A": "a schedule determined by historical volumes or specified time periods — POV sends orders following a volume participation schedule (e.g., 10% participation rate).",
+            "B": "Scheduled algorithms send orders at random times to avoid detection by other market participants.",
+            "C": "Scheduled algorithms trade only at the market open and close, avoiding intraday activity."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: a schedule determined by historical volumes or specified time periods — POV sends orders following a volume participation schedule (e.g., 10% participation rate); VWAP/TWAP release orders following a time-specified schedule.\n\nCorrect. Per the reading: 'Scheduled algorithms send orders to the market following a schedule that is determined by historical volumes or specified time periods. Scheduled algorithms include percentage of volume (POV) algorithms, volume-weighted average price algorithms, and time-weighted average price algorithms. POV algorithms (also known as participation algorithms) send orders following a volume participation schedule. As trading volume increases in the market, these algorithms will trade more shares... VWAP and TWAP algorithms release orders to the market following a time-specified schedule.'",
+            "B": "Incorrect. Randomization is an anti-gaming overlay elsewhere; scheduled algos follow VOLUME or TIME schedules.",
+            "C": "Incorrect. POV, VWAP, and TWAP operate throughout the day per their participation or time schedules."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.e",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Algorithm Classes — scheduled",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_e_q3",
+          "number": 3,
+          "stem": "A *POV algorithm* with 10% participation rate *most likely* means:",
+          "options": {
+            "A": "trades 10% of the order at the open.",
+            "B": "for every 10,000 shares that trade in the market, the algorithm will execute 1,000 shares.",
+            "C": "trades 10% during the first hour."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Not front-loaded.",
+            "B": "Full statement: for every 10,000 shares that trade in the market, the algorithm will execute 1,000 shares — participates with 10% of market volume until the order is completed.\n\nCorrect. Per the reading: 'Investors specify the POV algorithm through the participation rate, which determines the volume participation strategy. For example, a participation rate of 10% indicates that the algorithm will participate with 10% of the market volume until the order is completed. In this case, for every 10,000 shares that trade in the market, the algorithm will execute 1,000 shares.' Advantage: automatically takes advantage of increased liquidity. Disadvantage: may not complete order in specified time period.",
+            "C": "Participation continues throughout."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.e",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Algorithm Classes — POV",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_e_q4",
+          "number": 4,
+          "stem": "*Liquidity-seeking algorithms* are *most likely* appropriate for:",
+          "options": {
+            "A": "only small orders in liquid markets.",
+            "B": "small orders that need immediate execution.",
+            "C": "large orders that must execute quickly without substantial impact — priority is to minimize information leakage."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Not for small orders.",
+            "B": "Not the reading's use case.",
+            "C": "Full statement: large orders that must execute quickly without substantial impact — priority is to minimize information leakage; also used when the security is relatively less liquid or when liquidity is episodic (thin books with occasional tight spreads/thick books).\n\nCorrect. Per the reading: 'Liquidity-seeking algorithms are appropriate for large orders that the portfolio manager or trader would like to execute quickly without having a substantial impact on the security price. Liquidity-seeking algorithms are also used when displaying sizable liquidity via limit orders could lead to unwanted information leakage and adverse security price movement. In these cases, the priority is to minimize information leakage associated with order execution and avoid signaling to the market the trading intentions of the portfolio manager or trader. These algorithms are also appropriate for trading securities that are relatively less liquid and thinly traded or when liquidity is episodic.'"
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.e",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Algorithm Classes — liquidity-seeking",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_e_q5",
+          "number": 5,
+          "stem": "*Arrival price algorithms* are *most likely*:",
+          "options": {
+            "A": "trade more aggressively at the beginning of trading to execute more shares nearer to the arrival price — 'front-loaded' strategy.",
+            "B": "Arrival price algorithms spread trading uniformly across the entire day.",
+            "C": "Arrival price algorithms concentrate all trading at the end of the day."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: trade more aggressively at the beginning of trading to execute more shares nearer to the arrival price — 'front-loaded' strategy; used when the manager believes prices are likely to move unfavorably during the trade horizon or when the trader is risk averse and wishes to reduce execution risk.\n\nCorrect. Per the reading: 'Arrival price algorithms seek to trade close to current market prices at the time the order is received for execution. Arrival price algorithms will trade more aggressively at the beginning of trading to execute more shares nearer to the arrival price, known as a front-loaded strategy. Arrival price algorithms tend to be time schedule based but can also be volume participation based. Arrival price algorithms are used for orders in which the portfolio manager or trader believes prices are likely to move unfavorably during the trade horizon.' Also used when order is not outsized (less than 15% of expected volume).",
+            "B": "Incorrect. Uniform spreading is TWAP's profile; arrival price algos are FRONT-loaded.",
+            "C": "Incorrect. End-of-day concentration maximizes drift from the arrival price — the opposite of the objective."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.e",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Algorithm Classes — arrival price",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_e_q6",
+          "number": 6,
+          "stem": "*Dark aggregator algorithms* are *most likely* appropriate for:",
+          "options": {
+            "A": "Dark aggregator algorithms are most appropriate for small orders in highly liquid securities.",
+            "B": "large orders relative to expected volume where trading in the open market would lead to significant market impact and where the trader is concerned about information leakage from posting limit orders in lit venues.",
+            "C": "Dark aggregators are appropriate for trades requiring immediate, certain execution."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Small liquid orders route efficiently through lit markets and SORs.",
+            "B": "Full statement: large orders relative to expected volume where trading in the open market would lead to significant market impact and where the trader is concerned about information leakage from posting limit orders in lit venues — also appropriate for relatively illiquid securities and when the trader does not need to execute the entire order.\n\nCorrect. Per the reading: 'Dark aggregator algorithms are used in trading when portfolio managers and traders are concerned with information leakage that may occur from posting limit orders in lit venues with pre- and post-trade transparency. These algorithms are used when order size is large relative to the market (i.e., a large percentage of expected volume) and when trading in the open market using arrival price or VWAP strategies would lead to significant market impact. These algorithms are appropriate for trading securities that are relatively illiquid or have relatively wide bid-ask spreads. Since trading in dark pools offers less certainty of execution (offsetting orders may never arrive), these algorithms are appropriate for trades in which the trader or portfolio manager does not need to execute the order in its entirety.'",
+            "C": "Incorrect. Dark venues trade certainty for reduced impact — immediacy-critical orders belong in lit markets."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.e",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Algorithm Classes — dark aggregators",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_e_q7",
+          "number": 7,
+          "stem": "*Smart order routers* (SORs) *most likely*:",
+          "options": {
+            "A": "Smart order routers execute exclusively in dark pools, never touching lit venues.",
+            "B": "Smart order routers send every order to a single pre-designated venue.",
+            "C": "determine how best to route an order given prevailing market conditions — for limit orders, find the destination with highest execution probability."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. SORs span lit AND dark destinations.",
+            "B": "Incorrect. The router's function is venue CHOICE — for limit orders, the destination with the highest fill probability under prevailing conditions.",
+            "C": "Full statement: determine how best to route an order given prevailing market conditions — for limit orders, find the destination with highest execution probability; for market orders, find the venue with best market price (e.g., NBBO in US); continuously monitor real-time data from exchanges and dark pools.\n\nCorrect. Per the reading: 'Smart order routers (SORs) determine how best to route an order given prevailing market conditions. The SOR will determine the destination with the highest probability of executing the limit order and the venue with the best market price — known in the United States as the National Best Bid and Offer (NBBO) — for market orders. The SOR continuously monitors real-time data from exchanges and venues and also assesses ongoing activity in dark pools. SORs are used when a portfolio manager or trader wishes to execute a small order.'"
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.e",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Algorithm Classes — SORs",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_e_q8",
+          "number": 8,
+          "stem": "For a portfolio manager expecting *short-term buying pressure* by other participants into the market close (adverse price expectations), the *most appropriate* algorithm for a moderate-size order in a liquid stock is *most likely*:",
+          "options": {
+            "A": "arrival price — to trade more aggressively at the beginning and capture alpha ahead of the adverse price movement expected later.",
+            "B": "dark aggregator — for order sizes that are relatively small and in liquid markets.",
+            "C": "closing auction only."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per the reading's in-text question solution: 'An arrival price algorithm would be most appropriate for trading this order because the portfolio manager has adverse price expectations. In this case, the portfolio manager wants to trade more aggressively to capture alpha ahead of less favorable prices expected later in the day. By trading the order more quickly, the portfolio manager can execute at more favorable prices ahead of the adverse price movement and the less favorable prices expected from other participants' buying pressure into the close, in line with his trade urgency.'",
+            "B": "Dark aggregators best for large/illiquid.",
+            "C": "Closing auction would trade at the adverse price."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.e",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Algorithm Classes — algorithm selection example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "trade_strategy_and_execution.f",
+      "los_letter": "f",
+      "los_text": "contrast key characteristics of the following markets in relation to trade implementation: equity, fixed income, options and futures, OTC derivatives, and spot currency",
+      "reading_id": "trade_strategy_and_execution",
+      "reading_name": "Trade Strategy and Execution",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r10_tse_los_f_q1",
+          "number": 1,
+          "stem": "*Equity markets* are *most likely* characterized by:",
+          "options": {
+            "A": "primarily OTC dealer market with no transparency.",
+            "B": "high transparency with pre- and post-trade information on lit venues.",
+            "C": "physical trading only."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "That describes fixed income more.",
+            "B": "Full statement: high transparency with pre- and post-trade information on lit venues; algorithmic and electronic trading is well-established; DMA for small trades; larger trades use algorithms.\n\nCorrect. Per the reading, equity markets are highly electronically traded with pre- and post-trade transparency, algorithmic trading is well-established, and small trades often use direct market access (DMA) or SORs. Larger trades use algorithms (VWAP, TWAP, POV, arrival price, dark aggregators). This is in stark contrast to less liquid markets.",
+            "C": "Equity is highly electronic."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.f",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Comparison of Markets — equities",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_f_q2",
+          "number": 2,
+          "stem": "*Fixed-income markets* are *most likely* characterized by:",
+          "options": {
+            "A": "high transparency and full electronic trading of all bonds.",
+            "B": "identical structure to equities.",
+            "C": "bilateral, dealer-centric market structure — investors get quotes from dealers (often banks) via phone, electronic chat, or RFQ platforms."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "FI has limited transparency and electronic trading.",
+            "B": "FI and equities differ substantially.",
+            "C": "Full statement: bilateral, dealer-centric market structure — investors get quotes from dealers (often banks) via phone, electronic chat, or RFQ platforms; dealers provide quotes only on request; algorithmic trading limited mainly to on-the-run US Treasuries and bond/rate futures.\n\nCorrect. Per the reading: 'Fixed-income securities are generally traded in a bilateral, dealer-centric market structure. Investors will generally get quotes from dealers, often banks, which make markets in the securities. Historically, these quotes were accessed via phone, but they increasingly are disseminated using electronic chat (e.g., Symphony, Bloomberg) or electronic RFQ platforms. Just as it was before the onset of these electronic platforms, dealers do not provide quotes continuously; they provide them only on request... There is limited algorithmic trading in bond markets, except for on-the-run (most recently issued) US Treasuries in benchmark maturities and bond and interest rate futures contracts.'"
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.f",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Comparison of Markets — fixed income",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_f_q3",
+          "number": 3,
+          "stem": "For *fixed-income* trades, the reading identifies the following trade sizes/urgency patterns *most likely*:",
+          "options": {
+            "A": "small trades and large urgent trades usually via broker risk trades (RFQs, broker takes contract into inventory).",
+            "B": "all trades via algorithms.",
+            "C": "no trader interaction needed."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: small trades and large urgent trades usually via broker risk trades (RFQs, broker takes contract into inventory); large non-urgent trades via high-touch agency (broker sources liquidity, not principal).\n\nCorrect. Per the reading: 'Small trades and large, urgent trades are usually implemented through broker risk trades (via RFQs), where the broker acts as the counterparty, because securities are hard to source otherwise. Large, non-urgent trades are generally implemented using a high-touch approach, with brokers acting as agents to source liquidity (agency trades instead of principal trades).' The combination of illiquidity and infrequent trades creates challenges for algorithmic trading.",
+            "B": "Algo trading is limited in FI.",
+            "C": "High-touch remains important."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.f",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Comparison of Markets — FI trade implementation",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_f_q4",
+          "number": 4,
+          "stem": "*Exchange-traded derivatives* (futures, options) *most likely* have:",
+          "options": {
+            "A": "no transparency at all.",
+            "B": "high market transparency and highly standardized contracts.",
+            "C": "fully customized contracts only."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Transparency is high.",
+            "B": "Correct. Per the reading: 'Similar to exchange-traded equities, market transparency is high and trade price, size, quote, and depth of book data are publicly available. Electronic trading is widespread for exchange-traded derivatives; however, algorithmic trading is not as evolved as in equity markets and is currently used more for trading in futures than in options.' Large, urgent trades 'sweep the book'; large, non-urgent trades use algorithms; buy-side generally uses direct market access for small trades. Fewer than 1,000 liquid and highly standardized contracts outstanding.",
+            "C": "Contracts are standardized."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.f",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Comparison of Markets — exchange-traded derivatives",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_f_q5",
+          "number": 5,
+          "stem": "*OTC derivative* markets *most likely* have:",
+          "options": {
+            "A": "OTC derivative markets have high public transparency similar to listed equity markets.",
+            "B": "OTC derivative markets operate with no dealer involvement.",
+            "C": "historically opaque markets — regulatory efforts (Dodd-Frank in US, G-20 2009 agreement) have increased transparency via swap data repositories (SDRs) and central clearing for standardized derivatives."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Historic OPACITY is the defining feature; Dodd-Frank and the G-20 agenda pushed transparency via swap data repositories.",
+            "B": "Incorrect. Dealers are central to OTC structure — that intermediation is what the reforms sought to illuminate.",
+            "C": "Full statement: historically opaque markets — regulatory efforts (Dodd-Frank in US, G-20 2009 agreement) have increased transparency via swap data repositories (SDRs) and central clearing for standardized derivatives; large customized trades often require price concessions to find buyers/sellers.\n\nCorrect. Per the reading: 'OTC derivative markets have historically been opaque, with little public data about prices, trade sizes, and structure details. Regulatory efforts have focused on increasing transparency and reducing counterparty risk in these markets. In the United States, the Dodd-Frank Wall Street Reform and Consumer Protection Act, enacted in 2010, significantly increased post-trade transparency in the OTC derivative markets with the establishment of swap data repositories (SDRs) to which trade details must be submitted... Trading OTC derivatives takes place through dealers.' Large, urgent trades = broker risk trades. Large, non-urgent = high-touch agency. Sometimes strong price concession is required."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.f",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Comparison of Markets — OTC derivatives",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_f_q6",
+          "number": 6,
+          "stem": "*Spot foreign exchange (currency)* markets are *most likely*:",
+          "options": {
+            "A": "entirely OTC — no exchange or centralized clearing for majority of spot FX trades.",
+            "B": "centrally cleared with regulation.",
+            "C": "physical trading only."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: entirely OTC — no exchange or centralized clearing for majority of spot FX trades; multiple electronic venues and broker markets; multi-tiered market structure (interbank market at top with large international banks as dealers, smaller banks/institutions below, then corporates/retail); daily volume often >$1 trillion.\n\nCorrect. Per the reading: 'There is no exchange or centralized clearing place for the majority of spot foreign exchange (currency) trades. Spot currency markets consist of a number of electronic venues and broker markets. The currency market is an entirely OTC market. Despite being a global market, there is almost no cross-border regulation.' The spot currency market has multiple levels: interbank market (top level: large banks and financial firms as dealers), small/medium banks and institutions, and commercial companies and retail traders. Daily volume often more than $1 trillion.",
+            "B": "FX is not centrally cleared.",
+            "C": "FX is entirely electronic and OTC."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.f",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Comparison of Markets — spot FX",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_f_q7",
+          "number": 7,
+          "stem": "For *spot FX* trades, the reading identifies size/urgency patterns *most likely*:",
+          "options": {
+            "A": "all trades via a single dealer.",
+            "B": "large urgent trades via RFQs submitted to multiple dealers competing.",
+            "C": "all trades via central clearing."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Multiple dealers compete on urgent trades.",
+            "B": "Full statement: large urgent trades via RFQs submitted to multiple dealers competing; large non-urgent via algorithms (e.g., TWAP) or high-touch agency; small trades via DMA.\n\nCorrect. Per the reading: 'Electronic trading in currencies has grown substantially over the years in parallel with algorithmic trading strategies of equities. For large, urgent trades, RFQs are generally submitted to multiple dealers competing for a trade. Large, non-urgent trades are mostly executed using algorithms (such as TWAP) or a high-touch agency approach. Small trades are usually implemented using DMA.'",
+            "C": "FX has no central clearing."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.f",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Comparison of Markets — FX trade implementation",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_f_q8",
+          "number": 8,
+          "stem": "For a *large, non-urgent sell of OTC options*, the *most appropriate* execution approach is *most likely*:",
+          "options": {
+            "A": "algorithmic execution.",
+            "B": "closing auction.",
+            "C": "broker agency trade — broker acts on behalf of manager to find matching buyer."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "OTC options are not typically algorithmically traded.",
+            "B": "OTC not exchange-traded.",
+            "C": "Full statement: broker agency trade — broker acts on behalf of manager to find matching buyer; may require significant price concession depending on contract customization.\n\nCorrect. Per the reading's in-text example: 'A large, non-urgent sell of OTC options would generally involve a broker agency trade in which the broker would act on behalf of the manager to find a matching buyer for the options. Depending on the level of contract customization, however, a significant price concession may be required by the manager to complete order execution.' OTC option customization limits liquidity."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.f",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Comparison of Markets — OTC options example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_f_q9",
+          "number": 9,
+          "stem": "For a *large, urgent sell of corporate bonds*, the *most appropriate* execution is *most likely*:",
+          "options": {
+            "A": "broker risk trade via RFQ process (because of corporate bond illiquidity, low likelihood of finding a matching buyer.",
+            "B": "closing auction of stock exchange.",
+            "C": "algorithmic execution across venues."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: broker risk trade via RFQ process (because of corporate bond illiquidity, low likelihood of finding a matching buyer; for immediate execution, broker acts as counterparty taking bonds into inventory).\n\nCorrect. Per the reading's in-text example: 'A large, urgent sell of corporate bonds would usually involve a broker risk trade via the RFQ process. Because of corporate bond illiquidity, the likelihood of finding a matching buyer is low. For more immediate (urgent) order execution, a broker would be needed to act as counterparty to the trade, taking the bonds and their associated risk into his inventory.' Broker becomes counterparty for urgent trades.",
+            "B": "Corporate bonds don't trade on stock exchanges.",
+            "C": "Limited algo for corporate bonds."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.f",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Comparison of Markets — corporate bond urgent example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "trade_strategy_and_execution.g",
+      "los_letter": "g",
+      "los_text": "explain how trade costs are measured and determine the cost of a trade",
+      "reading_id": "trade_strategy_and_execution",
+      "reading_name": "Trade Strategy and Execution",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r10_tse_los_g_q1",
+          "number": 1,
+          "stem": "The *implementation shortfall* (IS) metric is *most likely*:",
+          "options": {
+            "A": "Implementation shortfall is an ex-ante estimate of the expected cost of trading an order.",
+            "B": "the difference between the return for a notional/paper portfolio (assuming all transactions at manager's decision price) and the portfolio's actual return (reflecting realized transactions including all fees and costs).",
+            "C": "Implementation shortfall is the firm's total commission expense over the measurement period."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. IS is EX-POST — measured after the fact against the decision price.",
+            "B": "Correct. Per the reading: 'The implementation shortfall (IS) metric is the most important ex post trade cost measurement used in finance. The IS metric provides portfolio managers with the total cost associated with implementing the investment decision. IS is calculated as the difference between the return for a notional or paper portfolio, where all transactions are assumed to take place at the manager's decision price, and the portfolio's actual return, which reflects realized transactions, including all fees and costs.' Formula: IS = Paper return − Actual return.",
+            "C": "Incorrect. Commissions are one component; IS spans the full paper-versus-actual portfolio return difference."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.g",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Implementation Shortfall — definition",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_g_q2",
+          "number": 2,
+          "stem": "The IS decomposition includes *three main components*. These are *most likely*:",
+          "options": {
+            "A": "only commissions.",
+            "B": "only market impact.",
+            "C": "execution cost, opportunity cost, and fixed fees."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Multiple cost components.",
+            "B": "Multiple cost components.",
+            "C": "Correct. Per the reading: 'This IS formulation decomposes the total cost of the trade into three categories: execution cost, opportunity cost, and fixed fees. Execution cost corresponds to the shares that were transacted in the market... Opportunity cost corresponds to the unexecuted shares of the order. It is the cost associated with not being able to transact the entire order at the manager's decision price and is due to adverse price movement over the trading period... The fixed fees component includes all explicit fees, such as commissions, exchange fees, and taxes.'"
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.g",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Implementation Shortfall — components",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_g_q3",
+          "number": 3,
+          "stem": "In the Impulse Robotics example (decision price £10.00, 1,000 shares intended to buy, actually filled 700 at £10.07, close £10.08, fees £14), *execution cost* is *most likely*:",
+          "options": {
+            "A": "£49 = (700 × £10.07) − (700 × £10.00).",
+            "B": "£24.",
+            "C": "£14."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: £49 = (700 × £10.07) − (700 × £10.00) — the difference between the cost of the real portfolio and paper portfolio for the shares actually filled.\n\nCorrect. Per the reading's Impulse Robotics example: 'Execution cost, which is calculated as the difference between the cost of the real portfolio and of the paper portfolio and reflects the execution price paid for the amount of shares in the order actually filled: (700 × £10.07) − (700 × £10.00) = £7,049 − £7,000 = £49.'",
+            "B": "That's opportunity cost.",
+            "C": "That's fixed fees."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.g",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Implementation Shortfall — Impulse Robotics execution cost",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_g_q4",
+          "number": 4,
+          "stem": "In the same Impulse Robotics example, *opportunity cost* is *most likely*:",
+          "options": {
+            "A": "£49.",
+            "B": "£24 = (1,000 − 700) × (£10.08 − £10.00).",
+            "C": "£14."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "That's execution cost.",
+            "B": "Full statement: £24 = (1,000 − 700) × (£10.08 − £10.00) — the cost based on unexecuted shares and adverse price movement between decision and final unexecuted moment.\n\nCorrect. Per Impulse Robotics: 'Opportunity cost, which is based on the amount of shares left unexecuted and reflects the cost associated with not being able to execute all shares at the decision price: (1,000 shares − 700 shares) × (£10.08 − £10.00) = £24.' Total IS = £49 + £24 + £14 = £87 = 87 bps of £10,000 paper portfolio.",
+            "C": "That's fees."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.g",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Implementation Shortfall — Impulse Robotics opportunity cost",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_g_q5",
+          "number": 5,
+          "stem": "Wagner's *expanded implementation shortfall* decomposes execution cost into two components *most likely*:",
+          "options": {
+            "A": "commissions and taxes.",
+            "B": "opening and closing prices.",
+            "C": "delay cost and trading cost."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Those are fixed fees.",
+            "B": "Not the decomposition.",
+            "C": "Full statement: delay cost and trading cost — allows portfolio managers to more precisely isolate where their execution costs arise during the implementation cycle.\n\nCorrect. Per the reading: 'Wagner (1991) further expanded the IS measure to decompose the execution cost component into a delay-related cost component and a trading-related cost component. These two decomposed execution components allow portfolio managers to more precisely isolate where their execution costs arise during the implementation cycle and help traders better manage overall execution quality and reduce trading costs.' Expanded IS = Delay cost + Trading cost + Opportunity cost + Fees."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.g",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Expanded IS — Wagner",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_g_q6",
+          "number": 6,
+          "stem": "In the RLK example (decision 9:00 at $30.00, released 10:30 at $30.10, 80,000 of 100,000 executed with total cost $2,425,000, closes $30.65, $0.02/share commission), *delay cost* is *most likely*:",
+          "options": {
+            "A": "$8,000 = 80,000 × ($30.10 − $30.00).",
+            "B": "$25,000.",
+            "C": "$13,000."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per the reading's RLK example: 'Delay cost = (Σs_j)p_0 − (Σs_j)p_d = 80,000 × $30.10 − 80,000 × $30.00 = $8,000.' Delay cost is the cost of the delay between the decision price (p_d) and the arrival price (p_0) for shares actually executed. Reduces this by having a process to identify best broker/algorithm quickly.",
+            "B": "That's execution cost.",
+            "C": "That's opportunity cost."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.g",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Expanded IS — RLK delay cost",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_g_q7",
+          "number": 7,
+          "stem": "In the same RLK example, *trading cost* (Wagner) is *most likely*:",
+          "options": {
+            "A": "$8,000.",
+            "B": "$17,000 = $2,425,000 − 80,000 × $30.10.",
+            "C": "$25,000."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "That's delay cost.",
+            "B": "Full statement: $17,000 = $2,425,000 − 80,000 × $30.10 — the difference between actual execution prices and the arrival price for executed shares.\n\nCorrect. Per the reading's RLK example: 'Trading cost = Σs_j·p_j − (Σs_j)p_0 = (30,000 × $30.20 + 20,000 × $30.30 + 20,000 × $30.40 + 10,000 × $30.50) − 80,000 × $30.10 = $2,425,000 − $2,408,000 = $17,000.' Trading cost measures the difference between actual execution prices and arrival price (post-release). Expanded IS = $8,000 + $17,000 + $13,000 + $1,600 = $39,600 = 132 bps.",
+            "C": "$25,000 is total execution cost (delay + trading), not just trading cost."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.g",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Expanded IS — RLK trading cost",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_g_q8",
+          "number": 8,
+          "stem": "Total *implementation shortfall in bps* for the RLK example (total shares 100,000, decision price $30.00, total IS $39,600) is *most likely*:",
+          "options": {
+            "A": "13 bps.",
+            "B": "1,320 bps.",
+            "C": "132 bps = $39,600 / ($30 × 100,000) × 10,000 bps."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "One decimal off.",
+            "B": "Too high by 10x.",
+            "C": "Correct. Per the reading: 'Implementation shortfall (bps) = Implementation shortfall ($) / (Total shares × p_d) × 10,000 bps = $39,600 / (100,000 × $30.00) × 10,000 bps = 132 bps.' The IS in bps expresses the total cost as a fraction of the intended paper portfolio value."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.g",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Implementation Shortfall — RLK bps",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "trade_strategy_and_execution.h",
+      "los_letter": "h",
+      "los_text": "evaluate the execution of a trade",
+      "reading_id": "trade_strategy_and_execution",
+      "reading_name": "Trade Strategy and Execution",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r10_tse_los_h_q1",
+          "number": 1,
+          "stem": "*Trade cost analysis* (TCA) or post-trade analysis *most likely*:",
+          "options": {
+            "A": "evaluates and measures the execution quality of the trade and the overall performance of the trader, broker, and/or algorithm — facilitates communication among portfolio manager, traders, brokers to understand how costs occur.",
+            "B": "Trade cost analysis is the same exercise as pre-trade cost estimation, performed with identical models before the order is worked in the market.",
+            "C": "Post-trade TCA focuses only on the commissions paid to executing brokers, since implicit costs cannot be measured after the fact."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: evaluates and measures the execution quality of the trade and the overall performance of the trader, broker, and/or algorithm — facilitates communication among portfolio manager, traders, brokers to understand how costs occur; provides basis for peer group comparisons; helps rank brokers.\n\nCorrect. Per the reading: 'The evaluation of trade execution is also referred to as trade cost evaluation, trade cost analysis (TCA), and post-trade analysis. Its goal is to evaluate and measure the execution quality of the trade and the overall performance of the trader, broker, and/or algorithm... Proper trade cost evaluation enables portfolio managers to better manage costs throughout the investment cycle and helps facilitate communication between the portfolio manager, traders, and brokers to better understand how and why costs occur during the implementation of investment decisions. Trade cost analysis also provides the basis for peer group comparisons.'",
+            "B": "Incorrect. Pre-trade estimates are forecasts; TCA is RETROSPECTIVE evaluation of execution quality.",
+            "C": "Incorrect. TCA evaluates trader, broker, and algorithm performance across all cost components, not commissions alone."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.h",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "TCA — definition",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_h_q2",
+          "number": 2,
+          "stem": "In trade cost calculations, a *positive value* *most likely* indicates:",
+          "options": {
+            "A": "savings/better performance.",
+            "B": "underperformance compared with the benchmark.",
+            "C": "no meaningful information."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Positive = underperformance in this convention.",
+            "B": "Correct. Per the reading: 'Trade cost calculations are expressed such that a positive value indicates underperformance and represents underperformance compared with the benchmark. A negative value indicates a savings and is a better performance compared with the benchmark.' Cost formulas use: Side × (P̄ − P*) × Shares where Side = +1 for buy and −1 for sell.",
+            "C": "The sign carries meaning."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.h",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "TCA — cost sign convention",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_h_q3",
+          "number": 3,
+          "stem": "For a *buy order* executed at $30.05 with arrival price $30.00, *arrival cost in bps* is *most likely*:",
+          "options": {
+            "A": "−16.7 bps.",
+            "B": "0 bps.",
+            "C": "+16.7 bps = 1 × ($30.05 − $30.00)/$30.00 × 10,000."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Sign is positive (buy above arrival = cost).",
+            "B": "Executed above arrival means cost.",
+            "C": "Correct. Per the reading: 'Arrival cost (bps) = Side × (P̄ − P_0)/P_0 × 10^4 bps'. For a buy at $30.05 with arrival $30.00: Side = +1, so Arrival cost = +1 × ($30.05 − $30.00)/$30.00 × 10,000 = 16.7 bps of underperformance."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.h",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "TCA — arrival cost buy example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_h_q4",
+          "number": 4,
+          "stem": "For a *market-adjusted cost* calculation, the formula is *most likely*:",
+          "options": {
+            "A": "Market-adjusted cost (bps) = Arrival cost (bps) − β × Index cost (bps) — removes expected stock movement due to market movement (based on stock's beta) so the residual isolates the impact of the order itself.",
+            "B": "Market-adjusted cost is computed as arrival cost plus beta times the index cost.",
+            "C": "Market-adjusted cost is simply equal to the arrival cost with no adjustment."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per the reading: 'Market-adjusted cost (bps) = Arrival cost (bps) − β × Index cost (bps). In this case, β represents the stock's beta to the underlying index. The expectation in this formulation is that the stock would have exhibited price movement based on the market movement and the stock's sensitivity to the index measured via its beta to the index. This formulation thus helps remove the movement in the stock that would have occurred even if the order was not entered into the market.'",
+            "B": "Incorrect. The sign is wrong — market movement is SUBTRACTED: arrival cost − β × index cost.",
+            "C": "Incorrect. Without removing the market-driven component, the measure confounds trading skill with market drift."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.h",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "TCA — market-adjusted formula",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_h_q5",
+          "number": 5,
+          "stem": "In the *buying in a rising market* example (arrival cost 166.7 bps, index cost 100 bps, β 1.25), *market-adjusted cost* is *most likely*:",
+          "options": {
+            "A": "266.7 bps.",
+            "B": "41.7 bps = 166.7 − 1.25 × 100.",
+            "C": "125 bps."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "That's addition, not subtraction.",
+            "B": "Correct. Per the reading's example: 'Market-adjusted cost (bps) = Arrival cost (bps) − β × Index cost (bps) = 166.7 bps − 1.25 × 100 bps = 166.7 bps − 125 bps = 41.7 bps.' The stock price would be expected to increase 125 bps over the period based on market movement and beta. The residual 41.7 bps represents the cost due to the order itself, much lower than the total arrival cost.",
+            "C": "That's just β × Index cost."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.h",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "TCA — market-adjusted example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_h_q6",
+          "number": 6,
+          "stem": "*Added value* (or pre-trade adjusted cost) is *most likely*:",
+          "options": {
+            "A": "Added value is computed as arrival cost plus the estimated pre-trade cost.",
+            "B": "Added value equals the closing price minus the opening price on the trade date.",
+            "C": "Added value = Arrival cost − Est. pre-trade cost — if a fund executes at cost lower than pre-trade estimate it's superior performance."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. The sign is wrong — added value SUBTRACTS the estimate: arrival cost − estimated pre-trade cost.",
+            "B": "Incorrect. The close-open range is a market statistic; added value compares realized cost to the pre-trade expectation.",
+            "C": "Full statement: Added value = Arrival cost − Est. pre-trade cost — if a fund executes at cost lower than pre-trade estimate it's superior performance; if higher, underperformed expectations.\n\nCorrect. Per the reading: 'Another methodology used by investors to evaluate trading performance is to compare the arrival cost of the order with the estimated pre-trade cost. The expected trading cost is calculated using a pre-trade model and incorporates such factors as order size, volatility, market liquidity, investor risk aversion, level of urgency, and the underlying market conditions... The added value metric is computed as follows: Added value (bps) = Arrival cost (bps) − Est. pre-trade cost (bps).'"
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.h",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "TCA — added value formula",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_h_q7",
+          "number": 7,
+          "stem": "In *added value* example (arrival cost 70 bps, est. pre-trade cost 60 bps), *added value* is *most likely*:",
+          "options": {
+            "A": "+10 bps (worse than expected — the fund underperformed pre-trade expectations by 10 bps).",
+            "B": "−10 bps (better than expected).",
+            "C": "0 bps."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per the reading: 'Added value = Arrival cost − Est. pre-trade cost = 70 bps − 60 bps = 10 bps. The pre-trade adjusted cost in this example is 10 bps, indicating that the fund underperformed pre-trade expectations by 10 bps.' Consistent with the reading's convention that positive = underperformance.",
+            "B": "Sign convention: positive = underperformance.",
+            "C": "The costs differ."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.h",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "TCA — added value example",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_h_q8",
+          "number": 8,
+          "stem": "*Multiple reference price benchmarks* may be used together to *most likely*:",
+          "options": {
+            "A": "Using multiple reference price benchmarks together only confuses the trading cost analysis.",
+            "B": "measure trading cost and evaluate performance on an intraday basis (e.g., pre-trade arrival price for estimated required money, intraday VWAP to compare with other participants' prices, post-trade closing price to see reversion).",
+            "C": "Multiple benchmarks reduce the amount of information available to evaluators."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Each benchmark isolates a different phase — the combination clarifies rather than confuses.",
+            "B": "Full statement: measure trading cost and evaluate performance on an intraday basis (e.g., pre-trade arrival price for estimated required money, intraday VWAP to compare with other participants' prices, post-trade closing price to see reversion) — providing valuable insights into different aspects of trading execution.\n\nCorrect. Per the reading: 'Although one benchmark is used in execution, to represent the tradable strategy, multiple reference price benchmarks may be used to measure trading cost and to evaluate performance, typically on an intraday basis. For example, to measure trading costs, a pre-trade benchmark, such as the arrival price benchmark, may be used to provide the portfolio manager or trader with the estimated money required to complete the transaction. The trader may also compare the execution price of the order with an intraday benchmark such as the VWAP of the asset over the trading horizon... Additionally, the trader may compare the last trade price of the order with a post-trade benchmark to understand whether there was price reversion after order completion. The use of multiple price benchmarks may provide valuable insights into different aspects of trading execution.'",
+            "C": "Incorrect. Layering benchmarks (arrival for required money, interval VWAP for execution, close for valuation) ADDS information."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.h",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "TCA — multiple benchmarks",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "trade_strategy_and_execution.i",
+      "los_letter": "i",
+      "los_text": "evaluate a firm's trading procedures, including processes, disclosures, and record keeping with respect to good governance",
+      "reading_id": "trade_strategy_and_execution",
+      "reading_name": "Trade Strategy and Execution",
+      "area_id": "pm_pathway",
+      "questions": [
+        {
+          "id": "r10_tse_los_i_q1",
+          "number": 1,
+          "stem": "A firm's *trade policy document* *most likely*:",
+          "options": {
+            "A": "is optional.",
+            "B": "should only address commissions.",
+            "C": "is mandated by major market regulators (SEC in US, MiFID II in EU, FSA in Japan, SFC in Hong Kong)."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "It is required by regulation.",
+            "B": "Trade policy is broad.",
+            "C": "Full statement: is mandated by major market regulators (SEC in US, MiFID II in EU, FSA in Japan, SFC in Hong Kong) — clearly articulates the firm's trading policies and escalation procedures.\n\nCorrect. Per the reading: 'All asset managers should have a trade policy document that clearly and comprehensively articulates the firm's trading policies and escalation procedures (i.e., calling on higher levels of leadership or management in an organization to resolve issues when they cannot be resolved by standard procedures). Such a document is mandated by major market regulators and regulations, including the SEC in the United States, the updated Markets in Financial Instruments Directive (MiFID II) in the European Union, the Financial Services Agency in Japan, and the Securities and Futures Commission in Hong Kong SAR.'"
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.i",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trade Governance — trade policy",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_i_q2",
+          "number": 2,
+          "stem": "The *objective of a trade policy* is *most likely*:",
+          "options": {
+            "A": "ensure the asset manager's execution and order-handling procedures are in line with the *duty of best execution* owed to clients.",
+            "B": "The objective of a trade policy is to maximize firm profits even at the expense of clients.",
+            "C": "The objective of a trade policy is to eliminate all trading activity."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Per the reading: 'The objective of a trade policy is to ensure the asset manager's execution and order-handling procedures are in line with the duty of best execution that is owed to clients.' Trade policy needs to include: meaning of best execution, factors determining optimal order execution approach, listing of eligible brokers and execution venues, and process to monitor execution arrangements.",
+            "B": "Incorrect. Client-expense profit maximization inverts the fiduciary relationship the policy exists to protect.",
+            "C": "Incorrect. Trading is essential to implementation; the policy governs it under the duty of BEST EXECUTION."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.i",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trade Governance — trade policy objective",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_i_q3",
+          "number": 3,
+          "stem": "The reading identifies *four key aspects* of a trade policy. Which is *least likely* one of them?",
+          "options": {
+            "A": "Meaning of best execution as defined by relevant regulatory framework.",
+            "B": "The compensation formula for the trading desk.",
+            "C": "Factors determining the optimal order execution approach."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "This is one of the four.",
+            "B": "Correct. Compensation formulas are not one of the four required aspects. Per the reading, the four key aspects are: (1) Meaning of best execution as defined by the relevant regulatory framework; (2) Factors determining the optimal order execution approach (may differ by asset class, security liquidity, security trading mechanism); (3) Listing of eligible brokers and execution venues; (4) Process to monitor execution arrangements (continual monitoring since arrangements may change over time).",
+            "C": "This is one of the four."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.i",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trade Governance — four aspects",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_i_q4",
+          "number": 4,
+          "stem": "A firm's *trade aggregation and allocation policy* is *most likely* required to:",
+          "options": {
+            "A": "A trade aggregation and allocation policy should avoid aggregating client orders entirely.",
+            "B": "The allocation policy should always allocate executed shares to the largest account first.",
+            "C": "ensure executed orders are allocated fairly to individual clients on a pre-trade and post-trade basis, with remedies for misallocations and an escalation policy."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Aggregation is permitted and often benefits clients; the policy governs its fairness.",
+            "B": "Incorrect. Size-priority favoritism is what fair pre-trade and post-trade allocation (with misallocation remedies) prevents.",
+            "C": "Full statement: ensure executed orders are allocated fairly to individual clients on a pre-trade and post-trade basis, with remedies for misallocations and an escalation policy; if a pooled trade is not fully executed, the executed amount must generally be allocated pro-rata so no account is disadvantaged.\n\nCorrect. Per the reading: 'Asset managers that aggregate trades for client accounts and funds should have a \"trade aggregation and allocation\" policy in place. These policies seek to ensure executed orders are allocated fairly to individual clients on a pre-trade and post-trade basis, there are remedies for misallocations, and an escalation policy is in place. For example, if several accounts (e.g., pooled funds or separate accounts) follow the same or a similar investment strategy and have similar trading needs, then pooling the trades for trade execution may make sense in some situations. If a pooled trade is not fully executed, the order amount that is executed generally needs to be allocated to accounts on a pro-rata basis so that no account is disadvantaged relative to the others.'"
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.i",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trade Governance — aggregation allocation",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_i_q5",
+          "number": 5,
+          "stem": "For *trade errors*, firms *most likely* need to:",
+          "options": {
+            "A": "have a policy for treatment of trade errors — errors and any resulting gains/losses must be disclosed to firm's compliance department and documented in a trade error log with related documentation.",
+            "B": "Firms should conceal trade errors from the compliance department to avoid regulatory attention.",
+            "C": "Firms should always pass trade errors and any resulting losses through to the client."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Full statement: have a policy for treatment of trade errors — errors and any resulting gains/losses must be disclosed to firm's compliance department and documented in a trade error log with related documentation; errors must be resolved in a way that prevents adverse impact for the client.\n\nCorrect. Per the reading: 'Firms should have a policy in place for the treatment of trade errors. Errors from trading and any resulting gains/losses need to be disclosed to a firm's compliance department and documented in a trade error log. The trade error log should include any related documentation and evidence that trade errors are resolved in a way that prevents adverse impact for the client.'",
+            "B": "Incorrect. Concealment compounds the violation; disclosure to compliance is the required treatment.",
+            "C": "Incorrect. Clients are not the error absorber — the policy assigns gains/losses and mandates compliance disclosure."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.i",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trade Governance — trade errors",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_i_q6",
+          "number": 6,
+          "stem": "*Best execution* under the relevant regulatory framework *most likely* considers multiple factors including:",
+          "options": {
+            "A": "only execution price.",
+            "B": "execution price, trading costs, speed of execution, likelihood of execution and settlement, and other factors.",
+            "C": "only speed."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Price alone is insufficient.",
+            "B": "Full statement: execution price, trading costs, speed of execution, likelihood of execution and settlement, and other factors — not just the best execution price at the lowest cost, but the right trade-off between different objectives.\n\nCorrect. Per the reading: 'A trade policy document should outline the meaning of best execution within the relevant regulatory framework. Although there may be slight differences in how best execution is defined by different regulators and in different financial market regulations, the underlying concept requires orders to be executed on terms most favorable to the client, where firms consider the following: execution price, trading costs, speed of execution, likelihood of execution and settlement...' Best execution requires balancing multiple factors.",
+            "C": "Multiple factors matter."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.i",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trade Governance — best execution",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r10_tse_los_i_q7",
+          "number": 7,
+          "stem": "The reading emphasizes that *optimal order execution arrangements* *most likely*:",
+          "options": {
+            "A": "should never be changed once established.",
+            "B": "are unrelated to markets.",
+            "C": "may change over time as markets and securities evolve."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Change is expected.",
+            "B": "Markets drive optimal execution decisions.",
+            "C": "Full statement: may change over time as markets and securities evolve — therefore continual monitoring of current arrangements is needed, with details of the monitoring process outlined in the trade policy document.\n\nCorrect. Per the reading: 'Optimal order execution arrangements may change over time as markets and securities evolve. Therefore, continual monitoring of current arrangements is needed. The details of the monitoring process should be outlined in a trade policy document.' Also, listing of eligible brokers and execution venues should allow flexibility across scenarios, with checks to ensure only reputable brokers meeting requirements for reliable and efficient execution are used (to reduce operational risk)."
+          },
+          "type": "mc",
+          "primary_los": "trade_strategy_and_execution.i",
+          "reading_id": "trade_strategy_and_execution",
+          "area_id": "pm_pathway",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Trade Governance — monitoring arrangements",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    }
+  ]
+}
