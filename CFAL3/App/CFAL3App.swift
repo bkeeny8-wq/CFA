@@ -9,7 +9,7 @@ struct CFAL3App: App {
     @State private var practicePref = PracticeBuilderPreference()
 
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([Attempt.self, ReviewCard.self, Session.self, LOSStudyStatus.self])
+        let schema = Schema([Attempt.self, ReviewCard.self, Session.self, LOSStudyStatus.self, DayCompletion.self])
         let config = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
         do {
             return try ModelContainer(for: schema, configurations: [config])
@@ -26,6 +26,7 @@ struct CFAL3App: App {
                 .environment(sessionCoordinator)
                 .environment(practicePref)
                 .task {
+                    GraderConfig.purgeLegacyAPIKey()
                     if !contentLoader.isLoaded {
                         contentLoader.load()
                     }

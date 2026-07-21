@@ -11,6 +11,7 @@ final class ContentLoader {
     private(set) var readingNotesBundle: ReadingNotesBundle?
     private(set) var contentTargets: ContentTargets?
     private(set) var losDrillBundles: [String: LOSDrillBundle] = [:]
+    private(set) var schedule: StudySchedule?
     private(set) var loadError: String?
 
     private var questionsByID: [String: Question] = [:]
@@ -43,6 +44,15 @@ final class ContentLoader {
             contentTargets = targets
 
             try loadDrillBundles()
+
+            if let loaded: StudySchedule = try? loadJSON("study_schedule") {
+                schedule = loaded
+            } else {
+                schedule = nil
+                #if DEBUG
+                print("CFAL3: study_schedule.json failed to decode")
+                #endif
+            }
 
             rebuildIndexes(from: bank, los: los, notes: notes)
             loadError = nil
@@ -200,7 +210,6 @@ enum ContentLoadError: LocalizedError {
     }
 }
 
-#if DEBUG
 struct ContentStatsView: View {
     @Environment(ContentLoader.self) private var content
 
@@ -215,4 +224,3 @@ struct ContentStatsView: View {
         .navigationTitle("Content Stats")
     }
 }
-#endif

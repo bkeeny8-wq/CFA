@@ -4,68 +4,65 @@ import UniformTypeIdentifiers
 
 struct SettingsView: View {
     @Environment(ClaudeGrader.self) private var grader
-    @Environment(PracticeBuilderPreference.self) private var practicePref
     @Environment(ContentLoader.self) private var content
     @Environment(\.modelContext) private var modelContext
     @Query private var attempts: [Attempt]
     @Query private var cards: [ReviewCard]
     @Query private var sessions: [Session]
+    @Query private var dayCompletions: [DayCompletion]
     @Query private var losStudyStatuses: [LOSStudyStatus]
 
-    @State private var showAPIKeySheet = false
     @State private var exportURL: URL?
     @State private var showExporter = false
     @State private var showImporter = false
     @State private var importSummary: String?
 
-    private var maskedKey: String {
-        guard let key = KeychainStore.loadAPIKey() else { return "Not set" }
-        return Formatting.maskedAPIKey(key)
-    }
-
     var body: some View {
         List {
-            Section("Anthropic") {
-                LabeledContent("API key", value: maskedKey)
-                Button("Update API key") { showAPIKeySheet = true }
+            Section {
                 Picker("Grader model", selection: Bindable(grader).selectedModel) {
                     ForEach(GraderModel.allCases) { model in
                         Text(model.displayName).tag(model)
                     }
                 }
+            } header: {
+                Text("Grading")
+            } footer: {
+                Text("Essay grading runs through your private proxy. Model choice trades speed against depth of feedback.")
             }
 
             Section {
-                Picker("Question type", selection: Bindable(practicePref).typeFilter) {
-                    ForEach(QuestionTypeFilter.allCases) { filter in
-                        Text(filter.displayName).tag(filter)
-                    }
+                Button {
+                    exportData()
+                } label: {
+                    Label("Export progress", systemImage: "square.and.arrow.up")
+                }
+                Button {
+                    showImporter = true
+                } label: {
+                    Label("Import progress", systemImage: "square.and.arrow.down")
                 }
             } header: {
-                Text("Practice")
+                Text("Backups")
             } footer: {
-                Text("Applies to the Practice builder and due-review sessions from Home. Opening a specific case shows all its questions regardless.")
-                    .font(.footnote)
-            }
-
-            Section("Data") {
-                Button("Export progress JSON") { exportData() }
-                Button("Import progress JSON") { showImporter = true }
-                if let importSummary {
-                    Text(importSummary)
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
-                }
+                Text(importSummary ?? "Attempts, review schedule, sessions, and LOS states export as one JSON file. Import merges — newer data wins, nothing is deleted.")
             }
 
             Section("About") {
-                LabeledContent("Version", value: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0")
-                LabeledContent("Build", value: Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "1")
+                LabeledContent(
+                    "Version",
+                    value: "\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0") (\(Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "1"))"
+                )
+                NavigationLink {
+                    ContentStatsView()
+                } label: {
+                    Label("Content stats", systemImage: "books.vertical")
+                }
             }
         }
         .navigationTitle("Settings")
-        .sheet(isPresented: $showAPIKeySheet) {
-            APIKeySheet()
+        .onAppear {
+            GraderConfig.purgeLegacyAPIKey()
         }
         .fileExporter(
             isPresented: $showExporter,
@@ -141,6 +138,10 @@ struct SettingsView: View {
                     notes: $0.notes,
                     updatedAt: $0.updatedAt
                 )
+            },
+            dayCompletions: dayCompletions.map {
+                DayCompletionExport(dateKey: $0.dateKey,
+                                    completedHours: $0.completedHours)
             }
         )
 
@@ -280,6 +281,25 @@ struct SettingsView: View {
             }
 
             try modelContext.save()
+            // Day completions (plan check-offs): upsert by dateKey.
+            if let items = payload.dayCompletions {
+                let existing = Dictionary(uniqueKeysWithValues:
+                    dayCompletions.map { ($0.dateKey, $0) })
+                for item in items {
+                    if let row = existing[item.dateKey] {
+                        if row.completedHours != item.completedHours {
+                            row.completedHours = item.completedHours
+                            updated += 1
+                        } else { skipped += 1 }
+                    } else {
+                        modelContext.insert(DayCompletion(
+                            dateKey: item.dateKey,
+                            completedHours: item.completedHours))
+                        inserted += 1
+                    }
+                }
+            }
+
             importSummary = "Imported: \(inserted) new, \(updated) updated, \(skipped) skipped"
         } catch {
             modelContext.rollback()
@@ -320,6 +340,7 @@ private struct ExportPayload: Codable {
     let reviewCards: [ReviewCardExport]
     let sessions: [SessionExport]
     let losStudyStatuses: [LOSStudyStatusExport]
+    var dayCompletions: [DayCompletionExport]?
 }
 
 private struct AttemptExport: Codable {
@@ -365,7 +386,12 @@ private struct SessionExport: Codable {
     let attemptIds: [UUID]
 }
 
-private struct LOSStudyStatusExport: Codable {
+private struct DayCompletionExport: Codable {
+    var dateKey: String
+    var completedHours: Double
+}
+
+struct LOSStudyStatusExport: Codable {
     let losId: String
     let readingId: String
     let areaId: String

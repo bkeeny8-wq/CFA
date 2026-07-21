@@ -25,6 +25,7 @@ resources = [
     "CFAL3/Resources/reading_notes.json",
     "CFAL3/Resources/content_targets.json",
     "CFAL3/Resources/los_drills_index.json",
+    "CFAL3/Resources/study_schedule.json",
     "CFAL3/Assets.xcassets",
 ]
 resources.extend(
@@ -292,15 +293,26 @@ for cid, name in [(debug_config, "Debug"), (release_config, "Release")]:
     if name == "Debug":
         out.extend(
             [
+                "\t\t\t\tCOPY_PHASE_STRIP = NO;",
+                '\t\t\t\tDEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";',
                 "\t\t\t\tENABLE_TESTABILITY = YES;",
+                "\t\t\t\tGCC_GENERATE_DEBUGGING_SYMBOLS = YES;",
                 "\t\t\t\tGCC_OPTIMIZATION_LEVEL = 0;",
                 "\t\t\t\tONLY_ACTIVE_ARCH = YES;",
+                "\t\t\t\tSTRIP_INSTALLED_PRODUCT = NO;",
                 "\t\t\t\tSWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;",
                 '\t\t\t\tSWIFT_OPTIMIZATION_LEVEL = "-Onone";',
             ]
         )
     else:
-        out.append("\t\t\t\tSWIFT_COMPILATION_MODE = wholemodule;")
+        out.extend(
+            [
+                "\t\t\t\tCOPY_PHASE_STRIP = NO;",
+                '\t\t\t\tDEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";',
+                "\t\t\t\tGCC_GENERATE_DEBUGGING_SYMBOLS = YES;",
+                "\t\t\t\tSWIFT_COMPILATION_MODE = wholemodule;",
+            ]
+        )
     out.extend(
         [
             "\t\t\t\tIPHONEOS_DEPLOYMENT_TARGET = 17.0;",

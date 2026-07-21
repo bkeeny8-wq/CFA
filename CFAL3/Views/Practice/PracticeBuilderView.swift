@@ -14,6 +14,19 @@ struct PracticeBuilderView: View {
     @State private var showLOS = false
     @State private var previewedIDs: [String] = []
 
+    private var matching: Int { previewedIDs.count }
+
+    private var unseen: Int {
+        let attemptedIDs = Set(attempts.map(\.questionId))
+        return previewedIDs.filter { !attemptedIDs.contains($0) }.count
+    }
+
+    private var estimatedMinutes: Int {
+        let essays = previewedIDs.filter { questionType(for: $0) == .essay }.count
+        let mc = matching - essays
+        return Int(ceil(Double(mc) * 1.5 + Double(essays) * 4.0))
+    }
+
     var body: some View {
         List {
             Section {
@@ -29,14 +42,14 @@ struct PracticeBuilderView: View {
                         Text(source.displayName).tag(source)
                     }
                 }
-                .pickerStyle(.segmented)
+                .pickerStyle(.menu)
 
                 Picker("How many", selection: Bindable(pref).count) {
                     ForEach(PracticeCount.allCases) { count in
                         Text(count.displayName).tag(count)
                     }
                 }
-                .pickerStyle(.segmented)
+                .pickerStyle(.menu)
 
                 Toggle("Weight toward weaker questions", isOn: Bindable(pref).weaknessWeighted)
             }
@@ -48,7 +61,7 @@ struct PracticeBuilderView: View {
                     HStack {
                         Text("Topics")
                         Spacer()
-                        Text(pref.selectedTopics.isEmpty ? "All" : "\(pref.selectedTopics.count) selected")
+                        Text(topicsSummary)
                             .foregroundStyle(.secondary)
                     }
                 }
@@ -58,7 +71,7 @@ struct PracticeBuilderView: View {
                     HStack {
                         Text("Readings")
                         Spacer()
-                        Text(pref.selectedReadings.isEmpty ? "All" : "\(pref.selectedReadings.count) selected")
+                        Text(readingsSummary)
                             .foregroundStyle(.secondary)
                     }
                 }
@@ -68,35 +81,35 @@ struct PracticeBuilderView: View {
                     HStack {
                         Text("LOS")
                         Spacer()
-                        Text(pref.selectedLOS.isEmpty ? "All" : "\(pref.selectedLOS.count) selected")
+                        Text(losSummary)
                             .foregroundStyle(.secondary)
                     }
                 }
-            }
 
-            Section {
-                Text("\(previewedIDs.count) matching question\(previewedIDs.count == 1 ? "" : "s")")
-                    .foregroundStyle(.secondary)
-
-                Button {
-                    startQuiz()
-                } label: {
-                    Text("Start quiz").frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(Theme.accent)
-                .disabled(previewedIDs.isEmpty)
-
-                Button("Reset filters", role: .destructive) {
-                    pref.reset()
-                    refreshPreview()
-                }
+                Label(
+                    "\(matching) questions match · \(unseen) unseen · est. \(estimatedMinutes) min",
+                    systemImage: "line.3.horizontal.decrease"
+                )
+                .font(.caption)
+                .foregroundStyle(.secondary)
             }
         }
         .listStyle(.insetGrouped)
-        .frame(maxWidth: horizontalSizeClass == .regular ? 720 : .infinity)
+        .frame(maxWidth: horizontalSizeClass == .regular ? 640 : .infinity)
         .frame(maxWidth: .infinity)
         .navigationTitle("Practice")
+        .safeAreaInset(edge: .bottom) {
+            Button {
+                startQuiz()
+            } label: {
+                Text(matching == 0 ? "No questions match" : "Start session")
+            }
+            .buttonStyle(PrimaryCTA())
+            .disabled(matching == 0)
+            .padding(.horizontal)
+            .padding(.bottom, 6)
+            .background(.bar)
+        }
         .onAppear { refreshPreview() }
         .onChange(of: pref.typeFilter) { _, _ in refreshPreview() }
         .onChange(of: pref.sourceFilter) { _, _ in refreshPreview() }
@@ -117,6 +130,36 @@ struct PracticeBuilderView: View {
         .navigationDestination(isPresented: $showSession) {
             SessionRunnerView()
         }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button("Reset", role: .destructive) {
+                    pref.reset()
+                    refreshPreview()
+                }
+            }
+        }
+    }
+
+    private var topicsSummary: String {
+        if pref.selectedTopics.isEmpty { return "All" }
+        let n = pref.selectedTopics.count
+        return "\(n) book\(n == 1 ? "" : "s")"
+    }
+
+    private var readingsSummary: String {
+        if pref.selectedReadings.isEmpty { return "All" }
+        return "\(pref.selectedReadings.count) readings"
+    }
+
+    private var losSummary: String {
+        if pref.selectedLOS.isEmpty { return "All" }
+        return "\(pref.selectedLOS.count) LOS"
+    }
+
+    private func questionType(for id: String) -> QuestionType {
+        if let q = content.question(id: id) { return q.type }
+        if let d = content.drillQuestion(id: id) { return d.type }
+        return .mc
     }
 
     private func refreshPreview() {
@@ -214,7 +257,6 @@ private struct ReadingMultiSelectSheet: View {
                 }
             }
         }
-        // LOS drill bundles cover readings the case bank may not touch.
         ids.formUnion(content.losDrillBundles.keys)
         return ids.sorted()
     }

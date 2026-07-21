@@ -3,6 +3,8 @@ import SwiftUI
 enum LayoutMetrics {
     /// Comfortable line length for MC stems, essays, and study notes.
     static let readableMaxWidth: CGFloat = 720
+    /// Centered reading column cap in full-screen study detail on iPad.
+    static let studyReadingMaxWidth: CGFloat = 760
     /// Fixed width for the LOS checklist pane beside notes on iPad.
     static let studyChecklistWidth: CGFloat = 380
     /// Minimum detail-pane width for side-by-side notes + checklist on iPad.

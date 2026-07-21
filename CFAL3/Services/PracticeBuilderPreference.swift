@@ -45,9 +45,18 @@ enum PracticeCount: Int, CaseIterable, Identifiable, Codable {
     }
 }
 
+/// Practice session preferences.
+///
+/// IMPORTANT: properties must be STORED for @Observable to track them —
+/// the previous implementation used computed properties over UserDefaults,
+/// which emit no observation events, so every control in the Practice
+/// builder (topic sheet checkmarks, pickers, toggle, onChange previews)
+/// rendered as dead UI. Stored properties + didSet persistence restores
+/// observation while keeping the same UserDefaults keys.
 @Observable
 final class PracticeBuilderPreference {
-    private let defaults = UserDefaults.standard
+    @ObservationIgnored private let defaults: UserDefaults
+
     private enum Keys {
         static let typeFilter = "practice.typeFilter"
         static let sourceFilter = "practice.sourceFilter"
@@ -59,49 +68,67 @@ final class PracticeBuilderPreference {
     }
 
     var typeFilter: QuestionTypeFilter {
-        get {
-            guard let raw = defaults.string(forKey: Keys.typeFilter),
-                  let value = QuestionTypeFilter(rawValue: raw) else { return .mixed }
-            return value
-        }
-        set { defaults.set(newValue.rawValue, forKey: Keys.typeFilter) }
+        didSet { defaults.set(typeFilter.rawValue, forKey: Keys.typeFilter) }
     }
 
     var sourceFilter: QuestionSourceFilter {
-        get {
-            guard let raw = defaults.string(forKey: Keys.sourceFilter),
-                  let value = QuestionSourceFilter(rawValue: raw) else { return .both }
-            return value
-        }
-        set { defaults.set(newValue.rawValue, forKey: Keys.sourceFilter) }
+        didSet { defaults.set(sourceFilter.rawValue, forKey: Keys.sourceFilter) }
     }
 
     var count: PracticeCount {
-        get {
-            let raw = defaults.integer(forKey: Keys.count)
-            return PracticeCount(rawValue: raw == 0 ? 20 : raw) ?? .twenty
-        }
-        set { defaults.set(newValue.rawValue, forKey: Keys.count) }
+        didSet { defaults.set(count.rawValue, forKey: Keys.count) }
     }
 
     var selectedTopics: Set<String> {
-        get { Set(defaults.stringArray(forKey: Keys.selectedTopics) ?? []) }
-        set { defaults.set(Array(newValue), forKey: Keys.selectedTopics) }
+        didSet { defaults.set(Array(selectedTopics), forKey: Keys.selectedTopics) }
     }
 
     var selectedReadings: Set<String> {
-        get { Set(defaults.stringArray(forKey: Keys.selectedReadings) ?? []) }
-        set { defaults.set(Array(newValue), forKey: Keys.selectedReadings) }
+        didSet { defaults.set(Array(selectedReadings), forKey: Keys.selectedReadings) }
     }
 
     var selectedLOS: Set<String> {
-        get { Set(defaults.stringArray(forKey: Keys.selectedLOS) ?? []) }
-        set { defaults.set(Array(newValue), forKey: Keys.selectedLOS) }
+        didSet { defaults.set(Array(selectedLOS), forKey: Keys.selectedLOS) }
     }
 
     var weaknessWeighted: Bool {
-        get { defaults.bool(forKey: Keys.weaknessWeighted) }
-        set { defaults.set(newValue, forKey: Keys.weaknessWeighted) }
+        didSet { defaults.set(weaknessWeighted, forKey: Keys.weaknessWeighted) }
+    }
+
+    init(defaults: UserDefaults = .standard) {
+        self.defaults = defaults
+
+        if let raw = defaults.string(forKey: Keys.typeFilter),
+           let value = QuestionTypeFilter(rawValue: raw) {
+            typeFilter = value
+        } else {
+            typeFilter = .mixed
+        }
+
+        if let raw = defaults.string(forKey: Keys.sourceFilter),
+           let value = QuestionSourceFilter(rawValue: raw) {
+            sourceFilter = value
+        } else {
+            sourceFilter = .both
+        }
+
+        let rawCount = defaults.integer(forKey: Keys.count)
+        count = PracticeCount(rawValue: rawCount == 0 ? 20 : rawCount) ?? .twenty
+
+        // Persisted topic IDs may predate the six-book restructure; remap
+        // legacy IDs so a stale selection can never silently filter every
+        // question out of the pool.
+        let storedTopics = Set(defaults.stringArray(forKey: Keys.selectedTopics) ?? [])
+        selectedTopics = Set(storedTopics.map(ProgressStats.canonicalTopicID))
+
+        selectedReadings = Set(defaults.stringArray(forKey: Keys.selectedReadings) ?? [])
+        selectedLOS = Set(defaults.stringArray(forKey: Keys.selectedLOS) ?? [])
+        weaknessWeighted = defaults.bool(forKey: Keys.weaknessWeighted)
+
+        // Write the sanitized topic set back so defaults converge.
+        if storedTopics != selectedTopics {
+            defaults.set(Array(selectedTopics), forKey: Keys.selectedTopics)
+        }
     }
 
     func reset() {

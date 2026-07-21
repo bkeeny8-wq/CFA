@@ -32,8 +32,7 @@ struct LOSChecklistPanel: View {
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
-                    ProgressView(value: progress.masteredFraction)
-                        .tint(Theme.accent)
+                    MasteryBar(value: progress.masteredFraction)
                 }
                 .padding(.vertical, 4)
 

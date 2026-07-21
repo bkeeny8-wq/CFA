@@ -2,7 +2,13 @@ import SwiftUI
 import SwiftData
 
 /// Three-column browse flow for iPad: topics → cases → case detail.
+///
+/// Interaction model mirrors Study: columns visible = browsing; TAPPING a
+/// case = working it full screen. The collapse is driven by the tap callback
+/// from CaseListView, never by selection-change detection, so re-tapping the
+/// already-selected case also collapses. No case is ever auto-selected.
 struct BrowseSplitView: View {
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(ContentLoader.self) private var content
     @Query private var attempts: [Attempt]
 
@@ -14,22 +20,26 @@ struct BrowseSplitView: View {
         NavigationSplitView(columnVisibility: $columnVisibility) {
             topicsColumn
                 .navigationSplitViewColumnWidth(min: 260, ideal: 300)
+                .toolbar(removing: .sidebarToggle)
         } content: {
             casesColumn
                 .navigationSplitViewColumnWidth(min: 300, ideal: 360)
+                .toolbar(removing: .sidebarToggle)
         } detail: {
             detailColumn
+                .toolbar(removing: .sidebarToggle)
         }
         .navigationSplitViewStyle(.balanced)
-        .onAppear { seedSelectionIfNeeded() }
+        .onAppear {
+            seedTopicIfNeeded()
+        }
         .onChange(of: selectedTopicID) { _, _ in
+            // Switching topics returns to browsing — never auto-open a case.
             selectedCaseID = nil
-            if let topicID = selectedTopicID {
-                let cases = content.cases(forTopic: topicID, losFilter: [])
-                selectedCaseID = cases.first?.id
-            }
         }
     }
+
+    // MARK: - Columns
 
     @ViewBuilder
     private var topicsColumn: some View {
@@ -45,14 +55,13 @@ struct BrowseSplitView: View {
                         Text("\(progress.attempted)/\(progress.total) attempted · \(Formatting.percent(progress.correctRate)) correct")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
-                        ProgressView(value: progress.total == 0 ? 0 : Double(progress.attempted) / Double(progress.total))
-                            .tint(Theme.accent)
+                        MasteryBar(value: progress.total == 0 ? 0 : Double(progress.attempted) / Double(progress.total))
                     }
                     .padding(.vertical, 4)
                     .tag(topic.id as String?)
                 }
             }
-            .navigationTitle("Browse")
+            .navigationTitle("Cases")
         }
     }
 
@@ -62,9 +71,32 @@ struct BrowseSplitView: View {
             CaseListView(
                 topicID: topicID,
                 selectionMode: true,
-                selectedCaseID: $selectedCaseID
+                selectedCaseID: $selectedCaseID,
+                onCaseSelected: { _ in collapseToCase() }
             )
             .navigationTitle(topic.shortName)
+            .toolbar {
+                // Same principle as Study: switching books must not depend
+                // on the topics column being on screen.
+                ToolbarItem(placement: .topBarTrailing) {
+                    Menu {
+                        ForEach(content.questionBank?.topics ?? []) { candidate in
+                            Button {
+                                selectedTopicID = candidate.id
+                            } label: {
+                                if candidate.id == selectedTopicID {
+                                    Label(candidate.shortName, systemImage: "checkmark")
+                                } else {
+                                    Text(candidate.shortName)
+                                }
+                            }
+                        }
+                    } label: {
+                        Image(systemName: "books.vertical")
+                    }
+                    .accessibilityLabel("Switch book")
+                }
+            }
         } else {
             ContentUnavailableView(
                 "Select a topic",
@@ -78,7 +110,10 @@ struct BrowseSplitView: View {
     private var detailColumn: some View {
         if let caseID = selectedCaseID {
             NavigationStack {
-                CaseDetailView(caseID: caseID)
+                CaseDetailView(
+                    caseID: caseID,
+                    splitColumnVisibility: $columnVisibility
+                )
             }
         } else {
             ContentUnavailableView(
@@ -89,7 +124,19 @@ struct BrowseSplitView: View {
         }
     }
 
-    private func seedSelectionIfNeeded() {
+    // MARK: - Interaction
+
+    /// Tap = work the case. Collapse unconditionally at regular width.
+    private func collapseToCase() {
+        guard horizontalSizeClass == .regular else { return }
+        withAnimation(.snappy) {
+            columnVisibility = .detailOnly
+        }
+    }
+
+    /// Only the TOPIC is seeded so the cases column has content on first
+    /// launch. Cases are never auto-selected.
+    private func seedTopicIfNeeded() {
         guard selectedTopicID == nil,
               let first = content.questionBank?.topics.first else { return }
         selectedTopicID = first.id

@@ -1,235 +1,252 @@
 // !$*UTF8*$!
 {
 	archiveVersion = 1;
-	classes = {};
+	classes = {
+	};
 	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		37F059B92C2B48D9A52ED9A0 /* CFAL3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDCF412EF2E4FC38183FC47 /* CFAL3App.swift */; };
-		BE7E8F6AB4CF4802A79F0609 /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0CEF3B19F040D59EC39545 /* Case.swift */; };
-		DD018F6FA14B43D0937C129A /* ContentTargets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE42BB078A74F84A544376E /* ContentTargets.swift */; };
-		99D4564C915E431FA905121B /* LOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9E790DBB444208677CDD1 /* LOS.swift */; };
-		C50DD90ECA554C23998AEBA2 /* LOSDrill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BDD78E8E544EEEB6D9FE7E /* LOSDrill.swift */; };
-		BCECC9697FCB4036B4891FA5 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4860E685BC434EAEBA07C302 /* Question.swift */; };
-		AC455290363F4CFAB2E334F5 /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D13B921CC4824BBC94734 /* QuestionBank.swift */; };
-		979C13854A9442ED8FA2E1EC /* ReadingNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABAB6F86CC24253B0FA4263 /* ReadingNotes.swift */; };
-		B965A03D3F0D496AA48CC376 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C4A9C54F3045719F7F2D0E /* Topic.swift */; };
-		165AE0C3D8474BCCB8179241 /* Attempt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A420D454149A58C1091BA /* Attempt.swift */; };
-		4B0CA23E33B04AC38EF047A6 /* LOSStudyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE6DEE270349F5A1EF8C56 /* LOSStudyStatus.swift */; };
-		1827533E86AB440E9FAE0776 /* ReviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A414E02D98894F9288EBF49D /* ReviewCard.swift */; };
-		ED5D31E84F7742D6BF472EF3 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715844A6B8F54E02BA44051B /* Session.swift */; };
-		59DD68E931EF40EBAC6F7BE8 /* AdaptiveLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9E9852D9E410E99BB9DE0 /* AdaptiveLayout.swift */; };
-		ECEF4FEA02AC4F2693D1E50E /* Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E24D9679A5F4B2FBA510F21 /* Formatting.swift */; };
-		F6601FC9FFEB4E4BBDC18063 /* NotesContentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02F8AE21334BDF89A1CFAE /* NotesContentParser.swift */; };
-		7C0245D5C2744CA399F50AA7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57257F26A58C43D180C33403 /* Theme.swift */; };
-		262BF878F7F14162953141AD /* APIKeySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256C1F5C8F0A4C8981E6FD47 /* APIKeySheet.swift */; };
-		D3C1ABBE9A2C4BB1A3B8032E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEE3AA553A646EB816A3E32 /* SettingsView.swift */; };
-		DFC5798C481B45AC8A948CC9 /* LOSChecklistPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAA8AFAADAC4E8CB4C25267 /* LOSChecklistPanel.swift */; };
-		F73781C445F541C0B8CE059D /* LOSChecklistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9EECF81D4C4878A81F0BA5 /* LOSChecklistRow.swift */; };
-		52DC1F72D2DC4F1E98A4E2AF /* LOSDrillAttemptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE27669F5349F2850274E9 /* LOSDrillAttemptView.swift */; };
-		ED8776163038423180A2247C /* LOSDrillReadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410357AD55F34FC5A0AFC8B8 /* LOSDrillReadingView.swift */; };
-		6171C6FEDF1246BEA44C6660 /* ReadingNotesBlocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC67AF5A15A24A53B7FC6D1F /* ReadingNotesBlocksView.swift */; };
-		35164E7AC00F4B16997DEE58 /* ReadingNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE7D26B8464198BD47C65F /* ReadingNotesView.swift */; };
-		30C4A2A9D74B4D0490E909E5 /* StudyAreaDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12FC62CECD4EDCAFCEFA12 /* StudyAreaDetailView.swift */; };
-		E276C35324BC407FB880AA73 /* StudyPlannerSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DB5A98B63F4F6B925F92C6 /* StudyPlannerSplitView.swift */; };
-		15299BBB2A96478B8DC75FEA /* StudyPlannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A6C7A644B4941BD76E07F /* StudyPlannerView.swift */; };
-		43B3E2FAC9304742A03974B3 /* StudyReadingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0086898FB01483EBEA340EB /* StudyReadingDetailView.swift */; };
-		0B3EF277052C475CA3203D6E /* ContentDensitySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E325BD3D614A269B397F9F /* ContentDensitySection.swift */; };
-		1519A846B52F4B1B8D5EC527 /* LOSCoverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EF769FC8D5480F9F3EFC56 /* LOSCoverageView.swift */; };
-		2123245EB6F445CEB79F1C47 /* ProgressDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F24F90B4564D518EB9E31B /* ProgressDashboardView.swift */; };
-		869DF8C93DDF4932BA541E0A /* TopicProgressRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B349AF45DC324816ADBD8BBC /* TopicProgressRow.swift */; };
-		432F68B592FD4E29AE24A172 /* EssayInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985FD41B0C0D4969860CB4EE /* EssayInput.swift */; };
-		DDE0792D589A4CE6B2604FBF /* GradingResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFDCACB37A495B8D2B7B98 /* GradingResultView.swift */; };
-		70F92777487A4258B280B842 /* MultipleChoiceInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C594482D6F48B78CF0ACB0 /* MultipleChoiceInput.swift */; };
-		00DBED509A734E4592D9C922 /* QuestionAttemptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0B85CA9C654A9D9570B141 /* QuestionAttemptView.swift */; };
-		FCE5063D0D2B41889866DFAF /* VignetteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B303D3BD9D4799802188B3 /* VignetteView.swift */; };
-		0FB8346AA2AE44A99C50FBC3 /* SessionRunnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBE83B2CE1E48F1998DC0EB /* SessionRunnerView.swift */; };
-		CEE67D5DEDA14F8D91245808 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A58A6D8AF4566A2640A0B /* HomeView.swift */; };
-		39A5F7702F234CE28B76B1E3 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E17186295A478E9A2A370B /* RootTabView.swift */; };
-		09DF79CEE685482A8E0DAEEA /* BrowseSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1730AB6C124292A970C82F /* BrowseSplitView.swift */; };
-		96A0F59A66B047AEBC7CE084 /* CaseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D8F18933F4E87BDF3AFC3 /* CaseDetailView.swift */; };
-		1FBE925B6A9E493AAB3E9408 /* CaseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A898383B794C919DFAEF9D /* CaseListView.swift */; };
-		EFDB681B76B3483C9E79EDAA /* LOSFilterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9FC53BE59D4812B69348B9 /* LOSFilterSheet.swift */; };
-		6C707F5F7EE1496DBBA5D8D0 /* TopicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE144559A0E94BF582F19413 /* TopicListView.swift */; };
-		D296140AAB594793BEE89C01 /* PracticeBuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A949026A87474996ADABAF01 /* PracticeBuilderView.swift */; };
-		415812DBAE3C41909B6E787D /* ClaudeGrader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985CEB71E7A84AFA8EE109C4 /* ClaudeGrader.swift */; };
-		873B927E2C574CB7ACCE4451 /* ContentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4624DE0AD0A24E958AF77A84 /* ContentLoader.swift */; };
-		BAB7A1AA8CA449D185EB61B8 /* GradingResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CD2430A9B24E41B87E88A5 /* GradingResponseParser.swift */; };
-		193D60075A474803A26861AF /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E17FE561E74DA8BA89A181 /* KeychainStore.swift */; };
-		D9FF953AE57A4616AED28F07 /* PracticeBuilderPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2EF2BB39484BC189B43894 /* PracticeBuilderPreference.swift */; };
-		0FA06AC85F6545C48B4DCCF8 /* ProgressStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CEAD39CDCC482587BC0B6E /* ProgressStats.swift */; };
-		FDB276FEBECE4BA2A964A4D6 /* QuizAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9309E0CB460459EBA726C19 /* QuizAssembler.swift */; };
-		ACE2822844744B92AEAE188E /* ReviewScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC5749FCE0C483A904AFD67 /* ReviewScheduler.swift */; };
-		F5C08A90725F410F8C6A4555 /* StudyPlannerStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91DAC60A3444A7C911B4939 /* StudyPlannerStats.swift */; };
-		F78036A6898C47F7A2DD81D3 /* StudySessionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A814FC1518144496A700667D /* StudySessionCoordinator.swift */; };
-		DF7A22B460E04677AD3BF416 /* ClaudeGraderErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC3E5B635A49A7ACE46C79 /* ClaudeGraderErrorTests.swift */; };
-		9ED761D13F324B788E503FDC /* GradingResponseParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2539C2D2C5AA406394E11B11 /* GradingResponseParserTests.swift */; };
-		B06FA7373680405D97650DC7 /* NotesContentParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6E760692534BDCBFEC240C /* NotesContentParserTests.swift */; };
-		871A35A75565439F9D3E06F4 /* QuestionBankIntegrityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807DE1904ED14E5F8579D19D /* QuestionBankIntegrityTests.swift */; };
-		43C77369661847E9AE8FEF4F /* ReviewSchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D16F706E0469EB794F245 /* ReviewSchedulerTests.swift */; };
-		6EF8ED2995504DD0A4C58924 /* question_bank.json in Resources */ = {isa = PBXBuildFile; fileRef = E58E45FEDB59448DA4AC82B5 /* question_bank.json */; };
-		63874CBCDDAE4C4EB13D18DD /* los_master.json in Resources */ = {isa = PBXBuildFile; fileRef = AC192F0D06D748E59F3036C4 /* los_master.json */; };
-		CDB755D49EDE4AB1A50C359E /* topics.json in Resources */ = {isa = PBXBuildFile; fileRef = 67BB664ADD654A6FA496C900 /* topics.json */; };
-		3F0CEFDC4CAD4A2A9822E717 /* reading_notes.json in Resources */ = {isa = PBXBuildFile; fileRef = 713CE77450214A8AB18C7A75 /* reading_notes.json */; };
-		85FF3BD22DE04A8AAE080D84 /* content_targets.json in Resources */ = {isa = PBXBuildFile; fileRef = 96F403C8F9684E838AD07AEB /* content_targets.json */; };
-		3976E3C749BA40D8A69DCB17 /* los_drills_index.json in Resources */ = {isa = PBXBuildFile; fileRef = A0FCC12FD4724686A3D450EA /* los_drills_index.json */; };
-		25D8D9E4748D43ABB1F29C7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E124D6F04BB4A51A4702160 /* Assets.xcassets */; };
-		85C7B9A956D04FFB90A54D0E /* los_drills_r1.json in Resources */ = {isa = PBXBuildFile; fileRef = 94BDC36863AC49A9B7230077 /* los_drills_r1.json */; };
-		78423B5DAF834EE0B898E827 /* los_drills_r10.json in Resources */ = {isa = PBXBuildFile; fileRef = 579F6DC9A23D489983113DCC /* los_drills_r10.json */; };
-		916AA1D4F316467AB8BDB8C8 /* los_drills_r11.json in Resources */ = {isa = PBXBuildFile; fileRef = 87E14C6BFB9D40BC90ED1C16 /* los_drills_r11.json */; };
-		B4691CCAE17A487CAD9535DA /* los_drills_r12.json in Resources */ = {isa = PBXBuildFile; fileRef = B5971AD4801D4F0D8B6A30B6 /* los_drills_r12.json */; };
-		7DCF369442A840CA9AD0C71C /* los_drills_r13.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BB85CFA34E644AFBA20F24D /* los_drills_r13.json */; };
-		744AEA4960AB48ACBD689728 /* los_drills_r14.json in Resources */ = {isa = PBXBuildFile; fileRef = 53C6BAC5014D41AF9354DB1A /* los_drills_r14.json */; };
-		49455F0B459F459DBE6A3536 /* los_drills_r15.json in Resources */ = {isa = PBXBuildFile; fileRef = BA77ADDAE6124D6D9A04B997 /* los_drills_r15.json */; };
-		4C634EBEE6624AD783DA6B0B /* los_drills_r16.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3A42122B98452DBE0EE332 /* los_drills_r16.json */; };
-		B962E85CA4704BDBAAEE91EB /* los_drills_r17.json in Resources */ = {isa = PBXBuildFile; fileRef = BEE15AA004ED40C8A561CE0B /* los_drills_r17.json */; };
-		47F947399C074087B579CE2B /* los_drills_r18.json in Resources */ = {isa = PBXBuildFile; fileRef = 8804B7CBA4EF4E4492AFD856 /* los_drills_r18.json */; };
-		A0B0973EB06944BCA2C6C964 /* los_drills_r19.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A97BFFAA0744683AC09E7A1 /* los_drills_r19.json */; };
-		D0A3A375CD27463C9A7ADDE5 /* los_drills_r2.json in Resources */ = {isa = PBXBuildFile; fileRef = 01415D1420CE4B8AA6AAB597 /* los_drills_r2.json */; };
-		014FD88E1B674AE9BE268876 /* los_drills_r20.json in Resources */ = {isa = PBXBuildFile; fileRef = 551AC231ADE1420497C6C998 /* los_drills_r20.json */; };
-		2852ADD5FEF14E61B5CDDAAF /* los_drills_r21.json in Resources */ = {isa = PBXBuildFile; fileRef = D3C9F8D99E1C4488BE4F074E /* los_drills_r21.json */; };
-		0E5A11E4A0A944B3B34420A2 /* los_drills_r22.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C69C54943DC461B8DE30961 /* los_drills_r22.json */; };
-		B826DD13185D4DE690E707F6 /* los_drills_r23.json in Resources */ = {isa = PBXBuildFile; fileRef = C84ED6DF83B645CB8BC316C6 /* los_drills_r23.json */; };
-		A10446F7BC704CCD97C8EB0A /* los_drills_r24.json in Resources */ = {isa = PBXBuildFile; fileRef = AD487EA093754885BFE8773A /* los_drills_r24.json */; };
-		589D8C6B5CBC4988981BE657 /* los_drills_r25.json in Resources */ = {isa = PBXBuildFile; fileRef = 01C6EA7A922A44C8804879FA /* los_drills_r25.json */; };
-		879D1354F3FC49868DF3F2CC /* los_drills_r26.json in Resources */ = {isa = PBXBuildFile; fileRef = 06C94520701748F2A13E1F3A /* los_drills_r26.json */; };
-		E2EE131A7983455EB1084A18 /* los_drills_r27.json in Resources */ = {isa = PBXBuildFile; fileRef = 477646BC3AEE40429BDBE1FB /* los_drills_r27.json */; };
-		C6906449343B49568C43F4A3 /* los_drills_r28.json in Resources */ = {isa = PBXBuildFile; fileRef = F8AB25653E8B4F7D881590FD /* los_drills_r28.json */; };
-		FACE47AD277A4911867F3C72 /* los_drills_r29.json in Resources */ = {isa = PBXBuildFile; fileRef = ACC5FA414CF04DA781C997A4 /* los_drills_r29.json */; };
-		8B423519B028482C817213EA /* los_drills_r3.json in Resources */ = {isa = PBXBuildFile; fileRef = 79621CC92352457E97559A85 /* los_drills_r3.json */; };
-		A77835D9C1BC43FAA8EE7E5E /* los_drills_r30.json in Resources */ = {isa = PBXBuildFile; fileRef = 05BCD5E571CB482EA01F1E8A /* los_drills_r30.json */; };
-		3E83BF4AB4244C90A3A34686 /* los_drills_r31.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A821969D99A426A982A97BE /* los_drills_r31.json */; };
-		D0D168D1B23F410AB01F18CD /* los_drills_r32.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E3E834BD751461AA1E20A58 /* los_drills_r32.json */; };
-		1613B77A652F49C99EE6885A /* los_drills_r33.json in Resources */ = {isa = PBXBuildFile; fileRef = C2161EC7E16E42148140381D /* los_drills_r33.json */; };
-		8F5B4301608B44C299C8C3C5 /* los_drills_r34.json in Resources */ = {isa = PBXBuildFile; fileRef = 783B2E7EBFE14504B6F82EEA /* los_drills_r34.json */; };
-		50FE16E0FBF348458712D5D0 /* los_drills_r35.json in Resources */ = {isa = PBXBuildFile; fileRef = 78A3FE1C97944F75BA4309E0 /* los_drills_r35.json */; };
-		6F5F6DD00E524E4BA905D986 /* los_drills_r4.json in Resources */ = {isa = PBXBuildFile; fileRef = E8532AE9526C40D5B5AA0730 /* los_drills_r4.json */; };
-		1518CB3EA36642BAB30B0CC3 /* los_drills_r5.json in Resources */ = {isa = PBXBuildFile; fileRef = A16B1C9DCC624F208145C5C6 /* los_drills_r5.json */; };
-		AB38FA05F4474E1B9B473E66 /* los_drills_r6.json in Resources */ = {isa = PBXBuildFile; fileRef = 0EB10D9D4BCA4CE984355AA6 /* los_drills_r6.json */; };
-		3D3ED4029E0B466B82ED3FF4 /* los_drills_r7.json in Resources */ = {isa = PBXBuildFile; fileRef = 74883145939544A6B7C5010E /* los_drills_r7.json */; };
-		1DE2A2CA9AD7472497780476 /* los_drills_r8.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D6AA2BCA772438096BE232C /* los_drills_r8.json */; };
-		F06D47407C5E4A7E816CC8A8 /* los_drills_r9.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B31D47E102941C795A4FA20 /* los_drills_r9.json */; };
+		0129E235548143B29A5EE5BE /* los_drills_r20.json in Resources */ = {isa = PBXBuildFile; fileRef = 33F2C548B15A41CFB8DDC270 /* los_drills_r20.json */; };
+		060E3661B80C446EB54AAF30 /* los_drills_r1.json in Resources */ = {isa = PBXBuildFile; fileRef = 479EB4F438A2484786E6010D /* los_drills_r1.json */; };
+		0905A7D92F604B64B88F991A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78E138829F5C4C3EBDA06E86 /* Assets.xcassets */; };
+		09BE15A3C85146DB84984CE8 /* los_drills_r31.json in Resources */ = {isa = PBXBuildFile; fileRef = 96765C669DD44488BBF98B69 /* los_drills_r31.json */; };
+		0BE61D7A432C4C93A2C11762 /* PracticeBuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B5BD339A05470B924BDA72 /* PracticeBuilderView.swift */; };
+		0CC56DFCF5294704A0EB5AA4 /* los_drills_r33.json in Resources */ = {isa = PBXBuildFile; fileRef = A6554E73183A4522929EBB31 /* los_drills_r33.json */; };
+		10B1F34D85B842668DD6A40B /* los_drills_r30.json in Resources */ = {isa = PBXBuildFile; fileRef = E7AE1FDE1E4F4BFD85729378 /* los_drills_r30.json */; };
+		10CA868C08874BBF902CE81E /* study_schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = FC34B73FE9EA4562B202CAF8 /* study_schedule.json */; };
+		136311A12E8A491B929DBC70 /* ContentDensitySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37A7F81751C442382E848B8 /* ContentDensitySection.swift */; };
+		1405045309544F9A9A39CCD7 /* reading_notes.json in Resources */ = {isa = PBXBuildFile; fileRef = 8522D72A30624A7DB90C00EA /* reading_notes.json */; };
+		14A8DFE021CB49A58ACFE113 /* ReadingNotesBlocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2442EBCD24704E2D97B36612 /* ReadingNotesBlocksView.swift */; };
+		15BC0053332642829D36BB50 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D24C9BD3CE24077BC4B51B8 /* Theme.swift */; };
+		1734ECEB45BC49BF90D20649 /* StudySessionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B2388CE940E9AD778803 /* StudySessionCoordinator.swift */; };
+		1C5C86CC7FBD42F5AFC8336F /* QuestionAttemptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D75174F099481C90E0545D /* QuestionAttemptView.swift */; };
+		1D61F3E2C6EE47BFA81389D5 /* NotesContentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4703EEBE28948DD9CBB6BD2 /* NotesContentParser.swift */; };
+		1D7562E5223E40509DA8D2C1 /* LOSStudyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FECB28C521A446CB948F083 /* LOSStudyStatus.swift */; };
+		1E0BAAB66D4D445A822C105E /* los_drills_r34.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F87E270A6DE4A528EF435F7 /* los_drills_r34.json */; };
+		1E865EA0FDAE4C5F8386B7EE /* LOSCoverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4FD3A1392A4F3EA111CFD7 /* LOSCoverageView.swift */; };
+		1F7E6572BF6543808CFCFB6B /* ReviewScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BFDC81E2F2468FB8FDCBB1 /* ReviewScheduler.swift */; };
+		2244FE7F912441F9AA00CC0F /* LOSDrillReadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2119EF5454F789B7AE11C /* LOSDrillReadingView.swift */; };
+		243C8ED5E40141FFA8C9BDC7 /* ReviewSchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDEB7F0A6D742F291EF103C /* ReviewSchedulerTests.swift */; };
+		27245A1BE64B4A7E9354EA18 /* los_drills_r21.json in Resources */ = {isa = PBXBuildFile; fileRef = E7085731F60A42518C0B6D14 /* los_drills_r21.json */; };
+		275ADD3E5FC84A09822F8857 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763FBAAB21F406994A4BC27 /* HomeView.swift */; };
+		27A01F415B844E03ABA4047A /* los_drills_r6.json in Resources */ = {isa = PBXBuildFile; fileRef = DDFD84E9DBF04FE8BDB10221 /* los_drills_r6.json */; };
+		2858D578CEFC46B28B17E658 /* ReadingNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE663547DD984B628B8BD8B2 /* ReadingNotesView.swift */; };
+		2BC11BB78797406F8CFF4C08 /* los_drills_r9.json in Resources */ = {isa = PBXBuildFile; fileRef = 954C05439F56423780517BB9 /* los_drills_r9.json */; };
+		2C75C41ADB584E61BF5690A1 /* GraderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA830FFAC3094075B4513E0D /* GraderConfig.swift */; };
+		2DF817F4B15342A3BCA9FD17 /* PracticeBuilderPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C30EF9C434A1FB54DDBDB /* PracticeBuilderPreference.swift */; };
+		2E3B6577617C4726A27DC976 /* CFAL3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A1C80B8FC944D38112F410 /* CFAL3App.swift */; };
+		34B7E3A329194D4984669E10 /* los_drills_r5.json in Resources */ = {isa = PBXBuildFile; fileRef = EDA07FA7A91B4E30A3CEE78D /* los_drills_r5.json */; };
+		3850143D80B94D4689C0F2DA /* ProgressDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0219DF3DFFB842E4AC0403D8 /* ProgressDashboardView.swift */; };
+		3DC9B25DF7C54A84B174D2B9 /* TopicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA07C360A9A4F0E81142087 /* TopicListView.swift */; };
+		4345E5D4137D456187976AB6 /* QuestionBankIntegrityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2824EF5E224FEB9BD908C6 /* QuestionBankIntegrityTests.swift */; };
+		4A5B39F992B444A3BB1A20DC /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D44B94DF504165949735B4 /* QuestionBank.swift */; };
+		4B38D8BD28A945C8A6DF5650 /* ClaudeGrader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA221666F514841B2CC8C7C /* ClaudeGrader.swift */; };
+		4B43E387F4384C4AA69FC05F /* los_master.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F6DDCFA99884B51ADC4FD45 /* los_master.json */; };
+		4B607CAFC1F44046BE3534C6 /* content_targets.json in Resources */ = {isa = PBXBuildFile; fileRef = 412C78857621432AB89BA9E2 /* content_targets.json */; };
+		4E3E64899A264FDF8DCEFD46 /* StudyAreaDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36176D2B656643E9A65667BC /* StudyAreaDetailView.swift */; };
+		4EA5E834AC7841D09C6228B1 /* EssayInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DB556C2B63477191B35948 /* EssayInput.swift */; };
+		4F480E013FFA4741A00FFC66 /* Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292F523D997F4F16A51E1622 /* Formatting.swift */; };
+		52CB938372B04A5AA8006E99 /* StudyComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C566E562D6C4ECBB63B2BD1 /* StudyComponents.swift */; };
+		548EB08DE8AC4A7199341A81 /* los_drills_r11.json in Resources */ = {isa = PBXBuildFile; fileRef = 30E16C1C7B144F6085746833 /* los_drills_r11.json */; };
+		578B7ECBE5A34243889D6A61 /* DayCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED961B735048B893137430 /* DayCompletion.swift */; };
+		57BB770922ED474DAB420B3C /* topics.json in Resources */ = {isa = PBXBuildFile; fileRef = 61AFB4B738AF426CB8CE2169 /* topics.json */; };
+		5BFED40742ED4467B25AEEA1 /* VignetteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D985187F6C4B53B3101CC3 /* VignetteView.swift */; };
+		5C3782E842CB40E8B1E4B6A4 /* los_drills_r23.json in Resources */ = {isa = PBXBuildFile; fileRef = A47F557D6A7E458189CDA91E /* los_drills_r23.json */; };
+		5E13CD6D135E4E6DA7F7E071 /* los_drills_r32.json in Resources */ = {isa = PBXBuildFile; fileRef = FBFB7C5F647745D08BA53068 /* los_drills_r32.json */; };
+		672CE7E5355140078AD6FC8C /* los_drills_r15.json in Resources */ = {isa = PBXBuildFile; fileRef = 85EC6CF17C714A989CE377AA /* los_drills_r15.json */; };
+		6A408F02B0FE429CB9C6E0C7 /* Attempt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38887C1F4EFD4276A65D075C /* Attempt.swift */; };
+		6FF801036135423592650CFE /* los_drills_r10.json in Resources */ = {isa = PBXBuildFile; fileRef = AED75F83A3774034879B20D8 /* los_drills_r10.json */; };
+		7049E344B47C4F1EB4DA77E5 /* StudyPlannerSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA614611467451C93082870 /* StudyPlannerSplitView.swift */; };
+		71C5D6A00C7940C09CA7A27B /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195D89159A9E4CDDBB90386C /* Case.swift */; };
+		73A28D0D5A5D45A0A685BFB9 /* los_drills_r26.json in Resources */ = {isa = PBXBuildFile; fileRef = 43EC39CAF8334FB0AB2F6B6C /* los_drills_r26.json */; };
+		741797DC119C4419B8C276A9 /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6707A2355E894E7991D0D637 /* PlanView.swift */; };
+		7649D8F0C0A04B889CC4F81B /* los_drills_r8.json in Resources */ = {isa = PBXBuildFile; fileRef = 9512812FFCAE48BCBFD1C5B7 /* los_drills_r8.json */; };
+		78DEDB03150A4E7389DC55F7 /* los_drills_index.json in Resources */ = {isa = PBXBuildFile; fileRef = E50F06C699DD40EB9C991616 /* los_drills_index.json */; };
+		7A8E045D66BA4B3E892676DB /* LOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD4C8C92164987B6983CA6 /* LOS.swift */; };
+		7C7C248941024CB28CD1665E /* los_drills_r22.json in Resources */ = {isa = PBXBuildFile; fileRef = 1610F0AC93BE49C5BABD5F17 /* los_drills_r22.json */; };
+		8454FEEB4C97418180E2A688 /* LOSDrillAttemptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC2AE604D6B4654B0A4B236 /* LOSDrillAttemptView.swift */; };
+		87568CEDECC144EA841F2452 /* StudyDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C7349EB174F60BF66AC33 /* StudyDisplay.swift */; };
+		876456306C594941870BB2F2 /* DesignComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC20F96139346B2BF1B6306 /* DesignComponents.swift */; };
+		899442570B2442F5ACB2841D /* los_drills_r29.json in Resources */ = {isa = PBXBuildFile; fileRef = 7936F6EF2C5446FCA41DBF61 /* los_drills_r29.json */; };
+		8A4115E3958F4A93945816B6 /* LOSChecklistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9DE8DF2B924B2682370D97 /* LOSChecklistRow.swift */; };
+		8A86611E939141B9AC5CC312 /* los_drills_r24.json in Resources */ = {isa = PBXBuildFile; fileRef = BC7D1CD9504D479ABA253582 /* los_drills_r24.json */; };
+		8B72230580D9481BB4754505 /* los_drills_r4.json in Resources */ = {isa = PBXBuildFile; fileRef = CB59C456AAFA441A9551CA08 /* los_drills_r4.json */; };
+		91B1C8735C154ED7AAAD91C8 /* los_drills_r14.json in Resources */ = {isa = PBXBuildFile; fileRef = 921CB5DB5EE04B0AB667D3A3 /* los_drills_r14.json */; };
+		9787F1A940DE4737AD09399D /* los_drills_r3.json in Resources */ = {isa = PBXBuildFile; fileRef = 679AB138ED074D10A47247E7 /* los_drills_r3.json */; };
+		9B30E00C7EBD420080C706E0 /* LOSDrill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D51CCE71B8479DB70E049A /* LOSDrill.swift */; };
+		9C2C712717334360968FFDB2 /* los_drills_r27.json in Resources */ = {isa = PBXBuildFile; fileRef = EF5D4EE859D841FB95270867 /* los_drills_r27.json */; };
+		9FE84FDE8AFD47B2850E055F /* StudyReadingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59971326BB734A9DA1D869CB /* StudyReadingDetailView.swift */; };
+		A55600316463473185D99CD8 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60728E62419F4D3AAADED1E4 /* RootTabView.swift */; };
+		AC6614F71CD64BB092A5FC78 /* GradingResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBF716757A74CBCA6D91269 /* GradingResponseParser.swift */; };
+		AEC9019C50A74073B83D1CC6 /* ReadingNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E553728AAB1455896D12DAD /* ReadingNotes.swift */; };
+		B118CA85BEC941318EB932FD /* LOSChecklistPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA5FB6F4A7043D8BDFBB1EA /* LOSChecklistPanel.swift */; };
+		B4912A9BE67B43E88EBDC019 /* los_drills_r16.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C638C69E9FA49E485FBDC64 /* los_drills_r16.json */; };
+		B8538543E18F44B397B52B12 /* ProgressStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6634F87049124714A9BDCF93 /* ProgressStats.swift */; };
+		B87AA327EEC64867BA1A7630 /* los_drills_r28.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B43273F26F54D4288E856DF /* los_drills_r28.json */; };
+		B94DBBE1EE3E491B9C1D79BA /* question_bank.json in Resources */ = {isa = PBXBuildFile; fileRef = 709285E3BFCA4D1CAB303324 /* question_bank.json */; };
+		BDB6E32655A1492E8B647ED5 /* ReviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D694149554AD4B0EF1260 /* ReviewCard.swift */; };
+		BEC13E2002F143CF8557176E /* StudyScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B8BD2A1A10429CA9009D2A /* StudyScheduleTests.swift */; };
+		C142D518BA5A472AA97DD4D0 /* ClaudeGraderErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF27571BE6C440D7BD11BEC6 /* ClaudeGraderErrorTests.swift */; };
+		C934D786A04049CA86DDBEF9 /* los_drills_r2.json in Resources */ = {isa = PBXBuildFile; fileRef = 0896740AF093488E8FAE406D /* los_drills_r2.json */; };
+		CCB37A49F29E4A6DBD6571EB /* los_drills_r7.json in Resources */ = {isa = PBXBuildFile; fileRef = AC8F2CCFA7F24528ABF7D580 /* los_drills_r7.json */; };
+		CCFC8423471B4CA9968C2FC5 /* ContentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB356B2D1940F4ABB6C046 /* ContentLoader.swift */; };
+		CDDC11A6A4974DE98F5FC562 /* LOSFilterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81A91BC2D74E76A0AB5F1B /* LOSFilterSheet.swift */; };
+		CE271E075BFC4A939D3F98F0 /* StudyPlannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE3603862AE45B39D37FA8A /* StudyPlannerView.swift */; };
+		CE31020A549C4387BB55E079 /* AdaptiveLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B54E8CC64E04C318A838EC4 /* AdaptiveLayout.swift */; };
+		CEA5BD5285DC4484AAB37770 /* TopicProgressRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DE40C9741F41728D7F643A /* TopicProgressRow.swift */; };
+		D24BFB81E3CD467EAADEF909 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D513B3FFA3404C8AD32BD8 /* Topic.swift */; };
+		D78A124325A34A7B9D6D6E95 /* ProgressDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B475B31D12DD403F880470CD /* ProgressDisplay.swift */; };
+		D868A1912E7949028AAB51B3 /* CaseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E70083E5B34E28960E49E0 /* CaseListView.swift */; };
+		D88B0B2015734B3B9107F515 /* GradingResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240140A69D2C47F4B91E31B0 /* GradingResultView.swift */; };
+		D96E7A90E9F846EA90EBF873 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A213608908F498A9CD1B071 /* SettingsView.swift */; };
+		D9C73CD92A4149C8A11E805A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6DD24CFD6E4893866B7111 /* Question.swift */; };
+		DAB7183D51D24A96BA0F4454 /* los_drills_r12.json in Resources */ = {isa = PBXBuildFile; fileRef = 886C547624744BF1B538163D /* los_drills_r12.json */; };
+		DAFF14100F9D43639B4E5FC6 /* QuizAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98437221DE424A2BB725E6F0 /* QuizAssembler.swift */; };
+		DF722BC8E45B42D2A9CEC9A9 /* SessionRunnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A34FD0E65C47DB99532BAB /* SessionRunnerView.swift */; };
+		E15D6C5E05804139A7156AC1 /* los_drills_r25.json in Resources */ = {isa = PBXBuildFile; fileRef = 0698DAB318924D249D37E46B /* los_drills_r25.json */; };
+		E1E222898E834911BFC28175 /* los_drills_r13.json in Resources */ = {isa = PBXBuildFile; fileRef = AB77EC13408B4C8B9DF33629 /* los_drills_r13.json */; };
+		E48A010D89D7483C89B51218 /* los_drills_r35.json in Resources */ = {isa = PBXBuildFile; fileRef = 193904FBE01B46CFA1BBB88F /* los_drills_r35.json */; };
+		E809EE2E045E42E9813DD101 /* BrowseSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE3B2D08104DC6AC6CE541 /* BrowseSplitView.swift */; };
+		EA104E48307E4173A2389D71 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EC49596EF463ABA13A820 /* Session.swift */; };
+		EC07A1060DD6429484BF6CC8 /* los_drills_r19.json in Resources */ = {isa = PBXBuildFile; fileRef = D6E556BBB4E048D7A6A1F019 /* los_drills_r19.json */; };
+		EE1E62F20D9A479E8E518EF8 /* los_drills_r18.json in Resources */ = {isa = PBXBuildFile; fileRef = AAD9630101AB46F1B26FDB0D /* los_drills_r18.json */; };
+		F2F7DFC25BF741F5977EFCB7 /* los_drills_r17.json in Resources */ = {isa = PBXBuildFile; fileRef = 138406866C524067AB21985E /* los_drills_r17.json */; };
+		F3DB51C89B484060AD989650 /* StudyPlannerStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3987664C2E83427588523765 /* StudyPlannerStats.swift */; };
+		F3F572AD8E65408E9B33CE60 /* GradingResponseParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929CD068491F4FA29B4E9EDA /* GradingResponseParserTests.swift */; };
+		F5CB2015A5764D80B1E58C22 /* CaseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB41F096BD8488586608299 /* CaseDetailView.swift */; };
+		F6801CFCE41047DFB2C73967 /* StudySchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DE7AB1BAA5484897E95179 /* StudySchedule.swift */; };
+		F6BAC4E260F943E2B7174BBF /* ContentTargets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF249A5C261414FBFAB63F9 /* ContentTargets.swift */; };
+		F6DF3A9B5F784E15B344F99E /* MultipleChoiceInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BC1505535F4A68992F72E5 /* MultipleChoiceInput.swift */; };
+		FAF0FB28A4074A6E8CA13738 /* NotesContentParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CAADDFEE34FF7ACA5F995 /* NotesContentParserTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BEA7794A509B4FC4B5A10F40 /* CFAL3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CFAL3.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBB920B99961450E9C60C18E /* CFAL3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CFAL3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0CDCF412EF2E4FC38183FC47 /* CFAL3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFAL3App.swift; sourceTree = "<group>"; };
-		CB0CEF3B19F040D59EC39545 /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
-		CCE42BB078A74F84A544376E /* ContentTargets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTargets.swift; sourceTree = "<group>"; };
-		38E9E790DBB444208677CDD1 /* LOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOS.swift; sourceTree = "<group>"; };
-		25BDD78E8E544EEEB6D9FE7E /* LOSDrill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSDrill.swift; sourceTree = "<group>"; };
-		4860E685BC434EAEBA07C302 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		D92D13B921CC4824BBC94734 /* QuestionBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
-		6ABAB6F86CC24253B0FA4263 /* ReadingNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingNotes.swift; sourceTree = "<group>"; };
-		30C4A9C54F3045719F7F2D0E /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
-		3A3A420D454149A58C1091BA /* Attempt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attempt.swift; sourceTree = "<group>"; };
-		25CE6DEE270349F5A1EF8C56 /* LOSStudyStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSStudyStatus.swift; sourceTree = "<group>"; };
-		A414E02D98894F9288EBF49D /* ReviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCard.swift; sourceTree = "<group>"; };
-		715844A6B8F54E02BA44051B /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
-		96C9E9852D9E410E99BB9DE0 /* AdaptiveLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveLayout.swift; sourceTree = "<group>"; };
-		7E24D9679A5F4B2FBA510F21 /* Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatting.swift; sourceTree = "<group>"; };
-		CF02F8AE21334BDF89A1CFAE /* NotesContentParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesContentParser.swift; sourceTree = "<group>"; };
-		57257F26A58C43D180C33403 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		256C1F5C8F0A4C8981E6FD47 /* APIKeySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeySheet.swift; sourceTree = "<group>"; };
-		0FEE3AA553A646EB816A3E32 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		0AAA8AFAADAC4E8CB4C25267 /* LOSChecklistPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSChecklistPanel.swift; sourceTree = "<group>"; };
-		0C9EECF81D4C4878A81F0BA5 /* LOSChecklistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSChecklistRow.swift; sourceTree = "<group>"; };
-		FFCE27669F5349F2850274E9 /* LOSDrillAttemptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSDrillAttemptView.swift; sourceTree = "<group>"; };
-		410357AD55F34FC5A0AFC8B8 /* LOSDrillReadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSDrillReadingView.swift; sourceTree = "<group>"; };
-		CC67AF5A15A24A53B7FC6D1F /* ReadingNotesBlocksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingNotesBlocksView.swift; sourceTree = "<group>"; };
-		F8EE7D26B8464198BD47C65F /* ReadingNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingNotesView.swift; sourceTree = "<group>"; };
-		5B12FC62CECD4EDCAFCEFA12 /* StudyAreaDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyAreaDetailView.swift; sourceTree = "<group>"; };
-		F0DB5A98B63F4F6B925F92C6 /* StudyPlannerSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPlannerSplitView.swift; sourceTree = "<group>"; };
-		BB7A6C7A644B4941BD76E07F /* StudyPlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPlannerView.swift; sourceTree = "<group>"; };
-		E0086898FB01483EBEA340EB /* StudyReadingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyReadingDetailView.swift; sourceTree = "<group>"; };
-		73E325BD3D614A269B397F9F /* ContentDensitySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDensitySection.swift; sourceTree = "<group>"; };
-		55EF769FC8D5480F9F3EFC56 /* LOSCoverageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSCoverageView.swift; sourceTree = "<group>"; };
-		39F24F90B4564D518EB9E31B /* ProgressDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDashboardView.swift; sourceTree = "<group>"; };
-		B349AF45DC324816ADBD8BBC /* TopicProgressRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicProgressRow.swift; sourceTree = "<group>"; };
-		985FD41B0C0D4969860CB4EE /* EssayInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssayInput.swift; sourceTree = "<group>"; };
-		2FAFDCACB37A495B8D2B7B98 /* GradingResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradingResultView.swift; sourceTree = "<group>"; };
-		18C594482D6F48B78CF0ACB0 /* MultipleChoiceInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceInput.swift; sourceTree = "<group>"; };
-		FD0B85CA9C654A9D9570B141 /* QuestionAttemptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAttemptView.swift; sourceTree = "<group>"; };
-		63B303D3BD9D4799802188B3 /* VignetteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VignetteView.swift; sourceTree = "<group>"; };
-		DEBE83B2CE1E48F1998DC0EB /* SessionRunnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRunnerView.swift; sourceTree = "<group>"; };
-		7E8A58A6D8AF4566A2640A0B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		51E17186295A478E9A2A370B /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
-		3A1730AB6C124292A970C82F /* BrowseSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseSplitView.swift; sourceTree = "<group>"; };
-		538D8F18933F4E87BDF3AFC3 /* CaseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDetailView.swift; sourceTree = "<group>"; };
-		15A898383B794C919DFAEF9D /* CaseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseListView.swift; sourceTree = "<group>"; };
-		CF9FC53BE59D4812B69348B9 /* LOSFilterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSFilterSheet.swift; sourceTree = "<group>"; };
-		AE144559A0E94BF582F19413 /* TopicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListView.swift; sourceTree = "<group>"; };
-		A949026A87474996ADABAF01 /* PracticeBuilderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeBuilderView.swift; sourceTree = "<group>"; };
-		985CEB71E7A84AFA8EE109C4 /* ClaudeGrader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeGrader.swift; sourceTree = "<group>"; };
-		4624DE0AD0A24E958AF77A84 /* ContentLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLoader.swift; sourceTree = "<group>"; };
-		D9CD2430A9B24E41B87E88A5 /* GradingResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradingResponseParser.swift; sourceTree = "<group>"; };
-		98E17FE561E74DA8BA89A181 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
-		FD2EF2BB39484BC189B43894 /* PracticeBuilderPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeBuilderPreference.swift; sourceTree = "<group>"; };
-		20CEAD39CDCC482587BC0B6E /* ProgressStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStats.swift; sourceTree = "<group>"; };
-		B9309E0CB460459EBA726C19 /* QuizAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizAssembler.swift; sourceTree = "<group>"; };
-		1DC5749FCE0C483A904AFD67 /* ReviewScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewScheduler.swift; sourceTree = "<group>"; };
-		B91DAC60A3444A7C911B4939 /* StudyPlannerStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPlannerStats.swift; sourceTree = "<group>"; };
-		A814FC1518144496A700667D /* StudySessionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySessionCoordinator.swift; sourceTree = "<group>"; };
-		E58E45FEDB59448DA4AC82B5 /* question_bank.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = question_bank.json; sourceTree = "<group>"; };
-		AC192F0D06D748E59F3036C4 /* los_master.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_master.json; sourceTree = "<group>"; };
-		67BB664ADD654A6FA496C900 /* topics.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = topics.json; sourceTree = "<group>"; };
-		713CE77450214A8AB18C7A75 /* reading_notes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = reading_notes.json; sourceTree = "<group>"; };
-		96F403C8F9684E838AD07AEB /* content_targets.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = content_targets.json; sourceTree = "<group>"; };
-		A0FCC12FD4724686A3D450EA /* los_drills_index.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_index.json; sourceTree = "<group>"; };
-		1E124D6F04BB4A51A4702160 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		94BDC36863AC49A9B7230077 /* los_drills_r1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r1.json; sourceTree = "<group>"; };
-		579F6DC9A23D489983113DCC /* los_drills_r10.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r10.json; sourceTree = "<group>"; };
-		87E14C6BFB9D40BC90ED1C16 /* los_drills_r11.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r11.json; sourceTree = "<group>"; };
-		B5971AD4801D4F0D8B6A30B6 /* los_drills_r12.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r12.json; sourceTree = "<group>"; };
-		0BB85CFA34E644AFBA20F24D /* los_drills_r13.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r13.json; sourceTree = "<group>"; };
-		53C6BAC5014D41AF9354DB1A /* los_drills_r14.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r14.json; sourceTree = "<group>"; };
-		BA77ADDAE6124D6D9A04B997 /* los_drills_r15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r15.json; sourceTree = "<group>"; };
-		9B3A42122B98452DBE0EE332 /* los_drills_r16.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r16.json; sourceTree = "<group>"; };
-		BEE15AA004ED40C8A561CE0B /* los_drills_r17.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r17.json; sourceTree = "<group>"; };
-		8804B7CBA4EF4E4492AFD856 /* los_drills_r18.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r18.json; sourceTree = "<group>"; };
-		0A97BFFAA0744683AC09E7A1 /* los_drills_r19.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r19.json; sourceTree = "<group>"; };
-		01415D1420CE4B8AA6AAB597 /* los_drills_r2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r2.json; sourceTree = "<group>"; };
-		551AC231ADE1420497C6C998 /* los_drills_r20.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r20.json; sourceTree = "<group>"; };
-		D3C9F8D99E1C4488BE4F074E /* los_drills_r21.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r21.json; sourceTree = "<group>"; };
-		6C69C54943DC461B8DE30961 /* los_drills_r22.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r22.json; sourceTree = "<group>"; };
-		C84ED6DF83B645CB8BC316C6 /* los_drills_r23.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r23.json; sourceTree = "<group>"; };
-		AD487EA093754885BFE8773A /* los_drills_r24.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r24.json; sourceTree = "<group>"; };
-		01C6EA7A922A44C8804879FA /* los_drills_r25.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r25.json; sourceTree = "<group>"; };
-		06C94520701748F2A13E1F3A /* los_drills_r26.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r26.json; sourceTree = "<group>"; };
-		477646BC3AEE40429BDBE1FB /* los_drills_r27.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r27.json; sourceTree = "<group>"; };
-		F8AB25653E8B4F7D881590FD /* los_drills_r28.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r28.json; sourceTree = "<group>"; };
-		ACC5FA414CF04DA781C997A4 /* los_drills_r29.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r29.json; sourceTree = "<group>"; };
-		79621CC92352457E97559A85 /* los_drills_r3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r3.json; sourceTree = "<group>"; };
-		05BCD5E571CB482EA01F1E8A /* los_drills_r30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r30.json; sourceTree = "<group>"; };
-		2A821969D99A426A982A97BE /* los_drills_r31.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r31.json; sourceTree = "<group>"; };
-		2E3E834BD751461AA1E20A58 /* los_drills_r32.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r32.json; sourceTree = "<group>"; };
-		C2161EC7E16E42148140381D /* los_drills_r33.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r33.json; sourceTree = "<group>"; };
-		783B2E7EBFE14504B6F82EEA /* los_drills_r34.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r34.json; sourceTree = "<group>"; };
-		78A3FE1C97944F75BA4309E0 /* los_drills_r35.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r35.json; sourceTree = "<group>"; };
-		E8532AE9526C40D5B5AA0730 /* los_drills_r4.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r4.json; sourceTree = "<group>"; };
-		A16B1C9DCC624F208145C5C6 /* los_drills_r5.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r5.json; sourceTree = "<group>"; };
-		0EB10D9D4BCA4CE984355AA6 /* los_drills_r6.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r6.json; sourceTree = "<group>"; };
-		74883145939544A6B7C5010E /* los_drills_r7.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r7.json; sourceTree = "<group>"; };
-		3D6AA2BCA772438096BE232C /* los_drills_r8.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r8.json; sourceTree = "<group>"; };
-		1B31D47E102941C795A4FA20 /* los_drills_r9.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r9.json; sourceTree = "<group>"; };
-		B5CC3E5B635A49A7ACE46C79 /* ClaudeGraderErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeGraderErrorTests.swift; sourceTree = "<group>"; };
-		2539C2D2C5AA406394E11B11 /* GradingResponseParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradingResponseParserTests.swift; sourceTree = "<group>"; };
-		FD6E760692534BDCBFEC240C /* NotesContentParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesContentParserTests.swift; sourceTree = "<group>"; };
-		807DE1904ED14E5F8579D19D /* QuestionBankIntegrityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBankIntegrityTests.swift; sourceTree = "<group>"; };
-		0A6D16F706E0469EB794F245 /* ReviewSchedulerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSchedulerTests.swift; sourceTree = "<group>"; };
+		0219DF3DFFB842E4AC0403D8 /* ProgressDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDashboardView.swift; sourceTree = "<group>"; };
+		0698DAB318924D249D37E46B /* los_drills_r25.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r25.json; sourceTree = "<group>"; };
+		0896740AF093488E8FAE406D /* los_drills_r2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r2.json; sourceTree = "<group>"; };
+		0C2824EF5E224FEB9BD908C6 /* QuestionBankIntegrityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBankIntegrityTests.swift; sourceTree = "<group>"; };
+		0C4FD3A1392A4F3EA111CFD7 /* LOSCoverageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSCoverageView.swift; sourceTree = "<group>"; };
+		0D94B2388CE940E9AD778803 /* StudySessionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySessionCoordinator.swift; sourceTree = "<group>"; };
+		0E553728AAB1455896D12DAD /* ReadingNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingNotes.swift; sourceTree = "<group>"; };
+		138406866C524067AB21985E /* los_drills_r17.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r17.json; sourceTree = "<group>"; };
+		13D985187F6C4B53B3101CC3 /* VignetteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VignetteView.swift; sourceTree = "<group>"; };
+		1610F0AC93BE49C5BABD5F17 /* los_drills_r22.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r22.json; sourceTree = "<group>"; };
+		190BC8A0E9F945EAA9212243 /* CFAL3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CFAL3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		193904FBE01B46CFA1BBB88F /* los_drills_r35.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r35.json; sourceTree = "<group>"; };
+		195D89159A9E4CDDBB90386C /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
+		1B54E8CC64E04C318A838EC4 /* AdaptiveLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveLayout.swift; sourceTree = "<group>"; };
+		1DA221666F514841B2CC8C7C /* ClaudeGrader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeGrader.swift; sourceTree = "<group>"; };
+		1EBF716757A74CBCA6D91269 /* GradingResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradingResponseParser.swift; sourceTree = "<group>"; };
+		240140A69D2C47F4B91E31B0 /* GradingResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradingResultView.swift; sourceTree = "<group>"; };
+		2442EBCD24704E2D97B36612 /* ReadingNotesBlocksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingNotesBlocksView.swift; sourceTree = "<group>"; };
+		27BD4C8C92164987B6983CA6 /* LOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOS.swift; sourceTree = "<group>"; };
+		292F523D997F4F16A51E1622 /* Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatting.swift; sourceTree = "<group>"; };
+		2BF249A5C261414FBFAB63F9 /* ContentTargets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTargets.swift; sourceTree = "<group>"; };
+		30E16C1C7B144F6085746833 /* los_drills_r11.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r11.json; sourceTree = "<group>"; };
+		31BFDC81E2F2468FB8FDCBB1 /* ReviewScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewScheduler.swift; sourceTree = "<group>"; };
+		33F2C548B15A41CFB8DDC270 /* los_drills_r20.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r20.json; sourceTree = "<group>"; };
+		36176D2B656643E9A65667BC /* StudyAreaDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyAreaDetailView.swift; sourceTree = "<group>"; };
+		38887C1F4EFD4276A65D075C /* Attempt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attempt.swift; sourceTree = "<group>"; };
+		3987664C2E83427588523765 /* StudyPlannerStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPlannerStats.swift; sourceTree = "<group>"; };
+		3A213608908F498A9CD1B071 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3B43273F26F54D4288E856DF /* los_drills_r28.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r28.json; sourceTree = "<group>"; };
+		3C566E562D6C4ECBB63B2BD1 /* StudyComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyComponents.swift; sourceTree = "<group>"; };
+		412C78857621432AB89BA9E2 /* content_targets.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = content_targets.json; sourceTree = "<group>"; };
+		43EC39CAF8334FB0AB2F6B6C /* los_drills_r26.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r26.json; sourceTree = "<group>"; };
+		479EB4F438A2484786E6010D /* los_drills_r1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r1.json; sourceTree = "<group>"; };
+		4BA5FB6F4A7043D8BDFBB1EA /* LOSChecklistPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSChecklistPanel.swift; sourceTree = "<group>"; };
+		4DEE3B2D08104DC6AC6CE541 /* BrowseSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseSplitView.swift; sourceTree = "<group>"; };
+		4EA614611467451C93082870 /* StudyPlannerSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPlannerSplitView.swift; sourceTree = "<group>"; };
+		4F6DDCFA99884B51ADC4FD45 /* los_master.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_master.json; sourceTree = "<group>"; };
+		57DB556C2B63477191B35948 /* EssayInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssayInput.swift; sourceTree = "<group>"; };
+		59971326BB734A9DA1D869CB /* StudyReadingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyReadingDetailView.swift; sourceTree = "<group>"; };
+		59D44B94DF504165949735B4 /* QuestionBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
+		5FECB28C521A446CB948F083 /* LOSStudyStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSStudyStatus.swift; sourceTree = "<group>"; };
+		60728E62419F4D3AAADED1E4 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		61AFB4B738AF426CB8CE2169 /* topics.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = topics.json; sourceTree = "<group>"; };
+		6634F87049124714A9BDCF93 /* ProgressStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStats.swift; sourceTree = "<group>"; };
+		6707A2355E894E7991D0D637 /* PlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanView.swift; sourceTree = "<group>"; };
+		679AB138ED074D10A47247E7 /* los_drills_r3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r3.json; sourceTree = "<group>"; };
+		67D75174F099481C90E0545D /* QuestionAttemptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAttemptView.swift; sourceTree = "<group>"; };
+		684C7349EB174F60BF66AC33 /* StudyDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyDisplay.swift; sourceTree = "<group>"; };
+		68D51CCE71B8479DB70E049A /* LOSDrill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSDrill.swift; sourceTree = "<group>"; };
+		6AA07C360A9A4F0E81142087 /* TopicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListView.swift; sourceTree = "<group>"; };
+		709285E3BFCA4D1CAB303324 /* question_bank.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = question_bank.json; sourceTree = "<group>"; };
+		70E2119EF5454F789B7AE11C /* LOSDrillReadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSDrillReadingView.swift; sourceTree = "<group>"; };
+		77B8BD2A1A10429CA9009D2A /* StudyScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyScheduleTests.swift; sourceTree = "<group>"; };
+		78E138829F5C4C3EBDA06E86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7936F6EF2C5446FCA41DBF61 /* los_drills_r29.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r29.json; sourceTree = "<group>"; };
+		7C638C69E9FA49E485FBDC64 /* los_drills_r16.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r16.json; sourceTree = "<group>"; };
+		7FE3603862AE45B39D37FA8A /* StudyPlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPlannerView.swift; sourceTree = "<group>"; };
+		849CAADDFEE34FF7ACA5F995 /* NotesContentParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesContentParserTests.swift; sourceTree = "<group>"; };
+		8522D72A30624A7DB90C00EA /* reading_notes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = reading_notes.json; sourceTree = "<group>"; };
+		85EC6CF17C714A989CE377AA /* los_drills_r15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r15.json; sourceTree = "<group>"; };
+		86B5BD339A05470B924BDA72 /* PracticeBuilderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeBuilderView.swift; sourceTree = "<group>"; };
+		886C547624744BF1B538163D /* los_drills_r12.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r12.json; sourceTree = "<group>"; };
+		8BC2AE604D6B4654B0A4B236 /* LOSDrillAttemptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSDrillAttemptView.swift; sourceTree = "<group>"; };
+		8D24C9BD3CE24077BC4B51B8 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		8F87E270A6DE4A528EF435F7 /* los_drills_r34.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r34.json; sourceTree = "<group>"; };
+		921CB5DB5EE04B0AB667D3A3 /* los_drills_r14.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r14.json; sourceTree = "<group>"; };
+		929CD068491F4FA29B4E9EDA /* GradingResponseParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradingResponseParserTests.swift; sourceTree = "<group>"; };
+		9512812FFCAE48BCBFD1C5B7 /* los_drills_r8.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r8.json; sourceTree = "<group>"; };
+		954C05439F56423780517BB9 /* los_drills_r9.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r9.json; sourceTree = "<group>"; };
+		95E70083E5B34E28960E49E0 /* CaseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseListView.swift; sourceTree = "<group>"; };
+		96765C669DD44488BBF98B69 /* los_drills_r31.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r31.json; sourceTree = "<group>"; };
+		98437221DE424A2BB725E6F0 /* QuizAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizAssembler.swift; sourceTree = "<group>"; };
+		98A1C80B8FC944D38112F410 /* CFAL3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFAL3App.swift; sourceTree = "<group>"; };
+		A37A7F81751C442382E848B8 /* ContentDensitySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDensitySection.swift; sourceTree = "<group>"; };
+		A4703EEBE28948DD9CBB6BD2 /* NotesContentParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesContentParser.swift; sourceTree = "<group>"; };
+		A47F557D6A7E458189CDA91E /* los_drills_r23.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r23.json; sourceTree = "<group>"; };
+		A4D513B3FFA3404C8AD32BD8 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		A6554E73183A4522929EBB31 /* los_drills_r33.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r33.json; sourceTree = "<group>"; };
+		A8A34FD0E65C47DB99532BAB /* SessionRunnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRunnerView.swift; sourceTree = "<group>"; };
+		AAD9630101AB46F1B26FDB0D /* los_drills_r18.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r18.json; sourceTree = "<group>"; };
+		AB77EC13408B4C8B9DF33629 /* los_drills_r13.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r13.json; sourceTree = "<group>"; };
+		AC4D694149554AD4B0EF1260 /* ReviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCard.swift; sourceTree = "<group>"; };
+		AC8F2CCFA7F24528ABF7D580 /* los_drills_r7.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r7.json; sourceTree = "<group>"; };
+		AED75F83A3774034879B20D8 /* los_drills_r10.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r10.json; sourceTree = "<group>"; };
+		AFB41F096BD8488586608299 /* CaseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDetailView.swift; sourceTree = "<group>"; };
+		B475B31D12DD403F880470CD /* ProgressDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDisplay.swift; sourceTree = "<group>"; };
+		BC7D1CD9504D479ABA253582 /* los_drills_r24.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r24.json; sourceTree = "<group>"; };
+		BD9DE8DF2B924B2682370D97 /* LOSChecklistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSChecklistRow.swift; sourceTree = "<group>"; };
+		BE663547DD984B628B8BD8B2 /* ReadingNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingNotesView.swift; sourceTree = "<group>"; };
+		CB59C456AAFA441A9551CA08 /* los_drills_r4.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r4.json; sourceTree = "<group>"; };
+		CDDEB7F0A6D742F291EF103C /* ReviewSchedulerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSchedulerTests.swift; sourceTree = "<group>"; };
+		CE6DD24CFD6E4893866B7111 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		D4BC1505535F4A68992F72E5 /* MultipleChoiceInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceInput.swift; sourceTree = "<group>"; };
+		D6E556BBB4E048D7A6A1F019 /* los_drills_r19.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r19.json; sourceTree = "<group>"; };
+		D9DE40C9741F41728D7F643A /* TopicProgressRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicProgressRow.swift; sourceTree = "<group>"; };
+		DA830FFAC3094075B4513E0D /* GraderConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraderConfig.swift; sourceTree = "<group>"; };
+		DDFD84E9DBF04FE8BDB10221 /* los_drills_r6.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r6.json; sourceTree = "<group>"; };
+		DF27571BE6C440D7BD11BEC6 /* ClaudeGraderErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeGraderErrorTests.swift; sourceTree = "<group>"; };
+		E0AB356B2D1940F4ABB6C046 /* ContentLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLoader.swift; sourceTree = "<group>"; };
+		E2DE7AB1BAA5484897E95179 /* StudySchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySchedule.swift; sourceTree = "<group>"; };
+		E4ED961B735048B893137430 /* DayCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCompletion.swift; sourceTree = "<group>"; };
+		E50F06C699DD40EB9C991616 /* los_drills_index.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_index.json; sourceTree = "<group>"; };
+		E7085731F60A42518C0B6D14 /* los_drills_r21.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r21.json; sourceTree = "<group>"; };
+		E7AE1FDE1E4F4BFD85729378 /* los_drills_r30.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r30.json; sourceTree = "<group>"; };
+		EA7C30EF9C434A1FB54DDBDB /* PracticeBuilderPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeBuilderPreference.swift; sourceTree = "<group>"; };
+		EDA07FA7A91B4E30A3CEE78D /* los_drills_r5.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r5.json; sourceTree = "<group>"; };
+		EF468980A60843F381286721 /* CFAL3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CFAL3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF5D4EE859D841FB95270867 /* los_drills_r27.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r27.json; sourceTree = "<group>"; };
+		EFC20F96139346B2BF1B6306 /* DesignComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignComponents.swift; sourceTree = "<group>"; };
+		F763FBAAB21F406994A4BC27 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FA7EC49596EF463ABA13A820 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		FB81A91BC2D74E76A0AB5F1B /* LOSFilterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSFilterSheet.swift; sourceTree = "<group>"; };
+		FBFB7C5F647745D08BA53068 /* los_drills_r32.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r32.json; sourceTree = "<group>"; };
+		FC34B73FE9EA4562B202CAF8 /* study_schedule.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = study_schedule.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		80F736B270434A239F2E460C /* Frameworks */ = {
+		41565EDA7DAC499D8E6399D1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4737383E5FC43FF9013DB9A /* Frameworks */ = {
+		DE658E1A3169450FBFBFDDB0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -239,280 +256,304 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		78CBB0E9552D4E139D3C6851 = {
+		0B37B403E8A7479797D3FD55 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				628E04C12B114D5C8EF39145 /* CFAL3 */,
-				E73DCE377A7F45D88378F803 /* CFAL3Tests */,
-				FE2306AF44B94F6798354D3A /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		FE2306AF44B94F6798354D3A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BEA7794A509B4FC4B5A10F40 /* CFAL3.app */,
-				DBB920B99961450E9C60C18E /* CFAL3Tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		E4F75990848F4C5582D40B3E /* Content */ = {
-			isa = PBXGroup;
-			children = (
-				CB0CEF3B19F040D59EC39545 /* Case.swift */,
-				CCE42BB078A74F84A544376E /* ContentTargets.swift */,
-				38E9E790DBB444208677CDD1 /* LOS.swift */,
-				25BDD78E8E544EEEB6D9FE7E /* LOSDrill.swift */,
-				4860E685BC434EAEBA07C302 /* Question.swift */,
-				D92D13B921CC4824BBC94734 /* QuestionBank.swift */,
-				6ABAB6F86CC24253B0FA4263 /* ReadingNotes.swift */,
-				30C4A9C54F3045719F7F2D0E /* Topic.swift */,
-			);
-			path = Content;
-			sourceTree = "<group>";
-		};
-		51823326390544CEB9EB03DD /* Persistence */ = {
-			isa = PBXGroup;
-			children = (
-				3A3A420D454149A58C1091BA /* Attempt.swift */,
-				25CE6DEE270349F5A1EF8C56 /* LOSStudyStatus.swift */,
-				A414E02D98894F9288EBF49D /* ReviewCard.swift */,
-				715844A6B8F54E02BA44051B /* Session.swift */,
-			);
-			path = Persistence;
-			sourceTree = "<group>";
-		};
-		16A5E1C2FA8C4A30A6D34F36 /* Browse */ = {
-			isa = PBXGroup;
-			children = (
-				3A1730AB6C124292A970C82F /* BrowseSplitView.swift */,
-				538D8F18933F4E87BDF3AFC3 /* CaseDetailView.swift */,
-				15A898383B794C919DFAEF9D /* CaseListView.swift */,
-				CF9FC53BE59D4812B69348B9 /* LOSFilterSheet.swift */,
-				AE144559A0E94BF582F19413 /* TopicListView.swift */,
-			);
-			path = Browse;
-			sourceTree = "<group>";
-		};
-		87CA756B9E12472AA5A64900 /* Practice */ = {
-			isa = PBXGroup;
-			children = (
-				A949026A87474996ADABAF01 /* PracticeBuilderView.swift */,
-			);
-			path = Practice;
-			sourceTree = "<group>";
-		};
-		83DFBFDA90E247D195E4917D /* Progress */ = {
-			isa = PBXGroup;
-			children = (
-				73E325BD3D614A269B397F9F /* ContentDensitySection.swift */,
-				55EF769FC8D5480F9F3EFC56 /* LOSCoverageView.swift */,
-				39F24F90B4564D518EB9E31B /* ProgressDashboardView.swift */,
-				B349AF45DC324816ADBD8BBC /* TopicProgressRow.swift */,
-			);
-			path = Progress;
-			sourceTree = "<group>";
-		};
-		FD230BED72604A49BC90DE25 /* Question */ = {
-			isa = PBXGroup;
-			children = (
-				985FD41B0C0D4969860CB4EE /* EssayInput.swift */,
-				2FAFDCACB37A495B8D2B7B98 /* GradingResultView.swift */,
-				18C594482D6F48B78CF0ACB0 /* MultipleChoiceInput.swift */,
-				FD0B85CA9C654A9D9570B141 /* QuestionAttemptView.swift */,
-				63B303D3BD9D4799802188B3 /* VignetteView.swift */,
-			);
-			path = Question;
-			sourceTree = "<group>";
-		};
-		E5845651A540418181CF0618 /* Review */ = {
-			isa = PBXGroup;
-			children = (
-				DEBE83B2CE1E48F1998DC0EB /* SessionRunnerView.swift */,
-			);
-			path = Review;
-			sourceTree = "<group>";
-		};
-		E013AD6FE7B543E984FB01C3 /* Root */ = {
-			isa = PBXGroup;
-			children = (
-				7E8A58A6D8AF4566A2640A0B /* HomeView.swift */,
-				51E17186295A478E9A2A370B /* RootTabView.swift */,
-			);
-			path = Root;
-			sourceTree = "<group>";
-		};
-		554524AE22C341C2A95B278F /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				256C1F5C8F0A4C8981E6FD47 /* APIKeySheet.swift */,
-				0FEE3AA553A646EB816A3E32 /* SettingsView.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		426430D9A9B441E398ED7CC3 /* Study */ = {
-			isa = PBXGroup;
-			children = (
-				0AAA8AFAADAC4E8CB4C25267 /* LOSChecklistPanel.swift */,
-				0C9EECF81D4C4878A81F0BA5 /* LOSChecklistRow.swift */,
-				FFCE27669F5349F2850274E9 /* LOSDrillAttemptView.swift */,
-				410357AD55F34FC5A0AFC8B8 /* LOSDrillReadingView.swift */,
-				CC67AF5A15A24A53B7FC6D1F /* ReadingNotesBlocksView.swift */,
-				F8EE7D26B8464198BD47C65F /* ReadingNotesView.swift */,
-				5B12FC62CECD4EDCAFCEFA12 /* StudyAreaDetailView.swift */,
-				F0DB5A98B63F4F6B925F92C6 /* StudyPlannerSplitView.swift */,
-				BB7A6C7A644B4941BD76E07F /* StudyPlannerView.swift */,
-				E0086898FB01483EBEA340EB /* StudyReadingDetailView.swift */,
-			);
-			path = Study;
-			sourceTree = "<group>";
-		};
-		0448982BFF1E422F8999167C /* App */ = {
-			isa = PBXGroup;
-			children = (
-				0CDCF412EF2E4FC38183FC47 /* CFAL3App.swift */,
+				98A1C80B8FC944D38112F410 /* CFAL3App.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
 		};
-		9CC6A55ED1BD4AE9BFB469C6 /* Models */ = {
+		13218F19B3D84A0390AD6D8F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E4F75990848F4C5582D40B3E /* Content */,
-				51823326390544CEB9EB03DD /* Persistence */,
+				EFC20F96139346B2BF1B6306 /* DesignComponents.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		1B9F479125124D01B28D0124 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				A37A7F81751C442382E848B8 /* ContentDensitySection.swift */,
+				0C4FD3A1392A4F3EA111CFD7 /* LOSCoverageView.swift */,
+				0219DF3DFFB842E4AC0403D8 /* ProgressDashboardView.swift */,
+				D9DE40C9741F41728D7F643A /* TopicProgressRow.swift */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
+		2001879B170140B9935E9436 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				38887C1F4EFD4276A65D075C /* Attempt.swift */,
+				E4ED961B735048B893137430 /* DayCompletion.swift */,
+				5FECB28C521A446CB948F083 /* LOSStudyStatus.swift */,
+				AC4D694149554AD4B0EF1260 /* ReviewCard.swift */,
+				FA7EC49596EF463ABA13A820 /* Session.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		23821C3316E64181B72D37C9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9EE78EABBA034B439EA54C22 /* Content */,
+				2001879B170140B9935E9436 /* Persistence */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		0182A9091DB44A86B64D10CE /* Resources */ = {
+		321A49D63A0A4AA19F1D6D8B /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				96F403C8F9684E838AD07AEB /* content_targets.json */,
-				A0FCC12FD4724686A3D450EA /* los_drills_index.json */,
-				94BDC36863AC49A9B7230077 /* los_drills_r1.json */,
-				579F6DC9A23D489983113DCC /* los_drills_r10.json */,
-				87E14C6BFB9D40BC90ED1C16 /* los_drills_r11.json */,
-				B5971AD4801D4F0D8B6A30B6 /* los_drills_r12.json */,
-				0BB85CFA34E644AFBA20F24D /* los_drills_r13.json */,
-				53C6BAC5014D41AF9354DB1A /* los_drills_r14.json */,
-				BA77ADDAE6124D6D9A04B997 /* los_drills_r15.json */,
-				9B3A42122B98452DBE0EE332 /* los_drills_r16.json */,
-				BEE15AA004ED40C8A561CE0B /* los_drills_r17.json */,
-				8804B7CBA4EF4E4492AFD856 /* los_drills_r18.json */,
-				0A97BFFAA0744683AC09E7A1 /* los_drills_r19.json */,
-				01415D1420CE4B8AA6AAB597 /* los_drills_r2.json */,
-				551AC231ADE1420497C6C998 /* los_drills_r20.json */,
-				D3C9F8D99E1C4488BE4F074E /* los_drills_r21.json */,
-				6C69C54943DC461B8DE30961 /* los_drills_r22.json */,
-				C84ED6DF83B645CB8BC316C6 /* los_drills_r23.json */,
-				AD487EA093754885BFE8773A /* los_drills_r24.json */,
-				01C6EA7A922A44C8804879FA /* los_drills_r25.json */,
-				06C94520701748F2A13E1F3A /* los_drills_r26.json */,
-				477646BC3AEE40429BDBE1FB /* los_drills_r27.json */,
-				F8AB25653E8B4F7D881590FD /* los_drills_r28.json */,
-				ACC5FA414CF04DA781C997A4 /* los_drills_r29.json */,
-				79621CC92352457E97559A85 /* los_drills_r3.json */,
-				05BCD5E571CB482EA01F1E8A /* los_drills_r30.json */,
-				2A821969D99A426A982A97BE /* los_drills_r31.json */,
-				2E3E834BD751461AA1E20A58 /* los_drills_r32.json */,
-				C2161EC7E16E42148140381D /* los_drills_r33.json */,
-				783B2E7EBFE14504B6F82EEA /* los_drills_r34.json */,
-				78A3FE1C97944F75BA4309E0 /* los_drills_r35.json */,
-				E8532AE9526C40D5B5AA0730 /* los_drills_r4.json */,
-				A16B1C9DCC624F208145C5C6 /* los_drills_r5.json */,
-				0EB10D9D4BCA4CE984355AA6 /* los_drills_r6.json */,
-				74883145939544A6B7C5010E /* los_drills_r7.json */,
-				3D6AA2BCA772438096BE232C /* los_drills_r8.json */,
-				1B31D47E102941C795A4FA20 /* los_drills_r9.json */,
-				AC192F0D06D748E59F3036C4 /* los_master.json */,
-				E58E45FEDB59448DA4AC82B5 /* question_bank.json */,
-				713CE77450214A8AB18C7A75 /* reading_notes.json */,
-				67BB664ADD654A6FA496C900 /* topics.json */,
+				F763FBAAB21F406994A4BC27 /* HomeView.swift */,
+				60728E62419F4D3AAADED1E4 /* RootTabView.swift */,
 			);
-			path = Resources;
+			path = Root;
 			sourceTree = "<group>";
 		};
-		95694296D5004D22ABB024D0 /* Services */ = {
+		3CCC574998AC4ECAABE99620 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				985CEB71E7A84AFA8EE109C4 /* ClaudeGrader.swift */,
-				4624DE0AD0A24E958AF77A84 /* ContentLoader.swift */,
-				D9CD2430A9B24E41B87E88A5 /* GradingResponseParser.swift */,
-				98E17FE561E74DA8BA89A181 /* KeychainStore.swift */,
-				FD2EF2BB39484BC189B43894 /* PracticeBuilderPreference.swift */,
-				20CEAD39CDCC482587BC0B6E /* ProgressStats.swift */,
-				B9309E0CB460459EBA726C19 /* QuizAssembler.swift */,
-				1DC5749FCE0C483A904AFD67 /* ReviewScheduler.swift */,
-				B91DAC60A3444A7C911B4939 /* StudyPlannerStats.swift */,
-				A814FC1518144496A700667D /* StudySessionCoordinator.swift */,
+				1DA221666F514841B2CC8C7C /* ClaudeGrader.swift */,
+				E0AB356B2D1940F4ABB6C046 /* ContentLoader.swift */,
+				DA830FFAC3094075B4513E0D /* GraderConfig.swift */,
+				1EBF716757A74CBCA6D91269 /* GradingResponseParser.swift */,
+				EA7C30EF9C434A1FB54DDBDB /* PracticeBuilderPreference.swift */,
+				6634F87049124714A9BDCF93 /* ProgressStats.swift */,
+				98437221DE424A2BB725E6F0 /* QuizAssembler.swift */,
+				31BFDC81E2F2468FB8FDCBB1 /* ReviewScheduler.swift */,
+				3987664C2E83427588523765 /* StudyPlannerStats.swift */,
+				0D94B2388CE940E9AD778803 /* StudySessionCoordinator.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		0A773C753FC34D08859FC16D /* Utilities */ = {
+		453DEB9C5231475A96FEA7D2 /* Plan */ = {
 			isa = PBXGroup;
 			children = (
-				96C9E9852D9E410E99BB9DE0 /* AdaptiveLayout.swift */,
-				7E24D9679A5F4B2FBA510F21 /* Formatting.swift */,
-				CF02F8AE21334BDF89A1CFAE /* NotesContentParser.swift */,
-				57257F26A58C43D180C33403 /* Theme.swift */,
+				6707A2355E894E7991D0D637 /* PlanView.swift */,
+			);
+			path = Plan;
+			sourceTree = "<group>";
+		};
+		5625C0D9B20D4AFDB74832A5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1B54E8CC64E04C318A838EC4 /* AdaptiveLayout.swift */,
+				292F523D997F4F16A51E1622 /* Formatting.swift */,
+				A4703EEBE28948DD9CBB6BD2 /* NotesContentParser.swift */,
+				B475B31D12DD403F880470CD /* ProgressDisplay.swift */,
+				684C7349EB174F60BF66AC33 /* StudyDisplay.swift */,
+				8D24C9BD3CE24077BC4B51B8 /* Theme.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		0376F86B961247B1A23B29E0 /* Views */ = {
+		5AD097D466574EED91B90869 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				16A5E1C2FA8C4A30A6D34F36 /* Browse */,
-				87CA756B9E12472AA5A64900 /* Practice */,
-				83DFBFDA90E247D195E4917D /* Progress */,
-				FD230BED72604A49BC90DE25 /* Question */,
-				E5845651A540418181CF0618 /* Review */,
-				E013AD6FE7B543E984FB01C3 /* Root */,
-				554524AE22C341C2A95B278F /* Settings */,
-				426430D9A9B441E398ED7CC3 /* Study */,
+				D035C338D3A74118829E51F1 /* Browse */,
+				13218F19B3D84A0390AD6D8F /* Components */,
+				453DEB9C5231475A96FEA7D2 /* Plan */,
+				E88024B4AE3C4CBF963137FD /* Practice */,
+				1B9F479125124D01B28D0124 /* Progress */,
+				D4E681A98F014AD19D8682B3 /* Question */,
+				A272A90A30D04577A496D1AA /* Review */,
+				321A49D63A0A4AA19F1D6D8B /* Root */,
+				FDABFFC4F86642DC8A24B31E /* Settings */,
+				B56D94B728F14BB7AD3AD6F8 /* Study */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		628E04C12B114D5C8EF39145 /* CFAL3 */ = {
+		5B99CF359D594C9B93B5C65B /* CFAL3 */ = {
 			isa = PBXGroup;
 			children = (
-				0448982BFF1E422F8999167C /* App */,
-				9CC6A55ED1BD4AE9BFB469C6 /* Models */,
-				0182A9091DB44A86B64D10CE /* Resources */,
-				95694296D5004D22ABB024D0 /* Services */,
-				0A773C753FC34D08859FC16D /* Utilities */,
-				0376F86B961247B1A23B29E0 /* Views */,
-				1E124D6F04BB4A51A4702160 /* Assets.xcassets */,
+				0B37B403E8A7479797D3FD55 /* App */,
+				23821C3316E64181B72D37C9 /* Models */,
+				9FB10EFEABD9467DB780A6D2 /* Resources */,
+				3CCC574998AC4ECAABE99620 /* Services */,
+				5625C0D9B20D4AFDB74832A5 /* Utilities */,
+				5AD097D466574EED91B90869 /* Views */,
+				78E138829F5C4C3EBDA06E86 /* Assets.xcassets */,
 			);
 			path = CFAL3;
 			sourceTree = "<group>";
 		};
-		E73DCE377A7F45D88378F803 /* CFAL3Tests */ = {
+		9EE78EABBA034B439EA54C22 /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				B5CC3E5B635A49A7ACE46C79 /* ClaudeGraderErrorTests.swift */,
-				2539C2D2C5AA406394E11B11 /* GradingResponseParserTests.swift */,
-				FD6E760692534BDCBFEC240C /* NotesContentParserTests.swift */,
-				807DE1904ED14E5F8579D19D /* QuestionBankIntegrityTests.swift */,
-				0A6D16F706E0469EB794F245 /* ReviewSchedulerTests.swift */,
+				195D89159A9E4CDDBB90386C /* Case.swift */,
+				2BF249A5C261414FBFAB63F9 /* ContentTargets.swift */,
+				27BD4C8C92164987B6983CA6 /* LOS.swift */,
+				68D51CCE71B8479DB70E049A /* LOSDrill.swift */,
+				CE6DD24CFD6E4893866B7111 /* Question.swift */,
+				59D44B94DF504165949735B4 /* QuestionBank.swift */,
+				0E553728AAB1455896D12DAD /* ReadingNotes.swift */,
+				E2DE7AB1BAA5484897E95179 /* StudySchedule.swift */,
+				A4D513B3FFA3404C8AD32BD8 /* Topic.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		9FB10EFEABD9467DB780A6D2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				412C78857621432AB89BA9E2 /* content_targets.json */,
+				E50F06C699DD40EB9C991616 /* los_drills_index.json */,
+				479EB4F438A2484786E6010D /* los_drills_r1.json */,
+				AED75F83A3774034879B20D8 /* los_drills_r10.json */,
+				30E16C1C7B144F6085746833 /* los_drills_r11.json */,
+				886C547624744BF1B538163D /* los_drills_r12.json */,
+				AB77EC13408B4C8B9DF33629 /* los_drills_r13.json */,
+				921CB5DB5EE04B0AB667D3A3 /* los_drills_r14.json */,
+				85EC6CF17C714A989CE377AA /* los_drills_r15.json */,
+				7C638C69E9FA49E485FBDC64 /* los_drills_r16.json */,
+				138406866C524067AB21985E /* los_drills_r17.json */,
+				AAD9630101AB46F1B26FDB0D /* los_drills_r18.json */,
+				D6E556BBB4E048D7A6A1F019 /* los_drills_r19.json */,
+				0896740AF093488E8FAE406D /* los_drills_r2.json */,
+				33F2C548B15A41CFB8DDC270 /* los_drills_r20.json */,
+				E7085731F60A42518C0B6D14 /* los_drills_r21.json */,
+				1610F0AC93BE49C5BABD5F17 /* los_drills_r22.json */,
+				A47F557D6A7E458189CDA91E /* los_drills_r23.json */,
+				BC7D1CD9504D479ABA253582 /* los_drills_r24.json */,
+				0698DAB318924D249D37E46B /* los_drills_r25.json */,
+				43EC39CAF8334FB0AB2F6B6C /* los_drills_r26.json */,
+				EF5D4EE859D841FB95270867 /* los_drills_r27.json */,
+				3B43273F26F54D4288E856DF /* los_drills_r28.json */,
+				7936F6EF2C5446FCA41DBF61 /* los_drills_r29.json */,
+				679AB138ED074D10A47247E7 /* los_drills_r3.json */,
+				E7AE1FDE1E4F4BFD85729378 /* los_drills_r30.json */,
+				96765C669DD44488BBF98B69 /* los_drills_r31.json */,
+				FBFB7C5F647745D08BA53068 /* los_drills_r32.json */,
+				A6554E73183A4522929EBB31 /* los_drills_r33.json */,
+				8F87E270A6DE4A528EF435F7 /* los_drills_r34.json */,
+				193904FBE01B46CFA1BBB88F /* los_drills_r35.json */,
+				CB59C456AAFA441A9551CA08 /* los_drills_r4.json */,
+				EDA07FA7A91B4E30A3CEE78D /* los_drills_r5.json */,
+				DDFD84E9DBF04FE8BDB10221 /* los_drills_r6.json */,
+				AC8F2CCFA7F24528ABF7D580 /* los_drills_r7.json */,
+				9512812FFCAE48BCBFD1C5B7 /* los_drills_r8.json */,
+				954C05439F56423780517BB9 /* los_drills_r9.json */,
+				4F6DDCFA99884B51ADC4FD45 /* los_master.json */,
+				709285E3BFCA4D1CAB303324 /* question_bank.json */,
+				8522D72A30624A7DB90C00EA /* reading_notes.json */,
+				FC34B73FE9EA4562B202CAF8 /* study_schedule.json */,
+				61AFB4B738AF426CB8CE2169 /* topics.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A272A90A30D04577A496D1AA /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				A8A34FD0E65C47DB99532BAB /* SessionRunnerView.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		B15B79EAE9CD48AD94D30A0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF468980A60843F381286721 /* CFAL3.app */,
+				190BC8A0E9F945EAA9212243 /* CFAL3Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B56D94B728F14BB7AD3AD6F8 /* Study */ = {
+			isa = PBXGroup;
+			children = (
+				4BA5FB6F4A7043D8BDFBB1EA /* LOSChecklistPanel.swift */,
+				BD9DE8DF2B924B2682370D97 /* LOSChecklistRow.swift */,
+				8BC2AE604D6B4654B0A4B236 /* LOSDrillAttemptView.swift */,
+				70E2119EF5454F789B7AE11C /* LOSDrillReadingView.swift */,
+				2442EBCD24704E2D97B36612 /* ReadingNotesBlocksView.swift */,
+				BE663547DD984B628B8BD8B2 /* ReadingNotesView.swift */,
+				36176D2B656643E9A65667BC /* StudyAreaDetailView.swift */,
+				3C566E562D6C4ECBB63B2BD1 /* StudyComponents.swift */,
+				4EA614611467451C93082870 /* StudyPlannerSplitView.swift */,
+				7FE3603862AE45B39D37FA8A /* StudyPlannerView.swift */,
+				59971326BB734A9DA1D869CB /* StudyReadingDetailView.swift */,
+			);
+			path = Study;
+			sourceTree = "<group>";
+		};
+		D035C338D3A74118829E51F1 /* Browse */ = {
+			isa = PBXGroup;
+			children = (
+				4DEE3B2D08104DC6AC6CE541 /* BrowseSplitView.swift */,
+				AFB41F096BD8488586608299 /* CaseDetailView.swift */,
+				95E70083E5B34E28960E49E0 /* CaseListView.swift */,
+				FB81A91BC2D74E76A0AB5F1B /* LOSFilterSheet.swift */,
+				6AA07C360A9A4F0E81142087 /* TopicListView.swift */,
+			);
+			path = Browse;
+			sourceTree = "<group>";
+		};
+		D4E681A98F014AD19D8682B3 /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				57DB556C2B63477191B35948 /* EssayInput.swift */,
+				240140A69D2C47F4B91E31B0 /* GradingResultView.swift */,
+				D4BC1505535F4A68992F72E5 /* MultipleChoiceInput.swift */,
+				67D75174F099481C90E0545D /* QuestionAttemptView.swift */,
+				13D985187F6C4B53B3101CC3 /* VignetteView.swift */,
+			);
+			path = Question;
+			sourceTree = "<group>";
+		};
+		E88024B4AE3C4CBF963137FD /* Practice */ = {
+			isa = PBXGroup;
+			children = (
+				86B5BD339A05470B924BDA72 /* PracticeBuilderView.swift */,
+			);
+			path = Practice;
+			sourceTree = "<group>";
+		};
+		EB3FF57168424061944C669B = {
+			isa = PBXGroup;
+			children = (
+				5B99CF359D594C9B93B5C65B /* CFAL3 */,
+				EDD76A824FA94729AF97F0B0 /* CFAL3Tests */,
+				B15B79EAE9CD48AD94D30A0E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EDD76A824FA94729AF97F0B0 /* CFAL3Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DF27571BE6C440D7BD11BEC6 /* ClaudeGraderErrorTests.swift */,
+				929CD068491F4FA29B4E9EDA /* GradingResponseParserTests.swift */,
+				849CAADDFEE34FF7ACA5F995 /* NotesContentParserTests.swift */,
+				0C2824EF5E224FEB9BD908C6 /* QuestionBankIntegrityTests.swift */,
+				CDDEB7F0A6D742F291EF103C /* ReviewSchedulerTests.swift */,
+				77B8BD2A1A10429CA9009D2A /* StudyScheduleTests.swift */,
 			);
 			path = CFAL3Tests;
+			sourceTree = "<group>";
+		};
+		FDABFFC4F86642DC8A24B31E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3A213608908F498A9CD1B071 /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2478654E5A4F4D09B750EC3C /* CFAL3 */ = {
+		101695F5EC174BD08F865933 /* CFAL3 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5D93DE09F5FB4D14AED35826 /* Build configuration list for PBXNativeTarget "CFAL3" */;
+			buildConfigurationList = D74379A8255744E6985C70CE /* Build configuration list for PBXNativeTarget "CFAL3" */;
 			buildPhases = (
-				6071137DEE41446AAF9F187B /* Sources */,
-				80F736B270434A239F2E460C /* Frameworks */,
-				C38CCC03DB5447B3B782E4B8 /* Resources */,
+				52D768514ADB4D8FA0647ECA /* Sources */,
+				DE658E1A3169450FBFBFDDB0 /* Frameworks */,
+				FDC4FC6897B64EB8830EE80C /* Resources */,
 			);
 			buildRules = (
 			);
@@ -520,15 +561,15 @@
 			);
 			name = CFAL3;
 			productName = CFAL3;
-			productReference = BEA7794A509B4FC4B5A10F40 /* CFAL3.app */;
+			productReference = EF468980A60843F381286721 /* CFAL3.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9C59CDB46819471F99437E40 /* CFAL3Tests */ = {
+		98A04A9B4E1A462F9DDD55BC /* CFAL3Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 06D372EB9DCE4554B86C8D5E /* Build configuration list for PBXNativeTarget "CFAL3Tests" */;
+			buildConfigurationList = DB3088BA01784409A340068B /* Build configuration list for PBXNativeTarget "CFAL3Tests" */;
 			buildPhases = (
-				D1109390192341E3B031A2AB /* Sources */,
-				D4737383E5FC43FF9013DB9A /* Frameworks */,
+				0239909DA84A49FEA01C23F9 /* Sources */,
+				41565EDA7DAC499D8E6399D1 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -536,20 +577,20 @@
 			);
 			name = CFAL3Tests;
 			productName = CFAL3Tests;
-			productReference = DBB920B99961450E9C60C18E /* CFAL3Tests.xctest */;
+			productReference = 190BC8A0E9F945EAA9212243 /* CFAL3Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CFCDDC8CB1BA42E1B8F25EF3 /* Project object */ = {
+		0263D8E1DC19440DA273C3D0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 			};
-			buildConfigurationList = 48CD57F150D64777BD601BC9 /* Build configuration list for PBXProject "CFAL3" */;
+			buildConfigurationList = FC86048C96DD4982A8CE5914 /* Build configuration list for PBXProject "CFAL3" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -557,216 +598,248 @@
 				en,
 				Base,
 			);
-			mainGroup = 78CBB0E9552D4E139D3C6851;
-			productRefGroup = FE2306AF44B94F6798354D3A /* Products */;
+			mainGroup = EB3FF57168424061944C669B;
+			productRefGroup = B15B79EAE9CD48AD94D30A0E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2478654E5A4F4D09B750EC3C /* CFAL3 */,
-				9C59CDB46819471F99437E40 /* CFAL3Tests */,
+				101695F5EC174BD08F865933 /* CFAL3 */,
+				98A04A9B4E1A462F9DDD55BC /* CFAL3Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C38CCC03DB5447B3B782E4B8 /* Resources */ = {
+		FDC4FC6897B64EB8830EE80C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EF8ED2995504DD0A4C58924 /* question_bank.json in Resources */,
-				63874CBCDDAE4C4EB13D18DD /* los_master.json in Resources */,
-				CDB755D49EDE4AB1A50C359E /* topics.json in Resources */,
-				3F0CEFDC4CAD4A2A9822E717 /* reading_notes.json in Resources */,
-				85FF3BD22DE04A8AAE080D84 /* content_targets.json in Resources */,
-				3976E3C749BA40D8A69DCB17 /* los_drills_index.json in Resources */,
-				25D8D9E4748D43ABB1F29C7F /* Assets.xcassets in Resources */,
-				85C7B9A956D04FFB90A54D0E /* los_drills_r1.json in Resources */,
-				78423B5DAF834EE0B898E827 /* los_drills_r10.json in Resources */,
-				916AA1D4F316467AB8BDB8C8 /* los_drills_r11.json in Resources */,
-				B4691CCAE17A487CAD9535DA /* los_drills_r12.json in Resources */,
-				7DCF369442A840CA9AD0C71C /* los_drills_r13.json in Resources */,
-				744AEA4960AB48ACBD689728 /* los_drills_r14.json in Resources */,
-				49455F0B459F459DBE6A3536 /* los_drills_r15.json in Resources */,
-				4C634EBEE6624AD783DA6B0B /* los_drills_r16.json in Resources */,
-				B962E85CA4704BDBAAEE91EB /* los_drills_r17.json in Resources */,
-				47F947399C074087B579CE2B /* los_drills_r18.json in Resources */,
-				A0B0973EB06944BCA2C6C964 /* los_drills_r19.json in Resources */,
-				D0A3A375CD27463C9A7ADDE5 /* los_drills_r2.json in Resources */,
-				014FD88E1B674AE9BE268876 /* los_drills_r20.json in Resources */,
-				2852ADD5FEF14E61B5CDDAAF /* los_drills_r21.json in Resources */,
-				0E5A11E4A0A944B3B34420A2 /* los_drills_r22.json in Resources */,
-				B826DD13185D4DE690E707F6 /* los_drills_r23.json in Resources */,
-				A10446F7BC704CCD97C8EB0A /* los_drills_r24.json in Resources */,
-				589D8C6B5CBC4988981BE657 /* los_drills_r25.json in Resources */,
-				879D1354F3FC49868DF3F2CC /* los_drills_r26.json in Resources */,
-				E2EE131A7983455EB1084A18 /* los_drills_r27.json in Resources */,
-				C6906449343B49568C43F4A3 /* los_drills_r28.json in Resources */,
-				FACE47AD277A4911867F3C72 /* los_drills_r29.json in Resources */,
-				8B423519B028482C817213EA /* los_drills_r3.json in Resources */,
-				A77835D9C1BC43FAA8EE7E5E /* los_drills_r30.json in Resources */,
-				3E83BF4AB4244C90A3A34686 /* los_drills_r31.json in Resources */,
-				D0D168D1B23F410AB01F18CD /* los_drills_r32.json in Resources */,
-				1613B77A652F49C99EE6885A /* los_drills_r33.json in Resources */,
-				8F5B4301608B44C299C8C3C5 /* los_drills_r34.json in Resources */,
-				50FE16E0FBF348458712D5D0 /* los_drills_r35.json in Resources */,
-				6F5F6DD00E524E4BA905D986 /* los_drills_r4.json in Resources */,
-				1518CB3EA36642BAB30B0CC3 /* los_drills_r5.json in Resources */,
-				AB38FA05F4474E1B9B473E66 /* los_drills_r6.json in Resources */,
-				3D3ED4029E0B466B82ED3FF4 /* los_drills_r7.json in Resources */,
-				1DE2A2CA9AD7472497780476 /* los_drills_r8.json in Resources */,
-				F06D47407C5E4A7E816CC8A8 /* los_drills_r9.json in Resources */,
+				B94DBBE1EE3E491B9C1D79BA /* question_bank.json in Resources */,
+				4B43E387F4384C4AA69FC05F /* los_master.json in Resources */,
+				57BB770922ED474DAB420B3C /* topics.json in Resources */,
+				1405045309544F9A9A39CCD7 /* reading_notes.json in Resources */,
+				4B607CAFC1F44046BE3534C6 /* content_targets.json in Resources */,
+				78DEDB03150A4E7389DC55F7 /* los_drills_index.json in Resources */,
+				10CA868C08874BBF902CE81E /* study_schedule.json in Resources */,
+				0905A7D92F604B64B88F991A /* Assets.xcassets in Resources */,
+				060E3661B80C446EB54AAF30 /* los_drills_r1.json in Resources */,
+				6FF801036135423592650CFE /* los_drills_r10.json in Resources */,
+				548EB08DE8AC4A7199341A81 /* los_drills_r11.json in Resources */,
+				DAB7183D51D24A96BA0F4454 /* los_drills_r12.json in Resources */,
+				E1E222898E834911BFC28175 /* los_drills_r13.json in Resources */,
+				91B1C8735C154ED7AAAD91C8 /* los_drills_r14.json in Resources */,
+				672CE7E5355140078AD6FC8C /* los_drills_r15.json in Resources */,
+				B4912A9BE67B43E88EBDC019 /* los_drills_r16.json in Resources */,
+				F2F7DFC25BF741F5977EFCB7 /* los_drills_r17.json in Resources */,
+				EE1E62F20D9A479E8E518EF8 /* los_drills_r18.json in Resources */,
+				EC07A1060DD6429484BF6CC8 /* los_drills_r19.json in Resources */,
+				C934D786A04049CA86DDBEF9 /* los_drills_r2.json in Resources */,
+				0129E235548143B29A5EE5BE /* los_drills_r20.json in Resources */,
+				27245A1BE64B4A7E9354EA18 /* los_drills_r21.json in Resources */,
+				7C7C248941024CB28CD1665E /* los_drills_r22.json in Resources */,
+				5C3782E842CB40E8B1E4B6A4 /* los_drills_r23.json in Resources */,
+				8A86611E939141B9AC5CC312 /* los_drills_r24.json in Resources */,
+				E15D6C5E05804139A7156AC1 /* los_drills_r25.json in Resources */,
+				73A28D0D5A5D45A0A685BFB9 /* los_drills_r26.json in Resources */,
+				9C2C712717334360968FFDB2 /* los_drills_r27.json in Resources */,
+				B87AA327EEC64867BA1A7630 /* los_drills_r28.json in Resources */,
+				899442570B2442F5ACB2841D /* los_drills_r29.json in Resources */,
+				9787F1A940DE4737AD09399D /* los_drills_r3.json in Resources */,
+				10B1F34D85B842668DD6A40B /* los_drills_r30.json in Resources */,
+				09BE15A3C85146DB84984CE8 /* los_drills_r31.json in Resources */,
+				5E13CD6D135E4E6DA7F7E071 /* los_drills_r32.json in Resources */,
+				0CC56DFCF5294704A0EB5AA4 /* los_drills_r33.json in Resources */,
+				1E0BAAB66D4D445A822C105E /* los_drills_r34.json in Resources */,
+				E48A010D89D7483C89B51218 /* los_drills_r35.json in Resources */,
+				8B72230580D9481BB4754505 /* los_drills_r4.json in Resources */,
+				34B7E3A329194D4984669E10 /* los_drills_r5.json in Resources */,
+				27A01F415B844E03ABA4047A /* los_drills_r6.json in Resources */,
+				CCB37A49F29E4A6DBD6571EB /* los_drills_r7.json in Resources */,
+				7649D8F0C0A04B889CC4F81B /* los_drills_r8.json in Resources */,
+				2BC11BB78797406F8CFF4C08 /* los_drills_r9.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6071137DEE41446AAF9F187B /* Sources */ = {
+		0239909DA84A49FEA01C23F9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37F059B92C2B48D9A52ED9A0 /* CFAL3App.swift in Sources */,
-				BE7E8F6AB4CF4802A79F0609 /* Case.swift in Sources */,
-				DD018F6FA14B43D0937C129A /* ContentTargets.swift in Sources */,
-				99D4564C915E431FA905121B /* LOS.swift in Sources */,
-				C50DD90ECA554C23998AEBA2 /* LOSDrill.swift in Sources */,
-				BCECC9697FCB4036B4891FA5 /* Question.swift in Sources */,
-				AC455290363F4CFAB2E334F5 /* QuestionBank.swift in Sources */,
-				979C13854A9442ED8FA2E1EC /* ReadingNotes.swift in Sources */,
-				B965A03D3F0D496AA48CC376 /* Topic.swift in Sources */,
-				165AE0C3D8474BCCB8179241 /* Attempt.swift in Sources */,
-				4B0CA23E33B04AC38EF047A6 /* LOSStudyStatus.swift in Sources */,
-				1827533E86AB440E9FAE0776 /* ReviewCard.swift in Sources */,
-				ED5D31E84F7742D6BF472EF3 /* Session.swift in Sources */,
-				59DD68E931EF40EBAC6F7BE8 /* AdaptiveLayout.swift in Sources */,
-				ECEF4FEA02AC4F2693D1E50E /* Formatting.swift in Sources */,
-				F6601FC9FFEB4E4BBDC18063 /* NotesContentParser.swift in Sources */,
-				7C0245D5C2744CA399F50AA7 /* Theme.swift in Sources */,
-				262BF878F7F14162953141AD /* APIKeySheet.swift in Sources */,
-				D3C1ABBE9A2C4BB1A3B8032E /* SettingsView.swift in Sources */,
-				DFC5798C481B45AC8A948CC9 /* LOSChecklistPanel.swift in Sources */,
-				F73781C445F541C0B8CE059D /* LOSChecklistRow.swift in Sources */,
-				52DC1F72D2DC4F1E98A4E2AF /* LOSDrillAttemptView.swift in Sources */,
-				ED8776163038423180A2247C /* LOSDrillReadingView.swift in Sources */,
-				6171C6FEDF1246BEA44C6660 /* ReadingNotesBlocksView.swift in Sources */,
-				35164E7AC00F4B16997DEE58 /* ReadingNotesView.swift in Sources */,
-				30C4A2A9D74B4D0490E909E5 /* StudyAreaDetailView.swift in Sources */,
-				E276C35324BC407FB880AA73 /* StudyPlannerSplitView.swift in Sources */,
-				15299BBB2A96478B8DC75FEA /* StudyPlannerView.swift in Sources */,
-				43B3E2FAC9304742A03974B3 /* StudyReadingDetailView.swift in Sources */,
-				0B3EF277052C475CA3203D6E /* ContentDensitySection.swift in Sources */,
-				1519A846B52F4B1B8D5EC527 /* LOSCoverageView.swift in Sources */,
-				2123245EB6F445CEB79F1C47 /* ProgressDashboardView.swift in Sources */,
-				869DF8C93DDF4932BA541E0A /* TopicProgressRow.swift in Sources */,
-				432F68B592FD4E29AE24A172 /* EssayInput.swift in Sources */,
-				DDE0792D589A4CE6B2604FBF /* GradingResultView.swift in Sources */,
-				70F92777487A4258B280B842 /* MultipleChoiceInput.swift in Sources */,
-				00DBED509A734E4592D9C922 /* QuestionAttemptView.swift in Sources */,
-				FCE5063D0D2B41889866DFAF /* VignetteView.swift in Sources */,
-				0FB8346AA2AE44A99C50FBC3 /* SessionRunnerView.swift in Sources */,
-				CEE67D5DEDA14F8D91245808 /* HomeView.swift in Sources */,
-				39A5F7702F234CE28B76B1E3 /* RootTabView.swift in Sources */,
-				09DF79CEE685482A8E0DAEEA /* BrowseSplitView.swift in Sources */,
-				96A0F59A66B047AEBC7CE084 /* CaseDetailView.swift in Sources */,
-				1FBE925B6A9E493AAB3E9408 /* CaseListView.swift in Sources */,
-				EFDB681B76B3483C9E79EDAA /* LOSFilterSheet.swift in Sources */,
-				6C707F5F7EE1496DBBA5D8D0 /* TopicListView.swift in Sources */,
-				D296140AAB594793BEE89C01 /* PracticeBuilderView.swift in Sources */,
-				415812DBAE3C41909B6E787D /* ClaudeGrader.swift in Sources */,
-				873B927E2C574CB7ACCE4451 /* ContentLoader.swift in Sources */,
-				BAB7A1AA8CA449D185EB61B8 /* GradingResponseParser.swift in Sources */,
-				193D60075A474803A26861AF /* KeychainStore.swift in Sources */,
-				D9FF953AE57A4616AED28F07 /* PracticeBuilderPreference.swift in Sources */,
-				0FA06AC85F6545C48B4DCCF8 /* ProgressStats.swift in Sources */,
-				FDB276FEBECE4BA2A964A4D6 /* QuizAssembler.swift in Sources */,
-				ACE2822844744B92AEAE188E /* ReviewScheduler.swift in Sources */,
-				F5C08A90725F410F8C6A4555 /* StudyPlannerStats.swift in Sources */,
-				F78036A6898C47F7A2DD81D3 /* StudySessionCoordinator.swift in Sources */,
+				C142D518BA5A472AA97DD4D0 /* ClaudeGraderErrorTests.swift in Sources */,
+				F3F572AD8E65408E9B33CE60 /* GradingResponseParserTests.swift in Sources */,
+				FAF0FB28A4074A6E8CA13738 /* NotesContentParserTests.swift in Sources */,
+				4345E5D4137D456187976AB6 /* QuestionBankIntegrityTests.swift in Sources */,
+				243C8ED5E40141FFA8C9BDC7 /* ReviewSchedulerTests.swift in Sources */,
+				BEC13E2002F143CF8557176E /* StudyScheduleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D1109390192341E3B031A2AB /* Sources */ = {
+		52D768514ADB4D8FA0647ECA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF7A22B460E04677AD3BF416 /* ClaudeGraderErrorTests.swift in Sources */,
-				9ED761D13F324B788E503FDC /* GradingResponseParserTests.swift in Sources */,
-				B06FA7373680405D97650DC7 /* NotesContentParserTests.swift in Sources */,
-				871A35A75565439F9D3E06F4 /* QuestionBankIntegrityTests.swift in Sources */,
-				43C77369661847E9AE8FEF4F /* ReviewSchedulerTests.swift in Sources */,
+				2E3B6577617C4726A27DC976 /* CFAL3App.swift in Sources */,
+				71C5D6A00C7940C09CA7A27B /* Case.swift in Sources */,
+				F6BAC4E260F943E2B7174BBF /* ContentTargets.swift in Sources */,
+				7A8E045D66BA4B3E892676DB /* LOS.swift in Sources */,
+				9B30E00C7EBD420080C706E0 /* LOSDrill.swift in Sources */,
+				D9C73CD92A4149C8A11E805A /* Question.swift in Sources */,
+				4A5B39F992B444A3BB1A20DC /* QuestionBank.swift in Sources */,
+				AEC9019C50A74073B83D1CC6 /* ReadingNotes.swift in Sources */,
+				F6801CFCE41047DFB2C73967 /* StudySchedule.swift in Sources */,
+				D24BFB81E3CD467EAADEF909 /* Topic.swift in Sources */,
+				6A408F02B0FE429CB9C6E0C7 /* Attempt.swift in Sources */,
+				578B7ECBE5A34243889D6A61 /* DayCompletion.swift in Sources */,
+				1D7562E5223E40509DA8D2C1 /* LOSStudyStatus.swift in Sources */,
+				BDB6E32655A1492E8B647ED5 /* ReviewCard.swift in Sources */,
+				EA104E48307E4173A2389D71 /* Session.swift in Sources */,
+				CE31020A549C4387BB55E079 /* AdaptiveLayout.swift in Sources */,
+				4F480E013FFA4741A00FFC66 /* Formatting.swift in Sources */,
+				1D61F3E2C6EE47BFA81389D5 /* NotesContentParser.swift in Sources */,
+				D78A124325A34A7B9D6D6E95 /* ProgressDisplay.swift in Sources */,
+				87568CEDECC144EA841F2452 /* StudyDisplay.swift in Sources */,
+				15BC0053332642829D36BB50 /* Theme.swift in Sources */,
+				D96E7A90E9F846EA90EBF873 /* SettingsView.swift in Sources */,
+				B118CA85BEC941318EB932FD /* LOSChecklistPanel.swift in Sources */,
+				8A4115E3958F4A93945816B6 /* LOSChecklistRow.swift in Sources */,
+				8454FEEB4C97418180E2A688 /* LOSDrillAttemptView.swift in Sources */,
+				2244FE7F912441F9AA00CC0F /* LOSDrillReadingView.swift in Sources */,
+				14A8DFE021CB49A58ACFE113 /* ReadingNotesBlocksView.swift in Sources */,
+				2858D578CEFC46B28B17E658 /* ReadingNotesView.swift in Sources */,
+				4E3E64899A264FDF8DCEFD46 /* StudyAreaDetailView.swift in Sources */,
+				52CB938372B04A5AA8006E99 /* StudyComponents.swift in Sources */,
+				7049E344B47C4F1EB4DA77E5 /* StudyPlannerSplitView.swift in Sources */,
+				CE271E075BFC4A939D3F98F0 /* StudyPlannerView.swift in Sources */,
+				9FE84FDE8AFD47B2850E055F /* StudyReadingDetailView.swift in Sources */,
+				136311A12E8A491B929DBC70 /* ContentDensitySection.swift in Sources */,
+				1E865EA0FDAE4C5F8386B7EE /* LOSCoverageView.swift in Sources */,
+				3850143D80B94D4689C0F2DA /* ProgressDashboardView.swift in Sources */,
+				CEA5BD5285DC4484AAB37770 /* TopicProgressRow.swift in Sources */,
+				741797DC119C4419B8C276A9 /* PlanView.swift in Sources */,
+				4EA5E834AC7841D09C6228B1 /* EssayInput.swift in Sources */,
+				D88B0B2015734B3B9107F515 /* GradingResultView.swift in Sources */,
+				F6DF3A9B5F784E15B344F99E /* MultipleChoiceInput.swift in Sources */,
+				1C5C86CC7FBD42F5AFC8336F /* QuestionAttemptView.swift in Sources */,
+				5BFED40742ED4467B25AEEA1 /* VignetteView.swift in Sources */,
+				876456306C594941870BB2F2 /* DesignComponents.swift in Sources */,
+				DF722BC8E45B42D2A9CEC9A9 /* SessionRunnerView.swift in Sources */,
+				275ADD3E5FC84A09822F8857 /* HomeView.swift in Sources */,
+				A55600316463473185D99CD8 /* RootTabView.swift in Sources */,
+				E809EE2E045E42E9813DD101 /* BrowseSplitView.swift in Sources */,
+				F5CB2015A5764D80B1E58C22 /* CaseDetailView.swift in Sources */,
+				D868A1912E7949028AAB51B3 /* CaseListView.swift in Sources */,
+				CDDC11A6A4974DE98F5FC562 /* LOSFilterSheet.swift in Sources */,
+				3DC9B25DF7C54A84B174D2B9 /* TopicListView.swift in Sources */,
+				0BE61D7A432C4C93A2C11762 /* PracticeBuilderView.swift in Sources */,
+				4B38D8BD28A945C8A6DF5650 /* ClaudeGrader.swift in Sources */,
+				CCFC8423471B4CA9968C2FC5 /* ContentLoader.swift in Sources */,
+				2C75C41ADB584E61BF5690A1 /* GraderConfig.swift in Sources */,
+				AC6614F71CD64BB092A5FC78 /* GradingResponseParser.swift in Sources */,
+				2DF817F4B15342A3BCA9FD17 /* PracticeBuilderPreference.swift in Sources */,
+				B8538543E18F44B397B52B12 /* ProgressStats.swift in Sources */,
+				DAFF14100F9D43639B4E5FC6 /* QuizAssembler.swift in Sources */,
+				1F7E6572BF6543808CFCFB6B /* ReviewScheduler.swift in Sources */,
+				F3DB51C89B484060AD989650 /* StudyPlannerStats.swift in Sources */,
+				1734ECEB45BC49BF90D20649 /* StudySessionCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		D1F21620E3C34A5E88574829 /* Debug */ = {
+		00850735EA1B4F8E92BEC033 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandonkeeny.CFAL3Tests;
+				PRODUCT_NAME = CFAL3Tests;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CFAL3.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CFAL3";
+			};
+			name = Release;
+		};
+		714C2F3F89184F809E824645 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_TESTABILITY = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
-		28E442B4F7E1492B8BC041F5 /* Release */ = {
+		7ED11AAF50E4493AA917B86F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
 		};
-		BA5909ADD77744739CD6F435 /* Debug */ = {
+		A21C5CE1F89345459ABE8DBE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = CFAL3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.brandonkeeny.CFAL3;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				MARKETING_VERSION = 1.0;
+				DEVELOPMENT_TEAM = HHSFT2GD2H;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CFAL3/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "CFA L3";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_FILE = CFAL3/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandonkeeny.CFAL3;
+				PRODUCT_NAME = CFAL3;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AEC85511E7834BD792706ED1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HHSFT2GD2H;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CFAL3/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "CFA L3";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandonkeeny.CFAL3;
+				PRODUCT_NAME = CFAL3;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		3448E3F31D1040B7B6BC320B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = CFAL3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.brandonkeeny.CFAL3;
-				CURRENT_PROJECT_VERSION = 1;
-				MARKETING_VERSION = 1.0;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "CFA L3";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_FILE = CFAL3/Info.plist;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		87AAEF38380D485D9F9992C4 /* Debug */ = {
+		C91A5AD7EF5B4C33A4519280 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -780,53 +853,38 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CFAL3.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CFAL3";
 			};
 			name = Debug;
-		};
-		7F9EF30332A742ADAA70F916 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.brandonkeeny.CFAL3Tests;
-				PRODUCT_NAME = CFAL3Tests;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CFAL3.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CFAL3";
-			};
-			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		48CD57F150D64777BD601BC9 /* Build configuration list */ = {
+		D74379A8255744E6985C70CE /* Build configuration list for PBXNativeTarget "CFAL3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D1F21620E3C34A5E88574829 /* Debug */,
-				28E442B4F7E1492B8BC041F5 /* Release */,
+				AEC85511E7834BD792706ED1 /* Debug */,
+				A21C5CE1F89345459ABE8DBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5D93DE09F5FB4D14AED35826 /* Build configuration list */ = {
+		DB3088BA01784409A340068B /* Build configuration list for PBXNativeTarget "CFAL3Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BA5909ADD77744739CD6F435 /* Debug */,
-				3448E3F31D1040B7B6BC320B /* Release */,
+				C91A5AD7EF5B4C33A4519280 /* Debug */,
+				00850735EA1B4F8E92BEC033 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		06D372EB9DCE4554B86C8D5E /* Build configuration list */ = {
+		FC86048C96DD4982A8CE5914 /* Build configuration list for PBXProject "CFAL3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				87AAEF38380D485D9F9992C4 /* Debug */,
-				7F9EF30332A742ADAA70F916 /* Release */,
+				714C2F3F89184F809E824645 /* Debug */,
+				7ED11AAF50E4493AA917B86F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CFCDDC8CB1BA42E1B8F25EF3 /* Project object */;
+	rootObject = 0263D8E1DC19440DA273C3D0 /* Project object */;
 }

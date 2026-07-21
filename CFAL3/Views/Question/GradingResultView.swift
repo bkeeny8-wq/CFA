@@ -32,12 +32,96 @@ struct GradingResultView: View {
     }
 
     var body: some View {
-        List {
-            Section {
-                resultBanner
+        ScrollView {
+            VStack(spacing: 10) {
+                verdictCard
+                graderNotesCard
+                guidelineAnswerCard
+                yourAnswerCard
+                footerRow
             }
+            .padding()
+        }
+        .readableContentWidth(700)
+        .frame(maxWidth: .infinity)
+        .navigationTitle("Result")
+        .navigationBarBackButtonHidden(!standalone && sessionCoordinator.isActive)
+        .onAppear {
+            selectedQuality = defaultQuality
+        }
+    }
 
-            Section("Your answer") {
+    @ViewBuilder
+    private var verdictCard: some View {
+        let tint = verdictTint
+        VStack(spacing: 4) {
+            if let icon = verdictIcon {
+                Image(systemName: icon)
+                    .font(.title2)
+            }
+            Text(verdictHeadline)
+                .font(.title2.weight(.semibold))
+            if let subtitle = verdictSubtitle {
+                Text(subtitle)
+                    .font(.subheadline)
+                    .multilineTextAlignment(.center)
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .padding(16)
+        .background(
+            RoundedRectangle(cornerRadius: Theme.cardRadius)
+                .fill(tint.opacity(0.14))
+        )
+        .foregroundStyle(tint)
+    }
+
+    @ViewBuilder
+    private var graderNotesCard: some View {
+        if hasGraderNotes {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Grader notes")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                if let feedback = attempt.claudeFeedback, !feedback.isEmpty {
+                    markdownText(feedback)
+                } else if question.type == .mc, let correct = question.correct,
+                          let rationale = question.rationales?[correct] {
+                    Text(rationale)
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .cfaCard()
+        }
+    }
+
+    private var hasGraderNotes: Bool {
+        if let feedback = attempt.claudeFeedback, !feedback.isEmpty { return true }
+        if question.type == .mc, let correct = question.correct,
+           let rationale = question.rationales?[correct], !rationale.isEmpty {
+            return true
+        }
+        return false
+    }
+
+    @ViewBuilder
+    private var guidelineAnswerCard: some View {
+        if question.type == .mc, let correct = question.correct {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Guideline answer")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                Text("**\(correct).** \(question.options?[correct] ?? "")")
+                    .foregroundStyle(Theme.accent)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .cfaCard()
+        }
+    }
+
+    private var yourAnswerCard: some View {
+        DisclosureGroup("Your answer") {
+            VStack(alignment: .leading, spacing: 8) {
                 if question.type == .mc, let selected = attempt.selectedOption {
                     Text("**\(selected).** \(question.options?[selected] ?? "")")
                 } else if let essay = attempt.essayText {
@@ -48,29 +132,8 @@ struct GradingResultView: View {
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
-            }
 
-            if question.type == .mc, let correct = question.correct {
-                Section("Correct answer") {
-                    Text("**\(correct).** \(question.options?[correct] ?? "")")
-                        .foregroundStyle(Theme.accent)
-                }
-            }
-
-            Section("Rationale") {
-                if let feedback = attempt.claudeFeedback, !feedback.isEmpty {
-                    markdownText(feedback)
-                } else if question.type == .mc, let correct = question.correct,
-                          let rationale = question.rationales?[correct] {
-                    Text(rationale)
-                } else {
-                    Text("No rationale available.")
-                        .foregroundStyle(.secondary)
-                }
-            }
-
-            if question.type == .mc, let rationales = question.rationales {
-                Section {
+                if question.type == .mc, let rationales = question.rationales {
                     DisclosureGroup("All rationales", isExpanded: $showAllRationales) {
                         ForEach(question.sortedOptionKeys, id: \.self) { key in
                             VStack(alignment: .leading, spacing: 4) {
@@ -84,59 +147,98 @@ struct GradingResultView: View {
                     }
                 }
             }
-
-            Section("Self-rate 0–5") {
-                QualitySelector(selected: Binding(
-                    get: { selectedQuality ?? defaultQuality },
-                    set: { selectedQuality = $0 }
-                ))
-            }
-
-            Section {
-                Button(nextButtonTitle) {
-                    saveQualityAndContinue()
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(Theme.accent)
-            }
+            .padding(.top, 4)
         }
-        .listStyle(.insetGrouped)
-        .readableContentWidth()
-        .frame(maxWidth: .infinity)
-        .navigationTitle("Result")
-        .navigationBarBackButtonHidden(!standalone && sessionCoordinator.isActive)
-        .onAppear {
-            selectedQuality = defaultQuality
-        }
+        .cfaCard()
     }
 
-    @ViewBuilder
-    private var resultBanner: some View {
-        if question.type == .essay, let grade = attempt.grade {
-            let headline: String = {
-                if let e = attempt.pointsEarned, let p = attempt.pointsPossible, p > 0 {
-                    return "\(e)/\(p) points"
-                }
-                return "Grade \(grade)/5"
-            }()
-            Label(headline, systemImage: "star.circle.fill")
-                .font(.title2)
-                .foregroundStyle(grade >= 3 ? .green : .orange)
-        } else if let wasCorrect = attempt.wasCorrect {
-            Label(wasCorrect ? "Correct" : "Incorrect", systemImage: wasCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
-                .font(.title2)
-                .foregroundStyle(wasCorrect ? .green : .red)
-        } else {
-            Text("Submitted")
-                .font(.title2)
+    private var footerRow: some View {
+        HStack(alignment: .center, spacing: 12) {
+            InlineQualitySelector(selected: Binding(
+                get: { selectedQuality ?? defaultQuality },
+                set: { selectedQuality = $0 }
+            ))
+            Spacer(minLength: 8)
+            Button(nextButtonTitle) {
+                saveQualityAndContinue()
+            }
+            .font(.body.weight(.medium))
+            .foregroundStyle(Theme.accent)
         }
+        .padding(.top, 4)
+    }
+
+    private var verdictTint: Color {
+        if question.type == .essay,
+           let earned = attempt.pointsEarned,
+           let possible = attempt.pointsPossible,
+           possible > 0 {
+            let ratio = Double(earned) / Double(possible)
+            if ratio >= 0.7 { return Theme.success }
+            if ratio >= 0.4 { return Theme.warning }
+            return Theme.danger
+        }
+        if let wasCorrect = attempt.wasCorrect {
+            return wasCorrect ? Theme.success : Theme.danger
+        }
+        if question.type == .essay, let grade = attempt.grade {
+            if grade >= 4 { return Theme.success }
+            if grade >= 3 { return Theme.warning }
+            return Theme.danger
+        }
+        return Theme.accent
+    }
+
+    private var verdictIcon: String? {
+        if question.type == .essay, attempt.pointsEarned != nil {
+            return "star.circle.fill"
+        }
+        if let wasCorrect = attempt.wasCorrect {
+            return wasCorrect ? "checkmark.circle.fill" : "xmark.circle.fill"
+        }
+        return nil
+    }
+
+    private var verdictHeadline: String {
+        if question.type == .essay,
+           let earned = attempt.pointsEarned,
+           let possible = attempt.pointsPossible,
+           possible > 0 {
+            return "\(earned)/\(possible) points"
+        }
+        if let wasCorrect = attempt.wasCorrect {
+            return wasCorrect ? "Correct" : "Incorrect"
+        }
+        if question.type == .essay, let grade = attempt.grade {
+            if let e = attempt.pointsEarned, let p = attempt.pointsPossible, p > 0 {
+                return "\(e)/\(p) points"
+            }
+            return "Grade \(grade)/5"
+        }
+        return "Submitted"
+    }
+
+    private var verdictSubtitle: String? {
+        if question.type == .essay,
+           attempt.pointsEarned != nil,
+           let grade = attempt.grade {
+            return "Grade \(grade)/5"
+        }
+        if question.type == .mc,
+           let selected = attempt.selectedOption,
+           let correct = question.correct {
+            return "You chose \(selected) · Answer \(correct)"
+        }
+        return nil
     }
 
     private var nextButtonTitle: String {
         if standalone || !sessionCoordinator.isActive {
             return "Done"
         }
-        return sessionCoordinator.currentIndex + 1 < sessionCoordinator.questionIDs.count ? "Next" : "Finish session"
+        return sessionCoordinator.currentIndex + 1 < sessionCoordinator.questionIDs.count
+            ? "Next →"
+            : "Finish session"
     }
 
     @ViewBuilder
@@ -170,6 +272,40 @@ struct GradingResultView: View {
             dismiss()
         } else {
             dismiss()
+        }
+    }
+}
+
+private struct InlineQualitySelector: View {
+    @Binding var selected: Int
+
+    var body: some View {
+        HStack(spacing: 6) {
+            ForEach(0...5, id: \.self) { value in
+                Button {
+                    selected = value
+                } label: {
+                    Text("\(value)")
+                        .font(.caption.weight(.medium))
+                        .frame(width: 30, height: 30)
+                        .background(
+                            RoundedRectangle(cornerRadius: 6)
+                                .fill(selected == value
+                                      ? Theme.accent.opacity(0.15)
+                                      : Color.clear)
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 6)
+                                .strokeBorder(
+                                    selected == value ? Theme.accent : Theme.hairline,
+                                    lineWidth: selected == value ? 1.5 : 1
+                                )
+                        )
+                        .foregroundStyle(selected == value ? Theme.accent : .secondary)
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel("Self-rate \(value)")
+            }
         }
     }
 }

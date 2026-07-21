@@ -248,16 +248,12 @@ final class ClaudeGrader {
         AsyncThrowingStream { continuation in
             let task = Task {
                 do {
-                    guard let apiKey = KeychainStore.loadAPIKey(), !apiKey.isEmpty else {
-                        throw ClaudeGraderError.missingAPIKey
-                    }
                     var yieldedAny = false
                     var attempt = 0
                     while true {
                         attempt += 1
                         do {
                             try await self.performStream(
-                                apiKey: apiKey,
                                 system: system,
                                 userMessage: userMessage,
                                 onText: { text in
@@ -286,15 +282,13 @@ final class ClaudeGrader {
     }
 
     private func performStream(
-        apiKey: String,
         system: String,
         userMessage: String,
         onText: (String) -> Void
     ) async throws {
-        var request = URLRequest(url: URL(string: "https://api.anthropic.com/v1/messages")!)
+        var request = URLRequest(url: GraderConfig.endpoint)
         request.httpMethod = "POST"
-        request.setValue(apiKey, forHTTPHeaderField: "x-api-key")
-        request.setValue("2023-06-01", forHTTPHeaderField: "anthropic-version")
+        request.setValue("Bearer \(GraderConfig.proxyToken)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
         let body: [String: Any] = [
@@ -322,8 +316,7 @@ final class ClaudeGrader {
         }
 
         // Anthropic SSE protocol: terminate on message_stop,
-        // surface in-stream error events. ("[DONE]" is OpenAI’s protocol
-        // and never arrives from api.anthropic.com.)
+        // surface in-stream error events.
         streamLoop: for try await line in bytes.lines {
             guard line.hasPrefix("data: ") else { continue }
             let payload = String(line.dropFirst(6))
@@ -350,18 +343,15 @@ final class ClaudeGrader {
 }
 
 enum ClaudeGraderError: LocalizedError {
-    case missingAPIKey
     case apiError(status: Int, message: String?)
     case streamError(message: String)
 
     var errorDescription: String? {
         switch self {
-        case .missingAPIKey:
-            return "Add your Anthropic API key in Settings."
         case .apiError(let status, let message):
             switch status {
             case 401:
-                return "Invalid API key. Update it in Settings."
+                return "Grader endpoint rejected the request — check GraderConfig."
             case 404:
                 return "Selected model is not available on this account. "
                      + "Choose another model in Settings."

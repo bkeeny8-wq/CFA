@@ -14,7 +14,7 @@ final class ClaudeGraderErrorTests: XCTestCase {
 
     func testStatusSpecificMessages() {
         XCTAssertTrue(ClaudeGraderError.apiError(status: 401, message: nil)
-            .errorDescription!.contains("API key"))
+            .errorDescription!.contains("GraderConfig"))
         XCTAssertTrue(ClaudeGraderError.apiError(status: 404, message: nil)
             .errorDescription!.contains("model"))
         XCTAssertTrue(ClaudeGraderError.apiError(status: 429, message: nil)

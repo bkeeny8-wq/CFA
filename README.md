@@ -6,7 +6,7 @@ Personal iOS study app for CFA Level III case-based questions, spaced repetition
 
 - **Xcode 15+** with the **iOS 17 SDK**
 - **iOS 17.0+** device or simulator
-- An **Anthropic API key** (for essay grading and optional MC reasoning grading)
+- Network access for essay grading and optional MC reasoning grading (via the deployed grader proxy)
 
 ## Open the project
 
@@ -30,13 +30,9 @@ Personal iOS study app for CFA Level III case-based questions, spaced repetition
 
 **Note:** Free Apple ID provisioning expires every **7 days**. Re-run from Xcode to reinstall/re-sign. A paid Apple Developer Program membership gives **1-year** signing certificates.
 
-## Anthropic API key
+## Grader proxy
 
-1. Launch the app → **Home** → **Settings** (or open Settings from Home).
-2. Tap **Update API key** and paste your key (`sk-ant-…`).
-3. The key is stored in the **Keychain** on-device only.
-
-Grading calls go **only** to `api.anthropic.com`. Browsing questions and tracking progress work offline; grading requires network access.
+Essay and reasoning grading call a **Cloudflare Worker** (`workers/grader-proxy-worker.js`) that holds the Anthropic API key server-side. Set `GraderConfig.endpoint` and `GraderConfig.proxyToken` in `CFAL3/Services/GraderConfig.swift` to match your deployed worker. Browsing questions and tracking progress work offline; grading requires network access.
 
 ## Privacy
 

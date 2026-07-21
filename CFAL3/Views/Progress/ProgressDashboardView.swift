@@ -53,13 +53,13 @@ struct ProgressDashboardView: View {
         dueCount: Int
     ) -> some View {
         HStack(spacing: 8) {
-            StatCard(label: "Accuracy", value: Formatting.percent(overall.correctRate))
-            StatCard(label: "Attempted", value: "\(overall.unique)/\(content.totalQuestions)")
+            ProgressStatTile(label: "Accuracy", value: Formatting.percent(overall.correctRate))
+            ProgressStatTile(label: "Attempted", value: "\(overall.unique)/\(content.totalQuestions)")
 
             Button {
                 startReviewDue()
             } label: {
-                StatCard(label: "Due today", value: "\(dueCount)", isAccent: dueCount > 0)
+                ProgressStatTile(label: "Due today", value: "\(dueCount)", isAccent: dueCount > 0)
             }
             .buttonStyle(.plain)
             .disabled(dueCount == 0)
@@ -174,7 +174,7 @@ struct ProgressDashboardView: View {
     }
 }
 
-private struct StatCard: View {
+private struct ProgressStatTile: View {
     let label: String
     let value: String
     var isAccent = false
@@ -200,26 +200,14 @@ private struct StatCard: View {
 private struct TopicProgressCard: View {
     let progress: TopicProgress
 
-    private var shortName: String {
-        switch progress.topicID {
-        case "asset_allocation": return "Asset allocation"
-        case "portfolio_construction": return "Portfolio constr."
-        case "performance_measurement": return "Perf. measurement"
-        case "derivatives_and_risk_management": return "Derivatives"
-        case "ethical_and_professional_standards": return "Ethics"
-        case "portfolio_management_pathway": return "PM pathway"
-        default: return progress.name
-        }
-    }
-
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             HStack {
-                Text(shortName)
+                Text(ProgressDisplay.shortName(progress.topicID, fallback: progress.name))
                     .font(.subheadline.weight(.medium))
                     .lineLimit(1)
                 Spacer()
-                if let w = progressExamWeights[progress.topicID] {
+                if let w = ProgressDisplay.examWeights[progress.topicID] {
                     Text(w)
                         .font(.caption2)
                         .padding(.horizontal, 6)
@@ -231,8 +219,7 @@ private struct TopicProgressCard: View {
             Text("\(progress.attempted)/\(progress.total) · \(Formatting.percent(progress.correctRate))")
                 .font(.caption)
                 .foregroundStyle(.secondary)
-            ProgressView(value: progress.total == 0 ? 0 : Double(progress.attempted) / Double(progress.total))
-                .tint(Theme.accent)
+            MasteryBar(value: progress.total == 0 ? 0 : Double(progress.attempted) / Double(progress.total))
         }
         .padding(10)
         .background(

@@ -28,8 +28,7 @@ struct ContentDensitySection: View {
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
-                    ProgressView(value: row.totalProgress)
-                        .tint(Theme.accent)
+                    MasteryBar(value: row.totalProgress)
                     HStack {
                         Text("\(row.haveTotal) / \(row.targetTotal)")
                             .font(.caption.monospacedDigit())

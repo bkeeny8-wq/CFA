@@ -2,9 +2,14 @@ import SwiftUI
 
 struct ReadingNotesView: View {
     let notes: ReadingNotesEntry
+    var showsTopicArea: Bool = true
 
     private var blocks: [NotesBlock] {
-        NotesContentParser.parse(notes.content)
+        var parsed = NotesContentParser.parse(notes.content)
+        if !notes.orientation.isEmpty {
+            parsed.insert(.paragraph(notes.orientation), at: 0)
+        }
+        return parsed
     }
 
     private var losSections: [(number: Int, title: String)] {
@@ -28,7 +33,7 @@ struct ReadingNotesView: View {
 
                     ReadingNotesBlocksView(blocks: blocks)
                 }
-                .readableContentWidth(LayoutMetrics.readableMaxWidth + 80)
+                .readableContentWidth(LayoutMetrics.studyReadingMaxWidth)
                 .padding()
                 .textSelection(.enabled)
             }
@@ -37,33 +42,15 @@ struct ReadingNotesView: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: 12) {
-            if !notes.topicArea.isEmpty {
+            if showsTopicArea, !notes.topicArea.isEmpty {
                 Text(notes.topicArea.uppercased())
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(Theme.accent)
             }
 
-            if !notes.title.isEmpty {
-                Text(notes.title)
-                    .font(.title2.bold())
+            if showsTopicArea {
+                Divider()
             }
-
-            if !notes.orientation.isEmpty {
-                HStack(alignment: .top, spacing: 10) {
-                    Image(systemName: "signpost.right.fill")
-                        .foregroundStyle(Theme.accent)
-                        .padding(.top, 2)
-                    Text(notes.orientation)
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                        .lineSpacing(3)
-                }
-                .padding(12)
-                .background(Theme.accent.opacity(0.08))
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-            }
-
-            Divider()
         }
     }
 

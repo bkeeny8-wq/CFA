@@ -33,14 +33,22 @@ enum Formatting {
         return remainder == 0 ? "\(minutes)m" : "\(minutes)m \(remainder)s"
     }
 
+    static func hours(_ value: Double, precise: Bool = false) -> String {
+        if precise {
+            let rounded = (value * 100).rounded() / 100
+            if rounded == rounded.rounded() {
+                return "\(Int(rounded))h"
+            }
+            return String(format: "%.2fh", rounded)
+        }
+        if value == value.rounded() {
+            return "\(Int(value))h"
+        }
+        return String(format: "%.2fh", value)
+    }
+
     static func wordCount(_ text: String) -> Int {
         text.split { $0.isWhitespace || $0.isNewline }.count
     }
 
-    static func maskedAPIKey(_ key: String) -> String {
-        guard key.count > 12 else { return "••••••••" }
-        let prefix = String(key.prefix(7))
-        let suffix = String(key.suffix(4))
-        return "\(prefix)...\(suffix)"
-    }
 }
