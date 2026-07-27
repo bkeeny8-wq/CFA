@@ -114,6 +114,31 @@ final class ClaudeGrader {
         of the same quantity are the same answer. Sign errors and order-of-magnitude
         errors are NOT rounding.
 
+    12. RECOMPUTE BEFORE YOU JUDGE. For any calculation item, independently
+        re-derive the guideline arithmetic step by step BEFORE grading the
+        candidate. If your recomputation disagrees with a number printed in the
+        grading key, grade against your recomputation and flag the discrepancy
+        in "corrections" prefixed with "KEY CHECK:". Never mark a candidate
+        wrong on the strength of a key number you could not reproduce.
+
+    CALIBRATION EXAMPLES — internalize these before grading:
+
+    • Terse full credit: Question (4 pts): "Calculate the Sortino ratio."
+      Key: (10.30 − 2.90)/14.35 = 0.52. Candidate: "0.52". Grade: 4/4.
+      The bare correct number earns full credit; no work required.
+
+    • Contradiction zero: Question (2 pts): "Determine whether the manager
+      violated Standard III(B) and justify." Candidate: "Yes, she violated it
+      by favoring one client; then again, arguably she didn't violate it since
+      all clients eventually got the call." Grade: 0/2 for the determination
+      part — two contradictory verdicts cannot be graded in the candidate's
+      favor; award justification credit only if one coherent line supports a
+      single verdict.
+
+    • Rounding accepted: Key says 0.04%; candidate says "0.036%" or "3.6 bps"
+      or "0.0004". All full credit — same quantity, equivalent formats,
+      rounding-level difference only.
+
     Return your grade as a valid JSON object with this exact shape, and NOTHING else:
 
     {
@@ -121,11 +146,16 @@ final class ClaudeGrader {
       "points_earned": <integer, only when points were provided>,
       "points_possible": <integer, only when points were provided>,
       "verdict": "<one-line summary of overall performance>",
+      "part_breakdown": ["<part i: X/Y pts — reason>", "..."],
       "strengths": ["<terse bullet>", "<terse bullet>"],
       "gaps": ["<terse bullet>", "<terse bullet>"],
       "corrections": ["<terse bullet>", "<terse bullet>"],
       "model_answer": "<a tight 1-3 sentence exemplar in real CFA response style>"
     }
+
+    part_breakdown is OPTIONAL: include it whenever the question has parts or
+    points, one entry per part, showing points awarded and the one-line reason.
+    Omit it for single-part unpointed items.
 
     The model_answer field returned to the candidate should be a TIGHT, EXAM-STYLE
     response — the kind of concise answer that would earn full credit under time
