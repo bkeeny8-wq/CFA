@@ -2,17 +2,22 @@ import Foundation
 import Observation
 
 enum GraderModel: String, CaseIterable, Identifiable {
-    case opus = "claude-opus-4-7"
-    case sonnet = "claude-sonnet-5"
+    // Model IDs verified against Anthropic's models documentation.
+    // Fable 5 is the highest-capability tier and the default for grading
+    // accuracy; Haiku is the budget option for quick checks.
+    case fable = "claude-fable-5"
+    case opus = "claude-opus-4-8"
+    case sonnet = "claude-sonnet-4-6"
     case haiku = "claude-haiku-4-5-20251001"
 
     var id: String { rawValue }
 
     var displayName: String {
         switch self {
-        case .opus: return "Opus 4.7"
-        case .sonnet: return "Sonnet 5"
-        case .haiku: return "Haiku 4.5"
+        case .fable: return "Fable 5 (most accurate)"
+        case .opus: return "Opus 4.8"
+        case .sonnet: return "Sonnet 4.6"
+        case .haiku: return "Haiku 4.5 (fastest)"
         }
     }
 }
@@ -30,7 +35,7 @@ final class ClaudeGrader {
            let model = GraderModel(rawValue: raw) {
             return model
         }
-        return .opus
+        return .fable
     }
 
     /// Anthropic error shape: `{"type":"error","error":{"type":"...","message":"..."}}`
@@ -91,6 +96,23 @@ final class ClaudeGrader {
        - Substantively incorrect reasoning (even if a keyword matches)
        - Answers that pattern-match a rationale without engaging the question
        - Excessive hedging or listing multiple contradictory answers ("kitchen sink")
+
+    9. COMMAND WORDS GOVERN THE BAR. Grade against what the command word demands:
+       "calculate" needs the number; "determine/identify/select" needs the choice;
+       "justify/explain/discuss" needs the reasoning; "state" needs the fact only.
+       Do not demand explanation where the command word did not ask for one.
+
+    10. CONTRADICTIONS NEGATE. If the candidate gives multiple mutually
+        contradictory answers to the same part, award NO credit for that part —
+        a grader cannot choose the right one for them. Extraneous material that is
+        correct or neutral does NOT reduce credit; only material that contradicts
+        or undermines the required answer does.
+
+    11. NUMERICAL TOLERANCE. Accept answers that differ from the key only by
+        reasonable rounding (e.g., intermediate-rounding differences in the last
+        displayed digit) and accept equivalent formats — 0.036, 3.6%, and 360 bps
+        of the same quantity are the same answer. Sign errors and order-of-magnitude
+        errors are NOT rounding.
 
     Return your grade as a valid JSON object with this exact shape, and NOTHING else:
 

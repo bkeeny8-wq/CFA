@@ -27,7 +27,7 @@ final class ClaudeGraderErrorTests: XCTestCase {
     func testSelectedModelPersistsAndDefaults() {
         UserDefaults.standard.removeObject(forKey: "graderModel")
         let grader = ClaudeGrader()
-        XCTAssertEqual(grader.selectedModel, .opus)
+        XCTAssertEqual(grader.selectedModel, .fable)
         grader.selectedModel = .haiku
         XCTAssertEqual(UserDefaults.standard.string(forKey: "graderModel"),
                        GraderModel.haiku.rawValue)
