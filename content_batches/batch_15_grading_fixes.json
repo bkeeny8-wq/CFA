@@ -1,0 +1,39 @@
+{
+ "target": "question_bank",
+ "description": "batch_15 grading-accuracy fixes: repair swapped rationale on mt_pleasant q5 (B held q4's key-rate-duration text; A/C were truncated fragments) and author the missing distractor rationales on arthur_camme q2 (A/B) and q5 (B/C) using the exhibit numbers embedded in each key rationale. Keys unchanged.",
+ "replacements": [
+  {
+   "id": "credit_strategies_pm_pathway_mt_pleasant_advisers_ashley_wes_q5",
+   "rationales": {
+    "A": "Incorrect. Stone's first point understates liquidity management. Liquidity management has become MORE relevant to credit portfolio managers — holding liquid instruments (cash, Treasuries, ETFs, index derivatives) and managing position sizes against market depth is now a recognized source of both risk control and alpha, not an afterthought.",
+    "B": "Correct. Stone's second point regarding spread changes is accurate: market liquidity conditions are embedded in credit spread changes. When liquidity deteriorates, investors demand a larger liquidity premium and credit spreads widen even absent any change in default expectations — so monitoring spread changes is a valid way to track liquidity risk in credit markets.",
+    "C": "Incorrect. Stone's third point about bid–ask spreads is wrong in direction: more volatile market conditions WIDEN bid–ask spreads as dealers protect themselves against inventory risk, which raises trading costs. Bid–ask spreads do not narrow, and trading costs do not fall, when volatility rises."
+   },
+   "data_quality": "complete",
+   "data_quality_flags": []
+  },
+  {
+   "id": "index_based_equity_strategies_arthur_camme_arthur_camme_q2",
+   "rationales": {
+    "A": "Incorrect. Manager A holds 498 of the index's 500 constituents with very low tracking error — the signature of FULL REPLICATION, not a sampling/optimization blend. Nearly complete ownership of the index leaves nothing for stratified cells or an optimizer to do.",
+    "B": "Incorrect. Manager B holds 800 of 928 index names (86%) — consistent with stratified sampling alone — but exhibits LARGE tracking error. An optimization overlay explicitly accounts for covariances among holdings and would have reduced that tracking error, so Manager B shows no evidence of blending optimization with the sampling approach.",
+    "C": "Correct. Manager C blends the two techniques: holding 1,200 of 3,000 index constituents reflects stratified sampling, while the explicit treatment of covariances among portfolio constituents — lowering tracking error relative to sampling alone — reflects an optimization overlay."
+   },
+   "data_quality": "complete",
+   "data_quality_flags": []
+  },
+  {
+   "id": "index_based_equity_strategies_arthur_camme_arthur_camme_q5",
+   "rationales": {
+    "A": "Correct. Only two factor weights differ from the index: Low Volatility (0.31 vs 0.28) and Momentum (0.14 vs 0.17). Active factor weighting = overweight Low Volatility contribution (+0.279%) + underweight Momentum contribution (−0.243%) = +0.036% ≈ 0.04%. The Quality segment's weight matches the index, so its return difference is security selection, not factor weighting.",
+    "B": "Incorrect. 0.25% is the TOTAL active return of MultiFAK versus the benchmark (6.32% − 6.07% = 0.252%), which combines the factor-weighting effect (0.04%) with the security-selection effect in the High Quality segment (0.216%). The question asks only for the portion arising from active factor weighting.",
+    "C": "Incorrect. 0.28% is the contribution of the Low Volatility overweight alone (+0.279%). Active factor weighting must also net the Momentum underweight (−0.243%), giving 0.036% ≈ 0.04%."
+   },
+   "data_quality": "complete",
+   "data_quality_flags": []
+  }
+ ],
+ "expected": {
+  "applied": 3
+ }
+}
