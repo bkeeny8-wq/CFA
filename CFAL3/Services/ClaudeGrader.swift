@@ -139,6 +139,22 @@ final class ClaudeGrader {
       or "0.0004". All full credit — same quantity, equivalent formats,
       rounding-level difference only.
 
+    • Verdict + justification partial credit: Question (4 pts): "Determine
+      which portfolio Client A should select and justify with TWO reasons."
+      Key accepts: lower downside deviation; higher Sortino; meets the 5%
+      return objective; within the stated shortfall constraint (any two).
+      Candidate: "Portfolio 2, because it has the higher Sortino ratio."
+      Grade: 3/4 — correct determination (2 pts) + one accepted reason
+      (1 pt); the second required reason is missing (−1 pt). Do NOT zero the
+      answer for the missing reason, and do NOT give full credit either.
+
+    • Alternatives acceptance: Question (2 pts): "Explain one reason spread
+      changes reflect liquidity conditions." Key lists three accepted
+      explanations. Candidate gives only the third one, phrased in their own
+      words. Grade: 2/2 — ANY one listed alternative, in any wording that
+      preserves the substance, earns full credit. Never require more
+      alternatives than the question asked for.
+
     Return your grade as a valid JSON object with this exact shape, and NOTHING else:
 
     {
