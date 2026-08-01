@@ -1,19 +1,11 @@
 import SwiftUI
 import SwiftData
 
-private enum StudyReadingTab: String, Identifiable {
-    case notes = "Notes"
-    case drills = "Drills"
-    case checklist = "Checklist"
-
-    var id: String { rawValue }
-}
-
-/// Reading detail: ONE column on every device. Notes, drills, and the LOS
-/// checklist are peer tabs — nothing permanently splits the screen. At
-/// regular width the content centers inside the readable-width cap, so a
+/// Reading detail: ONE column on every device, showing the reading's notes.
+/// At regular width the content centers inside the readable-width cap, so a
 /// full-screen iPad reading is a wide, comfortable page rather than a
-/// half-screen column fighting a pinned panel.
+/// half-screen column fighting a pinned panel. Drills live in the Practice
+/// tab, so they are not duplicated here.
 struct StudyReadingDetailView: View {
     @Environment(ContentLoader.self) private var content
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
@@ -23,8 +15,6 @@ struct StudyReadingDetailView: View {
     let area: CurriculumArea
     let reading: Reading
     var splitColumnVisibility: Binding<NavigationSplitViewVisibility>?
-
-    @State private var selectedTab: StudyReadingTab = .notes
 
     init(
         area: CurriculumArea,
@@ -40,42 +30,22 @@ struct StudyReadingDetailView: View {
         content.readingNotes(id: reading.id)
     }
 
-    private var drillBundle: LOSDrillBundle? {
-        content.drillBundle(forReading: reading.id)
-    }
-
     private var readingProgress: ReadingStudyProgress {
         StudyPlannerStats.readingProgress(reading: reading, statuses: statuses)
-    }
-
-    private var availableTabs: [StudyReadingTab] {
-        var tabs: [StudyReadingTab] = []
-        if notes != nil { tabs.append(.notes) }
-        if drillBundle != nil { tabs.append(.drills) }
-        tabs.append(.checklist)
-        return tabs
     }
 
     var body: some View {
         VStack(spacing: 0) {
             pillHeader
-            tabPicker
 
-            switch selectedTab {
-            case .notes:
-                if let notes {
-                    ReadingNotesView(notes: notes, showsTopicArea: false)
-                } else {
-                    checklistContent
-                }
-            case .drills:
-                if let drillBundle {
-                    LOSDrillReadingView(reading: reading, bundle: drillBundle)
-                } else {
-                    checklistContent
-                }
-            case .checklist:
-                checklistContent
+            if let notes {
+                ReadingNotesView(notes: notes, showsTopicArea: false)
+            } else {
+                ContentUnavailableView(
+                    "Notes coming soon",
+                    systemImage: "doc.text",
+                    description: Text("This reading doesn't have bundled notes yet.")
+                )
             }
         }
         .navigationTitle(reading.name)
@@ -99,9 +69,6 @@ struct StudyReadingDetailView: View {
                 }
             }
         }
-        .onAppear {
-            seedSelectedTab()
-        }
     }
 
     // MARK: - Pieces
@@ -116,44 +83,6 @@ struct StudyReadingDetailView: View {
         .frame(maxWidth: .infinity)
         .padding(.horizontal, 12)
         .padding(.top, 12)
-    }
-
-    @ViewBuilder
-    private var tabPicker: some View {
-        if availableTabs.count > 1 {
-            Picker("View", selection: $selectedTab) {
-                ForEach(availableTabs) { tab in
-                    Text(tabLabel(tab)).tag(tab)
-                }
-            }
-            .pickerStyle(.segmented)
-            .frame(maxWidth: LayoutMetrics.studyReadingMaxWidth)
-            .frame(maxWidth: .infinity)
-            .padding(12)
-        }
-    }
-
-    /// The checklist reads like a page, not a sidebar: same readable-width
-    /// cap and centering as the notes.
-    private var checklistContent: some View {
-        ScrollView {
-            LOSChecklistPanel(area: area, reading: reading)
-                .padding(12)
-                .frame(maxWidth: LayoutMetrics.studyReadingMaxWidth)
-                .frame(maxWidth: .infinity)
-        }
-    }
-
-    private func seedSelectedTab() {
-        guard !availableTabs.contains(selectedTab) else { return }
-        selectedTab = availableTabs.first ?? .checklist
-    }
-
-    private func tabLabel(_ tab: StudyReadingTab) -> String {
-        if tab == .drills, let count = drillBundle?.totalQuestions {
-            return "Drills (\(count))"
-        }
-        return tab.rawValue
     }
 }
 
