@@ -29,9 +29,13 @@ final class StudySessionCoordinator {
     }
 
     func advance() -> Bool {
-        guard currentIndex + 1 < questionIDs.count else { return false }
+        // Always move forward — including PAST the last question. The
+        // session runner shows the summary when currentIndex reaches
+        // questionIDs.count; stopping short of the end left the runner
+        // displaying the final question after "Finish session".
+        guard currentIndex < questionIDs.count else { return false }
         currentIndex += 1
-        return true
+        return currentIndex < questionIDs.count
     }
 
     func finish() {
