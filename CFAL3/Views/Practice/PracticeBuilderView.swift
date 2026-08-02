@@ -44,7 +44,7 @@ struct PracticeBuilderView: View {
                 }
                 .pickerStyle(.menu)
 
-                Picker("How many", selection: Bindable(pref).count) {
+                Picker(perUnitLabel, selection: Bindable(pref).count) {
                     ForEach(PracticeCount.allCases) { count in
                         Text(count.displayName).tag(count)
                     }
@@ -87,7 +87,7 @@ struct PracticeBuilderView: View {
                 }
 
                 Label(
-                    "\(matching) questions match · \(unseen) unseen · est. \(estimatedMinutes) min",
+                    scopeSummary,
                     systemImage: "line.3.horizontal.decrease"
                 )
                 .font(.caption)
@@ -138,6 +138,24 @@ struct PracticeBuilderView: View {
                 }
             }
         }
+    }
+
+    /// The unit the per-question quota is spread across, tracking the finest
+    /// active scope so the "How many" picker reads as e.g. "Per reading".
+    private var perUnitNoun: String {
+        if !pref.selectedLOS.isEmpty { return "LOS" }
+        if !pref.selectedReadings.isEmpty { return "reading" }
+        return "book"
+    }
+
+    private var perUnitLabel: String { "Per \(perUnitNoun)" }
+
+    /// Footer that spells out the scaling: how many per unit, and how many
+    /// questions that works out to for the current scope.
+    private var scopeSummary: String {
+        let tail = "\(matching) questions · \(unseen) unseen · est. \(estimatedMinutes) min"
+        guard pref.count != .all else { return tail }
+        return "\(pref.count.displayName) per \(perUnitNoun) → \(tail)"
     }
 
     private var topicsSummary: String {

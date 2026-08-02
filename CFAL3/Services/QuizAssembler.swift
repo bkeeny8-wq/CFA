@@ -45,9 +45,24 @@ enum QuizAssembler {
         "case_study_in_portfolio_management_institutional_swf": "portfolio_construction",
     ]
 
+    /// The granularity a session is "broken down" by. The finest active scope
+    /// wins, so selecting specific LOS strata a session more tightly than
+    /// selecting whole books. With nothing selected, a session spans every
+    /// book present in the pool.
+    enum Stratum {
+        case los
+        case reading
+        case topic
+    }
+
     /// Assemble a question ID list from the current PracticeBuilderPreference,
     /// drawing from the case bank and the LOS drill bank, respecting all
     /// filters and weakness weighting.
+    ///
+    /// `pref.count` is a PER-UNIT quota: each in-scope book / reading / LOS
+    /// contributes up to that many questions, so the session total scales with
+    /// how much scope is selected. `.all` lifts the cap and returns everything
+    /// that matches.
     static func assemble(
         pref: PracticeBuilderPreference,
         content: ContentLoader,
@@ -63,12 +78,83 @@ enum QuizAssembler {
             ordered = filtered.shuffled()
         }
 
-        switch pref.count {
-        case .all:
+        guard pref.count != .all else {
             return ordered.map(\.id)
-        default:
-            return ordered.prefix(pref.count.rawValue).map(\.id)
         }
+
+        return stratifiedPick(
+            ordered,
+            pref: pref,
+            quotaPerUnit: pref.count.rawValue
+        )
+    }
+
+    // MARK: - Per-unit scaling
+
+    /// The unit granularity a session breaks down into, given the active
+    /// scope. Finest selected scope wins: LOS → reading → book.
+    static func stratum(for pref: PracticeBuilderPreference) -> Stratum {
+        if !pref.selectedLOS.isEmpty { return .los }
+        if !pref.selectedReadings.isEmpty { return .reading }
+        return .topic
+    }
+
+    /// The IDs of the units the quota is spread across. An explicit selection
+    /// defines the units directly; with no selection at the book level, every
+    /// book present in the (already filtered) pool becomes a unit so a
+    /// whole-curriculum session is balanced across books rather than dominated
+    /// by whichever book has the most questions.
+    private static func targetUnits(
+        stratum: Stratum,
+        pref: PracticeBuilderPreference,
+        pool: [PoolItem]
+    ) -> Set<String> {
+        switch stratum {
+        case .los:
+            return pref.selectedLOS
+        case .reading:
+            return pref.selectedReadings
+        case .topic:
+            if !pref.selectedTopics.isEmpty { return pref.selectedTopics }
+            return pool.reduce(into: Set<String>()) { $0.formUnion($1.topicIDs) }
+        }
+    }
+
+    private static func units(of item: PoolItem, stratum: Stratum) -> Set<String> {
+        switch stratum {
+        case .los: return item.losIDs
+        case .reading: return item.readingIDs
+        case .topic: return item.topicIDs
+        }
+    }
+
+    /// Walk the priority-ordered pool once, giving each in-scope unit up to
+    /// `quotaPerUnit` questions. A question tagged to several in-scope units
+    /// counts toward every under-quota unit it touches, so multi-tagged
+    /// questions fill scope efficiently and are never returned twice.
+    private static func stratifiedPick(
+        _ ordered: [PoolItem],
+        pref: PracticeBuilderPreference,
+        quotaPerUnit: Int
+    ) -> [String] {
+        let stratum = stratum(for: pref)
+        let targets = targetUnits(stratum: stratum, pref: pref, pool: ordered)
+        guard !targets.isEmpty, quotaPerUnit > 0 else { return [] }
+
+        var takenPerUnit: [String: Int] = [:]
+        var seen = Set<String>()
+        var result: [String] = []
+
+        for item in ordered {
+            let itemUnits = units(of: item, stratum: stratum).intersection(targets)
+            let underQuota = itemUnits.filter { (takenPerUnit[$0] ?? 0) < quotaPerUnit }
+            guard !underQuota.isEmpty, seen.insert(item.id).inserted else { continue }
+            result.append(item.id)
+            for unit in underQuota {
+                takenPerUnit[unit, default: 0] += 1
+            }
+        }
+        return result
     }
 
     // MARK: - Pool construction

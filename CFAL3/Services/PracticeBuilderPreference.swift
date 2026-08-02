@@ -25,21 +25,24 @@ enum QuestionTypeFilter: String, CaseIterable, Identifiable, Codable {
     }
 }
 
+/// How many questions to draw for EACH book / reading / LOS in scope. The
+/// session total scales with how many units are selected — pick "5" with
+/// four readings in scope and you get up to 20 questions, four per reading.
 enum PracticeCount: Int, CaseIterable, Identifiable, Codable {
+    case three = 3
+    case five = 5
     case ten = 10
-    case twenty = 20
-    case fifty = 50
-    case hundred = 100
+    case fifteen = 15
     case all = -1
 
     var id: Int { rawValue }
 
     var displayName: String {
         switch self {
+        case .three: return "3"
+        case .five: return "5"
         case .ten: return "10"
-        case .twenty: return "20"
-        case .fifty: return "50"
-        case .hundred: return "100"
+        case .fifteen: return "15"
         case .all: return "All"
         }
     }
@@ -112,8 +115,10 @@ final class PracticeBuilderPreference {
             sourceFilter = .both
         }
 
+        // Per-unit quota. A stored legacy total (10/20/50/100) that is no
+        // longer a valid case falls back to the default rather than crashing.
         let rawCount = defaults.integer(forKey: Keys.count)
-        count = PracticeCount(rawValue: rawCount == 0 ? 20 : rawCount) ?? .twenty
+        count = PracticeCount(rawValue: rawCount == 0 ? 5 : rawCount) ?? .five
 
         // Persisted topic IDs may predate the six-book restructure; remap
         // legacy IDs so a stale selection can never silently filter every
@@ -134,7 +139,7 @@ final class PracticeBuilderPreference {
     func reset() {
         typeFilter = .mixed
         sourceFilter = .both
-        count = .twenty
+        count = .five
         selectedTopics = []
         selectedReadings = []
         selectedLOS = []
