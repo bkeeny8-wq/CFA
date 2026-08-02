@@ -16,6 +16,8 @@ struct SettingsView: View {
     @State private var showExporter = false
     @State private var showImporter = false
     @State private var importSummary: String?
+    @State private var showResetConfirm = false
+    @State private var resetSummary: String?
 
     var body: some View {
         List {
@@ -48,6 +50,20 @@ struct SettingsView: View {
                 Text(importSummary ?? "Attempts, review schedule, sessions, and LOS states export as one JSON file. Import merges — newer data wins, nothing is deleted.")
             }
 
+            Section {
+                Button(role: .destructive) {
+                    showResetConfirm = true
+                } label: {
+                    Label("Erase all progress", systemImage: "trash")
+                }
+                .disabled(attempts.isEmpty && cards.isEmpty && sessions.isEmpty
+                          && dayCompletions.isEmpty && losStudyStatuses.isEmpty)
+            } header: {
+                Text("Reset")
+            } footer: {
+                Text(resetSummary ?? "Permanently deletes every attempt, the review schedule, sessions, LOS states, and plan check-offs — a clean slate. This cannot be undone; export a backup first if you might want it back.")
+            }
+
             Section("About") {
                 LabeledContent(
                     "Version",
@@ -77,6 +93,33 @@ struct SettingsView: View {
             allowedContentTypes: [.json]
         ) { result in
             if case .success(let url) = result { importData(from: url) }
+        }
+        .confirmationDialog(
+            "Erase all progress?",
+            isPresented: $showResetConfirm,
+            titleVisibility: .visible
+        ) {
+            Button("Erase everything", role: .destructive) { resetAllProgress() }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("This permanently deletes all attempts, the review schedule, sessions, LOS states, and plan check-offs. It cannot be undone.")
+        }
+    }
+
+    private func resetAllProgress() {
+        let removed = attempts.count + cards.count + sessions.count
+            + dayCompletions.count + losStudyStatuses.count
+        for item in attempts { modelContext.delete(item) }
+        for item in cards { modelContext.delete(item) }
+        for item in sessions { modelContext.delete(item) }
+        for item in dayCompletions { modelContext.delete(item) }
+        for item in losStudyStatuses { modelContext.delete(item) }
+        do {
+            try modelContext.save()
+            resetSummary = "Erased \(removed) records. Progress is back to a clean slate."
+        } catch {
+            modelContext.rollback()
+            resetSummary = "Reset failed: \(error.localizedDescription)"
         }
     }
 

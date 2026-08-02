@@ -115,17 +115,32 @@ struct PracticeBuilderView: View {
         .onChange(of: pref.sourceFilter) { _, _ in refreshPreview() }
         .onChange(of: pref.count) { _, _ in refreshPreview() }
         .onChange(of: pref.weaknessWeighted) { _, _ in refreshPreview() }
-        .onChange(of: pref.selectedTopics) { _, _ in refreshPreview() }
-        .onChange(of: pref.selectedReadings) { _, _ in refreshPreview() }
+        .onChange(of: pref.selectedTopics) { _, _ in
+            // Narrowing the books narrows what readings/LOS can mean; drop any
+            // now-out-of-scope picks so the cascade stays coherent.
+            pruneReadingsAndLOS()
+            refreshPreview()
+        }
+        .onChange(of: pref.selectedReadings) { _, _ in
+            pruneLOS()
+            refreshPreview()
+        }
         .onChange(of: pref.selectedLOS) { _, _ in refreshPreview() }
         .sheet(isPresented: $showTopics, onDismiss: refreshPreview) {
             TopicMultiSelectSheet(selection: Bindable(pref).selectedTopics)
         }
         .sheet(isPresented: $showReadings, onDismiss: refreshPreview) {
-            ReadingMultiSelectSheet(selection: Bindable(pref).selectedReadings)
+            ReadingMultiSelectSheet(
+                selection: Bindable(pref).selectedReadings,
+                scopeTopics: pref.selectedTopics
+            )
         }
         .sheet(isPresented: $showLOS, onDismiss: refreshPreview) {
-            LOSFilterSheet(selectedLOS: Bindable(pref).selectedLOS)
+            LOSFilterSheet(
+                selectedLOS: Bindable(pref).selectedLOS,
+                readingScope: pref.selectedReadings,
+                topicScope: pref.selectedTopics
+            )
         }
         .navigationDestination(isPresented: $showSession) {
             SessionRunnerView()
@@ -182,6 +197,53 @@ struct PracticeBuilderView: View {
 
     private func refreshPreview() {
         previewedIDs = QuizAssembler.assemble(pref: pref, content: content, attempts: attempts)
+    }
+
+    // MARK: - Cascade pruning
+
+    /// Readings that belong to the selected books (empty selection ⇒ all books).
+    private func readingsInScope(topics: Set<String>) -> Set<String> {
+        guard let areas = content.losMaster?.areas else { return [] }
+        var ids = Set<String>()
+        for area in areas where topics.isEmpty || topics.contains(area.id) {
+            for reading in area.readings { ids.insert(reading.id) }
+        }
+        return ids
+    }
+
+    /// LOS that belong to the selected readings, or — when no readings are
+    /// picked — to the selected books.
+    private func losInScope(readings: Set<String>, topics: Set<String>) -> Set<String> {
+        guard let areas = content.losMaster?.areas else { return [] }
+        var ids = Set<String>()
+        for area in areas {
+            for reading in area.readings {
+                let inScope = readings.isEmpty
+                    ? (topics.isEmpty || topics.contains(area.id))
+                    : readings.contains(reading.id)
+                if inScope { for los in reading.los { ids.insert(los.id) } }
+            }
+        }
+        return ids
+    }
+
+    /// After the book selection changes, drop readings (and then LOS) that no
+    /// longer fall inside the chosen books.
+    private func pruneReadingsAndLOS() {
+        if !pref.selectedTopics.isEmpty {
+            let allowed = readingsInScope(topics: pref.selectedTopics)
+            let kept = pref.selectedReadings.intersection(allowed)
+            if kept != pref.selectedReadings { pref.selectedReadings = kept }
+        }
+        pruneLOS()
+    }
+
+    /// Drop LOS picks that fall outside the current reading/book scope.
+    private func pruneLOS() {
+        guard !pref.selectedReadings.isEmpty || !pref.selectedTopics.isEmpty else { return }
+        let allowed = losInScope(readings: pref.selectedReadings, topics: pref.selectedTopics)
+        let kept = pref.selectedLOS.intersection(allowed)
+        if kept != pref.selectedLOS { pref.selectedLOS = kept }
     }
 
     private func startQuiz() {
@@ -263,46 +325,45 @@ private struct ReadingMultiSelectSheet: View {
     @Environment(ContentLoader.self) private var content
     @Environment(\.dismiss) private var dismiss
     @Binding var selection: Set<String>
+    /// When non-empty, only readings from these books are offered.
+    var scopeTopics: Set<String> = []
 
-    private var readingIDs: [String] {
-        var ids = Set<String>()
-        if let bank = content.questionBank {
-            for topic in bank.topics {
-                for caseStudy in topic.cases {
-                    for question in caseStudy.questions {
-                        ids.formUnion(question.primaryReadingIDs)
-                    }
-                }
-            }
-        }
-        ids.formUnion(content.losDrillBundles.keys)
-        return ids.sorted()
+    /// Books (and their readings) in curriculum order, filtered to the chosen
+    /// books. Sourced from los_master so every reading has a real title and
+    /// sits under the book it belongs to — no raw IDs, no drill/case mixing.
+    private var areas: [CurriculumArea] {
+        let all = content.losMaster?.areas ?? []
+        return scopeTopics.isEmpty ? all : all.filter { scopeTopics.contains($0.id) }
+    }
+
+    private var visibleReadingIDs: [String] {
+        areas.flatMap { $0.readings.map(\.id) }
     }
 
     var body: some View {
         NavigationStack {
             List {
                 Section {
-                    Button("Select all") { selection = Set(readingIDs) }
-                    Button("Clear") { selection.removeAll() }
+                    Button("Select all") { selection.formUnion(visibleReadingIDs) }
+                    Button("Clear") { selection.subtract(visibleReadingIDs) }
+                        .disabled(selection.isDisjoint(with: visibleReadingIDs))
                 }
-                Section {
-                    ForEach(readingIDs, id: \.self) { readingID in
-                        toggleRow(id: readingID, label: readingLabel(readingID))
+                ForEach(areas) { area in
+                    Section(area.name) {
+                        ForEach(area.readings) { reading in
+                            toggleRow(id: reading.id, label: reading.name)
+                        }
                     }
                 }
             }
             .navigationTitle("Readings")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }
                 }
             }
         }
-    }
-
-    private func readingLabel(_ readingID: String) -> String {
-        content.readingNotes(id: readingID)?.title ?? readingID
     }
 
     @ViewBuilder

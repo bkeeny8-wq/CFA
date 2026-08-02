@@ -10,16 +10,28 @@ struct LOSFilterSheet: View {
     @Binding var selectedLOS: Set<String>
     /// When non-nil, only readings from this curriculum area are offered.
     var areaID: String? = nil
+    /// When non-empty, only these readings are offered (finest scope — wins).
+    var readingScope: Set<String> = []
+    /// When non-empty, only readings from these books are offered.
+    var topicScope: Set<String> = []
 
     @State private var draftSelection: Set<String> = []
     @State private var expandedReadings: Set<String> = []
 
+    /// Readings to offer, narrowed by the active scope. Precedence: an explicit
+    /// reading selection wins, then a book (topic/area) scope, otherwise all.
     private var readings: [Reading] {
-        let areas = content.losMaster?.areas ?? []
-        if let areaID, let area = areas.first(where: { $0.id == areaID }) {
-            return area.readings
+        let all = (content.losMaster?.areas ?? []).flatMap(\.readings)
+        if !readingScope.isEmpty {
+            return all.filter { readingScope.contains($0.id) }
         }
-        return areas.flatMap(\.readings)
+        if !topicScope.isEmpty {
+            return all.filter { topicScope.contains($0.areaID) }
+        }
+        if let areaID {
+            return all.filter { $0.areaID == areaID }
+        }
+        return all
     }
 
     var body: some View {
