@@ -25,14 +25,14 @@
      "stem": "The three primary components of performance evaluation most likely answer:",
      "options": {
       "A": "performance measurement — what was the portfolio's performance?.",
-      "B": "no framework.",
-      "C": "single question."
+      "B": "performance attribution — was the performance the result of manager skill or luck?.",
+      "C": "performance appraisal — how was the portfolio's performance achieved?."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: performance measurement — what was the portfolio's performance?; performance attribution — how was the performance achieved?; performance appraisal — was the performance achieved through manager skill or luck?\n\nCorrect. Per the reading: 'Performance evaluation includes three primary components, each corresponding to a specific question we need to answer to evaluate a portfolio's performance: Performance measurement — what was the portfolio's performance? Performance attribution — how was the performance achieved? Performance appraisal — was the performance achieved through manager skill or luck?'",
-      "B": "Three components.",
-      "C": "Three questions."
+      "B": "Misassigns the appraisal question (skill vs. luck) to performance attribution, whose question is instead how the performance was achieved.",
+      "C": "Misassigns the attribution question (how performance was achieved) to appraisal, whose question is whether results reflect skill or luck."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.a",
@@ -48,15 +48,15 @@
      "number": 2,
      "stem": "Performance measurement most likely:",
      "options": {
-      "A": "no definition.",
+      "A": "distinguishes whether returns were the result of manager skill or luck.",
       "B": "provides an overall indication of portfolio's performance, typically relative to a benchmark.",
-      "C": "no framework."
+      "C": "explains how the portfolio's performance was achieved through active decisions."
      },
      "correct": "B",
      "rationales": {
-      "A": "Real definition.",
+      "A": "This describes performance appraisal, not performance measurement, which provides an overall return indication relative to a benchmark.",
       "B": "Full statement: provides an overall indication of portfolio's performance, typically relative to a benchmark; in its simplest form, calculation of investment returns for both portfolio and benchmark; must consider risk incurred to achieve return; risk measured using ex post (looking back in time) and ex ante (looking forward in time) techniques (ex post: volatility/SD, appraisal ratios; ex ante: VaR at a point in time).\n\nCorrect. Per the reading: 'Performance measurement provides an overall indication of the portfolio's performance, typically relative to a benchmark. In its simplest form, performance measurement is the calculation of investment returns for both the portfolio and its benchmark... In addition to return, performance measurement must consider the risk incurred to achieve that return. We measure risk using a variety of ex post (looking back in time) and ex ante (looking forward in time) techniques. For ex post, we might consider the volatility or standard deviation of the past returns, along with many other performance appraisal ratios considered later in this reading. The calculation of a portfolio's value at risk (VaR) at a point in time is an example of an ex ante measure.'",
-      "C": "Returns + risk."
+      "C": "This describes performance attribution, not measurement; measurement quantifies return and risk rather than explaining their sources."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.a",
@@ -72,14 +72,14 @@
      "number": 3,
      "stem": "Performance attribution most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no purpose.",
+      "A": "provides an overall indication of portfolio's performance relative to a benchmark.",
+      "B": "draws conclusions about whether performance reflects manager skill or luck.",
       "C": "builds on foundation of investment returns and risk."
      },
      "correct": "C",
      "rationales": {
-      "A": "Real function.",
-      "B": "Explanation of how.",
+      "A": "This describes performance measurement, not attribution, which builds on measured returns and risk to explain how they were achieved.",
+      "B": "This describes performance appraisal; attribution explains how performance was achieved, not whether it was skill or luck.",
       "C": "Full statement: builds on foundation of investment returns and risk; helps explain how performance was achieved or how risk was incurred; can be used to explain either absolute returns or relative returns; understand what portion of returns was driven by active manager decisions vs exposures not specifically targeted; decompose excess return into component sources; risk attribution can decompose risk incurred.\n\nCorrect. Per the reading: 'Performance attribution then builds on the foundation of the investment returns and risk, helping us explain how that performance was achieved or that risk was incurred. Performance attribution can be used to explain either absolute returns or relative returns. It can be used to understand what portion of returns was driven by active manager decisions and what portion was a result of exposures not specifically targeted by the portfolio manager. Performance attribution can also be used to decompose the excess return into its component sources, where it is used to help explain why a manager over- or underperformed the target benchmark. Similarly, risk attribution can be used to decompose the risk incurred in the portfolio.'"
      },
      "type": "mc",
@@ -97,14 +97,14 @@
      "stem": "Performance appraisal most likely:",
      "options": {
       "A": "third component of performance evaluation.",
-      "B": "no purpose.",
-      "C": "no purpose."
+      "B": "first component of performance evaluation, calculating returns relative to a benchmark.",
+      "C": "second component of performance evaluation, explaining how returns were achieved."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: third component of performance evaluation; makes use of risk, return, and attribution analyses to draw conclusions regarding quality of a portfolio's performance; attempts to distinguish manager skill from luck; did the manager's decisions help achieve a better outcome, or was the outcome due to market changes outside manager's control; if superior results can be attributed to skill, higher likelihood manager will generate superior performance in future.\n\nCorrect. Per the reading: 'The third component of performance evaluation, performance appraisal, makes use of risk, return, and attribution analyses to draw conclusions regarding the quality of a portfolio's performance. Performance appraisal attempts to distinguish manager skill from luck. Did the portfolio manager's decisions help achieve a better outcome, or was the outcome due to market changes outside of the manager's control? If superior results can be attributed to skill, there is a higher likelihood that the manager will generate superior performance in the future. The analysis may affirm the management process or may contain insights for improving the process. This is a key feedback loop in the investment management process.'",
-      "B": "Skill vs luck.",
-      "C": "Distinguishes skill."
+      "B": "Conflates appraisal with performance measurement, which is the return-calculation component; appraisal is the third component, distinguishing skill from luck.",
+      "C": "Conflates appraisal with performance attribution, the component that explains how performance was achieved."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.a",
@@ -308,14 +308,14 @@
      "number": 3,
      "stem": "Micro attribution most likely:",
      "options": {
-      "A": "no distinction.",
-      "B": "no framework.",
+      "A": "measures the sponsor's decision to deviate from the strategic asset allocation, including implementation gaps.",
+      "B": "decomposes the risk consequences of active decisions rather than their return impact.",
       "C": "measures the impact of portfolio managers' allocation and selection decisions on total fund performance."
      },
      "correct": "C",
      "rationales": {
-      "A": "Manager level.",
-      "B": "Portfolio manager level.",
+      "A": "This describes macro attribution (sponsor-level decisions), not micro attribution, which evaluates individual portfolio managers' decisions.",
+      "B": "This describes risk attribution, not micro attribution; micro attribution addresses managers' allocation and selection impact on return.",
       "C": "Correct. Per the reading: 'Micro attribution measures the impact of portfolio managers' allocation and selection decisions on total fund performance.'"
      },
      "type": "mc",
@@ -415,14 +415,14 @@
      "stem": "Holdings-based attribution most likely:",
      "options": {
       "A": "references the beginning-of-period holdings of the portfolio.",
-      "B": "no definition.",
-      "C": "no framework."
+      "B": "uses only the total portfolio returns over a period to identify the components of return.",
+      "C": "incorporates both holdings and all purchases and sales during the measurement period."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: references the beginning-of-period holdings of the portfolio; calculated with monthly, weekly, or daily data — accuracy improves when using data with shorter time intervals; for longer evaluation periods, link together attribution results for shorter measurement periods; because it fails to capture the impact of any transactions made during the measurement period, may not reconcile to actual portfolio return; residual might be described as a timing or trading effect; most appropriate for investment strategies with little turnover (e.g., passive strategies).\n\nCorrect. Per the reading: 'Unlike returns-based attribution, holdings-based attribution references the beginning-of-period holdings of the portfolio. Calculated with monthly, weekly, or daily data, the accuracy of holdings-based attribution improves when using data with shorter time intervals. For longer evaluation periods, we link together the attribution results for the shorter measurement periods. Because holdings-based attribution fails to capture the impact of any transactions made during the measurement period, it may not reconcile to the actual portfolio return... The residual caused by ignoring transactions might be described as a timing or trading effect. Holdings-based analysis is most appropriate for investment strategies with little turnover (e.g., passive strategies).'",
-      "B": "BOP holdings.",
-      "C": "BOP holdings method."
+      "B": "This describes returns-based attribution; holdings-based attribution references beginning-of-period holdings rather than total returns alone.",
+      "C": "This describes transactions-based attribution; holdings-based attribution ignores intraperiod transactions, producing a residual timing effect."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.d",
@@ -616,14 +616,14 @@
      "number": 5,
      "stem": "Carhart four-factor model most likely:",
      "options": {
-      "A": "no model.",
-      "B": "no framework.",
+      "A": "R_p - R_f = a_p + b_p1 × RMRF + b_p2 × SMB + b_p3 × HML + E_p.",
+      "B": "R_p - R_f = a_p + b_p1 × RMRF + E_p.",
       "C": "R_p - R_f = a_p + b_p1 × RMRF + b_p2 × SMB + b_p3 × HML + b_p4 × WML + E_p."
      },
      "correct": "C",
      "rationales": {
-      "A": "Four-factor formula.",
-      "B": "Four-factor model.",
+      "A": "This is the Fama-French three-factor model; the Carhart model adds a fourth momentum factor (WML) that is omitted here.",
+      "B": "This is a single-factor market model; the Carhart model requires size (SMB), value (HML), and momentum (WML) factors in addition to the market factor.",
       "C": "Full statement: R_p - R_f = a_p + b_p1 × RMRF + b_p2 × SMB + b_p3 × HML + b_p4 × WML + E_p; explains excess return on portfolio in terms of portfolio's sensitivity to a market index (RMRF), a market-capitalization factor (SMB), a book-value-to-price factor (HML), and a momentum factor (WML); commonly used equity attribution model per Carhart 1997.\n\nCorrect. Per Equation 11: 'R_p − R_f = a_p + b_p1 × RMRF + b_p2 × SMB + b_p3 × HML + b_p4 × WML + E_p (Carhart 1997). The Carhart model explains the excess return on the portfolio in terms of the portfolio's sensitivity to a market index (RMRF), a market-capitalization factor (SMB), a book-value-to-price factor (HML), and a momentum factor (WML).' Also 'One of the factor models commonly used in equity attribution analyses is the Carhart four-factor model.'"
      },
      "type": "mc",
@@ -651,14 +651,14 @@
      "stem": "Three approaches to fixed-income attribution per Giguère (2005) and Murira and Sierra (2006) most likely:",
      "options": {
       "A": "(1) exposure decomposition — duration based.",
-      "B": "no framework.",
-      "C": "no approaches."
+      "B": "(1) returns-based decomposition — factor model based.",
+      "C": "(1) transaction-based decomposition — cash flow based."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: (1) exposure decomposition — duration based; (2) yield curve decomposition — duration based; (3) yield curve decomposition — full repricing based; candidates are not responsible for calculating fixed-income attribution but should be able to interpret results.\n\nCorrect. Per the reading: 'Building on work by Groupe de Reflexion en Attribution de Performance, or GRAP, outlined in Giguère (2005) and Murira and Sierra (2006), we will discuss three typical approaches to fixed-income attribution: Exposure decomposition — duration based; Yield curve decomposition — duration based; Yield curve decomposition — full repricing based. Candidates are not responsible for calculating fixed-income attribution but should be able to interpret the results of a fixed-income attribution analysis.'",
-      "B": "Three approaches.",
-      "C": "GRAP three approaches."
+      "B": "This mislabels the equity/data-input taxonomy as a fixed-income approach; the three GRAP approaches are exposure decomposition and two yield-curve decompositions.",
+      "C": "'Transactions-based' is an attribution data-input type (LOS d), not one of the three fixed-income yield/exposure decomposition approaches."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.f",
@@ -674,15 +674,15 @@
      "number": 2,
      "stem": "Exposure decomposition — duration based most likely:",
      "options": {
-      "A": "no method.",
+      "A": "bottom-up approach that reprices each bond from zero-coupon spot curves.",
       "B": "top-down attribution approach that seeks to explain active management of portfolio relative to benchmark.",
-      "C": "no framework."
+      "C": "security-level approach decomposing yield changes into level, slope, and curvature factors."
      },
      "correct": "B",
      "rationales": {
-      "A": "Top-down Brinson-like.",
+      "A": "This describes the full-repricing yield-curve approach; exposure decomposition is top-down and duration-based, not full repricing.",
       "B": "Full statement: top-down attribution approach that seeks to explain active management of portfolio relative to benchmark; typically working through hierarchy of decisions from top to bottom (portfolio duration bets, yield curve positioning, sector bets, each relative to benchmark); 'exposure decomposition' relates to decomposition of portfolio risk exposures by grouping portfolio's component bonds by specified characteristics (duration, bond sector); 'duration based' relates to typical use of duration to represent interest rate exposure decisions; similar to Brinson-type equity attribution models but groups by market value weights in duration buckets; used primarily for marketing and client reports.\n\nCorrect. Per the reading: 'Exposure decomposition is a top-down attribution approach that seeks to explain the active management of a portfolio relative to its benchmark, typically working through a hierarchy of decisions from the top to the bottom. These decisions might include portfolio duration bets, yield curve positioning or sector bets, each relative to the benchmark. The term \"exposure decomposition\" relates to the decomposition of portfolio risk exposures by means of grouping a portfolio's component bonds by specified characteristics (e.g., duration, bond sector). The term \"duration based\" relates to the typical use of duration to represent interest rate exposure decisions. Models that take an exposure decomposition approach are similar to Brinson-type equity attribution models... For these reasons, the exposure decomposition approach is used primarily for marketing and client reports, where an important benefit is that users can easily understand and articulate the results of active portfolio management.'",
-      "C": "Brinson-type."
+      "C": "This describes duration-based yield curve decomposition; exposure decomposition instead groups bonds into duration/sector buckets in a Brinson-type framework."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.f",
@@ -698,14 +698,14 @@
      "number": 3,
      "stem": "Yield curve decomposition — duration based most likely:",
      "options": {
-      "A": "no method.",
-      "B": "no framework.",
+      "A": "must be implemented strictly as a top-down approach relative to the benchmark.",
+      "B": "reprices all bonds from zero-coupon curves rather than using duration.",
       "C": "can be either top-down or built bottom-up from security level."
      },
      "correct": "C",
      "rationales": {
-      "A": "Duration-based decomp.",
-      "B": "Duration-decomposition method.",
+      "A": "Incorrectly restricts the method; duration-based yield curve decomposition can be top-down or built bottom-up from the security level.",
+      "B": "This describes the full-repricing approach and contradicts the method's defining reliance on the duration–yield relationship.",
       "C": "Full statement: can be either top-down or built bottom-up from security level; estimates return of securities, sector buckets, or years-to-maturity buckets using known relationship between duration and changes in YTM: % Total return = % Income return + % Price return, where % Price return ≈ -Duration × Change in YTM; change in YTM broken down into yield curve factors (level, slope, curvature) and spread factors; typically used when preparing reports for analysts and portfolio managers rather than in marketing or client reports; exchanges better transparency for more operational complexity.\n\nCorrect. Per the reading: 'The duration-based yield curve decomposition approach to fixed-income attribution can be either executed as a top-down approach or built bottom-up from the security level. This approach estimates the return of securities, sector buckets, or years-to-maturity buckets using the known relationship between duration and changes in yield to maturity (YTM), as follows: % Total return = % Income return + % Price return, where % Price return ≈ −Duration × Change in YTM. Duration measures the sensitivity of bond price to a change in the bond's yield to maturity... The change in yield to maturity of the portfolio or instrument can be broken down into yield curve factors and spread factors to provide additional insights. These factors represent the changes in the risk-free government curve (e.g., changes in level, slope, and curvature) and in the premium required to hold riskier sectors and bonds... These models are typically used when preparing reports for analysts and portfolio managers, rather than in marketing or client reports.'"
      },
      "type": "mc",
@@ -746,15 +746,15 @@
      "number": 5,
      "stem": "Duration buckets Short/Mid/Long per Exhibit 6 most likely:",
      "options": {
-      "A": "no distinction.",
+      "A": "Short: less than or equal to 3.",
       "B": "Short: less than or equal to 5.",
-      "C": "no buckets."
+      "C": "Short: less than or equal to 7."
      },
      "correct": "B",
      "rationales": {
-      "A": "Three buckets.",
+      "A": "Uses an incorrect upper band; Exhibit 6 defines the short bucket as duration less than or equal to 5, not 3.",
       "B": "Full statement: Short: less than or equal to 5; Mid: greater than 5 and less than or equal to 10; Long: greater than 10; practitioner should take care when selecting upper and lower bands — grouping bonds of different durations in same bucket measures combined impact of those bonds relative to combined impact of similar bonds in benchmark (bond with duration 5.5 treated the same as bond with duration 9.5).\n\nCorrect. Per the reading: 'For this example, the short-, mid-, and long-duration buckets are defined as follows: Short: Less than or equal to 5; Mid: Greater than 5 and less than or equal to 10; Long: Greater than 10.' Footnote: 'Note that the practitioner should take care when selecting the upper and lower bands of each duration bucket. By grouping bonds of different durations in the same bucket, one is measuring the combined impact of those bonds relative to the combined impact of similar bonds in the benchmark. In this example (Exhibit 6 and the related discussion), for instance, a bond with a duration of 5.5 is treated the same as a bond with a duration of 9.5 in terms of its relative impact on the portfolio versus its benchmark.'",
-      "C": "≤5, 5-10, >10."
+      "C": "Uses an incorrect upper band; the short bucket cutoff is 5, with the mid bucket running from above 5 to 10."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.f",
@@ -887,14 +887,14 @@
      "stem": "Multi-level attribution — fund sponsor vs manager most likely:",
      "options": {
       "A": "at fund sponsor level, first decision is to allocate certain weight to asset classes (strategic asset allocation).",
-      "B": "single level.",
-      "C": "no distinction."
+      "B": "at fund sponsor level, first decision is to select individual securities within each mandate.",
+      "C": "at fund sponsor level, first decision is to set tactical deviations from the strategic asset allocation."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: at fund sponsor level, first decision is to allocate certain weight to asset classes (strategic asset allocation); if fund sponsor does not manage funds internally, delegates second investment decision to investment managers regarding tactical deviations from strategic asset allocation; sponsor might also select multiple portfolio managers to manage against specific mandates within given asset class; macro attribution measures fund sponsor decisions; micro attribution measures individual portfolio manager decisions.\n\nCorrect. Per the reading: 'Consider an example in which the top level is the fund sponsor (e.g., a university endowment or a defined-benefit pension plan sponsor). At the fund sponsor level, the first decision might be to allocate a certain weight to asset classes — the strategic asset allocation. If the fund sponsor does not manage funds internally, it would delegate a second investment decision to the investment managers to decide on any tactical deviations from the strategic asset allocation. The sponsor might also select multiple portfolio managers to manage against specific mandates within a given asset class. The attribution analysis that we use to determine the impact of these fund sponsor decisions is sometimes called macro attribution. The attribution of the individual portfolio manager decisions is sometimes called micro attribution.'",
-      "B": "Multi-level.",
-      "C": "Two-level framework."
+      "B": "Security selection is a portfolio manager decision; the sponsor's first decision is the strategic asset allocation across asset classes.",
+      "C": "Tactical deviations are delegated to the investment managers; the sponsor's first decision is setting the strategic asset allocation itself."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.h",
@@ -910,15 +910,15 @@
      "number": 2,
      "stem": "Macro attribution — Value Manager example (fund weight 78%, benchmark 75%, fund return 0.99, benchmark return 0.32, aggregate benchmark -0.03) most likely:",
      "options": {
-      "A": "no calc.",
+      "A": "0.50.",
       "B": "0.52.",
-      "C": "no framework."
+      "C": "0.53."
      },
      "correct": "B",
      "rationales": {
-      "A": "Explicit calc.",
+      "A": "Counts only the selection effect [75% × (0.99 − 0.32) ≈ 0.50] and omits the interaction effect, understating the combined value.",
       "B": "Allocation = (78% - 75%) × [0.32 - (-0.03)] = 3% × 0.35 = 0.01; Selection + Interaction = [75% × (0.99 - 0.32)] + [(78% - 75%) × (0.99 - 0.32)] = 0.5025 + 0.0201 = 0.52; sponsor overweighted value equities, value equities outperformed aggregate benchmark, decision added to portfolio return; value manager outperformed benchmark so manager selection decision independent of overweight also added value.\n\nCorrect. Per the reading: 'For the decision to hire the Value Portfolio Manager, we would calculate the effects as follows: Allocation = (78% − 75%)[0.32 − (−0.03)] = 0.01. The fund sponsor overweighted value equities (78% − 75%). Value equities outperformed the fund's aggregate benchmark [0.32 − (−0.03)]. The decision to overweight value equities added to portfolio return. Selection + Interaction = [(75%)(0.99 − 0.32)] + [(78% − 75%)(0.99 − 0.32)] = 0.52. The value manager outperformed the value benchmark (0.99 − 0.32). Thus, the fund sponsor's manager selection decision, independent of the decision to overweight value equities, added value. The fund sponsor overweighted a manager who outperformed his benchmark [(78% − 75%)(0.99 − 0.32)]. This is the interaction effect.'",
-      "C": "Real data."
+      "C": "Adds the 0.01 allocation effect to selection-plus-interaction; the question asks for selection plus interaction alone, which is 0.52."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.h",
@@ -934,14 +934,14 @@
      "number": 3,
      "stem": "Macro attribution — Growth Manager example (fund weight 22%, benchmark 25%, fund return 0.82, benchmark -1.08, aggregate benchmark -0.03) most likely:",
      "options": {
-      "A": "no calc.",
-      "B": "no framework.",
+      "A": "0.48.",
+      "B": "0.45.",
       "C": "0.42."
      },
      "correct": "C",
      "rationales": {
-      "A": "Detailed calc.",
-      "B": "Real calc.",
+      "A": "Counts only the selection effect [25% × (0.82 + 1.08) ≈ 0.48] and ignores the negative interaction effect from underweighting an outperforming manager.",
+      "B": "Adds the 0.03 allocation effect to selection-plus-interaction; the requested selection-plus-interaction figure alone is 0.42.",
       "C": "Allocation = (22% - 25%) × [-1.08 - (-0.03)] = -3% × -1.05 = 0.03; Selection + Interaction = [25% × (0.82 - (-1.08))] + [(22% - 25%) × (0.82 - (-1.08))] = 0.475 + -0.057 = 0.42; sponsor underweighted growth equities, growth underperformed aggregate benchmark, decision to underweight added to return; growth manager outperformed growth benchmark so selection decision added value; interaction effect negative (underweighted a manager who outperformed).\n\nCorrect. Per the reading: 'For the decision to hire the Growth Portfolio Manager, we would calculate the effects as follows: Allocation = (22% − 25%)[−1.08 − (−0.03)] = 0.03. The fund sponsor underweighted growth equities (22% − 25%). Growth equities underperformed the fund's aggregate benchmark (−1.08 versus −0.03). The decision to underweight growth equities added to portfolio return. Selection + Interaction = [(25%)(0.82 − (−1.08)] + [(22% − 25%)(0.82 − (−1.08)] = 0.42. The growth manager outperformed the growth benchmark (+0.82 versus −1.08). Thus, the fund sponsor's manager selection decision, independent of the decision to underweight growth equities, added value. The fund sponsor underweighted a manager who outperformed his benchmark [(− 3%)(0.82 − (− 1.08)]. The interaction effect was negative.'"
      },
      "type": "mc",
@@ -959,14 +959,14 @@
      "stem": "Micro attribution — segment level using Brinson-Fachler most likely:",
      "options": {
       "A": "0.17.",
-      "B": "no formula.",
-      "C": "no framework."
+      "B": "0.22.",
+      "C": "0.09."
      },
      "correct": "A",
      "rationales": {
       "A": "at segment level (small-cap value, large-cap value, large-cap growth): Allocation = (w_i - W_i) × (B_i - B); Selection + Interaction = W_i × (R_i - B_i) + (w_i - W_i) × (R_i - B_i); small-cap value example: Allocation = (20% - 25%) × [1.52 - (-0.03)] = -0.08; Selection + Interaction = [25% × (2.39 - 1.52)] + [(20% - 25%) × (2.39 - 1.52)] = 0.17.\n\nCorrect. Per the reading: 'We calculate the return attribution effects using the Brinson–Fachler approach at the segment level (i.e., small-cap value, large-cap value, and large-cap growth): Allocation = (w_i − W_i)(B_i − B); Selection + Interaction = W_i(R_i − B_i) + (w_i − W_i)(R_i − B_i). We calculate the attribution effects for the small-cap value equities: Allocation = (20% − 25%)[1.52 − (−0.03)] = −0.08; Selection + Interaction = [(25%)(2.39 − 1.52)] + [(20% − 25%)(2.39 − 1.52)] = 0.17.'",
-      "B": "BF at segment.",
-      "C": "Segment BF."
+      "B": "Counts only the selection effect [25% × (2.39 − 1.52) ≈ 0.22] and omits the negative interaction effect from the underweight.",
+      "C": "Nets the −0.08 allocation effect against selection-plus-interaction; the requested selection-plus-interaction figure alone is 0.17."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.h",
@@ -982,15 +982,15 @@
      "number": 5,
      "stem": "Security-level return attribution — pure stock picker Exhibit 15 most likely:",
      "options": {
-      "A": "no framework.",
+      "A": "-0.18%.",
       "B": "-0.41%.",
-      "C": "no data."
+      "C": "-0.06%."
      },
      "correct": "B",
      "rationales": {
-      "A": "Pure stock picker.",
+      "A": "This is Chevron's allocation (security-weighting) effect, not ExxonMobil's transaction/timing selection effect the question targets.",
       "B": "same allocation and selection formulas can be used to calculate contribution of individual security decisions within sectors; if pricing sources used in portfolio and benchmark are identical, any difference in return caused by transaction activity; example: Chevron (24% portfolio, 30% benchmark, 10% return in both) — allocation (24% - 30%) × (10% - 7.05%) = -0.18%; ExxonMobil transaction (41% × (5% - 6%) = -0.41% transaction cost/timing effect).\n\nCorrect. Per the reading Exhibit 15: 'shows the security-level return attribution effects for a small portfolio of oil stocks against a customized benchmark consisting of the same oil stocks. This approach would be used by a pure stock picker, the only decisions in the portfolio being individual stock weighting and timing decisions.' Allocation calcs: 'Chevron (24% − 30%) × (10% − 7.05%) = −0.18%; ExxonMobil (41% − 35%) × (6.0% − 7.05%) = −0.06%.' Transaction: 'ExxonMobil 41% × (5.0% − 6.0%) = −0.41%. Allocation in this context measures the value added from individual security selection. Transactions occur for only one security during the period — ExxonMobil. Therefore, the only selection effects (transaction costs and timing) occur for this security.'",
-      "C": "Security level."
+      "C": "This is ExxonMobil's allocation effect (weighting), not its transaction cost/timing selection effect of −0.41%."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.h",
@@ -1016,14 +1016,14 @@
      "number": 1,
      "stem": "Liability-based benchmarks most likely:",
      "options": {
-      "A": "no definition.",
-      "B": "no framework.",
+      "A": "focus on replicating the returns of a broad cap-weighted market index.",
+      "B": "focus on matching the median return of a peer group of similar funds.",
       "C": "focus on the cash flows that the asset must generate."
      },
      "correct": "C",
      "rationales": {
-      "A": "Cash flow focus.",
-      "B": "Cash flow driven.",
+      "A": "This describes an asset-based broad market benchmark; liability-based benchmarks focus on the cash flows the assets must generate to meet obligations.",
+      "B": "This describes a manager-universe (peer group) benchmark, not a liability-based benchmark keyed to required cash flows.",
       "C": "Full statement: focus on the cash flows that the asset must generate; most often used when assets are required to pay a specific future liability (e.g., in a defined benefit pension plan); allow asset owner to track fund's progress toward fully funded status (assets ≥ liabilities) or track performance of assets relative to changes in liabilities; performance relative to liabilities important because it would be possible for portfolio to outperform a market index but still not meet liabilities.\n\nCorrect. Per the reading: 'Another category of benchmarks is liability-based benchmarks, which focus on the cash flows that the asset must generate. Liability-based benchmarks are most often used when the assets are required to pay a specific future liability (e.g., as in a defined benefit pension plan). They allow the asset owner to track the fund's progress toward fully funded status (assets greater than or equal to liabilities) or, if fully funded, to track the performance of assets relative to the changes in liabilities. The performance relative to liabilities is important because it would be possible for the portfolio to outperform a market index but still not meet its liabilities.'"
      },
      "type": "mc",
@@ -1064,15 +1064,15 @@
      "number": 3,
      "stem": "Pension plan features influencing liability structure most likely include:",
      "options": {
-      "A": "no factors.",
+      "A": "the market capitalization of the securities held in the plan's assets.",
       "B": "average number of years to retirement in workforce.",
-      "C": "no framework."
+      "C": "the tracking error of the plan's fixed-income portfolio versus its index."
      },
      "correct": "B",
      "rationales": {
-      "A": "Multiple features.",
+      "A": "Asset-side characteristics do not shape the liability structure; liability drivers include workforce demographics, indexation, and retirement provisions.",
       "B": "Full statement: average number of years to retirement in workforce; percentage of workforce that is retired; average participant life expectancy; whether benefits are indexed to inflation; whether plan offers early retirement option; whether sponsor could increase plan contributions; correlation between plan assets and sponsoring company's operating assets (lower correlation desired); whether plan is going concern.\n\nCorrect. Per the reading: 'the following plan features will influence the structure of the liability: the average number of years to retirement in the workforce, the percentage of the workforce that is retired, the average participant life expectancy, whether the benefits are indexed to inflation, whether the plan offers an early retirement option, whether the sponsor could increase its plan contributions (e.g., whether the sponsor is profitable and diversified), the correlation between plan assets and the sponsoring company's operating assets (a lower correlation is desired so that the sponsor can make contributions when the plan requires funds), and whether the plan is a going concern (e.g., plans will eventually terminate if the sponsor has exited its business).'",
-      "C": "Multiple factors."
+      "C": "Tracking error is an asset-performance metric, not a feature that influences the structure of the plan's liabilities."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.i",
@@ -1088,14 +1088,14 @@
      "number": 4,
      "stem": "Composition of liability-driven portfolios most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no components.",
+      "A": "cash, commodities, and distressed securities are the assets most commonly found in liability-driven portfolios.",
+      "B": "short-maturity corporate bonds alone comprise most liability-driven portfolios.",
       "C": "nominal bonds, real return bonds, and common shares are assets most commonly found in liability-driven portfolios."
      },
      "correct": "C",
      "rationales": {
-      "A": "Multiple assets.",
-      "B": "Multiple assets.",
+      "A": "These are not the typical LDI holdings; liability-driven portfolios most commonly hold nominal bonds, real return bonds, and common shares.",
+      "B": "Short-duration corporates mismatch long pension liabilities; LDI portfolios blend nominal bonds, real return bonds, and equities to match obligations.",
       "C": "Full statement: nominal bonds, real return bonds, and common shares are assets most commonly found in liability-driven portfolios; allocation to each asset class is driven by proportion of accrued versus future obligations, whether benefits are inflation indexed, and whether plan is growing; younger workforce means more allocated to equities; greater inflation indexing of benefits implies more inflation-indexed bonds.\n\nCorrect. Per the reading: 'These characteristics influence the composition of the pension plan portfolio and hence its liability-based benchmark. Nominal bonds, real return bonds, and common shares are the assets most commonly found in liability-driven portfolios. The allocation to each asset class is driven by the proportion of accrued versus future obligations, whether the benefits are inflation indexed, and whether the plan is growing. A younger workforce means that more is allocated to equities. Greater inflation indexing of the benefits would imply more inflation-indexed bonds. If the fund's managers outperform the benchmark constructed according to these principles, the pension obligations should be met.'"
      },
      "type": "mc",
@@ -1146,15 +1146,15 @@
      "number": 2,
      "stem": "Absolute return benchmark most likely:",
      "options": {
-      "A": "no definition.",
+      "A": "return of a broad market index representing the manager's asset class.",
       "B": "minimum target return manager is expected to beat.",
-      "C": "no framework."
+      "C": "median return of a universe of comparable manager portfolios."
      },
      "correct": "B",
      "rationales": {
-      "A": "Minimum target.",
+      "A": "This describes a broad market index benchmark; an absolute return benchmark is a stated minimum target the manager must beat.",
       "B": "Full statement: minimum target return manager is expected to beat; return may be stated minimum (e.g., 9%), stated as spread above market index (e.g., Euro Interbank Offered Rate + 4%), or determined from actuarial assumptions; example: 20% per annum return for private equity investment; market-neutral long-short equity funds often have absolute return benchmarks — such funds consist of long and short positions in perceived undervalued and overvalued equities; expected to be insensitive to broad equity market movements (market neutral with beta of zero); market-neutral benchmarks may be specified as three-month Treasury bill return.\n\nCorrect. Per the reading: 'An absolute return benchmark is a minimum target return that the manager is expected to beat. The return may be a stated minimum (e.g., 9%), stated as a spread above a market index (e.g., the Euro Interbank Offered Rate + 4%), or determined from actuarial assumptions. An example of an absolute return benchmark is 20% per annum return for a private equity investment. Market-neutral long–short equity funds often have absolute return benchmarks. Such funds consist of long and short positions in perceived undervalued and overvalued equities. Overall, the portfolio is expected to be insensitive to broad equity market movements (i.e., market neutral with a market beta of zero). Therefore, market-neutral fund benchmarks may be specified as a three-month Treasury bill return; the investment objective is often to outperform the benchmark consistently by a given number of basis points.'",
-      "C": "Absolute target."
+      "C": "This describes a manager-universe (peer group) benchmark, not an absolute (target) return benchmark."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.j",
@@ -1195,14 +1195,14 @@
      "stem": "Factor-model-based benchmarks most likely:",
      "options": {
       "A": "can be constructed to more closely capture the investment decision-making process.",
-      "B": "no framework.",
-      "C": "no benchmark."
+      "B": "consist of the actual securities the manager held at the start of the period.",
+      "C": "represent a minimum target return stated as a spread above a market index."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: can be constructed to more closely capture the investment decision-making process; building a factor model identifies relative explanatory powers of each factor in portfolio return; examples of factors include Fama-French/Carhart factors; suitable when manager's approach attempts to create alpha by timing exposure to factors (systematic risks).\n\nCorrect. Per the reading: 'Factor-model-based benchmarks can be constructed to more closely capture the investment decision-making process. Building a factor model identifies the relative explanatory powers of each factor in the portfolio return. Examples of factors include...' Per Example 10 solution: 'Factors represent systematic risks. The manager's approach attempts to create alpha by timing the portfolio's exposure to factors. A factor-model-based benchmark can be constructed to represent the manager's investment approach.'",
-      "B": "Factor model.",
-      "C": "Real benchmark."
+      "B": "This describes a custom security-based (strategy) benchmark; factor-model benchmarks are built from systematic risk factors, not the manager's holdings.",
+      "C": "This describes an absolute return benchmark; factor-model benchmarks capture the process through factor exposures, not a target spread."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.j",
@@ -1218,15 +1218,15 @@
      "number": 5,
      "stem": "Custom security-based (strategy) benchmarks most likely:",
      "options": {
-      "A": "no framework.",
+      "A": "built from a broad market index adjusted only for the risk-free rate.",
       "B": "built to more precisely reflect investment discipline of an investment manager.",
-      "C": "no framework."
+      "C": "built to represent the median holdings of a peer group of managers."
      },
      "correct": "B",
      "rationales": {
-      "A": "Custom benchmark.",
+      "A": "This is not a custom benchmark; custom security-based benchmarks are constructed from securities and weights reflecting the manager's specific discipline.",
       "B": "Full statement: built to more precisely reflect investment discipline of an investment manager; developed through discussions with manager and analysis of past portfolio exposures; benchmark is constructed by selecting securities and weightings consistent with process and client restrictions; if allocation to cash is key component of process, appropriate cash weight incorporated into benchmark; rebalanced on periodic basis to ensure consistent with manager's investment practice; also referred to as strategy benchmarks because they should reflect manager's strategy; particularly appropriate when manager's strategy cannot be closely matched to broad market index or style index; costly to calculate and maintain.\n\nCorrect. Per the reading: 'Lastly, custom security-based benchmarks are built to more precisely reflect the investment discipline of an investment manager. Such benchmarks are developed through discussions with the manager and an analysis of past portfolio exposures. After identifying the manager's investment process, the benchmark is constructed by selecting securities and weightings consistent with that process and client restrictions. If an allocation to cash is a key component of the investment process, an appropriate cash weight will be incorporated into the benchmark. The benchmark is rebalanced on a periodic basis to ensure that it stays consistent with the manager's investment practice. Custom security-based benchmarks are also referred to as strategy benchmarks because they should reflect the manager's strategy. Custom security-based benchmarks are particularly appropriate when the manager's strategy cannot be closely matched to a broad market index or style index. These benchmarks are costly to calculate and maintain.'",
-      "C": "Real definition."
+      "C": "This describes a manager-universe benchmark; custom (strategy) benchmarks reflect a single manager's process, not peer-group holdings."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.j",
@@ -1382,15 +1382,15 @@
      "number": 1,
      "stem": "Benchmark misspecification consequences most likely:",
      "options": {
-      "A": "no impact.",
+      "A": "when benchmarks are misspecified, only the appraisal analysis is affected while attribution remains valid.",
       "B": "when benchmarks are misspecified, subsequent performance measurement will be incorrect.",
-      "C": "no problem."
+      "C": "when benchmarks are misspecified, performance measurement remains accurate as long as returns are correctly calculated."
      },
      "correct": "B",
      "rationales": {
-      "A": "Cascading errors.",
+      "A": "Both attribution and appraisal become useless under misspecification; the error is not confined to appraisal.",
       "B": "Full statement: when benchmarks are misspecified, subsequent performance measurement will be incorrect; both attribution and appraisal analyses will be useless; fundamentally, any further performance attribution against investor's benchmark will also be useless; by using incorrect benchmark, attribution would attempt to explain underperformance rather than true active return.\n\nCorrect. Per the reading: 'As we have described, performance evaluation and attribution require appropriate benchmarks. When benchmarks are misspecified, subsequent performance measurement will be incorrect; both the attribution and the appraisal analyses will be useless.' And: 'Fundamentally, any further performance attribution against the investor's benchmark will also be useless. By using the incorrect benchmark, the attribution would attempt to explain an underperformance, rather than the true active return, which contributed positively to the investor's return.'",
-      "C": "Cascading."
+      "C": "Measurement is benchmark-relative, so a misspecified benchmark makes the measured excess return incorrect even with accurate portfolio returns."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.l",
@@ -1585,14 +1585,14 @@
      "stem": "Distressed securities benchmarking most likely:",
      "options": {
       "A": "illiquid and almost non-marketable at time of purchase making it very difficult to find suitable benchmarks.",
-      "B": "no issue.",
-      "C": "no framework."
+      "B": "highly liquid with continuously observable market prices, making benchmark construction straightforward.",
+      "C": "best benchmarked against a broad investment-grade bond index because credit risk is comparable."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: illiquid and almost non-marketable at time of purchase making it very difficult to find suitable benchmarks; if companies' prospects improve, values may go up gradually and liquidity may improve; typically takes relatively long time for strategy to play out — valuing holdings may be challenge; difficult to estimate true market values, stale pricing almost inevitable; possible to use Barclay Distressed Securities Index but constructed from multiple strategies making it difficult to discern whether index is suitable for given investment approach; valuations calculated at random intervals so doesn't correct for valuation issues.\n\nCorrect. Per the reading: 'Distressed securities are illiquid and almost non-marketable at the time of purchase, making it very difficult to find suitable benchmarks. If the companies' prospects improve, the values of the distressed securities may go up gradually and liquidity may improve. Typically, it takes a relatively long time for this strategy to play out; thus, valuing the holdings may be a challenge. It is difficult to estimate the true market values of distressed securities, and stale pricing is almost inevitable. One possible strategy is to use market indexes, such as the Barclay Distressed Securities Index. This index is constructed from fund managers who invest in distressed securities. Because this index is constructed from multiple strategies, however, it is difficult to discern whether the index is suitable for a given investment approach. In addition, because the valuations for the member funds are calculated at random intervals, it doesn't necessarily correct for the valuation issues noted previously.'",
-      "B": "Real problems.",
-      "C": "Multiple challenges."
+      "B": "The opposite is true; distressed securities are illiquid with stale, hard-to-estimate prices, which is precisely why benchmarking is difficult.",
+      "C": "Distressed securities bear far greater credit and liquidity risk than investment-grade bonds, so an IG index is an unsuitable benchmark."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.m",
@@ -1618,15 +1618,15 @@
      "number": 1,
      "stem": "Sortino ratio most likely:",
      "options": {
-      "A": "no formula.",
+      "A": "modification of Sharpe ratio that penalizes both upside and downside volatility equally.",
       "B": "modification of Sharpe ratio that penalizes only those returns lower than user-specified return (MAR).",
-      "C": "no formula."
+      "C": "measure of excess return per unit of systematic risk, using beta in the denominator."
      },
      "correct": "B",
      "rationales": {
-      "A": "Downside-only Sharpe.",
+      "A": "This describes the Sharpe ratio itself; the Sortino ratio penalizes only returns below the minimum acceptable return using downside deviation.",
       "B": "Full statement: modification of Sharpe ratio that penalizes only those returns lower than user-specified return (MAR); ex ante Sortino = [E(r_p) - r_T] / σ_D; instead of standard deviation, uses target semi-standard deviation σ_D = sqrt(Σ min(r_t - r_T, 0)² / N); MAR (minimum acceptable return) sometimes referred to as target rate of return; Sortino penalizes managers only for 'harmful' volatility — measure of return per unit of downside risk.\n\nCorrect. Per Equations 22-24: 'The Sortino ratio is a modification of the Sharpe ratio that penalizes only those returns that are lower than a user-specified return. The Sharpe ratio penalizes both upside and downside volatility equally. Equation 22 presents the ex ante Sortino ratio, where r_T is the minimum acceptable return (MAR), which is sometimes referred to as a target rate of return. Instead of using standard deviation in the denominator, the Sortino ratio uses a measure of downside risk known as target semi-standard deviation or target semideviation, σ_D... By using this value, the Sortino ratio penalizes managers only for \"harmful\" volatility and is a measure of return per unit of downside risk. SR_D = [E(r_p) - r_T] / σ_D; σ_D = [Σ min(r_t - r_T, 0)² / N]^(1/2).'",
-      "C": "Target-based."
+      "C": "This describes the Treynor ratio; the Sortino ratio uses target semideviation, not beta, in the denominator."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.n",
@@ -1667,14 +1667,14 @@
      "stem": "Appraisal ratio most likely:",
      "options": {
       "A": "-0.0922.",
-      "B": "no definition.",
-      "C": "no calc."
+      "B": "-0.0500.",
+      "C": "-0.0071."
      },
      "correct": "A",
      "rationales": {
       "A": "AR = α / σ_ε; annualized alpha divided by annualized residual risk (standard deviation of ε); both alpha and residual risk computed from factor regression; measures reward of active management relative to risk of active management; also referred to as Treynor-Black ratio; first introduced by Treynor and Black (1973); example: Portfolio Y returned 9%, market 8%, beta 1.40, risk-free 3%, SD portfolio 20%, SD market 12% — Jensen's alpha = 9% - [3% + 1.40(8% - 3%)] = -1%; non-systematic risk σε² = 0.20² - 1.40² × 0.12² = 0.011776 → σε = 10.85%; AR = -0.01/0.1085 ≈ -0.0922.\n\nCorrect. Per Equation 21: 'AR = α / σ_ε where σ_ε equals the standard deviation of ε_t, commonly denoted as the \"standard error of regression,\" which is readily available from the output of commonly used statistical software.' Also: 'The appraisal ratio (AR) is a returns-based measure... It is the annualized alpha divided by the annualized residual risk. In the appraisal ratio, both the alpha and the residual risk are computed from a factor regression... the measure was first introduced by Treynor and Black (1973) using Jensen's alpha and the standard deviation of the portfolio's residual or non-systematic risk.' Example 12 Solution: 'Jensen's alpha is −1.0%: αp = 9.0% − [3.0% + 1.40(8.0% − 3.0%)] = −1.0% = −0.01. Non-systematic risk is 0.011776: σε² = 0.20² - 1.40² × 0.12² ; σε = 0.1085. AR = -0.01/0.1085 = -0.0922.'",
-      "B": "Explicit measure.",
-      "C": "Alpha/residual."
+      "B": "Divides Jensen's alpha (−1.0%) by the total standard deviation (20%) instead of residual risk; the appraisal ratio uses non-systematic risk (10.85%).",
+      "C": "Divides alpha by beta (1.40), a Treynor-style adjustment; the appraisal ratio divides alpha by residual standard deviation, giving −0.0922."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.n",
@@ -1690,15 +1690,15 @@
      "number": 4,
      "stem": "Upside capture and downside capture most likely:",
      "options": {
-      "A": "no formula.",
+      "A": "UC(m,B,t) = R(B,t)/R(m,t) if R(B,t) ≥ 0.",
       "B": "UC(m,B,t) = R(m,t)/R(B,t) if R(B,t) ≥ 0.",
-      "C": "no formula."
+      "C": "UC(m,B,t) = R(m,t) − R(B,t) if R(B,t) ≥ 0."
      },
      "correct": "B",
      "rationales": {
-      "A": "Capture formulas.",
+      "A": "Inverts the ratio; upside capture is the manager return divided by the benchmark return, not the reverse.",
       "B": "Full statement: UC(m,B,t) = R(m,t)/R(B,t) if R(B,t) ≥ 0; DC(m,B,t) = R(m,t)/R(B,t) if R(B,t) < 0; upside capture greater (less) than 100% generally suggests outperformance (underperformance); downside capture less (greater) than 100% generally suggests outperformance (underperformance); when manager and benchmark returns are opposite sign, ratio negative (manager 1% return when market down 1% → downside capture -100%).\n\nCorrect. Per the reading: 'The upside capture ratio, or upside capture (UC), measures capture when the benchmark return is positive. The downside capture ratio, or downside capture (DC), measures capture when the benchmark return is negative. Upside capture greater (less) than 100% generally suggests outperformance (underperformance) relative to the benchmark, and downside capture less (greater) than 100% generally suggests outperformance (underperformance) relative to the benchmark. Practitioners should note that when the manager and benchmark returns are of the opposite sign, the ratio will be negative — for example, a manager with a 1% return when the market is down 1% will have a downside capture ratio of −100%. The expressions for upside capture and downside capture are UC(m,B,t) = R(m,t)/R(B,t) if R(B,t) ≥ 0; DC(m,B,t) = R(m,t)/R(B,t) if R(B,t) < 0.'",
-      "C": "Explicit formulas."
+      "C": "Uses a return difference; capture ratios are defined as the ratio of manager to benchmark return, not their difference."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.n",
@@ -1714,14 +1714,14 @@
      "number": 5,
      "stem": "Capture ratio (CR) and convex vs concave most likely:",
      "options": {
-      "A": "no interpretation.",
-      "B": "no framework.",
+      "A": "CR = DC/UC; a ratio greater than 1 indicates a convex, positively asymmetric return profile.",
+      "B": "CR = UC − DC; measures the average of upside and downside participation.",
       "C": "CR = UC/DC; measures asymmetry of return (like bond convexity and option gamma)."
      },
      "correct": "C",
      "rationales": {
-      "A": "Convex/concave.",
-      "B": "CR = UC/DC.",
+      "A": "Inverts the formula; the capture ratio is upside capture divided by downside capture, so this ratio's interpretation is reversed.",
+      "B": "Uses a difference rather than a ratio; the capture ratio is UC/DC and measures return asymmetry, not an average of participation.",
       "C": "Full statement: CR = UC/DC; measures asymmetry of return (like bond convexity and option gamma); capture ratio > 1 indicates positive asymmetry or convex return profile; capture ratio < 1 indicates negative asymmetry or concave return profile; concave return profile resembles downward-facing bowl; convex return profile resembles upward-facing bowl; as benchmark returns increase, portfolio returns increase at decreasing rate for concave and increasing rate for convex.\n\nCorrect. Per the reading: 'The upside/downside capture, or simply the capture ratio (CR), is the upside capture divided by the downside capture. It measures the asymmetry of return and, as such, is like bond convexity and option gamma. A capture ratio greater than 1 indicates positive asymmetry, or a convex return profile, whereas a capture ratio less than 1 indicates negative asymmetry, or a concave return profile... The dotted-line curve for a concave return profile resembles a downward-facing bowl, and the solid-line curve for a convex return profile resembles an upward-facing bowl. The horizontal and vertical axes are, respectively, benchmark returns [R(B)] and portfolio returns [R(m)]. As benchmark returns increase (i.e., moving to the right on the horizontal axis), portfolio returns increase — but at a decreasing rate for a concave return profile and at an increasing rate for a convex return profile.'"
      },
      "type": "mc",
@@ -1739,14 +1739,14 @@
      "stem": "Drawdown and drawdown duration most likely:",
      "options": {
       "A": "drawdown measured as cumulative peak-to-trough loss during a continuous period.",
-      "B": "no framework.",
-      "C": "no data."
+      "B": "drawdown measured as the standard deviation of returns falling below the mean.",
+      "C": "drawdown duration measured as the time from a portfolio's inception to its highest value."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: drawdown measured as cumulative peak-to-trough loss during a continuous period; Maximum DD(m,t) = min([V(m,t) - V(m,t*)] / V(m,t*), 0) where V(m,t*) is peak portfolio value; drawdown duration is total time from start of drawdown until cumulative drawdown recovers to zero; segmented into drawdown phase (start to trough) and recovery phase (trough-to-zero cumulative return); S&P 500 COVID example: drawdown 0% until January 2020 (-0.04%), worsening to maximum -19.6% in March 2020, positive returns Apr-Jul 2020 reverse drawdown, total duration 7 months with 4-month recovery.\n\nCorrect. Per the reading: 'Drawdown is measured as the cumulative peak-to-trough loss during a continuous period. Drawdown duration is the total time from the start of the drawdown until the cumulative drawdown recovers to zero, which can be segmented into the drawdown phase (start to trough) and the recovery phase (trough-to-zero cumulative return). Maximum DD(m,t) = min([V(m,t) − V(m,t*)]/V(m,t*), 0) where V(m,t) = portfolio value of manager m at time t; V(m,t*) = peak portfolio value of manager m; t > t*.' Example: 'Consider the return on the S&P 500 Index at the start of the global COVID-19 outbreak (from November 2019 to February 2020... The drawdown is 0% until January 2020, when the return is −0.04% and the drawdown continues to worsen, reaching a maximum of −19.6% in March 2020. The strong positive returns from April to July 2020 reverse the drawdown. The total duration of the drawdown was 7 months, with a 4-month recovery period.'",
-      "B": "Complete framework.",
-      "C": "Real data."
+      "B": "This describes downside deviation; drawdown is the cumulative peak-to-trough loss over a continuous period.",
+      "C": "Drawdown duration runs from the start of the drawdown until the cumulative loss recovers to zero, not from inception to peak."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.n",
@@ -1796,14 +1796,14 @@
      "number": 2,
      "stem": "Treynor ratio usefulness limitations most likely:",
      "options": {
-      "A": "no limitation.",
-      "B": "no framework.",
+      "A": "depends on whether upside and downside volatility should be weighted equally.",
+      "B": "depends on whether the minimum acceptable return is set appropriately for the investor.",
       "C": "depends on whether systematic risk or total risk is most appropriate in evaluating performance."
      },
      "correct": "C",
      "rationales": {
-      "A": "Systematic-only.",
-      "B": "Beta dependence.",
+      "A": "This is the Sharpe-versus-Sortino distinction about standard deviation; the Treynor ratio's limitation concerns systematic versus total risk.",
+      "B": "The MAR is a Sortino-ratio consideration; the Treynor ratio's usefulness hinges on the relevance of systematic (beta) risk and benchmark choice.",
       "C": "Full statement: depends on whether systematic risk or total risk is most appropriate in evaluating performance; because of reliance on beta, Treynor ratio shows how fund performed in relation not to its own volatility but to volatility it would bring to well-diversified portfolio; ranking based on Treynor ratio most useful if portfolios whose performance is being evaluated are being combined in broader fully diversified portfolio; ratio most informative when portfolios being evaluated are compared with same benchmark index; unlike Sharpe, requires explicit choice of market benchmark against which to measure systematic risk.\n\nCorrect. Per the reading: 'The usefulness of the Treynor ratio depends on whether systematic risk or total risk is most appropriate in evaluating performance. Because of its reliance on beta, the Treynor ratio shows how a fund has performed in relation not to its own volatility but to the volatility it would bring to a well-diversified portfolio. Thus, a ranking of portfolios based on the Treynor ratio is most useful if the portfolios whose performance is being evaluated are being combined in a broader, fully diversified portfolio. The ratio is most informative when the portfolios being evaluated are compared with the same benchmark index.' Also: 'we must carefully choose an efficient market benchmark against which to measure the systematic risk of the manager's fund. In contrast, the Sharpe ratio can be compared among different funds without the explicit choice of a market benchmark.'"
      },
      "type": "mc",
@@ -1903,14 +1903,14 @@
      "stem": "Active investment management skill most likely is defined as:",
      "options": {
       "A": "ability of portfolio manager to add value on risk-adjusted basis through investment analysis and insights.",
-      "B": "no definition.",
-      "C": "no framework."
+      "B": "ability of a portfolio manager to generate the highest absolute return regardless of risk taken.",
+      "C": "ability of a portfolio manager to track a benchmark index with minimal tracking error."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: ability of portfolio manager to add value on risk-adjusted basis through investment analysis and insights; in everyday language, typically viewed as ability to 'beat the market' or assigned benchmark with some consistency; skill in any profession can be thought of as ability to influence outcomes in desired directions.\n\nCorrect. Per the reading: 'Skill in any profession can be thought of as the ability to influence outcomes in desired directions. We define active investment management skill as the ability of a portfolio manager to add value on a risk-adjusted basis through investment analysis and insights. In everyday language, active investment skill is typically viewed as the ability to \"beat the market\" or an assigned benchmark with some consistency. The evaluation of active management skill is the focus of performance appraisal.'",
-      "B": "Risk-adjusted value.",
-      "C": "Value-add."
+      "B": "Skill is defined on a risk-adjusted basis; ignoring risk mistakes raw return for value added.",
+      "C": "This describes passive management; active skill is adding risk-adjusted value through analysis and insight, i.e., beating the benchmark."
      },
      "type": "mc",
      "primary_los": "portfolio_performance_evaluation.p",

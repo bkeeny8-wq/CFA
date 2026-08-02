@@ -72,14 +72,14 @@
      "number": 3,
      "stem": "Approximation for volatility decomposition most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "when R_FC and R_FX are large, the cross-term dominates so R_DC ≈ R_FC × R_FX.",
+      "B": "σ²(R_DC) ≈ σ²(R_FC) + σ²(R_FX) because the correlation term nets to zero.",
       "C": "when R_FC and R_FX are small, cross-term R_FC × R_FX is small so R_DC ≈ R_FC + R_FX."
      },
      "correct": "C",
      "rationales": {
-      "A": "Additive approximation.",
-      "B": "Variance decomposition.",
+      "A": "Incorrect — the approximation drops the cross-term precisely when returns are SMALL; the product of the two returns is never the decomposition.",
+      "B": "Incorrect — this omits the 2σ(R_FC)σ(R_FX)ρ covariance term that Equation 5 explicitly retains.",
       "C": "Full statement: when R_FC and R_FX are small, cross-term R_FC × R_FX is small so R_DC ≈ R_FC + R_FX; then variance approximation σ²(R_DC) ≈ σ²(R_FC) + σ²(R_FX) + 2σ(R_FC)σ(R_FX)ρ(R_FC, R_FX); risk more typically defined in terms of standard deviation because mean and standard deviation measured in same units.\n\nCorrect. Per Equations 3-5: 'R_DC = (1 + R_FC)(1 + R_FX) − 1 = R_FC + R_FX + R_FC × R_FX. When R_FC and R_FX are small, then the cross-term (R_FC × R_FX) is small, and as a result this equation can be approximated as R_DC ≈ R_FC + R_FX... Applying this result to the domestic-currency return approximation... leads to: σ²(R_DC) ≈ σ²(R_FC) + σ²(R_FX) + 2σ(R_FC)σ(R_FX)ρ(R_FC,R_FX).'"
      },
      "type": "mc",
@@ -298,14 +298,14 @@
      "number": 4,
      "stem": "Diversification considerations and time horizon most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "over short horizons unhedged foreign-currency exposure does not affect expected portfolio returns.",
+      "B": "currency return correlations are stable, so hedging needs are independent of the time horizon.",
       "C": "time horizon of IPS important."
      },
      "correct": "C",
      "rationales": {
-      "A": "Long horizon = less hedging.",
-      "B": "PPP mean reversion.",
+      "A": "Incorrect — it is over the LONG run that currency effects are argued to wash out via mean reversion; short-run currency moves materially affect returns and volatility.",
+      "B": "Incorrect — the reading ties the hedging decision directly to horizon because of long-run mean reversion, making horizon a key determinant.",
       "C": "Full statement: time horizon of IPS important; many practitioners believe that in long run adding unhedged foreign-currency exposure does not affect expected long-run portfolio returns — hence in long run would not matter if portfolio was hedged (indeed portfolio management costs would be reduced without hedging); belief based on view that in long run currencies 'mean revert' to fair value equilibrium level or historical average — expected %ΔS = 0 for sufficiently long time period; view typically draws on expectation that purchasing power parity (PPP) and other international parity conditions will eventually hold; investor with very long investment horizon and few immediate liquidity needs might choose to forgo currency hedging.\n\nCorrect. Per the reading: 'The time horizon of the IPS is important. Many investment practitioners believe that in the long run, adding unhedged foreign-currency exposure to a portfolio does not affect expected long-run portfolio returns; hence in the long run, it would not matter if the portfolio was hedged. (Indeed, portfolio management costs would be reduced without a hedging process.) This belief is based on the view that in the long run, currencies \"mean revert\" to either some fair value equilibrium level or a historical average; that is, that the expected %ΔS = 0 for a sufficiently long time period. This view typically draws on the expectation that purchasing power parity (PPP) and the other international parity conditions that link movements in exchange rates, interest rates, and inflation rates will eventually hold over the long run.'"
      },
      "type": "mc",
@@ -346,15 +346,15 @@
      "number": 6,
      "stem": "Safe haven currencies most likely:",
      "options": {
-      "A": "no distinction.",
+      "A": "high-yield emerging market currencies act as safe havens and appreciate in times of market stress.",
       "B": "some currencies — USD, JPY, and CHF in particular — seem to act as safe haven and appreciate in times of market stress.",
-      "C": "no framework."
+      "C": "safe-haven currencies should be fully hedged (100% hedge ratio) to remove exposure during stress."
      },
      "correct": "B",
      "rationales": {
-      "A": "USD/JPY/CHF safe haven.",
+      "A": "Incorrect — high-yield EM currencies are risk/investment currencies that depreciate in stress; the safe havens are the USD, JPY, and CHF.",
       "B": "Full statement: some currencies — USD, JPY, and CHF in particular — seem to act as safe haven and appreciate in times of market stress; keeping some of these currency exposures in portfolio (hedge ratios not set at 100%) can help hedge losses on riskier assets, especially for foreign-currency equity portfolios (which are more risk exposed than bond portfolios); Campbell/Serfaty-de Medeiros/Viceira (2007) found USD tended to appreciate against foreign currencies when global bond prices fell — for non-US investors this would mean under-hedging exposure to USD (hedge ratio less than 100%); for US investors would mean over-hedging their foreign-currency exposures back into USD.\n\nCorrect. Per the reading: 'Note that some currencies — the USD, JPY, and CHF in particular — seem to act as a safe haven and appreciate in times of market stress. Keeping some of these currency exposures in the portfolio — having hedge ratios that are not set at 100% — can help hedge losses on riskier assets, especially for foreign currency equity portfolios (which are more risk exposed than bond portfolios).' Also: 'This finding would suggest that keeping some exposure to the US dollar in a global bond portfolio would be beneficial. For non-US investors, this would mean under-hedging the currency exposure to the USD (i.e., a hedge ratio less than 100%), whereas for US investors it would mean over-hedging their foreign-currency exposures back into the USD.'",
-      "C": "Safe havens."
+      "C": "Incorrect — the reading argues for retaining some safe-haven exposure (hedge ratios below 100%) to cushion losses on riskier assets."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.b",
@@ -370,14 +370,14 @@
      "number": 7,
      "stem": "Costs of currency hedging most likely:",
      "options": {
-      "A": "no costs.",
-      "B": "no framework.",
+      "A": "hedging costs come mainly in two forms: bid-offer spreads and custodial fees.",
+      "B": "currency hedging is essentially a free good once the forward is entered, with no ongoing cost.",
       "C": "hedging costs come mainly in two forms: trading costs and opportunity costs."
      },
      "correct": "C",
      "rationales": {
-      "A": "Trading + opportunity costs.",
-      "B": "Costs framework.",
+      "A": "Incorrect — the bid-offer spread is only one trading cost; the reading's two categories are trading costs and opportunity costs, not custodial fees.",
+      "B": "Incorrect — the reading stresses that hedges are NOT a free good and carry both trading and opportunity costs.",
       "C": "Full statement: hedging costs come mainly in two forms: trading costs and opportunity costs; most immediate costs of hedging involve trading expenses in several forms: trading involves dealing on bid-offer spread offered by banks — profit margin based on spreads, more the client trades and 'pays away the spread' more profit is generated by dealer; maintaining 100% hedge and rebalancing frequently with every minor move will be expensive; currency hedges not a 'free good'; optimal hedging decisions balance benefits of hedging against these costs.\n\nCorrect. Per the reading: 'The costs of currency hedging also guide the strategic positioning of the portfolio. Currency hedges are not a \"free good\" and they come with a variety of expenses that must be borne by the overall portfolio. Optimal hedging decisions will need to balance the benefits of hedging against these costs. Hedging costs come mainly in two forms: trading costs and opportunity costs. The most immediate costs of hedging involve trading expenses, and these come in several forms: Trading involves dealing on the bid–offer spread offered by banks. Their profit margin is based on these spreads, and the more the client trades and \"pays away the spread,\" the more profit is generated by the dealer.'"
      },
      "type": "mc",
@@ -428,15 +428,15 @@
      "number": 1,
      "stem": "Currency management strategies spectrum most likely range from:",
      "options": {
-      "A": "no range.",
+      "A": "discretionary hedging that grants the manager latitude around a benchmark.",
       "B": "passive, rules-based, complete hedging of currency exposures.",
-      "C": "no framework."
+      "C": "unconstrained active currency management that seeks currency risk for profit."
      },
      "correct": "B",
      "rationales": {
-      "A": "Four levels.",
+      "A": "Incorrect — discretionary hedging is the second point on the spectrum, not the passive full-hedge starting point the stem asks for.",
       "B": "Full statement: passive, rules-based, complete hedging of currency exposures; discretionary hedging which allows portfolio manager some latitude on managing currency exposures; active currency management which seeks out currency risk in order to manage it for profit; currency overlay programs that aggressively manage currency 'alpha'.\n\nCorrect. Per the reading: 'Currency management strategies can be located along a spectrum stretching from: passive, rules-based, complete hedging of currency exposures; discretionary hedging, which allows the portfolio manager some latitude on managing currency exposures; active currency management, which seeks out currency risk in order to manage it for profit; and to currency overlay programs that aggressively manage currency \"alpha.\"'",
-      "C": "Four levels."
+      "C": "Incorrect — active management sits toward the aggressive end of the spectrum, not the passive-hedging point from which the spectrum begins."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.c",
@@ -452,14 +452,14 @@
      "number": 2,
      "stem": "Passive complete hedging most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "passive hedging leaves currency exposures unhedged to minimize transaction costs.",
+      "B": "passive hedging continuously adjusts hedge ratios based on the manager's market view.",
       "C": "passive hedging is rules-based approach to hedging currency exposures completely."
      },
      "correct": "C",
      "rationales": {
-      "A": "Passive rule-based.",
-      "B": "Passive full hedge.",
+      "A": "Incorrect — that describes an unhedged posture; passive hedging fully hedges currency exposures via fixed rules.",
+      "B": "Incorrect — acting on a market view is discretionary/active management; passive hedging is rules-based with no discretion.",
       "C": "Full statement: passive hedging is rules-based approach to hedging currency exposures completely; portfolio matches its currency exposures to those of benchmark portfolio; hedging costs and opportunities for gain from active management are set aside in favor of avoiding currency risk; requires periodic rebalancing to maintain hedge as underlying values change.\n\nCorrect. Per the reading spectrum: 'passive, rules-based, complete hedging of currency exposures' represents one end of the spectrum. This approach relies on rules and complete hedging to eliminate currency risk relative to a benchmark."
      },
      "type": "mc",
@@ -477,14 +477,14 @@
      "stem": "Discretionary hedging most likely:",
      "options": {
       "A": "discretionary hedging allows portfolio manager some latitude on managing currency exposures around a benchmark.",
-      "B": "no framework.",
-      "C": "no framework."
+      "B": "discretionary hedging requires the manager to hedge 100% of currency exposure at all times.",
+      "C": "discretionary hedging treats currency as a standalone alpha source managed by a specialist overlay."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: discretionary hedging allows portfolio manager some latitude on managing currency exposures around a benchmark; permits manager to leave positions unhedged or partially hedged when doing so is expected to be advantageous based on market view; typical mandate might specify hedge ratio target with allowed range around it (e.g., 100% target with ±10% latitude); manager must operate within IPS constraints.\n\nCorrect. Per the reading: 'discretionary hedging, which allows the portfolio manager some latitude on managing currency exposures' is one point along the spectrum. This latitude is bounded by IPS-mandated parameters including 'target proportion of currency exposure to be passively hedged; latitude for active currency management around this target.'",
-      "B": "Latitude around benchmark.",
-      "C": "Discretionary bounds."
+      "B": "Incorrect — that is passive complete hedging; discretionary hedging permits deviation from a full hedge.",
+      "C": "Incorrect — that describes a currency overlay program; discretionary hedging only allows limited latitude around a benchmark."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.c",
@@ -500,15 +500,15 @@
      "number": 4,
      "stem": "Active currency management most likely:",
      "options": {
-      "A": "no framework.",
+      "A": "matches portfolio currency exposures to the benchmark to eliminate active currency risk.",
       "B": "seeks out currency risk in order to manage it for profit.",
-      "C": "no framework."
+      "C": "hedges currency exposure completely whenever the manager lacks a market view."
      },
      "correct": "B",
      "rationales": {
-      "A": "Seek risk for profit.",
+      "A": "Incorrect — that is passive hedging; active management deliberately takes currency risk relative to the benchmark.",
       "B": "Full statement: seeks out currency risk in order to manage it for profit; requires manager to have market view and derives returns from taking positions consistent with that view; can be based on economic fundamentals, technical analysis, carry trade, or volatility trading; still operates within IPS-mandated risk parameters but has substantial latitude to construct positions distinct from benchmark; goal is to generate positive active return through currency management.\n\nCorrect. Per the reading spectrum: 'active currency management, which seeks out currency risk in order to manage it for profit.' Active currency management requires a market view and can be based on various methodologies (fundamentals, technical analysis, carry trade, volatility trading) as detailed in later LOSes.",
-      "C": "Active for profit."
+      "C": "Incorrect — active management requires and acts on a market view rather than defaulting to a full hedge."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.c",
@@ -524,14 +524,14 @@
      "number": 5,
      "stem": "Currency overlay programs most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "passive replication of the benchmark's currency weights.",
+      "B": "limited latitude to adjust hedge ratios around a fixed benchmark target.",
       "C": "aggressive management of currency alpha."
      },
      "correct": "C",
      "rationales": {
-      "A": "Aggressive alpha.",
-      "B": "Currency alpha.",
+      "A": "Incorrect — that is passive hedging; overlay programs actively and aggressively pursue currency alpha.",
+      "B": "Incorrect — that describes discretionary hedging; overlay programs grant wide discretion to seek alpha.",
       "C": "Full statement: aggressive management of currency alpha; entrusts currency exposures to specialized currency manager who is granted wide discretion; goal is to generate currency alpha separately from underlying asset portfolio; overlay manager may take positions outside portfolio's initial currency exposures; distinct from mainstream portfolio management and requires specific expertise.\n\nCorrect. Per the reading spectrum: 'currency overlay programs that aggressively manage currency \"alpha.\"' These overlay programs represent the most aggressive end of the spectrum for currency management, treating currency as a distinct source of alpha to be pursued actively."
      },
      "type": "mc",
@@ -549,14 +549,14 @@
      "stem": "IPS variables affecting currency management program design most likely:",
      "options": {
       "A": "portfolio's currency management program depends on: general objectives of portfolio.",
-      "B": "not relevant.",
-      "C": "no framework."
+      "B": "portfolio's currency management program depends on: the prevailing level of forward points.",
+      "C": "portfolio's currency management program depends on: the base currency's recent historical returns."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: portfolio's currency management program depends on: general objectives of portfolio; risk tolerance and capacity for bearing risk; time horizon (longer horizons may support less hedging due to mean reversion); ongoing income/liquidity needs (higher liquidity needs may support more hedging to avoid forced liquidation at bad rates); benchmark against which portfolio measures returns.\n\nCorrect. Per the reading: 'The starting point for organizing the investment plan for any portfolio is the IPS, which is a statement that outlines the broad objectives and constraints of the beneficial owners of the assets. Most IPS specify many of the following points: the general objectives of the investment portfolio; the risk tolerance of the portfolio and its capacity for bearing risk; the time horizon over which the portfolio is to be invested; the ongoing income/liquidity needs (if any) of the portfolio; and the benchmark against which the portfolio will measure overall investment returns.'",
-      "B": "IPS drives program.",
-      "C": "IPS drivers."
+      "B": "Incorrect — forward points affect the tactical cost of a hedge, but the program itself is set by IPS factors such as objectives, risk tolerance, horizon, liquidity needs, and benchmark.",
+      "C": "Incorrect — past currency returns do not define the program; the investor's IPS objectives and constraints do."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.c",
@@ -596,14 +596,14 @@
      "number": 8,
      "stem": "Judgment differences among managers most likely:",
      "options": {
-      "A": "single answer.",
-      "B": "no framework.",
+      "A": "there is one optimal hedge ratio that all managers should adopt given the same data.",
+      "B": "residual currency risk in a hedge must always be reduced to zero to be acceptable.",
       "C": "there is no single 'correct' approach to initiating and managing currency exposures."
      },
      "correct": "C",
      "rationales": {
-      "A": "No single right answer.",
-      "B": "Judgment-based.",
+      "A": "Incorrect — the reading stresses that different managers reasonably reach different decisions from the same opportunity set.",
+      "B": "Incorrect — the reading only requires the manager be comfortable that residual risks are acceptable, not that they be eliminated.",
       "C": "Full statement: there is no single 'correct' approach to initiating and managing currency exposures; different managers likely make different decisions when confronted with same opportunity set; each manager will likely have good reason for their individual decision; most important point is that portfolio manager be aware of all benefits, costs, and risks of chosen strategy and be comfortable that any remaining residual currency risks in hedge are acceptable.\n\nCorrect. Per the reading: 'Reflecting all of these considerations, different managers will likely make different decisions when confronted with the same opportunity set; and each manager will likely have a good reason for their individual decision. The most important point is that the portfolio manager be aware of all the benefits, costs, and risks of the chosen strategy and be comfortable that any remaining residual currency risks in the hedge are acceptable.'"
      },
      "type": "mc",
@@ -703,14 +703,14 @@
      "stem": "Support and resistance levels most likely:",
      "options": {
       "A": "price points on dealers' order boards where one would expect to see clustering of bids and offers respectively.",
-      "B": "no framework.",
-      "C": "no framework."
+      "B": "fair-value exchange rate levels implied by purchasing power parity models.",
+      "C": "price levels at which central banks are obligated to intervene in the market."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: price points on dealers' order boards where one would expect to see clustering of bids and offers respectively; at these exchange rate levels, price action expected to get 'sticky' because will take more order flow to pierce wall of either bids or offers; but once these price points are breached, price action can be expected to accelerate as stops are triggered (stops = stop-loss orders); often use technical indicators — 200-day moving average often seen as important support/resistance; when 50-day moving average crosses 200-day moving average sometimes seen as price 'break out' point.\n\nCorrect. Per the reading: 'Technical analysis also tries to identify what are called support levels and resistance levels, either within ongoing price trends or at their extremities (i.e., turning points). These support and resistance levels are price points on dealers' order boards where one would except to see clustering of bids and offers, respectively. At these exchange rate levels, the price action is expected to get \"sticky\" because it will take more order flow to pierce the wall of either bids or offers. But once these price points are breached, the price action can be expected to accelerate as stops are triggered... The 200-day moving average of daily exchange rates is often seen as an important indicator of likely support and resistance. Sometimes two moving averages are used to establish when a price trend is building momentum. For example, when the 50-day moving average crosses the 200-day moving average, this is sometimes seen as a price \"break out\" point.'",
-      "B": "Support/resistance.",
-      "C": "Chart levels."
+      "B": "Incorrect — that is a fundamentals concept; support and resistance are technical levels arising from order-flow clustering.",
+      "C": "Incorrect — support and resistance reflect clustering of bids and offers on dealer order boards, not mandated intervention points."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.d",
@@ -726,15 +726,15 @@
      "number": 5,
      "stem": "Carry trade strategy most likely:",
      "options": {
-      "A": "no definition.",
+      "A": "trading strategy of borrowing in high-yield currencies and investing in low-yield currencies.",
       "B": "trading strategy of borrowing in low-yield currencies and investing in high-yield currencies.",
-      "C": "no framework."
+      "C": "trading strategy of repeatedly buying and selling one currency to capture bid-offer spreads."
      },
      "correct": "B",
      "rationales": {
-      "A": "Borrow low, invest high.",
+      "A": "Incorrect — this reverses the carry trade into a negative-carry position that on average loses money.",
       "B": "Full statement: trading strategy of borrowing in low-yield currencies and investing in high-yield currencies; term 'carry' related to cost of carry — that is, carrying or holding an investment; investment has either implicit or explicit cost (borrowing cost) but may also produce income; net cost of carry is difference between these two return rates; based on exploiting well-recognized violation of one of international parity conditions: uncovered interest rate parity.\n\nCorrect. Per the reading: 'The carry trade is a trading strategy of borrowing in low-yield currencies and investing in high-yield currencies. The term \"carry\" is related to what is known as the cost of carry — that is, of carrying or holding an investment. This investment has either an implicit or explicit cost (borrowing cost) but may also produce income. The net cost of carry is the difference between these two return rates. If technical analysis is based on ignoring economic fundamentals, then the carry trade is based on exploiting a well-recognized violation of one of the international parity conditions often used to describe these economic fundamentals: uncovered interest rate parity.'",
-      "C": "Carry trade."
+      "C": "Incorrect — that is market-making/arbitrage; the carry trade exploits interest-rate differentials (a violation of uncovered interest rate parity)."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.d",
@@ -798,15 +798,15 @@
      "number": 8,
      "stem": "Carry trade negative skew most likely:",
      "options": {
-      "A": "no skew.",
+      "A": "steady small losses mean the carry trade return distribution has pronounced POSITIVE skew.",
       "B": "occasional large losses mean return distribution for carry trade has pronounced NEGATIVE skew.",
-      "C": "no framework."
+      "C": "frequent extreme gains give the carry trade return distribution fat tails but zero skew."
      },
      "correct": "B",
      "rationales": {
-      "A": "Negative skew.",
+      "A": "Incorrect — the carry trade earns steady small gains punctuated by occasional large losses, producing NEGATIVE skew.",
       "B": "Full statement: occasional large losses mean return distribution for carry trade has pronounced NEGATIVE skew; negative skew derives from fact that funding currencies (low-yield currencies where borrowing occurs) are typically safe haven currencies such as EUR, CHF, and JPY; investment currencies (high-yielding currencies) are typically currencies perceived to be higher risk, such as several emerging market currencies; any time global financial markets under stress there is flight to safety causing rapid movements in exchange rates and usually panicked unwinding of carry trades; carry trade sometimes characterized as 'picking up nickels in front of a steamroller'.\n\nCorrect. Per the reading: 'These occasional large losses mean that the return distribution for the carry trade has a pronounced negative skew. This negative skew derives from the fact that the funding currencies of the carry trade (the low-yield currencies in which borrowing occurs) are typically the safe haven currencies, such as the EUR, CHF, and JPY. In contrast, the investment currencies (the high-yielding currencies) are typically currencies perceived to be higher risk, such as several emerging market currencies. Any time global financial markets are under stress there is a flight to safety that causes rapid movements in exchange rates, and usually a panicked unwinding of carry trades... Because of the tendency for long periods of relatively small gains in the carry trade to be followed by brief periods of large losses, the carry trade is sometimes characterized as \"picking up nickels in front of a steamroller.\"'",
-      "C": "Negative skew."
+      "C": "Incorrect — the tail events are losses (funding safe havens rally in stress), yielding pronounced negative skew rather than symmetric fat tails."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.d",
@@ -822,14 +822,14 @@
      "number": 9,
      "stem": "Volatility trading most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "type of active trading style unique to spot and forward markets.",
+      "B": "trading style that expresses a view on the direction of the underlying exchange rate.",
       "C": "type of active trading style unique to option markets."
      },
      "correct": "C",
      "rationales": {
-      "A": "Vol trading.",
-      "B": "Vol trading defn.",
+      "A": "Incorrect — volatility trading requires options to isolate vega; it cannot be executed with spot or forwards alone.",
+      "B": "Incorrect — volatility trading expresses a view on future volatility (vega), not on the direction of the exchange rate.",
       "C": "Full statement: type of active trading style unique to option markets; use of options allows trader through variety of trading strategies to unbundle and isolate all various risk factors (the Greeks) and trade them separately; once initial option position taken, trader has exposure to all Greeks; unwanted risk exposures can be hedged away, leaving only desired risk exposure to express specific directional view; volatility trading focuses on vega — sensitivity of option premium to small change in implied volatility (indication of volatility risk); trader expresses view on future movements in implied volatility, not the direction of underlying.\n\nCorrect. Per the reading: 'Another type of active trading style is unique to option markets and is known as volatility trading (or simply \"vol trading\")... The most important concept to grasp in terms of volatility trading is that the use of options allows the trader, through a variety of trading strategies, to unbundle and isolate all of the various risk factors (the Greeks) and trade them separately. Once an initial option position is taken (either long or short), the trader has exposure to all of the various Greeks/risk factors. The unwanted risk exposures, however, can then be hedged away, leaving only the desired risk exposure to express that specific directional view... the trader is expressing a view on the future movements in implied volatility, or in other words, is engaged in volatility trading... By engaging in volatility trading, the trader is expressing a view about the future volatility of exchange rates but not their direction.'"
      },
      "type": "mc",
@@ -847,14 +847,14 @@
      "stem": "Long straddle vs long strangle most likely:",
      "options": {
       "A": "long straddle = long ATM put + long ATM call (both same strike).",
-      "B": "same structure.",
-      "C": "no distinction."
+      "B": "long straddle = long OTM put + long OTM call at different strikes.",
+      "C": "long straddle = long ATM call + short ATM put at the same strike."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: long straddle = long ATM put + long ATM call (both same strike); deltas -0.5 and +0.5 so net delta of position is zero (delta neutral); profitable in more volatile markets when either put or call go sufficiently in the money to cover upfront cost of two option premiums; long strangle = long OTM put + long OTM call (same expiry, same degree of being out of money); because OTM options being bought, cost is cheaper — but conversely does not pay off until spot rate passes OTM strike levels; risk-reward for strangle more moderate than straddle.\n\nCorrect. Per the reading: 'One simple option strategy that implements a volatility trade is a straddle, which is a combination of both an at-the-money (ATM) put and an ATM call. A long straddle buys both of these options. Because their deltas are −0.5 and +0.5, respectively... the net delta of the position is zero; that is, the long straddle is delta neutral. This position is profitable in more volatile markets, when either the put or the call go sufficiently in the money to cover the upfront cost of the two option premiums paid... A similar option structure is a strangle position for which a long position is buying out-of-the-money (OTM) puts and calls with the same expiry date and the same degree of being out of the money... Because OTM options are being bought, the cost of the position is cheaper — but conversely, it also does not pay off until the spot rate passes the OTM strike levels. As a result, the risk–reward for a strangle is more moderate than that for a straddle.'",
-      "B": "Straddle vs strangle.",
-      "C": "Two positions."
+      "B": "Incorrect — that describes a strangle; a straddle uses ATM options at the same strike.",
+      "C": "Incorrect — a straddle buys both options; a long call combined with a short put is a synthetic forward, not a delta-neutral volatility trade."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.d",
@@ -880,15 +880,15 @@
      "number": 1,
      "stem": "Effect of yield differential change on carry trade most likely:",
      "options": {
-      "A": "no effect.",
+      "A": "the carry trade's attractiveness depends only on spot exchange rate volatility, not on yield differentials.",
       "B": "changes in yield differential between currencies alter attractiveness of carry trade.",
-      "C": "no framework."
+      "C": "a narrowing yield differential makes the carry trade more attractive by widening the spread."
      },
      "correct": "B",
      "rationales": {
-      "A": "Yield spread drives carry.",
+      "A": "Incorrect — the yield differential is the core driver of carry; a wider differential makes the trade more attractive (volatility is a secondary risk gauge).",
       "B": "Full statement: changes in yield differential between currencies alter attractiveness of carry trade; if high-yield currency's rate increases while low-yield currency's rate remains stable, yield advantage of high-yield currency widens making carry trade more attractive; long periods of yield differential persistence between high-yield and low-yield currencies encourage build-up of carry trade positions; positive returns can remain in place long enough to present attractive investment opportunities; guide to riskiness is volatility of outright forward (not spot) rate movements — lower volatility is better for carry trade position.\n\nCorrect. Per the reading: 'The gains that one can earn through the carry trade... can be seen as the risk premiums earned for carrying an unhedged position... Long periods of market stability can make these extra returns enticing to many investors, and the longer the yield differential persists between high-yield and low-yield currencies, the more carry trade positions will have a tendency to build up.' And: 'One guide to the riskiness of the carry trade is the volatility of outright forward (not spot) rate movements for the currency pair; all else equal, lower volatility is better for a carry trade position.'",
-      "C": "Yield gap matters."
+      "C": "Incorrect — a narrowing differential shrinks the carry spread and makes the trade less attractive; a widening differential helps."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.e",
@@ -929,14 +929,14 @@
      "stem": "Effect of higher expected inflation differential most likely:",
      "options": {
       "A": "if country's expected inflation rises relative to another country's, its currency should depreciate.",
-      "B": "no effect.",
-      "C": "no framework."
+      "B": "if a country's expected inflation rises relative to another's, its currency should appreciate.",
+      "C": "changes in expected inflation have no effect on nominal exchange rates in the medium term."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: if country's expected inflation rises relative to another country's, its currency should depreciate; because base currency's real exchange rate should appreciate if expected foreign inflation rises (which should cause foreign currency to depreciate); if analyst expects inflation to accelerate in New Zealand while Japan's remains stable, JPY/NZD should decrease (NZD depreciate against JPY); market view of relative inflation is key input for fundamentals-based currency views.\n\nCorrect. Per the reading: 'the base currency's real exchange rate should appreciate if there is an upward movement in... expected foreign inflation, which should cause the foreign currency to depreciate.' Also per Example 3 setup where an expectation of accelerating New Zealand inflation relative to stable Japan inflation would suggest NZD depreciation against JPY.",
-      "B": "Higher inflation = depreciation.",
-      "C": "Inflation up = FX down."
+      "B": "Incorrect — this reverses the relationship; higher relative inflation erodes purchasing power and depreciates the currency (PPP).",
+      "C": "Incorrect — expected inflation is a key short- to medium-term driver; higher relative inflation depreciates the currency."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.e",
@@ -976,14 +976,14 @@
      "number": 5,
      "stem": "Effect of moving average signals most likely:",
      "options": {
-      "A": "no signals.",
-      "B": "no framework.",
+      "A": "when the spot rate reaches its long-run PPP value, this is seen as a price 'break out' point.",
+      "B": "when the 50-day and 200-day moving averages converge, all open positions must be closed.",
       "C": "when 50-day moving average crosses 200-day moving average, sometimes seen as price 'break out' point."
      },
      "correct": "C",
      "rationales": {
-      "A": "Moving avg signals.",
-      "B": "Chart-based signal.",
+      "A": "Incorrect — that mixes in a fundamentals concept; break-out signals come from moving-average crossovers in technical analysis.",
+      "B": "Incorrect — a crossover signals momentum/break-out; it does not mandate closing positions.",
       "C": "Full statement: when 50-day moving average crosses 200-day moving average, sometimes seen as price 'break out' point; if current spot rate is close to 200-day moving average, that level acts as key support/resistance; technicians would time position entry/exit based on chart patterns and moving average signals; when JPY/NZD price at 77.1905 and 200-day moving average at 77.5035, chart shows spot rate below moving average — moving average acts as resistance to further upward move.\n\nCorrect. Per the reading: 'The 200-day moving average of daily exchange rates is often seen as an important indicator of likely support and resistance. Sometimes two moving averages are used to establish when a price trend is building momentum. For example, when the 50-day moving average crosses the 200-day moving average, this is sometimes seen as a price \"break out\" point.' Example 3 illustrates: 'One of McYelland's colleagues, Catalina Ortega, is a market technician... Ortega notices that the 200-day moving average is at 77.5035 and the current spot rate is 77.1905.'"
      },
      "type": "mc",
@@ -1001,14 +1001,14 @@
      "stem": "Best carry trade fund/invest choice among yield differentials most likely:",
      "options": {
       "A": "look for widest yield differential to maximize carry.",
-      "B": "no framework.",
-      "C": "no data."
+      "B": "fund in the highest-yield currency and invest in the lowest-yield currency.",
+      "C": "choose the currency pair with the narrowest yield differential to limit risk."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: look for widest yield differential to maximize carry; from Example 3 data (Switzerland -0.80%, US 0.30%, Poland 1.26%, Mexico 5.98%): funding in CHF (lowest yield -0.80%) and investing in MXN (highest yield 5.98%) gives largest yield differential of 6.78%; alternative funding in USD investing in MXN gives smaller 5.68%; funding CHF investing PLN gives only 2.06%; largest positive spread offers best carry potential (subject to volatility considerations).\n\nCorrect. Per Example 3: yield levels are Switzerland -0.80%, US 0.30%, Poland 1.26%, Mexico 5.98%. The best carry trade among the choices is 'B. CHF and invest in MXN' because it maximizes the yield differential (6.78% spread), assuming volatility considerations are similar. This is greater than USD/MXN (5.68% spread) or CHF/PLN (2.06% spread).",
-      "B": "CHF fund, MXN invest.",
-      "C": "Fund CHF/invest MXN."
+      "B": "Incorrect — this is a negative-carry position; the carry trade funds in the lowest-yield currency (CHF) and invests in the highest (MXN).",
+      "C": "Incorrect — carry return comes from the widest positive yield differential; a narrow differential offers little carry."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.e",
@@ -1048,14 +1048,14 @@
      "number": 8,
      "stem": "Convergence of long-run vs short-run factors most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "exchange rate forecast depends solely on the long-run equilibrium real exchange rate.",
+      "B": "exchange rate forecast depends solely on short-term interest rate movements.",
       "C": "exchange rate forecast is mix of long-term, medium-term, and short-term factors."
      },
      "correct": "C",
      "rationales": {
-      "A": "Multi-horizon.",
-      "B": "Long/short mix.",
+      "A": "Incorrect — short- and medium-term factors (nominal rates, expected inflation) shape the path of convergence; the forecast blends all horizons.",
+      "B": "Incorrect — short-term rates affect timing, but the long-run equilibrium real rate anchors the forecast; it is a mix of horizons.",
       "C": "Full statement: exchange rate forecast is mix of long-term, medium-term, and short-term factors; long-run equilibrium real exchange rate is anchor for exchange rates and point of long-run convergence for exchange rate movements; movements in short- to medium-term factors (nominal interest rates, expected inflation) affect timing and path of convergence to long-run equilibrium; can be very demanding to model how each of these separate effects change over time and affect exchange rates.\n\nCorrect. Per the reading: 'In summary, the exchange rate forecast is a mix of long-term, medium-term, and short-term factors. The long-run equilibrium real exchange rate is the anchor for exchange rates and the point of long-run convergence for exchange rate movements. Movements in the short- to medium-term factors (nominal interest rates, expected inflation) affect the timing and path of convergence to this long-run equilibrium.'"
      },
      "type": "mc",
@@ -1083,14 +1083,14 @@
      "stem": "FX swap definition most likely:",
      "options": {
       "A": "simultaneous spot and forward transaction — one leg is buying the base currency and the other is selling it.",
-      "B": "no definition.",
-      "C": "no framework."
+      "B": "two offsetting forward contracts with different settlement dates and no spot leg.",
+      "C": "an exchange of periodic interest payments in two currencies with no exchange of principal."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: simultaneous spot and forward transaction — one leg is buying the base currency and the other is selling it; FX swaps are used to renew outstanding forward contracts once they mature, to 'roll them forward'; rolling forward hedging position involves selling base currency at then-current spot exchange rate to settle current forward contract, and then going long another far-dated forward contract.\n\nCorrect. Per the reading: 'An FX swap is a simultaneous spot and forward transaction; one leg of the swap is buying the base currency and the other is selling it. FX swaps are used to renew outstanding forward contracts once they mature, to \"roll them forward.\"' Also: 'this rolling forward will involve selling the base currency at the then-current spot exchange rate to settle the forward contract, and then going long another far-dated forward contract (i.e., an FX swap transaction).'",
-      "B": "FX swap = spot + fwd.",
-      "C": "Spot + forward."
+      "B": "Incorrect — an FX swap pairs a SPOT transaction with a forward, not two forwards; the near leg settles at spot.",
+      "C": "Incorrect — that describes a cross-currency interest rate swap; an FX swap is a spot-plus-forward exchange used to roll hedges forward."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.f",
@@ -1106,15 +1106,15 @@
      "number": 2,
      "stem": "Roll yield definition and sign most likely:",
      "options": {
-      "A": "no framework.",
+      "A": "magnitude of roll yield is |(S_P/B - F_P/B)/F_P/B|, scaled by the forward rate.",
       "B": "magnitude of roll yield is |(F_P/B - S_P/B)/S_P/B|.",
-      "C": "no framework."
+      "C": "magnitude of roll yield equals the difference between the two countries' interest rates."
      },
      "correct": "B",
      "rationales": {
-      "A": "Roll yield sign rules.",
+      "A": "Incorrect — roll yield is scaled by the spot rate S_P/B, not the forward rate; the reading defines it relative to spot.",
       "B": "Full statement: magnitude of roll yield is |(F_P/B - S_P/B)/S_P/B|; sign depends on whether investor needs to buy or sell base currency forward to maintain hedge; positive roll yield results from buying base currency at forward discount OR selling it at forward premium (intuition: profitable to 'buy low and sell high'); otherwise roll yield is negative (positive cost).\n\nCorrect. Per the reading: 'The magnitude of roll yield is given by |(F_P/B ‒ S_P/B)/S_P/B| where \"||\" indicates absolute value. The sign depends on whether the investor needs to buy or to sell the base currency forward in order to maintain the hedge. A positive roll yield results from buying the base currency at a forward discount or selling it at a forward premium (the intuition here is that it is profitable to \"buy low and sell high\"). Otherwise, the roll yield is negative (i.e., a positive cost).'",
-      "C": "Roll yield."
+      "C": "Incorrect — that is the interest-rate differential; roll yield is the proportional gap between forward and spot, |(F - S)/S|."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.f",
@@ -1130,14 +1130,14 @@
      "number": 3,
      "stem": "Buying base currency at forward premium hedge outcome most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "if hedge requires buying base currency at forward premium: earn positive roll yield.",
+      "B": "if hedge requires buying base currency at forward premium: watch the forward price roll up toward a higher Price B.",
       "C": "if hedge requires buying base currency at forward premium: pay forward price of A."
      },
      "correct": "C",
      "rationales": {
-      "A": "Negative roll.",
-      "B": "Buy high sell low.",
+      "A": "Incorrect — buying at a premium means buying high and rolling down to a lower future spot, which produces NEGATIVE roll yield.",
+      "B": "Incorrect — a forward trading at a premium rolls DOWN the curve toward the lower future spot (Price B), not up.",
       "C": "Full statement: if hedge requires buying base currency at forward premium: pay forward price of A; as time passes price of forward contract 'rolls down the curve' toward Price B as contract's settlement date approaches; at settlement roll forward hedge by selling base currency at then-current spot rate (Price B, lower than A) and going long another far-dated forward contract; buying high (Price A) and selling low (Price B) will be cost to portfolio — roll yield negative; the larger the gap between A and B at contract initiation, the less likely to be positive.\n\nCorrect. Per the reading (Exhibit 7 discussion): 'assume that to implement the hedge requires buying the base currency in the P/B quote, and that the base currency is trading at a forward premium (as shown in Exhibit 7). By using a long position in a forward contract to implement this hedge, it means paying the forward price of A. All else equal, as time passes the price of the forward contract will \"roll down the curve\" toward Price B as the forward contract's settlement date approaches... Note that the portfolio manager originally bought the base currency at Price A and then subsequently sold it at a lower Price B — and that buying high and selling low will be a cost to the portfolio. Or put differently, all else equal, the roll yield would be negative in this case.'"
      },
      "type": "mc",
@@ -1227,14 +1227,14 @@
      "stem": "Kwun Tong ZAR hedge decision (Example 4) — HKD/ZAR spot 0.5210, 6-mo forward 0.5082, 6-mo forecast 0.5100 most likely:",
      "options": {
       "A": "long ZAR against HKD; HKD/ZAR selling at forward discount of -2.5% vs current spot.",
-      "B": "no framework.",
-      "C": "no data."
+      "B": "long ZAR against HKD; HKD/ZAR selling at forward premium of +2.5% vs current spot.",
+      "C": "long ZAR against HKD; expected 2.11% depreciation exceeds the 2.5% hedge cost, so hedging clearly adds value."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: long ZAR against HKD; HKD/ZAR selling at forward discount of -2.5% vs current spot; would require selling ZAR (base currency) at lower price than spot; roll yield goes against firm — expected cost of hedge = 2.5%; strategist forecasts ZAR depreciation against HKD of 2.11%; risk-neutral investor would NOT hedge because expected cost of hedge (2.5%) more than expected depreciation (2.11%); but point forecast comes with uncertainty; decision depends on trade-offs between (1) level of risk aversion of firm and (2) conviction firm held in currency forecast.\n\nCorrect. Per Example 4 Solution 2: 'Kwun Tong is long the ZAR against the HKD, and HKD/ZAR is selling at a forward discount of −2.5% compared with the current spot rate. Implementing the hedge would require the firm to sell the base currency in the quote, the ZAR, at a price lower than the current spot rate. This would imply that, all else equal, the roll yield would go against the firm; that is, the expected cost of the hedge would be 2.5%. But the firm's strategist also forecasts that the ZAR will depreciate against the HKD by 2.11%. This makes the decision to hedge less certain. A risk-neutral investor would not hedge because the expected cost of the hedge is more than the expected depreciation of the ZAR. But this is only a point forecast and comes with a degree of uncertainty — there is a risk that the HKD/ZAR spot rate might depreciate by more than the 2.5% cost of the hedge. In this case, the decision to hedge the currency risk would depend on the trade-offs between (1) the level of risk aversion of the firm; and (2) the conviction the firm held in the currency forecast — that is, the level of certainty that the ZAR would not depreciate by more than 2.5%.'",
-      "B": "Trade-off decision.",
-      "C": "Risk aversion."
+      "B": "Incorrect — the forward (0.5082) is below spot (0.5210), so the ZAR trades at a forward DISCOUNT, not a premium.",
+      "C": "Incorrect — the expected depreciation (2.11%) is LESS than the hedge cost (2.5%), so a risk-neutral investor would not hedge."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.f",
@@ -1309,14 +1309,14 @@
      "stem": "Reducing cost with OTM put most likely:",
      "options": {
       "A": "way to reduce cost of using options is to accept some downside risk by using OTM option, such as 25- or 10-delta option.",
-      "B": "no benefit.",
-      "C": "no framework."
+      "B": "way to reduce cost of using options is to buy a deeper in-the-money put with a higher delta.",
+      "C": "way to reduce cost of using options is to lengthen the option's time to expiry."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: way to reduce cost of using options is to accept some downside risk by using OTM option, such as 25- or 10-delta option; these options will be less costly but also do NOT fully protect portfolio from adverse currency movements; makes sense to insure against larger risks but accept some smaller day-to-day price movements in currencies; analogous to home/car insurance with deductible: cheaper insurance policy accepting responsibility for minor events but insuring against extreme damage.\n\nCorrect. Per the reading: 'One way to reduce the cost of using options is to accept some downside risk by using an OTM option, such as a 25- or 10-delta option. These options will be less costly, but also do not fully protect the portfolio from adverse currency movements. Conversely, it makes sense to insure against larger risks but accept some smaller day-to-day price movements in currencies. As an analogy, it may be possible to buy a home or car insurance policy with a zero deductible — but the premiums would be exorbitant. It may be more rational to have a cheaper insurance policy and accept responsibility for minor events, but insure against extreme damage.'",
-      "B": "OTM put cheaper.",
-      "C": "OTM cheaper."
+      "B": "Incorrect — deeper ITM (higher-delta) options cost MORE; cost is reduced by using cheaper OTM (low-delta) options.",
+      "C": "Incorrect — a longer expiry raises the premium through additional time value; cost is reduced by accepting downside via an OTM strike."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.g",
@@ -1356,14 +1356,14 @@
      "number": 4,
      "stem": "Put spread most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "volatility straddle combining a long ATM put and a long ATM call.",
+      "B": "variation of a protective put that adds a long deeper-OTM put for extra downside protection.",
       "C": "variation of short risk reversal position."
      },
      "correct": "C",
      "rationales": {
-      "A": "Put spread structure.",
-      "B": "Put spread.",
+      "A": "Incorrect — that is a straddle for expressing a volatility view; a put spread buys one put and writes a deeper-OTM put.",
+      "B": "Incorrect — a put spread WRITES the deeper-OTM put to reduce cost (it does not buy it) and thereby caps downside protection.",
       "C": "Full statement: variation of short risk reversal position; used to reduce upfront cost of buying protective put; buy put option and write another put option to help cover cost of long put's premiums; typically structured by buying OTM put, and writing deeper-OTM put; both options same maturity; example: current spot 1.3550, buy put with strike 1.3500 and write put with strike 1.3450 — no hedge protection between 1.3550 and 1.3500; portfolio hedged from 1.3500 down to 1.3450; at spot rates below 1.3450 portfolio becomes unhedged again; reduces cost of hedge but at cost of more limited downside protection.\n\nCorrect. Per the reading: 'A variation of the short risk reversal position is a put spread, which is also used to reduce the upfront cost of buying a protective put. The short risk reversal is structured by buying a put option and writing a call option: the premiums received by writing the call help cover the cost of the put. Similarly, the put spread position involves buying a put option and writing another put option to help cover the cost of the long put's premiums. This position is typically structured by buying an OTM put, and writing a deeper-OTM put to gain income from premiums; both options involved have the same maturity. To continue our previous example, with the current spot rate at 1.3550, the portfolio manager might set up the following put spread: buy a put with a strike of 1.3500 and write a put with a strike of 1.3450. The payoff on the put spread position will then be as follows: there is no hedge protection between 1.3550 and 1.3500; the portfolio is hedged from 1.3500 down to 1.3450; at spot rates below 1.3450, the portfolio becomes unhedged again.'"
      },
      "type": "mc",
@@ -1404,15 +1404,15 @@
      "number": 6,
      "stem": "Seagull spread most likely:",
      "options": {
-      "A": "no structure.",
+      "A": "a single at-the-money option position with no additional legs.",
       "B": "extension of risk reversal and put spread.",
-      "C": "no framework."
+      "C": "two options at identical strikes bought and sold in equal size."
      },
      "correct": "B",
      "rationales": {
-      "A": "Three-legged.",
+      "A": "Incorrect — a seagull is a three-legged structure (a body plus two wings), not a single option.",
       "B": "Full statement: extension of risk reversal and put spread; core of hedge is long position in put option; to reduce cost, short risk reversal writes call option while put spread writes deep-OTM put option; manager can do both: long protective put and write both call and deep-OTM put; option structure sometimes referred to as seagull spread; 'seagull' indicates option structure with at least three individual options, options at most distant strikes (wings) on opposite side of market from middle strike(s) (body); if current spot 1.3550: long ATM put at 1.3550 (body), short OTM put at 1.3500, short OTM call at 1.3600 (wings) = short seagull; provides full downside protection from 1.3550 to 1.3500 and upside participation to 1.3600.\n\nCorrect. Per the reading: 'An alternative, and somewhat safer approach, would be to combine the original put spread position (1:1 proportion of notionals) with a covered call position. This is simply an extension of the concept behind risk reversals and put spreads... the manager can always do both: that is, be long a protective put and then write both a call and a deep-OTM put. This option structure is sometimes referred to as a seagull spread. As with the names for other option strategies based on winged creatures, the \"seagull\" indicates an option structure with at least three individual options, and in which the options at the most distant strikes — the wings — are on the opposite side of the market from the middle strike(s) — the body. For example, if the current spot price is 1.3550, a seagull could be constructed by going long an ATM put at 1.3550 (the middle strike is the \"body\"), short an OTM put at 1.3500, and short an OTM call at 1.3600 (the latter two options are the \"wings\"). Because the options in the \"wings\" are being written (sold) this is called a short seagull position. The risk/return profile of this structure gives full downside protection from 1.3550 to 1.3500 (at which point the short put position neutralizes the hedge) and participation in the upside potential in spot rate movements to 1.3600.'",
-      "C": "Seagull."
+      "C": "Incorrect — a seagull combines at least three options at different strikes, extending the risk reversal and put spread."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.g",
@@ -1453,14 +1453,14 @@
      "stem": "Digital options most likely:",
      "options": {
       "A": "also called binary options or all-or-nothing options.",
-      "B": "no framework.",
-      "C": "no framework."
+      "B": "also called basket options because they pay off on a weighted group of currencies.",
+      "C": "also called vanilla options because their payoff scales with how far in-the-money they finish."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: also called binary options or all-or-nothing options; expiry value of in-the-money vanilla option varies based on amount of difference between expiry level and strike price; in contrast, digital options pay out a FIXED amount if they are determined to be in-the-money; American digital options pay fixed amount if they 'touch' their exercise level at any time before expiry (even if by single pip); characteristic of 'extreme payoff' options makes them almost akin to lottery ticket; because of these large payoffs, digital options usually cost MORE than vanilla options with same strike price; digitals provide highly leveraged exposure to movements in spot rate — more appropriate as trading tools for active currency management rather than as hedging tools.\n\nCorrect. Per the reading: 'Digital options are also called binary options, or all-or-nothing options. The expiry value of an in-the-money vanilla option varies based on the amount of difference between the expiry level and strike price. In contrast, digital options pay out a fixed amount if they are determined to be in-the-money. For example, American digital options pay a fixed amount if they \"touch\" their exercise level at any time before expiry (even if by a single pip). This characteristic of \"extreme payoff\" options makes them almost akin to a lottery ticket. Because of these large payoffs, digital options usually cost more than vanilla options with the same strike price. But digitals also provide highly leveraged exposure to movements in the spot rate. This makes these exotic products more appropriate as trading tools for active currency management, rather than as hedging tools.'",
-      "B": "Binary all-or-nothing.",
-      "C": "Digital options."
+      "B": "Incorrect — basket options reference multiple currencies; digital options are binary/all-or-nothing on a single trigger level.",
+      "C": "Incorrect — that describes vanilla options; digitals pay a FIXED all-or-nothing amount regardless of how far in-the-money."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.g",
@@ -1500,14 +1500,14 @@
      "number": 10,
      "stem": "Theta / time decay of options most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "second determinant of option's premium is its intrinsic value, which rises as expiry approaches.",
+      "B": "an option's time value increases steadily as the contract approaches its expiry date.",
       "C": "second determinant of option's premium is time value, heavily influenced by volatility in exchange rates."
      },
      "correct": "C",
      "rationales": {
-      "A": "Theta works against long.",
-      "B": "Theta cost.",
+      "A": "Incorrect — the reading identifies time value (not intrinsic value) as the second determinant, and time value DECAYS toward expiry.",
+      "B": "Incorrect — time value DECLINES toward expiry; theta (time decay) always works against the option owner.",
       "C": "Full statement: second determinant of option's premium is time value, heavily influenced by volatility in exchange rates; regardless of exchange rate volatility, options are always moving toward expiry; in general, time value of option is always declining — time decay of option's value (theta, one of Greeks) similar in concept to negative roll yield on forward contracts; time decay always works against owner of an option; means long option positions have known ongoing cost even in stable markets.\n\nCorrect. Per the reading: 'The second determinant of an option's premium is its time value, which in turn is heavily influenced by the volatility in exchange rates. Regardless of exchange rate volatility, however, options are always moving toward expiry. In general, the time value of the option is always declining. This is the time decay of the option's value (theta, one of the \"Greeks\" of option prices, describes this effect) and is similar in concept to that of negative roll yield on forward contracts described earlier. Time decay always works against the owner of an option.'"
      },
      "type": "mc",
@@ -1535,14 +1535,14 @@
      "stem": "Cross hedge concept most likely:",
      "options": {
       "A": "hedging one currency exposure using derivative contract in different but correlated currency.",
-      "B": "no framework.",
-      "C": "no framework."
+      "B": "hedging a currency exposure with a forward contract in that same currency pair.",
+      "C": "hedging a currency exposure by holding an offsetting position in that same currency's bonds."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: hedging one currency exposure using derivative contract in different but correlated currency; useful when direct hedge is unavailable or too expensive; e.g., can use long-short positions in positively correlated currencies to achieve much lower portfolio risk through benefits of cross hedging; requires appropriate correlation between currency being hedged and hedging instrument; some types of cross hedges often referred to as macro hedges.\n\nCorrect. Per the reading example: 'having long and short positions in positively correlated currencies can lead to much lower portfolio risk, through the benefits of cross hedging.' Cross hedging involves using a different but correlated exposure to hedge the target exposure. 'Some types of cross hedges are often referred to as macro hedges.'",
-      "B": "Correlated proxy.",
-      "C": "Cross hedge."
+      "B": "Incorrect — that is a direct hedge; a cross hedge uses a different but correlated currency.",
+      "C": "Incorrect — a cross hedge substitutes a correlated CURRENCY instrument, not the same currency's fixed income."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.h",
@@ -1582,14 +1582,14 @@
      "number": 3,
      "stem": "Minimum-variance hedge ratio most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "rule of thumb that sets the hedge ratio equal to the ratio of the two currencies' interest rates.",
+      "B": "approach that always sets the hedge ratio to 100% of the exposure's notional value.",
       "C": "mathematical approach to determining optimal cross hedging ratio using OLS regression."
      },
      "correct": "C",
      "rationales": {
-      "A": "OLS-based ratio.",
-      "B": "Min-var hedge.",
+      "A": "Incorrect — the minimum-variance hedge ratio is estimated by OLS regression (β̂ = cov/var), not from an interest-rate ratio.",
+      "B": "Incorrect — a 100% ratio suits a direct hedge; the minimum-variance ratio is a regression-derived β̂ that can differ materially from 1.",
       "C": "Full statement: mathematical approach to determining optimal cross hedging ratio using OLS regression; regression y_t = α + β x_t + ε_t used to minimize variance of ε; y = percentage change in value of asset to be hedged, x = percentage change in value of hedging instrument (both in domestic currency terms); minimum-variance hedge ratio (β̂) = correlation(y,x) × [std.dev(y) / std.dev(x)] = covariance(y,x)/variance(x); calculated coefficient gives optimal hedging ratio minimizing tracking error.\n\nCorrect. Per the reading: 'A mathematical approach to determining the optimal cross hedging ratio is known as the minimum-variance hedge ratio. Recall that regression analysis based on ordinary least squares (OLS) is used to minimize the variance of ε̂, the residual between actual and fitted values of the regression y_t = α + β x_t + ε_t... This same principle can be used to minimize the tracking error between the value of the hedged asset and the hedging instrument. In the regression formula, we substitute the percentage change in the value of the asset to be hedged for y_t, and the percentage change in value of the hedging instrument for x_t... The calculated coefficient in this regression (β̂) gives the optimal hedging ratio... It can be shown that the formula for the minimum-variance hedge ratio... is mathematically equal to: covariance(y,x)/variance(x) = correlation(y,x) × [std.dev(y)/std.dev(x)].'"
      },
      "type": "mc",
@@ -1607,14 +1607,14 @@
      "stem": "Kilmarnock SMI minimum-variance hedge example — β̂ = 1.35 most likely:",
      "options": {
       "A": "10 years monthly data on CHF/GBP spot and SMI.",
-      "B": "no framework.",
-      "C": "no data."
+      "B": "β̂ = 1.35 implies the exposure should be under-hedged at roughly 74% of notional.",
+      "C": "β̂ = 1.35 means a CHF1,000,000 SMI exposure is hedged with a short CHF350,000 forward."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: 10 years monthly data on CHF/GBP spot and SMI; McYelland inverts CHF/GBP to GBP/CHF so domestic currency is price; regresses R_DC = α + β(%ΔS_GBP/CHF) + ε; result β̂ = 1.35 = minimum-variance hedge ratio; makes sense because β̂ represents sensitivity of domestic-currency return on portfolio to percentage changes in spot rate; SMI seems very sensitive to appreciation of CHF; correlation +0.6 between %ΔSMI and %ΔS_GBP/CHF; recommends minimum-variance hedge ratio set at approximately 135% — long CHF1M SMI exposure hedged with short CHF/GBP position of CHF1.35M.\n\nCorrect. Per the reading: 'RDC = α + β(%ΔS_GBP/CHF) + ε. The calculated regression coefficients show that α̂ = −0.21 and β̂ = 1.35. McYelland interprets these results to mean that the estimated β̂-coefficient is the minimum-variance hedge ratio. This conclusion makes sense because β̂ represents the sensitivity of the domestic-currency return on the portfolio to percentage changes in the spot rate. In this case, the return on the SMI seems very sensitive to the appreciation of the CHF. Indeed, over the 10 years of data she collected, McYelland notices that the correlation between %ΔSMI and %ΔS_GBP/CHF is equal to +0.6. On the basis of these calculations, she recommends that the minimum-variance hedge ratio for Kilmarnock Capital's exposure to the SMI be set at approximately 135%. This recommendation means that a long CHF1,000,000 exposure to the SMI should be hedged with a short position in CHF against the GBP of approximately CHF1,350,000.'",
-      "B": "135% hedge.",
-      "C": "135%."
+      "B": "Incorrect — β̂ = 1.35 gives a minimum-variance hedge ratio of about 135% (an over-hedge), not 74%.",
+      "C": "Incorrect — a 135% hedge ratio requires a short position of about CHF1,350,000, not CHF350,000."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.h",
@@ -1736,14 +1736,14 @@
      "number": 1,
      "stem": "Two most important challenges for EM currency management most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "(1) lower trading costs than the major currencies because emerging markets are less regulated.",
+      "B": "(1) the effective absence of currency crises once a country adopts a floating exchange rate regime.",
       "C": "(1) higher trading costs than the major currencies under 'normal' market conditions."
      },
      "correct": "C",
      "rationales": {
-      "A": "Cost + tail risk.",
-      "B": "Cost + illiquidity.",
+      "A": "Incorrect — emerging market currencies are thinly traded, producing HIGHER (not lower) transaction costs and bid-offer spreads.",
+      "B": "Incorrect — EM currencies face an INCREASED likelihood of extreme events and severe illiquidity under stress, not their absence.",
       "C": "Full statement: (1) higher trading costs than the major currencies under 'normal' market conditions; (2) increased likelihood of extreme market events and severe illiquidity under stressed market conditions; many emerging market currencies are thinly traded causing higher transaction costs (bid-offer spreads); may also be fewer derivatives products to choose from especially exchange-traded products.\n\nCorrect. Per the reading: 'Managing emerging market currency exposure involves unique challenges. Perhaps the two most important considerations are (1) higher trading costs than the major currencies under \"normal\" market conditions, and (2) the increased likelihood of extreme market events and severe illiquidity under stressed market conditions. Many emerging market currencies are thinly traded, causing higher transaction costs (bid–offer spreads). There may also be fewer derivatives products to choose from, especially exchange-traded products.'"
      },
      "type": "mc",
@@ -1808,14 +1808,14 @@
      "number": 4,
      "stem": "Forward hedging cost in EM currency crisis most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "hedging long exposure to a foreign currency typically involves buying that currency forward.",
+      "B": "a central bank rate hike in a crisis pushes the currency to a forward premium, cheapening the hedge.",
       "C": "hedging long exposure to foreign currency typically involves selling foreign currency forward."
      },
      "correct": "C",
      "rationales": {
-      "A": "Crisis raises hedge cost.",
-      "B": "Deep discount.",
+      "A": "Incorrect — hedging a LONG exposure means SELLING the foreign currency forward, not buying it.",
+      "B": "Incorrect — higher rates deepen the forward DISCOUNT (via covered interest rate parity), making the hedge costlier through negative roll yield.",
       "C": "Full statement: hedging long exposure to foreign currency typically involves selling foreign currency forward; when currencies under severe downward pressure, central banks often react by hiking policy rate to support domestic currency; but higher interest rates in country → all else equal, deeper forward discount for its currency (enforced by covered interest rate parity arbitrage); having to sell currency forward at increasingly deep discounts will cause losses through negative roll yield and undermine cost effectiveness of hedging program.\n\nCorrect. Per the reading: 'The occurrence of currency crises can also affect hedging strategies based on forward contracts. Recall that hedging a long exposure to a foreign currency typically involves selling the foreign currency forward. However, when currencies are under severe downward pressure, central banks often react by hiking the policy rate to support the domestic currency. But recall that the higher interest rates go in a country, then, all else equal, the deeper the forward discount for its currency (enforced by the arbitrage conditions of covered interest rate parity). Having to sell the currency forward at increasingly deep discounts will cause losses through negative roll yield and undermine the cost effectiveness of the hedging program.'"
      },
      "type": "mc",
@@ -1833,14 +1833,14 @@
      "stem": "Non-deliverable forwards (NDFs) most likely:",
      "options": {
       "A": "currencies of many emerging market countries trade with some form of capital controls.",
-      "B": "no framework.",
-      "C": "no framework."
+      "B": "non-deliverable forwards are physically settled in the controlled emerging market currency at maturity.",
+      "C": "non-deliverable forwards are used only for freely convertible major currencies with no capital controls."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: currencies of many emerging market countries trade with some form of capital controls; where capital controls exist and delivery in controlled currency is limited by local government, often possible to use NDFs; similar to regular forward contracts but cash settled (in non-controlled currency of currency pair) rather than physically settled; non-controlled currency for NDFs usually USD or some other major currency; important currencies with NDFs include Chinese yuan (CNY), Korean won (KRW), Russian ruble (RUB), Indian rupee (INR), Brazilian real (BRL); NDF is essentially cash-settled 'bet' on movement in spot rate of these currencies.\n\nCorrect. Per the reading: 'Currencies of many emerging market countries trade with some form of capital controls. Where capital controls exist and delivery in the controlled currency is limited by the local government, it is often possible to use what are known as non-deliverable forwards (NDFs). These are similar to regular forward contracts, but they are cash settled (in the non-controlled currency of the currency pair) rather than physically settled (the controlled currency is neither delivered nor received). The non-controlled currency for NDFs is usually the USD or some other major currency. A partial list of some of the most important currencies with NDFs would include the Chinese yuan (CNY), Korean won (KRW), Russian ruble (RUB), Indian rupee (INR), and Brazilian real (BRL). The NDF is essentially a cash-settled \"bet\" on the movement in the spot rate of these currencies.'",
-      "B": "NDF definition.",
-      "C": "NDF."
+      "B": "Incorrect — NDFs are CASH settled in the non-controlled currency (usually USD); the controlled currency is neither delivered nor received.",
+      "C": "Incorrect — NDFs exist precisely because capital controls restrict delivery of the EM currency; they are unnecessary for freely convertible majors."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.i",
