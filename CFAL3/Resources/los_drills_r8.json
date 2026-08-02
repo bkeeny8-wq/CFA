@@ -97,14 +97,14 @@
      "stem": "Hedge funds' role in a diversified portfolio most likely:",
      "options": {
       "A": "hedge funds' roles VARY BY STRATEGY: equity long/short typically diversifies public equity.",
-      "B": "always income generation.",
-      "C": "no framework."
+      "B": "hedge funds uniformly serve as capital-preservation vehicles, delivering bond-like returns regardless of strategy.",
+      "C": "hedge funds' role is fixed as pure return enhancement across all strategies, adding equity beta."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: hedge funds' roles VARY BY STRATEGY: equity long/short typically diversifies public equity; global macro provides direction/theme exposure with low correlation; managed futures and CTA offer strong diversification and CRISIS ALPHA in trending sell-offs; relative-value/arbitrage strategies provide low-vol returns but tail-risk exposure; classification by role must be done at the strategy level, not the 'hedge fund' asset-class level.\n\nCorrect. Per curriculum: hedge funds are heterogeneous; the role each plays depends on strategy, not the umbrella label.",
-      "B": "Role varies by hedge fund strategy.",
-      "C": "HF strategy heterogeneity."
+      "B": "Treats hedge funds as a homogeneous safe-haven asset; their role varies by strategy and is not uniform capital preservation.",
+      "C": "Assumes a single monolithic return-enhancement role, ignoring that role must be classified at the strategy level, not the asset-class label."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.a",
@@ -298,14 +298,14 @@
      "number": 5,
      "stem": "Weakness common to BOTH the asset-class and risk-factor approaches when applied to alternatives most likely:",
      "options": {
-      "A": "neither approach uses returns data.",
-      "B": "no framework.",
+      "A": "only the traditional asset-class approach is distorted by smoothed data; the risk-factor approach sidesteps it entirely.",
+      "B": "both approaches systematically overstate alt volatility, biasing the frontier toward underallocation to alternatives.",
       "C": "both rely on reported returns of alternatives, which are subject to STALE PRICING and APPRAISAL SMOOTHING."
      },
      "correct": "C",
      "rationales": {
-      "A": "Both suffer from smoothed/appraisal data.",
-      "B": "Common data weakness.",
+      "A": "Wrong because factor decomposition itself depends on the same reported returns, so it shares—rather than escapes—the smoothing problem.",
+      "B": "Reverses the direction: smoothing understates volatility and biases optimizers toward overallocation, not underallocation.",
       "C": "Full statement: both rely on reported returns of alternatives, which are subject to STALE PRICING and APPRAISAL SMOOTHING; both approaches understate true volatility and correlations, biasing efficient frontiers toward overallocation to alternatives; risk-factor decomposition itself depends on returns and shares the same measurement problem.\n\nCorrect. Per curriculum: both approaches inherit the reported-returns data problem; unsmoothing/desmoothing is required for either."
      },
      "type": "mc",
@@ -380,14 +380,14 @@
      "number": 1,
      "stem": "Key investment considerations for alternatives most likely include:",
      "options": {
-      "A": "return and correlation only.",
-      "B": "no framework.",
+      "A": "only expected return and correlation with traditional assets, since liquidity and fees wash out over long horizons.",
+      "B": "primarily the fund's regulatory registration and legal domicile, which drive all other considerations.",
       "C": "the standard set: (1) RISK & RETURN CHARACTERISTICS."
      },
      "correct": "C",
      "rationales": {
-      "A": "8 standard considerations.",
-      "B": "Considerations.",
+      "A": "Narrows the framework to two factors; liquidity, fees, tax, transparency, and complexity are all standard considerations that do not wash out.",
+      "B": "Overweights the legal wrapper; domicile is one input, not the master factor governing risk-return, fit, liquidity, and fees.",
       "C": "Full statement: the standard set: (1) RISK & RETURN CHARACTERISTICS; (2) PORTFOLIO FIT / diversification role; (3) LIQUIDITY (lockups, gates, side pockets); (4) FEES & EXPENSES (management + carry + expenses); (5) TAX considerations; (6) INVESTMENT VEHICLE selection (direct, fund, fund of funds); (7) TRANSPARENCY of positions/valuation; (8) COMPLEXITY of underlying strategies.\n\nCorrect. Per curriculum §4: the eight standard considerations are risk & return, portfolio fit, liquidity, fees, tax, vehicle, transparency, and complexity."
      },
      "type": "mc",
@@ -428,15 +428,15 @@
      "number": 3,
      "stem": "Liquidity considerations for private equity commitments most likely:",
      "options": {
-      "A": "no framework.",
+      "A": "PE commitments are fully funded upfront, so no capital-call planning is required after the initial subscription.",
       "B": "PE funds have MULTI-YEAR LOCKUPS (typically 10–12 years).",
-      "C": "no framework."
+      "C": "PE offers quarterly redemption at NAV subject to gates, similar to open-ended hedge funds."
      },
      "correct": "B",
      "rationales": {
-      "A": "10-12yr lockup, J-curve, capital calls.",
+      "A": "Wrong because capital is called over a multi-year investment period, requiring ongoing liquidity to meet calls rather than a single upfront funding.",
       "B": "Full statement: PE funds have MULTI-YEAR LOCKUPS (typically 10–12 years); capital is called over an INVESTMENT PERIOD (~5 years); DISTRIBUTIONS occur as portfolio companies are exited; investors must PLAN for J-CURVE returns (negative in early years due to fees and startup costs), commitment pacing across VINTAGES, and hold sufficient LIQUID assets to meet capital calls throughout the commitment period.\n\nCorrect. Per curriculum: PE liquidity planning requires modeling capital call timing, J-curve, and vintage-year diversification.",
-      "C": "PE liquidity."
+      "C": "Confuses PE with hedge-fund redemption terms; PE has multi-year lockups with no redemption right, only distributions on exits."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.c",
@@ -477,14 +477,14 @@
      "stem": "Transparency issues in hedge funds most likely:",
      "options": {
       "A": "hedge funds typically provide LOW TRANSPARENCY — position-level detail may be withheld for competitive reasons.",
-      "B": "full daily transparency standard.",
-      "C": "no framework."
+      "B": "hedge funds are required by regulation to disclose full position-level holdings daily to all investors.",
+      "C": "hedge fund transparency exceeds that of mutual funds because managers publish real-time trade blotters."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: hedge funds typically provide LOW TRANSPARENCY — position-level detail may be withheld for competitive reasons; investors may see summary risk metrics (net exposure, VaR, sector weights) rather than positions; some strategies grant portfolio TRANSPARENCY only through consultant intermediaries or MANAGED ACCOUNTS; low transparency complicates monitoring and due diligence.\n\nCorrect. Per curriculum §4 transparency: HF transparency is typically limited; investors work around via risk aggregators or managed accounts.",
-      "B": "Low transparency norm.",
-      "C": "HF transparency."
+      "B": "Overstates transparency; hedge funds typically withhold position detail and provide only summary risk metrics, not mandated daily disclosure.",
+      "C": "Reverses reality; hedge funds provide lower transparency than registered funds and rarely disclose real-time positions."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.c",
@@ -524,14 +524,14 @@
      "number": 7,
      "stem": "High-water mark provision in hedge fund performance fees most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "the high-water mark sets a minimum annual return the manager must exceed before earning any management fee.",
+      "B": "the high-water mark guarantees investors a floor return, reimbursing losses from the manager's own capital.",
       "C": "the HIGH-WATER MARK requires the manager to recover PRIOR LOSSES before charging new performance fees."
      },
      "correct": "C",
      "rationales": {
-      "A": "Recover losses before new fees.",
-      "B": "HWM structure.",
+      "A": "Conflates the high-water mark with a hurdle rate and misapplies it to management fees rather than performance fees.",
+      "B": "Misreads the provision as a principal guarantee; it only bars new performance fees until prior losses are recouped, with no reimbursement.",
       "C": "Full statement: the HIGH-WATER MARK requires the manager to recover PRIOR LOSSES before charging new performance fees; ensures investors aren't charged fees on returns that merely restore prior peaks; typically resets on redemption; combined with a HURDLE RATE (minimum return before fees), it structures manager alignment; NEW investors coming in below the HWM benefit from starting fresh (no legacy carried loss).\n\nCorrect. Per curriculum: HWM is standard investor protection; combined with hurdles it aligns manager incentives."
      },
      "type": "mc",
@@ -582,15 +582,15 @@
      "number": 1,
      "stem": "Suitability factors for allocating to alternatives most likely:",
      "options": {
-      "A": "no framework.",
+      "A": "the sole suitability test is whether the investor meets the fund's minimum investment size.",
       "B": "(1) INVESTMENT HORIZON — long enough to accommodate lockups.",
-      "C": "no framework."
+      "C": "suitability depends only on expected return relative to public markets, independent of horizon or liquidity."
      },
      "correct": "B",
      "rationales": {
-      "A": "Horizon, liquidity, governance, sophistication, tax, size.",
+      "A": "Reduces suitability to ticket size, ignoring horizon, liquidity, governance, sophistication, tax status, and portfolio scale.",
       "B": "Full statement: (1) INVESTMENT HORIZON — long enough to accommodate lockups; (2) LIQUIDITY NEEDS — sufficient liquid assets to meet spending and capital calls; (3) INVESTMENT GOVERNANCE — adequate resources/expertise to select and monitor managers; (4) INVESTOR SOPHISTICATION and REGULATORY QUALIFICATION (e.g., qualified purchaser status); (5) TAX STATUS — some alts inappropriate for taxable investors due to income character or UBTI; (6) TOTAL PORTFOLIO SIZE — small portfolios can't diversify across managers/vintages.\n\nCorrect. Per curriculum §5 suitability: six standard factors determine whether alts are appropriate for a given investor.",
-      "C": "Suitability list."
+      "C": "Return-only framing omits the horizon and liquidity constraints that determine whether lockups and capital calls can be borne."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.d",
@@ -606,14 +606,14 @@
      "number": 2,
      "stem": "Small foundation (~$50M endowment) considering allocation to private equity most likely:",
      "options": {
-      "A": "always suitable.",
-      "B": "no framework.",
+      "A": "no suitability concerns arise, since a $50M foundation can readily diversify directly across vintages, geographies, and managers.",
+      "B": "the foundation should concentrate its entire allocation in a single top-quartile fund to maximize expected return.",
       "C": "SUITABILITY CONCERNS — small foundation likely lacks scale to diversify across VINTAGES, GEOGRAPHIES, and MANAGERS."
      },
      "correct": "C",
      "rationales": {
-      "A": "Small size limits direct PE; FoF or listed alternatives.",
-      "B": "Small size = FoF or listed.",
+      "A": "Ignores scale limits; fund minimums make adequate direct diversification infeasible at this size, so suitability concerns do exist.",
+      "B": "Advocates single-manager, single-vintage concentration, which magnifies manager and timing risk rather than addressing the scale problem.",
       "C": "Full statement: SUITABILITY CONCERNS — small foundation likely lacks scale to diversify across VINTAGES, GEOGRAPHIES, and MANAGERS; may lack INVESTMENT STAFF for manager selection and monitoring; minimum investments per fund often too large for adequate diversification; FUND OF FUNDS may be appropriate to gain diversification but at additional fee layer; alternatively, LIQUID ALT REPLICATIONS or listed private-equity vehicles could provide scaled-down exposure.\n\nCorrect. Per curriculum: small institutions face scale constraints in accessing direct alts and often use FoF or listed vehicles."
      },
      "type": "mc",
@@ -631,14 +631,14 @@
      "stem": "Investment governance considerations for alternatives most likely:",
      "options": {
       "A": "GOVERNANCE includes: adequate INVESTMENT STAFF for due diligence and ongoing monitoring.",
-      "B": "no framework.",
-      "C": "no framework."
+      "B": "governance is satisfied once the investment committee approves the initial commitment; ongoing oversight is unnecessary.",
+      "C": "governance requirements apply only to hedge funds, not to private equity or real assets."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: GOVERNANCE includes: adequate INVESTMENT STAFF for due diligence and ongoing monitoring; INVESTMENT COMMITTEE experience with alternatives; consultant or advisory relationships; APPROVED policy for illiquid investments (max %, vintage limits, geographic caps); reporting and RISK MONITORING infrastructure; institutions without these governance capabilities should limit alt exposure OR outsource via advisor/OCIO.\n\nCorrect. Per curriculum: alt investing requires governance capacity; without it, exposure should be limited or outsourced.",
-      "B": "Staff + committee + policy + infra.",
-      "C": "Governance requirements."
+      "B": "Treats governance as a one-time approval, ignoring the ongoing monitoring, policy, and risk-infrastructure requirements alts demand.",
+      "C": "Wrongly narrows governance to one asset type; all illiquid alts require staff, policy limits, and monitoring capacity."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.d",
@@ -726,15 +726,15 @@
      "number": 7,
      "stem": "Individual investor alt suitability most likely:",
      "options": {
-      "A": "always appropriate.",
+      "A": "alternatives are suitable for any individual investor once a subscription agreement is signed.",
       "B": "individual investor suitability requires: (1) sufficient WEALTH to meet minimum investments and diversify.",
-      "C": "no framework."
+      "C": "individual suitability hinges solely on regulatory accreditation, regardless of horizon or liquidity reserves."
      },
      "correct": "B",
      "rationales": {
-      "A": "6-factor test for individuals.",
+      "A": "Ignores the wealth, horizon, sophistication, tax, qualification, and liquidity-reserve tests that gate individual suitability.",
       "B": "Full statement: individual investor suitability requires: (1) sufficient WEALTH to meet minimum investments and diversify; (2) LONG horizon exceeding lockup periods; (3) SOPHISTICATION or advised access; (4) TAX status compatible with fund structures; (5) REGULATORY qualification (accredited/qualified); (6) LIQUIDITY reserves outside alts to meet lifestyle needs; individuals lacking these should use LISTED alt vehicles or accept limited alt exposure.\n\nCorrect. Per curriculum: individual investor alt suitability is restrictive; listed alts often better fit for non-institutional investors.",
-      "C": "Individual investor."
+      "C": "Treats accredited/qualified status as sufficient, whereas it is only one of several required suitability conditions."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.d",
@@ -760,14 +760,14 @@
      "number": 1,
      "stem": "Approaches to strategic asset allocation to alternatives most likely:",
      "options": {
-      "A": "only mean-variance optimization.",
-      "B": "no framework.",
+      "A": "the only valid approach is naive mean-variance optimization using reported historical returns.",
+      "B": "alternatives cannot be incorporated into any formal allocation framework and must be sized purely judgmentally.",
       "C": "common approaches: (1) MONTE CARLO SIMULATION — captures non-normal return distributions and path dependency."
      },
      "correct": "C",
      "rationales": {
-      "A": "Monte Carlo, adjusted MVO, factor, reference portfolio.",
-      "B": "AA approaches.",
+      "A": "Ignores that naive MVO on smoothed reported returns overallocates to alts; Monte Carlo, adjusted MVO, factor, and reference approaches are needed.",
+      "B": "False, as several structured approaches (Monte Carlo, adjusted MVO, risk-factor, reference-portfolio) explicitly allocate to alts.",
       "C": "Full statement: common approaches: (1) MONTE CARLO SIMULATION — captures non-normal return distributions and path dependency; (2) MEAN-VARIANCE OPTIMIZATION with adjusted inputs (desmoothed returns, illiquidity haircuts, capacity limits); (3) RISK-FACTOR-based allocation across factors; (4) REFERENCE-PORTFOLIO benchmarking (compare alt-inclusive portfolio to a beta-equivalent public reference); (5) LIABILITY-MATCHING for pensions; simple MVO with naive alt inputs typically OVERALLOCATES to alts.\n\nCorrect. Per curriculum §6 approaches: multiple approaches beyond simple MVO are needed given non-normal returns and illiquidity."
      },
      "type": "mc",
@@ -785,14 +785,14 @@
      "stem": "Monte Carlo simulation advantages for alternatives most likely:",
      "options": {
       "A": "Monte Carlo can incorporate NON-NORMAL return distributions (skew, kurtosis, tail risk).",
-      "B": "no framework.",
-      "C": "no framework."
+      "B": "Monte Carlo requires returns to be normally distributed, limiting its usefulness for skewed alt returns.",
+      "C": "Monte Carlo produces a single point estimate of expected return rather than a distribution of outcomes."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: Monte Carlo can incorporate NON-NORMAL return distributions (skew, kurtosis, tail risk); captures PATH-DEPENDENT outcomes (e.g., liquidity crises hitting during drawdowns); models CAPITAL-CALL / DISTRIBUTION timing for private markets; handles SPENDING RULES and rebalancing constraints; and produces DISTRIBUTIONS of outcomes rather than point estimates, better representing the uncertainty inherent in alt investing.\n\nCorrect. Per curriculum: Monte Carlo advantages include non-normality, path dependence, and distributional outputs.",
-      "B": "Non-normal, path-dependent, distributional.",
-      "C": "Monte Carlo advantages."
+      "B": "Backwards; Monte Carlo's key advantage is accommodating non-normal, skewed, fat-tailed distributions rather than requiring normality.",
+      "C": "Reverses its output; Monte Carlo generates full distributions of outcomes, which is precisely why it suits alt uncertainty."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.e",
@@ -808,15 +808,15 @@
      "number": 3,
      "stem": "Adjustments to inputs required for MVO with alternatives most likely:",
      "options": {
-      "A": "no adjustments needed.",
+      "A": "no adjustments are needed because reported alt returns already reflect true economic volatility and correlations.",
       "B": "typical adjustments: (1) DESMOOTH returns to correct for appraisal-based valuation and stale pricing.",
-      "C": "no framework."
+      "C": "reported volatility should be lowered and correlations reduced to reflect the diversification alternatives provide."
      },
      "correct": "B",
      "rationales": {
-      "A": "Desmooth + haircut + constraint.",
+      "A": "Reported returns are smoothed and stale, so using them unadjusted understates risk and drives overallocation to alts.",
       "B": "Full statement: typical adjustments: (1) DESMOOTH returns to correct for appraisal-based valuation and stale pricing; (2) INCREASE reported volatility to reflect underlying economic volatility; (3) INCREASE reported correlations with equity/bonds after desmoothing; (4) apply ILLIQUIDITY HAIRCUT to expected returns; (5) impose MAXIMUM allocation constraints reflecting capacity/governance limits; without these, MVO systematically OVERALLOCATES to alternatives.\n\nCorrect. Per curriculum §6 MVO adjustments: without them, alts appear artificially attractive and are overweighted.",
-      "C": "Input adjustments."
+      "C": "Adjusts in the wrong direction; desmoothing raises volatility and correlations with public markets rather than lowering them."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.e",
@@ -832,14 +832,14 @@
      "number": 4,
      "stem": "Risk-factor-based allocation implementation for alts most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "allocate to alts by asset-class label first and disregard any underlying factor exposures.",
+      "B": "assign each alternative to a single dedicated factor equal to its asset-class name, such as a 'private equity' factor.",
       "C": "decompose each alt asset into its risk factor exposures (equity, credit, duration, inflation, illiquidity, volatility)."
      },
      "correct": "C",
      "rationales": {
-      "A": "Factor budgets, then alt allocation to fill.",
-      "B": "Factor budget approach.",
+      "A": "Label-first allocation is the traditional approach and defeats the factor method's purpose of revealing hidden common-factor concentrations.",
+      "B": "Labels-as-factors collapses back to the traditional approach; the method decomposes each alt into common macro/style factors.",
       "C": "Full statement: decompose each alt asset into its risk factor exposures (equity, credit, duration, inflation, illiquidity, volatility); set factor budgets consistent with objectives; allocate to specific alt strategies to fill factor budgets; MONITORS effective factor exposures rather than nominal asset-class weights; helps prevent unintended concentrations from labels that hide common risks.\n\nCorrect. Per curriculum: risk-factor-based allocation sets factor budgets and fills via alt strategies."
      },
      "type": "mc",
@@ -986,14 +986,14 @@
      "number": 2,
      "stem": "Desmoothing (unsmoothing) techniques most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "desmoothing averages several quarters of reported returns to further reduce short-term noise.",
+      "B": "desmoothing lowers estimated volatility and raises the reported Sharpe ratios of alternatives.",
       "C": "desmoothing techniques attempt to recover the ECONOMIC return series from the reported (smoothed) series."
      },
      "correct": "C",
      "rationales": {
-      "A": "AR(1) desmoothing formula.",
-      "B": "Desmoothing formula.",
+      "A": "Describes additional smoothing, the opposite of desmoothing, which removes autocorrelation to recover the underlying economic series.",
+      "B": "Reverses the effect; desmoothing increases volatility and correlations and reduces alt Sharpe ratios.",
       "C": "Full statement: desmoothing techniques attempt to recover the ECONOMIC return series from the reported (smoothed) series; a common approach uses an AR(1) model: R_true,t = (R_reported,t − ρ × R_reported,t−1) / (1 − ρ), where ρ is the first-order autocorrelation of reported returns; result INCREASES estimated volatility, INCREASES correlations with public markets, and REDUCES Sharpe ratios of alternatives.\n\nCorrect. Per curriculum §7 desmoothing: the AR(1)-based method recovers economic returns from reported returns."
      },
      "type": "mc",
@@ -1011,14 +1011,14 @@
      "stem": "Stale pricing in illiquid alternatives most likely implies:",
      "options": {
       "A": "reported NAVs reflect appraisals or quarterly valuations that LAG public-market repricing.",
-      "B": "no framework.",
-      "C": "no framework."
+      "B": "reported NAVs update instantly with public markets, providing genuine real-time downside protection.",
+      "C": "stale pricing overstates alt volatility, making alternatives appear riskier than they truly are."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: reported NAVs reflect appraisals or quarterly valuations that LAG public-market repricing; during a public market drawdown, reported alt NAVs may show smaller declines simply because they haven't been remarked yet — this is NOT genuine downside protection; investors relying on stale NAVs may misjudge diversification and misallocate.\n\nCorrect. Per curriculum: stale valuations produce illusory volatility reduction and misleading correlation estimates during crises.",
-      "B": "Stale NAVs = illusory downside protection.",
-      "C": "Stale pricing."
+      "B": "Stale NAVs lag public repricing; their smaller reported declines are a measurement artifact, not real downside protection.",
+      "C": "Reverses the direction; stale pricing dampens measured volatility, making alts look less risky than they are."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.f",
@@ -1083,14 +1083,14 @@
      "stem": "Illiquidity premium — modeling considerations most likely:",
      "options": {
       "A": "the ILLIQUIDITY PREMIUM (expected extra return over comparable liquid assets) is REAL but UNCERTAIN in magnitude.",
-      "B": "no framework.",
-      "C": "no framework."
+      "B": "the illiquidity premium is precisely measurable and should be added at its full historical average to expected returns.",
+      "C": "the illiquidity premium is a guaranteed contractual return embedded in every private fund's terms."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: the ILLIQUIDITY PREMIUM (expected extra return over comparable liquid assets) is REAL but UNCERTAIN in magnitude; historical estimates range widely (100–500 bps for PE over public equity); modelers should HAIRCUT expected alt returns to reflect uncertainty and only include alts to the extent that a plausible illiquidity premium justifies allocation against the illiquidity costs borne by the investor.\n\nCorrect. Per curriculum: illiquidity premium exists but estimation is uncertain; conservative haircuts prevent overallocation.",
-      "B": "Real but uncertain; haircut in model.",
-      "C": "Illiquidity premium."
+      "B": "Overstates precision; the premium's magnitude is highly uncertain, so modelers should haircut rather than apply the full historical estimate.",
+      "C": "No premium is guaranteed; it is uncertain expected compensation for bearing illiquidity, not a contractual entitlement."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.f",
@@ -1130,14 +1130,14 @@
      "number": 8,
      "stem": "Regime dependency of alt returns most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "alt returns are regime-independent, delivering the same premium across all market environments.",
+      "B": "historical averages fully capture forward regime shifts, so stress testing is unnecessary.",
       "C": "many alt strategies are REGIME DEPENDENT — hedge fund style factors work in some environments and fail in others."
      },
      "correct": "C",
      "rationales": {
-      "A": "Averages pool regimes with different behavior.",
-      "B": "Regime dependency.",
+      "A": "Ignores regime dependency; hedge-fund style factors and PE/credit premia vary sharply with the macro and valuation environment.",
+      "B": "Averages pool dissimilar regimes and can misrepresent the forward environment, which is exactly why regime-aware stress testing is required.",
       "C": "Full statement: many alt strategies are REGIME DEPENDENT — hedge fund style factors work in some environments and fail in others; PE returns depend heavily on ENTRY VALUATIONS and exit market conditions; PRIVATE CREDIT premiums vary with credit cycle; historical averages POOL regimes and may not reflect the FORWARD environment; regime-aware modeling and stress testing are essential.\n\nCorrect. Per curriculum: alt returns are regime dependent; averaging across regimes obscures conditional risk."
      },
      "type": "mc",
@@ -1165,14 +1165,14 @@
      "stem": "Liquidity-return tradeoff for alternatives most likely:",
      "options": {
       "A": "alternatives offer HIGHER EXPECTED RETURNS in exchange for reduced liquidity (illiquidity premium).",
-      "B": "no framework.",
-      "C": "no framework."
+      "B": "alternatives offer both higher expected returns and greater liquidity than public markets simultaneously.",
+      "C": "alternatives sacrifice expected return to obtain the safety of reduced liquidity."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: alternatives offer HIGHER EXPECTED RETURNS in exchange for reduced liquidity (illiquidity premium); investors must weigh EXPECTED SPREAD against liquidity costs including: inability to rebalance in stress; forced holding through drawdowns; loss of tactical flexibility; potentially higher risk of denominator-effect concentrations; the tradeoff is investor-specific — long-horizon perpetual investors capture more of the premium than short-horizon ones.\n\nCorrect. Per curriculum §8: the tradeoff must be evaluated in light of investor horizon and liquidity constraints.",
-      "B": "Trade illiquidity for premium; horizon-dependent.",
-      "C": "Liquidity tradeoff."
+      "B": "Denies the core tradeoff; the extra expected return is compensation for accepting reduced, not greater, liquidity.",
+      "C": "Inverts the tradeoff; investors accept illiquidity to earn a higher expected return, not to give return up for safety."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.g",
@@ -1212,14 +1212,14 @@
      "number": 3,
      "stem": "Funding risk for private equity most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "FUNDING RISK: the risk that the GP fails to deploy committed capital before the fund's term expires.",
+      "B": "FUNDING RISK: the risk that distributions arrive faster than the LP can profitably reinvest them.",
       "C": "FUNDING RISK: the risk that an LP cannot meet capital calls when they arrive."
      },
      "correct": "C",
      "rationales": {
-      "A": "Cash-call failure during stress.",
-      "B": "Funding risk.",
+      "A": "Describes deployment/dry-powder risk on the GP side; funding risk is the LP's inability to meet capital calls.",
+      "B": "Confuses funding risk with reinvestment risk; the concern is meeting capital calls, not redeploying distributions.",
       "C": "Full statement: FUNDING RISK: the risk that an LP cannot meet capital calls when they arrive; typically manifests during liquidity crises when portfolio value is down, spending needs are up, and PE managers accelerate capital calls into distressed opportunities; consequences include DEFAULT (loss of fund interest, distributions), forced selling of liquid assets at unfavorable prices, or borrowing at high cost; managed through commitment pacing, liquidity reserves, and secondary sales.\n\nCorrect. Per curriculum: funding risk is a critical alt-specific risk requiring pacing and liquidity planning."
      },
      "type": "mc",
@@ -1237,14 +1237,14 @@
      "stem": "Key-person risk in alternatives most likely:",
      "options": {
       "A": "many alt strategies depend on a SPECIFIC individual or small team (founder-manager).",
-      "B": "no framework.",
-      "C": "no framework."
+      "B": "key-person risk is eliminated in alternatives because large firms rely on standardized, team-based processes.",
+      "C": "key-person risk refers to the departure of the LP's chief investment officer from the investing institution."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: many alt strategies depend on a SPECIFIC individual or small team (founder-manager); loss of that key person via departure, death, or dispute can materially impair returns; typically addressed via KEY-PERSON PROVISIONS in LP agreements (right to suspend investment period or terminate fund if key persons cease active involvement); diligence should identify and monitor key persons; concentration in single-manager alt exposures amplifies key-person risk.\n\nCorrect. Per curriculum §8: key-person risk is prominent in alts and mitigated through LP agreement provisions and monitoring.",
-      "B": "Manager-specific risk; key-person provisions.",
-      "C": "Key-person risk."
+      "B": "Understates the exposure; many alt strategies still hinge on a specific founder or small team, which LP key-person provisions exist to address.",
+      "C": "Locates the risk on the wrong side; it concerns loss of the manager's key individuals, not the investor's staff."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.g",
@@ -1260,15 +1260,15 @@
      "number": 5,
      "stem": "Fee drag on net returns for alternatives most likely:",
      "options": {
-      "A": "no framework.",
+      "A": "typical alt fee structures reduce gross returns by only 10–20 bps per year, comparable to index funds.",
       "B": "typical alt fee structures (2 & 20) can reduce gross returns by 400–600 bps per year.",
-      "C": "no framework."
+      "C": "fund-of-funds layers eliminate fee drag by negotiating away the underlying managers' carry."
      },
      "correct": "B",
      "rationales": {
-      "A": "Fees can eat 400-700 bps; use net returns.",
+      "A": "Drastically understates fee drag; 2-and-20 structures cost hundreds of basis points annually, not index-fund levels.",
       "B": "Full statement: typical alt fee structures (2 & 20) can reduce gross returns by 400–600 bps per year; combined with FUND-OF-FUNDS layers (additional ~1% + 10%), total fee drag can exceed 700 bps; for alts to justify inclusion, GROSS alpha must exceed the total fee drag PLUS the illiquidity premium demanded; failure to consider net-of-fee returns leads to systematic overallocation.\n\nCorrect. Per curriculum: fee drag is material and must be modeled net; FoF layers compound the drag.",
-      "C": "Fee drag."
+      "C": "Backwards; a fund-of-funds adds another fee layer on top of the underlying managers, increasing total drag."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.g",
@@ -1309,14 +1309,14 @@
      "stem": "Concentration risk in alt manager selection most likely:",
      "options": {
       "A": "CONCENTRATION risk arises when a small number of managers dominate the alt allocation.",
-      "B": "no framework.",
-      "C": "no framework."
+      "B": "concentration risk is negligible in alternatives because manager returns are highly correlated with one another.",
+      "C": "concentration risk applies only to public equity portfolios, not to alternative manager selection."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: CONCENTRATION risk arises when a small number of managers dominate the alt allocation; single-manager loss (departure, fraud, poor performance) can drive material portfolio impact; MITIGATION includes: diversifying across multiple managers, capping individual manager exposure (typically <25% of any strategy), diversifying across strategies within an alt category, and vintage-year diversification for private markets.\n\nCorrect. Per curriculum: manager concentration is a critical alt-specific risk requiring active diversification.",
-      "B": "Diversify across managers + vintages.",
-      "C": "Manager concentration."
+      "B": "False premise; wide manager dispersion means single-manager exposure carries substantial idiosyncratic risk, so concentration matters greatly.",
+      "C": "Manager concentration is a core alt-specific risk mitigated by diversifying across managers, strategies, and vintages."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.g",
@@ -1366,14 +1366,14 @@
      "number": 1,
      "stem": "Illiquid alts' risk profile under stress most likely:",
      "options": {
-      "A": "reduced risk under stress.",
-      "B": "no framework.",
+      "A": "illiquid alts genuinely reduce portfolio risk under stress because their NAVs decline less than public assets.",
+      "B": "reported risk metrics overstate stress-period risk, making illiquid alts appear more dangerous than they are.",
       "C": "reported risk METRICS understate stress-period risk because appraisal-based NAVs SMOOTH real economic losses."
      },
      "correct": "C",
      "rationales": {
-      "A": "Stress-period risk understated by reported metrics.",
-      "B": "Stress risk.",
+      "A": "Mistakes smoothed appraisal NAVs for real protection; the smaller reported decline is a valuation lag, not genuine risk reduction.",
+      "B": "Reverses the bias; smoothed data understates, not overstates, true stress-period risk.",
       "C": "Full statement: reported risk METRICS understate stress-period risk because appraisal-based NAVs SMOOTH real economic losses; investors face LOSS OF OPTIONALITY (cannot rebalance, cannot access capital for emergency needs); CROSS-DEFAULT and CROSS-COLLATERALIZATION provisions in fund LP agreements can amplify losses; forced sales in secondary markets often occur at 20–40% discounts to reported NAV during stress.\n\nCorrect. Per curriculum §9: illiquid alt risk profiles are materially worse in stress than reported metrics suggest."
      },
      "type": "mc",
@@ -1414,15 +1414,15 @@
      "number": 3,
      "stem": "Gates and side pockets in hedge funds most likely:",
      "options": {
-      "A": "no framework.",
+      "A": "GATES guarantee investors full redemption on demand regardless of the fund's liquidity conditions.",
       "B": "GATES limit total redemptions per period (e.g., 25% of AUM per quarter) to prevent forced liquidation during crises.",
-      "C": "no framework."
+      "C": "SIDE POCKETS hold the fund's most liquid positions and are redeemable daily at NAV."
      },
      "correct": "B",
      "rationales": {
-      "A": "Gates + side pockets impair liquidity in crisis.",
+      "A": "Opposite of a gate's function; gates cap redemptions to prevent fire sales, impairing rather than guaranteeing investor liquidity.",
       "B": "Full statement: GATES limit total redemptions per period (e.g., 25% of AUM per quarter) to prevent forced liquidation during crises; SIDE POCKETS segregate ILLIQUID or hard-to-value positions from the main fund, with distributions when they are realized; both mechanisms PROTECT the fund from fire sales but IMPAIR investor liquidity precisely when it is most needed; investors must MODEL these mechanisms as part of liquidity planning.\n\nCorrect. Per curriculum §9: gates and side pockets are common HF liquidity constraints that need to be considered in AA.",
-      "C": "HF liquidity mechanisms."
+      "C": "Backwards; side pockets segregate illiquid, hard-to-value positions and pay out only as those assets are realized."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.h",
@@ -1438,14 +1438,14 @@
      "number": 4,
      "stem": "Impact of alt illiquidity on rebalancing most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "illiquid alts can be rebalanced as easily as public assets by trimming positions at reported NAV.",
+      "B": "illiquidity has no effect on rebalancing because private NAVs move too little to breach policy bands.",
       "C": "rebalancing is CONSTRAINED for illiquid alts — cannot readily reduce PE exposure without secondary sales at discount."
      },
      "correct": "C",
      "rationales": {
-      "A": "Rebalancing constrained; procyclical without planning.",
-      "B": "Rebalancing impact.",
+      "A": "Ignores that reducing PE exposure requires secondary sales at a discount, so rebalancing is constrained, not frictionless.",
+      "B": "Overlooks the denominator effect, which drives alt weights above target and cannot be quickly corrected due to illiquidity.",
       "C": "Full statement: rebalancing is CONSTRAINED for illiquid alts — cannot readily reduce PE exposure without secondary sales at discount; upward drift in alt allocations from denominator effect cannot be quickly corrected; rebalancing must primarily use LIQUID components (public equity/bonds); this creates PROCYCLICAL rebalancing behavior (sell public assets after they've fallen) unless investor pre-plans liquidity reserves and rebalancing rules.\n\nCorrect. Per curriculum §9: illiquidity constrains rebalancing to liquid components and creates procyclical behavior without planning."
      },
      "type": "mc",
@@ -1510,14 +1510,14 @@
      "number": 7,
      "stem": "Illiquidity in normal markets vs stress markets most likely:",
      "options": {
-      "A": "illiquidity is constant.",
-      "B": "no framework.",
+      "A": "illiquidity is constant across market states, so secondary discounts do not change during stress.",
+      "B": "alt liquidity improves during stress as distressed buyers compete to purchase LP interests.",
       "C": "in NORMAL markets, secondary markets function and liquidity is available at moderate discounts (5-15%)."
      },
      "correct": "C",
      "rationales": {
-      "A": "Illiquidity worsens in stress.",
-      "B": "State-dependent illiquidity.",
+      "A": "Illiquidity is state-dependent; secondary discounts widen sharply and gates activate precisely during stress.",
+      "B": "Reverses reality; liquidity deeply contracts in stress, with wider discounts and paused distributions, not improved access.",
       "C": "Full statement: in NORMAL markets, secondary markets function and liquidity is available at moderate discounts (5-15%); in STRESS markets, liquidity DEEPLY CONTRACTS — secondary discounts widen to 20-40%, gates activate, side pockets are used, and NEW commitments and distributions may pause; the concept of 'illiquidity' is state-dependent — worse when needed most.\n\nCorrect. Per curriculum: alt liquidity contracts sharply in market stress, which is when investors most need liquidity."
      },
      "type": "mc",
@@ -1545,14 +1545,14 @@
      "stem": "Direct investment vs fund vs fund of funds trade-offs most likely:",
      "options": {
       "A": "DIRECT: lowest fee load, greatest control, but requires deep expertise, staffing, and deal sourcing.",
-      "B": "no framework.",
-      "C": "no framework."
+      "B": "FUND OF FUNDS: the lowest total fee load and the least diversification of the three access routes.",
+      "C": "DIRECT investment carries the highest fee load because each deal is separately negotiated."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: DIRECT: lowest fee load, greatest control, but requires deep expertise, staffing, and deal sourcing; FUND: standard 2 & 20 (or comparable) fees, professional management, diversified within the fund but concentrated in one manager; FUND OF FUNDS: additional 1% + 10% fee layer but PROVIDES: multi-manager diversification, professional due diligence, smaller minimum investments, and access to top-tier funds otherwise closed to small investors.\n\nCorrect. Per curriculum §10 vehicles: choice depends on scale, expertise, and diversification needs.",
-      "B": "Direct/fund/FoF: cost vs diversification vs expertise.",
-      "C": "Vehicle trade-offs."
+      "B": "Doubly wrong; funds of funds add a fee layer (highest cost) and provide multi-manager diversification (most, not least).",
+      "C": "Direct investing bears the lowest fee load by avoiding fund and fund-of-funds carry, at the cost of requiring in-house expertise."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.i",
@@ -1722,15 +1722,15 @@
      "number": 1,
      "stem": "Monitoring alt investments — key focus areas most likely:",
      "options": {
-      "A": "no framework.",
+      "A": "monitoring is limited to verifying the quarterly NAV statements provided by the fund administrator.",
       "B": "monitoring covers: (1) PERFORMANCE vs BENCHMARK (PME, IRR, TVPI for PE.",
-      "C": "no framework."
+      "C": "once due diligence is complete at inception, ongoing monitoring of alt managers adds little value."
      },
      "correct": "B",
      "rationales": {
-      "A": "Performance, style, key persons, fees, valuation, cash flows, risk, ODD.",
+      "A": "Far too narrow; monitoring spans performance, style drift, key persons, fees, valuation, liquidity, risk, and operational due diligence.",
       "B": "Full statement: monitoring covers: (1) PERFORMANCE vs BENCHMARK (PME, IRR, TVPI for PE; index-relative for HF); (2) MANAGER FIT — style drift, strategy consistency; (3) KEY-PERSON changes; (4) FEES and expense drag; (5) VALUATION methodology and independence; (6) LIQUIDITY and cash flow — capital call rate, distribution rate; (7) RISK measures — leverage, concentration, factor exposures; (8) OPERATIONAL DUE DILIGENCE — controls, audits, custody.\n\nCorrect. Per curriculum §11 monitoring: comprehensive framework spans investment and operational aspects.",
-      "C": "Monitoring dimensions."
+      "C": "Ignores that style drift, key-person changes, and operational red flags emerge over time and require continuous monitoring."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.j",
@@ -1746,14 +1746,14 @@
      "number": 2,
      "stem": "Public Market Equivalent (PME) for private equity most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "PME compares a private fund's IRR directly to the public index's time-weighted return, ignoring cash-flow timing.",
+      "B": "PME measures a private fund's gross-of-fee return against its own prior-quarter reported NAV.",
       "C": "PME compares private-fund cash flows to a HYPOTHETICAL PUBLIC-INDEX investment with the same call/distribution timing."
      },
      "correct": "C",
      "rationales": {
-      "A": "Cash-flow-timing-adjusted public benchmark ratio.",
-      "B": "PME.",
+      "A": "Misses the essence of PME, which replicates the fund's actual call and distribution timing rather than comparing headline IRRs.",
+      "B": "Wrong benchmark; PME measures net cash flows against a hypothetical public-index investment, not against the fund's own lagged NAV.",
       "C": "Full statement: PME compares private-fund cash flows to a HYPOTHETICAL PUBLIC-INDEX investment with the same call/distribution timing; a PME above 1.0 indicates PE outperformed the public benchmark; PME accounts for TIMING of cash flows (unlike simple IRR comparisons) and represents the ILLIQUIDITY PREMIUM captured; widely used to evaluate PE managers against public alternatives.\n\nCorrect. Per curriculum §11 PME: standard benchmark for PE that adjusts for cash-flow timing."
      },
      "type": "mc",
@@ -1794,15 +1794,15 @@
      "number": 4,
      "stem": "Operational due diligence (ODD) most likely:",
      "options": {
-      "A": "no framework.",
+      "A": "ODD focuses on forecasting the manager's future investment returns and alpha generation.",
       "B": "ODD examines NON-INVESTMENT risks: valuation policies and independence of pricing sources.",
-      "C": "no framework."
+      "C": "ODD is a one-time legal review of the LP agreement completed before the initial commitment."
      },
      "correct": "B",
      "rationales": {
-      "A": "Non-investment risk review with veto authority.",
+      "A": "Confuses ODD with investment due diligence; ODD assesses non-investment risks like valuation, custody, audit, and controls.",
       "B": "Full statement: ODD examines NON-INVESTMENT risks: valuation policies and independence of pricing sources; custody arrangements; audit firms and audit history; regulatory registrations and history; internal controls and segregation of duties; personnel background checks; disaster recovery; business continuity; ODD failures are LEADING causes of hedge fund fraud losses (Madoff, others), so ODD often carries VETO authority in institutional programs.\n\nCorrect. Per curriculum §11 ODD: distinct from investment DD; often the source of critical red flags.",
-      "C": "ODD."
+      "C": "Understates ODD; it is an ongoing review of operational controls across custody, audit, valuation, and personnel, not a single legal check."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.j",
@@ -1818,14 +1818,14 @@
      "number": 5,
      "stem": "IRR limitations as PE performance metric most likely:",
      "options": {
-      "A": "no framework.",
-      "B": "no framework.",
+      "A": "IRR is a complete performance measure requiring no supplementation by TVPI, DPI, or PME.",
+      "B": "IRR assumes reinvestment at the risk-free rate, understating a successful fund's true return.",
       "C": "IRR: (1) assumes REINVESTMENT at the IRR itself, often unrealistic."
      },
      "correct": "C",
      "rationales": {
-      "A": "IRR alone insufficient — supplement with TVPI/DPI/PME.",
-      "B": "IRR limitations.",
+      "A": "IRR alone is insufficient; it must be paired with TVPI, DPI, and PME because of its reinvestment and manipulation limitations.",
+      "B": "Wrong assumption and direction; IRR assumes reinvestment at the IRR itself, which tends to overstate, not understate, returns.",
       "C": "Full statement: IRR: (1) assumes REINVESTMENT at the IRR itself, often unrealistic; (2) can be MANIPULATED by early distributions (e.g., quick partial exits); (3) doesn't reflect absolute value creation (TVPI does); (4) VINTAGE-SPECIFIC — cannot be compared across dissimilar time periods without adjustment; (5) doesn't compare to public alternative (PME does); good practice uses IRR alongside TVPI, DPI, and PME.\n\nCorrect. Per curriculum: IRR is one metric but should not be used in isolation."
      },
      "type": "mc",
@@ -1843,14 +1843,14 @@
      "stem": "Cumulative vintage exposure monitoring most likely:",
      "options": {
       "A": "monitor CUMULATIVE COMMITMENT and DEPLOYED CAPITAL by VINTAGE YEAR to detect over- or under-commitment vs pacing plan.",
-      "B": "no framework.",
-      "C": "no framework."
+      "B": "concentrate all commitments in a single vintage year to simplify tracking and reporting.",
+      "C": "vintage-year tracking becomes unnecessary once the target private-market allocation is first reached."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: monitor CUMULATIVE COMMITMENT and DEPLOYED CAPITAL by VINTAGE YEAR to detect over- or under-commitment vs pacing plan; VINTAGE CONCENTRATION creates cyclical risk; ideally, deploy across multiple vintages to smooth returns; if under-committing in a year, may need to CATCH UP via secondaries or larger primary commitments; monitoring both current and future committed capital allows dynamic pacing.\n\nCorrect. Per curriculum: vintage-year monitoring supports smooth deployment and diversified exposure.",
-      "B": "Track cumulative vintage exposure for pacing.",
-      "C": "Vintage monitoring."
+      "B": "Single-vintage concentration creates cyclical timing risk; the goal is deploying across vintages to smooth exposure.",
+      "C": "Ongoing pacing is required to maintain the target against distributions and NAV changes, so vintage monitoring continues past the initial target."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.j",
@@ -1866,15 +1866,15 @@
      "number": 7,
      "stem": "Manager benchmark selection for hedge funds most likely:",
      "options": {
-      "A": "no framework.",
+      "A": "a single broad hedge fund index is an unbiased, precise benchmark for any individual strategy.",
       "B": "HF benchmark selection is CHALLENGING because indices are HETEROGENEOUS and SUFFER FROM BIASES.",
-      "C": "no framework."
+      "C": "hedge funds are best benchmarked against a public equity index such as the S&P 500 regardless of strategy."
      },
      "correct": "B",
      "rationales": {
-      "A": "Strategy-specific + absolute benchmarks.",
+      "A": "Broad indices are heterogeneous and bias-laden; strategy-specific benchmarks and peer groups are needed instead.",
       "B": "Full statement: HF benchmark selection is CHALLENGING because indices are HETEROGENEOUS and SUFFER FROM BIASES; STRATEGY-SPECIFIC benchmarks preferred (e.g., HFRI equity market neutral); consider PEER GROUPS with similar strategy and risk profile; ABSOLUTE benchmarks (like cash + 400 bps) provide clarity but ignore market environments; combining PEER-RELATIVE and ABSOLUTE benchmarks provides more comprehensive evaluation.\n\nCorrect. Per curriculum: HF benchmarking requires strategy-specific indices supplemented by absolute measures.",
-      "C": "HF benchmarking."
+      "C": "An equity index ignores each strategy's distinct exposures; benchmarking should be strategy-specific and supplemented with absolute measures."
      },
      "type": "mc",
      "primary_los": "asset_allocation_to_alternative_investments.j",
@@ -1890,14 +1890,14 @@
      "number": 8,
      "stem": "Alt program monitoring frequency and depth most likely:",
      "options": {
-      "A": "annual only.",
-      "B": "no framework.",
+      "A": "a single annual review cycle is sufficient for the entire alternatives program.",
+      "B": "event-driven reviews should replace all scheduled monitoring, triggered only by manager news.",
       "C": "monitoring should be MULTI-FREQUENCY: quarterly performance/attribution/fee review at fund level."
      },
      "correct": "C",
      "rationales": {
-      "A": "Multi-frequency layered monitoring.",
-      "B": "Monitoring frequency.",
+      "A": "Too infrequent; monitoring must be multi-frequency, combining quarterly, monthly, annual, and event-driven reviews.",
+      "B": "Event-driven review supplements but cannot replace regular scheduled performance, liquidity, and operational reviews.",
       "C": "Full statement: monitoring should be MULTI-FREQUENCY: quarterly performance/attribution/fee review at fund level; annual comprehensive review including ODD refresh; monthly liquidity/exposure aggregation across program; event-driven review on key-person changes, style drift signals, or performance outliers; portfolio-level reviews annually against strategic objectives; systematic monitoring PREVENTS surprises.\n\nCorrect. Per curriculum: alt monitoring should span multiple frequencies and depths of review."
      },
      "type": "mc",
