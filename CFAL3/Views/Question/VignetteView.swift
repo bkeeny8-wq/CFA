@@ -164,11 +164,11 @@ struct VignetteView: View {
             .clipShape(RoundedRectangle(cornerRadius: 10))
 
         case .table(let headers, let rows):
+            // Same no-horizontal-scroll policy as reading notes: fit
+            // inline, otherwise reflow rows vertically.
             ViewThatFits(in: .horizontal) {
                 tableGrid(headers: headers, rows: rows)
-                ScrollView(.horizontal, showsIndicators: true) {
-                    tableGrid(headers: headers, rows: rows)
-                }
+                stackedRows(headers: headers, rows: rows)
             }
             .background(Color.secondary.opacity(0.06))
             .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -198,6 +198,37 @@ struct VignetteView: View {
                 }
             }
         }
+        .padding(12)
+    }
+
+    private func stackedRows(headers: [String], rows: [[String]]) -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            ForEach(Array(rows.enumerated()), id: \.offset) { index, row in
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(row.first ?? "")
+                        .font(.footnote.weight(.semibold))
+                        .foregroundStyle(Theme.accent)
+                        .fixedSize(horizontal: false, vertical: true)
+
+                    ForEach(Array(zip(headers.dropFirst(), row.dropFirst())
+                        .enumerated()), id: \.offset) { _, pair in
+                        HStack(alignment: .firstTextBaseline, spacing: 6) {
+                            Text(pair.0)
+                                .font(.caption.weight(.medium))
+                                .foregroundStyle(.secondary)
+                            Text(pair.1)
+                                .font(.footnote.monospacedDigit())
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                    }
+                }
+
+                if index < rows.count - 1 {
+                    Divider()
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
         .padding(12)
     }
 }

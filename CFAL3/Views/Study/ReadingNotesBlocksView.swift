@@ -88,6 +88,7 @@ private struct LOSSectionHeader: View {
 }
 
 private struct NotesCalloutView: View {
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     let kind: NotesCalloutKind
     let text: String
 
@@ -104,7 +105,7 @@ private struct NotesCalloutView: View {
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(accentColor)
                 Text(text)
-                    .font(.subheadline)
+                    .font(horizontalSizeClass == .regular ? .callout : .subheadline)
                     .lineSpacing(3)
                     .fixedSize(horizontal: false, vertical: true)
             }
@@ -140,32 +141,76 @@ private struct NotesTableView: View {
             Text(title)
                 .font(.headline)
 
-            ScrollView(.horizontal, showsIndicators: true) {
-                Grid(alignment: .leading, horizontalSpacing: 16, verticalSpacing: 10) {
-                    GridRow {
-                        ForEach(Array(headers.enumerated()), id: \.offset) { _, header in
-                            Text(header)
-                                .font(.caption.weight(.semibold))
-                                .foregroundStyle(Theme.accent)
-                                .frame(minWidth: 140, alignment: .leading)
-                        }
-                    }
-
-                    ForEach(Array(rows.enumerated()), id: \.offset) { _, row in
-                        GridRow {
-                            ForEach(Array(row.enumerated()), id: \.offset) { _, cell in
-                                Text(cell)
-                                    .font(.caption)
-                                    .frame(minWidth: 140, alignment: .leading)
-                                    .fixedSize(horizontal: false, vertical: true)
-                            }
-                        }
-                    }
-                }
-                .padding(12)
+            // No-horizontal-scroll policy: the grid renders inline when it
+            // fits the pane; otherwise rows REFLOW vertically as stacked
+            // cards (pages grow longer, never sideways).
+            ViewThatFits(in: .horizontal) {
+                inlineGrid
+                stackedRows
             }
             .background(Color.secondary.opacity(0.06))
             .clipShape(RoundedRectangle(cornerRadius: 10))
         }
+    }
+
+    /// Natural-width grid for tables that fit the pane.
+    private var inlineGrid: some View {
+        Grid(alignment: .leading, horizontalSpacing: 14, verticalSpacing: 10) {
+            GridRow {
+                ForEach(Array(headers.enumerated()), id: \.offset) { _, header in
+                    Text(header)
+                        .font(.footnote.weight(.semibold))
+                        .foregroundStyle(Theme.accent)
+                        .frame(minWidth: 90, maxWidth: 260, alignment: .leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+
+            ForEach(Array(rows.enumerated()), id: \.offset) { _, row in
+                GridRow {
+                    ForEach(Array(row.enumerated()), id: \.offset) { _, cell in
+                        Text(cell)
+                            .font(.footnote)
+                            .frame(minWidth: 90, maxWidth: 260, alignment: .leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+            }
+        }
+        .padding(12)
+    }
+
+    /// Vertical reflow for tables too wide to fit: one card per row, the
+    /// first column as the row title and the remaining columns as
+    /// label–value lines.
+    private var stackedRows: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            ForEach(Array(rows.enumerated()), id: \.offset) { _, row in
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(row.first ?? "")
+                        .font(.footnote.weight(.semibold))
+                        .foregroundStyle(Theme.accent)
+                        .fixedSize(horizontal: false, vertical: true)
+
+                    ForEach(Array(zip(headers.dropFirst(), row.dropFirst())
+                        .enumerated()), id: \.offset) { _, pair in
+                        HStack(alignment: .firstTextBaseline, spacing: 6) {
+                            Text(pair.0)
+                                .font(.caption.weight(.medium))
+                                .foregroundStyle(.secondary)
+                            Text(pair.1)
+                                .font(.footnote)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                    }
+                }
+
+                if row != rows.last {
+                    Divider()
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(12)
     }
 }

@@ -29,8 +29,11 @@ struct StudyPlannerView: View {
                     .padding()
                 }
             } else if let error = content.loadError {
-                Text(error)
-                    .padding()
+                ContentUnavailableView(
+                    "Content failed to load",
+                    systemImage: "exclamationmark.triangle",
+                    description: Text(error)
+                )
             } else {
                 ProgressView("Loading curriculum…")
             }

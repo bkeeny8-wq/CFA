@@ -13,8 +13,11 @@ struct TopicListView: View {
     var body: some View {
         ScrollView {
             if let error = content.loadError {
-                Text(error)
-                    .padding()
+                ContentUnavailableView(
+                    "Content failed to load",
+                    systemImage: "exclamationmark.triangle",
+                    description: Text(error)
+                )
             } else {
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(content.questionBank?.topics ?? []) { topic in

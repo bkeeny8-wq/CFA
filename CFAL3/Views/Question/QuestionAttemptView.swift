@@ -44,11 +44,6 @@ struct QuestionAttemptView: View {
 
                         VignetteView(vignette: caseStudy.vignette, isExpanded: $vignetteExpanded)
 
-                        if question.isIncomplete {
-                            Text("⚠ Incomplete solution")
-                                .font(.caption)
-                                .foregroundStyle(.orange)
-                        }
 
                         Text(question.stem)
                             .font(.body)
@@ -82,7 +77,7 @@ struct QuestionAttemptView: View {
 
                         if let submitError {
                             Text(submitError)
-                                .foregroundStyle(.red)
+                                .foregroundStyle(Theme.danger)
                                 .font(.footnote)
                         }
 

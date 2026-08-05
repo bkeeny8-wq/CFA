@@ -93,7 +93,11 @@ struct StudyPlannerSplitView: View {
             }
             .navigationTitle("Study")
         } else if let error = content.loadError {
-            Text(error)
+            ContentUnavailableView(
+                "Content failed to load",
+                systemImage: "exclamationmark.triangle",
+                description: Text(error)
+            )
         } else {
             ProgressView("Loading curriculum…")
         }
