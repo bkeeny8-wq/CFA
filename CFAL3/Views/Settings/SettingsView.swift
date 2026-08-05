@@ -17,6 +17,7 @@ struct SettingsView: View {
     @State private var showImporter = false
     @State private var importSummary: String?
     @State private var showResetConfirm = false
+    @State private var showClearAttemptsConfirm = false
     @State private var resetSummary: String?
 
     var body: some View {
@@ -52,6 +53,13 @@ struct SettingsView: View {
 
             Section {
                 Button(role: .destructive) {
+                    showClearAttemptsConfirm = true
+                } label: {
+                    Label("Clear quiz attempts", systemImage: "arrow.counterclockwise")
+                }
+                .disabled(attempts.isEmpty && sessions.isEmpty && cards.isEmpty)
+
+                Button(role: .destructive) {
                     showResetConfirm = true
                 } label: {
                     Label("Erase all progress", systemImage: "trash")
@@ -61,7 +69,7 @@ struct SettingsView: View {
             } header: {
                 Text("Reset")
             } footer: {
-                Text(resetSummary ?? "Permanently deletes every attempt, the review schedule, sessions, LOS states, and plan check-offs — a clean slate. This cannot be undone; export a backup first if you might want it back.")
+                Text(resetSummary ?? "“Clear quiz attempts” wipes your attempt history, sessions, and review schedule but keeps LOS study checkmarks and plan check-offs. “Erase all progress” removes everything for a clean slate. Both are permanent — export a backup first if unsure.")
             }
 
             Section("About") {
@@ -103,6 +111,32 @@ struct SettingsView: View {
             Button("Cancel", role: .cancel) {}
         } message: {
             Text("This permanently deletes all attempts, the review schedule, sessions, LOS states, and plan check-offs. It cannot be undone.")
+        }
+        .confirmationDialog(
+            "Clear quiz attempts?",
+            isPresented: $showClearAttemptsConfirm,
+            titleVisibility: .visible
+        ) {
+            Button("Clear attempts", role: .destructive) { clearQuizAttempts() }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("This deletes your quiz attempts, sessions, and review schedule. Your LOS study checkmarks and plan check-offs are kept. It cannot be undone.")
+        }
+    }
+
+    /// Clears quiz history only — attempts, sessions, and the (attempt-derived)
+    /// review schedule — while preserving LOS study states and plan check-offs.
+    private func clearQuizAttempts() {
+        let removed = attempts.count + sessions.count + cards.count
+        for item in attempts { modelContext.delete(item) }
+        for item in sessions { modelContext.delete(item) }
+        for item in cards { modelContext.delete(item) }
+        do {
+            try modelContext.save()
+            resetSummary = "Cleared \(removed) quiz records. LOS study progress and plan are untouched."
+        } catch {
+            modelContext.rollback()
+            resetSummary = "Clear failed: \(error.localizedDescription)"
         }
     }
 
