@@ -193,7 +193,7 @@
      "rationales": {
       "A": "Not individual dealer.",
       "B": "Full statement: 1.64 = best ask 100.49 (Dealer C) - best bid 98.85 (Dealer A); lower than any individual dealer's spread because the dealer with highest bid is not the dealer with lowest ask.\n\nCorrect. Per the reading's example: 'The best bid price, 98.85 by Dealer A, is lower than the best ask price, 100.49 by Dealer C. The market spread is thus 100.49 − 98.85 = 1.64, which is lower than any of the dealers' spreads.' Individual spreads: A=1.66, B=1.71, C=1.67. Best bid + best ask = market spread. Midquote = (100.49 + 98.85)/2 = 99.67.",
-      "C": "Not correct."
+      "C": "Incorrect. 1.71 is Dealer B's individual spread (100.55 − 98.84). The market spread uses the best bid (98.85, Dealer A) and best ask (100.49, Dealer C): 100.49 − 98.85 = 1.64."
      },
      "type": "mc",
      "primary_los": "trading_costs_and_electronic_markets.a",
@@ -219,14 +219,14 @@
      "number": 1,
      "stem": "The effective spread formula most likely is:",
      "options": {
-      "A": "just the quoted spread.",
-      "B": "always zero.",
+      "A": "for buy: Trade price − Midquote at order entry (without multiplying by 2).",
+      "B": "for buy: 2 × (Trade price − VWAP benchmark).",
       "C": "for buy: 2 × (Trade price − Midquote at order entry)."
      },
      "correct": "C",
      "rationales": {
-      "A": "Effective differs from quoted.",
-      "B": "Real measure.",
+      "A": "Incorrect. Trade price − Midquote at order entry is the midquote transaction cost estimate for a buy; the effective spread doubles this quantity: 2 × (Trade price − Midquote at order entry).",
+      "B": "Incorrect. The effective spread is computed from the midquote at the time of order entry, not from a VWAP benchmark; VWAP is a separate benchmark-price method of estimating transaction costs.",
       "C": "Full statement: for buy: 2 × (Trade price − Midquote at order entry); for sell: 2 × (Midquote at order entry − Trade price); estimates the spread that traders would have observed if the quoted ask (buy) or bid (sell) equaled the trade price.\n\nCorrect. Per the reading: 'Multiplying this midquote price benchmark transaction cost estimate by 2 produces a statistic called the effective spread. It is the spread that traders would have observed if the quoted ask (for a purchase) or the bid (for a sale) were equal to the trade price. The effective spread is a sensible estimate of transaction costs when orders are filled in single trades.' Formula: Effective spread = 2 × |trade price − midquote at order entry|."
      },
      "type": "mc",
@@ -245,13 +245,13 @@
      "options": {
       "A": "trade execution prices are better than quoted prices — buy fills below the ask price or sell fills above the bid.",
       "B": "always worse than quoted.",
-      "C": "quoted prices are illegal."
+      "C": "an order fills at a price outside the quoted spread, making the effective spread larger than the quoted spread."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: trade execution prices are better than quoted prices — buy fills below the ask price or sell fills above the bid; effective spread is less than the quoted spread when this happens.\n\nCorrect. Per the reading: 'If an order fills at a price better than the quoted price (e.g., a buy order fills at a price below the ask price), the order is said to receive price improvement and the spread is effectively lower. Price improvement occurs when trade execution prices are better than quoted prices. An order that fills at a price outside the quoted spread has an effective spread that is larger than the quoted spread. Such results occur when trade execution prices are worse than quoted prices.'",
       "B": "Opposite.",
-      "C": "Not about legality."
+      "C": "Incorrect. This describes the opposite case: fills outside the quoted spread occur when execution prices are worse than quoted prices. Price improvement is when execution prices are better than quoted — a buy below the ask or a sell above the bid."
      },
      "type": "mc",
      "primary_los": "trading_costs_and_electronic_markets.b",
@@ -316,14 +316,14 @@
      "stem": "VWAP transaction cost estimate is calculated as most likely:",
      "options": {
       "A": "for buy: Trade size × (Trade VWAP − VWAP benchmark).",
-      "B": "quoted spread only.",
-      "C": "always zero."
+      "B": "for buy: Trade size × (VWAP benchmark − Trade VWAP).",
+      "C": "for buy: 2 × (Trade VWAP − Midquote at order entry)."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: for buy: Trade size × (Trade VWAP − VWAP benchmark); for sell: Trade size × (VWAP benchmark − Trade VWAP); VWAP typically computed as sum of dollar volume of trades divided by total quantity within the interval; often called 'interval VWAP'.\n\nCorrect. Per the reading: 'Volume-weighted average price (VWAP) is one of the most widely used benchmark prices that analysts use to estimate transaction costs. Analysts typically compute the VWAP using all trades that occurred from the start of the order until the order was completed, a measure that is often referred to as \"interval VWAP.\" The VWAP is the sum of the total dollar value of the benchmark trades divided by the total quantity of the trades.' Formula: for buys, size × (Trade VWAP − VWAP benchmark); for sells, size × (VWAP benchmark − Trade VWAP).",
-      "B": "Different measure.",
-      "C": "Real cost measure."
+      "B": "Incorrect. The sign is reversed: for a buy, the cost is Trade size × (Trade VWAP − VWAP benchmark), which is positive when fills average above the benchmark. VWAP benchmark − Trade VWAP is the formula for a sell.",
+      "C": "Incorrect. Doubling the difference from the midquote at order entry is the effective spread calculation, not the VWAP transaction cost estimate, which compares the trade VWAP with the interval VWAP benchmark."
      },
      "type": "mc",
      "primary_los": "trading_costs_and_electronic_markets.b",
@@ -719,15 +719,15 @@
      "number": 6,
      "stem": "The two co-dependent systems essential to electronic trading are most likely:",
      "options": {
-      "A": "single system.",
-      "B": "traders need high-speed order processing and communication systems to implement electronic trading strategies.",
-      "C": "no systems."
+      "A": "clearinghouse settlement systems and floor-broker communication networks.",
+      "B": "traders' high-speed order processing and communication systems, and exchanges' electronic exchange systems that process the vast numbers of orders electronic traders produce.",
+      "C": "regulatory surveillance systems and consolidated tape data feeds."
      },
      "correct": "B",
      "rationales": {
-      "A": "Co-dependent.",
+      "A": "Incorrect. Clearing and settlement follow trading, and floor-broker networks belong to manual markets. The co-dependent pair is traders' high-speed order processing and communication systems and exchanges' electronic exchange systems.",
       "B": "Full statement: traders need high-speed order processing and communication systems to implement electronic trading strategies; exchanges need electronic exchange systems to process vast numbers of orders these traders produce.\n\nCorrect. Per the reading: 'The two types of systems are co-dependent: Traders need high-speed order processing and communication systems to implement their electronic trading strategies, and the exchanges need electronic exchange systems to process the vast numbers of orders that these electronic traders produce. The adoption of electronic exchange systems led to huge growth in automated order creation and submission systems.'",
-      "C": "Two systems."
+      "C": "Incorrect. Surveillance systems and consolidated data feeds support oversight and reporting; the reading identifies the co-dependent pair as traders' high-speed systems and exchanges' electronic exchange systems."
      },
      "type": "mc",
      "primary_los": "trading_costs_and_electronic_markets.d",
@@ -801,15 +801,15 @@
      "number": 2,
      "stem": "In the US, exchange-listed equities order flow is most likely:",
      "options": {
-      "A": "single exchange only.",
+      "A": "concentrated on three primary exchanges and a few minor regional exchanges.",
       "B": "divided among 11 exchanges, 40 alternative trading systems, and numerous dealers.",
-      "C": "no ATSs exist."
+      "C": "divided among exchanges and dealers only, because ATSs may not trade exchange-listed equities."
      },
      "correct": "B",
      "rationales": {
-      "A": "Fragmented.",
+      "A": "Incorrect. That describes the late 20th century, when trading mainly occurred on three primary exchanges, a few minor regional exchanges, and in the offices of some large institutional broker/dealers. Order flow is now far more fragmented.",
       "B": "Full statement: divided among 11 exchanges, 40 alternative trading systems, and numerous dealers — vs late 20th century when trading mainly occurred on three primary exchanges, a few minor regional exchanges, and in offices of some large institutional broker/dealers.\n\nCorrect. Per the reading: 'For example, in the United States, order flow in exchange-listed equities is now divided among 11 exchanges, 40 alternative trading systems, and numerous dealers. In the late 20th century, however, trading mainly occurred on three primary exchanges, a few minor regional exchanges, and in the offices of some large institutional broker/dealers. Alternative trading systems (ATSs), also known as electronic communication networks (ECNs) or multilateral trading facilities (MTFs), are increasingly important trading venues. They function like exchanges but do not exercise regulatory authority over their subscribers except concerning the conduct of their trading in their trading systems.'",
-      "C": "40+ ATSs."
+      "C": "Incorrect. Alternative trading systems — about 40 of them — are increasingly important venues for exchange-listed equities; they function like exchanges but do not exercise regulatory authority over their subscribers."
      },
      "type": "mc",
      "primary_los": "trading_costs_and_electronic_markets.e",
@@ -850,14 +850,14 @@
      "stem": "Liquidity aggregators most likely:",
      "options": {
       "A": "create 'super books' that present liquidity across markets for a given instrument.",
-      "B": "reduce liquidity.",
-      "C": "block liquidity."
+      "B": "route each order to the single venue displaying the greatest volume for that instrument.",
+      "C": "consolidate all resting orders for an instrument into one exchange's limit order book."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: create 'super books' that present liquidity across markets for a given instrument — offer global views of market depth (available liquidity) for each instrument regardless of which trading venue offers the liquidity.\n\nCorrect. Per the reading: 'Electronic algorithmic trading techniques, such as liquidity aggregation and smart order routing, help traders manage the challenges and opportunities presented by fragmentation. Liquidity aggregators create \"super books\" that present liquidity across markets for a given instrument. These tools offer global views of market depth (available liquidity) for each instrument regardless of which trading venue offers the liquidity.'",
-      "B": "Opposite direction.",
-      "C": "Facilitate liquidity."
+      "B": "Incorrect. Routing orders among venues describes smart order routing; liquidity aggregators do not route orders — they assemble a consolidated 'super book' view of the liquidity available across all venues.",
+      "C": "Incorrect. Aggregators do not physically merge orders into a single book; they present a global view of market depth across venues while the orders remain at their original trading venues."
      },
      "type": "mc",
      "primary_los": "trading_costs_and_electronic_markets.e",
@@ -873,15 +873,15 @@
      "number": 5,
      "stem": "Smart order-routing algorithms most likely:",
      "options": {
-      "A": "send orders randomly.",
+      "A": "send orders to the venue charging the lowest access fees, regardless of quoted prices.",
       "B": "send orders to the markets that display the best-quoted prices and sizes.",
-      "C": "block routing."
+      "C": "send all orders to the security's primary listing exchange."
      },
      "correct": "B",
      "rationales": {
-      "A": "Not random.",
+      "A": "Incorrect. Smart order routers select venues by the best displayed prices and sizes, not by access fees; a low-fee venue displaying an inferior quote would not receive the order.",
       "B": "Full statement: send orders to the markets that display the best-quoted prices and sizes; help traders manage market fragmentation by finding best execution across multiple venues.\n\nCorrect. Per the reading: 'Smart order-routing algorithms send orders to the markets that display the best-quoted prices and sizes.' For example, the best bid for a Eurodollar future may be on CME and the second best on ELX Markets, a fully electronic futures exchange. Smart order routing directs orders to the best-priced venues.",
-      "C": "Best-price routing."
+      "C": "Incorrect. Routing everything to the listing exchange ignores fragmentation: the best bid or offer may be displayed on another exchange or an ATS, so smart routers direct orders to whichever market displays the best-quoted prices and sizes."
      },
      "type": "mc",
      "primary_los": "trading_costs_and_electronic_markets.e",
@@ -1205,14 +1205,14 @@
      "number": 3,
      "stem": "Immediate or cancel (IOC) limit orders most likely:",
      "options": {
-      "A": "wait forever.",
-      "B": "never cancel.",
+      "A": "rest hidden in the limit order book until they are fully filled.",
+      "B": "convert to market orders if they are not filled immediately upon submission.",
       "C": "cancel immediately if they do not find liquidity."
      },
      "correct": "C",
      "rationales": {
-      "A": "Cancel if no fill.",
-      "B": "IOC cancels.",
+      "A": "Incorrect. Resting until filled describes a standing hidden order; IOC orders never rest — they cancel immediately if they do not find liquidity, which is why they too do not reveal trade intentions.",
+      "B": "Incorrect. An unfilled IOC order is cancelled, not converted into a market order. Traders use IOC orders to discover hidden orders standing in the spread without revealing their own intentions.",
       "C": "Full statement: cancel immediately if they do not find liquidity; used to discover hidden orders that may stand in the spread; because they cancel immediately, are also hidden and don't reveal trade intentions; common orders in electronic markets.\n\nCorrect. Per the reading: 'A common type of order by far is the immediate or cancel (IOC) limit order. Traders use these orders to discover hidden orders that may stand in the spread between a market's quoted bid and ask prices. Because they cancel immediately if they do not find liquidity, these orders are also hidden and thus do not reveal trade intentions.'"
      },
      "type": "mc",
@@ -1335,15 +1335,15 @@
      "number": 1,
      "stem": "Reacting to an event electronically involves three major steps most likely:",
      "options": {
-      "A": "one step only.",
-      "B": "(1) trader must learn that event took place.",
-      "C": "no steps."
+      "A": "(1) receive the exchange's data feed; (2) confirm the event with the exchange; (3) wait for the exchange to request new instructions.",
+      "B": "(1) learn that the event took place; (2) respond to the new information with a new order instruction; (3) send, and the exchange receive, the new instruction.",
+      "C": "(1) send a new order instruction; (2) learn whether the event took place; (3) compute the appropriate response."
      },
      "correct": "B",
      "rationales": {
-      "A": "Three-step process.",
+      "A": "Incorrect. Traders respond unilaterally with new order instructions; they do not confirm events with the exchange or wait for it to request instructions. The three steps are learn, respond, and send/receive the new instruction.",
       "B": "Full statement: (1) trader must learn that event took place; (2) trader must respond to new information with new order instruction; (3) trader must send, and exchange must receive, the new instruction — steps 1 and 3 minimized via fast communications; step 2 via fast computers.\n\nCorrect. Per the reading: 'Reacting to an event consists of three major steps, each of which involves many smaller steps beyond the scope of this discussion: 1. The trader must learn that the event took place. 2. The trader must respond to the new information with a new order instruction. 3. The trader must send, and the exchange must receive, the new instruction. Traders must use very fast communication systems to minimize the latencies associated with steps 1 and 3 (communicating in and out), and they must use very fast computer systems to minimize the latency associated with step 2 (responding).'",
-      "C": "Three steps."
+      "C": "Incorrect. The sequence is scrambled: the trader must first learn the event occurred (step 1), then respond with a new order instruction (step 2), and only then send it for the exchange to receive (step 3). Fast communications minimize steps 1 and 3; fast computers minimize step 2."
      },
      "type": "mc",
      "primary_los": "trading_costs_and_electronic_markets.h",
@@ -1384,14 +1384,14 @@
      "stem": "Communication distances matter most likely because:",
      "options": {
       "A": "no message can travel faster than the speed of light (300,000 km/s in vacuum, ~31% slower in optical fiber).",
-      "B": "no physics limits.",
-      "C": "distance doesn't matter."
+      "B": "signals travel faster through optical fiber than through the air, so only fiber-route length matters.",
+      "C": "router and switch processing latencies dominate, so transmission distance is negligible."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: no message can travel faster than the speed of light (300,000 km/s in vacuum, ~31% slower in optical fiber); great circle distance Chicago-NY is 1,146 km (~8 ms round trip); NY-London is 5,576 km (~37 ms round trip); no trader at any significant distance from information source or trading venue can effectively compete with traders who have minimized combined distances.\n\nCorrect. Per the reading: 'Electronic traders and brokers locate their computers as close as possible to the exchanges at which they trade to minimize latencies resulting from physics: No message can travel faster than the speed of light. At 300,000 kilometers (186,000 miles) per second in a vacuum, light travels 300 kilometers in a millisecond... Communication latencies are particularly important when messages must travel significant distances. For example, the great circle (shortest) distances between Chicago and New York and between New York and London are, respectively, 1,146 kilometers and 5,576 kilometers. Thus, round-trip communications between these two pairs of cities have minimum latencies of approximately 8 and 37 milliseconds simply because of the speed of light. (The actual minimum latencies are longer because the speed of light in standard optical fiber is 31% slower than the speed of light in a vacuum.)'",
-      "B": "Real physical limit.",
-      "C": "Distance is fundamental."
+      "B": "Incorrect. This reverses the fact: light in standard optical fiber travels about 31% slower than in a vacuum. The fundamental constraint is that no message can travel faster than the speed of light over the distance involved.",
+      "C": "Incorrect. Equipment latencies add to, but do not eliminate, the physical limit: round-trip transmission between Chicago and New York takes about 8 ms and between New York and London about 37 ms simply because of the speed of light."
      },
      "type": "mc",
      "primary_los": "trading_costs_and_electronic_markets.h",
@@ -1657,14 +1657,14 @@
      "number": 7,
      "stem": "Solutions to systemic risk problems most likely are multifold and include:",
      "options": {
-      "A": "one solution.",
-      "B": "no solutions.",
+      "A": "permit sponsored naked access so client orders bypass latency-adding broker checks.",
+      "B": "rely on post-trade audits alone, because real-time surveillance of order flow is infeasible.",
       "C": "test software thoroughly before use (exchanges conduct mock trading sessions)."
      },
      "correct": "C",
      "rationales": {
-      "A": "Multiple solutions.",
-      "B": "Multiple solutions.",
+      "A": "Incorrect. This is the opposite of the reading's guidance: brokers must surveil all client orders and must not allow sponsored naked access, in which clients enter orders directly into exchange trading systems.",
+      "B": "Incorrect. Electronic traders and exchanges must surveil their order flow in real time to ensure it conforms to preset parameters; after-the-fact audits alone cannot stop a malfunctioning system quickly enough.",
       "C": "Full statement: test software thoroughly before use (exchanges conduct mock trading sessions); rigorous market access controls so only approved orders enter; rigorous access controls on software developers (code must be read/vouched by at least one developer besides author); real-time surveillance of order flow to ensure conformance to preset parameters; brokers must surveil all client orders and cannot allow sponsored naked access; some exchanges have adopted price limits and trade halts.\n\nCorrect. Per the reading: 'The solutions to the systemic risk problems associated with electronic trading systems are multifold: Most obviously, traders must test software thoroughly before using it in live trading. Exchanges often conduct mock trading sessions to allow developers to test their software. Rigorous market access controls must ensure that only those orders coming from approved sources enter electronic order-matching systems. Rigorous access controls on software developers must ensure that only authorized developers can change software. Best practice mandates that these controls also include the requirement that all software be read, understood, and vouched for by at least one developer besides its author. The electronic traders who generate orders and the electronic exchanges that receive orders must surveil their order flow in real time... Brokers must surveil all client orders... Brokers must not allow their clients to enter orders directly into exchange trading systems — a process called sponsored naked access... Some exchanges have adopted price limits and trade halts to stop trading when prices move too quickly.'"
      },
      "type": "mc",
@@ -1715,15 +1715,15 @@
      "number": 1,
      "stem": "Real-time market surveillance most likely aims to:",
      "options": {
-      "A": "prevent all trading.",
+      "A": "detect market abuse in overnight batch reviews after markets close.",
       "B": "detect potential market abuse while it is happening.",
-      "C": "no surveillance."
+      "C": "replace brokers' surveillance of their own clients' orders."
      },
      "correct": "B",
      "rationales": {
-      "A": "Enable trading.",
+      "A": "Incorrect. After-the-close batch review is not real-time surveillance; the goal is to detect potential abuse while it is happening so that regulators can intervene rapidly to prevent or minimize damages.",
       "B": "Full statement: detect potential market abuse while it is happening — including front running, market manipulation (bluffing, gunning, squeezing, cornering), trading for market impact, rumormongering, wash trading, and spoofing — allowing rapid intervention.\n\nCorrect. Per the reading: 'Regulators around the world recognize that real-time market monitoring and surveillance systems allow faster responses to potential crises and market abuses with the potential for rapid intervention to prevent or minimize damages... The goal of real-time market surveillance is to detect potential market abuse while it is happening. Real-time surveillance often can detect the following damaging behaviors: Front running; Market manipulation.' Market manipulation strategies include bluffing, squeezing, cornering, and gunning.",
-      "C": "Detects abuse."
+      "C": "Incorrect. Real-time market surveillance complements, not replaces, broker-level monitoring; brokers must still surveil all client orders. The aim is detecting potential market abuse as it occurs."
      },
      "type": "mc",
      "primary_los": "trading_costs_and_electronic_markets.j",
@@ -1787,15 +1787,15 @@
      "number": 4,
      "stem": "Wash trading most likely consists of:",
      "options": {
-      "A": "legitimate trades.",
+      "A": "trades between unrelated parties that happen to execute repeatedly at the same price.",
       "B": "trades arranged among commonly controlled accounts to create the impression of market activity at a particular price.",
-      "C": "no such practice."
+      "C": "falsely reporting only the prices — never the volumes — of trades that actually occurred."
      },
      "correct": "B",
      "rationales": {
-      "A": "Deceptive.",
+      "A": "Incorrect. Trades between genuinely unrelated parties at a common price are ordinary market activity; wash trading requires that the trades be arranged among commonly controlled accounts to fake activity.",
       "B": "Full statement: trades arranged among commonly controlled accounts to create the impression of market activity at a particular price; purpose is to fool investors into believing market is more liquid than it truly is and to increase investors' confidence in ability to exit positions and in security value assessments.\n\nCorrect. Per the reading: 'Wash trading consists of trades arranged among commonly controlled accounts to create the impression of market activity at a particular price. The purpose of wash trading is to fool investors into believing that a market is more liquid than it truly is and to thereby increase investors' confidence both in their ability to exit positions without substantial cost and in their assessments of security values. Manipulators also can achieve these purposes by falsely reporting trades that never occurred, which is essentially what happens when they arrange trades among commonly controlled accounts.'",
-      "C": "Illegal practice."
+      "C": "Incorrect. Wash trades are real but arranged trades among commonly controlled accounts. The related abuse of falsely reporting trades involves reporting trades that never occurred at all, not merely misstating prices of real trades."
      },
      "type": "mc",
      "primary_los": "trading_costs_and_electronic_markets.j",
@@ -1836,14 +1836,14 @@
      "stem": "Bluffing (pump-and-dump) most likely involves:",
      "options": {
       "A": "submitting orders and arranging trades to influence other traders' perceptions of value.",
-      "B": "no manipulation.",
-      "C": "always legitimate."
+      "B": "placing hidden orders to conceal trading intentions from momentum traders.",
+      "C": "buying immediately after valid positive news to correct a perceived undervaluation."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: submitting orders and arranging trades to influence other traders' perceptions of value; bluffers often prey on momentum traders (buy when prices are rising, sell when falling); example: bluffers buy stock to raise price and encourage momentum traders to buy, then sell stock to them at higher prices; may engage in rumormongering or wash trading to further scheme.\n\nCorrect. Per the reading: 'Bluffing. Bluffing involves submitting orders and arranging trades to influence other traders' perceptions of value. Bluffers often prey on momentum traders, who buy when prices are rising and sell when prices are falling. For example, consider typical \"pump-and-dump\" schemes in which bluffers buy stock to raise its price and thereby encourage momentum traders to buy. The bluffers then sell the stock to the momentum traders at higher prices. To further the scheme, bluffers may engage in such activities as rumormongering or wash trading. Note also that bluffers may time their purchases to immediately follow the release of valid positive information about the security and thereby fool traders into overvaluing the material significance of the new information.' Similar short-side manipulations are called 'short and distorts'.",
-      "B": "Manipulative.",
-      "C": "Illegal."
+      "B": "Incorrect. Hiding orders to avoid revealing intentions is a legitimate defensive tactic; bluffing works in the open — submitting orders and arranging trades precisely to shape other traders' perceptions of value.",
+      "C": "Incorrect. Buying on valid news to profit from perceived undervaluation is legitimate informed trading. Bluffers instead time purchases after valid news to fool traders into overvaluing the significance of the information, then sell to momentum buyers at inflated prices."
      },
      "type": "mc",
      "primary_los": "trading_costs_and_electronic_markets.j",

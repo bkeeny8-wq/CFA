@@ -145,13 +145,13 @@
      "stem": "Fundamental strategies portfolio construction most likely uses:",
      "options": {
       "A": "optimizer only.",
-      "B": "no methodology.",
+      "B": "equal weighting of all high-conviction names, since conviction cannot be quantified.",
       "C": "judgment — absolute or index-relative sizes of positions based on manager's conviction of forecasts."
      },
      "correct": "C",
      "rationales": {
-      "A": "Judgment-based.",
-      "B": "Judgment-based.",
+      "A": "Incorrect. Optimizers are the hallmark of quantitative portfolio construction; fundamental managers instead size positions through judgment, based on their conviction in their own forecasts.",
+      "B": "Incorrect. Conviction is expressed through judgment-based position sizing — absolute or index-relative — not mechanical equal weighting; the portfolio must still comply with the risk parameters in the investment agreements or fund prospectus.",
       "C": "Full statement: judgment — absolute or index-relative sizes of positions based on manager's conviction of forecasts; portfolio must comply with risk parameters set out in investment agreements or fund prospectus; portfolio managers see risk at company level (fair value inaccuracy, business performance different from expectations, market failing to recognize under/overvaluation).\n\nCorrect. Per the reading: 'Fundamental investors typically select stocks by performing extensive research on individual companies, which results in a list of high-conviction stocks. Thus, fundamental investors see risk at the company level. There is a risk that the assessment of the company's fair value is inaccurate, that the business's performance will differ from the analyst's expectations, or that the market will fail to recognize the identified reason for under- or overvaluation. Construction of a fundamental portfolio therefore often depends on judgment, whereby the absolute or index-relative sizes of positions in stocks, sectors, or countries are based on the manager's conviction of his or her forecasts. The portfolio must, of course, still comply with the risk parameters set out in the investment agreements with clients or in the fund prospectus.'"
      },
      "type": "mc",
@@ -217,13 +217,13 @@
      "stem": "The rebalancing frequency difference between fundamental and quantitative approaches most likely is:",
      "options": {
       "A": "same for both.",
-      "B": "no rebalancing.",
-      "C": "fundamental managers continuously monitor portfolio holdings and may increase/decrease/eliminate positions at any time."
+      "B": "quantitative portfolios are monitored continuously and traded at any time, while fundamental portfolios rebalance on fixed monthly schedules.",
+      "C": "fundamental managers continuously monitor holdings and may adjust positions at any time, while quantitative portfolios are rebalanced at regular intervals using pre-determined rules."
      },
      "correct": "C",
      "rationales": {
       "A": "Different cadence.",
-      "B": "Continuous vs interval.",
+      "B": "Incorrect. This reverses the two approaches: it is FUNDAMENTAL managers who monitor holdings continuously and may increase, decrease, or eliminate positions at any time; quantitative portfolios rebalance at regular intervals (monthly or quarterly) under pre-determined rules.",
       "C": "Full statement: fundamental managers continuously monitor portfolio holdings and may increase/decrease/eliminate positions at any time; quantitative portfolios usually rebalanced at regular intervals (monthly/quarterly) with pre-determined rules automatically selecting positions.\n\nCorrect. Per the reading: 'The two approaches also differ in the way that portfolio changes or rebalancings are performed. Managers using a fundamental approach usually monitor the portfolio's holdings continuously and may increase, decrease, or eliminate positions at any time. Portfolios managed using a quantitative approach are usually rebalanced at regular intervals, such as monthly or quarterly. At each interval, the program or algorithm, using pre-determined rules, automatically selects positions to be sold, reduced, added, or increased.'"
      },
      "type": "mc",
@@ -252,13 +252,13 @@
      "options": {
       "A": "begin the asset selection process with data at the individual asset and company level (price momentum, profitability).",
       "B": "start at macro level.",
-      "C": "no methodology."
+      "C": "begin with sector valuation averages and only screen companies that pass a macro filter."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: begin the asset selection process with data at the individual asset and company level (price momentum, profitability); fundamental investors begin analysis at company level before forming opinion on wider sector or market; use economic and financial analysis to assess intrinsic value and compare with market price.\n\nCorrect. Per the reading: 'Bottom-up strategies begin the asset selection process with data at the individual asset and company level, such as price momentum and profitability. Bottom-up quantitative investors harness computer power to apply their models to this asset- and company-level information (with the added requirement that the information be quantifiable)... These investors typically begin their analysis at the company level before forming an opinion on the wider sector or market. The ability to identify companies with strong or weak fundamentals depends on the analyst's in-depth knowledge of each company's industry, product lines, business plan, management abilities, and financial strength. After identifying individual companies, the bottom-up approach uses economic and financial analysis to assess the intrinsic value of a company and compares that value with the current market price to determine which stocks are undervalued or overvalued.'",
       "B": "Not top-down.",
-      "C": "Company-first."
+      "C": "Incorrect. Bottom-up strategies start with data at the individual asset and company level — no macro or sector filter precedes the company analysis; ordering the process from macro to company describes a top-down approach."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.b",
@@ -276,13 +276,13 @@
      "options": {
       "A": "target high P/E.",
       "B": "aim to buy stocks trading at significant discount to estimated intrinsic value.",
-      "C": "no valuation."
+      "C": "buy stocks at any price provided earnings momentum is positive, since margin of safety derives from growth rather than price."
      },
      "correct": "B",
      "rationales": {
       "A": "Buy discount.",
       "B": "Full statement: aim to buy stocks trading at significant discount to estimated intrinsic value; typically focus on companies with attractive valuation metrics reflected in low earnings (or asset) multiples; Benjamin Graham (father of value investing) posited that buying earnings and assets relatively inexpensively affords a 'margin of safety'; opportunities may arise due to behavioral biases and often reflect investors' overreaction to negative news.\n\nCorrect. Per the reading: 'Benjamin Graham is regarded as the father of value investing. Along with David Dodd, he wrote the book Security Analysis (1934), which laid the basic framework for value investing. Graham posited that buying earnings and assets relatively inexpensively afforded a \"margin of safety\" necessary for prudent investing. Consistent with that idea, value-based approaches aim to buy stocks that are trading at a significant discount to their estimated intrinsic value. Value investors typically focus on companies with attractive valuation metrics, reflected in low earnings (or asset) multiples. In their view, investors' sometimes irrational behavior can make stocks trade below the intrinsic value based on company fundamentals. Such opportunities may arise due to a variety of behavioral biases and often reflect investors' overreaction to negative news.'",
-      "C": "Discount-focused."
+      "C": "Incorrect. Graham's margin of safety comes from buying earnings and assets relatively inexpensively — value investors buy at a significant discount to estimated intrinsic value, reflected in low multiples, not at any price."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.b",
@@ -322,15 +322,15 @@
      "number": 4,
      "stem": "GARP (growth at reasonable price) strategy most likely:",
      "options": {
-      "A": "0.5.",
-      "B": "buys pure growth.",
-      "C": "no such strategy."
+      "A": "combines growth expectations with a value discipline, favoring stocks with low P/E-to-growth (PEG) ratios.",
+      "B": "ignores valuation entirely, buying the highest expected-growth stocks regardless of price.",
+      "C": "selects stocks with the highest PEG ratios, since a high PEG signals strong growth."
      },
      "correct": "A",
      "rationales": {
-      "A": "combines growth expectations with value discipline — measured by PEG ratio (P/E divided by growth); Example 2 Company A: forward P/E 50/5 = 10, PEG = 10/20 = 0.5 (lowest among four companies), making it good candidate for GARP given favorable valuation relative to growth.\n\nCorrect. Per the reading's Example 2 solution: 'Company A's forward P/E is 50/5 = 10, and its P/E-to-growth ratio (PEG) is 10/20 = 0.5, which is lower than the PEGs for the other companies (28/2 = 14 for Company B, negative for Company C, and 16/2 = 8 for Company D). Given the favorable valuation relative to growth, the company is a good candidate for investors who use GARP.' GARP focuses on stocks whose P/E ratio is reasonable relative to earnings growth rate.",
-      "B": "Growth + value discipline.",
-      "C": "Common strategy."
+      "A": "Correct. GARP combines growth expectations with a value discipline, screening stocks via the PEG ratio (forward P/E divided by expected earnings growth rate) and favoring low-PEG stocks. Per the reading's Example 2 solution: 'Company A's forward P/E is 50/5 = 10, and its P/E-to-growth ratio (PEG) is 10/20 = 0.5, which is lower than the PEGs for the other companies (28/2 = 14 for Company B, negative for Company C, and 16/2 = 8 for Company D). Given the favorable valuation relative to growth, the company is a good candidate for investors who use GARP.' GARP focuses on stocks whose P/E ratio is reasonable relative to the earnings growth rate.",
+      "B": "Incorrect. GARP is not pure growth investing: the 'reasonable price' half of the strategy imposes a value discipline, so growth is bought only when its price relative to the growth rate (the PEG ratio) is attractive.",
+      "C": "Incorrect. GARP favors LOW PEG ratios — a low PEG indicates a modest price relative to expected growth. In Example 2, Company A's PEG of 0.5 was the lowest of the four companies, which is exactly why it was the GARP candidate."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.b",
@@ -346,13 +346,13 @@
      "number": 5,
      "stem": "Bottom-up parameters fundamental investors focus on most likely include:",
      "options": {
-      "A": "no specific parameters.",
+      "A": "macroeconomic variables such as interest rates and demographic trends, since bottom-up analysis starts at the market level.",
       "B": "business model and branding, competitive advantages, and company management and corporate governance.",
       "C": "only price."
      },
      "correct": "B",
      "rationales": {
-      "A": "Systematic parameters.",
+      "A": "Incorrect. Macroeconomic and demographic variables are the starting point of TOP-DOWN strategies; bottom-up fundamental investors focus on company-level parameters such as business model, competitive advantages, and management.",
       "B": "Full statement: business model and branding, competitive advantages, and company management and corporate governance; valuation based on discounted cash flow model or preferred market multiple (often earnings-related P/E, P/B, EV/EBITDA).\n\nCorrect. Per the reading: 'Fundamental investors often focus on one or more of the following parameters for a company, either individually or in relation to its peers: business model and branding; competitive advantages; company management and corporate governance. Valuation is based on either a discounted cash flow model or a preferred market multiple, often earnings-related.'",
       "C": "Real parameters."
      },
@@ -420,13 +420,13 @@
      "options": {
       "A": "value trap only.",
       "B": "when company's results fall short of expectations, stock performance affected negatively.",
-      "C": "no such risk."
+      "C": "arises only when earnings decline in absolute terms, since meeting growth expectations guarantees share-price appreciation."
      },
      "correct": "B",
      "rationales": {
       "A": "Growth-specific.",
       "B": "Full statement: when company's results fall short of expectations, stock performance affected negatively; stock may have been overpriced at purchase; company may deliver above-average earnings/CF growth in line with expectations but share price may not move higher due to already high starting level; investors often willing to justify paying high multiples but earnings sustainability may prove incorrect — superior market position may be unsustainable as competitors respond and compete away supernormal profits.\n\nCorrect. Per the reading: 'Investors in growth stocks do so with the expectation that the share price will appreciate when the company experiences above-average earnings (or cash flow) growth in the future. However, if the company's results fall short of these expectations, stock performance is affected negatively. The stock may also turn out to have been overpriced at the time of the purchase. The company may deliver above-average earnings or cash flow growth, in line with expectations, but the share price may not move any higher due to its already high starting level. The above circumstances are known as a growth trap... The company's superior market position may be unsustainable and may last only until its competitors respond. Industry-specific variables often determine the pace at which new entrants or existing competitors respond and compete away any supernormal profits.'",
-      "C": "Real risk."
+      "C": "Incorrect. A growth trap can occur even when the company delivers above-average growth in line with expectations — the share price may still fail to rise because its starting level was already high; an absolute earnings decline is not required."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.b",
@@ -478,13 +478,13 @@
      "options": {
       "A": "use investment process that begins at a top or macro level.",
       "B": "start at company level.",
-      "C": "no methodology."
+      "C": "cannot use derivatives, ETFs, or baskets and must be implemented through individual stock selection."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: use investment process that begins at a top or macro level; instead of focusing on individual company- and asset-level variables, top-down portfolio managers study variables affecting many companies (macroeconomic environment, demographic trends, government policies); often use instruments like futures, ETFs, swaps, and custom baskets to capture macro dynamics.\n\nCorrect. Per the reading: 'As the name suggests, in contrast to bottom-up strategies, top-down strategies use an investment process that begins at a top or macro level. Instead of focusing on individual company- and asset-level variables in making investment decisions, top-down portfolio managers study variables affecting many companies, such as the macroeconomic environment, demographic trends, and government policies. These managers often use instruments such as futures contracts, ETFs, swaps, and custom baskets of individual stocks to capture macro dynamics and generate portfolio return. Some bottom-up stock pickers also incorporate top-down analysis as part of their process for arriving at investment decisions.'",
       "B": "Macro-level start.",
-      "C": "Macro-focused."
+      "C": "Incorrect. Top-down managers often use futures contracts, ETFs, swaps, and custom baskets of stocks to capture macro dynamics — individual stock selection is not required."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.c",
@@ -500,15 +500,15 @@
      "number": 2,
      "stem": "Country and geographic allocation strategies most likely:",
      "options": {
-      "A": "no geography.",
+      "A": "restrict allocation to the investor's home market, since currency risk makes cross-border allocation impractical.",
       "B": "form portfolios by investing in different geographic regions depending on assessment of regions' prospects.",
-      "C": "no strategy."
+      "C": "must be implemented by selecting individual stocks, since futures and ETFs cannot express a country view."
      },
      "correct": "B",
      "rationales": {
-      "A": "Common strategy.",
+      "A": "Incorrect. Country allocation is explicitly cross-border: managers may prefer one region while limiting exposure to others, make US-versus-Europe tradeoff decisions, or allocate among all investable country markets. Currency risk does not confine the strategy to the home market.",
       "B": "Full statement: form portfolios by investing in different geographic regions depending on assessment of regions' prospects; manager may prefer a particular region and establish position while limiting exposure to others; global equity fund managers may make US-Europe tradeoff decisions, or allocate among all investable country equity markets using futures or ETFs; may seek to track supply/demand for equities via aggregate share buybacks, fund flows, IPO volumes, secondary share issuance.\n\nCorrect. Per the reading: 'Investors using country allocation strategies form their portfolios by investing in different geographic regions depending on their assessment of the regions' prospects. For example, the manager may have a preference for a particular region and may establish a position in that region while limiting exposure to others. Managers of global equity funds may, for example, make a decision based on a tradeoff between the US equity market and the European equity market, or they may allocate among all investable country equity markets using futures or ETFs. Such strategies may also seek to track the overall supply and demand for equities in regions or countries by analyzing the aggregate volumes of share buybacks, investment fund flows, the volumes of initial public offerings, and secondary share issuance.'",
-      "C": "Common strategy."
+      "C": "Incorrect. Per the reading, managers may allocate among all investable country equity markets using futures or ETFs — a country view does not require individual stock selection."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.c",
@@ -549,14 +549,14 @@
      "stem": "Volatility-based strategies most likely:",
      "options": {
       "A": "based on investors' view on volatility, usually implemented using derivative instruments.",
-      "B": "no derivatives.",
-      "C": "no such approach."
+      "B": "require a directional view on the market, since a long straddle profits only if the index rises.",
+      "C": "expose the long straddle buyer to unlimited losses if realized volatility stays low."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: based on investors' view on volatility, usually implemented using derivative instruments; managers who believe they can predict future market volatility better than option-implied volatility (VIX Index) can trade VIX futures on CBOE Futures Exchange (CFE), trade index options, or enter into volatility/variance swaps; index straddle strategy = purchase call and put options with same strike and expiry when expecting high volatility without directional view; max loss limited to total call+put premiums.\n\nCorrect. Per the reading: 'Another category of top-down equity strategies is based on investors' view on volatility and is usually implemented using derivative instruments. Those managers who believe they have the skill to predict future market volatility better than option-implied volatility (reflected, for example, in the VIX Index) can trade the VIX futures listed on the CBOE Futures Exchange (CFE), trade instruments such as index options, or enter into volatility swaps (or variance swaps). Let's assume that an investor predicts a major market move, not anticipated by others, in the near term. The investor does not have an opinion on the direction of the move and only expects the index volatility to be high. The investor can use an index straddle strategy to capitalize on his or her view. Entering into an index straddle position involves the purchase of call and put options (on the same underlying index) with the same strike price and expiry date... The maximum loss of the long straddle is limited to the total call and put premiums paid.'",
-      "B": "Derivatives-focused.",
-      "C": "Volatility view."
+      "B": "Incorrect. A long straddle expresses a volatility view WITHOUT a directional view — buying a call and a put with the same strike and expiry profits from a large index move in either direction.",
+      "C": "Incorrect. The maximum loss of the long straddle is limited to the total call and put premiums paid; it is the straddle writer, not the buyer, who faces open-ended losses."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.c",
@@ -644,15 +644,15 @@
      "number": 8,
      "stem": "Combining top-down and bottom-up most likely:",
      "options": {
-      "A": "impossible.",
+      "A": "requires the stock pickers to set the country and sector weights, with the strategist selecting individual names.",
       "B": "a typical method is to have the portfolio strategist set target country and sector weights (top-down).",
-      "C": "no combination."
+      "C": "is limited to quantitative managers, since fundamental processes cannot accommodate preset macro weights."
      },
      "correct": "B",
      "rationales": {
-      "A": "Hybrid approach.",
+      "A": "Incorrect. The roles are reversed: the portfolio strategist sets the target country and sector weights (top-down), and the portfolio managers then construct stock portfolios (bottom-up) consistent with those preset weights.",
       "B": "Full statement: a typical method is to have the portfolio strategist set target country and sector weights (top-down); portfolio managers then construct stock portfolios (bottom-up) that are consistent with these preset weights; both country/geographic allocation and sector/industry rotation can use both top-down macroeconomic AND bottom-up fundamental analysis.\n\nCorrect. Per the reading: 'Some bottom-up stock pickers also incorporate top-down analysis as part of their process for arriving at investment decisions. A typical method of incorporating both top-down macroeconomic and bottom-up fundamental processes is to have the portfolio strategist set the target country and sector weights. Portfolio managers then construct stock portfolios that are consistent with these preset weights.' Also: 'The country or geographic allocation decision itself can be based on both top-down macroeconomic and bottom-up fundamental analysis.'",
-      "C": "Common hybrid."
+      "C": "Incorrect. The hybrid method combines top-down macroeconomic and bottom-up FUNDAMENTAL processes — bottom-up stock pickers incorporate top-down analysis; it is not restricted to quantitative managers."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.c",
@@ -679,13 +679,13 @@
      "stem": "A factor most likely is:",
      "options": {
       "A": "single security price.",
-      "B": "no concept.",
+      "B": "any variable that has been empirically proven to carry a persistent return premium; unproven variables are not factors.",
       "C": "a variable or characteristic with which individual asset returns are correlated."
      },
      "correct": "C",
      "rationales": {
       "A": "Characteristic.",
-      "B": "Return-predictive variable.",
+      "B": "Incorrect. A factor is defined broadly as any variable believed to be valuable in ranking stocks and predicting future returns or risks; hundreds of factors have been used even though many have no empirically proven premium — these are simply called unrewarded factors, but they are still factors.",
       "C": "Full statement: a variable or characteristic with which individual asset returns are correlated; broadly defined as any variable believed to be valuable in ranking stocks for investment and in predicting future returns or risks; hundreds identified but many not empirically proven ('unrewarded factors').\n\nCorrect. Per the reading: 'A factor is a variable or characteristic with which individual asset returns are correlated. It can be broadly defined as any variable that is believed to be valuable in ranking stocks for investment and in predicting future returns or risks. A wide range of security characteristics have been used to define \"factors.\" Some factors (most commonly, size, value, momentum, and quality) have been shown to be positively associated with a long-term return premium and are often referred to as rewarded factors. In fact, hundreds of factors have been identified and used in portfolio construction, but a large number have not been empirically proven to offer a persistent return premium (some call these unrewarded factors).'"
      },
      "type": "mc",
@@ -750,14 +750,14 @@
      "number": 4,
      "stem": "Drawbacks of hedged portfolio approach most likely include:",
      "options": {
-      "A": "no drawbacks.",
-      "B": "no limitations.",
+      "A": "no exposure to risk factors other than the target factor, since the long/short construction creates a pure factor portfolio.",
+      "B": "the use of information from all quantiles, including the middle of the ranked universe.",
       "C": "(1) middle-quantile information not utilized."
      },
      "correct": "C",
      "rationales": {
-      "A": "Multiple drawbacks.",
-      "B": "Multiple issues.",
+      "A": "Incorrect — and the opposite is the most important drawback: the hedged portfolio is NOT a 'pure' factor portfolio, because it retains significant exposures to other risk factors.",
+      "B": "Incorrect — the opposite is a drawback: only the top and bottom quantiles are used in forming the hedged portfolio, so the information contained in the middle quantiles is not utilized.",
       "C": "Full statement: (1) middle-quantile information not utilized; (2) implicitly assumes linear (or monotonic) relationship between factor and future returns which may not be case; (3) portfolios tend to be concentrated (if many managers use similar factors, portfolios concentrated in specific stocks); (4) requires shorting stocks (may not be possible in some markets or overly expensive); (5) most importantly, hedged portfolio is not a 'pure' factor portfolio because it has significant exposures to other risk factors.\n\nCorrect. Per the reading: 'There are a few drawbacks to this \"hedged portfolio\" approach. First, the information contained in the middle quantiles is not utilized, as only the top and bottom quantiles are used in forming the hedged portfolio. Second, it is implicitly assumed that the relationship between the factor and future stock returns is linear (or at least monotonic), which may not be the case. Third, portfolios built using this approach tend to be concentrated, and if many managers use similar factors, the resulting portfolios will be concentrated in specific stocks. Fourth, the hedged portfolio requires managers to short stocks. Shorting may not be possible in some markets and may be overly expensive in others. Fifth, and most important, the hedged portfolio is not a \"pure\" factor portfolio because it has significant exposures to other risk factors.'"
      },
      "type": "mc",
@@ -776,13 +776,13 @@
      "options": {
       "A": "uses valuation metrics — earnings yield, book-to-market, price-to-cash-flow, dividend yield.",
       "B": "high P/E buy.",
-      "C": "no methodology."
+      "C": "ranks stocks by trailing price momentum, since value is best captured by recent performance."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: uses valuation metrics — earnings yield, book-to-market, price-to-cash-flow, dividend yield; typical implementation via hedged portfolio: buy top decile of value-attractive stocks and short bottom decile; historically shown to earn long-term return premium (rewarded factor).\n\nCorrect. Per the reading: The factor-based strategy uses variables like valuation (earnings yield) as factors. Value stocks are identified by low P/E, low P/B, and high dividend yields per Exhibit 1. Exhibit 6 compares Russell 1000 Value vs Growth (10-year period ending Oct 2021: growth 29.41% annual returns vs value 13.90%, Sharpe 1.30 vs 0.791). Value is a rewarded factor with long-term return premium per empirical research.",
       "B": "Low multiples.",
-      "C": "Valuation-based."
+      "C": "Incorrect. Momentum is a separate rewarded factor; the value factor is implemented with valuation metrics such as earnings yield, book-to-market, price-to-cash-flow, and dividend yield, not trailing price performance."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.d",
@@ -798,15 +798,15 @@
      "number": 6,
      "stem": "Price momentum factor most likely:",
      "options": {
-      "A": "past losers.",
+      "A": "buys past losers and shorts past winners, betting on short-term reversal.",
       "B": "buys past winners and shorts past losers.",
-      "C": "no strategy."
+      "C": "is implemented only with industry-level bets, since momentum cannot be measured at the stock level."
      },
      "correct": "B",
      "rationales": {
-      "A": "Past winners.",
+      "A": "Incorrect. This is a reversal strategy, the opposite of momentum: the price momentum factor buys past WINNERS and shorts past LOSERS.",
       "B": "Full statement: buys past winners and shorts past losers; sector-neutral price momentum focuses on stock selection without industry-level bets which tends to reduce downside risk; Exhibit 12 shows sector-neutralized price momentum long/short decile portfolio performance; Exhibit 13 extends analysis to European and Japanese markets where similar effect on downside risk shown over the period.\n\nCorrect. Per the reading: 'Using the simple price momentum factor means that a portfolio buys past winners and shorts past losers. The resulting portfolio could have exposure to potentially significant industry bets. Sector-neutral price momentum focuses on stock selection without such risk exposures and thus tends to reduce downside risk.' From Example 4 solution: 'As shown in Exhibit 13, price momentum has performed substantially better in Europe than in the United States. On the other hand, there does not appear to be any meaningful pattern of price momentum in Japan. Exhibit 13 suggests that the price momentum factor could be used for a European portfolio but not for a Japanese portfolio.'",
-      "C": "Winners buy, losers short."
+      "C": "Incorrect. Momentum is measured at the stock level; sector-neutral price momentum deliberately removes industry-level bets, focusing on stock selection, which tends to reduce downside risk."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.d",
@@ -823,13 +823,13 @@
      "stem": "Growth factor most likely:",
      "options": {
       "A": "backward-focused only.",
-      "B": "no methodology.",
+      "B": "always predicts stronger future stock performance the higher the growth rate, including growth in assets.",
       "C": "aims to measure company's growth potential."
      },
      "correct": "C",
      "rationales": {
       "A": "Growth measurement.",
-      "B": "Multi-horizon growth.",
+      "B": "Incorrect. Higher growth is not uniformly favorable: the growth of some metrics, such as assets, results in WEAKER future stock price performance.",
       "C": "Full statement: aims to measure company's growth potential; can be calculated using historical growth rates or projected forward growth rates; classifiable as short-term growth (last quarter, last year, next quarter, next year) or long-term (last 5 years, next 5 years); while higher growth generally considered indicator for strong future performance, growth of some metrics (like assets) results in weaker future performance.\n\nCorrect. Per the reading: 'Growth factors aim to measure a company's growth potential and can be calculated using the company's historical growth rates or projected forward growth rates. Growth factors can also be classified as short-term growth (last quarter's, last year's, next quarter's, or next year's growth) and long-term growth (last five years' or next five years' growth). While higher-than-market or higher-than-sector growth is generally considered to be a possible indicator for strong future stock price performance, the growth of some metrics, such as assets, results in weaker future stock price performance.'"
      },
      "type": "mc",
@@ -952,15 +952,15 @@
      "number": 3,
      "stem": "Activist hedge funds AUM most likely trajectory:",
      "options": {
-      "A": "unchanged.",
+      "A": "grew steadily through the global financial crisis, peaking near $46 billion in 2009.",
       "B": "reached $50 billion in 2007 before falling sharply during global financial crisis.",
-      "C": "always constant."
+      "C": "collapsed after 2007 and never recovered, with AUM remaining far below pre-crisis levels since."
      },
      "correct": "B",
      "rationales": {
-      "A": "Fluctuated.",
+      "A": "Incorrect. AUM reached $50 billion in 2007 and then FELL sharply during the global financial crisis — it did not grow steadily through the crisis; the ~$46 billion figure is the 2018 recovery level, not a 2009 peak.",
       "B": "Full statement: reached $50 billion in 2007 before falling sharply during global financial crisis; strongly recovered with AUM close to $46 billion in 2018; benefit from lighter regulation than other fund types and fee structure justifying concerted campaigns for change; US has seen greatest amount of activist activity; some in Europe; more limited elsewhere due to cultural reasons and concentrated shareholder ownership.\n\nCorrect. Per the reading: 'Activist hedge funds — among the most prominent activist investors — saw growing popularity for a number of years, with assets under management (AUM) reaching $50 billion in 2007 before falling sharply during the global financial crisis. Activist hedge fund investing has since strongly recovered, with AUM close to $46 billion in 2018... Hedge funds that specialize in activism benefit from lighter regulation than other types of funds, and their fee structure, offering greater rewards, justifies concerted campaigns for change at the companies they hold. The popularity and viability of investor activism are influenced by the legal frameworks in different jurisdictions, shareholder structures, and cultural considerations. The United States has seen the greatest amount of activist activity initiated by hedge funds, individuals, and pension funds, but there have been a number of activist events in Europe too. Other regions have so far seen more limited activity on the part of activist investors. Cultural reasons and more concentrated shareholder ownership of companies are two frequently cited explanations.'",
-      "C": "$50B/$46B evolution."
+      "C": "Incorrect. Activist hedge fund investing strongly recovered after the crisis, with AUM close to $46 billion in 2018 — near the 2007 peak of $50 billion."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.e",
@@ -1106,15 +1106,15 @@
      "number": 1,
      "stem": "Statistical arbitrage (stat arb) strategies most likely:",
      "options": {
-      "A": "no data use.",
+      "A": "rely primarily on discretionary judgment about company fundamentals rather than statistical models.",
       "B": "use statistical and technical analysis to exploit pricing anomalies.",
-      "C": "no methodology."
+      "C": "exploit long-horizon macroeconomic trends rather than short-term pricing anomalies."
      },
      "correct": "B",
      "rationales": {
-      "A": "Statistical exploitation.",
+      "A": "Incorrect. Stat arb is data- and model-driven: it makes extensive use of price, dividend, volume, and limit order book data via technical analysis, time-series/econometric models, and machine learning — not discretionary fundamental judgment.",
       "B": "Full statement: use statistical and technical analysis to exploit pricing anomalies; make extensive use of data such as stock price, dividend, trading volume, and limit order book; analytical tools include (1) traditional technical analysis, (2) sophisticated time-series analysis and econometric models, and (3) machine-learning techniques; portfolio managers typically take advantage of mean reversion in share prices or opportunities created by market microstructure issues.\n\nCorrect. Per the reading: 'Statistical arbitrage (or \"stat arb\") strategies use statistical and technical analysis to exploit pricing anomalies. Statistical arbitrage makes extensive use of data such as stock price, dividend, trading volume, and the limit order book for this purpose. The analytical tools used include (1) traditional technical analysis, (2) sophisticated time-series analysis and econometric models, and (3) machine-learning techniques. Portfolio managers typically take advantage of either mean reversion in share prices or opportunities created by market microstructure issues.'",
-      "C": "Real approach."
+      "C": "Incorrect. Stat arb exploits pricing anomalies — typically mean reversion in share prices or market microstructure opportunities — not long-horizon macroeconomic trends."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.f",
@@ -1227,14 +1227,14 @@
      "stem": "Event-driven strategies most likely:",
      "options": {
       "A": "category of active strategies that do not fit neatly into fundamental/quantitative/factor categorizations.",
-      "B": "no events.",
-      "C": "no methodology."
+      "B": "are purely discretionary strategies that cannot be implemented in a systematic, rules-based way.",
+      "C": "fit squarely within the factor-based category, because corporate events are rewarded factors."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: category of active strategies that do not fit neatly into fundamental/quantitative/factor categorizations; rely on extensive use of quantitative data and usually implemented in systematic, rules-based way but can incorporate manager's judgment; exploit corporate events like M&A, spin-offs, restructurings.\n\nCorrect. Per the reading: 'There are many other strategies that active portfolio managers employ in an attempt to beat the market benchmark. In this section, we explain two other categories of active strategies that do not fit neatly into our previous categorizations — namely, statistical arbitrage and event-driven strategies. Both rely on extensive use of quantitative data and are usually implemented in a systematic, rules-based way but can also incorporate the fund manager's judgment in making investment decisions.'",
-      "B": "Corporate event-based.",
-      "C": "Systematic + judgment."
+      "B": "Incorrect. Event-driven strategies rely on extensive quantitative data and are usually implemented in a systematic, rules-based way, though the manager's judgment can also be incorporated.",
+      "C": "Incorrect. The reading presents event-driven (with statistical arbitrage) precisely as a category that does NOT fit neatly into the fundamental/quantitative/factor categorizations; corporate events such as M&A and spin-offs are exploited opportunistically, not as rewarded factors."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.f",
@@ -1248,17 +1248,17 @@
     {
      "id": "r16_active_eq_los_f_q7",
      "number": 7,
-     "stem": "Identifying pairs of stocks for pairs trading most likely:",
+     "stem": "Identifying pairs of stocks for pairs trading is most likely:",
      "options": {
-      "A": "single method only.",
-      "B": "the most difficult aspect.",
-      "C": "no approaches."
+      "A": "straightforward, since any two stocks with high historical correlation qualify regardless of business similarity.",
+      "B": "the most difficult aspect of the strategy, addressable via quantitative price models or fundamental judgment.",
+      "C": "accomplished only through fundamental analysis, because statistical models cannot identify candidate pairs."
      },
      "correct": "B",
      "rationales": {
-      "A": "Two approaches.",
+      "A": "Incorrect. High historical correlation alone can be coincidental — Example 7's Pair 2 (a food retailer and a car manufacturer) is rejected for exactly this reason. Good pairs need both statistical evidence of mean reversion and a fundamental reason for the prices to move together.",
       "B": "Full statement: the most difficult aspect; can be done either by using a quantitative approach (creating models of stock prices) or by using a fundamental approach (judging the two stocks whose prices should move together for qualitative reasons); Example 7 Pair 1 (two food-producers with mean-reverting price ratio) preferred over Pair 2 (food retailer vs car manufacturer — correlation likely coincidental) and Pair 3 (fundamental change in one bank).\n\nCorrect. Per the reading: 'The most difficult aspect of a pairs-trading strategy is the identification of the pairs of stocks. This can be done either by using a quantitative approach and creating models of stock prices or by using a fundamental approach to judge the two stocks whose prices should move together for qualitative reasons.' In Example 7, Pair 1 (both food companies with comparable prospects and mean-reverting ratio) is best because it satisfies both the statistical (mean-reversion evidence) and fundamental (comparable businesses) criteria for pairs trading; Pair 2 has cross-industry correlation that is likely coincidental; Pair 3 has fundamental change (new management + M&A activity) that invalidates the historical relationship.",
-      "C": "Multiple approaches."
+      "C": "Incorrect. Pairs can be identified either by a quantitative approach (creating models of stock prices) or by a fundamental approach — fundamental analysis is one of two routes, not the only one."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.f",
@@ -1274,14 +1274,14 @@
      "number": 8,
      "stem": "The primary risk in pairs trading most likely is:",
      "options": {
-      "A": "no risk.",
-      "B": "no downside.",
+      "A": "that both legs of the trade decline together in a broad market selloff, since the strategy is unhedged to market direction.",
+      "B": "that the spread reverts to its long-term average too quickly for the trade to be executed.",
       "C": "that the observed price divergence is not temporary."
      },
      "correct": "C",
      "rationales": {
-      "A": "Structural divergence.",
-      "B": "Structural break risk.",
+      "A": "Incorrect. A pairs trade is long one stock and short the other, so a broad market selloff largely nets out across the two legs; the biggest risk is that the price divergence is structural, not market direction.",
+      "B": "Incorrect. Rapid mean reversion is the desired outcome of the trade, not its risk; the danger is divergence that persists for structural reasons (e.g., one company develops technology competitors cannot replicate), which is why stop-loss rules are employed.",
       "C": "Full statement: that the observed price divergence is not temporary; rather, it might be due to structural reasons (e.g., one company developed new technology or product not easily replicated by competitors); investors often employ stop-loss rules to exit trades when loss limit reached because risk management is critical for success.\n\nCorrect. Per the reading: 'The biggest risk in pairs trading and most other mean-reversion strategies is that the observed price divergence is not temporary; rather, it might be due to structural reasons. Because risk management is critical for the success of such strategies, investors often employ stop-loss rules to exit trades when a loss limit is reached.' Footnote: 'For example, the outperformance of one stock might be due to the fact that the company has developed a new technology or product that cannot be easily replicated by competitors.'"
      },
      "type": "mc",
@@ -1406,13 +1406,13 @@
      "options": {
       "A": "cognitive error.",
       "B": "an emotional bias whereby investors tend to prefer avoiding losses over achieving gains.",
-      "C": "no such bias."
+      "C": "a bias that causes investors to sell losing positions too quickly in order to lock in tax losses."
      },
      "correct": "B",
      "rationales": {
       "A": "Emotional bias.",
       "B": "Full statement: an emotional bias whereby investors tend to prefer avoiding losses over achieving gains; psychologically losses are significantly more powerful than gains; in absolute value terms, utility derived from a gain is much lower than utility given up in equivalent loss; can cause investors to hold unbalanced portfolios (poorly performing positions maintained in hope of recovery; successful investments sold prematurely to avoid further risk); disciplined trading strategy with firmly established stop-loss rules essential.\n\nCorrect. Per the reading: 'Loss aversion is an emotional bias whereby investors tend to prefer avoiding losses over achieving gains. A number of studies on loss aversion suggest that, psychologically, losses are significantly more powerful than gains. In absolute value terms, the utility derived from a gain is much lower than the utility given up in an equivalent loss. Loss aversion can cause investors to hold unbalanced portfolios in which poorly performing positions are maintained in the hope of potential recovery and successful investments are sold (and the gains realized) prematurely in order to avoid further risk. A disciplined trading strategy with firmly established stop-loss rules is essential to prevent fundamental investors from falling into this trap.'",
-      "C": "Emotional bias."
+      "C": "Incorrect. Loss aversion produces the opposite behavior: poorly performing positions are held too long in the hope of recovery, while successful investments are sold prematurely to avoid further risk."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.g",
@@ -1478,13 +1478,13 @@
      "options": {
       "A": "cognitive error.",
       "B": "an emotional bias — causes investors to avoid making decisions they fear will turn out poorly.",
-      "C": "no bias."
+      "C": "a bias that leads investors to trade excessively in pursuit of every opportunity."
      },
      "correct": "B",
      "rationales": {
       "A": "Emotional bias.",
       "B": "Full statement: an emotional bias — causes investors to avoid making decisions they fear will turn out poorly; investors try to avoid pain of regret associated with bad decisions; may actually prevent investors from making decisions and cause them to hold onto positions for too long and lose out on profitable investment opportunities; carefully defined portfolio review process (require investors to periodically review and justify existing positions or substantiate decision not to have exposure to other stocks) helps mitigate.\n\nCorrect. Per the reading: 'An emotional bias, regret aversion bias causes investors to avoid making decisions that they fear will turn out poorly. Simply put, investors try to avoid the pain of regret associated with bad decisions. This bias may actually prevent investors from making decisions. They may instead hold on to positions for too long and, in the meantime, lose out on profitable investment opportunities. A carefully defined portfolio review process can help mitigate the effects of regret aversion bias. Such a process might, for example, require investors to periodically review and justify existing positions or to substantiate the decision not to have exposure to other stocks in the universe.'",
-      "C": "Emotional."
+      "C": "Incorrect. Regret aversion tends to PREVENT decisions: investors hold on to positions too long and lose out on profitable opportunities, rather than trading excessively."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.g",
@@ -1510,14 +1510,14 @@
      "number": 1,
      "stem": "Quantitative active equity investing history most likely:",
      "options": {
-      "A": "no historical events.",
-      "B": "no history.",
+      "A": "began after the 2008 global financial crisis as a response to the failures of discretionary management.",
+      "B": "suffered its most significant setback in the March 2000 dot-com collapse, an event known as the quant meltdown.",
       "C": "began in 1970s and became mainstream investment approach in subsequent decades."
      },
      "correct": "C",
      "rationales": {
-      "A": "Evolved over decades.",
-      "B": "Real evolution.",
+      "A": "Incorrect. Quantitative active equity investing began in the 1970s and was mainstream decades before the global financial crisis; the crisis actually fueled suspicion about quant investing rather than launching it.",
+      "B": "Incorrect. The 'quant meltdown' refers to the significant losses many quantitative equity funds suffered in August 2007, not the 2000 dot-com collapse.",
       "C": "Full statement: began in 1970s and became mainstream investment approach in subsequent decades; many quant equity funds suffered significant losses in August 2007 (the 'quant meltdown'); subsequent global financial crisis contributed to growing suspicions about sustainability; both performance and perception recovered significantly since 2012 as investors improved research/processes/construction.\n\nCorrect. Per the reading: 'Quantitative active equity investing began in the 1970s and became a mainstream investment approach in the subsequent decades. Many quantitative equity funds suffered significant losses in August 2007, an event that became known as the \"quant meltdown.\" The subsequent global financial crisis contributed to growing suspicions about the sustainability of quantitative investing. However, both the performance and the perception of quantitative investing have recovered significantly since 2012 as this approach began to more effectively use unconventional data sources.'"
      },
      "type": "mc",
@@ -1608,13 +1608,13 @@
      "options": {
       "A": "treating each factor as an asset — factor weighting becomes an asset allocation decision.",
       "B": "single factor.",
-      "C": "no approach."
+      "C": "weighting all factors equally, since mean-variance optimization cannot be applied to factors."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: treating each factor as an asset — factor weighting becomes an asset allocation decision; standard mean-variance optimization can also be used to weight factors; investors should bear in mind that factors may be effective individually but not add material value to a factor model because they are correlated with other factors.\n\nCorrect. Per the reading: 'After studying the efficacy of single factors, managers need to decide which factors to include in a multifactor model. Factor selection and weighting is a fairly complex subject. Managers can select and weight each factor using either qualitative or systematic processes. For example, Qian, Hua, and Sorensen (2007) propose treating each factor as an asset; therefore, factor weighting becomes an asset allocation decision. A standard mean–variance optimization can also be used to weight factors. Deciding on which factors to include and their weight is a critical piece of the strategy. Investors should bear in mind that factors may be effective individually but not add material value to a factor model because they are correlated with other factors.'",
       "B": "Factors as assets.",
-      "C": "Asset allocation lens."
+      "C": "Incorrect. Qian, Hua, and Sorensen propose treating each factor as an asset, making factor weighting an asset allocation decision — and a standard mean-variance optimization CAN be used to weight factors."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.h",
@@ -1761,14 +1761,14 @@
      "stem": "The Morningstar Style Box most likely:",
      "options": {
       "A": "first appeared in 1992 to help investors and advisers determine investment style of a fund.",
-      "B": "no such tool.",
-      "C": "no methodology."
+      "B": "uses returns-based style analysis, regressing fund returns on nine style indexes.",
+      "C": "classifies stocks along a single dimension — market capitalization — into a three-square column."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: first appeared in 1992 to help investors and advisers determine investment style of a fund; nine-square grid with three stock investment styles (value/core/growth for stocks, blend for funds) × three size categories (large/mid/small); uses holdings-based style analysis; classifies about same number of stocks in each of value/core/growth styles; determines value and growth scores using five stock attributes.\n\nCorrect. Per the reading: 'The Morningstar Style Box first appeared in 1992 to help investors and advisers determine the investment style of a fund. In a style box, each style pair splits the stock universe into two to three groups, such as value, core (or \"blend\"), and growth. The same universe can be split by another style definition — for example, large cap, mid cap, and small cap. The Morningstar Style Box splits the stock universe along both style dimensions, creating a grid of nine squares. It uses holdings-based style analysis and classifies about the same number of stocks in each of the value, core, and growth styles. Morningstar determines the value and growth scores by using five stock attributes... The current Morningstar Style Box... is a nine-square grid featuring three stock investment styles for each of three size categories: large, mid, and small. Two of the three style categories are \"value\" and \"growth,\" common to both stocks and funds. However, the third, central column is labeled \"core\" for stocks (i.e., those stocks for which neither value nor growth characteristics dominate) and \"blend\" for funds.'",
-      "B": "3×3 grid.",
-      "C": "1992 origin."
+      "B": "Incorrect. The Morningstar Style Box uses HOLDINGS-based style analysis, scoring stocks on value and growth attributes — it is not a returns-based regression on style indexes.",
+      "C": "Incorrect. The Style Box splits the universe along TWO style dimensions — value/core/growth and large/mid/small cap — creating a grid of nine squares, not a single-dimension column."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.i",
@@ -1784,15 +1784,15 @@
      "number": 4,
      "stem": "Large/mid/small-cap boundaries most likely:",
      "options": {
-      "A": "universal consensus.",
+      "A": "are set by regulation, with large cap defined globally as market capitalization above $10 billion.",
       "B": "no consensus on boundaries — different data and research providers use different criteria for size classification.",
-      "C": "single standard."
+      "C": "are defined so that large-, mid-, and small-cap stocks each account for roughly one-third of total universe capitalization."
      },
      "correct": "B",
      "rationales": {
-      "A": "70/20/balance.",
+      "A": "Incorrect. No regulatory or universal threshold exists — there is no consensus on size boundaries, and different data and research providers use different criteria for size classification.",
       "B": "Full statement: no consensus on boundaries — different data and research providers use different criteria for size classification; one practice defines large-cap stocks as those accounting for top ~70% of capitalization of all stocks in universe, mid-cap next ~20%, and small-cap accounting for balance; large-cap = well-established with strong market presence, good information disclosure, extensive analyst/media scrutiny, lower risk, more limited future growth potential; small-cap = less mature, potentially greater growth, higher failure risk, lower analyst/public scrutiny.\n\nCorrect. Per the reading: 'The size classification is determined by the company's market capitalization. There is no consensus on what the size thresholds for the different categories should be, and indeed, different data and research providers use different criteria for size classification purposes... There is no consensus on the boundaries that separate large-, mid-, and small-cap companies. One practice is to define large-cap stocks as those that account for the top ~70% of the capitalization of all stocks in the universe, with mid-cap stocks representing the next ~20% and small-cap stocks accounting for the balance.'",
-      "C": "Common practice."
+      "C": "Incorrect. One common practice is far from equal thirds: large cap is the top ~70% of universe capitalization, mid cap the next ~20%, and small cap the balance (~10%)."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.i",
@@ -1856,15 +1856,15 @@
      "number": 7,
      "stem": "Strengths and limitations of style analysis most likely:",
      "options": {
-      "A": "no distinctions.",
+      "A": "returns-based analysis is generally more accurate than holdings-based because it captures the effect of derivatives directly.",
       "B": "holdings-based generally more accurate than returns-based because uses actual portfolio holdings.",
-      "C": "identical value."
+      "C": "holdings-based analysis requires only the fund's return history, making it more widely applicable than returns-based analysis."
      },
      "correct": "B",
      "rationales": {
-      "A": "Trade-offs.",
+      "A": "Incorrect. Holdings-based analysis is generally MORE accurate because it uses actual portfolio holdings. Limited derivatives data is a weakness of holdings-based analysis for derivative-heavy funds, but that does not make returns-based analysis more accurate in general.",
       "B": "Full statement: holdings-based generally more accurate than returns-based because uses actual portfolio holdings; requires availability of all portfolio constituents and style attributes of each stock; point-in-time databases required to track historical style changes; Kaplan (2011) argued returns-based models impose unnecessary constraints that limit results (harder to detect aggressive positions like deep value or micro cap); limited data on derivatives makes holdings-based less effective for funds with substantial derivatives positions; ideal to use both approaches (returns-based more widely applicable; holdings-based deeper).\n\nCorrect. Per the reading: 'Holdings-based style analysis is generally more accurate than returns-based analysis because it uses the actual portfolio holdings... Holdings-based style analysis requires the availability of all the portfolio constituents as well as the style attributes of each stock in the portfolio. While this information may be accessible for current portfolios, an analyst who wants to track the historical change in investment styles may face some difficulty. In this case, point-in-time databases are required for both the constituents of the fund and the stocks' style definitions... Kaplan (2011) argued that most returns-based style analysis models impose unnecessary constraints that limit the results within certain boundaries, making it difficult to detect more aggressive positions, such as deep value or micro cap. Furthermore, the limited availability of data on derivatives often makes holdings-based style analysis less effective for funds with substantial positions in derivatives... Morningstar studies have concluded that holdings-based style analysis generally produces more accurate results than returns-based style analysis, although there may be exceptions. Ideally, practitioners should use both approaches: Returns-based models can often be more widely applied, while holdings-based models allow deeper style analysis.'",
-      "C": "Complementary use."
+      "C": "Incorrect. The descriptions are swapped: returns-based analysis needs only the fund's return history and is therefore more widely applicable; holdings-based analysis requires all portfolio constituents plus the style attributes of each stock."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_strategies.i",
@@ -1880,14 +1880,14 @@
      "number": 8,
      "stem": "Manager self-identification for style analysis most likely:",
      "options": {
-      "A": "always ignored.",
-      "B": "no use.",
+      "A": "is sufficient on its own, making holdings- or returns-based verification of the stated style unnecessary.",
+      "B": "is unreliable and therefore disregarded, with analysts relying exclusively on returns-based analysis even for non-standard hedge fund styles.",
       "C": "fund's investment strategy usually described in fund prospectus and can be used to identify fund's investment objective."
      },
      "correct": "C",
      "rationales": {
-      "A": "Combined approach.",
-      "B": "Self-ID + analysis.",
+      "A": "Incorrect. Returns-based or holdings-based style analysis is commonly used precisely to determine whether the fund's actual style corresponds to the manager's self-identified style — self-identification alone is not sufficient.",
+      "B": "Incorrect. Self-identification is not disregarded: hedge fund, equity income, and special sector styles are most efficiently identified using a COMBINATION of manager self-identification and holdings-/returns-based analysis, and some hedge fund styles (long/short, market neutral, dedicated short bias) do not fit standard categories at all.",
       "C": "Full statement: fund's investment strategy usually described in fund prospectus and can be used to identify fund's investment objective; this objective can be regarded as manager's self-identification of investment style; returns-based or holdings-based analysis commonly used to determine whether style corresponds to self-identified style; styles of equity hedge funds, equity income funds, and special sector funds more efficiently identified using combination of manager self-identification and holdings-/returns-based analysis; some equity hedge fund styles (long/short equity, market neutral, dedicated short bias) are non-standard.\n\nCorrect. Per the reading: 'Equity strategy investment styles result from the active equity manager's employment of a particular strategy to manage the fund. The fund's investment strategy is usually described in the fund prospectus and can be used to identify the fund's investment objective. This objective can be regarded as the manager's self-identification of the investment style. Returns-based or holdings-based style analysis is commonly used to identify the investment style — such as value/growth or large cap/small cap — and to determine whether it corresponds to the manager's self-identified style. Some other styles, however, cannot be easily identified by such methods. For example, the styles of equity hedge funds, equity income funds, and special sector funds can be more efficiently identified using a combination of manager self-identification and holdings- or returns-based analysis. Some equity hedge fund styles are non-standard and do not fit into any of the established style categories. Examples include long/short equity, equity market neutral, and dedicated short bias.'"
      },
      "type": "mc",

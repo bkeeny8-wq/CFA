@@ -15,7 +15,7 @@
     {
      "id": "r7_fipm_los_a_q1",
      "number": 1,
-     "stem": "The reading identifies three primary roles of fixed-income securities in portfolios. Which of the following is least likely one of them?",
+     "stem": "Which of the following is least likely a role of fixed-income securities in portfolios identified in the reading?",
      "options": {
       "A": "Guaranteed capital appreciation exceeding equities.",
       "B": "Diversification benefits.",
@@ -23,9 +23,9 @@
      },
      "correct": "A",
      "rationales": {
-      "A": "Correct. Fixed-income securities do not offer guaranteed capital appreciation, particularly not exceeding equities. The three roles the reading identifies are: (1) diversification benefits (low correlations with other asset classes), (2) regular cash flows (allowing investors to meet known future obligations), and (3) inflation-hedging potential (particularly via inflation-linked bonds and floating-rate coupons).",
-      "B": "This is one of the three roles.",
-      "C": "This is one of the three roles."
+      "A": "Correct. Fixed-income securities do not offer guaranteed capital appreciation, particularly not exceeding equities. Roles the reading identifies include: (1) diversification benefits (low correlations with other asset classes), (2) regular cash flows (allowing investors to meet known future obligations), and (3) inflation-hedging potential (particularly via inflation-linked bonds and floating-rate coupons).",
+      "B": "This is a role the reading identifies.",
+      "C": "This is a role the reading identifies."
      },
      "type": "mc",
      "primary_los": "overview_of_fixed_income_portfolio_management.a",
@@ -90,14 +90,14 @@
      "stem": "The reading's Exhibit 1 shows a 20-year correlation (through Dec 2019) between the S&P 500 and most likely:",
      "options": {
       "A": "US Corporate High Yield of approximately 0.63 and US 10-Year Treasury of approximately -0.30.",
-      "B": "US Corporate High Yield of -0.90 and US 10-Year Treasury of +0.90.",
-      "C": "all fixed-income categories showing +1.0 correlation."
+      "B": "US Corporate High Yield of approximately -0.30 and US 10-Year Treasury of approximately 0.63.",
+      "C": "US Corporate High Yield of approximately 0.20 and US 10-Year Treasury of approximately 0.02."
      },
      "correct": "A",
      "rationales": {
       "A": "Correct. Per Exhibit 1, over the 20-year period through December 2019, S&P 500 correlations were approximately: US Aggregate −0.09, 10Y US Treasury −0.30, US Corporate 0.20, Global Aggregate 0.15, US TIPS 0.02, US High Yield 0.63, Emerging Market (USD) 0.51. High-yield's high correlation (0.63) with equity reflects its equity-like risk profile, while Treasury bonds show negative correlation (−0.30) with equity.",
-      "B": "These extreme values are not in the exhibit.",
-      "C": "The exhibit shows a range of correlations."
+      "B": "Incorrect. These values are swapped: -0.30 is the 10-Year US Treasury's correlation with the S&P 500 and 0.63 is US High Yield's. High yield carries equity-like risk (high positive correlation with equities), while Treasuries diversify equity risk (negative correlation).",
+      "C": "Incorrect. Per Exhibit 1, 0.20 is the US Corporate (investment-grade) correlation and 0.02 is US TIPS — neither is the figure for high yield or the 10-Year Treasury."
      },
      "type": "mc",
      "primary_los": "overview_of_fixed_income_portfolio_management.a",
@@ -274,7 +274,7 @@
      "correct": "B",
      "rationales": {
       "A": "Incorrect. Effective duration measures price response to benchmark curve shifts — yield changes are its very input.",
-      "B": "Correct. The reading defines effective duration as the sensitivity of a bond's price to a change in a benchmark yield curve (i.e., using a parallel shift in the benchmark yield curve, ΔCurve). Effective duration is essential to the measurement of the interest rate risk of a complex bond where future cash flows are uncertain — such as callable/putable bonds and MBS with embedded options. The formula: EffDur = [(PV_) − (PV+)] / [2 × ΔCurve × PV_0].",
+      "B": "Correct. The reading defines effective duration as the sensitivity of a bond's price to a change in a benchmark yield curve (i.e., using a parallel shift in the benchmark yield curve, ΔCurve). Effective duration is essential to the measurement of the interest rate risk of a complex bond where future cash flows are uncertain — such as callable/putable bonds and MBS with embedded options. The formula: EffDur = [(PV−) − (PV+)] / [2 × ΔCurve × PV0].",
       "C": "Incorrect. The opposite: effective duration is essential precisely FOR bonds whose cash flows change with rates (embedded options, MBS)."
      },
      "type": "mc",
@@ -517,14 +517,14 @@
      "number": 3,
      "stem": "The reading notes that pricing bonds accurately faces particular challenges most likely because:",
      "options": {
-      "A": "corporate bond price transparency is universally excellent.",
-      "B": "all bonds trade continuously with tight spreads.",
+      "A": "trade-reporting systems such as TRACE and EMMA cover only government bond transactions, leaving corporate trades unreported.",
+      "B": "matrix pricing is prohibited for bonds that trade infrequently, leaving no way to estimate their value.",
       "C": "sources for pricing of recent bond transactions — notably corporate bonds — are not always readily available."
      },
      "correct": "C",
      "rationales": {
-      "A": "Corporate bond transparency is limited in most markets.",
-      "B": "This contradicts the reading's characterization.",
+      "A": "Incorrect. TRACE reports US corporate bond trades and EMMA covers US municipal bonds — these systems increase corporate and muni price transparency; they do not exclude it.",
+      "B": "Incorrect. Matrix pricing is the standard solution for infrequently traded bonds — it estimates current yield and price from observable liquid benchmark yields and benchmark spreads of comparable bonds; it is not prohibited.",
       "C": "Full statement: sources for pricing of recent bond transactions — notably corporate bonds — are not always readily available; many bonds don't trade or trade infrequently, so recent transaction prices may not be practical; one solution is matrix pricing using observable liquid benchmark yields and benchmark spreads of comparable bonds.\n\nCorrect. The reading states sources for pricing recent bond transactions — notably corporate bonds — are not always readily available. Because many bonds do not trade or trade infrequently, using recent transaction prices to represent current value is not practical. Reliance on last traded prices, which may be out of date, could result in costly trading decisions. Systems like TRACE (US) and EMMA (US munis) increase transparency. Matrix pricing uses observable liquid benchmark yields of similar maturity/duration and benchmark spreads of bonds with comparable times to maturity, credit quality, and sector to estimate current market yield and price."
      },
      "type": "mc",
@@ -589,14 +589,14 @@
      "number": 6,
      "stem": "Bid-ask spreads on bonds are most likely affected by:",
      "options": {
-      "A": "Bid-ask spreads on bonds are determined purely by the coupon rate, with higher coupons commanding wider spreads.",
-      "B": "Bid-ask spreads are identical across all bonds because dealers quote a standardized market-wide spread.",
+      "A": "riskiness — riskier bonds have lower bid-ask spreads because dealers turn over their inventories more quickly to avoid holding them.",
+      "B": "issue size alone — spreads depend only on the size of the bond issue, not on complexity or credit quality.",
       "C": "riskiness (riskier bonds have higher spreads due to dealers' aversion to holding them), complexity (embedded options widen spreads), and creditworthiness (bonds of large high-credit-quality corporations with many outstanding issues have the lowest spreads among corporates)."
      },
      "correct": "C",
      "rationales": {
-      "A": "Incorrect. Coupon is not the driver; riskiness, complexity, and credit quality shape dealers' quoted spreads.",
-      "B": "Incorrect. Spreads vary widely — dealers charge more to hold riskier, more complex, less liquid paper.",
+      "A": "Incorrect. The direction is reversed: dealers' aversion to holding riskier bonds leads to HIGHER bid-ask spreads, because dealers must finance their inventories and be compensated for the risk of holding them.",
+      "B": "Incorrect. Size and number of outstanding issues matter through liquidity, but complexity (embedded options widen spreads) and creditworthiness are also key determinants — spreads do not depend on issue size alone.",
       "C": "Correct. The reading states several factors determine bid-ask spread: (1) riskier bonds often have higher bid-ask spreads because of dealers' aversion to hold them (dealers must finance inventories and want to cover both costs and profit); (2) bond complexity — plain vanilla corporate bonds normally have lower spreads than corporate bonds with non-standard/complex features (e.g., embedded options); (3) creditworthiness — bonds of large, high-credit-quality corporations with many outstanding issues are the most liquid among corporate bonds and thus have relatively low bid-ask spreads. Government bond spreads are lowest of all."
      },
      "type": "mc",
@@ -673,13 +673,13 @@
      "options": {
       "A": "Only coupon income and price change.",
       "B": "Only the yield to maturity.",
-      "C": "Coupon income; rolldown return."
+      "C": "Coupon income; rolldown return; E(ΔPrice based on views of benchmark yields); E(ΔPrice based on views of yield spreads); and E(currency gains or losses)."
      },
      "correct": "C",
      "rationales": {
       "A": "Two components are inadequate.",
       "B": "YTM alone doesn't decompose the sources of return.",
-      "C": "Full statement: Coupon income; rolldown return; E(ΔPrice based on investor's views of benchmark yields and yield volatility); E(ΔPrice based on investor's views of yield spreads); and E(currency gains or losses on FX-denominated assets).\n\nCorrect. The reading's model decomposes expected FI returns into five components: (1) coupon income (annual coupon / current bond price), (2) rolldown return (bond's percentage price change assuming an unchanged yield curve over the strategy horizon), (3) E(ΔPrice based on investor's views of benchmark yields to maturity and term structure of yield volatility), (4) E(ΔPrice based on investor's views of yield spreads), and (5) E(currency gains or losses on assets denominated in foreign currencies). Sum of coupon income + rolldown return is called the 'rolling yield'."
+      "C": "Correct. The reading's model decomposes expected FI returns into five components: (1) coupon income (annual coupon / current bond price), (2) rolldown return (bond's percentage price change assuming an unchanged yield curve over the strategy horizon), (3) E(ΔPrice based on investor's views of benchmark yields to maturity and the term structure of yield volatility), (4) E(ΔPrice based on investor's views of yield spreads), and (5) E(currency gains or losses on assets denominated in foreign currencies). The sum of coupon income and rolldown return is called the 'rolling yield.' Note: an equivalent presentation combines the two price-view terms into a single E(ΔPrice from the investor's views of yields and spreads) and subtracts E(credit losses) (= probability of default × loss severity) as an explicit component; in the five-part model above, expected credit losses are captured within the spread-view term."
      },
      "type": "mc",
      "primary_los": "overview_of_fixed_income_portfolio_management.d",
@@ -767,13 +767,13 @@
      "number": 5,
      "stem": "The reading's E(ΔPrice based on investor's views of yield spreads) formula is most likely:",
      "options": {
-      "A": "E(ΔPrice) = (−ModSpreadDur × ΔSpread) + [½ × Convexity × (ΔYield)²].",
+      "A": "E(ΔPrice) = (−ModSpreadDur × ΔSpread) + [½ × Convexity × (ΔSpread)²].",
       "B": "E(ΔPrice) = ΔSpread only.",
       "C": "E(ΔPrice) = Convexity × Spread."
      },
      "correct": "A",
      "rationales": {
-      "A": "Correct. The reading gives: E(ΔPrice based on investor's views of yield spreads) = (−ModSpreadDur × ΔSpread) + [½ × Convexity × (ΔYield)²]. When economic/credit conditions improve, spreads typically tighten (narrow), reducing required yield. Deteriorating conditions lead to higher required yields. This component reflects general market conditions rather than any spread changes due to issuer-specific (idiosyncratic) risk. Credit migration (rating changes) may also drive spread changes for individual bonds.",
+      "A": "Correct. The reading gives: E(ΔPrice based on investor's views of yield spreads) = (−ModSpreadDur × ΔSpread) + [½ × Convexity × (ΔSpread)²]. When economic/credit conditions improve, spreads typically tighten (narrow), reducing required yield. Deteriorating conditions lead to higher required yields. This component reflects general market conditions rather than any spread changes due to issuer-specific (idiosyncratic) risk. Credit migration (rating changes) may also drive spread changes for individual bonds.",
       "B": "Missing structural components.",
       "C": "Not the reading's formula."
      },
@@ -817,13 +817,13 @@
      "options": {
       "A": "The domestic-currency return on a foreign bond is the product of the two returns: R_DC = R_FC × R_FX.",
       "B": "The domestic-currency return is the simple sum of the foreign return and the currency return: R_DC = R_FC + R_FX.",
-      "C": "R_DC = (1 + R_FC)(1 + R_FX) − 1, where R_DC and R_FC are domestic and foreign currency returns and R_FX is the percentage change of the domestic currency versus the foreign currency."
+      "C": "R_DC = (1 + R_FC)(1 + R_FX) − 1, where R_DC and R_FC are domestic and foreign currency returns and R_FX is the percentage change of the foreign currency versus the domestic currency."
      },
      "correct": "C",
      "rationales": {
       "A": "Incorrect. Simple multiplication of the returns is not the relationship; the returns compound as (1 + R_FC)(1 + R_FX) − 1.",
       "B": "Incorrect. The sum ignores the cross-term R_FC × R_FX; compounding is the accurate formulation.",
-      "C": "Full statement: R_DC = (1 + R_FC)(1 + R_FX) − 1, where R_DC and R_FC are domestic and foreign currency returns and R_FX is the percentage change of the domestic currency versus the foreign currency; for a portfolio: R_DC = Σ ω_i (1 + R_FC,i)(1 + R_FX,i) − 1.\n\nCorrect. The reading states R_DC = (1 + R_FC)(1 + R_FX) − 1 for a single asset, or R_DC = Σ ω_i (1 + R_FC,i)(1 + R_FX,i) − 1 for a portfolio, where R_DC and R_FC are domestic and foreign currency returns as a percentage, R_FX is the percentage change of the domestic currency versus the foreign currency, and ω_i are portfolio weights. This is a compound (not simple) relationship."
+      "C": "Full statement: R_DC = (1 + R_FC)(1 + R_FX) − 1, where R_DC and R_FC are domestic and foreign currency returns and R_FX is the percentage change of the foreign currency versus the domestic currency; for a portfolio: R_DC = Σ ω_i (1 + R_FC,i)(1 + R_FX,i) − 1.\n\nCorrect. The reading states R_DC = (1 + R_FC)(1 + R_FX) − 1 for a single asset, or R_DC = Σ ω_i (1 + R_FC,i)(1 + R_FX,i) − 1 for a portfolio, where R_DC and R_FC are domestic and foreign currency returns as a percentage, R_FX is the percentage change of the foreign currency versus the domestic currency (appreciation of the foreign currency increases the domestic-currency return), and ω_i are portfolio weights. This is a compound (not simple) relationship."
      },
      "type": "mc",
      "primary_los": "overview_of_fixed_income_portfolio_management.d",
@@ -994,14 +994,14 @@
      "stem": "A repurchase agreement (repo) is most likely:",
      "options": {
       "A": "an important source of short-term financing where a security owner agrees to sell a security for a specific cash amount while simultaneously agreeing to repurchase the security at a specified future date and price.",
-      "B": "A repurchase agreement is an outright securities transfer that carries no obligation to repurchase the security.",
-      "C": "A repurchase agreement is an equity investment vehicle for gaining diversified stock exposure."
+      "B": "an unsecured short-term loan from a money market fund at the central bank's policy rate.",
+      "C": "a securities-lending trade in which the security lender pays the cash borrower a rebate rate equal to the repo rate."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: an important source of short-term financing where a security owner agrees to sell a security for a specific cash amount while simultaneously agreeing to repurchase the security at a specified future date and price — effectively a collateralized loan.\n\nCorrect. The reading describes repos as important sources of short-term financing for FI security dealers and other financial institutions, evidenced by trillions of dollars annually. In a repo, a security owner agrees to sell a security for a specific cash amount while simultaneously agreeing to repurchase the security at a specified future date (typically one day later) and price. Repos are effectively collateralized loans. From the borrower's standpoint the transaction is a repo; from the lender's standpoint (e.g., money market fund) it's a reverse repo.",
-      "B": "Incorrect. The simultaneous agreement to repurchase at a specified price and date is the defining feature.",
-      "C": "Incorrect. Repos are collateralized short-term DEBT financing, not equity vehicles."
+      "B": "Incorrect. A repo is collateralized, not unsecured — the security sold with the simultaneous agreement to repurchase serves as collateral — and the repo rate is negotiated per transaction rather than set at the policy rate.",
+      "C": "Incorrect. This confuses a repo with securities lending, a related but distinct transaction. In a repo, the security owner sells the security for cash and repurchases it at a specified future date and price — effectively borrowing at the repo rate, not receiving a rebate."
      },
      "type": "mc",
      "primary_los": "overview_of_fixed_income_portfolio_management.e",
@@ -1066,14 +1066,14 @@
      "stem": "The reading identifies key risks of leverage in fixed-income portfolios. Which of the following is most likely one of them?",
      "options": {
       "A": "Leverage can lead to forced liquidations — if portfolio value decreases, equity relative to borrowing is reduced and leverage increases.",
-      "B": "Leverage cannot lead to forced liquidations under any circumstances.",
-      "C": "Leverage always benefits the investor regardless of market conditions."
+      "B": "When portfolio value falls, leverage automatically declines because borrowings are marked down in proportion to the assets.",
+      "C": "Counterparties typically extend additional financing in crises to stabilize leveraged investors."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: Leverage can lead to forced liquidations — if portfolio value decreases, equity relative to borrowing is reduced and leverage increases; portfolio assets may be sold to reduce leverage, and 'fire sales' at prices below fair value can occur; additionally, counterparty risk reassessments in crises can cause counterparties to withdraw financing at the worst time.\n\nCorrect. The reading identifies these leverage risks: (1) leverage can amplify losses (heavily leveraged portfolios can incur significant losses from moderate valuation declines); (2) leverage can lead to forced liquidations — if portfolio value decreases, equity relative to borrowing is reduced and portfolio leverage increases, potentially requiring asset sales; 'fire sale' refers to forced liquidations at prices below fair value; (3) counterparty risk reassessments in crises (like 2008-09 GFC) can cause counterparties to withdraw credit lines, repos, and security lending, forcing leveraged investors to reduce exposure at the worst time.",
-      "B": "Forced liquidations are a documented risk of leverage.",
-      "C": "Leverage risk is asymmetric."
+      "B": "Incorrect. The reverse occurs: borrowings do not fall with asset values, so a decline in portfolio value reduces equity relative to borrowing and INCREASES leverage — potentially forcing asset sales ('fire sales') at prices below fair value.",
+      "C": "Incorrect. In crises (e.g., the 2008-09 GFC), counterparties reassess counterparty risk and WITHDRAW credit lines, repos, and securities lending, forcing leveraged investors to reduce exposure at the worst possible time."
      },
      "type": "mc",
      "primary_los": "overview_of_fixed_income_portfolio_management.e",
@@ -1087,7 +1087,7 @@
     {
      "id": "r7_fipm_los_e_q9",
      "number": 9,
-     "stem": "A portfolio manager who is bearish on US Treasury rates (expecting rates to rise) and bullish on emerging market credit spreads (expecting them to narrow) with a fully invested Global Aggregate mutual fund can most likely use leverage by:",
+     "stem": "A portfolio manager who is bearish on US Treasury rates (expecting rates to rise) and bullish on Brazilian interest rates (expecting them to fall) with a fully invested Global Aggregate mutual fund can most likely use leverage by:",
      "options": {
       "A": "The manager should purchase additional US Treasuries with available cash to express both views simultaneously.",
       "B": "selling US Treasury futures to reduce interest rate duration (retaining spread duration on corporate bonds) and entering a receive-fixed, pay-floating swap on Brazilian rates for the bullish EM view.",
@@ -1097,7 +1097,7 @@
      "rationales": {
       "A": "Incorrect. Buying Treasuries INCREASES the rate exposure the bearish rate view says to cut.",
       "B": "Full statement: selling US Treasury futures to reduce interest rate duration (retaining spread duration on corporate bonds) and entering a receive-fixed, pay-floating swap on Brazilian rates for the bullish EM view — both are leveraged since only counterparty collateral is required, but incorrect views on either position magnify losses.\n\nCorrect. Per the reading's Arturo example: bearish on US Treasury rates requires reducing duration — sell US Treasury futures whose notional and duration offset the corporate bond duration to reach new target duration; this retains spread duration exposure to corporates while shedding interest rate risk. Bullish on Brazilian rates: enter a receive-fixed, pay-floating swap on Brazilian rates — effectively creates a long fixed-rate bond position that will appreciate if Brazilian rates fall. Both positions are leveraged (only counterparty collateral used). Risk: incorrect views magnify losses, potentially requiring position closure at inopportune times.",
-      "C": "Incorrect. Full liquidation forfeits the bullish EM spread view and abandons the mandate; derivatives express both views without wholesale turnover."
+      "C": "Incorrect. Full liquidation forfeits the bullish Brazilian rate view and abandons the mandate; derivatives express both views without wholesale portfolio turnover."
      },
      "type": "mc",
      "primary_los": "overview_of_fixed_income_portfolio_management.e",
@@ -1123,14 +1123,14 @@
      "number": 1,
      "stem": "A key difference between managing FI portfolios for taxable vs tax-exempt investors is most likely:",
      "options": {
-      "A": "taxable investors always outperform tax-exempt.",
-      "B": "the management approach is identical for both.",
+      "A": "taxable investors should simply maximize pre-tax yield, since taxes are outside the manager's control.",
+      "B": "tax-exempt investors prefer municipal bonds because of their tax-exempt coupon income.",
       "C": "tax-exempt investors focus on pre-tax returns (highest possible risk-adjusted returns net of fees and transaction costs)."
      },
      "correct": "C",
      "rationales": {
-      "A": "Tax exemption affects the return keeper, not the pre-tax performance.",
-      "B": "The approaches differ materially.",
+      "A": "Incorrect. Managers can influence taxes — for example, through the timing of realized gains and losses — and a prudent taxable investor evaluates decisions on expected and realized AFTER-tax returns, not pre-tax yield alone.",
+      "B": "Incorrect. The tax exemption on municipal coupons is priced into their lower yields, so the benefit accrues to TAXABLE investors; a tax-exempt investor gains nothing from the exemption and focuses on the highest pre-tax risk-adjusted returns.",
       "C": "Full statement: tax-exempt investors focus on pre-tax returns (highest possible risk-adjusted returns net of fees and transaction costs); taxable investors additionally consider effects of taxes on both expected and realized net investment returns.\n\nCorrect. The reading states a tax-exempt investor's objective is to achieve the highest possible risk-adjusted returns net of fees and transaction costs. A prudent taxable investor needs to also consider the effects of taxes on both expected and realized net investment returns. The industry has traditionally made decisions based on pre-tax returns as though investors are tax exempt (like pension funds in many countries), but most of the world's investable assets are owned by taxable investors, who are concerned with after-tax returns."
      },
      "type": "mc",
@@ -1195,14 +1195,14 @@
      "number": 4,
      "stem": "Tax-loss harvesting is most likely:",
      "options": {
-      "A": "the intentional realization of gains to increase current tax liability.",
-      "B": "an audit-driven approach mandated by tax authorities.",
+      "A": "realizing gains as early as possible to lock in current tax rates while deferring the realization of losses.",
+      "B": "selling losing positions and immediately repurchasing them to reset their cost basis without tax consequences.",
       "C": "tax-driven strategic behavior of delaying realizing gains and realizing losses as early as possible."
      },
      "correct": "C",
      "rationales": {
-      "A": "This is the opposite of tax-loss harvesting.",
-      "B": "Investors initiate tax-loss harvesting; not mandated.",
+      "A": "Incorrect. This reverses the strategy: tax-loss harvesting delays realizing gains (deferral increases the present value of investments) and realizes losses as early as possible to offset current or future capital gains.",
+      "B": "Incorrect. Harvesting realizes losses to offset capital gains; an immediate repurchase to reset cost basis is generally restricted by wash-sale-type rules and is not the strategy the reading describes.",
       "C": "Full statement: tax-driven strategic behavior of delaying realizing gains and realizing losses as early as possible — it can be valuable for taxable investors because it may be optimal to delay realizing gains and related tax payments and to realize losses to offset current or future capital gains.\n\nCorrect. The reading defines tax-loss harvesting as tax-driven strategic behavior: delaying realizing gains and realizing losses as early as possible. Although an investor generally cannot control when coupon income is received (and thus timing of interest tax), the investor can decide the timing of the sale of investments — controlling timing of realized capital gains and losses. This can be valuable because it may be optimal to delay realizing gains and to realize losses to offset current or future capital gains. Tax deferral increases the present value of investments."
      },
      "type": "mc",
@@ -1325,15 +1325,15 @@
      "number": 1,
      "stem": "The reading distinguishes liability-driven investing (LDI) from asset-driven liabilities (ADL) as most likely:",
      "options": {
-      "A": "LDI and ADL are identical.",
+      "A": "with ADL, liabilities are given and assets are structured to manage interest rate risk.",
       "B": "with ADL, assets are given and liabilities are structured to manage interest rate risk.",
-      "C": "ADL is used only by individuals."
+      "C": "ADL is much more common in practice than LDI."
      },
      "correct": "B",
      "rationales": {
-      "A": "They differ in direction.",
+      "A": "Incorrect. This reverses the direction: liabilities given with the assets managed describes LDI. Under ADL, the assets are given and the liabilities are structured to manage interest rate risk.",
       "B": "Full statement: with ADL, assets are given and liabilities are structured to manage interest rate risk; with LDI (much more common), liabilities are given and the assets are managed.\n\nCorrect. The reading states LDI and ADL are special cases of ALM. The key difference: with ADL, the assets are given and liabilities are structured to manage interest rate risk; with LDI (which is much more common), the liabilities are given and the assets are managed. LDI examples: life insurance liabilities based on underwritten policies; DB pension plan future employee benefits. ADL examples: leasing company with short-term contracts financing itself with short-term debt to match asset/liability maturities.",
-      "C": "ADL is used by corporations."
+      "C": "Incorrect. The reading states LDI is much more common; ADL (e.g., a leasing company financing short-term lease assets with maturity-matched short-term debt) is the less common case."
      },
      "type": "mc",
      "primary_los": "overview_of_fixed_income_portfolio_management.g",
@@ -1493,14 +1493,14 @@
      "number": 8,
      "stem": "The reading identifies liability-based mandate approaches as most likely including:",
      "options": {
-      "A": "Liability-based mandates rely on purely tactical active management with no matching of liability payouts.",
-      "B": "Liability-based mandates are implemented exclusively through equity long-short strategies.",
+      "A": "cash flow matching and contingent immunization, with duration matching classified as a total return approach.",
+      "B": "duration matching, which requires that every liability payout be matched precisely by a bond cash flow.",
       "C": "cash flow matching (attempts to ensure all future liability payouts are matched precisely by cash flows from bonds or fixed-income derivatives) and duration matching (based on the duration of assets and liabilities, so both are similarly affected by interest rate changes)."
      },
      "correct": "C",
      "rationales": {
-      "A": "Incorrect. Matching is the core — cash flow matching, duration matching, and contingent immunization are the approaches.",
-      "B": "Incorrect. These mandates are fixed-income constructs; equity long-short is not among the approaches.",
+      "A": "Incorrect. Duration matching is itself a liability-based immunization approach, not a total return mandate; total return mandates are benchmarked to bond market indexes rather than to liabilities.",
+      "B": "Incorrect. Matching every liability payout precisely with asset cash flows describes CASH FLOW matching; duration matching instead aligns the duration (interest rate sensitivity) of assets and liabilities so both respond similarly to rate changes.",
       "C": "Correct. The reading identifies within liability-based mandates: (1) cash flow matching — an immunization approach that attempts to ensure all future liability payouts are matched precisely by cash flows from bonds or fixed-income derivatives; (2) duration matching — an immunization approach based on the duration of assets and liabilities (ideally, both the liability portfolio and the bond portfolio should be affected similarly by a change in interest rates); (3) contingent immunization — a hybrid approach that combines immunization with active management when assets exceed the PV of liabilities. These may use derivatives overlays."
      },
      "type": "mc",
@@ -1729,14 +1729,14 @@
      "number": 1,
      "stem": "A laddered portfolio is most likely:",
      "options": {
-      "A": "a leveraged inverse floating strategy.",
-      "B": "an equity long-short strategy.",
+      "A": "a portfolio that concentrates bonds at the short-term and long-term ends of the yield curve.",
+      "B": "a portfolio that concentrates bonds' maturities at a single point on the yield curve.",
       "C": "a portfolio that spreads the bonds' maturities and par values evenly along the yield curve."
      },
      "correct": "C",
      "rationales": {
-      "A": "This is not laddered.",
-      "B": "This is not an equity strategy.",
+      "A": "Incorrect. Concentrating bonds at the short-term and long-term ends of the curve describes a BARBELL portfolio, not a ladder.",
+      "B": "Incorrect. Concentrating bonds at a single point on the yield curve describes a BULLET portfolio, not a ladder.",
       "C": "Full statement: a portfolio that spreads the bonds' maturities and par values evenly along the yield curve — contrasted with a bullet portfolio (concentrated at a single yield curve point) and a barbell portfolio (concentrated at the short- and long-term ends).\n\nCorrect. The reading defines a laddered portfolio as one that spreads the bonds' maturities and par values evenly along the yield curve. It is contrasted with a bullet portfolio (concentrates bonds at a particular point on the yield curve) and a barbell portfolio (places bonds at the short-term and long-term ends of the curve). In principle, each can have the same portfolio duration statistic and approximately the same change in value for a parallel shift, but non-parallel shifts/twists produce very different outcomes for bullet and barbell structures."
      },
      "type": "mc",
@@ -1754,14 +1754,14 @@
      "stem": "An advantage of the laddered portfolio is most likely:",
      "options": {
       "A": "protection from shifts and twists in the yield curve.",
-      "B": "no exposure to any risk factor.",
-      "C": "elimination of all duration."
+      "B": "the highest convexity of any structure with the same portfolio duration.",
+      "C": "elimination of cash flow reinvestment risk."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: protection from shifts and twists in the yield curve — the cash flows are essentially 'diversified' across the time spectrum, providing a balanced position between the two sources of interest rate risk: cash flow reinvestment and market price volatility.\n\nCorrect. The reading states an obvious advantage to the laddered portfolio is protection from shifts and twists — the cash flows are essentially 'diversified' across the time spectrum. This diversification over time provides the investor a balanced position between the two sources of interest rate risk — cash flow reinvestment and market price volatility. Bonds mature each year and are reinvested at the longer-term end of the ladder, typically at higher rates. Reinvesting maintains the duration of the overall portfolio.",
-      "B": "Laddered portfolios have interest rate exposure.",
-      "C": "Duration is not eliminated."
+      "B": "Incorrect. For a given duration, the BARBELL structure has the highest convexity; a ladder's convexity lies between that of a bullet and a barbell.",
+      "C": "Incorrect. Reinvestment risk is balanced, not eliminated — maturing rungs must still be reinvested at prevailing rates at the long end of the ladder; the ladder balances reinvestment risk against market price volatility."
      },
      "type": "mc",
      "primary_los": "overview_of_fixed_income_portfolio_management.i",
@@ -1801,14 +1801,14 @@
      "number": 4,
      "stem": "Perhaps the most desirable aspect of the laddered portfolio in practice is most likely:",
      "options": {
-      "A": "always outperforming corporate bond indexes.",
-      "B": "eliminating all trading.",
+      "A": "maximizing convexity relative to a duration-matched barbell portfolio.",
+      "B": "guaranteeing reinvestment of maturing rungs at higher rates.",
       "C": "liquidity management — as time passes, there is always a bond close to redemption."
      },
      "correct": "C",
      "rationales": {
-      "A": "Laddered portfolios don't guarantee outperformance.",
-      "B": "Laddered portfolios involve maturity-related trading.",
+      "A": "Incorrect. A duration-matched BARBELL has higher convexity than a ladder; convexity maximization is not the ladder's practical appeal.",
+      "B": "Incorrect. Maturing proceeds are typically reinvested at the long end of the ladder — often at higher rates when the curve slopes upward — but future reinvestment rates are never guaranteed.",
       "C": "Full statement: liquidity management — as time passes, there is always a bond close to redemption; its duration will be low so its price is fairly stable even in periods of interest rate volatility; a soon-to-mature bond makes high-quality collateral for a personal loan or repo, and mature bonds provide cash for consumption or reinvestment at the back of the ladder.\n\nCorrect. The reading states 'in practice, perhaps the most desirable aspect of the laddered portfolio is in liquidity management. This aspect is particularly relevant if the bonds are not actively traded, as is the case for many corporate securities. As time passes, there is always a bond that is close to redemption. Its duration will be low so that its price is fairly stable even in a time of interest rate volatility. If the client needs immediate cash, the soon-to-mature bond makes for high-quality collateral on a personal loan or, for an institution, a repo contract. As the bonds mature, the final coupon and principal can be deployed for consumption or reinvested in a long-term bond at the back of the ladder.'"
      },
      "type": "mc",
@@ -1849,15 +1849,15 @@
      "number": 6,
      "stem": "The reading identifies limitations of the laddered portfolio approach. Which is most likely one of them?",
      "options": {
-      "A": "One limitation of laddered portfolios is that they eliminate all default risk, leaving no credit premium to earn.",
+      "A": "One limitation of laddered portfolios is that they have lower convexity than a duration-matched bullet portfolio, sacrificing performance in large rate moves.",
       "B": "The decision to build a laddered bond portfolio should be weighed against buying shares in a fixed-income mutual fund, especially if the portfolio consists of a limited number of corporate bonds.",
-      "C": "One limitation of laddered portfolios is that their convexity is infinite, making risk management impossible."
+      "C": "One limitation of laddered portfolios is that they forgo the liquidity benefit of holding soon-to-mature bonds."
      },
      "correct": "B",
      "rationales": {
-      "A": "Incorrect. Default risk REMAINS in a ladder of corporate bonds — elimination is neither true nor a limitation.",
+      "A": "Incorrect. The comparison is reversed: a ladder's dispersed cash flows give it HIGHER convexity than a duration-matched bullet, and higher convexity is an attraction, not a limitation.",
       "B": "Full statement: The decision to build a laddered bond portfolio should be weighed against buying shares in a fixed-income mutual fund, especially if the portfolio consists of a limited number of corporate bonds — the mutual fund provides greater diversification of default risk, actual bonds can entail a much higher cost of acquisition, and if the entire investment needs to be liquidated, mutual fund shares can be redeemed more quickly and likely at a better price than selling the bonds.\n\nCorrect. The reading states: 'But laddered portfolios are not without limitations. For many investors, the decision to build a laddered bond portfolio should be weighed against buying shares in a fixed-income mutual fund, especially if the portfolio consists of a limited number of corporate bonds. Clearly, the mutual fund provides greater diversification of default risk. Moreover, actual bonds can entail a much higher cost of acquisition. If the entire investment needs to be liquidated, the mutual fund shares can be redeemed more quickly than the bonds can be sold, and likely at a better price.'",
-      "C": "Incorrect. Ladder convexity is comparatively high but finite; the cited limitation is the comparison against a diversified bond fund, especially for smaller portfolios."
+      "C": "Incorrect. The opposite is true — a ladder always holds a bond close to redemption, which is precisely its liquidity-management advantage (stable price, high-quality collateral, maturing cash)."
      },
      "type": "mc",
      "primary_los": "overview_of_fixed_income_portfolio_management.i",
@@ -1873,13 +1873,13 @@
      "number": 7,
      "stem": "The reading's Zheng laddered portfolio example uses CNY government bonds with maturities in 2022, 2024, 2026, and 2029. The key characteristic of a portfolio designed this way is most likely:",
      "options": {
-      "A": "significantly higher default risk than the underlying bonds.",
+      "A": "concentration of cash flows at the single 2029 maturity, minimizing interim reinvestment decisions.",
       "B": "highest possible yield to maturity.",
       "C": "cash flow diversification across the timeline, providing regular known cash flows for the client family."
      },
      "correct": "C",
      "rationales": {
-      "A": "Government bonds have low default risk.",
+      "A": "Incorrect. The ladder does the opposite of concentrating cash flows: CNY10 million par matures in each of 2022, 2024, 2026, and 2029, so coupon and principal payments arrive throughout the horizon rather than at a single point.",
       "B": "Laddered portfolios don't maximize YTM — they balance yield with diversification.",
       "C": "Full statement: cash flow diversification across the timeline, providing regular known cash flows for the client family; the total market value of CNY41,143,508 provides diversified maturity exposure with a cash flow yield (2.661%) higher than the market-value-weighted average yield (2.455%).\n\nCorrect. Per the reading's Zheng example: the laddered portfolio of CNY government bonds provides cash flow diversification across the timeline (2022, 2024, 2026, 2029 maturities each CNY10M par). This provides regular known cash flows for the Wang family — critical since most family assets are in residential property and equity, and they rely on regular cash flows. The portfolio has cash flow yield of 2.661% (higher than the market-value-weighted average yield of 2.455%), and a 30-cash-flow schedule showing coupon and principal payments spread across the horizon."
      },

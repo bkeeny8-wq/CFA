@@ -23,7 +23,7 @@
      },
      "correct": "A",
      "rationales": {
-      "A": "Correct. The four constraints identified are asset size, liquidity needs, taxes, and time horizon. Regulatory and other external considerations may also influence the opportunity set. The number of asset classes is not itself a constraint — it's an output shaped by the constraints.",
+      "A": "Correct. The four constraints identified are asset size, liquidity needs, time horizon, and regulatory or other external considerations (taxes are treated separately under the tax LOS). The number of asset classes is not itself a constraint — it's an output shaped by the constraints.",
       "B": "This is one of the four.",
       "C": "This is one of the four."
      },
@@ -90,14 +90,14 @@
      "stem": "The reading notes that owners of very large portfolios frequently choose to invest passively in developed equity markets. The rationale is most likely:",
      "options": {
       "A": "their size inhibits alpha potential in developed equities, so scarce governance resources can be allocated to areas like private equity, hedge funds, and infrastructure where scale and resources provide a competitive advantage.",
-      "B": "Developed-market equities are illegal to actively manage in most jurisdictions, forcing passive implementation.",
-      "C": "Passive investing always outperforms active management, making the choice automatic for any investor."
+      "B": "their long investment horizons make active alpha irrelevant to meeting their objectives, so passive vehicles are the default for every asset class.",
+      "C": "index funds provide the trading liquidity very large asset owners require, which no active developed-market strategy can match."
      },
      "correct": "A",
      "rationales": {
       "A": "Correct. The reading states owners of very large portfolios face size constraints in allocating to active equity strategies. They frequently invest passively in developed equity markets where their size inhibits alpha potential. Finite resources can then be allocated toward such strategies as private equity, hedge funds, and infrastructure where scale and resources provide a competitive advantage.",
-      "B": "Incorrect. No such legal restriction exists anywhere.",
-      "C": "Incorrect. The reading makes no categorical claim; the logic is size-specific — mega-portfolios' scale inhibits alpha in developed equities, so governance budgets go where they pay (private markets)."
+      "B": "Incorrect. Horizon does not make alpha irrelevant, and these owners do pursue active strategies — in private equity, hedge funds, and infrastructure. The passive choice in developed equities is size-driven: their scale inhibits alpha potential there.",
+      "C": "Incorrect. Liquidity is not the stated rationale. The reading's logic is that size inhibits alpha potential in developed equities, so finite governance resources are redirected to strategies where scale and resources provide a competitive advantage."
      },
      "type": "mc",
      "primary_los": "asset_allocation_with_real_world_constraints.a",
@@ -209,14 +209,14 @@
      "number": 9,
      "stem": "The reading argues that in the 2008–2009 global financial crisis, illiquidity became a substantial problem because most likely:",
      "options": {
-      "A": "Illiquidity became a problem in 2008-2009 because regulators mandated a market-wide liquidity halt.",
-      "B": "Liquidity remained abundant throughout the crisis, and no allocation distortions occurred.",
+      "A": "dealers withdrew market-making capital across fixed-income markets, so even government bonds became impossible to sell.",
+      "B": "asset owners sold their least liquid assets first at steep discounts, leaving portfolios concentrated in cash and government bonds.",
       "C": "asset owners liquidated their most liquid assets to meet obligations, leaving less liquid assets as an ever-larger portion of the portfolio."
      },
      "correct": "C",
      "rationales": {
-      "A": "Incorrect. No such mandate existed — the mechanism was investor behavior.",
-      "B": "Incorrect. Liquidity evaporated in less-liquid assets; owners sold their MOST liquid holdings to meet obligations, leaving illiquid assets an ever-larger share of shrinking portfolios.",
+      "A": "Incorrect. The most liquid assets, such as government bonds, remained saleable — which is precisely why owners sold them first; the problem arose from that behavior, not from an inability to sell everything.",
+      "B": "Incorrect. This reverses the mechanism. Owners sold their MOST liquid holdings first to meet obligations, leaving illiquid assets an ever-larger share of shrinking portfolios; forced sales of private interests at steep discounts came only later.",
       "C": "Full statement: asset owners liquidated their most liquid assets to meet obligations, leaving less liquid assets as an ever-larger portion of the portfolio; many were forced to sell private partnership interests at steeply discounted secondary prices, or defaulted on private-fund capital commitments.\n\nCorrect. The reading states that when investors liquidated their most liquid assets to meet financial obligations (or to raise cash in fear of further declines), remaining less liquid assets in their portfolios became an ever-larger portion of the portfolio. Many investors were forced to sell private partnership interests on the secondary market at steeply discounted prices; others defaulted on outstanding private fund capital commitments."
      },
      "type": "mc",
@@ -257,15 +257,15 @@
      "number": 11,
      "stem": "The reading argues that too much liquidity in markets (overliquidity from central bank QE programs) most likely creates:",
      "options": {
-      "A": "Overliquidity from central bank QE programs creates immediate market crashes as excess money floods out of assets.",
+      "A": "lower asset valuations, because excess liquidity is held as cash balances rather than being invested in risk assets.",
       "B": "high asset valuations as investors chase excess liquidity, potentially eroding expected future returns of various asset classes.",
-      "C": "Central bank liquidity has no impact on asset prices or expected returns."
+      "C": "higher expected future returns, because liquidity-driven buying increases the compensation investors demand for bearing risk."
      },
      "correct": "B",
      "rationales": {
-      "A": "Incorrect. The near-term effect is the OPPOSITE — liquidity supports and inflates valuations.",
+      "A": "Incorrect. Investors put excess liquidity to work rather than sitting in cash — the effect is to BID UP valuations, not depress them.",
       "B": "Correct. The reading states overliquidity in the market may lead to too high asset valuations as investors try to invest their excess liquidity, eroding expected future returns. Following the GFC and COVID-19 pandemic, central banks pumped extra cash via asset purchase/QE programs, fueling equity market rebounds and pushing rates lower.",
-      "C": "Incorrect. The impact is material: investors chasing liquidity bid up valuations, eroding EXPECTED FUTURE returns."
+      "C": "Incorrect. It is the reverse: liquidity-driven buying pushes current valuations higher, which ERODES (lowers) expected future returns rather than raising them."
      },
      "type": "mc",
      "primary_los": "asset_allocation_with_real_world_constraints.a",
@@ -378,14 +378,14 @@
      "stem": "The reading notes that insurance companies typically have the largest component of their asset base in fixed income. This is most likely because:",
      "options": {
       "A": "insurers are highly focused on matching assets to projected probabilistic cash flows of the risks they underwrite, making fixed-income the natural core.",
-      "B": "insurance regulation prohibits any equity holdings.",
-      "C": "insurance companies have no need for return-seeking assets."
+      "B": "fixed income offers the highest expected return of the major asset classes under the book-value accounting regimes many insurers use.",
+      "C": "insurers hold fixed income primarily to maximize liquidity for policyholder redemptions rather than to match underwritten liabilities."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: insurers are highly focused on matching assets to projected probabilistic cash flows of the risks they underwrite, making fixed-income the natural core; also, regulatory limits on equity typically range from 10% up to 30% (Switzerland) or 50% (Mexico).\n\nCorrect. The reading states insurers are most often highly focused on matching assets to projected probabilistic cash flows of underwritten risks. Fixed-income assets are typically the largest component of an insurance company's asset base. Regulatory limits on equity range from 10% (typical maximum) to 30% in Switzerland and 50% in Mexico. Israel and Korea impose 15% limits on real estate. Some regions use book-value accounting.",
-      "B": "Equity holdings are permitted but often capped.",
-      "C": "Insurers do include return-seeking assets subject to regulatory limits."
+      "B": "Incorrect. Accounting regime does not make fixed income the highest-returning asset class; bonds dominate because they match the projected probabilistic cash flows of underwritten risks, and equity is permitted but capped (typically 10%, up to 30%-50% in some jurisdictions).",
+      "C": "Incorrect. The driver is liability matching — aligning assets with the projected probabilistic cash flows of underwritten risks — not liquidity maximization; insurers also hold return-seeking assets within regulatory limits."
      },
      "type": "mc",
      "primary_los": "asset_allocation_with_real_world_constraints.a",
@@ -401,15 +401,15 @@
      "number": 17,
      "stem": "Solvency II, which the reading identifies as introducing a harmonized EU-wide insurance regulatory regime effective January 2016, most likely:",
      "options": {
-      "A": "Solvency II eliminates all capital requirements for EU insurers, freeing their asset allocation entirely.",
+      "A": "imposes a uniform flat capital ratio on all EU insurers irrespective of each insurer's asset mix.",
       "B": "sets minimum capital levels for insurers based on the insurer's mix of assets, liabilities, and risk, with asset classes often treated differently for purposes of determining whether an insurer meets risk-based capital requirements.",
-      "C": "Solvency II prohibits EU insurers from investing outside the European Union."
+      "C": "caps equity allocations at a fixed 10% of assets for every EU insurer."
      },
      "correct": "B",
      "rationales": {
-      "A": "Incorrect. The regime ESTABLISHES risk-based minimum capital, scaled to the asset-liability-risk mix.",
+      "A": "Incorrect. Solvency II is risk-based, not flat: minimum capital scales with the insurer's mix of assets, liabilities, and risk, with asset classes treated differently for capital purposes.",
       "B": "Correct. The reading states Solvency II is an EU legislative program implemented in all 28 member states including the UK in January 2016, introducing a new harmonized EU-wide insurance regulatory regime designed to harmonize risk-based capital requirements. Asset classes are often treated differently for purposes of determining whether an insurer meets risk-based capital requirements, driving distinct treatment of equities, bonds, real estate, etc.",
-      "C": "Incorrect. No foreign-investment prohibition exists; asset classes are capital-weighted by risk, shaping (not banning) allocation."
+      "C": "Incorrect. Solvency II sets no single fixed equity cap; instead, risk-based capital charges differ by asset class, shaping (not fixing) each insurer's allocation."
      },
      "type": "mc",
      "primary_los": "asset_allocation_with_real_world_constraints.a",
@@ -473,15 +473,15 @@
      "number": 20,
      "stem": "The reading identifies pension funds as subject to a wide array of jurisdiction-specific constraints. For example, most likely:",
      "options": {
-      "A": "all countries impose identical rules on pension asset allocation.",
+      "A": "Canadian pension funds are limited to a maximum of 30% of market value invested in any one entity.",
       "B": "Japanese pension funds must hold a certain minimum percentage of assets in Japanese bonds to maintain tax-exempt status.",
-      "C": "pension funds face no regulatory constraints in any jurisdiction."
+      "C": "Swiss pension funds are prohibited from holding real estate."
      },
      "correct": "B",
      "rationales": {
-      "A": "Rules vary widely across jurisdictions.",
+      "A": "Incorrect. Canada limits investment in any one entity or related entities to 10% of market value, not 30%.",
       "B": "Full statement: Japanese pension funds must hold a certain minimum percentage of assets in Japanese bonds to maintain tax-exempt status; Canada limits investment in any one entity to 10% of market value; Switzerland limits real estate to 30%; Estonia allows up to 75% in public equity.\n\nCorrect. The reading catalogs jurisdiction-specific pension constraints: Japan requires a minimum percentage in Japanese bonds for tax-exempt status; Canada allows a max of 10% of market value in any one entity or related entities; Switzerland generally limits real estate to 30%; Estonia allows a max of 75% in public equity with no foreign investment limit; Brazil allows max 70% in public equity with max 10% in foreign public equity; Ukraine limits bonds to 40%.",
-      "C": "Pension fund allocations are heavily regulated."
+      "C": "Incorrect. Switzerland permits pension funds to hold real estate but generally limits it to 30% of assets."
      },
      "type": "mc",
      "primary_los": "asset_allocation_with_real_world_constraints.a",
@@ -627,15 +627,15 @@
      "number": 6,
      "stem": "The reading argues that even tax-inefficient assets can play a diversifying role in an optimal after-tax allocation because most likely:",
      "options": {
-      "A": "tax inefficiency is beneficial.",
+      "A": "tax-inefficient assets' higher pre-tax returns always fully compensate for their additional tax burden.",
       "B": "the optimal after-tax allocation depends on the interaction of after-tax returns, after-tax risk, and correlations.",
-      "C": "tax rules always equalize outcomes."
+      "C": "after-tax correlations fall in proportion to the tax rate, automatically enhancing diversification."
      },
      "correct": "B",
      "rationales": {
-      "A": "Tax inefficiency is a cost, not a benefit.",
+      "A": "Incorrect. There is no assurance that pre-tax return premiums offset the tax drag; the case for including a tax-inefficient asset rests on its diversification contribution, not guaranteed compensation.",
       "B": "Full statement: the optimal after-tax allocation depends on the interaction of after-tax returns, after-tax risk, and correlations; a tax-inefficient asset with sufficiently low correlations can still add value.\n\nCorrect. The reading states the optimal after-tax asset allocation depends on the interaction of after-tax returns, after-tax risk, and correlations. If an asset class or strategy is tax inefficient, it can still play a diversifying role in an optimal after-tax asset allocation if it offers sufficiently low correlations. After-tax portfolio optimization helps answer this question.",
-      "C": "This is not the reading's argument."
+      "C": "Incorrect. Taxes scale after-tax returns and risk, but correlations are not mechanically reduced in proportion to the tax rate; whether a tax-inefficient asset adds value depends on the joint interaction of after-tax returns, risk, and correlations."
      },
      "type": "mc",
      "primary_los": "asset_allocation_with_real_world_constraints.b",
@@ -1175,15 +1175,15 @@
      "number": 1,
      "stem": "The reading distinguishes tactical asset allocation (TAA) from strategic asset allocation (SAA) as most likely:",
      "options": {
-      "A": "SAA and TAA are identical concepts.",
-      "B": "TAA replaces SAA as the primary framework.",
-      "C": "SAA represents long-term investment policy targets."
+      "A": "TAA expressly incorporates the investor's liabilities, while SAA is an asset-only framework.",
+      "B": "SAA assumes short-run returns are predictable, while TAA assumes returns follow a random walk.",
+      "C": "SAA represents long-term investment policy targets, while TAA permits short-term deviations from those targets predicated on a belief that short-run returns are predictable."
      },
      "correct": "C",
      "rationales": {
-      "A": "They differ in horizon and predictability assumptions.",
-      "B": "TAA operates within, not in place of, SAA.",
-      "C": "Full statement: SAA represents long-term investment policy targets; TAA allows short-term deviations from SAA targets, predicated on a belief that returns in the short run are predictable.\n\nCorrect. The reading states SAA (policy asset allocation) represents long-term investment policy targets for asset class weights, while TAA allows short-term deviations from SAA targets. TAA is predicated on a belief that investment returns, in the short run, are predictable — contrasting with the random walk assumption more strongly embedded in most SAA processes."
+      "A": "Incorrect. The SAA/TAA distinction is about horizon and return predictability, not liability treatment; either can be implemented in asset-only or liability-relative terms.",
+      "B": "Incorrect. This reverses the assumptions: TAA is predicated on short-run return predictability, while most SAA processes embed a random-walk assumption.",
+      "C": "Correct. The reading states SAA (policy asset allocation) represents long-term investment policy targets for asset class weights, while TAA allows short-term deviations from SAA targets. TAA is predicated on a belief that investment returns, in the short run, are predictable — contrasting with the random walk assumption more strongly embedded in most SAA processes."
      },
      "type": "mc",
      "primary_los": "asset_allocation_with_real_world_constraints.d",
@@ -1295,15 +1295,15 @@
      "number": 6,
      "stem": "The reading warns that TAA decisions may incur additional costs — most likely including:",
      "options": {
-      "A": "TAA reliably reduces portfolio volatility and carries no offsetting cost.",
+      "A": "lower overall trading costs, because tactical trades substitute for the periodic trades otherwise needed to rebalance back to policy weights.",
       "B": "higher trading costs and taxes (for taxable investors), plus potential concentration of risk relative to the policy portfolio, particularly problematic when the SAA relies on uncorrelated asset classes.",
-      "C": "TAA guarantees alpha generation sufficient to cover its trading costs."
+      "C": "costs limited to explicit commissions, because taxes apply equally to tactical and strategic trades."
      },
      "correct": "B",
      "rationales": {
-      "A": "Incorrect. Volatility can RISE with TAA, and costs are real.",
+      "A": "Incorrect. Tactical shifts add trades on top of any rebalancing activity; the reading identifies HIGHER, not lower, trading costs as a consequence of TAA.",
       "B": "Correct. The reading states tactical investment decisions may incur additional costs — higher trading costs and taxes (in the case of taxable investors). Tactical decisions can also increase the concentration of risk relative to the policy portfolio. For example, if the tactical decision is to overweight equities, not only is portfolio risk increased but also the diversification of risk contributions is reduced. This is particularly an issue when the SAA policy portfolio relies on uncorrelated asset classes.",
-      "C": "Incorrect. TAA alpha is uncertain; the identified costs — trading, taxes for taxable investors, risk concentration versus policy — are certain."
+      "C": "Incorrect. Costs extend beyond commissions: for taxable investors, tactical trading can generate additional taxes (e.g., realizing short-term gains), and tactical positions can concentrate risk relative to the policy portfolio."
      },
      "type": "mc",
      "primary_los": "asset_allocation_with_real_world_constraints.d",
@@ -1374,7 +1374,7 @@
      "correct": "B",
      "rationales": {
       "A": "TAA is broader than firm-level analysis.",
-      "B": "Correct. The reading identifies market sentiment as a key discretionary TAA input, including: margin borrowing (bullishness/bearishness indicator), short interest (bearish sentiment indicator; high short interest may signal capitulation), and volatility index/'fear index' (VDAX-NEW in Germany, V2X in UK, VIX in US) which measure expected volatility implied by option pricing.",
+      "B": "Correct. The reading identifies market sentiment as a key discretionary TAA input, including: margin borrowing (bullishness/bearishness indicator), short interest (bearish sentiment indicator; high short interest may signal capitulation), and volatility index/'fear index' (VDAX-NEW in Germany, V2X (VSTOXX) for the euro area, VIX in US) which measure expected volatility implied by option pricing.",
       "C": "Multiple sentiment and macro indicators are used."
      },
      "type": "mc",
@@ -1461,7 +1461,7 @@
     {
      "id": "r5_aarw_los_d_q13",
      "number": 13,
-     "stem": "In Example 7, the trend signal shows: IG bonds long (excess return 3%), HY bonds short (−3%), DM equity long (4%), EM equity short (−11%). SAA has ±5% ranges. The reading's recommended TAA is most likely:",
+     "stem": "In Example 7, the trend signal shows: IG bonds long (excess return 3%), HY bonds short (−3%), DM equity long (4%), EM equity short (−11%). SAA targets are IG bonds 40%, HY bonds 10%, DM equity 40%, EM equity 10%, each with a ±5% permitted range. The reading's recommended TAA is most likely:",
      "options": {
       "A": "IG bonds 50%, HY bonds 0%, DM equity 50%, EM equity 0%.",
       "B": "no changes to SAA weights.",
@@ -1503,7 +1503,7 @@
      },
      "correct": "A",
      "rationales": {
-      "A": "Correct. The reading identifies six behavioral biases most relevant in AA: loss aversion, the illusion of control, mental accounting, representativeness bias, framing, and availability bias. The biases in option C are not among the six named.",
+      "A": "Correct. The reading identifies six behavioral biases most relevant in AA: loss aversion, the illusion of control, mental accounting, representativeness bias, framing, and availability bias. The items in option A are not among the six named.",
       "B": "These are three of the six.",
       "C": "These are three of the six."
      },
@@ -1617,14 +1617,14 @@
      "number": 6,
      "stem": "Mental accounting is most likely defined as:",
      "options": {
-      "A": "the systematic errors made when calculating financial statements.",
-      "B": "the failure to reconcile bank accounts monthly.",
+      "A": "the tendency to evaluate each holding relative to its purchase price rather than as part of the total portfolio.",
+      "B": "the tendency to frame outcomes as gains or losses relative to a reference point rather than in terms of final wealth.",
       "C": "an information-processing bias in which people treat one sum of money differently from another based solely on the mental account the money is assigned to."
      },
      "correct": "C",
      "rationales": {
-      "A": "This is not the definition.",
-      "B": "This is not the definition.",
+      "A": "Incorrect. Anchoring on a holding's purchase price is a reference-point effect associated with loss aversion, not the definition of mental accounting, which concerns treating sums of money differently by mental account.",
+      "B": "Incorrect. This describes framing bias — sensitivity to how outcomes are presented relative to a reference point — not mental accounting.",
       "C": "Correct. The reading defines mental accounting as an information-processing bias in which people treat one sum of money differently from another based solely on the mental account the money is assigned to. Examples: an investor may consider a retirement portfolio independent of the child's education portfolio even if the combined AA is suboptimal; an employee with significant vested stock options may fail to consider this exposure alongside other assets."
      },
      "type": "mc",
@@ -1642,14 +1642,14 @@
      "stem": "The reading argues that goals-based investing is a natural response to mental accounting bias because:",
      "options": {
       "A": "it directly incorporates mental accounting into the AA solution.",
-      "B": "it forces investors to abandon all sub-portfolios.",
-      "C": "it ignores investor preferences entirely."
+      "B": "it eliminates the need to verify that the aggregate of the goal sub-portfolios is itself efficient.",
+      "C": "it replaces the separate goal sub-portfolios with a single whole-of-wealth optimization."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: it directly incorporates mental accounting into the AA solution — each goal is aligned with a discrete sub-portfolio, and the investor can specify the acceptable level of risk for each goal.\n\nCorrect. The reading states goals-based investing incorporates mental accounting directly into the AA solution. Each goal is aligned with a discrete sub-portfolio, and the investor can specify the acceptable level of risk for each goal. Provided each sub-portfolio lies along the same efficient frontier, the sum of sub-portfolios will also be efficient. This turns mental accounting from a bias into a productive structural approach.",
-      "B": "Goals-based uses, rather than eliminates, sub-portfolios.",
-      "C": "Goals-based centers investor preferences."
+      "B": "Incorrect. Aggregate efficiency still matters: only if each sub-portfolio lies along the same efficient frontier will the sum of the sub-portfolios also be efficient.",
+      "C": "Incorrect. Goals-based investing does the opposite — it aligns each goal with a discrete sub-portfolio and lets the investor set the acceptable risk level for each, rather than running one whole-of-wealth optimization."
      },
      "type": "mc",
      "primary_los": "asset_allocation_with_real_world_constraints.e",

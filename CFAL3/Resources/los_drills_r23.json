@@ -17,7 +17,7 @@
      "number": 1,
      "stem": "The reading's Equation 1 for expected FI portfolio return includes most likely five components:",
      "options": {
-      "A": "Coupon income; rolldown return.",
+      "A": "Coupon income; rolldown return; and E(ΔPrice) based on the investor's views of benchmark yields, yield spreads, and currency value changes.",
       "B": "Only yield to maturity.",
       "C": "Only coupon income and price."
      },
@@ -364,13 +364,13 @@
      "stem": "The repo carry trade is most likely:",
      "options": {
       "A": "The repo carry trade involves borrowing at long-term rates and lending at short-term rates.",
-      "B": "The repo carry trade involves trading cash for stocks to capture the equity risk premium.",
+      "B": "The repo carry trade involves buying a short-term security and financing it at a long-term rate to lock in the term premium.",
       "C": "buying a long-term security and financing it at a short-term rate below the long-term YTM — that is, earning a positive 'repo carry'."
      },
      "correct": "C",
      "rationales": {
       "A": "Incorrect. That reverses the direction — the trade FUNDS long-term bond positions at LOWER short-term repo rates.",
-      "B": "Incorrect. The trade is a fixed-income financing structure, not an equity strategy.",
+      "B": "Incorrect. That inverts the carry — financing at a higher long-term rate against a lower short-term yield produces negative carry; the trade buys the long-term security and finances it at the lower short-term repo rate.",
       "C": "Full statement: buying a long-term security and financing it at a short-term rate below the long-term YTM — that is, earning a positive 'repo carry'; at the end of the trade the bond is sold and the repo is unwound.\n\nCorrect. The reading defines the repo carry trade as buying a long-term security and financing it at a short-term rate below the long-term YTM — earning a positive 'repo carry'. At the end of the trade, the bond is sold and the repo is unwound. This uses the repo market for leverage: cash-based strategy but with leverage risk added."
      },
      "type": "mc",
@@ -563,7 +563,7 @@
     {
      "id": "r8_ycs_los_c_q1",
      "number": 1,
-     "stem": "A divergent rate level view implies an most likely expectation of:",
+     "stem": "A divergent rate level view most likely implies an expectation of:",
      "options": {
       "A": "no change in the yield curve.",
       "B": "a parallel shift in the yield curve.",
@@ -613,7 +613,7 @@
      "number": 3,
      "stem": "The reading identifies three major yield curve strategies to reduce portfolio duration (Exhibit 12). These most likely include:",
      "options": {
-      "A": "Both A and B, plus short futures position.",
+      "A": "Both B and C, plus a short futures position.",
       "B": "Cash bond sale (bullet) — reduce duration with short sale/switch to shorter-dated bonds; smaller price decline as YTM increases; downside = lower yield levels.",
       "C": "Pay-fixed interest rate swap — fixed-rate payer; swap MTM gain plus swap carry (MRR − fixed swap rate); downside = swap MTM loss amid lower swap yields."
      },
@@ -806,13 +806,13 @@
      "stem": "A negative butterfly strategy expects lower short- and long-term yields but higher medium-term yields. The active position (Exhibit 21) is most likely:",
      "options": {
       "A": "long bullet, short barbell.",
-      "B": "long everything equally.",
+      "B": "short bullet, short barbell (short positions in short-, medium-, and long-term bonds).",
       "C": "short bullet, long barbell (long positions in short- and long-term bonds, short intermediate)."
      },
      "correct": "C",
      "rationales": {
       "A": "That's a positive butterfly.",
-      "B": "Directional views drive the positioning.",
+      "B": "Incorrect. Shorting the wings contradicts the expected decline in short- and long-term yields (those positions would lose as the wings rally); only the intermediate (bullet) short leg fits the view.",
       "C": "Correct. Per Exhibit 21, negative butterfly = lower short- and long-term yields, higher medium-term yields → active position is short bullet (short intermediate to profit from expected rise in medium-term yields), long barbell (long the wings expecting lower short- and long-term yields). Positive butterfly = opposite: higher short- and long-term yields, lower medium-term yields → long bullet (long intermediate), short barbell."
      },
      "type": "mc",
@@ -829,7 +829,7 @@
      "number": 12,
      "stem": "For an example butterfly portfolio: long 2y ($110M), short 5y ($248.3M), long 10y ($110M), net portfolio $28.3M short with duration ~0 and convexity −139.9. If 2y and 10y yields fall 25 bp each and 5y yield rises 50 bp, the portfolio most likely:",
      "options": {
-      "A": "gains approximately $9.04 million (duration-based approximation $9,088,175.",
+      "A": "gains approximately $9.04 million (duration-based approximation $9,088,175; convexity-adjusted $9,038,877).",
       "B": "loses $9 million.",
       "C": "gains nothing since the portfolio is duration-neutral."
      },
@@ -1014,7 +1014,7 @@
      "correct": "B",
      "rationales": {
       "A": "That's a receiver swaption.",
-      "B": "Full statement: the right to pay-fixed on an interest rate swap at a strike rate — used to benefit from higher rates; payoff = Max(Strike rate − Swap rate, 0) − Swaption premium; portfolio duration impact: decrease in duration (pay-fixed is short duration).\n\nCorrect. Per Exhibit 24, a long payer swaption is the ownership of the right to pay-fixed on an interest rate swap at a strike rate. Targeted return = Max(Strike rate − Swap rate, 0) − Swaption premium. Portfolio duration impact: decrease in portfolio duration. Exhibit 23 shows this instrument: a manager expecting higher rates buys a payer swaption to gain from higher rates using an option-based strategy — the option to enter into a pay-fixed swap.",
+      "B": "Full statement: the right to pay-fixed on an interest rate swap at a strike rate — used to benefit from higher rates; payoff = Max(Swap rate − Strike rate, 0) − Swaption premium; portfolio duration impact: decrease in duration (pay-fixed is short duration).\n\nCorrect. Per Exhibit 24, a long payer swaption is the ownership of the right to pay-fixed on an interest rate swap at a strike rate. Targeted return = Max(Swap rate − Strike rate, 0) − Swaption premium. Portfolio duration impact: decrease in portfolio duration. Exhibit 23 shows this instrument: a manager expecting higher rates buys a payer swaption to gain from higher rates using an option-based strategy — the option to enter into a pay-fixed swap.",
       "C": "Swaptions have significant rate exposure."
      },
      "type": "mc",
@@ -1039,7 +1039,7 @@
      "rationales": {
       "A": "That's a payer swaption.",
       "B": "They are opposite duration effects.",
-      "C": "Full statement: the right to receive-fixed on an interest rate swap at a strike rate — used to benefit from lower rates; payoff = Max(Swap rate − Strike rate, 0) − Swaption premium; portfolio duration impact: increase in portfolio duration.\n\nCorrect. Per Exhibit 24, a long receiver swaption is the ownership of the right to receive-fixed on an interest rate swap at a strike rate. Targeted return = Max(Swap rate − Strike rate, 0) − Swaption premium. Portfolio duration impact: increase in portfolio duration (receive-fixed is long duration)."
+      "C": "Full statement: the right to receive-fixed on an interest rate swap at a strike rate — used to benefit from lower rates; payoff = Max(Strike rate − Swap rate, 0) − Swaption premium; portfolio duration impact: increase in portfolio duration.\n\nCorrect. Per Exhibit 24, a long receiver swaption is the ownership of the right to receive-fixed on an interest rate swap at a strike rate. Targeted return = Max(Strike rate − Swap rate, 0) − Swaption premium. Portfolio duration impact: increase in portfolio duration (receive-fixed is long duration)."
      },
      "type": "mc",
      "primary_los": "yield_curve_strategies.d",
@@ -1061,7 +1061,7 @@
      },
      "correct": "A",
      "rationales": {
-      "A": "Correct. Per Example 9: with an expected upward shift in the yield curve, the manager wants to reduce portfolio duration in anticipation of lower bond prices. A put option increases in value as the yield curve shifts upward, while the price of the underlying bond declines below the strike. A is incorrect because a receiver swaption is an option to receive-fixed — with bond prices expected to fall, the manager would not want to exercise. B is incorrect because a short payer swaption gains from lower rates; a long payer swaption would benefit from higher rates.",
+      "A": "Correct. Per Example 9: with an expected upward shift in the yield curve, the manager wants to reduce portfolio duration in anticipation of lower bond prices. A put option increases in value as the yield curve shifts upward, while the price of the underlying bond declines below the strike. B is incorrect because a receiver swaption is an option to receive-fixed — with bond prices expected to fall, the manager would not want to exercise. C is incorrect because a short payer swaption gains from lower or stable rates; a long payer swaption would benefit from higher rates.",
       "B": "Receiver swaption benefits from lower rates.",
       "C": "Short payer swaption loses in rising rates."
      },
@@ -1135,7 +1135,7 @@
     {
      "id": "r8_ycs_los_e_q2",
      "number": 2,
-     "stem": "For an index zero-coupon US Treasury bond portfolio equally weighted by price (2y $98.03M, 5y $90.57M, 10y $74.40M) with total value $263M, the portfolio modified duration is closest to:",
+     "stem": "For an index portfolio of equal face value ($100M each) zero-coupon US Treasuries with market values of $98.03M (2y), $90.57M (5y), and $74.40M (10y), total value $263M, the portfolio modified duration is closest to:",
      "options": {
       "A": "5.173.",
       "B": "1.98.",
@@ -1305,15 +1305,15 @@
      "number": 9,
      "stem": "The reading extends the zero-coupon KRD example to most likely apply also to:",
      "options": {
-      "A": "only zero-coupon bonds.",
+      "A": "only government securities, since key rate durations are defined at benchmark par maturities.",
       "B": "fixed-coupon bonds, swaps, and other rate-sensitive instruments that may be included in a fixed-income portfolio.",
-      "C": "only equities."
+      "C": "only instruments without embedded options, since KRDs cannot be computed for contingent cash flows."
      },
      "correct": "B",
      "rationales": {
-      "A": "The framework generalizes.",
+      "A": "Incorrect. Although KRDs are stated at benchmark maturities, the framework generalizes to swaps, futures, and other rate-sensitive instruments beyond government securities.",
       "B": "Full statement: fixed-coupon bonds, swaps, and other rate-sensitive instruments that may be included in a fixed-income portfolio — as shown in Example 11 (5y/10y/30y swaps and futures).\n\nCorrect. Per the reading, 'This simple zero-coupon bond example may be extended to portfolios consisting of fixed-coupon bonds, swaps, and other rate-sensitive instruments that may be included in a fixed-income portfolio, as seen in the following example.' Example 11 uses swaps and futures alongside the underlying index bond portfolio.",
-      "C": "KRD applies to interest-rate-sensitive instruments."
+      "C": "Incorrect. KRDs can be computed for option-embedded and other rate-sensitive instruments using effective durations from a pricing model; the extension is not limited to option-free cash flows."
      },
      "type": "mc",
      "primary_los": "yield_curve_strategies.e",
@@ -1433,7 +1433,7 @@
     {
      "id": "r8_ycs_los_f_q4",
      "number": 4,
-     "stem": "A cross-currency carry trade is most likely an extension of the single-currency repo carry: an investor borrows short-term in one currency and invests in most likely:",
+     "stem": "A cross-currency carry trade is an extension of the single-currency repo carry: an investor borrows short-term in one currency and most likely invests in:",
      "options": {
       "A": "another higher-yielding currency.",
       "B": "the same-currency short-term bill.",
@@ -1557,7 +1557,7 @@
      "options": {
       "A": "only exchange rate risk.",
       "B": "only interest rate risk in one currency.",
-      "C": "yield curve movements — level, slope, or curvature — in the overweight currency."
+      "C": "yield curve movements — level, slope, or curvature — in the overweight currency; yield curve changes in the underweight currency; and exchange rate changes."
      },
      "correct": "C",
      "rationales": {
@@ -1805,15 +1805,15 @@
      "number": 9,
      "stem": "For an active manager pursuing static YC strategies (Exhibit 5) who unexpectedly faces yield curve inversion (long-term yields decline, short-term yields rise sharply) instead of static conditions, the least likely portfolio outcome is:",
      "options": {
-      "A": "loss on the rolling down strategy (long-term bond price appreciates as long-yield falls, so this actually gains).",
+      "A": "loss on the rolling down strategy.",
       "B": "loss on the repo carry trade (financing cost rises, long-term yield falls).",
-      "C": "loss on the buy-and-hold strategy from higher short-term borrowing costs."
+      "C": "mark-to-market losses on shorter-maturity holdings as short-term yields rise sharply."
      },
      "correct": "A",
      "rationales": {
       "A": "Correct. Per Example 4 (Static YC Strategies under Curve Inversion): the least likely outcome is a loss on rolling down — the long-term bond position actually gains from a decline in long-term yields. This is because rolling down the yield curve is a long-duration bond position; falling long-term yields cause price appreciation. Other cash-based static strategies suffer: buy-and-hold long bonds may be OK on long-yield decline but repo carry breaks down (short-rate rises make financing expensive relative to long-yield income).",
       "B": "Repo carry breaks down when short-rate rises above long-rate.",
-      "C": "Buy-and-hold long bonds financed short may suffer."
+      "C": "This loss is likely: sharply higher short-term yields cause price declines on the shorter-maturity positions held under the static strategies."
      },
      "type": "mc",
      "primary_los": "yield_curve_strategies.g",

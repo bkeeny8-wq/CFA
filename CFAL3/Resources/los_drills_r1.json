@@ -541,14 +541,14 @@
      "stem": "The fall of the Berlin Wall triggered German reunification and a 'peace dividend' as governments cut defense spending. The curriculum categorizes this event as a most likely:",
      "options": {
       "A": "growth-enhancing geopolitical shock.",
-      "B": "growth-diminishing natural disaster.",
-      "C": "growth-diminishing financial crisis."
+      "B": "growth-diminishing geopolitical shock, as reunification costs and defense-industry cutbacks reduced aggregate demand.",
+      "C": "growth-enhancing policy change driven by domestic fiscal reform rather than geopolitics."
      },
      "correct": "A",
      "rationales": {
       "A": "Correct. The curriculum uses the fall of the Berlin Wall and subsequent 'peace dividend' as its example of a growth-enhancing geopolitical shock. It also notes that geopolitical tensions such as the space race can spur innovation that results in growth-enhancing technologies, showing the effect can go either way.",
-      "B": "The Berlin Wall event is a geopolitical shock, not a natural disaster.",
-      "C": "It is not a financial crisis."
+      "B": "Incorrect. Although the event was geopolitical, the curriculum classifies it as growth-enhancing: the 'peace dividend' freed resources previously devoted to defense for productive uses. Reunification costs did not make it a growth-diminishing shock in the curriculum's treatment.",
+      "C": "Incorrect. The defense cuts were a consequence of a geopolitical shock — the end of the Cold War — not a domestic fiscal reform. The curriculum presents the event in its discussion of geopolitics as an exogenous shock to growth."
      },
      "type": "mc",
      "primary_los": "capital_market_expectations_part_1_framework_and_macro_considerations.c",
@@ -566,13 +566,13 @@
      "options": {
       "A": "a permanent reduction in both level and trend growth with no recovery mechanism.",
       "B": "a short-run reduction in growth, with a possible long-run enhancement if replaced capacity is more efficient.",
-      "C": "no effect on either short-run or long-run growth."
+      "C": "an immediate boost to trend growth, since rebuilding activity permanently raises measured GDP."
      },
      "correct": "B",
      "rationales": {
       "A": "The curriculum identifies a possible long-run positive, not a permanent reduction.",
       "B": "Correct. The curriculum states natural disasters destroy productive capacity — in the short run, a disaster is likely to reduce growth, but it may actually enhance long-run growth if old capacity is replaced with more efficient facilities.",
-      "C": "Natural disasters do affect growth."
+      "C": "Incorrect. Rebuilding lifts activity only temporarily; the short-run effect of destroyed capacity is a reduction in growth. Any long-run enhancement comes from replacing old capacity with more efficient facilities, not from rebuilding spending permanently raising GDP."
      },
      "type": "mc",
      "primary_los": "capital_market_expectations_part_1_framework_and_macro_considerations.c",
@@ -806,7 +806,7 @@
      },
      "correct": "B",
      "rationales": {
-      "A": "Failing to produce quantitative impact estimates for exogenous variables is a strength of leading indicators (they don't require such estimates), and their inability to do so is a limitation of the approach only in a different sense.",
+      "A": "Incorrect. Not requiring forecasts or quantitative impact estimates of exogenous variables is listed as a strength of the indicator approach, not a weakness. The curriculum's stated weaknesses are false signals and the revision-driven 'look-ahead' bias in the indicator history.",
       "B": "Correct. The curriculum's Exhibit 4 identifies as a weakness that '\"current\" data not reliable as input for historical analysis' and that the LEI is 'overfitted in-sample' — the 'look ahead' bias arises because the entire history may be revised each month.",
       "C": "Subjectivity is a weakness of the checklist approach, not the leading indicator approach; the LEI approach is quantitative and rule-based."
      },
@@ -825,13 +825,13 @@
      "stem": "Which of the following statements is most accurate regarding the strengths and weaknesses of econometric modeling?",
      "options": {
       "A": "Its main strength is that it forecasts turning points well.",
-      "B": "It has no significant weaknesses when properly specified.",
+      "B": "Its main strength is that it adapts quickly to structural change because relationships are re-estimated from the data.",
       "C": "It imposes discipline and consistency on analysis but rarely forecasts turning points well."
      },
      "correct": "C",
      "rationales": {
       "A": "The curriculum explicitly lists 'rarely forecasts turning points well' as a weakness of econometric models, not a strength.",
-      "B": "Even well-specified econometric models suffer from the fact that data inputs are not easy to forecast, relationships are not static, and may give a 'false sense of precision.'",
+      "B": "Incorrect. Econometric models assume historical relationships are stable; when the economy's structure changes, models estimated on past data can be misspecified for extended periods. Handling structural change is a weakness of the approach, not a strength.",
       "C": "Correct. Exhibit 4 lists 'imposes discipline/consistency on analysis' as a strength and 'rarely forecasts turning points well' as a weakness — both consequences of the model's rigid, quantitative structure."
      },
      "type": "mc",
@@ -898,7 +898,7 @@
      "options": {
       "A": "A single manufacturing-sector indicator selected for its high predictive power in that economy.",
       "B": "Monthly GDP releases published by the country's national statistical agency.",
-      "C": "five to nine variables (share prices, manufacturing metrics, inflation, interest rates, monetary data) that exhibit cyclical fluctuations similar to GDP with peaks and troughs occurring six to nine months earlier."
+      "C": "Five to nine cyclical variables, such as share prices and manufacturing metrics, whose peaks and troughs lead GDP by six to nine months."
      },
      "correct": "C",
      "rationales": {
@@ -1302,13 +1302,13 @@
      "options": {
       "A": "central banks' policy tools are more effective at slowing economic activity than at accelerating sluggish activity — an asymmetric 'reaction function' — combined with the damage that deflation does to debt-financed investment and central bank power.",
       "B": "positive inflation always raises corporate profit margins regardless of pass-through pricing power.",
-      "C": "positive inflation is required by international treaty for developed economies."
+      "C": "a small positive inflation rate maximizes seigniorage revenue, which central banks treat as a primary policy objective."
      },
      "correct": "A",
      "rationales": {
       "A": "Correct. The curriculum explicitly identifies both drivers: (1) asymmetric policy effectiveness — central bank tools are generally more effective in slowing activity than in accelerating sluggish activity, so banks tend to be more aggressive against downward pressure than in reining in strong demand; and (2) deflation damages debt-financed investment (rising real debt burden) and the power of central banks (rates constrained near/below zero limit stimulus).",
       "B": "The curriculum treats within-range inflation as generally neutral for stocks at aggregate level.",
-      "C": "There is no such treaty; the reason is economic and policy-based."
+      "C": "Incorrect. Seigniorage is not an objective of modern monetary policy. The positive-inflation buffer reflects asymmetric policy effectiveness and the desire to avoid deflation's damage to debt-financed investment and central bank power — not revenue considerations."
      },
      "type": "mc",
      "primary_los": "capital_market_expectations_part_1_framework_and_macro_considerations.g",
@@ -1348,13 +1348,13 @@
      "number": 8,
      "stem": "Higher-than-expected inflation is most likely to affect real estate as follows:",
      "options": {
-      "A": "real estate suffers as tenants immediately default on their leases.",
+      "A": "real estate suffers because the rise in nominal discount rates outweighs any adjustment in rents.",
       "B": "real estate is neutral because leases lock in nominal rates permanently.",
       "C": "real estate benefits, coinciding with high demand, expectations of rental income rising faster than general inflation, and rising property values."
      },
      "correct": "C",
      "rationales": {
-      "A": "Higher-than-expected inflation is generally positive for real estate, not the opposite.",
+      "A": "Incorrect. The curriculum links higher-than-expected inflation to high demand for real estate, expectations that rental income will rise even faster than general inflation, and rising property values — the rent adjustment is not overwhelmed by discount-rate effects.",
       "B": "Renewal of leases progressively re-prices to reflect inflation expectations.",
       "C": "Correct. The curriculum states higher-than-expected inflation is likely to coincide with high demand for real estate, expectations that rental income will rise even faster than general inflation, and rising property values. However, the impact may be idiosyncratic depending on lease length, existing supply, and new-supply pipeline."
      },
@@ -1431,13 +1431,13 @@
      "stem": "Fiscal policy plays a smaller stabilization role than monetary policy most likely because:",
      "options": {
       "A": "fiscal multipliers are always smaller than monetary multipliers.",
-      "B": "governments are constitutionally prohibited from countercyclical spending in most countries.",
+      "B": "automatic stabilizers already fully offset cyclical swings, leaving no role for discretionary fiscal policy.",
       "C": "the fiscal decision-making process is too lengthy for timely short-term adjustments."
      },
      "correct": "C",
      "rationales": {
       "A": "The curriculum does not make a claim about relative multiplier sizes; the issue is timing and structural.",
-      "B": "There is no such constitutional prohibition; the curriculum does not make this claim.",
+      "B": "Incorrect. Automatic stabilizers cushion but do not fully offset cyclical swings. The curriculum's reason is procedural: the discretionary fiscal decision-making process is too lengthy for timely short-term adjustments, and frequent meaningful changes would be disruptive.",
       "C": "Correct. The curriculum lists two reasons: 'in all but the most authoritarian regimes, the fiscal decision-making process is too lengthy to make timely adjustments to aggregate spending and taxation aimed at short-term objectives' and 'frequent changes of a meaningful magnitude would be disruptive.'"
      },
      "type": "mc",
@@ -1461,7 +1461,7 @@
      "correct": "A",
      "rationales": {
       "A": "Correct. Exhibit 6 shows: loose fiscal → high real rates (private sector must save more or capital attracted from abroad); tight monetary → low expected inflation; combined = 'mid' nominal rates because the effects on real and inflation components partially offset.",
-      "B": "This combination corresponds to loose fiscal + loose monetary in Exhibit 6.",
+      "B": "Incorrect. Low real rates with high expected inflation corresponds to tight fiscal + loose monetary policy in Exhibit 6, which produces mid — not high — nominal rates. Loose fiscal + loose monetary would instead produce high real rates along with high expected inflation and high nominal rates.",
       "C": "This combination corresponds to tight fiscal + tight monetary in Exhibit 6."
      },
      "type": "mc",
@@ -1478,15 +1478,15 @@
      "number": 5,
      "stem": "The curriculum notes that monetary policy is famously subject to 'long and variable lags.' The practical implication for central banks and analysts is most likely that:",
      "options": {
-      "A": "the central bank can precisely fine-tune the economy quarter by quarter.",
+      "A": "policy changes affect the economy with a fixed, predictable delay that analysts can build directly into their forecasts.",
       "B": "the central bank's ability to fine-tune the economy is limited, and there is always risk that policy measures will exacerbate rather than moderate the business cycle.",
-      "C": "monetary policy's effects arrive within days and reverse within weeks."
+      "C": "the central bank should wait until inflation has fully materialized before acting, to eliminate forecast uncertainty."
      },
      "correct": "B",
      "rationales": {
-      "A": "The lags argument is precisely why fine-tuning is difficult.",
+      "A": "Incorrect. The lags are variable as well as long — their length and timing cannot be treated as a fixed, predictable delay, which is precisely why fine-tuning the economy is so difficult.",
       "B": "Correct. The curriculum states the impact of monetary policy is famously subject to 'long and variable lags,' as well as substantial uncertainty. As a result, a central bank's ability to fine-tune the economy is limited, and there is always risk that policy measures will exacerbate rather than moderate the business cycle. The risk is greatest at the top of the cycle, when the central bank may overestimate the economy's momentum.",
-      "C": "This is the opposite of what 'long and variable lags' means."
+      "C": "Incorrect. Waiting until inflation has fully materialized ignores the lags: by the time the policy response took effect, it could exacerbate rather than moderate the cycle. Central banks must act pre-emptively despite forecast uncertainty."
      },
      "type": "mc",
      "primary_los": "capital_market_expectations_part_1_framework_and_macro_considerations.h",
@@ -1681,8 +1681,8 @@
      "stem": "If a country's government debt-to-GDP ratio is high and rising due to persistent fiscal deficits, the curriculum warns of a most likely risk that the central bank may:",
      "options": {
       "A": "be coerced into inflating away the real value of the debt with accommodative monetary policy, likely steepening the yield curve and potentially triggering an inflationary spiral.",
-      "B": "Become fully independent of the fiscal authority and immune to political pressure on rate policy.",
-      "C": "Reduce the money supply sharply to impose fiscal discipline on the government."
+      "B": "become fully independent of the fiscal authority and immune to political pressure on rate policy.",
+      "C": "reduce the money supply sharply to impose fiscal discipline on the government."
      },
      "correct": "A",
      "rationales": {
@@ -1702,17 +1702,17 @@
     {
      "id": "r1_cme1_los_i_q7",
      "number": 7,
-     "stem": "The curriculum's analysis of whether the relative supply of government bonds at various maturities matters for yield curve shape most likely concludes:",
+     "stem": "The curriculum notes an exception to the rule that shifts in the relative supply of government bonds at various maturities have only transient effects on the yield curve. That exception most likely arises at:",
      "options": {
-      "A": "relative supply has no effect on the yield curve under any circumstances.",
-      "B": "sufficiently large purchases or sales at different maturities are likely to have a meaningful effect while occurring, but the effect is unlikely to be sustained once the operation ends.",
-      "C": "relative supply permanently alters the yield curve regardless of magnitude."
+      "A": "intermediate maturities, where trading volume is heaviest and dealers cannot absorb large supply shifts.",
+      "B": "very long maturities, where dedicated liability-driven investors such as pension funds have few substitutes, allowing sustained yield pressure.",
+      "C": "the short end, where bill issuance is largest relative to investors' trading demand."
      },
      "correct": "B",
      "rationales": {
-      "A": "The curriculum finds that supply does have transient effects.",
-      "B": "Correct. The curriculum states that the existing evidence, combined with broader market observation, suggests sufficiently large purchases/sales at different maturities are likely to have a meaningful effect on the curve while occurring, but the effect is unlikely to be sustained for long once the operation ends. Government bonds are very liquid, and investors move up and down the curve to exploit even small yield differentials. An exception is very long maturities where dedicated liability-driven buyers (pensions) can create sustained yield pressure.",
-      "C": "The curriculum specifically identifies the effect as transient, not permanent."
+      "A": "Incorrect. Intermediate maturities are highly liquid, and investors readily move along the curve to exploit even small yield differentials, so supply effects there dissipate once the buying or selling operation ends.",
+      "B": "Correct. The curriculum notes that at very long maturities, dedicated buyers with liability-driven mandates — such as pension funds — have few substitutes for the longest bonds, so shifts in relative supply at that segment can exert sustained pressure on yields, unlike the transient effects seen elsewhere on the curve.",
+      "C": "Incorrect. The short end is anchored by the policy rate and is extremely liquid; shifts in bill supply do not create sustained yield distortions."
      },
      "type": "mc",
      "primary_los": "capital_market_expectations_part_1_framework_and_macro_considerations.i",

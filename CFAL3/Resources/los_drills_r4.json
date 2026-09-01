@@ -173,13 +173,13 @@
      "options": {
       "A": "(1.04)(1.02)(1.004) − 1 = 6.5%.",
       "B": "4% + 2% + 0.4% = 6.4%.",
-      "C": "4% × 1.02 × 1.004 = 4.09%."
+      "C": "4% × 1.02 × 1.004 ≈ 4.10%."
      },
      "correct": "A",
      "rationales": {
       "A": "Correct. The reading uses (1.04)(1.02)(1.004) − 1 = 0.065, or 6.5%. This is the geometric linking of the spending rate, inflation rate, and cost of earning investment returns, which is more precise than simple addition.",
       "B": "Simple addition understates the compounded requirement.",
-      "C": "This multiplies instead of adding and drops the distribution rate."
+      "C": "This scales the 4% spending rate by the inflation and cost factors instead of geometrically linking (1 + spending)(1 + inflation)(1 + cost) − 1, so it omits the additive contributions of inflation and costs to the required return."
      },
      "type": "mc",
      "primary_los": "principles_of_asset_allocation.b",
@@ -217,7 +217,7 @@
     {
      "id": "r4_paa_los_b_q4",
      "number": 4,
-     "stem": "The reading identifies three primary approaches to addressing MVO's input sensitivity and concentrated allocations. Which of the following is least likely one of them?",
+     "stem": "The reading identifies several approaches to addressing MVO's input sensitivity and concentrated allocations. Which of the following is least likely one of them?",
      "options": {
       "A": "Reverse optimization (Sharpe 1974) using market-cap weights and CAPM.",
       "B": "The Black-Litterman model, which allows analyst views to tilt reverse-optimized returns.",
@@ -227,7 +227,7 @@
      "rationales": {
       "A": "This is one of the reading's approaches.",
       "B": "This is one of the reading's approaches.",
-      "C": "Correct. Setting all expected returns equal is not among the reading's approaches. The three primary approaches are: (1) reverse optimization, (2) the Black-Litterman model (extension of reverse optimization allowing analyst views), and (3) adding constraints. A fourth is resampled MVO (Michaud 1998), which combines MVO with Monte Carlo."
+      "C": "Correct. Setting all expected returns equal is not among the reading's approaches. The approaches are: (1) reverse optimization, (2) the Black-Litterman model (an extension of reverse optimization allowing analyst views), (3) adding constraints, and (4) resampled MVO (Michaud 1998), which combines MVO with Monte Carlo simulation."
      },
      "type": "mc",
      "primary_los": "principles_of_asset_allocation.b",
@@ -327,13 +327,13 @@
      "options": {
       "A": "having both equity-like and bond-like components, with the specific mix depending on the worker's occupation and career stability.",
       "B": "purely equity-like exposure for all workers regardless of occupation.",
-      "C": "irrelevant to asset allocation decisions."
+      "C": "purely bond-like for all workers, because wages are contractually fixed."
      },
      "correct": "A",
      "rationales": {
       "A": "Correct. The reading treats human capital as having both equity-like and bond-like components. For example, a tenured professor's human capital is largely bond-like, while a commissioned salesperson's may be highly equity-like. The economic balance sheet incorporates this to make the financial asset allocation account for the total risk picture.",
       "B": "The reading treats human capital as having mixed characteristics, not purely equity-like.",
-      "C": "Human capital is a key input in the total balance sheet approach."
+      "C": "Incorrect. Wages are not bond-like for everyone — human capital mixes equity-like and bond-like components depending on occupation and career stability (e.g., a commissioned salesperson's human capital is highly equity-like)."
      },
      "type": "mc",
      "primary_los": "principles_of_asset_allocation.c",
@@ -408,8 +408,8 @@
      "stem": "The reading notes that some practitioners find the link between reverse optimization and CAPM equilibrium 'elegant', while others see it as a shortcoming. For those with minor objections to using market-cap weights alone, the reading recommends most likely:",
      "options": {
       "A": "using the Black-Litterman model, which starts from reverse-optimized returns and allows the expression of alternative forecasts or views.",
-      "B": "Abandoning reverse optimization entirely and returning to unconstrained MVO with sample means.",
-      "C": "Using purely historical mean returns as the expected return inputs instead of any model-based approach."
+      "B": "abandoning reverse optimization entirely and returning to unconstrained MVO with sample means.",
+      "C": "using purely historical mean returns as the expected return inputs instead of any model-based approach."
      },
      "correct": "A",
      "rationales": {
@@ -433,13 +433,13 @@
      "options": {
       "A": "the global market portfolio precisely reflects the average investor's actual holdings.",
       "B": "investors deviate from the theoretical global market portfolio by overweighting domestic assets, and this can be a valid consideration in setting the strategic asset allocation.",
-      "C": "home-country bias eliminates any role for global diversification."
+      "C": "home-country bias is optimal for all investors, because domestic assets perfectly hedge domestic consumption liabilities."
      },
      "correct": "B",
      "rationales": {
       "A": "The global market portfolio is a theoretical benchmark, not the observed average.",
       "B": "Correct. The reading notes investors typically exhibit a strong home country bias for domestic assets. This is a well-documented deviation from the theoretical global market portfolio. When starting from the global market portfolio, an adviser may reasonably adjust based on the investor's country of domicile, tax situation, and reference-currency preferences.",
-      "C": "Even with home bias, global diversification improves the risk-return trade-off."
+      "C": "Incorrect. Home bias is an observed deviation, not a universally optimal hedge — domestic assets do not perfectly hedge domestic consumption needs, and global diversification still improves the risk-return trade-off."
      },
      "type": "mc",
      "primary_los": "principles_of_asset_allocation.d",
@@ -520,7 +520,7 @@
      "correct": "B",
      "rationales": {
       "A": "This is the opposite: cash flows make wealth path dependent.",
-      "B": "Correct. The reading states that for a given asset allocation with no cash flows, the sequence of returns is irrelevant; ending wealth will be path independent (unaffected by the sequence of returns). With cash flows, the sequence becomes relevant because of the interaction of cash flows and returns — terminal wealth becomes path dependent, and Monte Carlo simulation is needed. If simulated returns are IID, path independence holds even with cash flows and analytical methods work.",
+      "B": "Correct. The reading states that for a given asset allocation with no cash flows, the sequence of returns is irrelevant; ending wealth will be path independent (unaffected by the sequence of returns). With cash flows, the sequence becomes relevant because of the interaction of cash flows and returns — terminal wealth becomes path dependent, and Monte Carlo simulation is needed. IID returns matter only in the no-cash-flow case, where they permit analytical treatment; with cash flows, terminal wealth is path dependent even under IID returns.",
       "C": "Cash flows affect terminal wealth significantly."
      },
      "type": "mc",
@@ -562,14 +562,14 @@
      "stem": "The reading notes that Monte Carlo simulation tools vary significantly in their ability to model certain features. Which of the following is most likely one of the modeling capabilities where implementations differ?",
      "options": {
       "A": "The ability to model non-normal multivariate returns, serial and cross-correlations, tax rates, evolving asset allocation schedules (target-date glide paths), non-traditional investments, and human capital.",
-      "B": "The ability to compute geometric mean returns from simulated paths, which only the most advanced commercial platforms can perform.",
-      "C": "The ability to compute standard deviations of terminal wealth, a feature restricted to institutional-grade simulation software."
+      "B": "The choice of the number of simulation trials, which is standardized by regulation at 10,000 paths.",
+      "C": "The ability to produce an efficient frontier, which Monte Carlo tools generate directly without an optimizer."
      },
      "correct": "A",
      "rationales": {
       "A": "Correct. The reading states not all Monte Carlo simulation tools are the same: they vary significantly in their ability to model non-normal multivariate returns, serial and cross-correlations, tax rates, distribution requirements, evolving asset allocation schedules (target-date glide paths), non-traditional investments (e.g., annuities), and human capital.",
-      "B": "Incorrect. Geometric mean computation is elementary and universal — every Monte Carlo tool does it identically.",
-      "C": "Incorrect. Standard deviation calculation does not differentiate tools; non-normal multivariate returns, serial/cross-correlations, taxes, and evolving allocation paths do."
+      "B": "Incorrect. The number of trials is a modeling choice, not a regulatory standard — no rule fixes it at 10,000 paths. Tools differ instead in modeling non-normal returns, serial and cross-correlations, taxes, and evolving allocation schedules.",
+      "C": "Incorrect. Monte Carlo simulation evaluates how given asset allocations perform over time; it does not generate an efficient frontier — that is the job of an optimizer such as MVO."
      },
      "type": "mc",
      "primary_los": "principles_of_asset_allocation.e",
@@ -619,14 +619,14 @@
      "number": 1,
      "stem": "The reading identifies a twofold problem with less liquid asset classes (direct real estate, infrastructure, private equity) in the asset allocation decision. The problem is most likely:",
      "options": {
-      "A": "(1) they always have negative expected returns, and (2) their volatility is undefined.",
-      "B": "(1) they are always tax-exempt, and (2) they are unavailable to institutional investors.",
+      "A": "(1) their reported volatilities are overstated by appraisal-based pricing, and (2) they carry no illiquidity premium for long-horizon investors.",
+      "B": "(1) their correlations with public-market assets are too high for them to add diversification, and (2) index funds tracking them are prohibitively expensive.",
       "C": "(1) lack of accurate indexes makes capital market assumptions challenging, and (2) even with accurate indexes, there are no low-cost passive vehicles to track them."
      },
      "correct": "C",
      "rationales": {
-      "A": "This is false as stated.",
-      "B": "This is the opposite of the true situation.",
+      "A": "Incorrect. Appraisal-based pricing understates (smooths) reported volatility rather than overstating it, and less liquid asset classes are generally expected to offer an illiquidity premium. The twofold problem concerns index accuracy and the absence of passive vehicles.",
+      "B": "Incorrect. Stale, appraisal-based pricing tends to understate measured correlations with public assets, and the issue is that low-cost passive tracking vehicles do not exist at all — not that index funds are merely expensive.",
       "C": "Correct. The reading identifies the twofold problem: (1) due to the lack of accurate indexes, it is more challenging to make capital market assumptions for these less liquid asset classes, and (2) even if there were accurate indexes, there are no low-cost passive investment vehicles to track them."
      },
      "type": "mc",
@@ -691,14 +691,14 @@
      "number": 4,
      "stem": "The reading warns that using listed alternative indexes (e.g., listed real estate indexes as a proxy for direct real estate) most likely creates:",
      "options": {
-      "A": "perfectly diversified representation of the underlying asset class.",
-      "B": "no problems whatsoever.",
+      "A": "a close but imperfect proxy whose main drawback is the higher management fees of listed vehicles.",
+      "B": "lower measured correlations with other asset classes, because listed vehicles trade continuously at market prices.",
       "C": "a violation of the recommendation that asset classes be mutually exclusive (securities appear in multiple indexes), typically resulting in higher correlations among different asset classes."
      },
      "correct": "C",
      "rationales": {
-      "A": "Listed alternatives are imperfect proxies for private assets.",
-      "B": "There is a documented downside — higher correlations.",
+      "A": "Incorrect. Fees are not the reading's warning; the concern is that listed indexes violate the recommendation that asset classes be mutually exclusive, because their securities also appear in indexes representing other asset classes.",
+      "B": "Incorrect. The effect runs the other way — overlapping security membership typically raises measured correlations among asset classes, which increases input sensitivity in most optimization settings.",
       "C": "Correct. The reading notes that the use of listed alternative indexes often violates the recommendation that asset classes be mutually exclusive — the securities in these indexes are likely also included in indexes representing other asset classes. This typically results in higher correlations among different asset classes, which has the negative impact of increasing input sensitivity in most optimization settings."
      },
      "type": "mc",
@@ -716,14 +716,14 @@
      "stem": "For less liquid asset classes like private equity, the reading notes that the risk and return characteristics of actual investment vehicles often differ significantly from those of the asset class itself because:",
      "options": {
       "A": "a typical private equity fund is dominated by company-specific (idiosyncratic) risk, in direct contrast to the diversified nature of the underlying asset class.",
-      "B": "the vehicles perfectly replicate all constituents of the asset class.",
-      "C": "the vehicles all use the same benchmark index."
+      "B": "fund-level fees fully explain the difference, while the funds' risk characteristics match those of the asset class.",
+      "C": "vintage-year diversification in funds-of-funds eliminates the difference between vehicle and asset class."
      },
      "correct": "A",
      "rationales": {
       "A": "Correct. The reading states that the risk and return characteristics associated with actual investment vehicles (direct real estate funds, infrastructure funds, private equity funds) are typically significantly different from the characteristics of the asset classes themselves. For example, the private equity 'asset class' should represent the characteristics of owning all private equity, whereas a typical PE fund is dominated by company-specific (idiosyncratic) risk.",
-      "B": "Vehicles rarely perfectly replicate the asset class.",
-      "C": "There are no universal benchmarks for these vehicles."
+      "B": "Incorrect. Fees are not the driver — a typical fund holds a concentrated subset of the asset class, so company-specific (idiosyncratic) risk dominates its risk profile rather than matching the diversified asset class.",
+      "C": "Incorrect. Diversifying across vintage years mitigates but does not eliminate the gap; individual vehicles still carry substantial idiosyncratic and manager-specific risk relative to the asset class."
      },
      "type": "mc",
      "primary_los": "principles_of_asset_allocation.f",
@@ -903,15 +903,15 @@
      "number": 2,
      "stem": "The reading notes that psychometric literature has developed validated questionnaires (e.g., Grable and Joo 2004) to approximately locate an investor's risk preference. For individuals, risk capacity is affected by factors most likely including:",
      "options": {
-      "A": "the investor's political views.",
+      "A": "the investor's score on a validated risk-tolerance questionnaire.",
       "B": "net worth, income, size of an emergency fund relative to consumption needs, and the savings rate out of gross income.",
-      "C": "the size of the investor's home country's stock market."
+      "C": "the investor's stated comfort with large portfolio drawdowns."
      },
      "correct": "B",
      "rationales": {
-      "A": "Political views are not identified as affecting risk capacity.",
+      "A": "Incorrect. Questionnaire scores locate the investor's risk preference (willingness to take risk); risk capacity is an objective matter of financial circumstances such as net worth, income, emergency reserves, and savings rate.",
       "B": "Correct. The reading cites Grable (2008) noting that for individuals, risk capacity is affected by factors such as net worth, income, the size of an emergency fund in relation to consumption needs, and the rate at which the individual saves out of gross income.",
-      "C": "Home-country market size is not a factor for individual risk capacity."
+      "C": "Incorrect. Stated comfort with drawdowns reflects willingness to take risk, not the financial ability (capacity) to bear losses."
      },
      "type": "mc",
      "primary_los": "principles_of_asset_allocation.h",
@@ -927,8 +927,8 @@
      "number": 3,
      "stem": "A shortfall risk concern like Aimée Goddard's (need to withdraw €60,000 in 12 months without invading principal) can be incorporated into asset allocation by most likely:",
      "options": {
-      "A": "Abandoning the utility-based framework entirely, since shortfall concerns cannot coexist with utility maximization.",
-      "B": "Adopting a 100% cash allocation to guarantee the €60,000 withdrawal is available.",
+      "A": "abandoning the utility-based framework entirely, since shortfall concerns cannot coexist with utility maximization.",
+      "B": "adopting a 100% cash allocation to guarantee the €60,000 withdrawal is available.",
       "C": "using Roy's safety-first ratio [E(R_P) − R_L]/σ_P to differentiate among efficient allocations that tie on utility, or by adding a shortfall constraint to the optimization."
      },
      "correct": "C",
@@ -1011,13 +1011,13 @@
      "options": {
       "A": "Size, valuation (value-growth), momentum.",
       "B": "Duration/term, credit, liquidity, volatility.",
-      "C": "Book-to-price weighted by CEO tenure."
+      "C": "GDP growth and demographic trends."
      },
      "correct": "C",
      "rationales": {
       "A": "These are typical factors.",
       "B": "These are typical factors.",
-      "C": "Correct. This is not a standard factor. The reading identifies size, valuation, momentum, liquidity, duration (term), credit, and volatility as typical factors used in factor-based asset allocation, along with the all-important market (equity) exposure. Most were originally identified as return drivers that help explain returns not explained by CAPM."
+      "C": "Correct. GDP growth and demographic trends are macroeconomic drivers, not among the typical portfolio factors the reading identifies — size, valuation, momentum, liquidity, duration (term), credit, and volatility — used alongside the all-important market (equity) exposure. Most were originally identified as return drivers that help explain returns not explained by CAPM."
      },
      "type": "mc",
      "primary_los": "principles_of_asset_allocation.i",
@@ -1081,8 +1081,8 @@
      "number": 4,
      "stem": "In practice, when factor-based asset allocation is done in 'total return space' alongside traditional asset classes, the factor return most likely needs to be augmented by:",
      "options": {
-      "A": "The return on the market portfolio, so every factor carries the equity premium.",
-      "B": "A random walk term calibrated to the factor's tracking error.",
+      "A": "the return on the market portfolio, so every factor carries the equity premium.",
+      "B": "a random walk term calibrated to the factor's tracking error.",
       "C": "the return on the risk-free asset (cash), so that the factor's total return equals the risk-free rate plus the excess factor return."
      },
      "correct": "C",
@@ -1106,14 +1106,14 @@
      "stem": "The reading's overall recommendation regarding asset-class-based vs factor-based asset allocation is most likely:",
      "options": {
       "A": "practitioners should choose the space (risk factors or asset classes) in which they are most equipped to make capital market assumptions; expanding the opportunity set to include new, weakly-correlated risk factors or asset classes should improve risk-return trade-offs.",
-      "B": "always use asset-class-based approaches; factor-based approaches lack theoretical foundation.",
-      "C": "always use factor-based approaches; asset-class approaches are outdated."
+      "B": "carry out allocation in asset-class space, since factor-based approaches require capital market assumptions that practitioners cannot make reliably.",
+      "C": "prefer factor-based allocation whenever derivatives are permitted, because factors are more diversified than asset classes for the same forecasting skill."
      },
      "correct": "A",
      "rationales": {
       "A": "Correct. The reading states practitioners should choose to carry out asset allocation in the particular space — risk factors or asset classes — in which they are most equipped to make capital market assumptions. Regardless of which space a practitioner prefers, expanding one's opportunity set to include new, weakly correlated risk factors or asset classes should improve the potential risk-return trade-offs.",
-      "B": "The reading takes a balanced view rather than dismissing factor-based approaches.",
-      "C": "The reading does not favor one approach over the other categorically."
+      "B": "Incorrect. The reading does not deem factor assumptions inherently unreliable; it says to work in whichever space — risk factors or asset classes — the practitioner is best equipped to make capital market assumptions.",
+      "C": "Incorrect. The reading offers no derivatives-based preference rule and does not claim factors are inherently more diversified; its recommendation is space-neutral, hinging on where the practitioner's assumptions are best made."
      },
      "type": "mc",
      "primary_los": "principles_of_asset_allocation.i",
@@ -1163,8 +1163,8 @@
      "number": 2,
      "stem": "The reading distinguishes legal liabilities from quasi-liabilities. An example of a quasi-liability is most likely:",
      "options": {
-      "A": "A corporate bond obligation issued by the university's financing arm.",
-      "B": "An insurance policy payout owed to a policyholder.",
+      "A": "a corporate bond obligation issued by the university's financing arm.",
+      "B": "an insurance policy payout owed to a policyholder.",
       "C": "the endowment support expected by a university, which contributes a major part of the operating budget but is not legally required."
      },
      "correct": "C",
@@ -1235,8 +1235,8 @@
      "number": 5,
      "stem": "The reading argues that the discount rate for liabilities is most likely determined by:",
      "options": {
-      "A": "The fund's expected return on assets, so higher-returning portfolios discount liabilities at higher rates.",
-      "B": "The plan sponsor's weighted-average cost of debt.",
+      "A": "the fund's expected return on assets, so higher-returning portfolios discount liabilities at higher rates.",
+      "B": "the plan sponsor's weighted-average cost of debt.",
       "C": "regulations, tradition, and (from economic theory) the rate on assets that could perfectly hedge the liability cash flows."
      },
      "correct": "C",
@@ -1293,9 +1293,9 @@
      "number": 2,
      "stem": "Surplus optimization is most likely best described as:",
      "options": {
-      "A": "A completely different framework from MVO, replacing expected returns with minimum expectations and discarding the objective function.",
+      "A": "a completely different framework from MVO, replacing expected returns with minimum expectations and discarding the objective function.",
       "B": "an extension of MVO where the objective function U_LR = E(R_s) − 0.005λσ²(R_s) uses surplus return E(R_s) = (Change in asset value − Change in liability value)/(Initial asset value) instead of asset return.",
-      "C": "A strict cash-flow-matching technique that pairs each liability payment with a dedicated bond, involving no optimization at all."
+      "C": "a strict cash-flow-matching technique that pairs each liability payment with a dedicated bond, involving no optimization at all."
      },
      "correct": "B",
      "rationales": {
@@ -1367,13 +1367,13 @@
      "options": {
       "A": "make asset allocation decisions independently of liability decisions.",
       "B": "must render significant decisions regarding the composition of their liabilities jointly with asset allocation — e.g., banks, insurance companies, re-insurers, and long-short hedge funds.",
-      "C": "have no legal liabilities to consider."
+      "C": "have liabilities that can be fully defeased with a dedicated bond portfolio, making joint modeling unnecessary."
      },
      "correct": "B",
      "rationales": {
       "A": "This describes when surplus optimization or the two-portfolio approach applies, not integrated.",
       "B": "Correct. The reading states integrated asset-liability approaches are appropriate for institutions where asset and liability decisions can be integrated and jointly optimized — banks, long-short hedge funds (where shorts are liabilities), insurance companies, and reinsurance companies. Approach names include ALM (banks) and DFA (insurance). These are often implemented in multi-period models.",
-      "C": "Integrated approaches are used precisely where liabilities are central."
+      "C": "Incorrect. Fully defeasible liabilities call for a hedging or cash-flow-matching portfolio, not integrated modeling; the integrated approach fits institutions whose liability composition is itself a decision made jointly with asset allocation."
      },
      "type": "mc",
      "primary_los": "principles_of_asset_allocation.k",
@@ -1471,8 +1471,8 @@
      "number": 4,
      "stem": "For a property/casualty insurance company facing catastrophic-risk liabilities (earthquakes, hurricanes), the reading argues that:",
      "options": {
-      "A": "The hedging portfolio for catastrophic insurance liabilities is well-defined and easily constructed from listed securities.",
-      "B": "The company should avoid writing catastrophe-exposed policies entirely, eliminating the allocation problem.",
+      "A": "the hedging portfolio for catastrophic insurance liabilities is well-defined and easily constructed from listed securities.",
+      "B": "the company should avoid writing catastrophe-exposed policies entirely, eliminating the allocation problem.",
       "C": "the hedging portfolio is not well-defined, so liabilities may need to be addressed via customized products or by purchasing re-insurance, and the assets and liabilities are integrated so worst-case events can be analyzed on both sides of the balance sheet."
      },
      "correct": "C",
@@ -1496,14 +1496,14 @@
      "stem": "For a factor-based approach to liability-relative asset allocation, the reading argues this is particularly credible because:",
      "options": {
       "A": "in many applications, liability cash flows depend on multiple uncertainties (economic conditions, inflation, salary changes), and a fully hedged portfolio cannot be constructed.",
-      "B": "Liability cash flows are always known with certainty, so factor modeling adds no information.",
-      "C": "Factor-based approaches eliminate all uncertainty in the liability-relative allocation."
+      "B": "factor portfolios deliver higher expected returns than asset-class portfolios for the same level of risk.",
+      "C": "liability duration can be hedged only through factor exposures, not through conventional bond portfolios."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: in many applications, liability cash flows depend on multiple uncertainties (economic conditions, inflation, salary changes), and a fully hedged portfolio cannot be constructed — the best that can be done is to add asset categories positively correlated with the underlying risk factors (e.g., inflation-linked bonds).\n\nCorrect. The reading states a factor-based approach for liability-relative allocation has gained credibility because in many applications the liability cash flows are dependent on multiple uncertainties. The two primary macro factors are future economic conditions and inflation. A fully hedged portfolio cannot be constructed when liabilities are impacted by these uncertain factors. For ongoing pension schemes, the best that can be done is to add asset categories positively correlated with the underlying driving risk factors, such as inflation-linked bonds.",
-      "B": "Incorrect. Certainty is the exception — inflation, salary growth, and economic conditions drive liability cash flows.",
-      "C": "Incorrect. Factors organize and manage the uncertainty across assets and liabilities; nothing eliminates it."
+      "B": "Incorrect. The reading makes no claim of superior risk-adjusted returns for factor portfolios; the factor approach's credibility rests on liability cash flows being driven by multiple uncertain factors (economic conditions, inflation, salary changes).",
+      "C": "Incorrect. Duration can be hedged with conventional bonds. The factor approach earns credibility because a fully hedged portfolio cannot be constructed when liabilities depend on uncertain macro factors, so asset categories positively correlated with those factors (e.g., inflation-linked bonds) are added."
      },
      "type": "mc",
      "primary_los": "principles_of_asset_allocation.l",
@@ -1578,8 +1578,8 @@
      "stem": "Minimum expectations in goals-based asset allocation are most likely defined as:",
      "options": {
       "A": "the minimum return expected to be earned over the given time horizon with a given minimum required probability of success.",
-      "B": "The arithmetic mean of expected returns across the goal's investment horizon.",
-      "C": "The lowest return observed historically for the recommended asset mix."
+      "B": "the arithmetic mean of expected returns across the goal's investment horizon.",
+      "C": "the lowest return observed historically for the recommended asset mix."
      },
      "correct": "A",
      "rationales": {
@@ -1602,7 +1602,7 @@
      "stem": "Under the goals-based approach, a portfolio with expected annual return 7%, volatility 10%, target 5-year horizon, and 90% required probability of success most likely implies a defeasance discount rate closest to:",
      "options": {
       "A": "7% per year — the expected return.",
-      "B": "about 1.3% per year — the return expected to be exceeded with 90% probability over 5 years.",
+      "B": "1.3% per year, approximately — the return expected to be exceeded with 90% probability over 5 years.",
       "C": "0% — because probability of success requires certainty."
      },
      "correct": "B",
@@ -1757,13 +1757,13 @@
      "options": {
       "A": "consistently underperforms all optimization-based methods.",
       "B": "has been found to perform considerably better than theory might suggest, based on Sharpe ratios and certainty equivalents.",
-      "C": "produces zero return in all market conditions."
+      "C": "matches optimized portfolios only when all assets have identical expected returns and volatilities."
      },
      "correct": "B",
      "rationales": {
       "A": "The reading identifies the opposite.",
       "B": "Correct. The reading states that although in principle 1/N portfolios should be dominated by methods that optimize asset class weights to exploit differences in investment characteristics, empirical studies (DeMiguel, Garlappi, and Uppal 2009) have found 1/N performs considerably better than theory might suggest. One possible explanation is that the 1/N rule sidesteps problems caused by optimizing when there is estimation error in inputs.",
-      "C": "This is not accurate."
+      "C": "Incorrect. The empirical finding is not conditional on identical asset characteristics — 1/N has performed well in practice even though assets differ, likely because it sidesteps optimization over error-laden inputs."
      },
      "type": "mc",
      "primary_los": "principles_of_asset_allocation.n",
@@ -1777,17 +1777,17 @@
     {
      "id": "r4_paa_los_n_q6",
      "number": 6,
-     "stem": "The Norway model — the Norway Government Pension Fund Global — is most likely in diametrical contrast to the endowment model because it:",
+     "stem": "Compared with the endowment model, the primary limitation of the Norway model (Norway Government Pension Fund Global) noted in the reading is most likely that it:",
      "options": {
-      "A": "It invests exclusively in Norwegian assets to concentrate returns in the domestic economy.",
-      "B": "It uses leverage aggressively to raise the risk contribution of its bond holdings.",
-      "C": "is highly committed to passive investment in publicly traded securities (subject to ESG concerns), reflecting a belief in market informational efficiency, with an approximate 60/40 stock/bond mix since 2009."
+      "A": "concentrates risk in the domestic economy by restricting the fund to Norwegian assets.",
+      "B": "requires aggressive leverage on bond holdings, complicating governance oversight.",
+      "C": "offers limited potential for above-market value-added, because its commitment to passive investment in publicly traded securities forgoes illiquidity premiums and active returns."
      },
      "correct": "C",
      "rationales": {
-      "A": "Incorrect. The fund is deliberately GLOBAL — domestic concentration is what it avoids.",
-      "B": "Incorrect. Leveraged bonds describe RISK PARITY; Norway's contrast with the endowment model is passive public-market investing with minimal alternatives.",
-      "C": "Correct. The reading identifies the Norway model as 'in almost diametrical contrast' to the endowment model: highly committed to passive investment in publicly traded securities (subject to ESG concerns), reflecting a belief in market informational efficiency. Since 2009 the asset allocation has followed an approximate 60/40 stock/bond mix."
+      "A": "Incorrect. The fund is deliberately global — domestic concentration is what it avoids, and it is not a limitation the reading attributes to the model.",
+      "B": "Incorrect. Leveraged bond exposure describes risk parity, not the Norway model, which holds unlevered publicly traded stocks and bonds in an approximate 60/40 mix.",
+      "C": "Correct. The reading presents the Norway model — highly committed to passive investment in publicly traded securities (subject to ESG concerns), reflecting a belief in market informational efficiency, with an approximate 60/40 stock/bond mix since 2009 — as offering low cost, transparency, suitability for large scale, and easy governance, but with limited potential for above-market value-added, in almost diametrical contrast to the endowment model's pursuit of active management and illiquidity premiums."
      },
      "type": "mc",
      "primary_los": "principles_of_asset_allocation.n",
@@ -1837,9 +1837,9 @@
      "number": 2,
      "stem": "The reading argues that rebalancing has empirically tended to reduce risk while incrementally adding to returns. Two interpretations are offered. These are most likely:",
      "options": {
-      "A": "A momentum premium and a value premium harvested through disciplined rebalancing.",
+      "A": "a momentum premium and a value premium harvested through disciplined rebalancing.",
       "B": "a diversification return (compound growth of a rebalanced portfolio exceeds the weighted-average compound growth of components) and a return from being short volatility.",
-      "C": "A size premium and a quality premium embedded in the rebalancing trades."
+      "C": "a size premium and a quality premium embedded in the rebalancing trades."
      },
      "correct": "B",
      "rationales": {
@@ -1934,13 +1934,13 @@
      "stem": "In liability-relative asset allocation, rebalancing most likely includes:",
      "options": {
       "A": "only adjusting the asset side of the portfolio to strategic asset weights.",
-      "B": "adjusting tax rates to match jurisdictional norms.",
+      "B": "resetting the liability discount rate so that the funding ratio returns to its target level.",
       "C": "adjusting a liability-hedging portfolio to account for changes in net duration exposures from the passage of time, in addition to correcting drift in strategic asset weights."
      },
      "correct": "C",
      "rationales": {
       "A": "Rebalancing in liability-relative frameworks is broader.",
-      "B": "Tax rates are not investor-controlled.",
+      "B": "Incorrect. The discount rate is set by regulation, tradition, or reference to hedging assets — it is not reset to engineer a funding ratio. Rebalancing adjusts portfolio weights and hedge exposures, not valuation assumptions.",
       "C": "Correct. The reading states that rebalancing is defined as the discipline of adjusting portfolio weights to more closely align with the strategic asset allocation. In liability-relative asset allocation, adjusting a liability-hedging portfolio to account for changes in net duration exposures from the passage of time would fall under the rubric of rebalancing. This ensures the hedge maintains its intended relationship with the liability."
      },
      "type": "mc",

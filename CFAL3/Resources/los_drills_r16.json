@@ -26,13 +26,13 @@
      "options": {
       "A": "call + risk-free bond = put + underlying; S₀ + p₀ = c₀ + X/(1 + r)^T.",
       "B": "call + underlying = put + risk-free bond.",
-      "C": "no relationship."
+      "C": "underlying + call = put + risk-free bond; S₀ + c₀ = p₀ + X/(1 + r)^T."
      },
      "correct": "A",
      "rationales": {
       "A": "Correct. Per Position Equivalencies: 'put-call parity shows the equivalence (or parity) of a portfolio of a call and a risk-free bond with a portfolio of a put and the underlying, which leads to the relationship between put and call prices... S₀ + p₀ = c₀ + X/(1 + r)^T.'",
-      "B": "Wrong pairing.",
-      "C": "Parity exists."
+      "B": "Incorrect. This reverses the pairing. Parity equates the FIDUCIARY CALL (call + risk-free bond, c₀ + X/(1 + r)^T) with the PROTECTIVE PUT (put + underlying, S₀ + p₀) — the call is grouped with the bond, not the underlying.",
+      "C": "Incorrect. This swaps the put and call: the underlying pairs with the PUT (protective put) and the risk-free bond pairs with the CALL (fiduciary call), giving S₀ + p₀ = c₀ + X/(1 + r)^T, not S₀ + c₀ = p₀ + X/(1 + r)^T."
      },
      "type": "mc",
      "primary_los": "options_strategies.a",
@@ -70,11 +70,11 @@
     {
      "id": "r16_opt_los_a_q3",
      "number": 3,
-     "stem": "Synthetic long forward position — the combination of a long call and a short put with identical strike price and expiration, on the same underlying, is equivalent to:",
+     "stem": "The combination of a long call and a short put with identical strike price and expiration, on the same underlying, is equivalent to:",
      "options": {
       "A": "synthetic long put.",
       "B": "long straddle.",
-      "C": "long forward position — the long call creates the upside and the short put creates the downside on the underlying."
+      "C": "a long forward position."
      },
      "correct": "C",
      "rationales": {
@@ -145,13 +145,13 @@
      "stem": "Motivation for creating a synthetic long forward position most likely:",
      "options": {
       "A": "The only motivation for a synthetic long forward is avoiding margin requirements on the actual forward.",
-      "B": "Synthetic forward positions are created solely to increase transaction costs for tax purposes.",
+      "B": "Synthetic forward positions are created to obtain the underlying's upside while eliminating all downside risk.",
       "C": "to exploit an ARBITRAGE opportunity presented by the actual forward price OR the need for an ALTERNATIVE to the outright purchase of a long forward position."
      },
      "correct": "C",
      "rationales": {
       "A": "Incorrect. Margin treatment is incidental; the motivations are ARBITRAGE against the actual forward price or an alternative route to the exposure.",
-      "B": "Incorrect. Cost inflation is never the goal — mispricing capture or an outright-purchase alternative drives the construction.",
+      "B": "Incorrect. A synthetic long forward retains FULL downside — the short put obligates purchase at the strike as the underlying falls. The motivations are arbitrage against the actual forward price or an alternative route to the long forward exposure.",
       "C": "Full statement: to exploit an ARBITRAGE opportunity presented by the actual forward price OR the need for an ALTERNATIVE to the outright purchase of a long forward position; frequently a forward contract is used instead of futures to acquire a stock position because it allows for contract customization.\n\nCorrect. Per Position Equivalencies: 'The motivation to create a synthetic long forward position could be to exploit an arbitrage opportunity presented by the actual forward price or the need for an alternative to the outright purchase of a long forward position. Frequently, a forward contract is used instead of futures to acquire a stock position because it allows for contract customization.'"
      },
      "type": "mc",
@@ -208,7 +208,7 @@
      },
      "correct": "B",
      "rationales": {
-      "A": "That's a straddle-like combo.",
+      "A": "Incorrect. Long stock plus a LONG call is not a straddle — a straddle is a long call plus a long PUT; stock plus a long call merely amplifies the bullish exposure. A covered call requires WRITING the call against the shares held.",
       "B": "Full statement: long stock + SHORT call — a long position in 100 shares of the underlying is required for each short call contract; no additional cash margin is needed if the long position in the underlying is maintained; if the stock price exceeds strike at expiry, shares are 'called away' from the writer to the option holder at the strike price.\n\nCorrect. Per Investment Objectives of Covered Calls: 'For a covered call, a long position in 100 shares of the underlying is required for each short call contract. No additional cash margin is needed if the long position in the underlying is maintained. If the stock price exceeds the strike price at expiry, the underlying shares will be \"called away\" from the covered call writer and then delivered to satisfy the option holder's right to buy shares at the strike price.'",
       "C": "That's protective put."
      },
@@ -250,7 +250,7 @@
      "number": 3,
      "stem": "Covered call maximum gain, loss, and breakeven formulas most likely:",
      "options": {
-      "A": "Max gain = (X − S₀) + c₀; Max loss = S₀ − c₀.",
+      "A": "Max gain = (X − S₀) + c₀; Max loss = S₀ − c₀; Breakeven = S₀ − c₀.",
       "B": "Max gain = X + c₀; Max loss = S₀ + c₀; Breakeven = X − c₀.",
       "C": "Max gain = c₀; Max loss = unlimited; Breakeven = X + c₀."
      },
@@ -296,7 +296,7 @@
     {
      "id": "r16_opt_los_b_q5",
      "number": 5,
-     "stem": "Covered call breakeven = maximum loss — a specific relationship for the covered call most likely:",
+     "stem": "For a covered call, the relationship between the breakeven price and the maximum loss is most likely:",
      "options": {
       "A": "the breakeven price lies ABOVE the maximum loss by the amount of the call premium.",
       "B": "the breakeven price equals the STRIKE PRICE minus the premium (X − c₀).",
@@ -328,7 +328,7 @@
      },
      "correct": "A",
      "rationales": {
-      "A": "Full statement: (X − S₀) + c₀ = 30.00 − 25.00 + 1.55 = 6.55 — the covered call writer participates in gains up to the exercise price, after which further appreciation is lost to the call buyer; X − S₀ = 5.00 in appreciation to the strike, plus 1.55 premium.\n\nCorrect. Per Example 3: 'C is correct. The covered call writer participates in gains up to the exercise price, after which further appreciation is lost to the call buyer. That is, X − S₀ = 30.00 − 25.00 = 5.00. The call writer also keeps c₀, the option premium, which is 1.55. So, the total maximum gain is 5.00 + 1.55 = 6.55.'",
+      "A": "Full statement: (X − S₀) + c₀ = 30.00 − 25.00 + 1.55 = 6.55 — the covered call writer participates in gains up to the exercise price, after which further appreciation is lost to the call buyer; X − S₀ = 5.00 in appreciation to the strike, plus 1.55 premium.\n\nCorrect. Per Example 3: 'The covered call writer participates in gains up to the exercise price, after which further appreciation is lost to the call buyer. That is, X − S₀ = 30.00 − 25.00 = 5.00. The call writer also keeps c₀, the option premium, which is 1.55. So, the total maximum gain is 5.00 + 1.55 = 6.55.'",
       "B": "Incorrect. This uses the terminal price as the gain endpoint; the covered call's upside stops at the STRIKE — (X − S₀) + c₀.",
       "C": "Incorrect. This nets the premium in the wrong direction and ignores the call-away at 30; the writer keeps c₀ = 1.55 and gains only up to the strike."
      },
@@ -353,7 +353,7 @@
      "correct": "B",
      "rationales": {
       "A": "Wrong term.",
-      "B": "Full statement: S₀ − c₀ = 25.00 − 1.55 = 23.45 — the call premium of 1.55 offsets a decline in the stock price by the amount of the premium received.\n\nCorrect. Per Example 3: 'A is correct. The call premium of 1.55 offsets a decline in the stock price by the amount of the premium received: 25.00 − 1.55 = 23.45.'",
+      "B": "Full statement: S₀ − c₀ = 25.00 − 1.55 = 23.45 — the call premium of 1.55 offsets a decline in the stock price by the amount of the premium received.\n\nCorrect. Per Example 3: 'The call premium of 1.55 offsets a decline in the stock price by the amount of the premium received: 25.00 − 1.55 = 23.45.'",
       "C": "Wrong formula."
      },
      "type": "mc",
@@ -376,9 +376,9 @@
      },
      "correct": "C",
      "rationales": {
-      "A": "Wrong logic.",
-      "B": "Wrong formula.",
-      "C": "S₀ − c₀ = 25.00 − 1.55 = 23.45 — the stock price can fall to zero, causing a loss of the entire investment, but the option writer still keeps the option premium.\n\nCorrect. Per Example 3: 'A is correct. The stock price can fall to zero, causing a loss of the entire investment, but the option writer still keeps the option premium received: 25.00 − 1.55 = 23.45.'"
+      "A": "Incorrect. Uses the terminal price S_T = 31.33 instead of the initial price; the maximum loss is S₀ − c₀ = 25.00 − 1.55 = 23.45 (the stock can fall to zero, but the writer keeps the premium).",
+      "B": "Incorrect. 2.88 is the profit if the shares are called away with S_T = 31.33 above the strike, not the maximum loss; the worst case is the stock falling to zero, a loss of S₀ − c₀ = 23.45.",
+      "C": "S₀ − c₀ = 25.00 − 1.55 = 23.45 — the stock price can fall to zero, causing a loss of the entire investment, but the option writer still keeps the option premium.\n\nCorrect. Per Example 3: 'The stock price can fall to zero, causing a loss of the entire investment, but the option writer still keeps the option premium received: 25.00 − 1.55 = 23.45.'"
      },
      "type": "mc",
      "primary_los": "options_strategies.b",
@@ -476,7 +476,7 @@
      "number": 2,
      "stem": "Protective put maximum gain, loss, breakeven most likely:",
      "options": {
-      "A": "Max gain = UNLIMITED (theoretically).",
+      "A": "Max gain = unlimited (theoretically); Max loss = S₀ − X + p₀; Breakeven = S₀ + p₀.",
       "B": "Max gain = capped at X; Max loss = p₀; Breakeven = X + p₀.",
       "C": "Max gain = X + p₀; Max loss = unlimited; Breakeven = X."
      },
@@ -522,16 +522,16 @@
     {
      "id": "r16_opt_los_c_q4",
      "number": 4,
-     "stem": "Reducing cost of protection by increasing the 'deductible' most likely:",
+     "stem": "To reduce the cost of protective-put insurance, a portfolio manager most likely:",
      "options": {
       "A": "The cost of put protection is reduced by choosing a HIGHER strike price closer to the current stock price.",
-      "B": "The deductible in a protective put is fixed by the exchange and cannot be adjusted by the portfolio manager.",
+      "B": "buys a longer-dated put, since longer-maturity options carry lower premiums.",
       "C": "the portfolio manager can REDUCE the cost of insurance by INCREASING the size of the deductible (current stock price minus put exercise price) — for example, using a lower exercise price."
      },
      "correct": "C",
      "rationales": {
       "A": "Incorrect. A higher strike SHRINKS the deductible and RAISES the premium — the opposite of the cost-reduction move.",
-      "B": "Incorrect. The deductible (current price minus put strike) is entirely the manager's choice through strike selection — a lower strike means a larger deductible and cheaper insurance.",
+      "B": "Incorrect. Longer-dated puts carry HIGHER premiums (more time value), not lower. The cost-reduction lever is strike selection: a LOWER exercise price enlarges the deductible and cheapens the insurance.",
       "C": "Full statement: the portfolio manager can REDUCE the cost of insurance by INCREASING the size of the deductible (current stock price minus put exercise price) — for example, using a lower exercise price; a lower-strike put has a lower premium but does not protect against losses until the stock falls to that lower strike.\n\nCorrect. Per Loss Protection/Upside Preservation: 'The portfolio manager can also reduce the cost of insurance by increasing the size of the deductible (i.e., the current stock price minus the put exercise price), perhaps by using a put option with a 14 exercise price. A put option with an exercise price of 14 would have a lower premium but would not protect against losses in the stock until it falls to 14.00 per share.'"
      },
      "type": "mc",
@@ -546,7 +546,7 @@
     {
      "id": "r16_opt_los_c_q5",
      "number": 5,
-     "stem": "Nonlinear relationship between put value and time to expiration most likely:",
+     "stem": "The relationship between a put's value and its time until expiration is most likely:",
      "options": {
       "A": "there is NOT a linear relationship between the put value and its time until expiration.",
       "B": "a two-month put sells for EXACTLY TWICE the price of a one-month put.",
@@ -594,16 +594,16 @@
     {
      "id": "r16_opt_los_c_q7",
      "number": 7,
-     "stem": "Sell put early after adverse event materializes most likely:",
+     "stem": "After the feared adverse event occurs, the holder of a protective put most likely should:",
      "options": {
-      "A": "After an adverse event materializes, the protective put holder should always hold the put to expiration to collect remaining time value.",
-      "B": "Once purchased, a protective put cannot be sold before its expiration date.",
-      "C": "a price shock to the underlying may INCREASE the market's expectations of future volatility, thereby likely increasing the put premium."
+      "A": "hold the put to expiration to collect its remaining time value.",
+      "B": "hold the put, because implied volatility typically falls after the event, depressing its resale price.",
+      "C": "sell the put early — the price shock may INCREASE the market's expectations of future volatility, thereby likely increasing the put premium."
      },
      "correct": "C",
      "rationales": {
       "A": "Incorrect. Holding surrenders the volatility premium — the shock typically RAISES implied volatility and the put's price, favoring an early sale.",
-      "B": "Incorrect. Exchange-listed puts trade continuously; selling early after the event captures both intrinsic gain and the inflated volatility component.",
+      "B": "Incorrect. A price shock typically RAISES the market's expectation of future volatility, inflating — not depressing — the put's resale value; capturing that inflated volatility component is precisely the argument for selling early.",
       "C": "Full statement: a price shock to the underlying may INCREASE the market's expectations of future volatility, thereby likely increasing the put premium; by selling the option early, the investor would capture this increase; once the adverse event has occurred there may be no reason to continue holding the insurance — sell the put and recapture some of its cost.\n\nCorrect. Per Investment Objectives of Protective Puts footnote: 'A price shock to the underlying asset might increase the market's expectations of future volatility, thereby likely increasing the put premium. By selling the option early, the investor would capture this increase. Also, once the adverse event occurred, there may be no reason to continue to hold the insurance. If the investor no longer needs it, he should cancel it and get part of the purchase price back. In other words, he should sell the put and recapture some of its cost.'"
      },
      "type": "mc",
@@ -622,13 +622,13 @@
      "options": {
       "A": "such continuous purchasing of puts to protect against a possible stock price decline is an EXPENSIVE strategy that would wipe out most of the long-term gain on an otherwise good investment.",
       "B": "Continuously purchasing protective puts over the long term is always advisable for any equity portfolio.",
-      "C": "The cost of a rolling protective put program is negligible relative to portfolio returns."
+      "C": "Rolling shorter-dated protective puts is cheaper per year of protection than buying one long-dated put, making continuous protection cost-effective."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: such continuous purchasing of puts to protect against a possible stock price decline is an EXPENSIVE strategy that would wipe out most of the long-term gain on an otherwise good investment; the occasional purchase of a protective put to manage a temporary situation, however, can be a sensible risk-reducing activity.\n\nCorrect. Per Protective Puts: 'Such continuous purchasing of puts to protect against a possible stock price decline is an expensive strategy that would wipe out most of the long-term gain on an otherwise good investment. The occasional purchase of a protective put to manage a temporary situation, however, can be a sensible risk-reducing activity.'",
       "B": "Incorrect. The strategy is EXPENSIVE — repeated premium outlays can consume the equity risk premium the portfolio exists to earn.",
-      "C": "Incorrect. Rolling premiums compound into a material drag; the reading flags long-term continuous protection as wealth-eroding."
+      "C": "Incorrect. Option time value does not scale linearly with maturity — a one-month put costs more than half a two-month put — so repeatedly rolling short-dated puts is an especially expensive route; continuous protection remains a material drag on long-term returns."
      },
      "type": "mc",
      "primary_los": "options_strategies.c",
@@ -727,14 +727,14 @@
      "stem": "Comparison of ATM covered call, ATM protective put, and long stock/short forward positions with equal position deltas of +50 most likely:",
      "options": {
       "A": "all three positions are COMPLETELY EQUIVALENT for any size move in the underlying.",
-      "B": "+50.",
-      "C": "each of the three positions has a position delta of approximately +100."
+      "B": "for small movements in the underlying, the three positions show very similar gains and losses, though their full payoff profiles differ.",
+      "C": "the three positions have identical maximum losses."
      },
      "correct": "B",
      "rationales": {
       "A": "Equal delta gives only local (small-move) equivalence; the positions differ in gamma, vega, theta, and full payoff shape.",
       "B": "for SMALL movements in the price of the underlying asset, these positions will show VERY SIMILAR GAINS AND LOSSES (all have position delta = +50); however they differ in their FULL payoff profiles, gamma, vega, and theta characteristics — so they behave the same only locally.\n\nCorrect. Per Delta section: 'These examples show three different positions: an ATM covered call, an ATM protective put, and a long stock/short forward position that all have the same delta. For small movements in the price of the underlying asset, these positions will show very similar gains and losses.'",
-      "C": "Counts only the long-stock delta and ignores the offsetting short call, long put, or short forward that halves it to +50."
+      "C": "Incorrect. Equal deltas imply similar behavior only for SMALL moves; maximum losses differ — the protective put's downside is cut off at the strike, while the covered call and the stock/short-forward combination remain exposed to a much larger decline."
      },
      "type": "mc",
      "primary_los": "options_strategies.d",
@@ -814,7 +814,7 @@
      },
      "correct": "B",
      "rationales": {
-      "A": "Incorrect. The deltas differ: 0.516 − 1 = −0.484 for the call variant versus −0.335 − 1 = −1.335 for the short-put variant.",
+      "A": "Incorrect. The deltas differ: 0.516 − 1 = −0.484 for the call variant versus −1 − (−0.335) = −0.665 for the short-put variant — a long call and a short put do not carry the same delta.",
       "B": "Full statement: long call + short stock: portfolio delta = 0.516 − 1 = −0.484 (bearish, less bearish than short alone due to call); short put + short stock: portfolio delta = − (−0.335) − 1 = −0.665 (still bearish, only slightly less due to put premium); both remain bearish overall.\n\nCorrect. Per Buying Calls and Writing Puts on a Short Position: 'The delta from the short PBR shares is −1. The SEP 16 call delta is 0.516. The overall portfolio delta is still negative at −0.484, making this a bearish strategy.' And: 'The delta of the short PBR shares is −1, and the delta of the short put is −(−0.335), so the position delta is −1 + 0.335 = −0.665.'",
       "C": "Incorrect. The combined delta remains NEGATIVE (−0.484) — still bearish, merely less bearish than short stock alone."
      },
@@ -1040,9 +1040,9 @@
      },
      "correct": "B",
      "rationales": {
-      "A": "Wrong.",
+      "A": "Incorrect. 1.12 is not the net premium paid; the debit is the cost of the long OCT 50 put minus the premium received on the short OCT 45 put: 6.80 − 2.92 = 3.88, and that initial outlay is the maximum loss.",
       "B": "the initial cash outlay is the cost of OCT 50 put minus the premium received from writing OCT 45 put: 6.80 − 2.92 = 3.88.\n\nCorrect. Per Example 6.2: 'B is correct... The initial cash outlay is the cost of the OCT 50 put minus the premium received from writing the OCT 45 put: 6.80 − 2.92 = 3.88.'",
-      "C": "Wrong."
+      "C": "Incorrect. 4.38 does not equal the net debit; the maximum loss on a debit bear put spread is the initial outlay, 6.80 − 2.92 = 3.88."
      },
      "type": "mc",
      "primary_los": "options_strategies.f",
@@ -1064,9 +1064,9 @@
      },
      "correct": "C",
      "rationales": {
-      "A": "Wrong.",
-      "B": "Wrong.",
-      "C": "Correct. Per Example 6.3: 'A is correct... She breaks even when the position is worth the price she paid. The long call is worth 1.10 at a stock price of 46.10, and the OCT 50 call will expire out of the money and thus be worthless. The breakeven price is the lower exercise price of 45 plus the 1.10 cost of the spread, or 46.10.'"
+      "A": "Incorrect. 47.50 is the midpoint of the two strikes, not the breakeven; breakeven = lower strike + net cost of the spread = 45 + (2.55 − 1.45) = 46.10.",
+      "B": "Incorrect. 48.88 does not equal the lower strike plus the net cost of the spread; breakeven = 45 + 1.10 = 46.10.",
+      "C": "Correct. Per Example 6.3: 'She breaks even when the position is worth the price she paid. The long call is worth 1.10 at a stock price of 46.10, and the OCT 50 call will expire out of the money and thus be worthless. The breakeven price is the lower exercise price of 45 plus the 1.10 cost of the spread, or 46.10.'"
      },
      "type": "mc",
      "primary_los": "options_strategies.f",
@@ -1439,13 +1439,13 @@
      "stem": "Implied volatility definition most likely:",
      "options": {
       "A": "Implied volatility is the historical standard deviation of the underlying's returns over the past year.",
-      "B": "Implied volatility is a forecast published by the options exchange each morning.",
+      "B": "Implied volatility is the volatility obtained by annualizing the standard deviation of the underlying's most recent daily returns.",
       "C": "implied volatility is derived from an option pricing model (such as BSM) and is the value that EQUATES THE MODEL PRICE OF AN OPTION TO ITS MARKET PRICE."
      },
      "correct": "C",
      "rationales": {
       "A": "Incorrect. Historical (realized) volatility looks backward; implied volatility is extracted from CURRENT option prices.",
-      "B": "Incorrect. No exchange publishes it as a forecast — it is the volatility input that equates the model (e.g., BSM) price to the observed market price.",
+      "B": "Incorrect. Annualizing recent daily returns yields a REALIZED (historical) volatility estimate; implied volatility is instead backed out of current option prices as the value that equates the model (e.g., BSM) price to the observed market price.",
       "C": "Full statement: implied volatility is derived from an option pricing model (such as BSM) and is the value that EQUATES THE MODEL PRICE OF AN OPTION TO ITS MARKET PRICE; all other BSM inputs (strike, underlying price, time to expiration, risk-free rate) are observable; implied volatilities incorporate investors' expectations about future asset returns and market uncertainty.\n\nCorrect. Per Implied Volatility and Volatility Skew: 'Implied volatility is not observable per se, but it is derived from an option pricing model—such as the Black-Scholes-Merton (BSM) model—and it is value that equates the model price of an option to its market price. Note that all other input variables to the BSM model, including the option's strike price, the price of the underlying, the time to option expiration, and the risk-free interest rate, are observable. Implied volatilities incorporate investors' expectations about the future course of financial asset returns and the level of market uncertainty associated with them.'"
      },
      "type": "mc",
@@ -1511,13 +1511,13 @@
      "stem": "Sharp increase in the level of the skew accompanied by a surge in implied volatility indicates most likely:",
      "options": {
       "A": "A sharp rise in skew alongside surging implied volatility signals strong bullish sentiment among institutions.",
-      "B": "Skew level changes carry no information about market sentiment.",
+      "B": "the term structure of implied volatility has inverted, with no directional implication for market sentiment.",
       "C": "when the implied volatility is significantly higher (relative to historical levels) for PUTS with strike prices below the underlying's price, it means an IMBALANCE in the supply and demand for options."
      },
      "correct": "C",
      "rationales": {
       "A": "Incorrect. The signal runs BEARISH — investors bidding up downside puts reveals demand for crash protection.",
-      "B": "Incorrect. The skew is a sentiment gauge; elevated put IV relative to history flags hedging demand and downside fear.",
+      "B": "Incorrect. A rising skew with surging implied volatility is a DIRECTIONAL sentiment signal — investors bidding up downside puts reveal demand for crash protection (bearish) — not merely a term-structure artifact.",
       "C": "Full statement: when the implied volatility is significantly higher (relative to historical levels) for PUTS with strike prices below the underlying's price, it means an IMBALANCE in the supply and demand for options; a sharp increase in skew accompanied by a surge in absolute implied volatility is an INDICATOR THAT MARKET SENTIMENT IS TURNING BEARISH; in contrast, higher IVs for OTM CALLS indicate BULLISH sentiment.\n\nCorrect. Per Implied Volatility and Volatility Skew: 'when the implied volatility is significantly higher (relative to historical levels) for puts with strike prices below the underlying asset's price, it means that there is an imbalance in the supply and demand for options... A sharp increase in the level of the skew, accompanied with a surge in the absolute level of implied volatility, is an indicator that market sentiment is turning bearish. In contrast, higher implied volatilities (relative to historical levels) for calls with strike prices above the underlying asset's price indicate that investors are bullish and the demand for OTM calls to take on upside exposure is strong.'"
      },
      "type": "mc",
@@ -1560,13 +1560,13 @@
      "options": {
       "A": "The implied volatility surface is a two-dimensional plot of implied volatility against strike price only.",
       "B": "a THREE-DIMENSIONAL plot, for put and call options on the same underlying, of days to expiration (x-axis), option strike prices (y-axis), and implied volatilities (z-axis).",
-      "C": "The implied volatility surface plots realized volatility against trading volume."
+      "C": "The implied volatility surface is a three-dimensional plot of implied volatility against strike price and the underlying's current price level."
      },
      "correct": "B",
      "rationales": {
       "A": "Incorrect. Strike-only is a single smile/skew slice; the surface adds the EXPIRATION dimension.",
       "B": "Full statement: a THREE-DIMENSIONAL plot, for put and call options on the same underlying, of days to expiration (x-axis), option strike prices (y-axis), and implied volatilities (z-axis); it SIMULTANEOUSLY shows the volatility skew (smile) and the term structure of implied volatility; typically NOT FLAT as BSM would suggest.\n\nCorrect. Per Implied Volatility and Volatility Skew: 'The implied volatility surface can be thought of as a three-dimensional plot, for put and call options on the same underlying asset, of days to expiration (x-axis), option strike prices (y-axis), and implied volatilities (z-axis). It simultaneously shows the volatility skew (smile) and the term structure of implied volatility. Considering that implied volatility varies across different option maturities and displays skew, the implied volatility surface is typically not flat as the BSM model may suggest.'",
-      "C": "Incorrect. The surface is built from IMPLIED (not realized) volatility across the strike × expiry grid — three dimensions."
+      "C": "Incorrect. The surface's dimensions are days to EXPIRATION and strike price, with implied volatility on the third axis; the underlying's current price is a single observable input, not an axis of the surface."
      },
      "type": "mc",
      "primary_los": "options_strategies.h",
@@ -1737,13 +1737,13 @@
      "stem": "Impact of skewed IV curve on bear put spread cost most likely:",
      "options": {
       "A": "A skewed implied volatility curve leaves the cost of a bear put spread unaffected.",
-      "B": "Put skew makes the bear put spread cheaper, since the long put's volatility premium falls.",
+      "B": "Put skew makes the bear put spread MORE expensive, since the higher implied volatility on deeper-OTM puts raises the cost of the puts purchased.",
       "C": "if the implied volatility curve is SKEWED — with the implied volatility of OTM puts relatively higher than for nearer-to-the-money options — the cost of a BEARISH SPREAD is EVEN LOWER."
      },
      "correct": "C",
      "rationales": {
       "A": "Incorrect. The two legs sit at different points on the skew, so the curve's shape prices directly into the spread.",
-      "B": "Incorrect. The effect is the reverse — the deeper-OTM SHORT put carries relatively higher IV, worth less premium offset... the skewed curve makes the spread MORE expensive as the long leg's relative cost rises.",
+      "B": "Incorrect. In the put bear spread, the lower-strike, deeper-OTM put — the leg carrying the relatively HIGHER implied volatility — is SOLD, so the richer premium is RECEIVED, while the purchased nearer-to-the-money put is relatively less expensive. Skew therefore makes the spread even CHEAPER, not more expensive.",
       "C": "Full statement: if the implied volatility curve is SKEWED — with the implied volatility of OTM puts relatively higher than for nearer-to-the-money options — the cost of a BEARISH SPREAD is EVEN LOWER; this is because in the put bear spread, the lower exercise price, more OTM (but relatively more expensive) put is SOLD and the higher exercise price, nearer-to-the-money (but relatively less expensive) put is PURCHASED.\n\nCorrect. Per Investment Objectives and Strategy Selection: 'Importantly, if the implied volatility curve is skewed, with the implied volatility of OTM puts relatively higher than for nearer-to-the-money options, the cost of a bearish spread is even lower. This is because in the put bear spread, the lower exercise price, more OTM (but relatively more expensive) put is sold and the higher exercise price, nearer-to-the-money (but relatively less expensive) put is purchased.'"
      },
      "type": "mc",
@@ -1824,8 +1824,8 @@
      },
      "correct": "C",
      "rationales": {
-      "A": "Wrong.",
-      "B": "Wrong.",
+      "A": "Incorrect. 3.55 ADDS the two premiums (2.00 + 1.55); the 14.75 put is SOLD, so its 1.55 premium OFFSETS the call cost: net = 2.00 − 1.55 = 0.45. Breakeven 19.15 compounds the error (15.60 + 3.55); correct breakeven = call strike 15.60 + 0.45 = 16.05.",
+      "B": "Incorrect. 3.55 sums the premiums instead of netting them (net = 2.00 − 1.55 = 0.45), and 14.30 subtracts the net cost from the PUT strike (14.75 − 0.45) rather than adding it to the call strike: breakeven = 15.60 + 0.45 = 16.05.",
       "C": "Full statement: net cost 0.45, breakeven 16.05 — net cost = 2.00 − 1.55 = 0.45 per contract; at expiry the strategy is profitable if VIX futures increase above 16.05 (call strike 15.60 + net cost 0.45); below 14.75 loses proportionally to short put exposure.\n\nCorrect. Per Hedging an Expected Increase in Equity Market Volatility (Wu): 'Wu decides to purchase the 15.60 call on the VIX and, to partially finance the purchase, he sells an equal number of the 14.75 VIX puts. The total cost of the options strategy is 0.45 (= 2.00 − 1.55) per contract.' And: 'at the expiry the strategy will be profitable if volatility spikes up (as anticipated) and the VIX futures increase above 16.05. This is calculated as the call strike of 15.60 plus the net cost of the options (15.60 + 0.45). Above this level, the strategy will gain proportionally. In contrast, Wu's option strategy will lose proportionally to its exposure to the short puts if the VIX futures' settlement price is below 14.75 (put strike).'"
      },
      "type": "mc",
@@ -1842,7 +1842,7 @@
      "number": 4,
      "stem": "Sanchez long call recommendation to bullish clients: Markle stock at £60, expected to reach £70 in 3 months, IV expected unchanged. Option A: £58 strike, £4.00, delta 0.6295; Option B: £60 strike, £3.00, delta 0.5227; Option C: £70 strike, £0.40, delta 0.1184. Best choice most likely:",
      "options": {
-      "A": "2.3.",
+      "A": "Option B — the £60 strike call: breakeven £63 (£60 + £3) is below the £70 target and it offers the highest profit per unit of premium, (£70 − £63)/£3 = 2.3.",
       "B": "Option A — highest delta.",
       "C": "Option C — cheapest premium."
      },
@@ -1891,13 +1891,13 @@
      "stem": "Investor's rationale for including options versus futures/forwards for equity exposure most likely:",
      "options": {
       "A": "The choice between options and futures/forwards for equity exposure depends only on which instrument has lower commissions.",
-      "B": "Options and futures provide identical exposures, so the choice is arbitrary.",
+      "B": "Futures are preferred whenever implied volatility is expected to rise, since they carry no vega exposure that could be lost.",
       "C": "the choice of derivative depends on the OUTLOOK for the underlying asset, the INVESTMENT HORIZON, and EXPECTATIONS FOR IMPLIED VOLATILITY over that horizon."
      },
      "correct": "C",
      "rationales": {
       "A": "Incorrect. Commissions are secondary; the drivers are the OUTLOOK for the underlying, the investment HORIZON, and IMPLIED VOLATILITY expectations.",
-      "B": "Incorrect. The payoff shapes differ fundamentally — asymmetric (options) versus symmetric (futures/forwards) — so the view determines the vehicle.",
+      "B": "Incorrect. Rising implied volatility BENEFITS long option positions (positive vega) — an expected IV increase favors options, while futures' zero vega means they cannot capture that gain; expected FALLING volatility is what argues against paying option premium.",
       "C": "Full statement: the choice of derivative depends on the OUTLOOK for the underlying asset, the INVESTMENT HORIZON, and EXPECTATIONS FOR IMPLIED VOLATILITY over that horizon; options have asymmetric payoffs while futures have symmetric; futures require margin but no premium; the relative advantage depends on differences in leverage, payoff profiles (asymmetrical vs symmetrical), the shape of the volatility futures term structure, and the cost of the options vs index futures.\n\nCorrect. Per Establishing or Modifying Equity Risk Exposure and Solution 3 for Wu: 'The choice of derivative that will satisfy the investment goal depends on the outlook for the underlying asset, the investment horizon, and expectations for implied volatility over that horizon.' And: 'the relative advantage of implementing this long volatility hedging strategy by purchasing calls on the VIX over buying VIX futures depends on the difference in leverage available, the difference in payoff profiles (asymmetrical for options and symmetrical for futures), and the shape of the volatility futures term structure, as well as the cost of the options compared with the cost of the index futures.'"
      },
      "type": "mc",

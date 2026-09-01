@@ -17,13 +17,13 @@
      "number": 1,
      "stem": "The reading identifies four broad categories of motivations to trade. Which is least likely one of them?",
      "options": {
-      "A": "Employee compensation adjustments.",
+      "A": "Generating soft-dollar commissions for research.",
       "B": "Profit seeking.",
       "C": "Risk management/hedging needs."
      },
      "correct": "A",
      "rationales": {
-      "A": "Correct. Employee compensation is not a portfolio trading motivation. Per the reading, the four broad categories of motivations to trade are: (1) profit seeking, (2) risk management/hedging needs, (3) cash flow needs, and (4) corporate actions/index reconstitutions/margin calls.",
+      "A": "Correct. Generating soft-dollar research commissions is not a motivation to trade — it is a conflict to be managed, not a portfolio trading motivation. Per the reading, the four broad categories of motivations to trade are: (1) profit seeking, (2) risk management/hedging needs, (3) cash flow needs, and (4) corporate actions/index reconstitutions/margin calls.",
       "B": "This is one of the four.",
       "C": "This is one of the four."
      },
@@ -209,13 +209,13 @@
      "number": 9,
      "stem": "For index tracking portfolios, when the index has additions, deletions, or constituent weight changes, the manager most likely:",
      "options": {
-      "A": "ignores the changes.",
+      "A": "trades index changes at the next day's opening auction to avoid closing-auction congestion.",
       "B": "trades only at the open.",
       "C": "trades index changes at the closing price to ensure the same price is used for fund and benchmark valuation."
      },
      "correct": "C",
      "rationales": {
-      "A": "Passive funds must adjust for index changes.",
+      "A": "Incorrect. Waiting for the next day's open introduces overnight risk and tracking error: the fund's NAV and the benchmark are both valued at the official close on the reconstitution date, so trading at the close aligns fund and benchmark pricing.",
       "B": "Close alignment is the goal.",
       "C": "Full statement: trades index changes at the closing price to ensure the same price is used for fund and benchmark valuation — this minimizes tracking error to the benchmark since fund NAV is calculated at official market close.\n\nCorrect. Per the reading: 'For index tracking portfolios, such index changes as additions, deletions, and constituent weight changes are generally traded in the manager's portfolio to reflect benchmark exposure. Since the fund's NAV is calculated using the official market close for each security, trading index changes at the closing price ensures that the same price is used for fund and benchmark valuation (which also uses the closing price in its calculation) and thus minimizes the fund's tracking error to the benchmark index.'"
      },
@@ -243,13 +243,13 @@
      "number": 1,
      "stem": "The reading identifies four key input categories for trade strategy selection. Which is least likely one of them?",
      "options": {
-      "A": "Compensation of the portfolio manager.",
+      "A": "The portfolio's historical benchmark-relative performance.",
       "B": "Order characteristics (side, size, relative size).",
       "C": "Security characteristics (type, short-term alpha, price volatility, liquidity)."
      },
      "correct": "A",
      "rationales": {
-      "A": "Correct. Compensation is not a trade strategy input. Per the reading, key inputs for trade strategy selection are: (1) order characteristics — side (buy/sell/cover/short), size, relative size (% of ADV); (2) security characteristics — type (underlying/ETF/ADR/GDR), short-term alpha, price volatility, security liquidity; (3) market conditions — liquidity crises deviations; (4) individual risk aversion — trader/manager willingness to accept risk during trading.",
+      "A": "Correct. Past benchmark-relative performance is not a trade strategy input. Per the reading, key inputs for trade strategy selection are: (1) order characteristics — side (buy/sell/cover/short), size, relative size (% of ADV); (2) security characteristics — type (underlying/ETF/ADR/GDR), short-term alpha, price volatility, security liquidity; (3) market conditions — liquidity crises deviations; (4) individual risk aversion — trader/manager willingness to accept risk during trading.",
       "B": "This is one of the four.",
       "C": "This is one of the four."
      },
@@ -267,13 +267,13 @@
      "number": 2,
      "stem": "Relative order size (% of ADV) is most likely:",
      "options": {
-      "A": "unimportant.",
+      "A": "the order size divided by the security's market capitalization.",
       "B": "the order size divided by the security's average daily volume — a consistent measure across securities.",
       "C": "the trade size in dollars."
      },
      "correct": "B",
      "rationales": {
-      "A": "It's a key input.",
+      "A": "Incorrect. Relative order size is scaled by average daily volume (ADV), not market capitalization — trading volume, not firm size, determines the expected market impact of an order.",
       "B": "Full statement: the order size divided by the security's average daily volume — a consistent measure across securities; the larger the trade as a percentage of ADV, the larger the expected market impact cost.\n\nCorrect. Per the reading: 'To have a consistent order size measure across securities, portfolio managers often divide the order size by the security's ADV. For example, a 1 million share order in Stock ABC may be much different than a 1 million share order in Stock XYZ. If Stock ABC has an average daily volume of 50 million shares, the 1 million share order represents 2% (1 million/50 million) of ADV. If Stock XYZ has an average daily volume of 4 million shares, its order represents 25% (1 million/4 million) of ADV. The larger the size of the trade expressed as a percentage of ADV, the larger the expected market impact cost.'",
       "C": "Dollar size doesn't standardize across securities."
      },
@@ -445,14 +445,14 @@
      "number": 1,
      "stem": "The reading identifies four categories of reference price benchmarks. These most likely include:",
      "options": {
-      "A": "only pre-trade benchmarks.",
-      "B": "only post-trade benchmarks.",
+      "A": "decision price, arrival price, VWAP, and closing price benchmarks.",
+      "B": "pre-trade, intraday, post-trade, and market-adjusted benchmarks.",
       "C": "pre-trade, intraday, post-trade, and price target benchmarks."
      },
      "correct": "C",
      "rationales": {
-      "A": "Multiple categories exist.",
-      "B": "Multiple categories exist.",
+      "A": "Incorrect. These are individual reference prices drawn from different categories, not the four categories themselves. The reading's categories are pre-trade, intraday, post-trade, and price target.",
+      "B": "Incorrect. Market-adjusted benchmarks are not one of the reading's four categories; the fourth category is price target benchmarks — a specified price to meet or beat.",
       "C": "Correct. Per the reading, the four categories are: (1) pre-trade benchmarks (reference price known before start of trading — decision price, previous close, opening price, arrival price); (2) intraday benchmarks (based on prices during the trading period — VWAP, TWAP); (3) post-trade benchmarks (reference price determined at end of trading — closing price); (4) price target benchmarks (reference price is a specified price to meet or beat)."
      },
      "type": "mc",
@@ -590,13 +590,13 @@
      "stem": "The opening price benchmark is most likely preferred over previous close or decision price because:",
      "options": {
       "A": "it is easier to obtain.",
-      "B": "it eliminates all trading costs.",
+      "B": "it is the price used to calculate the fund's NAV.",
       "C": "it does not have associated overnight risk."
      },
      "correct": "C",
      "rationales": {
       "A": "All three are equally observable.",
-      "B": "Not related to fees.",
+      "B": "Incorrect. The closing price, not the opening price, is the price used for fund NAV calculation — that is the argument for a closing price benchmark, not the opening price benchmark.",
       "C": "Full statement: it does not have associated overnight risk — the risk that prices will adjust at market open to incorporate information released after the previous close.\n\nCorrect. Per the reading: 'Portfolio managers may choose an opening price instead of the decision price or previous close because, unlike a reference price from the prior day or earlier, the opening price does not have associated overnight risk, or the risk that prices will adjust at market open to incorporate information released after the close of the previous business day.' Cannot use opening as benchmark if trade is in the opening auction itself."
      },
      "type": "mc",
@@ -614,14 +614,14 @@
      "stem": "The price target benchmark is most likely:",
      "options": {
       "A": "a benchmark specifying a price to meet or beat (transact more favorably).",
-      "B": "always the previous close.",
-      "C": "always the closing price."
+      "B": "the VWAP over the horizon of the trade.",
+      "C": "the arrival price at the time the order is released to the market."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: a benchmark specifying a price to meet or beat (transact more favorably) — used by managers seeking short-term alpha who wish to transact at a more favorable price (e.g., buy at $20.50 or better when stock is at $20 believed undervalued by $0.50).\n\nCorrect. Per the reading: 'Portfolio managers seeking short-term alpha may select an alternative benchmark known as a price target benchmark. In this case, a portfolio manager would like to transact in a security — believed to be undervalued or overvalued — at a more favorable price. For example, if a stock currently trading in the market at $20.00 is believed to be undervalued by $0.50, the portfolio manager will seek to purchase shares by specifying a price target of $20.50 or better (better being lower than $20.50 in the case of a buy). In this example, the benchmark price is specified as the perceived fair value price of $20.50.'",
-      "B": "Not previous close.",
-      "C": "Not closing price."
+      "B": "Incorrect. VWAP is an intraday benchmark computed from market activity during the trading period; a price target benchmark is a manager-specified price to meet or beat.",
+      "C": "Incorrect. The arrival price is a pre-trade benchmark; a price target benchmark reflects the manager's perceived fair value of the security, not the market price when the order enters the market."
      },
      "type": "mc",
      "primary_los": "trade_strategy_and_execution.c",
@@ -637,13 +637,13 @@
      "number": 9,
      "stem": "The main disadvantage of the closing price benchmark is most likely:",
      "options": {
-      "A": "unrelated to trading activity.",
+      "A": "it cannot be used for funds that are valued at NAV.",
       "B": "the benchmark price is not known until after trading is completed.",
       "C": "it is subject to overnight risk."
      },
      "correct": "B",
      "rationales": {
-      "A": "Not the disadvantage.",
+      "A": "Incorrect. The closing price is precisely the price used for NAV-based fund valuation — that is the benchmark's main advantage, since it minimizes potential tracking error.",
       "B": "Full statement: the benchmark price is not known until after trading is completed — portfolio managers have no way of knowing whether they are performing more or less favorably relative to the benchmark until after trading is done.\n\nCorrect. Per the reading: 'An advantage of the closing price benchmark is that it provides portfolio managers with the price used for fund valuation and thus minimizes potential tracking error. A disadvantage is that the benchmark price is not known until after trading is completed. Thus, portfolio managers have no way of knowing whether they are performing more or less favorably relative to the benchmark until after trading is completed.'",
       "C": "Closing price has no overnight risk (uses today's close)."
      },
@@ -897,14 +897,14 @@
      "number": 1,
      "stem": "The reading identifies two primary purposes of trading algorithms. These are most likely:",
      "options": {
-      "A": "only trade execution.",
-      "B": "only market making.",
+      "A": "trade execution and regulatory reporting.",
+      "B": "market making and settlement optimization.",
       "C": "trade execution and profit generation."
      },
      "correct": "C",
      "rationales": {
-      "A": "Profit-seeking is also a primary purpose.",
-      "B": "Market making is a specific case of profit-seeking.",
+      "A": "Incorrect. Regulatory reporting is not a primary purpose of trading algorithms. The second primary purpose is profit generation — profit-seeking algorithms used by electronic market makers, quantitative funds, and high-frequency traders.",
+      "B": "Incorrect. Market making is only one specific case of profit-seeking, and settlement optimization is not an algorithm purpose. The two primary purposes are trade execution and profit generation.",
       "C": "Correct. Per the reading: 'Trading algorithms are primarily used for two purposes — trade execution and profit generation.' Execution algorithms transact investment decisions made by the portfolio manager. Profit-seeking algorithms determine what to buy/sell then implement decisions efficiently — used by electronic market makers, quantitative funds, and high-frequency traders."
      },
      "type": "mc",
@@ -1101,13 +1101,13 @@
      "options": {
       "A": "primarily OTC dealer market with no transparency.",
       "B": "high transparency with pre- and post-trade information on lit venues.",
-      "C": "physical trading only."
+      "C": "high pre-trade transparency but no post-trade reporting requirements."
      },
      "correct": "B",
      "rationales": {
       "A": "That describes fixed income more.",
       "B": "Full statement: high transparency with pre- and post-trade information on lit venues; algorithmic and electronic trading is well-established; DMA for small trades; larger trades use algorithms.\n\nCorrect. Per the reading, equity markets are highly electronically traded with pre- and post-trade transparency, algorithmic trading is well-established, and small trades often use direct market access (DMA) or SORs. Larger trades use algorithms (VWAP, TWAP, POV, arrival price, dark aggregators). This is in stark contrast to less liquid markets.",
-      "C": "Equity is highly electronic."
+      "C": "Incorrect. Equity markets on lit venues provide both pre-trade transparency (displayed quotes and depth) and post-trade transparency (reported trade prices and volumes)."
      },
      "type": "mc",
      "primary_los": "trade_strategy_and_execution.f",
@@ -1221,13 +1221,13 @@
      "options": {
       "A": "entirely OTC — no exchange or centralized clearing for majority of spot FX trades.",
       "B": "centrally cleared with regulation.",
-      "C": "physical trading only."
+      "C": "regulated under a single global cross-border framework with mandatory trade reporting."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: entirely OTC — no exchange or centralized clearing for majority of spot FX trades; multiple electronic venues and broker markets; multi-tiered market structure (interbank market at top with large international banks as dealers, smaller banks/institutions below, then corporates/retail); daily volume often >$1 trillion.\n\nCorrect. Per the reading: 'There is no exchange or centralized clearing place for the majority of spot foreign exchange (currency) trades. Spot currency markets consist of a number of electronic venues and broker markets. The currency market is an entirely OTC market. Despite being a global market, there is almost no cross-border regulation.' The spot currency market has multiple levels: interbank market (top level: large banks and financial firms as dealers), small/medium banks and institutions, and commercial companies and retail traders. Daily volume often more than $1 trillion.",
       "B": "FX is not centrally cleared.",
-      "C": "FX is entirely electronic and OTC."
+      "C": "Incorrect. Despite being a global market, spot FX has almost no cross-border regulation and no centralized or mandatory consolidated trade reporting."
      },
      "type": "mc",
      "primary_los": "trade_strategy_and_execution.f",
@@ -1291,7 +1291,7 @@
      "number": 9,
      "stem": "For a large, urgent sell of corporate bonds, the most appropriate execution is most likely:",
      "options": {
-      "A": "broker risk trade via RFQ process (because of corporate bond illiquidity, low likelihood of finding a matching buyer.",
+      "A": "broker risk trade via RFQ process (because of corporate bond illiquidity, low likelihood of finding a matching buyer).",
       "B": "closing auction of stock exchange.",
       "C": "algorithmic execution across venues."
      },
@@ -1349,14 +1349,14 @@
      "number": 2,
      "stem": "The IS decomposition includes three main components. These are most likely:",
      "options": {
-      "A": "only commissions.",
-      "B": "only market impact.",
+      "A": "delay cost, trading cost, and opportunity cost.",
+      "B": "commissions, market impact, and spread cost.",
       "C": "execution cost, opportunity cost, and fixed fees."
      },
      "correct": "C",
      "rationales": {
-      "A": "Multiple cost components.",
-      "B": "Multiple cost components.",
+      "A": "Incorrect. Delay cost and trading cost come from Wagner's expanded IS, which splits the execution cost component — and this triad omits fixed fees. The basic IS decomposition is execution cost, opportunity cost, and fixed fees.",
+      "B": "Incorrect. Commissions belong to the fixed fees component, and market impact and spread are drivers within execution cost — none of these is one of the three IS categories.",
       "C": "Correct. Per the reading: 'This IS formulation decomposes the total cost of the trade into three categories: execution cost, opportunity cost, and fixed fees. Execution cost corresponds to the shares that were transacted in the market... Opportunity cost corresponds to the unexecuted shares of the order. It is the cost associated with not being able to transact the entire order at the manager's decision price and is due to adverse price movement over the trading period... The fixed fees component includes all explicit fees, such as commissions, exchange fees, and taxes.'"
      },
      "type": "mc",
@@ -1395,16 +1395,16 @@
     {
      "id": "r10_tse_los_g_q4",
      "number": 4,
-     "stem": "In the same Impulse Robotics example, opportunity cost is most likely:",
+     "stem": "In the Impulse Robotics example (decision price £10.00, 1,000 shares intended to buy, 700 actually filled at £10.07, close £10.08, fees £14), opportunity cost is most likely:",
      "options": {
       "A": "£49.",
-      "B": "£24 = (1,000 − 700) × (£10.08 − £10.00).",
+      "B": "£24.",
       "C": "£14."
      },
      "correct": "B",
      "rationales": {
       "A": "That's execution cost.",
-      "B": "Full statement: £24 = (1,000 − 700) × (£10.08 − £10.00) — the cost based on unexecuted shares and adverse price movement between decision and final unexecuted moment.\n\nCorrect. Per Impulse Robotics: 'Opportunity cost, which is based on the amount of shares left unexecuted and reflects the cost associated with not being able to execute all shares at the decision price: (1,000 shares − 700 shares) × (£10.08 − £10.00) = £24.' Total IS = £49 + £24 + £14 = £87 = 87 bps of £10,000 paper portfolio.",
+      "B": "£24 = (1,000 − 700) × (£10.08 − £10.00) — the cost based on unexecuted shares and adverse price movement between decision and final unexecuted moment.\n\nCorrect. Per Impulse Robotics: 'Opportunity cost, which is based on the amount of shares left unexecuted and reflects the cost associated with not being able to execute all shares at the decision price: (1,000 shares − 700 shares) × (£10.08 − £10.00) = £24.' Total IS = £49 + £24 + £14 = £87 = 87 bps of £10,000 paper portfolio.",
       "C": "That's fees."
      },
      "type": "mc",
@@ -1422,13 +1422,13 @@
      "stem": "Wagner's expanded implementation shortfall decomposes execution cost into two components most likely:",
      "options": {
       "A": "commissions and taxes.",
-      "B": "opening and closing prices.",
+      "B": "temporary impact and permanent impact.",
       "C": "delay cost and trading cost."
      },
      "correct": "C",
      "rationales": {
       "A": "Those are fixed fees.",
-      "B": "Not the decomposition.",
+      "B": "Incorrect. Temporary versus permanent impact is a decomposition of market impact, not Wagner's split — Wagner decomposes the IS execution cost component into delay cost and trading cost.",
       "C": "Full statement: delay cost and trading cost — allows portfolio managers to more precisely isolate where their execution costs arise during the implementation cycle.\n\nCorrect. Per the reading: 'Wagner (1991) further expanded the IS measure to decompose the execution cost component into a delay-related cost component and a trading-related cost component. These two decomposed execution components allow portfolio managers to more precisely isolate where their execution costs arise during the implementation cycle and help traders better manage overall execution quality and reduce trading costs.' Expanded IS = Delay cost + Trading cost + Opportunity cost + Fees."
      },
      "type": "mc",
@@ -1467,16 +1467,16 @@
     {
      "id": "r10_tse_los_g_q7",
      "number": 7,
-     "stem": "In the same RLK example, trading cost (Wagner) is most likely:",
+     "stem": "In the RLK example (decision price $30.00; order released to the market at an arrival price of $30.10; 80,000 of 100,000 shares executed for a total cost of $2,425,000), trading cost (Wagner) is most likely:",
      "options": {
       "A": "$8,000.",
-      "B": "$17,000 = $2,425,000 − 80,000 × $30.10.",
+      "B": "$17,000.",
       "C": "$25,000."
      },
      "correct": "B",
      "rationales": {
       "A": "That's delay cost.",
-      "B": "Full statement: $17,000 = $2,425,000 − 80,000 × $30.10 — the difference between actual execution prices and the arrival price for executed shares.\n\nCorrect. Per the reading's RLK example: 'Trading cost = Σs_j·p_j − (Σs_j)p_0 = (30,000 × $30.20 + 20,000 × $30.30 + 20,000 × $30.40 + 10,000 × $30.50) − 80,000 × $30.10 = $2,425,000 − $2,408,000 = $17,000.' Trading cost measures the difference between actual execution prices and arrival price (post-release). Expanded IS = $8,000 + $17,000 + $13,000 + $1,600 = $39,600 = 132 bps.",
+      "B": "$17,000 = $2,425,000 − 80,000 × $30.10 — the difference between actual execution prices and the arrival price for executed shares.\n\nCorrect. Per the reading's RLK example: 'Trading cost = Σs_j·p_j − (Σs_j)p_0 = (30,000 × $30.20 + 20,000 × $30.30 + 20,000 × $30.40 + 10,000 × $30.50) − 80,000 × $30.10 = $2,425,000 − $2,408,000 = $17,000.' Trading cost measures the difference between actual execution prices and arrival price (post-release). Expanded IS = $8,000 + $17,000 + $13,000 + $1,600 = $39,600 = 132 bps.",
       "C": "$25,000 is total execution cost (delay + trading), not just trading cost."
      },
      "type": "mc",
@@ -1553,13 +1553,13 @@
      "options": {
       "A": "savings/better performance.",
       "B": "underperformance compared with the benchmark.",
-      "C": "no meaningful information."
+      "C": "performance exactly in line with the pre-trade cost estimate."
      },
      "correct": "B",
      "rationales": {
       "A": "Positive = underperformance in this convention.",
       "B": "Correct. Per the reading: 'Trade cost calculations are expressed such that a positive value indicates underperformance and represents underperformance compared with the benchmark. A negative value indicates a savings and is a better performance compared with the benchmark.' Cost formulas use: Side × (P̄ − P*) × Shares where Side = +1 for buy and −1 for sell.",
-      "C": "The sign carries meaning."
+      "C": "Incorrect. The sign convention compares execution against the benchmark price, not against a pre-trade cost estimate; a positive value indicates underperformance versus the benchmark."
      },
      "type": "mc",
      "primary_los": "trade_strategy_and_execution.h",
@@ -1778,13 +1778,13 @@
      "stem": "The reading identifies four key aspects of a trade policy. Which is least likely one of them?",
      "options": {
       "A": "Meaning of best execution as defined by relevant regulatory framework.",
-      "B": "The compensation formula for the trading desk.",
+      "B": "Procedures for selecting the fund's custodian bank.",
       "C": "Factors determining the optimal order execution approach."
      },
      "correct": "B",
      "rationales": {
       "A": "This is one of the four.",
-      "B": "Correct. Compensation formulas are not one of the four required aspects. Per the reading, the four key aspects are: (1) Meaning of best execution as defined by the relevant regulatory framework; (2) Factors determining the optimal order execution approach (may differ by asset class, security liquidity, security trading mechanism); (3) Listing of eligible brokers and execution venues; (4) Process to monitor execution arrangements (continual monitoring since arrangements may change over time).",
+      "B": "Correct. Custodian selection is an operational/back-office matter, not one of the four required aspects of a trade policy. Per the reading, the four key aspects are: (1) Meaning of best execution as defined by the relevant regulatory framework; (2) Factors determining the optimal order execution approach (may differ by asset class, security liquidity, security trading mechanism); (3) Listing of eligible brokers and execution venues; (4) Process to monitor execution arrangements (continual monitoring since arrangements may change over time).",
       "C": "This is one of the four."
      },
      "type": "mc",
@@ -1849,15 +1849,15 @@
      "number": 6,
      "stem": "Best execution under the relevant regulatory framework most likely considers multiple factors including:",
      "options": {
-      "A": "only execution price.",
+      "A": "achieving the lowest commission rate on every trade.",
       "B": "execution price, trading costs, speed of execution, likelihood of execution and settlement, and other factors.",
-      "C": "only speed."
+      "C": "always executing at the best displayed quote, regardless of order size or settlement likelihood."
      },
      "correct": "B",
      "rationales": {
-      "A": "Price alone is insufficient.",
+      "A": "Incorrect. Minimizing commissions alone is not best execution — the concept requires executing on terms most favorable to the client, balancing price, trading costs, speed, and likelihood of execution and settlement.",
       "B": "Full statement: execution price, trading costs, speed of execution, likelihood of execution and settlement, and other factors — not just the best execution price at the lowest cost, but the right trade-off between different objectives.\n\nCorrect. Per the reading: 'A trade policy document should outline the meaning of best execution within the relevant regulatory framework. Although there may be slight differences in how best execution is defined by different regulators and in different financial market regulations, the underlying concept requires orders to be executed on terms most favorable to the client, where firms consider the following: execution price, trading costs, speed of execution, likelihood of execution and settlement...' Best execution requires balancing multiple factors.",
-      "C": "Multiple factors matter."
+      "C": "Incorrect. The best displayed quote may not be accessible for the full order size, and likelihood of execution and settlement also matters; best execution requires trading off multiple factors, not chasing the top of book."
      },
      "type": "mc",
      "primary_los": "trade_strategy_and_execution.i",
@@ -1874,13 +1874,13 @@
      "stem": "The reading emphasizes that optimal order execution arrangements most likely:",
      "options": {
       "A": "should never be changed once established.",
-      "B": "are unrelated to markets.",
+      "B": "need review only when a new broker or execution venue is added.",
       "C": "may change over time as markets and securities evolve."
      },
      "correct": "C",
      "rationales": {
       "A": "Change is expected.",
-      "B": "Markets drive optimal execution decisions.",
+      "B": "Incorrect. Monitoring must be continual — markets and securities evolve even when the broker and venue list is unchanged, so periodic-only review tied to additions is insufficient.",
       "C": "Full statement: may change over time as markets and securities evolve — therefore continual monitoring of current arrangements is needed, with details of the monitoring process outlined in the trade policy document.\n\nCorrect. Per the reading: 'Optimal order execution arrangements may change over time as markets and securities evolve. Therefore, continual monitoring of current arrangements is needed. The details of the monitoring process should be outlined in a trade policy document.' Also, listing of eligible brokers and execution venues should allow flexibility across scenarios, with checks to ensure only reputable brokers meeting requirements for reliable and efficient execution are used (to reduce operational risk)."
      },
      "type": "mc",

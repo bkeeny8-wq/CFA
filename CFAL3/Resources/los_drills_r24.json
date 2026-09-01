@@ -90,14 +90,14 @@
      "stem": "Per Moody's data, high-yield bond credit loss rates over 1983-2019 most likely:",
      "options": {
       "A": "averaged 2.53% for high-yield vs 0.05% average for US investment-grade (max 0.41%).",
-      "B": "were lower than investment-grade.",
-      "C": "were always zero."
+      "B": "averaged 2.53%, but annual losses never exceeded 3%, even during recessions.",
+      "C": "peaked at 0.41% with an average of just 0.05%."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: averaged 2.53% for high-yield vs 0.05% average for US investment-grade (max 0.41%); several HY years exceeded 5% during recessions.\n\nCorrect. Per the reading, according to Moody's Investors Service, the highest annual credit loss rate for US investment-grade corporate bonds from 1983 to 2019 was 0.41%, with an average of just 0.05%. For high-yield bonds, the average credit loss rate over the same period was 2.53%, and in several years, usually around economic recessions, losses exceeded 5%.",
-      "B": "HY loss rates are much higher.",
-      "C": "Losses occur regularly, especially in HY."
+      "B": "The 2.53% average is correct, but in several years, usually around economic recessions, HY credit losses exceeded 5%.",
+      "C": "Those are the US investment-grade figures (max 0.41%, average 0.05%); high-yield losses averaged 2.53% and exceeded 5% in several recession years."
      },
      "type": "mc",
      "primary_los": "fixed_income_active_management_credit_strategies.a",
@@ -517,14 +517,14 @@
      "number": 6,
      "stem": "In deriving a spread curve for an issuer, the reading uses example data of Eli Lilly (LLY) and Bristol-Myers Squibb (BMS), both A2/A+ rated. Their spread curves are most likely:",
      "options": {
-      "A": "completely divergent.",
-      "B": "identical.",
+      "A": "closely aligned except in ~5-year and near-30-year maturities, where LLY spreads are ~10 bps wider than BMS.",
+      "B": "parallel, with BMS spreads ~50 bps wider than LLY across all maturities.",
       "C": "closely aligned except in ~5-year and near-30-year maturities where BMS spreads are ~10 bps wider than LLY."
      },
      "correct": "C",
      "rationales": {
-      "A": "The curves are aligned.",
-      "B": "Some spread differences exist.",
+      "A": "Reversed — per Exhibit 18 it is BMS whose spreads are approximately 10 bps wider than LLY at those maturities.",
+      "B": "The curves are closely aligned overall; the roughly 10 bp BMS premium appears only near the 5-year and 30-year maturities, not 50 bps across the whole curve.",
       "C": "Correct. Per the reading's Exhibit 18: LLY and BMS spread curves are closely aligned except in roughly 5-year and near-30-year maturities, where BMS spreads are approximately 10 bps wider than those of LLY. If the bonds have similar features and liquidity, a manager might conclude the market perceives BMS credit risk slightly higher than LLY. If the manager believes BMS is stronger, several actions are possible depending on portfolio objectives (overweight BMS/underweight LLY, or long-short CDS strategy)."
      },
      "type": "mc",
@@ -599,15 +599,15 @@
      "number": 2,
      "stem": "The reading identifies the credit cycle relationship with GDP growth as most likely:",
      "options": {
-      "A": "GDP growth and default rates are unrelated.",
-      "B": "Higher GDP growth causes higher default rates.",
-      "C": "GDP growth is critical to the credit cycle."
+      "A": "default rates lead GDP declines by several years.",
+      "B": "the relationship holds only for investment-grade issuers.",
+      "C": "sharp declines in GDP growth are often associated with rising speculative-grade default rates."
      },
      "correct": "C",
      "rationales": {
-      "A": "The relationship is strong.",
-      "B": "Higher growth reduces defaults.",
-      "C": "Full statement: GDP growth is critical to the credit cycle — sharp declines in GDP growth are often associated with rising default rates, as shown in Exhibit 19 (global speculative-grade default rate vs G7 real GDP growth 1962-2019).\n\nCorrect. Per the reading, 'GDP growth is critical to the credit cycle, as seen in Exhibit 19, which shows global speculative-grade default rates versus the real GDP growth rate among G7 countries from 1962 to 2019. Sharp declines in GDP growth are often associated with rising default rates.' An above-consensus GDP growth forecast might lead to increased HY allocation if future defaults are expected below market expectations."
+      "A": "Exhibit 19 shows the reverse pattern: sharp declines in GDP growth are associated with rising default rates; defaults do not lead growth by years.",
+      "B": "Exhibit 19 plots global speculative-grade default rates versus G7 real GDP growth; the cyclical default relationship is most pronounced for speculative-grade issuers.",
+      "C": "Correct. Per the reading, 'GDP growth is critical to the credit cycle, as seen in Exhibit 19, which shows global speculative-grade default rates versus the real GDP growth rate among G7 countries from 1962 to 2019. Sharp declines in GDP growth are often associated with rising default rates.' An above-consensus GDP growth forecast might lead to increased HY allocation if future defaults are expected below market expectations."
      },
      "type": "mc",
      "primary_los": "fixed_income_active_management_credit_strategies.d",
@@ -623,7 +623,7 @@
      "number": 3,
      "stem": "The reading distinguishes weighted vs ordinal rating categories (Exhibit 20). This is most likely because:",
      "options": {
-      "A": "940,.",
+      "A": "default risk rises much more rapidly as ratings decline than ordinal 1-2-3 spacing suggests, so weighted factors (e.g., Moody's Baa3/BBB- = 610, Ba1/BB+ = 940) capture credit loss likelihood more accurately.",
       "B": "ratings should be treated identically.",
       "C": "there is no difference in risk between ratings."
      },
@@ -745,7 +745,7 @@
      "options": {
       "A": "always the highest rated.",
       "B": "always the lowest rated.",
-      "C": "3.50%."
+      "C": "the category with the highest expected excess return — in the reading's example, Ba at 4.10% (vs A 2.37%, Baa 3.15%, B 3.50%)."
      },
      "correct": "C",
      "rationales": {
@@ -779,13 +779,13 @@
      "options": {
       "A": "OTC markets — liquidity rests with individual dealers, their specific portfolio and depth of inventory, and appetite to supply liquidity at a cost.",
       "B": "Corporate bond market liquidity is characterized by highly liquid centralized exchange trading like equities.",
-      "C": "Corporate bond markets have no liquidity at all, making secondary trading impossible."
+      "C": "Corporate bond trading is dominated by an interdealer central limit order book, with dealers required to quote continuous two-way prices."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: OTC markets — liquidity rests with individual dealers, their specific portfolio and depth of inventory, and appetite to supply liquidity at a cost; higher regulatory capital requirements post-2008 reduced bond inventories, driving growth of electronic trading platforms.\n\nCorrect. Per the reading: 'Bonds primarily trade in over-the-counter (OTC) markets as opposed to on an exchange. OTC market liquidity rests with individual dealers, their specific portfolio and depth of inventory, and appetite to supply liquidity at a cost. Corporate bonds are traditionally traded on a request-for-quote basis. The use of electronic trading platforms for bond trading has grown because higher regulatory capital requirements reduced bond inventories among dealers after the 2008-09 global financial crisis. While electronic trading platforms comprised less than one-third of individual corporate bond trading volume as of 2020, trading in bond portfolios and bond ETFs has grown in importance.'",
       "B": "Incorrect. Bond markets are OTC-dominated; liquidity rests with individual dealers' inventories and risk appetite.",
-      "C": "Incorrect. Liquidity exists but is dealer-intermediated and uneven across issues."
+      "C": "Incorrect. Corporate bonds trade OTC, traditionally on a request-for-quote basis; there is no central limit order book or continuous two-way quoting obligation, and dealer inventories shrank after 2008-09 capital rules."
      },
      "type": "mc",
      "primary_los": "fixed_income_active_management_credit_strategies.e",
@@ -880,7 +880,7 @@
      "correct": "B",
      "rationales": {
       "A": "Unhedged leaves benchmark risk exposed.",
-      "B": "Correct. Per Example 19: 'Because the investor's bond position represents a long position (i.e., long both spread duration and benchmark duration), the best hedge would be a short-duration (or pay-fixed swap) position rather than [A: receive-fixed]. As for [B: unwind at once], the hedge unwind occurs once the bond position is sold rather than over time, which exposes the investor to benchmark interest rate risk for the portion of the bond sold. The proportional swap unwind in C ensures that the offsetting swap position matches the benchmark interest rate risk of the bond.'",
+      "B": "Correct. Per Example 19: because the investor's bond position is long both spread duration and benchmark duration, the best hedge is a short-duration (pay-fixed) swap rather than a receive-fixed swap. Unwinding the hedge all at once when the bond sale completes would expose the investor to benchmark interest rate risk on the portion of the bond already sold; unwinding the swap proportionally as the bond is sold keeps the offsetting swap position matched to the benchmark interest rate risk of the remaining bond position.",
       "C": "Receive-fixed adds duration (long) — wrong direction."
      },
      "type": "mc",
@@ -957,13 +957,13 @@
      "options": {
       "A": "the portfolio always loses €8.7M daily.",
       "B": "a portfolio manager should expect a daily portfolio loss of at least €8.7 million on 5% of all trading days.",
-      "C": "a €8.7M daily gain."
+      "C": "the maximum possible daily loss is €8.7 million."
      },
      "correct": "B",
      "rationales": {
       "A": "VaR is a probabilistic minimum loss, not certain.",
       "B": "Full statement: a portfolio manager should expect a daily portfolio loss of at least €8.7 million on 5% of all trading days; assuming normally distributed returns, 5% confidence = at least 1.65 SD below mean, and 1% confidence = at least 2.33 SD below mean.\n\nCorrect. Per the reading, 'a 5% daily VaR of €8.7 million implies that a portfolio manager should expect a daily portfolio loss of at least €8.7 million on 5% of all trading days. Assuming normally distributed portfolio returns, the 5% confidence level translates to an outcome at least 1.65 standard deviations below the mean, while a 1% confidence interval lies at least 2.33 standard deviations below the mean.' Risk managers use expected returns, volatilities, and correlations for parametric VaR, historical simulation, or Monte Carlo methods.",
-      "C": "VaR measures losses, not gains."
+      "C": "VaR is a minimum loss at the stated probability, not a maximum — on 5% of trading days losses of at least €8.7 million occur, and tail losses can far exceed it."
      },
      "type": "mc",
      "primary_los": "fixed_income_active_management_credit_strategies.f",
@@ -1034,7 +1034,7 @@
      "correct": "B",
      "rationales": {
       "A": "Relative VaR is for benchmark-relative analysis.",
-      "B": "Correct. Per Example 21: 'Incremental VaR measures the impact of a specific portfolio position change on VaR, while relative VaR in [B] evaluates all active portfolio positions versus the benchmark index and could be important for an active fixed-income mandate that aims to beat an index once the portfolio change has been made. CVaR in [C] measures a portfolio's average loss over a specific time period conditional on that loss exceeding the VaR threshold.' For a specific position change decision, incremental VaR is best.",
+      "B": "Correct. Per Example 21: 'Incremental VaR measures the impact of a specific portfolio position change on VaR, while relative VaR in [A] evaluates all active portfolio positions versus the benchmark index and could be important for an active fixed-income mandate that aims to beat an index once the portfolio change has been made. CVaR in [C] measures a portfolio's average loss over a specific time period conditional on that loss exceeding the VaR threshold.' For a specific position change decision, incremental VaR is best.",
       "C": "CVaR is for tail loss magnitude, not specific position impact."
      },
      "type": "mc",
@@ -1051,14 +1051,14 @@
      "number": 6,
      "stem": "The three methods to assess portfolio tail risk (Exhibit 24) are most likely:",
      "options": {
-      "A": "only historical simulation.",
-      "B": "only Monte Carlo analysis.",
+      "A": "parametric method, delta-normal mapping, and factor decomposition.",
+      "B": "historical simulation, stress testing, and incremental VaR.",
       "C": "parametric method, historical simulation, and Monte Carlo analysis."
      },
      "correct": "C",
      "rationales": {
-      "A": "That's just one of three.",
-      "B": "That's just one of three.",
+      "A": "Delta-normal mapping and factor decomposition are not among Exhibit 24's methods; the three are the parametric method, historical simulation, and Monte Carlo analysis.",
+      "B": "Stress testing and scenario analyses supplement the three methods, and incremental VaR measures position changes; Exhibit 24's three methods are the parametric method, historical simulation, and Monte Carlo analysis.",
       "C": "Correct. Per Exhibit 24, three methods to assess portfolio tail risk are: (1) Parametric Method — uses expected value and standard deviation of risk factors assuming normal distribution; simple and transparent; not well suited for non-normal distributions or option-based portfolios. (2) Historical Simulation — prices existing portfolio using historical parameters and ranking results; actual results, accommodates options; highly dependent on historical period. (3) Monte Carlo Analysis — generates random outcomes using portfolio measures and sensitivities; accommodates options; highly dependent on model assumptions. Hypothetical scenario analyses often supplement these methods."
      },
      "type": "mc",
@@ -1085,13 +1085,13 @@
      "number": 1,
      "stem": "The reading's CDS price at contract inception (Equation 14) is most likely approximated by:",
      "options": {
-      "A": "CDS Price ≈ 1 − ((Fixed Coupon − CDS Spread) × EffSpreadDur_CDS).",
+      "A": "CDS Price ≈ 1 + ((Fixed Coupon − CDS Spread) × EffSpreadDur_CDS).",
       "B": "CDS Price = notional × spread.",
       "C": "CDS Price = 1 always."
      },
      "correct": "A",
      "rationales": {
-      "A": "Full statement: CDS Price ≈ 1 − ((Fixed Coupon − CDS Spread) × EffSpreadDur_CDS); if CDS Spread < Fixed Coupon, protection buyer *receives* upfront payment; if CDS Spread > Fixed Coupon, protection buyer *pays* upfront.\n\nCorrect. Per Equation 14: CDS Price ≈ 1 − ((Fixed Coupon − CDS Spread) × EffSpreadDur_CDS). Per Exhibit 26: If CDS Spread = Fixed Coupon → no upfront. If CDS Spread < Fixed Coupon → protection buyer receives ((Fixed Coupon − CDS Spread) × EffSpreadDur_CDS) upfront (in exchange for paying above-market coupon). If CDS Spread > Fixed Coupon → protection buyer pays ((CDS Spread − Fixed Coupon) × EffSpreadDur_CDS) upfront.",
+      "A": "Full statement: CDS Price ≈ 1 + ((Fixed Coupon − CDS Spread) × EffSpreadDur_CDS); if CDS Spread < Fixed Coupon, protection buyer *receives* upfront payment; if CDS Spread > Fixed Coupon, protection buyer *pays* upfront.\n\nCorrect. Per Equation 14: CDS Price ≈ 1 + ((Fixed Coupon − CDS Spread) × EffSpreadDur_CDS). Per Exhibit 26: If CDS Spread = Fixed Coupon → no upfront. If CDS Spread < Fixed Coupon → the contract trades at a premium (price above par) and the protection buyer receives ((Fixed Coupon − CDS Spread) × EffSpreadDur_CDS) upfront, in exchange for paying the above-market coupon. If CDS Spread > Fixed Coupon → the contract trades at a discount and the protection buyer pays ((CDS Spread − Fixed Coupon) × EffSpreadDur_CDS) upfront.",
       "B": "Not the reading's formula.",
       "C": "Price varies with spread differential."
      },
@@ -1229,7 +1229,7 @@
      "number": 7,
      "stem": "The reading's most frequently traded CDS index for US IG is most likely:",
      "options": {
-      "A": "Markit CDX North American Investment Grade index consisting of 125 equally weighted CDS contracts on entities (with six subindexes.",
+      "A": "Markit CDX North American Investment Grade index consisting of 125 equally weighted CDS contracts on entities, with six subindexes.",
       "B": "The most frequently traded US investment-grade CDS index is the European iTraxx Crossover index.",
       "C": "The most frequently traded US investment-grade CDS index is the S&P 500 index."
      },
@@ -1255,13 +1255,13 @@
      "options": {
       "A": "only buying short-term protection.",
       "B": "selling short-term protection and buying long-term protection using the same reference entity.",
-      "C": "no positioning is possible."
+      "C": "buying short-term protection and selling long-term protection on the same reference entity."
      },
      "correct": "B",
      "rationales": {
       "A": "Missing the long-term protection buy.",
       "B": "Full statement: selling short-term protection and buying long-term protection using the same reference entity — requires duration matching of the positions.\n\nCorrect. Per the reading: 'An upward-sloping credit curve implies relatively low near-term expected default probability that rises over time. An investor might expect an issuer's CDS curve to steepen if its near-term default probability declines as a result of higher than expected profits and stable leverage. This investor can capitalize on this view by selling short-term protection using a single-name CDS contract and buying long-term protection on that same reference entity.' Capitalizing on spread changes for different maturities requires duration matching (Example 25 duration-weighted single-name CDS curve steepener uses 5y and 10y CDS contracts).",
-      "C": "Duration-matched steepener is a well-defined strategy."
+      "C": "That is a curve flattener — it profits if near-term default probability rises relative to the long term. A steepening view (near-term default probability declining) requires the opposite legs: sell short-term protection, buy long-term protection."
      },
      "type": "mc",
      "primary_los": "fixed_income_active_management_credit_strategies.g",
@@ -1288,13 +1288,13 @@
      "stem": "Under a static credit curve view (constant spreads over horizon), the buy-and-hold credit strategy most likely rewards:",
      "options": {
       "A": "greater return from lower spread duration.",
-      "B": "no return.",
+      "B": "the same return regardless of spread duration, since spreads are assumed constant over the horizon.",
       "C": "greater return from higher spread duration — buying risky bonds with durations above the benchmark without active trading."
      },
      "correct": "C",
      "rationales": {
       "A": "Higher duration is rewarded under stable curves.",
-      "B": "Buy-and-hold generates coupon and rolldown.",
+      "B": "Constant spreads do not equalize returns — with an upward-sloping credit curve, higher-spread-duration bonds carry wider spreads and roll down the curve, so the manager earns greater return from the higher spread duration.",
       "C": "Full statement: greater return from higher spread duration — buying risky bonds with durations above the benchmark without active trading; if the relationship between long- and short-term spreads remains stable, the manager is rewarded with greater return from the higher spread duration.\n\nCorrect. Per the reading, 'The first involves buying risky bonds with durations above the benchmark without active trading during a subsequent period. If the relationship between long- and short-term credit spreads remains stable over the investment horizon, the manager is rewarded with greater return from the higher spread duration.' 'Rolling down' the credit curve generates incremental coupon income (adjusted for any price difference from par) due to wider spreads, plus return from time passage."
      },
      "type": "mc",
@@ -1336,7 +1336,7 @@
      "stem": "For tactical credit spread strategies, a manager expecting widening HY vs IG spreads in an economic slowdown most likely:",
      "options": {
       "A": "Expecting HY spreads to widen versus IG, the manager buys HY bonds and sells IG bonds.",
-      "B": "sells (goes short in) HY bonds and buys (goes long in) IG bonds, or synthetically: buys protection on HY CDS index and sells protection on IG CDS index (Example 29.",
+      "B": "sells (goes short in) HY bonds and buys (goes long in) IG bonds, or synthetically: buys protection on HY CDS index and sells protection on IG CDS index.",
       "C": "Expecting relative spread widening, the manager makes no portfolio changes."
      },
      "correct": "B",
@@ -1409,13 +1409,13 @@
      "options": {
       "A": "spreads move dramatically.",
       "B": "credit spreads and benchmark yields remain stable over the horizon.",
-      "C": "no assumptions needed."
+      "C": "benchmark yields rise while credit spreads remain stable."
      },
      "correct": "B",
      "rationales": {
       "A": "Stability is the key assumption.",
       "B": "Full statement: credit spreads and benchmark yields remain stable over the horizon; if spreads widen unexpectedly, the position suffers price losses.\n\nCorrect. Per the reading, static credit curve strategies (buy-and-hold, carry-and-roll-down) require the assumption of stable benchmark yields and credit spreads over the horizon. If spreads widen unexpectedly during the investment horizon, the position experiences unrealized losses. The reading uses Example 26 explicitly with 'an investor expects stable benchmark yields and credit spreads over the next six months.' Deviations from static assumption drive risk.",
-      "C": "Assumptions are essential."
+      "C": "Rising benchmark yields would generate price losses on the position; carry-and-roll-down requires stable benchmark yields as well as stable credit spreads over the horizon."
      },
      "type": "mc",
      "primary_los": "fixed_income_active_management_credit_strategies.h",
@@ -1463,7 +1463,7 @@
     {
      "id": "r9_cs_los_i_q1",
      "number": 1,
-     "stem": "In Example 32, an investor combining US corporate bonds (equally weighted A/Baa/Ba/B) with an iTraxx-Xover position (matching the US HY allocation with EUR appreciation 1%, EUR HY spreads narrowing 25%, US spreads narrowing 10%), the total portfolio USD return is most likely:",
+     "stem": "In Example 32, an investor holds a US corporate bond portfolio (equally weighted A/Baa/Ba/B) with a 3.30% return and adds an iTraxx-Xover position weighted at one-half of the US portfolio. The iTraxx-Xover position returns 4.077% in EUR terms, and the EUR appreciates 1% versus the USD over the period. The total portfolio USD return is most likely:",
      "options": {
       "A": "5.86%.",
       "B": "3.30%.",
@@ -1561,13 +1561,13 @@
      "number": 5,
      "stem": "Emerging markets are most likely characterized by:",
      "options": {
-      "A": "Emerging markets exhibit characteristics identical to developed markets across growth, risk, and market access.",
+      "A": "Emerging markets exhibit lower economic growth but more stable credit fundamentals than developed markets, given IMF support programs.",
       "B": "higher, more volatile, and less balanced economic growth than developed markets, greater geopolitical risk, currency restrictions, and capital controls.",
       "C": "Emerging market investments carry no currency risk because local currencies are pegged to the dollar."
      },
      "correct": "B",
      "rationales": {
-      "A": "Incorrect. EM growth is higher, more volatile, and less balanced, with greater geopolitical and capital-flow risk.",
+      "A": "Incorrect. EM growth is typically higher — not lower — as well as more volatile and less balanced, and greater geopolitical risk, currency restrictions, and capital controls make credit fundamentals less stable than in developed markets.",
       "B": "Full statement: higher, more volatile, and less balanced economic growth than developed markets, greater geopolitical risk, currency restrictions, and capital controls — sovereign credit risk is a critical starting point.\n\nCorrect. Per the reading, 'Emerging markets are characterized by higher, more volatile, and less balanced economic growth than developed markets, often in addition to greater geopolitical risk, currency restrictions, and capital controls. Sovereign credit risk is therefore a critical starting point in considering fixed-income investments in emerging markets, where both the ability and willingness of issuers to repay debt is of importance.' Institutional considerations include political stability, transparency, adherence to property rights and contract law.",
       "C": "Incorrect. EM currencies are often volatile, and currency restrictions and controls add to — rather than remove — FX risk."
      },
@@ -1585,14 +1585,14 @@
      "number": 6,
      "stem": "Emerging market currency risk is most likely:",
      "options": {
-      "A": "typically negligible.",
-      "B": "always stable.",
+      "A": "fully mitigated by holding USD-denominated EM debt, which eliminates currency considerations for foreign investors.",
+      "B": "offset by interest rate parity, since higher EM yields exactly compensate for expected currency depreciation.",
       "C": "significant — restrictive currency regimes and derivative markets amplify volatility."
      },
      "correct": "C",
      "rationales": {
-      "A": "EM currencies frequently exhibit high volatility.",
-      "B": "Crises trigger devaluations.",
+      "A": "USD-denominated EM debt removes direct FX exposure on cash flows, but currency weakness still pressures the sovereign's capacity to service external debt, and local-currency EM markets carry significant FX risk — currency considerations are not eliminated.",
+      "B": "Higher EM YTMs typically suggest depreciation, but divergence from interest rate parity (the forward rate bias) is common — investors exploit it rather than rely on it — and crises bring regime changes, intervention, and devaluations, so FX risk is not offset.",
       "C": "Full statement: significant — restrictive currency regimes and derivative markets amplify volatility; higher YTMs in EM currencies typically suggest depreciation over time (interest rate parity), but investors exploit divergence (forward rate bias); during crises: exchange rate regime change, central bank intervention, and/or devaluation are common.\n\nCorrect. Per the reading, 'Currency volatility can be particularly significant in emerging markets as a result of restrictive currency regimes and derivative markets. Higher YTMs available in emerging market currencies versus developed markets typically suggest that these emerging currencies will depreciate over time. That said, emerging markets offer investors the opportunity to exploit divergence from interest rate parity conditions (known as the forward rate bias) by investing in higher-yielding currencies. Although temporary deviations from a fixed exchange rate are possible under such regimes, what is more common during economic crises is exchange rate regime change, central bank intervention, and/or devaluation.'"
      },
      "type": "mc",
@@ -1847,13 +1847,13 @@
      "options": {
       "A": "are subject to constant change as a result of both new debt issuance and bond maturities as well as ratings changes, bond callability, and prepayment.",
       "B": "Fixed-income indexes, like equity indexes, are fully static between annual reconstitutions.",
-      "C": "Fixed-income indexes never change composition once constructed."
+      "C": "Fixed-income indexes change only through ratings migration, since matured bonds remain in the index at their final price."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: are subject to constant change as a result of both new debt issuance and bond maturities as well as ratings changes, bond callability, and prepayment — a critical consideration in analytical models.\n\nCorrect. Per the reading: 'In contrast to more static equity indexes, fixed-income indexes are subject to constant change as a result of both new debt issuance and bond maturities as well as ratings changes, bond callability, and prepayment.' This is a key differentiator between fixed-income and equity index management. As new bonds are issued and old ones mature or are called/prepaid, the index composition changes.",
       "B": "Incorrect. Bond indexes change CONSTANTLY — issuance, maturities, ratings migration, calls, and prepayments all move membership.",
-      "C": "Incorrect. Constant turnover is their defining operational feature relative to equity indexes."
+      "C": "Incorrect. Matured bonds exit the index; composition changes constantly from new issuance, maturities, calls, and prepayments as well as ratings changes."
      },
      "type": "mc",
      "primary_los": "fixed_income_active_management_credit_strategies.k",
@@ -1871,13 +1871,13 @@
      "options": {
       "A": "Model assumptions in fixed-income analytics are limited to market data supplied by vendors.",
       "B": "user-defined parameters such as term structure models, investment time horizon, VaR methodology, historical and/or specific market scenarios, and portfolio filters (inclusion/exclusion of specific sectors or minimum ESG threshold).",
-      "C": "Fixed-income analytical tools accept no user input, running entirely on default settings."
+      "C": "standardized parameters fixed by regulators so that results are comparable across managers."
      },
      "correct": "B",
      "rationales": {
       "A": "Incorrect. Assumptions are USER-defined — term structure model, horizon, VaR methodology, scenarios.",
       "B": "Correct. Per the reading: 'Model assumptions include user-defined parameters such as term structure models, investment time horizon, VaR methodology, historical and/or specific market scenarios, and portfolio filters that could involve inclusion or exclusion of specific sectors or a minimum ESG rating threshold for consideration.' Different assumptions can lead to different portfolio outcomes.",
-      "C": "Incorrect. User specification of parameters and scenarios is essential to meaningful output."
+      "C": "Incorrect. Parameters are user-defined — term structure model, horizon, VaR methodology, scenarios, and filters — not regulator-standardized, which is why different assumptions can lead to different portfolio outcomes."
      },
      "type": "mc",
      "primary_los": "fixed_income_active_management_credit_strategies.k",

@@ -120,15 +120,15 @@
      "number": 5,
      "stem": "Example 1 eurozone investor holding Canadian asset — asset 101→99.80, CAD/EUR 1.45→1.47 most likely:",
      "options": {
-      "A": "no calc.",
+      "A": "+0.17%.",
       "B": "-2.53%.",
-      "C": "no data."
+      "C": "-2.55%."
      },
      "correct": "B",
      "rationales": {
-      "A": "-2.53%.",
+      "A": "Incorrect — +0.17% results from failing to invert the CAD/EUR quote for the eurozone investor: using R_FX = 1.4700/1.4500 − 1 = +1.38% gives (1 − 1.19%)(1 + 1.38%) − 1 ≈ +0.17%. Because the EUR must be the price currency for a eurozone investor, R_FX = [(1/1.4700)/(1/1.4500)] − 1 = −1.364%, and R_DC = −2.53%.",
       "B": "R_FC = 99.80/101.00 - 1 = -1.19%; need to convert CAD/EUR quote to EUR as price currency: R_FX = [(1/1.47)/(1/1.45)] - 1 = -1.364%; R_DC = (1 - 1.19%)(1 - 1.364%) - 1 = -2.53%.\n\nCorrect. Per Example 1 Solution 1: 'For the eurozone investor, the R_FC = (99.80/101.00) − 1 = −1.19%. Note that, given we are considering the eurozone to be \"domestic\" for this investor and given the way the R_FX expression is defined, we will need to convert the CAD/EUR exchange rate quote so that the EUR is the price currency. This leads to R_FX = [(1/1.4700)/(1/1.4500)] − 1 = −1.364%. Hence, for the eurozone investor, R_DC = (1 − 1.19%)(1 ‒ 1.364%) − 1 = −2.53%.'",
-      "C": "-2.53%."
+      "C": "Incorrect — −2.55% comes from simply adding R_FC + R_FX = −1.19% + (−1.364%). The two returns compound multiplicatively: R_DC = (1 − 1.19%)(1 − 1.364%) − 1 = −2.53%."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.a",
@@ -144,14 +144,14 @@
      "number": 6,
      "stem": "Example 1 Canadian investor holding eurozone asset — asset 100.69→101.50, CAD/EUR 1.45→1.47 most likely:",
      "options": {
-      "A": "no calc.",
-      "B": "no data.",
+      "A": "-0.57%.",
+      "B": "2.18%.",
       "C": "2.19%."
      },
      "correct": "C",
      "rationales": {
-      "A": "2.19%.",
-      "B": "2.19%.",
+      "A": "Incorrect — −0.57% results from wrongly inverting the quote: (1 + 0.80%)(1.4500/1.4700) − 1 ≈ −0.57%. In the CAD/EUR quote the CAD is already the price currency for the Canadian investor, so no inversion is needed: R_FX = 1.4700/1.4500 − 1 = +1.38%.",
+      "B": "Incorrect — 2.18% comes from simply adding R_FC + R_FX = 0.80% + 1.38%. The two returns compound multiplicatively: R_DC = (1 + 0.80%)(1 + 1.38%) − 1 = 2.19%.",
       "C": "R_FC = 101.50/100.69 - 1 = +0.80%; in CAD/EUR quote CAD is price currency so R_FX = 1.4700/1.4500 - 1 = +1.38%; R_DC = (1 + 0.80%)(1 + 1.38%) - 1 = 2.19%.\n\nCorrect. Per Example 1 Solution 2: 'For the Canadian investor, the R_FC = (101.50/100.69) − 1 = +0.80%. Given that in the CAD/EUR quote the CAD is the price currency, for this investor the R_FX = (1.4700/1.4500) − 1 = +1.38%. Hence, for the Canadian investor the R_DC = (1 + 0.80%)(1 + 1.38%) − 1 = 2.19%.'"
      },
      "type": "mc",
@@ -169,14 +169,14 @@
      "stem": "Example 1 risk calc Canadian investor σ(R_FC) 3%, σ(R_FX) 2%, ρ +0.5 most likely:",
      "options": {
       "A": "4.36%.",
-      "B": "no calc.",
-      "C": "no data."
+      "B": "3.61%.",
+      "C": "5.00%."
      },
      "correct": "A",
      "rationales": {
       "A": "σ²(R_DC) ≈ σ²(R_FC) + σ²(R_FX) + 2σ(R_FC)σ(R_FX)ρ = (3%)² + (2%)² + 2(3%)(2%)(0.50) = 9 + 4 + 6 = 19 in %² units = 0.0019; taking square root: σ(R_DC) ≈ 4.36%.\n\nCorrect. Per Example 1 Solution 3: 'Because this is a single foreign-currency asset we are considering (not a portfolio of such assets), we can use Equation 5: σ²(R_DC) ≈ σ²(R_FC) + σ²(R_FX) + 2σ(R_FC)σ(R_FX)ρ(R_FC,R_FX). Inserting the relevant data leads to σ²(R_DC) ≈ (3%)² + (2%)² + 2(3%)(2%)(0.50) = 0.0019. Taking the square root of this leads to σ(R_DC) ≈ 4.36%.'",
-      "B": "4.36%.",
-      "C": "4.36%."
+      "B": "Incorrect — 3.61% omits the covariance term: √[(3%)² + (2%)²] = √0.0013 ≈ 3.61%. With ρ = +0.50 the interaction term 2(3%)(2%)(0.50) = 0.0006 must be added, giving σ²(R_DC) = 0.0019 and σ(R_DC) ≈ 4.36%.",
+      "C": "Incorrect — 5.00% simply adds the two standard deviations (3% + 2%). Standard deviations are additive only when ρ = +1; with ρ = +0.50 the correct combination is σ(R_DC) = √[(3%)² + (2%)² + 2(3%)(2%)(0.50)] ≈ 4.36%."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.a",
@@ -882,13 +882,13 @@
      "options": {
       "A": "the carry trade's attractiveness depends only on spot exchange rate volatility, not on yield differentials.",
       "B": "changes in yield differential between currencies alter attractiveness of carry trade.",
-      "C": "a narrowing yield differential makes the carry trade more attractive by widening the spread."
+      "C": "a narrowing yield differential makes the carry trade more attractive because the position becomes less risky."
      },
      "correct": "B",
      "rationales": {
       "A": "Incorrect — the yield differential is the core driver of carry; a wider differential makes the trade more attractive (volatility is a secondary risk gauge).",
       "B": "Full statement: changes in yield differential between currencies alter attractiveness of carry trade; if high-yield currency's rate increases while low-yield currency's rate remains stable, yield advantage of high-yield currency widens making carry trade more attractive; long periods of yield differential persistence between high-yield and low-yield currencies encourage build-up of carry trade positions; positive returns can remain in place long enough to present attractive investment opportunities; guide to riskiness is volatility of outright forward (not spot) rate movements — lower volatility is better for carry trade position.\n\nCorrect. Per the reading: 'The gains that one can earn through the carry trade... can be seen as the risk premiums earned for carrying an unhedged position... Long periods of market stability can make these extra returns enticing to many investors, and the longer the yield differential persists between high-yield and low-yield currencies, the more carry trade positions will have a tendency to build up.' And: 'One guide to the riskiness of the carry trade is the volatility of outright forward (not spot) rate movements for the currency pair; all else equal, lower volatility is better for a carry trade position.'",
-      "C": "Incorrect — a narrowing differential shrinks the carry spread and makes the trade less attractive; a widening differential helps."
+      "C": "Incorrect — a narrowing differential shrinks the carry spread and makes the trade LESS attractive; the yield differential is the return driver, not a risk reducer. Riskiness is gauged by the volatility of outright forward rate movements, not by the size of the differential."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.e",
@@ -1031,7 +1031,7 @@
      "correct": "B",
      "rationales": {
       "A": "Incorrect. Deep-ITM options behave like the underlying with little leverage; deep-OTM options deliver the largest PERCENTAGE payoffs if the move materializes.",
-      "B": "Full statement: when trader has directional view expecting significant move, deep-OTM options provide leveraged exposure — larger percentage change in premium for given change in spot; low-delta option (5-delta or 10-delta) is 'like highly leveraged lottery ticket on event occurring'; with surprise event odds swing in favor; if surprise rate hike expected to cause NZD appreciation, put option on NZD/AUD (which would depreciate as NZD is base currency and appreciates) would benefit — 5-delta put option has more extreme price reaction on premiums than higher-delta option.\n\nCorrect. Per Example 3 solution: 'A 5-delta option is deep-OTM, but the price reaction on the option premiums will be more extreme than a higher-delta option. That is to say, the percentage change in the premiums for a 5-delta option for a given percentage change in the spot exchange rate will be higher than the percentage change in premiums for a 25-delta option. In a sense, a very low delta option is like a highly leveraged lottery ticket on the event occurring. With a surprise rate hike, the odds would swing in Bhattathiri's favor.'",
+      "B": "Full statement: when trader has directional view expecting significant move, deep-OTM options provide leveraged exposure — larger percentage change in premium for given change in spot; low-delta option (5-delta or 10-delta) is 'like highly leveraged lottery ticket on event occurring'; with surprise event odds swing in favor; if surprise rate hike expected to cause NZD appreciation, put option on NZD/AUD (which would fall as NZD is the price currency in the quote, so NZD appreciation lowers the NZD/AUD rate) would benefit — 5-delta put option has more extreme price reaction on premiums than higher-delta option.\n\nCorrect. Per Example 3 solution: 'A 5-delta option is deep-OTM, but the price reaction on the option premiums will be more extreme than a higher-delta option. That is to say, the percentage change in the premiums for a 5-delta option for a given percentage change in the spot exchange rate will be higher than the percentage change in premiums for a 25-delta option. In a sense, a very low delta option is like a highly leveraged lottery ticket on the event occurring. With a surprise rate hike, the odds would swing in Bhattathiri's favor.'",
       "C": "Incorrect. Moneyness sets the risk-reward: cheap OTM strikes provide leveraged exposure to significant expected moves."
      },
      "type": "mc",
@@ -1131,14 +1131,14 @@
      "stem": "Buying base currency at forward premium hedge outcome most likely:",
      "options": {
       "A": "if hedge requires buying base currency at forward premium: earn positive roll yield.",
-      "B": "if hedge requires buying base currency at forward premium: watch the forward price roll up toward a higher Price B.",
-      "C": "if hedge requires buying base currency at forward premium: pay forward price of A."
+      "B": "if hedge requires buying base currency at forward premium: watch the forward price roll up toward the spot rate as settlement approaches.",
+      "C": "if hedge requires buying base currency at forward premium: pay the higher forward price now and later close out by selling at a lower price as the contract rolls down the curve toward spot, producing negative roll yield."
      },
      "correct": "C",
      "rationales": {
       "A": "Incorrect — buying at a premium means buying high and rolling down to a lower future spot, which produces NEGATIVE roll yield.",
-      "B": "Incorrect — a forward trading at a premium rolls DOWN the curve toward the lower future spot (Price B), not up.",
-      "C": "Full statement: if hedge requires buying base currency at forward premium: pay forward price of A; as time passes price of forward contract 'rolls down the curve' toward Price B as contract's settlement date approaches; at settlement roll forward hedge by selling base currency at then-current spot rate (Price B, lower than A) and going long another far-dated forward contract; buying high (Price A) and selling low (Price B) will be cost to portfolio — roll yield negative; the larger the gap between A and B at contract initiation, the less likely to be positive.\n\nCorrect. Per the reading (Exhibit 7 discussion): 'assume that to implement the hedge requires buying the base currency in the P/B quote, and that the base currency is trading at a forward premium (as shown in Exhibit 7). By using a long position in a forward contract to implement this hedge, it means paying the forward price of A. All else equal, as time passes the price of the forward contract will \"roll down the curve\" toward Price B as the forward contract's settlement date approaches... Note that the portfolio manager originally bought the base currency at Price A and then subsequently sold it at a lower Price B — and that buying high and selling low will be a cost to the portfolio. Or put differently, all else equal, the roll yield would be negative in this case.'"
+      "B": "Incorrect — when the base currency trades at a forward premium, the forward price sits ABOVE the spot rate and 'rolls down the curve' toward the lower spot rate as the settlement date approaches; it does not roll up.",
+      "C": "Full statement: implementing the hedge means paying the higher forward price now; as time passes the price of the forward contract 'rolls down the curve' toward the lower spot rate as the contract's settlement date approaches; at settlement the hedge is rolled by selling the base currency at the then-current (lower) spot rate and going long another far-dated forward contract; buying high and selling low is a cost to the portfolio — the roll yield is negative; the larger the initial forward premium, the larger this expected cost.\n\nCorrect. Per the reading (Exhibit 7 discussion): 'assume that to implement the hedge requires buying the base currency in the P/B quote, and that the base currency is trading at a forward premium (as shown in Exhibit 7). By using a long position in a forward contract to implement this hedge, it means paying the forward price of A. All else equal, as time passes the price of the forward contract will \"roll down the curve\" toward Price B as the forward contract's settlement date approaches... Note that the portfolio manager originally bought the base currency at Price A and then subsequently sold it at a lower Price B — and that buying high and selling low will be a cost to the portfolio. Or put differently, all else equal, the roll yield would be negative in this case.'"
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.f",
@@ -1606,13 +1606,13 @@
      "number": 4,
      "stem": "Kilmarnock SMI minimum-variance hedge example — β̂ = 1.35 most likely:",
      "options": {
-      "A": "10 years monthly data on CHF/GBP spot and SMI.",
+      "A": "β̂ = 1.35 is the minimum-variance hedge ratio, so a long CHF1,000,000 SMI exposure is hedged with a short CHF position of approximately CHF1,350,000 (135%).",
       "B": "β̂ = 1.35 implies the exposure should be under-hedged at roughly 74% of notional.",
       "C": "β̂ = 1.35 means a CHF1,000,000 SMI exposure is hedged with a short CHF350,000 forward."
      },
      "correct": "A",
      "rationales": {
-      "A": "Full statement: 10 years monthly data on CHF/GBP spot and SMI; McYelland inverts CHF/GBP to GBP/CHF so domestic currency is price; regresses R_DC = α + β(%ΔS_GBP/CHF) + ε; result β̂ = 1.35 = minimum-variance hedge ratio; makes sense because β̂ represents sensitivity of domestic-currency return on portfolio to percentage changes in spot rate; SMI seems very sensitive to appreciation of CHF; correlation +0.6 between %ΔSMI and %ΔS_GBP/CHF; recommends minimum-variance hedge ratio set at approximately 135% — long CHF1M SMI exposure hedged with short CHF/GBP position of CHF1.35M.\n\nCorrect. Per the reading: 'RDC = α + β(%ΔS_GBP/CHF) + ε. The calculated regression coefficients show that α̂ = −0.21 and β̂ = 1.35. McYelland interprets these results to mean that the estimated β̂-coefficient is the minimum-variance hedge ratio. This conclusion makes sense because β̂ represents the sensitivity of the domestic-currency return on the portfolio to percentage changes in the spot rate. In this case, the return on the SMI seems very sensitive to the appreciation of the CHF. Indeed, over the 10 years of data she collected, McYelland notices that the correlation between %ΔSMI and %ΔS_GBP/CHF is equal to +0.6. On the basis of these calculations, she recommends that the minimum-variance hedge ratio for Kilmarnock Capital's exposure to the SMI be set at approximately 135%. This recommendation means that a long CHF1,000,000 exposure to the SMI should be hedged with a short position in CHF against the GBP of approximately CHF1,350,000.'",
+      "A": "Full statement: β̂ = 1.35 is the minimum-variance hedge ratio; using 10 years of monthly data on CHF/GBP spot rates and the SMI, McYelland inverts CHF/GBP to GBP/CHF so the domestic currency is the price currency and regresses R_DC = α + β(%ΔS_GBP/CHF) + ε, obtaining β̂ = 1.35; this makes sense because β̂ represents the sensitivity of the domestic-currency return on the portfolio to percentage changes in the spot rate, and the SMI seems very sensitive to appreciation of the CHF (correlation +0.6 between %ΔSMI and %ΔS_GBP/CHF); so the minimum-variance hedge ratio is set at approximately 135% — a long CHF1,000,000 SMI exposure hedged with a short CHF/GBP position of approximately CHF1,350,000.\n\nCorrect. Per the reading: 'RDC = α + β(%ΔS_GBP/CHF) + ε. The calculated regression coefficients show that α̂ = −0.21 and β̂ = 1.35. McYelland interprets these results to mean that the estimated β̂-coefficient is the minimum-variance hedge ratio. This conclusion makes sense because β̂ represents the sensitivity of the domestic-currency return on the portfolio to percentage changes in the spot rate. In this case, the return on the SMI seems very sensitive to the appreciation of the CHF. Indeed, over the 10 years of data she collected, McYelland notices that the correlation between %ΔSMI and %ΔS_GBP/CHF is equal to +0.6. On the basis of these calculations, she recommends that the minimum-variance hedge ratio for Kilmarnock Capital's exposure to the SMI be set at approximately 135%. This recommendation means that a long CHF1,000,000 exposure to the SMI should be hedged with a short position in CHF against the GBP of approximately CHF1,350,000.'",
       "B": "Incorrect — β̂ = 1.35 gives a minimum-variance hedge ratio of about 135% (an over-hedge), not 74%.",
       "C": "Incorrect — a 135% hedge ratio requires a short position of about CHF1,350,000, not CHF350,000."
      },
@@ -1702,15 +1702,15 @@
      "number": 8,
      "stem": "Kilmarnock S&P 500 MVHR calc — σ(%ΔS_GBP/USD) 2.7%, σ(R_DC) 4.4%, ρ 0.2, $10M investment most likely:",
      "options": {
-      "A": "no calc.",
+      "A": "h = ρ × [σ(R_FX)/σ(R_DC)] = 0.2 × (2.7%/4.4%) = 0.12 or 12%.",
       "B": "h = ρ × [σ(R_DC)/σ(R_FX)] = 0.2 × (4.4%/2.7%) = 0.33 or 33%.",
-      "C": "no data."
+      "C": "h = ρ = 0.2, or a 20% hedge of the notional."
      },
      "correct": "B",
      "rationales": {
-      "A": "Long $3.3M USD/GBP fwd.",
+      "A": "Incorrect — this inverts the volatility ratio. The minimum-variance hedge ratio is h = ρ(R_DC; R_FX) × [σ(R_DC)/σ(R_FX)] = 0.2 × (4.4%/2.7%) = 0.33, not ρ × [σ(R_FX)/σ(R_DC)] = 0.12.",
       "B": "Full statement: h = ρ × [σ(R_DC)/σ(R_FX)] = 0.2 × (4.4%/2.7%) = 0.33 or 33%; for USD10M investment in S&P 500 (long position), Kilmarnock Capital would want to be short approximately USD3.3M in forward contract; because standard market quote for this currency pair is USD/GBP, to be short USD means one has to buy GBP → long position in USD/GBP forward contract of notional size USD3.3 million.\n\nCorrect. Per the reading solution: 'The formula for the minimum-variance hedge ratio (h) is: h = ρ(R_DC; R_FX) × [σ(R_DC)/σ(R_FX)]. After inputting the data from the table, this equation solves to 0.33. This means that for a USD10 million investment in the S&P 500 (long position), Kilmarnock Capital would want to be short approximately USD3.3 million in a forward contract. Because the standard market quote for this currency pair is USD/GBP, to be short the USD means one would have to buy the GBP; that is, a long position in a USD/GBP forward contract.'",
-      "C": "$3.3M."
+      "C": "Incorrect — the correlation by itself is not the hedge ratio; it must be scaled by the ratio of volatilities: h = 0.2 × (4.4%/2.7%) = 0.33 or 33%, implying a short of approximately USD3.3 million (a long USD/GBP forward), not a 20% hedge."
      },
      "type": "mc",
      "primary_los": "currency_management_an_introduction.h",

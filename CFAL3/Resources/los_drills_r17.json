@@ -120,15 +120,15 @@
      "number": 5,
      "stem": "Duration reduction example €50M portfolio, MDUR 5.5, target 4.5, 2-year swap MDUR -2.00 most likely:",
      "options": {
-      "A": "no calc.",
+      "A": "N_S = [(5.5 − 4.5)/2.00] × €50,000,000 = €25,000,000, with the manager receiving fixed and paying floating.",
       "B": "N_S = [(4.5 - 5.5) / (-2.00)] × €50,000,000 = €25,000,000.",
-      "C": "no data."
+      "C": "N_S = [(4.5 − 5.5)/(−5.5)] × €50,000,000 ≈ €9,091,000."
      },
      "correct": "B",
      "rationales": {
-      "A": "€25M notional.",
+      "A": "Incorrect. To reduce duration the manager must PAY fixed and receive floating, adding a negative-duration position; receiving fixed would add positive duration and increase the portfolio's modified duration. The €25M notional is correct only with the pay-fixed direction.",
       "B": "Full statement: N_S = [(4.5 - 5.5) / (-2.00)] × €50,000,000 = €25,000,000; manager pays fixed and receives floating on €25M notional to reduce duration; adds negative-duration position.\n\nCorrect. Per Example 2: 'Consider a portfolio manager with an investment portfolio of €50 million of fixed-rate German bonds with an average modified duration of 5.5. Because he fears that interest rates will rise, he wants to reduce the modified duration of the portfolio to 4.5, but he does not want to sell any of the securities. One way to do this would be to add a negative-duration position by entering into an interest rate swap where he pays the fixed rate and receives the floating rate. A two-year interest rate swap has an estimated modified duration of −2.00 from the perspective of the fixed-rate payer... NS = [(4.50 − 5.50)/(−2.00)] × €50,000,000 = €25,000,000.'",
-      "C": "€25M."
+      "C": "Incorrect. The denominator is the swap's modified duration from the fixed-rate payer's perspective (−2.00), not the portfolio's own duration of 5.5. N_S = [(4.5 − 5.5)/(−2.00)] × €50,000,000 = €25,000,000."
      },
      "type": "mc",
      "primary_los": "swaps_forwards_and_futures_strategies.a",
@@ -264,15 +264,15 @@
      "number": 11,
      "stem": "BPV of CTD bond worked calc — CTD MDUR 8.623, price 98.14, contract size €100,000 most likely:",
      "options": {
-      "A": "no calc.",
-      "B": "0.619489.",
-      "C": "no data."
+      "A": "BPV_CTD = 8.623 × 0.0001 × €100,000 = €86.23.",
+      "B": "BPV_CTD = 8.623 × 0.0001 × (98.14/100 × €100,000) = €84.63.",
+      "C": "BPV_CTD = €84.63 × 0.619489 = €52.43."
      },
      "correct": "B",
      "rationales": {
-      "A": "€84.63.",
+      "A": "Incorrect. €86.23 applies the modified duration to the full €100,000 par amount. The BPV must be based on the CTD bond's market value, (98.14/100) × €100,000 = €98,140, which gives 8.623 × 0.0001 × €98,140 = €84.63.",
       "B": "BPV_CTD = MDUR_CTD × 0.0001 × [(price/100) × contract size] = 8.623 × 0.0001 × (98.14/100 × €100,000) = €84.63; conversion factor = 0.619489; this feeds into futures hedge ratio calculation.\n\nCorrect. Per the reading: 'BPVCTD = 8.623 × 0.0001 × [(98.14/100) × €100,000] = €84.63. So, the BPV of the CTD bond (BPVCTD) is €84.63.' The Euro-Bund CTD bond DBR 0.25% 02/15/27 has these parameters and a conversion factor of 0.619489.",
-      "C": "€84.63 CTD."
+      "C": "Incorrect. €52.43 multiplies the BPV by the conversion factor (€84.63 × 0.619489). The conversion factor is applied later, in the futures hedge-ratio calculation (BPV_HR), not in computing the CTD bond's own BPV, which is €84.63."
      },
      "type": "mc",
      "primary_los": "swaps_forwards_and_futures_strategies.a",
@@ -288,15 +288,15 @@
      "number": 12,
      "stem": "Decreasing duration with futures — MDUR from 9.50 to 8.50 on €49,531,000 portfolio most likely:",
      "options": {
-      "A": "no calc.",
-      "B": "no data.",
-      "C": "BPV_P = 9.50 × 0.0001 × €49,531,000 = €47,054.50."
+      "A": "BPV_P = 8.50 × 0.0001 × €49,531,000 = €42,101.35.",
+      "B": "buy 36 Euro-Bund futures contracts.",
+      "C": "BPV_P = 9.50 × 0.0001 × €49,531,000 = €47,054.45."
      },
      "correct": "C",
      "rationales": {
-      "A": "36 contracts short.",
-      "B": "Sell 36.",
-      "C": "Full statement: BPV_P = 9.50 × 0.0001 × €49,531,000 = €47,054.50; BPV_T = 8.50 × 0.0001 × €49,531,000 = €42,101.35; N_futures = [(€42,101.35 - €47,054.50)/€84.63] × 0.619489 = -36.26 ≈ -36 contracts (short); need to sell 36 Euro-Bund futures.\n\nCorrect. Per Example 6: 'the portfolio's target basis point value (BPVT) will be BPVT = 8.50 × 0.0001 × €49,531,000 = €42,101.35... To achieve the target modified duration of 8.50, the portfolio manager must implement a short position in Euro-Bund futures. Using the same cheapest-to-deliver bond with a BPVCTD of €84.63 and a conversion factor of 0.619489, the number of Euro-Bund futures to sell to decrease the portfolio's duration is calculated using Equation 9: BPVHR = [(€42,101.35 − €47,054.50)/€84.63] × 0.619489 = −36.26 ≈ −36 futures contracts.'"
+      "A": "Incorrect. This applies the TARGET duration (8.50) to compute the portfolio's current BPV. The current BPV uses the existing modified duration of 9.50: BPV_P = 9.50 × 0.0001 × €49,531,000 = €47,054.45. (€42,101.35 is BPV_T, the target, not BPV_P.)",
+      "B": "Incorrect. Sign flip: [(€42,101.35 − €47,054.45)/€84.63] × 0.619489 = −36.26, a NEGATIVE hedge ratio — the manager must SELL (short) 36 Euro-Bund futures to reduce duration from 9.50 to 8.50; buying would increase it.",
+      "C": "Full statement: BPV_P = 9.50 × 0.0001 × €49,531,000 = €47,054.45; BPV_T = 8.50 × 0.0001 × €49,531,000 = €42,101.35; N_futures = [(€42,101.35 − €47,054.45)/€84.63] × 0.619489 = −36.26 ≈ −36 contracts (short); need to sell 36 Euro-Bund futures.\n\nCorrect. Per Example 6: 'the portfolio's target basis point value (BPVT) will be BPVT = 8.50 × 0.0001 × €49,531,000 = €42,101.35... To achieve the target modified duration of 8.50, the portfolio manager must implement a short position in Euro-Bund futures. Using the same cheapest-to-deliver bond with a BPVCTD of €84.63 and a conversion factor of 0.619489, the number of Euro-Bund futures to sell to decrease the portfolio's duration is calculated using Equation 9.' (Note: the curriculum prints the portfolio BPV as €47,054.50, a rounding artifact; the exact product is €47,054.45. The hedge count of −36.26 ≈ sell 36 is unchanged either way.)"
      },
      "type": "mc",
      "primary_los": "swaps_forwards_and_futures_strategies.a",
@@ -442,14 +442,14 @@
      "number": 5,
      "stem": "Cash flow at swap inception Example 7 most likely:",
      "options": {
-      "A": "no flows.",
-      "B": "no data.",
+      "A": "no principal is exchanged at inception, as in a single-currency interest rate swap.",
+      "B": "at inception, the Canadian PE firm delivers US dollars (USD40 million) in exchange for Canadian dollars (CAD50 million).",
       "C": "at inception, Canadian PE firm delivers Canadian dollars (N) in exchange for US dollars (at rate of N × S_0)."
      },
      "correct": "C",
      "rationales": {
-      "A": "CAD50M for USD40M.",
-      "B": "Inception flows.",
+      "A": "Incorrect. Unlike single-currency interest rate swaps, cross-currency swaps typically DO exchange notional principal at inception: the PE firm delivers CAD50 million to the swap dealer and receives USD40 million (= CAD50 million × 0.8000 USD/CAD).",
+      "B": "Incorrect. The direction is reversed. The Canadian firm needs US dollars for its US acquisition, so at inception it delivers CAD50 million (N) and receives USD40 million (N × S_0 = CAD50 million × 0.8000 USD/CAD).",
       "C": "Full statement: at inception, Canadian PE firm delivers Canadian dollars (N) in exchange for US dollars (at rate of N × S_0); PE firm delivers CAD50 million to swap dealer, receives USD40 million (= CAD50 million × 0.8000 USD/CAD).\n\nCorrect. Per Example 7: 'Flows at the inception of the swap. At inception, the Canadian PE firm delivers Canadian dollars (N) in exchange for US dollars (at a rate of N × S0). CAD50 million PE Firm → Swap Dealer, USD40 million (= CAD50 million × 0.8000 USD/CAD).'"
      },
      "type": "mc",
@@ -764,15 +764,15 @@
      "number": 6,
      "stem": "Increasing beta example Bianchi £40M, β_S 0.85 to β_T 1.10, FTSE 100 futures £73,000 per contract most likely:",
      "options": {
-      "A": "1.10.",
-      "B": "no calc.",
-      "C": "no data."
+      "A": "Buy 137 FTSE 100 futures: N_f = [(1.10 − 0.85)/1.00] × (£40,000,000/£73,000) = 136.99 ≈ 137.",
+      "B": "Sell 137 FTSE 100 futures contracts.",
+      "C": "Buy 548 FTSE 100 futures contracts."
      },
      "correct": "A",
      "rationales": {
       "A": "N_f = [(1.10 - 0.85)/1.00] × (£40,000,000/£73,000) = 136.99 ≈ 137 contracts; must BUY 137 FTSE 100 futures; verification: FTSE rises 2%, portfolio rises 2% × 0.85 = 1.7% = £680,000, futures profit = 137 × (£74,460 - £73,000) = £200,020, total gain £880,020, effective return 2.20%, effective beta = 2.20%/2% = 1.10 (matches target).\n\nCorrect. Per Example 10: 'the appropriate number of futures contracts to buy to increase the portfolio's beta to 1.10 would be 137. Nf = [(βT − βS)/βf](S/F) = [(1.10 − 0.85)/1.00] × (£40,000,000/£73,000) = 136.99 (rounded to 137).' Verification: 'The profit on the futures contracts is 137 × (£74,460 − £73,000) = £200,020. Adding the profit from the futures to the value of the stock portfolio gives a total market value of £40,680,000 + £200,020 = £40,880,020. The rate of return for the combined position is £40,880,020/£40,000,000 − 1 = 0.0220, or 2.2%. Because the market went up by 2% and the overall gain was 2.2%, the effective beta of the portfolio was 0.0220/0.020 = 1.10. Thus, the effective beta matched the target beta of 1.10.'",
-      "B": "137 buy.",
-      "C": "Buy 137 futures."
+      "B": "Incorrect. To INCREASE beta from 0.85 to 1.10, N_f = [(1.10 − 0.85)/1.00] × (£40,000,000/£73,000) = +136.99 is positive, so the 137 contracts must be BOUGHT; selling futures would push the effective beta below 0.85.",
+      "C": "Incorrect. 548 comes from dividing the full portfolio value by the contract value (£40,000,000/£73,000 = 547.9) while omitting the beta-adjustment factor (β_T − β_S)/β_f = 0.25, which scales the count down to 136.99 ≈ 137 contracts."
      },
      "type": "mc",
      "primary_los": "swaps_forwards_and_futures_strategies.c",
@@ -812,14 +812,14 @@
      "number": 8,
      "stem": "Fujiwara cash equitization Example 11 JPY140M excess cash, Nikkei 225 futures JPY23M/contract most likely:",
      "options": {
-      "A": "no calc.",
-      "B": "no data.",
+      "A": "N_f = (1.00/1.00)(JPY140,000,000/JPY2,300,000) = 60.87 ≈ 61 contracts.",
+      "B": "N_f = (1.00/1.00)(JPY140,000,000/JPY23,000) = 6,086.96 ≈ 6,087 contracts.",
       "C": "N_f = (β_T/β_f)(S/F) = (1.00/1.00)(JPY140,000,000/JPY23,000,000) = 6.087 rounded to 6 contracts."
      },
      "correct": "C",
      "rationales": {
-      "A": "6 contracts.",
-      "B": "6 contracts.",
+      "A": "Incorrect. This treats the contract value as JPY2.3 million. With a futures price of JPY23,000 and a multiplier of JPY1,000 per index point, each contract is worth JPY23 million, so N_f = 140,000,000/23,000,000 = 6.087 ≈ 6 contracts, not 61.",
+      "B": "Incorrect. This divides by the quoted futures price (JPY23,000) instead of the full contract value F = price × multiplier = JPY23,000 × JPY1,000 = JPY23 million. The correct count is 6.087 ≈ 6 contracts.",
       "C": "Full statement: N_f = (β_T/β_f)(S/F) = (1.00/1.00)(JPY140,000,000/JPY23,000,000) = 6.087 rounded to 6 contracts; appropriate number of futures to buy to equitize portfolio's excess cash position is six contracts.\n\nCorrect. Per Example 11: 'Akari Fujiwara manages a large equity fund denominated in Japanese yen that is indexed to the Nikkei 225 stock index. She determines that the current level of excess cash that has built up in the portfolio amounts to JPY140 million. She decides to purchase futures contracts to replicate the return on her fund's target index. Nikkei 225 index futures currently trade at a price of JPY23,000 per contract, the contract multiplier is JPY1,000 per index point (so each futures contract is worth JPY23 million), and the beta, βf, is 1.00... Using Equation 11, which assumes βS = 0, the answer is found as follows: Nf = (βT/βf)(S/F) = (1.00/1.00)(JPY140,000,000/JPY23,000,000) = 6.087 (rounded to 6). The appropriate number of futures to buy to equitize the portfolio's excess cash position, based on the data provided, would be six contracts.'"
      },
      "type": "mc",
@@ -882,7 +882,7 @@
     {
      "id": "r17_swf_los_c_q11",
      "number": 11,
-     "stem": "Effective beta verification most likely:",
+     "stem": "A £40 million portfolio with an original beta of 0.85 uses a futures overlay targeting a beta of 1.10. Over the period, the market rises 2% and the combined position gains 2.2%. The effective beta achieved is most likely:",
      "options": {
       "A": "0.85.",
       "B": "1.00.",
@@ -1158,15 +1158,15 @@
      "number": 10,
      "stem": "Santos variance swap Example 12 $50,000 vega notional, 20% strike, 6-month realized 16%, new 6-month fair strike 19%, r 2.5% most likely:",
      "options": {
-      "A": "no calc.",
+      "A": "Variance notional = 50,000/20 = 2,500.",
       "B": "Variance notional = 50,000/(2 × 20) = 1,250.",
-      "C": "no data."
+      "C": "Variance notional = 50,000 × (2 × 20) = 2,000,000."
      },
      "correct": "B",
      "rationales": {
-      "A": "$112,963 gain for short.",
+      "A": "Incorrect. The vega notional is divided by TWICE the strike, not the strike alone: Variance notional = Vega notional/(2 × Strike) = $50,000/(2 × 20) = 1,250.",
       "B": "Full statement: Variance notional = 50,000/(2 × 20) = 1,250; variance strike = 20² = 400; RealizedVol² = 16² = 256; ImpliedVol² = 19² = 361; PV factor = 1/(1 + 2.5% × 6/12) = 0.987654; VarSwap_t = 1,250 × 0.987654 × [(6/12) × 256 + (6/12) × 361 - 400] = -$112,962.93; since Santos is short, mark-to-market value is POSITIVE for her at $112,963.\n\nCorrect. Per Example 12: 'The value of the variance swap sold by Santos is found using Equation 16... Volatility strike on existing swap = 20. Variance strike on existing swap = 20² = 400. Variance notional = Vega notional / (2 × Strike) = $50,000 / (2 × 20) = 1,250. RealizedVol(0,t)² = 16² = 256. ImpliedVol(t,T)² = 19² = 361. t = 6 months. T = 12 months. PVt(T) = 1/[1 + (2.5% × 6/12)] = 0.987654. The current value of the swap is VarSwapt = 1,250 × (0.987654) × [(6/12) × 256 + (6/12) × 361 − 400] = −$112,962.9263. Given that Santos is short the variance swap, the mark-to-market value is positive for her, and it equals $112,963.'",
-      "C": "$112,963 positive short."
+      "C": "Incorrect. The vega notional is DIVIDED by (2 × Strike), not multiplied by it: Variance notional = $50,000/(2 × 20) = 1,250, which then feeds the mark-to-market valuation."
      },
      "type": "mc",
      "primary_los": "swaps_forwards_and_futures_strategies.d",
@@ -1180,15 +1180,15 @@
     {
      "id": "r17_swf_los_d_q11",
      "number": 11,
-     "stem": "Santos settlement at expiration 18% one-year realized most likely:",
+     "stem": "Santos, who sold (is short) a one-year variance swap with a 20% volatility strike and a variance notional of 1,250, sees realized volatility over the year come in at 18%. The settlement at expiration is most likely:",
      "options": {
-      "A": "Santos receives $95,000 at settlement because realized volatility of 18% fell below the 20% strike.",
+      "A": "Santos pays $95,000 at settlement because realized volatility of 18% fell below the 20% strike.",
       "B": "The settlement equals the vega notional times the volatility difference: 1,250 × (18 − 20) = −$2,500.",
       "C": "SettlementT = Variance notional × (Realized variance - Variance strike) = 1,250 × (18² - 20²) = 1,250 × (324 - 400) = -$95,000."
      },
      "correct": "C",
      "rationales": {
-      "A": "Incorrect. As the LONG variance party with realized below strike, Santos PAYS — the settlement is negative to him.",
+      "A": "Incorrect. Santos is the SHORT (seller) of the variance swap. The settlement of 1,250 × (18² − 20²) = −$95,000 is negative, and a negative settlement means the swap BUYER pays the SELLER — so Santos RECEIVES $95,000; he does not pay.",
       "B": "Incorrect. Settlement runs on VARIANCE units: 1,250 × (18² − 20²) = 1,250 × (−76) = −$95,000.",
       "C": "Full statement: SettlementT = Variance notional × (Realized variance - Variance strike) = 1,250 × (18² - 20²) = 1,250 × (324 - 400) = -$95,000; since settlement is negative, swap buyer pays swap seller; Santos (seller) receives $95,000 from swap buyer.\n\nCorrect. Per Example 12: 'The settlement amount is calculated using Equation 12 as follows: SettlementT = Variance notional × (Realized variance − Variance strike) = 1,250 × (18² − 20²) = −$95,000. If the payment amount is positive (negative), the swap seller (buyer) pays the swap buyer (seller). So, in this case, Santos would receive $95,000 from the swap buyer.'"
      },
@@ -1230,15 +1230,15 @@
      "number": 13,
      "stem": "Sensitivity to implied volatility over time most likely:",
      "options": {
-      "A": "constant.",
+      "A": "sensitivity remains constant over the swap's life.",
       "B": "sensitivity of a variance swap to changes in implied volatility diminishes over time.",
-      "C": "increases."
+      "C": "sensitivity increases as expiration approaches."
      },
      "correct": "B",
      "rationales": {
-      "A": "Diminishing.",
+      "A": "Incorrect. Sensitivity is not constant: as the swap approaches expiration, the remaining time period (T − t) shrinks, so a change in implied volatility applies to an ever-smaller portion of the swap's total variance and has less effect on its value.",
       "B": "Full statement: sensitivity of a variance swap to changes in implied volatility diminishes over time; as swap approaches expiration, changes in implied volatility have less effect on swap value because remaining time period T - t decreases.\n\nCorrect. Per the reading: 'Importantly, the sensitivity of a variance swap to changes in implied volatility diminishes over time.'",
-      "C": "Diminishes."
+      "C": "Incorrect. The opposite holds: implied volatility matters only for the remaining period (T − t), which shrinks toward zero as expiration approaches, so the variance swap's sensitivity to implied-volatility changes diminishes, not increases."
      },
      "type": "mc",
      "primary_los": "swaps_forwards_and_futures_strategies.d",
@@ -1289,14 +1289,14 @@
      "stem": "Tundra Scenario A calc — €0.10 dividend, price +1%, six months, reference 0.34% most likely:",
      "options": {
       "A": "total return on stock = [(14 × 1.01) - 14 + 0.10]/14 = 1.71%.",
-      "B": "no calc.",
-      "C": "no data."
+      "B": "total return on stock = [(14 × 1.01) − 14]/14 = 1.00%.",
+      "C": "the client receives €21,620 from the swap counterparty."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: total return on stock = [(14 × 1.01) - 14 + 0.10]/14 = 1.71%; six-month reference rate return = 0.17% (half of 0.34%); Tundra total return exceeds reference rate: (1.71% - 0.17%) × €1.4M = €21,620 positive, so client pays swap counterparty €21,620.\n\nCorrect. Per Scenario A: 'Over the six months, Tundra pays a €0.10 dividend and the share price rises 1%. The total return on the stock is [(14 × 1.01) − 14 + 0.10]/14 = 1.71%. For a six-month period, the reference rate return would be half the annual rate, or 0.17%. Tundra's total return exceeds the six-month reference rate return: (1.71% − 0.17%) × €1.4 million = €21,620, which is a positive amount, so Steinbacher's client would need to pay the swap counterparty.'",
-      "B": "Client pays €21,620.",
-      "C": "€21,620 pays."
+      "B": "Incorrect. This ignores the €0.10 dividend. A total return swap passes through dividends as well as price change: total return = [(14 × 1.01) − 14 + 0.10]/14 = 1.71%, not 1.00%.",
+      "C": "Incorrect. The €21,620 amount is right but the direction is reversed: (1.71% − 0.17%) × €1.4 million = +€21,620 is positive, so the client must PAY the swap counterparty €21,620, not receive it."
      },
      "type": "mc",
      "primary_los": "swaps_forwards_and_futures_strategies.e",
@@ -1312,15 +1312,15 @@
      "number": 3,
      "stem": "Tundra Scenario B — €0.10 dividend, price -1% most likely:",
      "options": {
-      "A": "no calc.",
+      "A": "total return on stock = [(14 × 0.99) − 14]/14 = −1.00%.",
       "B": "total return on stock = [(14 × 0.99) - 14 + 0.10]/14 = -0.29%.",
-      "C": "no data."
+      "C": "the client pays the swap counterparty €6,380."
      },
      "correct": "B",
      "rationales": {
-      "A": "Client receives €6,380.",
+      "A": "Incorrect. This ignores the €0.10 dividend: total return = [(14 × 0.99) − 14 + 0.10]/14 = −0.29%, not −1.00%. The dividend partially offsets the 1% price decline.",
       "B": "Full statement: total return on stock = [(14 × 0.99) - 14 + 0.10]/14 = -0.29%; Tundra total return less than six-month reference rate return: (-0.29% - 0.17%) × €1.4M = -€6,380 negative; client receives negative return + reference rate return from counterparty = positive cash inflow of €6,380.\n\nCorrect. Per Scenario B: 'Over the six months, Tundra pays a €0.10 dividend and the share price falls 1%. The total return on the stock is [(14 × 0.99) − 14 + 0.10]/14 = −0.29%. Tundra's total return is less than the six-month reference rate return: (−0.29% − 0.17%) × €1.4 million = −€6,380, which is a negative amount, so Steinbacher's client would receive the negative return and the reference rate return from the swap counterparty (meaning the client will receive a positive cash inflow of €6,380).'",
-      "C": "€6,380 receive."
+      "C": "Incorrect. Direction reversed: (−0.29% − 0.17%) × €1.4 million = −€6,380 is negative, so the client RECEIVES the negative return plus the reference-rate return from the counterparty — a positive cash inflow of €6,380 to the client."
      },
      "type": "mc",
      "primary_los": "swaps_forwards_and_futures_strategies.e",
@@ -1336,14 +1336,14 @@
      "number": 4,
      "stem": "McMillian FTSE 100 cash equitization £20M cash, FTSE futures £79,000/contract most likely:",
      "options": {
-      "A": "no calc.",
-      "B": "no data.",
+      "A": "N_f = (1.0/1.0)(20,000,000/79,000) = 25.3 ≈ 25 contracts.",
+      "B": "sell 253 FTSE 100 futures contracts.",
       "C": "N_f = (β_T/β_f)(S/F) = (1.0/1.0)(20,000,000/79,000) = 253.16 ≈ 253 contracts."
      },
      "correct": "C",
      "rationales": {
-      "A": "253 contracts.",
-      "B": "253 futures buy.",
+      "A": "Incorrect. Decimal slip: £20,000,000/£79,000 = 253.16, so 253 contracts are needed, not 25. Buying only 25 would equitize roughly a tenth of the cash position.",
+      "B": "Incorrect. To equitize idle cash, McMillian must BUY futures to add long index exposure; selling 253 contracts would create a short position against the cash instead of replicating the FTSE 100 return.",
       "C": "Full statement: N_f = (β_T/β_f)(S/F) = (1.0/1.0)(20,000,000/79,000) = 253.16 ≈ 253 contracts; McMillian buys 253 FTSE 100 futures to gain exposure on notional amount of £20M; both target and futures beta are 1.0; strategy attempts to minimize tracking error by replicating FTSE 100 performance on cash reserves.\n\nCorrect. Per the reading: 'McMillian engages in a synthetic index strategy to gain exposure on a notional amount of £20 million to the FTSE 100 by purchasing equity index futures. The number of futures she must purchase is given by the following: Nf = (βT/βf)(S/F) = (1.0/1.0)(20,000,000/79,000) = 253.16 ≈ 253 where the beta of the futures contract, βf, and the target beta, βT, are both equal to 1.0.'"
      },
      "type": "mc",
@@ -1361,14 +1361,14 @@
      "stem": "McMillian outcome after 5% FTSE gain most likely:",
      "options": {
       "A": "FTSE 100 increases 5%: original £230M UK stocks increases to £241.5M.",
-      "B": "no calc.",
-      "C": "no data."
+      "B": "the combined position returned 4.6%, lagging the index's 5% gain.",
+      "C": "the futures position produced a loss that offset most of the stock gain."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: FTSE 100 increases 5%: original £230M UK stocks increases to £241.5M; FTSE futures rise from £7,900 to £8,282.5; interest on cash at 0.63% floating rate = £20M × 0.63% × 90/360 = £31,500; futures profit = 382.5 index points × £10 × 253 contracts = £967,725; total portfolio value = £241.5M + £20M + £967,725 + £31,500 = £262,499,225; rate of return = £262,499,225/£250M - 1 = 5%; without strategy return would have been just over 4.6%.\n\nCorrect. Per the reading: 'Three months later, the FTSE 100 has increased by 5%, and the original value of £230 million invested in UK stocks has increased to £241.5 million. The price of the FTSE 100 Index futures contract has increased to £8,282.5. Interest on the cash invested at the three-month floating rate amounts to £31,500 (£20,000,000 × 0.63% × 90/360). McMillian bought the futures at £7,900, and the cash settlement of the contract at is £8,282.5. So, there is a \"gain\" of 382.5 index points, each point being worth £10, on 253 contracts for a total cash inflow of £967,725 (382.5 points per contract × £10 per point × 253 contracts). Adding to the portfolio the profit from the futures and the cash reserves plus the interest earned on the cash gives a total market value for McMillian's portfolio of £262,499,225 (= £241,500,000 + £20,000,000 + £967,725 + £31,500). The rate of return for the combined position is: £262,499,225/£250,000,000 − 1 = 0.05, or 5%. Importantly, without implementing this strategy, McMillian's return would have been slightly over 4.6%.'",
-      "B": "5% vs 4.6%.",
-      "C": "5% total."
+      "B": "Incorrect. Roughly 4.6% is what the return would have been WITHOUT the overlay (cash drag). With the futures profit of £967,725 and £31,500 of interest, the combined return is £262,499,225/£250,000,000 − 1 = 5%, matching the index.",
+      "C": "Incorrect. McMillian BOUGHT the futures and the index rose, so the position GAINED: 382.5 index points × £10 per point × 253 contracts = £967,725, adding to — not offsetting — the stock gain."
      },
      "type": "mc",
      "primary_los": "swaps_forwards_and_futures_strategies.e",
@@ -1408,14 +1408,14 @@
      "number": 7,
      "stem": "Grant rebalancing example — target 40/60 stock/bond, portfolio grown to €106M with €46M stocks/€60M bonds, EURO STOXX 50 futures €35,000 per contract, β=1.2, target β=0 for reduction most likely:",
      "options": {
-      "A": "no calc.",
-      "B": "no data.",
+      "A": "want to increase stock exposure by €3.6M (from €42.4M to €46M).",
+      "B": "want to reduce stock exposure by €6.0M (from €46M to €40M).",
       "C": "want to reduce stock exposure by €3.6M (from €46M to €42.4M)."
      },
      "correct": "C",
      "rationales": {
-      "A": "Sell 124 stock futures.",
-      "B": "Sell 124.",
+      "A": "Incorrect. Direction flip: stocks have drifted ABOVE target (€46M actual vs. 0.40 × €106M = €42.4M target), so Grant must REDUCE stock exposure by €3.6M by selling EURO STOXX 50 futures, not increase it.",
+      "B": "Incorrect. The 40% target applies to the CURRENT €106M portfolio value, not the original €100M: target = 0.40 × €106M = €42.4M, so the reduction is €46M − €42.4M = €3.6M, not €6.0M.",
       "C": "Full statement: want to reduce stock exposure by €3.6M (from €46M to €42.4M); N_f = [(0.0 - 1.2)/1.0] × (€3,604,000/€35,000) = -123.57 → sell 124 futures contracts (rounded).\n\nCorrect. Per the reading: 'The market value of the European stocks is €46,000,000, and Grant wants to reduce the exposure to this market to 40% or 0.40(€106,000,000) = €42,400,000. She decides to sell enough futures contracts on the EURO STOXX 50 to reduce the allocation to European stocks by 0.034(€106,000,000) = €3,604,000. To achieve the desired reduction in exposure to European stocks, the market value of the stocks involved in the transaction (S) will be €3,604,000. The European stocks' beta (βS) is 1.2, and the target beta is βT = 0. The EURO STOXX 50 index futures have a contract value (F) of €35,000, with a beta (βf) of 1.0, so Nf = [(0.0 − 1.2)/1.0] × (€3,604,000/€35,000) = −123.57. Grant sells 124 futures contracts (after rounding).'"
      },
      "type": "mc",
@@ -1433,14 +1433,14 @@
      "stem": "Grant bond leg — add €3.6M German bunds, MDUR target 9.5, CTD BPV €84.63, CF 0.619489 most likely:",
      "options": {
       "A": "BPV_T = 9.5 × 0.0001 × €3,604,000 = €3,424.",
-      "B": "no calc.",
-      "C": "no data."
+      "B": "BPV_T = 9.5 × 0.0001 × €60,000,000 = €57,000.",
+      "C": "sell 25 Euro-Bund futures contracts."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: BPV_T = 9.5 × 0.0001 × €3,604,000 = €3,424; BPV_HR = [(BPV_T - 0)/BPV_CTD] × CF = [(€3,424 - 0)/€84.63] × 0.619489 = 25.06 ≈ 25 contracts; Grant should BUY 25 Euro-Bund futures contracts to gain €3.6M bond exposure at target duration 9.5.\n\nCorrect. Per the reading: 'The market value of the German bunds is €60,000,000, and Grant wants to increase the exposure to this market to 0.60(€106,000,000) = €63,600,000. She decides to purchase enough Euro-Bund futures so that €3,604,000 (= 0.034 × €106,000,000) of exposure to German bonds is added to the portfolio. The target basis point value (BPVT) is given by Equation 4, as follows: BPVT = MDURT × 0.01% × MVP = 9.5 × 0.0001 × €3,604,000 = €3,424. The cheapest-to-deliver bond has a BPVCTD of €84.63 and a conversion factor of 0.619489. The number of Euro-Bund futures to buy... is found using Equation 9: BPVHR = [(BPVT − BPVP)/BPVCTD] × CF = [(€3,424 − 0)/€84.63] × 0.619489 = 25.06 ≈ 25 contracts. So, Grant should buy 25 Euro-Bund futures contracts.'",
-      "B": "Buy 25 bond futures.",
-      "C": "Buy 25."
+      "B": "Incorrect. The target BPV applies to the €3,604,000 of NEW bond exposure being added via futures, not the existing €60M bund holding: BPV_T = 9.5 × 0.0001 × €3,604,000 = €3,424.",
+      "C": "Incorrect. Grant is ADDING €3.6M of German bund exposure, so the hedge ratio is positive — [(€3,424 − 0)/€84.63] × 0.619489 = +25.06 — and she must BUY 25 Euro-Bund futures; selling would remove duration exposure."
      },
      "type": "mc",
      "primary_los": "swaps_forwards_and_futures_strategies.e",
@@ -1456,15 +1456,15 @@
      "number": 9,
      "stem": "Using derivatives to achieve exposures without disturbing underlying most likely advantage:",
      "options": {
-      "A": "no advantage.",
+      "A": "derivatives overlays require selling underlying holdings to fund margin, disturbing the portfolio's tax basis.",
       "B": "derivatives can achieve targeted equity and interest rate risk exposures without disturbing underlying holdings.",
-      "C": "no benefit."
+      "C": "derivatives overlays eliminate tracking risk entirely relative to physical rebalancing."
      },
      "correct": "B",
      "rationales": {
-      "A": "Multiple benefits.",
+      "A": "Incorrect. Futures margin is a small fraction of notional and is typically met from existing cash reserves; the overlay's purpose is precisely to AVOID selling underlying holdings, thereby preserving tax bases and voting rights.",
       "B": "Full statement: derivatives can achieve targeted equity and interest rate risk exposures without disturbing underlying holdings; benefits include: preserving tax bases (avoiding realized gains), maintaining voting rights (no ownership transfer), avoiding transaction costs of physical rebalancing, achieving desired exposures quickly and efficiently, and reversing positions relatively easily; Rossi example: he wants to change allocations quickly, and TMM example: 'TMM decides to execute a series of swaps that would enable it to change its position temporarily but more easily and less expensively than by executing the physical transactions.'\n\nCorrect. Per the reading (TMM section): 'TMM knows these changes would entail a considerable amount of trading in stocks and bonds. So, TMM decides to execute a series of swaps that would enable it to change its position temporarily but more easily and less expensively than by executing the physical transactions.' Preserving positions and avoiding tax consequences is also implicit in the Tundra example.",
-      "C": "Efficiency + preservation."
+      "C": "Incorrect. Futures- and swap-based overlays still carry basis and tracking risk versus the underlying exposure (contract rounding, beta estimates, roll costs); their advantage is speed, lower cost, and leaving holdings undisturbed — not eliminating tracking risk."
      },
      "type": "mc",
      "primary_los": "swaps_forwards_and_futures_strategies.e",
@@ -1658,7 +1658,7 @@
      "number": 4,
      "stem": "Fed funds futures pricing formula most likely:",
      "options": {
-      "A": "100.",
+      "A": "Fed funds futures contract price = 100 − Expected FFE rate.",
       "B": "Fed funds futures contract price = 100 + Expected FFE rate.",
       "C": "Fed funds futures contract price = Expected FFE rate − 100."
      },
@@ -1706,14 +1706,14 @@
      "number": 6,
      "stem": "Okyung fed funds probability calc fed funds futures price 97.90, current target range 1.75%-2.00% most likely:",
      "options": {
-      "A": "no calc.",
-      "B": "no data.",
+      "A": "FFE implied = 97.90 − 100 = −2.10%.",
+      "B": "FFE implied = 1.875%, the midpoint of the current target range.",
       "C": "FFE implied = 100 - 97.90 = 2.10%."
      },
      "correct": "C",
      "rationales": {
-      "A": "90% probability.",
-      "B": "90% hike.",
+      "A": "Incorrect. The quote convention is inverted here: the implied FFE rate is 100 MINUS the futures price, 100 − 97.90 = 2.10%, a positive rate — not price minus 100.",
+      "B": "Incorrect. 1.875% is the midpoint of the CURRENT target range (1.75%–2.00%) used later in the probability calculation, not the futures-implied rate; the implied FFE rate comes from the contract price: 100 − 97.90 = 2.10%.",
       "C": "Full statement: FFE implied = 100 - 97.90 = 2.10%; current midpoint = 1.875%; assumed new range 2.00%-2.25% with midpoint 2.125%; P(hike) = (2.10% - 1.875%) / (2.125% - 1.875%) = 0.225/0.25 = 0.90 or 90%; high probability of 25 bp rate hike.\n\nCorrect. Per Example: 'the current price for the fed funds futures contract expiring after the next FOMC meeting is 97.90. The current federal funds rate target range is set between 1.75% and 2.00%... The FFE rate implied by the futures contract price is 2.10% (= 100 − 97.90)... given that the FFE rate embedded in the fed funds futures price is 2.10%, there is a high probability that the FOMC will increase rates by 25 bps from its current target range of 1.75%–2.00% to the new target range of 2.00%–2.25%. Given the Fed's declared incremental move size of 25 bps, he calculates the probability of a rate hike as (2.100% − 1.875%)/(2.125% − 1.875%) = 0.90, or 90% where 1.875% is the midpoint of the current target range (1.75%–2.00%) and 2.125% is the midpoint of the new target range (2.00%–2.25%) assuming a rate hike.'"
      },
      "type": "mc",
@@ -1728,7 +1728,7 @@
     {
      "id": "r17_swf_los_f_q7",
      "number": 7,
-     "stem": "End-of-month bias in FFE rate most likely:",
+     "stem": "Typical end-of-month (EOM) activity by large banks lifts the relevant fed funds futures price to 98.05. The current federal funds target range is 1.75%–2.00% (midpoint 1.875%), and the Fed moves in 25 bp increments. The implied probability of a rate hike is closest to:",
      "options": {
       "A": "0.30.",
       "B": "0.90.",

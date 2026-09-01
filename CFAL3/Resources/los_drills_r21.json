@@ -146,7 +146,7 @@
      "options": {
       "A": "The fundamental law of active management has no formal mathematical expression and is instead a qualitative principle stating that skilled managers should diversify their bets across as many securities as practical.",
       "B": "The fundamental law states that expected active return equals the information coefficient alone, so a manager's forecasting accuracy fully determines active performance without regard to breadth or implementation.",
-      "C": "E(R_A) = IC × √BR × σ_RA × TC, where IC = expected information coefficient (extent to which forecasted active returns correspond to realized), BR = breadth (number of truly independent decisions made each year), TC = transfer coefficient (ability to translate insights into decisions without constraint."
+      "C": "E(R_A) = IC × √BR × σ_RA × TC, where IC = expected information coefficient (extent to which forecasted active returns correspond to realized), BR = breadth (number of truly independent decisions made each year), TC = transfer coefficient (ability to translate insights into decisions without constraint), σ_RA = the manager's active risk."
      },
      "correct": "C",
      "rationales": {
@@ -241,14 +241,14 @@
      "stem": "The Exhibit 2 factor exposures over 26-year period most likely show:",
      "options": {
       "A": "Russell 1000 has Market β ≈ 0.99, Size β -0.16 (large-cap tilt), Value β 0.02, Momentum β -0.01, monthly alpha 0.05%.",
-      "B": "single factor.",
-      "C": "no differences."
+      "B": "Value Fund has a Value β of 0.02 and monthly alpha of +0.35%, indicating its excess return came from stock selection rather than the Value factor.",
+      "C": "Russell 1000 Value has Size β +0.23 (small-cap tilt) and a Value β of only 0.02, essentially matching the broad Russell 1000."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: Russell 1000 has Market β ≈ 0.99, Size β -0.16 (large-cap tilt), Value β 0.02, Momentum β -0.01, monthly alpha 0.05%; Russell 1000 Value has Market β 0.92, Size -0.23, Value 0.41, Momentum 0.13, alpha -0.05%; Value Fund has Market β 0.90, Size 0.13, Value 0.59 (large exposure), Momentum 0.09, monthly alpha -0.35%; factor monthly performance: Market 0.64%, Size 0.16%, Value 0.18%, Momentum 0.61%.\n\nCorrect. Per Exhibit 2 of the reading (Risk Factor Exposure over 26-year period): 'β to specified factor for Russell 1000 Index: Market 0.99, Size -0.16, Value 0.02, Momentum -0.01, \"Alpha\" (monthly) 0.05%, R² 0.99. Russell 1000 Value Index: Market 0.92, Size -0.23, Value 0.41, Momentum 0.13, Alpha -0.05%, R² 0.95. Value Fund: Market 0.90, Size 0.13, Value 0.59, Momentum 0.09, Alpha -0.35%, R² 0.74. Monthly factor performance: Market 0.64%, Size 0.16%, Value 0.18%, Momentum 0.61%.'",
-      "B": "Detailed factor tilts.",
-      "C": "Real factor data."
+      "B": "Incorrect. Exhibit 2 shows the Value Fund with a large Value β of 0.59 and a negative monthly alpha of -0.35%; its performance is explained by factor exposures, not positive selection alpha.",
+      "C": "Incorrect. The Russell 1000 Value Index has Size β -0.23 (a large-cap tilt, not small-cap) and a substantial Value β of 0.41, clearly distinguishing it from the broad Russell 1000 (Value β 0.02)."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_portfolio_construction.a",
@@ -395,14 +395,14 @@
      "stem": "Typical constraints in portfolio optimization most likely include:",
      "options": {
       "A": "limits on geographic, sector, industry, and single-security exposures.",
-      "B": "no constraints.",
-      "C": "no limits."
+      "B": "only regulatory diversification minimums imposed by law, since manager-imposed limits would reduce the optimizer's ability to maximize the objective function.",
+      "C": "limits on realized active returns and alpha rather than on exposures, turnover, or transaction costs."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: limits on geographic, sector, industry, and single-security exposures; limits on transaction costs (to limit turnover and/or help manage liquidity issues); limits on exposure to specific factors (e.g., required minimum market capitalization for any single security, or maximum price-to-book ratio); constraints can be defined relative to benchmark or without regard to it.\n\nCorrect. Per the reading: 'Typical constraints in the portfolio optimization problem may include limits on geographic, sector, industry, and single-security exposures and may also specify limits on transaction costs (to limit turnover and/or help manage liquidity issues). They may also include limits on exposure to specific factors; for example, the investment process may specify a required minimum market capitalization for any single security or a minimum weighted average capitalization for the portfolio as a whole. Or it may specify a maximum price-to-book ratio for any single security or a maximum weighted average price-to-book ratio for the portfolio. Constraints can be defined relative to the benchmark or without regard to it.'",
-      "B": "Multiple constraints.",
-      "C": "Real constraints."
+      "B": "Incorrect. The constraints described in the reading are manager- and mandate-imposed — limits on geographic, sector, industry, single-security, and factor exposures and on transaction costs — not merely legal diversification minimums.",
+      "C": "Incorrect. Constraints are placed on exposures and implementation (e.g., transaction costs to limit turnover and manage liquidity), not on realized returns, which cannot be constrained directly."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_portfolio_construction.b",
@@ -418,15 +418,15 @@
      "number": 7,
      "stem": "The risk-based objective functions (minimum variance, maximum diversification) most likely:",
      "options": {
-      "A": "no explicit factor exposure.",
+      "A": "integrate explicit expected return forecasts for each rewarded factor into the objective function.",
       "B": "do not integrate explicit expected return component but implicitly create exposure to risk factors.",
-      "C": "no exposure."
+      "C": "tend to favor growth and high-beta securities, producing Market betas above 1.0."
      },
      "correct": "B",
      "rationales": {
-      "A": "Implicit factor exposure.",
+      "A": "Incorrect. Risk-based objectives (minimum variance, maximum diversification) contain no explicit expected return component; any factor exposure arises implicitly from the risk-minimizing process.",
       "B": "Full statement: do not integrate explicit expected return component but implicitly create exposure to risk factors; products built using such objective functions often exhibit Market beta below 1.0 and have statistically significant exposure to Value factor and to low-minus-high-β (BAB) factor; occurs because objective function that seeks to manage/minimize risk will tend to favor value and low-beta securities.\n\nCorrect. Per the reading: 'Other optimization approaches specify their objectives in terms of the risk metrics, such as portfolio volatility, downside risk, maximum diversification, and drawdowns. These approaches do not integrate an explicit expected return component. However, they do implicitly create an exposure to risk factors. For example, products built using a risk-based objective function (such as minimum variance or maximum diversification) often exhibit a Market beta below 1.0 and have a statistically significant exposure to the Value factor and to the low-minus-high-β factor. This occurs because an objective function that seeks to manage or minimize risk will tend to favor value and low-beta securities.'",
-      "C": "Implicit exposure."
+      "C": "Incorrect. Because these objective functions seek to manage or minimize risk, they tend to favor value and low-beta securities, typically producing Market betas below 1.0 and significant exposure to the Value and BAB factors."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_portfolio_construction.b",
@@ -467,14 +467,14 @@
      "stem": "Bridging the divide (systematic vs discretionary trending) most likely:",
      "options": {
       "A": "philosophical divide seems to be shrinking.",
-      "B": "growing.",
-      "C": "no change."
+      "B": "the divide is widening as systematic managers narrow their focus to pure factor replication while discretionary managers abandon quantitative tools.",
+      "C": "there has been no change, because the breadth and depth differences between the two approaches make convergence impossible."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: philosophical divide seems to be shrinking; systematic and discretionary strategies were commonly differentiated in terms of breadth and depth (discretionary conducting more in-depth research on subset; systematic having more breadth); advancements in and accessibility of technology together with greater range of quality data allow discretionary to extend in-depth analyses across broader universe; technology allows systematic to design strategies capturing risk premiums in rewarded factors (previously considered part of alpha of discretionary managers).\n\nCorrect. Per the reading's BRIDGING THE DIVIDE boxed section: 'The philosophical divide between systematic and discretionary managers seems to be shrinking. Systematic and discretionary strategies were commonly differentiated in terms of their breadth and depth (discretionary managers conducting more in-depth research on a sub-set of the securities universe) and systematic managers having more breadth (less in-depth research across the entire universe of securities). Although this remains generally true today, research and technology have been narrowing the gap. Advancements in and the accessibility of technology, together with the greater range of quality data available, are allowing discretionary managers to extend their in-depth analyses across a broader universe of securities. Technology also allows systematic managers to design strategies that can capture risk premiums in rewarded factors, a source of active returns that was previously considered to be part of the alpha of discretionary managers.'",
-      "B": "Divide shrinking.",
-      "C": "Real convergence."
+      "B": "Incorrect. The reading states the philosophical divide seems to be shrinking: technology lets discretionary managers extend in-depth analysis across broader universes and lets systematic managers capture rewarded-factor premiums once considered discretionary alpha.",
+      "C": "Incorrect. Although the breadth/depth distinction remains generally true, research and technology have been narrowing the gap — the divide is shrinking, not static."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_portfolio_construction.b",
@@ -548,15 +548,15 @@
      "number": 2,
      "stem": "The two sources of Active Share most likely are:",
      "options": {
-      "A": "(1) including securities in the portfolio that are not in the benchmark.",
-      "B": "single source.",
-      "C": "no sources."
+      "A": "(1) including securities in the portfolio that are not in the benchmark, and (2) holding benchmark securities at weights different from their benchmark weights.",
+      "B": "(1) differences in sector allocation relative to the benchmark, and (2) differences in factor exposures relative to the benchmark.",
+      "C": "(1) the portfolio's active risk relative to the benchmark, and (2) the correlation of its active returns with the benchmark."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: (1) including securities in the portfolio that are not in the benchmark; (2) holding securities in portfolio that are in benchmark but at weights different than benchmark weights; portfolio manager has complete control over Active Share because he determines weights of securities in his portfolio.\n\nCorrect. Per the reading: 'There are only two sources of Active Share: Including securities in the portfolio that are not in the benchmark. Holding securities in the portfolio that are in the benchmark but at weights different than the benchmark weights. If two portfolios are managed against the same benchmark (and if they invest only in securities that are part of the benchmark), the portfolio with fewer securities will have a higher level of Active Share than the highly diversified portfolio. A portfolio manager has complete control over his Active Share because he determines the weights of the securities in his portfolio.'",
-      "B": "Two sources.",
-      "C": "Real sources."
+      "B": "Incorrect. Sector and factor deviations describe sources of active risk, not Active Share. Active Share depends only on holdings weights: off-benchmark securities and benchmark securities held at non-benchmark weights.",
+      "C": "Incorrect. Active Share is a holdings-based measure the manager fully controls through portfolio weights; it is not derived from active risk or return correlations."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_portfolio_construction.c",
@@ -693,14 +693,14 @@
      "stem": "Concentrated stock picker most likely:",
      "options": {
       "A": "has both a high Active Share (typically above 0.90) and a high active risk (such as 8%-12% or higher).",
-      "B": "low AS, low AR.",
-      "C": "no pattern."
+      "B": "has a high Active Share around 0.70 but low active risk of about 3%, a profile similar to a diversified multi-factor product.",
+      "C": "has low Active Share but high active risk, because concentrated positions leave benchmark weights largely intact."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: has both a high Active Share (typically above 0.90) and a high active risk (such as 8%-12% or higher); average active manager owns about 100 stocks and fewer than 20% of managers own more than 200 stocks; level of idiosyncratic risk in average active discretionary portfolio greater than that of average multi-factor fund.\n\nCorrect. Per the reading: 'The concentrated stock picker, in contrast, has both a high Active Share (typically above 0.90) and a high active risk (such as 8%-12% or higher). (The average active manager owns about 100 stocks, and fewer than 20% of managers own more than 200 stocks.) It follows, then, that the level of idiosyncratic risk in the average active discretionary portfolio is greater than that of the average multi-factor fund, with its 250+ positions. Therefore, on average, we could expect the portfolio of a typical discretionary manager to display higher active risk.'",
-      "B": "High AS, high AR.",
-      "C": "High/high pattern."
+      "B": "Incorrect. A high-Active-Share/low-active-risk combination describes diversified stock pickers or multi-factor products; the concentrated stock picker runs both high Active Share (typically above 0.90) and high active risk (8%-12% or more).",
+      "C": "Incorrect. Concentration in relatively few names pushes weights far from benchmark weights, so Active Share is high, not low, alongside high active risk from elevated idiosyncratic exposure."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_portfolio_construction.c",
@@ -716,15 +716,15 @@
      "number": 9,
      "stem": "Petajisto (2013) Exhibit 8 examples — Vanguard Index Fund, RiverSource Disciplined Equity, T. Rowe Price Mid-Cap Value, AIM Constellation most likely:",
      "options": {
-      "A": "identical.",
+      "A": "T. Rowe Price Mid-Cap Value (significant sector bets): 9.7% active risk, 0.66 Active Share.",
       "B": "Vanguard Index Fund (indexed): 0.0% active risk, 0.00 Active Share.",
-      "C": "no examples."
+      "C": "AIM Constellation (limited sector weights but significant stock picking): 5.4% active risk, 0.93 Active Share."
      },
      "correct": "B",
      "rationales": {
-      "A": "Distinct styles.",
+      "A": "Incorrect. Those figures belong to AIM Constellation. T. Rowe Price Mid-Cap Value combined limited active sector weights with significant stock picking: 5.4% active risk and 0.93 Active Share.",
       "B": "Full statement: Vanguard Index Fund (indexed): 0.0% active risk, 0.00 Active Share; RiverSource Disciplined Equity (large-cap growth, small active weight, limited factor timing): 4.4% active risk, 0.54 Active Share; T. Rowe Price Mid-Cap Value (limited active weights on sectors but significant stock picking): 5.4% active risk, 0.93 Active Share; AIM Constellation (large-cap growth, significant sector bets): 9.7% active risk, 0.66 Active Share.\n\nCorrect. Per Exhibit 8 (Active Risk, Active Share, and Portfolio Styles Examples) from Petajisto (2013): 'Vanguard Index Fund (Indexed): 0.0% active risk, 0.00 Active Share. RiverSource Disciplined Equity Fund (Large-Cap Growth: Small active weight, limited factor timing): 4.4% active risk, 0.54 Active Share. T. Rowe Price Mid-Cap Value Fund (Mid-Cap Value: Limited active weights on sectors but significant stock picking): 5.4% active risk, 0.93 Active Share. AIM Constellation Fund (Large-Cap Growth: Significant sector bets): 9.7% active risk, 0.66 Active Share. GMO Quality Fund (Mega-Cap Core: Timing on a number of factors and cash): 12.9% active risk.'",
-      "C": "Real case data."
+      "C": "Incorrect. AIM Constellation's significant sector bets produced high active risk (9.7%) with a moderate 0.66 Active Share; the 5.4% active risk/0.93 Active Share profile belongs to T. Rowe Price Mid-Cap Value."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_portfolio_construction.c",
@@ -871,7 +871,7 @@
      "stem": "The Exhibit 12 absolute risk factor attribution for Russell 1000, Russell 1000 Value, Value Fund most likely:",
      "options": {
       "A": "Exhibit 12 contains no factor attribution data.",
-      "B": "Russell 1000: 100.4% Market, -1.8% Size, 0.2% Value, 0.5% Momentum, 99.3% total explained, 14.5% absolute risk. Russell 1000 Value.",
+      "B": "Russell 1000: 100.4% Market, -1.8% Size, 0.2% Value, 0.5% Momentum, 99.3% total explained, 14.5% absolute risk.",
       "C": "The exhibit attributes risk for the funds but omits the benchmark indexes."
      },
      "correct": "B",
@@ -894,14 +894,14 @@
      "number": 7,
      "stem": "Manager A (concentrated stock picker) vs Manager B (closet indexer) vs Manager C (multi-factor) vs Manager D (sector rotator) Example 5 constraints most likely:",
      "options": {
-      "A": "no example.",
-      "B": "no data.",
+      "A": "Manager A concentrated stock picker (target active risk 1%, max sector deviation 3%, max single-security risk 1%).",
+      "B": "Manager A concentrated stock picker (target active risk 7%, max sector deviation 15%, max single-security risk 3%).",
       "C": "Manager A concentrated stock picker (target active risk 10%, max sector deviation 0%, max single security risk 5%)."
      },
      "correct": "C",
      "rationales": {
-      "A": "Style identification.",
-      "B": "Style profiles.",
+      "A": "Incorrect. The 1%/3%/1% profile belongs to Manager B, the closet indexer — low active risk with tight sector and single-security limits signals very few active bets, not concentrated stock picking.",
+      "B": "Incorrect. The 7%/15%/3% profile belongs to Manager D, the sector rotator — a high tolerance for sector deviations is inconsistent with Manager A's 0% sector-deviation constraint and 5% single-security risk budget.",
       "C": "Full statement: Manager A concentrated stock picker (target active risk 10%, max sector deviation 0%, max single security risk 5%); Manager B closet indexer (1% active risk, 3% sector deviation, 1% single security); Manager C diversified multi-factor (4% active risk, 10% sector deviation, 1% single security); Manager D sector rotator (7% active risk, 15% sector deviation, 3% single security).\n\nCorrect. Per Example 5 solution: 'Manager B is a closet indexer. The low targeted active risk combined with the narrow sector deviation constraint indicates that the manager is making very few active bets. Manager A is likely a concentrated stock picker. The 10% active risk target indicates a willingness to tolerate significant performance deviations from the market. The 5% limit on a single security's contribution to portfolio risk indicates he is willing to run a concentrated portfolio. The unwillingness to take sector deviations combined with the high tolerance for idiosyncratic risk indicates that the manager likely focuses on stock selection and is, therefore, a stock picker. Manager C limits single-security risk contribution to no more than 1%, which implies a highly diversified portfolio. The significant sector deviations despite this high diversification are often indicative of a multi-factor manager. The relatively low tracking error further supports the argument that Manager C is a multi-factor manager. Manager D has characteristics consistent with a sector rotator. The significant active risk and high tolerance for sector deviations and security concentration are what one would expect to find with a sector rotator.'"
      },
      "type": "mc",
@@ -942,15 +942,15 @@
      "number": 9,
      "stem": "Managers should be concerned with most likely:",
      "options": {
-      "A": "no specific concern.",
+      "A": "maximizing exposure to every rewarded factor, regardless of where their perceived skills lie.",
       "B": "risks they choose to take should be related to perceived skills.",
-      "C": "no principle."
+      "C": "diversifying away the risks tied to their perceived skills while retaining incidental exposures."
      },
      "correct": "B",
      "rationales": {
-      "A": "Skill-aligned risks.",
+      "A": "Incorrect. The principle is skill alignment, not maximal factor exposure — a manager should take risks related to perceived skills and diversify or minimize everything else.",
       "B": "Full statement: risks they choose to take should be related to perceived skills; all other risk should be diversified or minimized; market timers should be concerned with timing their factor exposure; sector rotators should be concerned with timing their sector exposure; multi-factor managers should be concerned with balancing their factor exposure.\n\nCorrect. Per the reading: 'Irrespective of whether a manager focuses on absolute risk or relative risk, the risks he chooses to take should be related to his perceived skills. All other risk should be diversified or minimized. For example, market timers should be concerned with timing their factor exposure, sector rotators should be concerned with timing their sector exposure, and multi-factor managers should be concerned with balancing their factor exposure.'",
-      "C": "Skill matters."
+      "C": "Incorrect. This inverts the principle: risks aligned with perceived skill should be retained (market timers timing factor exposure, sector rotators timing sector exposure), while all other, incidental risk should be diversified or minimized."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_portfolio_construction.d",
@@ -978,7 +978,7 @@
      "options": {
       "A": "Heuristic and formal constraints are identical in nature and differ only in name.",
       "B": "The reading recognizes no distinction among constraint types.",
-      "C": "heuristic constraints are portfolio-characteristics limits (e.g., limit single position to lesser of 5× benchmark weight or 2%."
+      "C": "heuristic constraints are portfolio-characteristics limits (e.g., limit single position to the lesser of 5× benchmark weight or 2%), while formal constraints are statistical risk measures linked to the distribution of returns."
      },
      "correct": "C",
      "rationales": {
@@ -1120,14 +1120,14 @@
      "number": 7,
      "stem": "MSCI Diversified Multi-Factor Index Exhibit 19 constraints most likely:",
      "options": {
-      "A": "no constraints.",
-      "B": "no example.",
+      "A": "weight of index constituents unrestricted; only sector weights are constrained, at a 10% deviation versus the parent index.",
+      "B": "weight of index constituents: capped at weight in parent index + 10%, with sector weights left unconstrained.",
       "C": "weight of index constituents: max of weight in parent (cap-weighted) index + 2% or 10 times weight in parent index."
      },
      "correct": "C",
      "rationales": {
-      "A": "Constraint types.",
-      "B": "Real constraints.",
+      "A": "Incorrect. Constituent weights are explicitly constrained — the maximum of parent-index weight + 2% or 10 times the parent weight — and sector weights are restricted to a 5% deviation, not 10%.",
+      "B": "Incorrect. The constituent cap is the maximum of parent weight + 2% or 10 times the parent weight, not parent weight + 10%, and sector weights are also restricted (5% deviation against the parent index).",
       "C": "Full statement: weight of index constituents: max of weight in parent (cap-weighted) index + 2% or 10 times weight in parent index; sector weights: restricted to 5% deviation vs parent; exposure to style factors (growth, liquidity): restricted to 0.25 SD from parent; limit on volatility: restricted to 0.25 SD from parent.\n\nCorrect. Per Exhibit 19 (Sample Investment Policy Risk Constraints): 'The MSCI Diversified Multi-Factor Index uses an optimization process to maximize the exposure score to several risk factors. The index seeks to achieve this objective while controlling for several portfolio and risk characteristics, such as the following: Weight of index constituents: maximum of weight in the parent (capitalization-weighted) index + 2% or 10 times weight in the parent index. Sector weights: restricted to a 5% deviation against the parent index. Exposure to style factors, such as growth and liquidity: restricted to a 0.25 standard deviation from the parent index. Limit on volatility: restricted to a 0.25 standard deviation from the parent index.'"
      },
      "type": "mc",
@@ -1145,14 +1145,14 @@
      "stem": "The consequences of being wrong about risk example (leveraged mortgage-related securities) most likely:",
      "options": {
       "A": "in 2008 hedge fund owned 2× levered portfolio of highly-rated mortgage-related securities.",
-      "B": "trivial.",
-      "C": "no example."
+      "B": "in 2008 a hedge fund's subprime-heavy mortgage portfolio suffered permanent price declines, producing gradual losses over several years.",
+      "C": "in 2008 a hedge fund's unlevered mortgage portfolio declined modestly, and the manager recovered fully by holding through the volatility."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: in 2008 hedge fund owned 2× levered portfolio of highly-rated mortgage-related securities; although specific securities not materially exposed to subprime, concerns about economy and poor market liquidity led to steep decline; prices quickly recovered but presence of 2× leverage combined with unprecedented decline led to forced liquidation just days before recovery; manager and investors lost all capital.\n\nCorrect. Per the reading: 'The consequences of being wrong about risk expectations can be significant but even more so when a strategy is leveraged. In 2008, for example, a hedge fund owned a two-times levered portfolio of highly rated mortgage-related securities. Although the specific securities were not materially exposed to subprime mortgages, concerns about the economy and poor market liquidity led to a steep decline in the prices of these securities. Prices quickly recovered, but the presence of the 2× leverage combined with an unprecedented price decline led to a forced liquidation of the assets just a few days before prices recovered. The manager and his investors lost all capital.'",
-      "B": "Real disaster.",
-      "C": "Cautionary tale."
+      "B": "Incorrect. The securities were highly rated and not materially exposed to subprime, and prices quickly recovered; the loss came from 2× leverage forcing liquidation just days before the recovery.",
+      "C": "Incorrect. The portfolio was 2× levered, and that leverage combined with an unprecedented price decline forced liquidation days before prices recovered — the manager and investors lost all capital."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_portfolio_construction.e",
@@ -1202,14 +1202,14 @@
      "number": 1,
      "stem": "Market impact most likely:",
      "options": {
-      "A": "no cost.",
-      "B": "no concept.",
+      "A": "is a fixed cost per share that is independent of trade size and the security's liquidity.",
+      "B": "matters only for high-turnover strategies demanding immediacy and can be ignored by managers with longer investment horizons.",
       "C": "price movement resulting from manager's purchase or sale of a security can materially erode a manager's alpha."
      },
      "correct": "C",
      "rationales": {
-      "A": "Alpha-eroding cost.",
-      "B": "Real cost.",
+      "A": "Incorrect. Market impact is a function of the security's liquidity and the trade size — it is not a fixed per-share cost.",
+      "B": "Incorrect. All managers face market impact; immediacy and high turnover increase it, while patient trading as liquidity becomes available mitigates but does not eliminate it.",
       "C": "Full statement: price movement resulting from manager's purchase or sale of a security can materially erode a manager's alpha; function of the liquidity and trade size of the security; manager's investment approach and style influences extent of exposure to market impact costs; strategy demanding immediacy in execution or requiring higher portfolio turnover likely incurs higher market impact costs than manager who patiently trades into a position.\n\nCorrect. Per the reading: 'The price movement (or market impact) resulting from a manager's purchase or sale of a security can materially erode a manager's alpha. Market impact is a function of the liquidity and trade size of the security. A manager's investment approach and style will influence the extent to which he is exposed to market impact costs. A manager whose strategy demands immediacy in execution or requires a higher portfolio turnover is likely to incur higher market impact costs relative to a manager who patiently trades into a position. A manager who believes her investment insights will be rewarded over a longer-term investment horizon may be able to mitigate market impact costs by slowly building up positions as liquidity becomes available.'"
      },
      "type": "mc",
@@ -1250,15 +1250,15 @@
      "number": 3,
      "stem": "Russell 1000 capitalization distribution Exhibit 21 observations most likely:",
      "options": {
-      "A": "no pattern.",
+      "A": "the distribution of market cap is roughly uniform, with the combined capitalization of the top 500 companies close to that of the bottom 500.",
       "B": "(1) distribution of market cap is skewed — average capitalization declines quickly.",
-      "C": "no data."
+      "C": "smaller-cap companies trade a smaller percentage of their market capitalization daily than the largest companies."
      },
      "correct": "B",
      "rationales": {
-      "A": "Two observations.",
+      "A": "Incorrect. The distribution is skewed — average capitalization declines quickly, and the combined capitalization of the top 500 companies is more than seven times that of the bottom 500.",
       "B": "Full statement: (1) distribution of market cap is skewed — average capitalization declines quickly; combined capitalization of top 500 companies is more than seven times that of the bottom 500 companies; (2) smaller-cap companies have lower daily trading volume (in dollars) but trade greater percentage of their capitalization — smallest 900 within index trade nearly 2× more volume as % of cap than 100 largest (900 smallest average 1% of market cap daily vs 100 largest 0.5%).\n\nCorrect. Per the reading: 'Two observations are warranted. First, the distribution of market cap is skewed: The average capitalization declines quickly. The combined capitalization of the top 500 companies is more than seven times that of the bottom 500 companies. Second, smaller-capitalization companies have lower daily trading volume (in dollars). However, smaller-cap companies trade a greater percentage of their capitalization. The smallest 900 companies within the index trade nearly two times more volume — as a percentage of their market capitalization — than the 100 largest companies (e.g., the 900 smallest companies on average trade 1% of their market cap daily, whereas the 100 largest companies trade 0.5% of their market cap daily). Nevertheless, the lower absolute level of average trading volume of the smaller securities can be a significant implementation hurdle for a manager running a strategy with significant assets under management and significant positive active weights on smaller companies.'",
-      "C": "Real observations."
+      "C": "Incorrect. This inverts the finding: the smallest 900 companies trade nearly twice the percentage of their capitalization daily (about 1%) as the 100 largest (about 0.5%), even though their dollar volume is lower."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_portfolio_construction.f",
@@ -1371,14 +1371,14 @@
      "stem": "Slippage conclusions Exhibit 22 most likely:",
      "options": {
       "A": "(1) slippage costs are usually more important than commission costs.",
-      "B": "no conclusions.",
-      "C": "no findings."
+      "B": "commission costs are usually more important than slippage costs.",
+      "C": "slippage costs are greater for large-cap securities than for smaller-cap securities and remain stable across time."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: (1) slippage costs are usually more important than commission costs; (2) slippage costs are greater for smaller-cap securities than for large-cap securities; (3) slippage costs can vary substantially over time especially when market volatility is higher.\n\nCorrect. Per the reading: 'Exhibit 22 provides estimates of the average slippage for several markets in 2020. There are three conclusions we can draw: Slippage costs are usually more important than commission costs. Slippage costs are greater for smaller-cap securities than for large-cap securities. Slippage costs can vary substantially over time, especially when market volatility is higher.'",
-      "B": "Three findings.",
-      "C": "Three findings."
+      "B": "Incorrect. Exhibit 22 supports the opposite conclusion — slippage costs are usually more important than commission costs.",
+      "C": "Incorrect. Slippage costs are greater for smaller-cap securities than for large-cap securities and can vary substantially over time, especially when market volatility is higher."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_portfolio_construction.f",
@@ -1394,15 +1394,15 @@
      "number": 9,
      "stem": "Unlit venues (dark pools, crossing networks) most likely:",
      "options": {
-      "A": "no such venues.",
+      "A": "require full pre-trade transparency about order size, alerting other participants to pending activity.",
       "B": "allow buyers and sellers to trade anonymously with one another.",
-      "C": "no anonymity."
+      "C": "are restricted to retail order flow and are therefore unusable for large institutional block trades."
      },
      "correct": "B",
      "rationales": {
-      "A": "Dark venues.",
+      "A": "Incorrect. Unlit venues complete transactions 'in the dark,' without full transparency — that opacity is precisely why institutions use them to camouflage large trades.",
       "B": "Full statement: allow buyers and sellers to trade anonymously with one another; large institutional investors today will often try to camouflage potential size of trade by breaking a trade into many smaller trades or by trading in unlit venues; dark pools and crossing networks are examples; if large institution wants to sell big block without alerting other participants, may choose to trade anonymously — unlit venues where transactions completed 'in the dark' without full transparency have become powerful force in financial markets.\n\nCorrect. Per the reading: 'When a larger trade is executed in increments over multiple days, the estimate of market impact costs for later trades does not account for the impact of earlier trades on subsequent execution prices... Large institutional investors today will often try to camouflage the potential size of their trade by breaking a trade into many smaller trades or by trading in \"unlit\" venues. Unlit venues allow buyers and sellers to trade anonymously with one another. Dark pools and crossing networks are examples of unlit venues.' Footnote: 'If a large institution wants to sell a big block of stock but doesn't want to alert other market participants about the pending activity, it may choose to trade anonymously. Unlit venues — private trading venues where transactions are completed \"in the dark\" (without full transparency) — have become a powerful force in financial markets.'",
-      "C": "Real venues."
+      "C": "Incorrect. Dark pools and crossing networks are used chiefly by large institutional investors seeking to trade big blocks anonymously; they are not retail-only venues."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_portfolio_construction.f",
@@ -1453,14 +1453,14 @@
      "stem": "Risk efficiency judgment most likely should be:",
      "options": {
       "A": "judged in context of investor's total portfolio.",
-      "B": "absolute measure.",
-      "C": "no context."
+      "B": "judged solely by comparing each manager's information ratio, with the higher-IR manager always preferred.",
+      "C": "judged on each mandate in isolation, ignoring diversification effects on the investor's total portfolio."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: judged in context of investor's total portfolio; active risk of concentrated stock picker should be higher than that of diversified factor investor, and concentrated stock picker may have lower information ratio; yet both managers could be building well-structured portfolio relative to their mandate; important to consider diversification effect of manager's portfolio on total portfolio of investor to arrive at appropriate solution.\n\nCorrect. Per the reading: 'Finally, the \"risk efficiency\" of any given portfolio approach should be judged in the context of the investor's total portfolio. The active risk of a concentrated stock picker should be higher than that of a diversified factor investor, and the concentrated stock picker may have a lower information ratio. Yet both managers could be building a well-structured portfolio relative to their mandate. It is important to consider the diversification effect of a manager's portfolio on the total portfolio of the investor to arrive at an appropriate solution.'",
-      "B": "Portfolio context.",
-      "C": "Portfolio-level."
+      "B": "Incorrect. A concentrated stock picker may have a lower information ratio than a diversified factor investor yet still run a well-structured portfolio relative to the mandate; IR alone does not settle risk efficiency.",
+      "C": "Incorrect. The reading stresses considering the diversification effect of a manager's portfolio on the investor's total portfolio — judging each mandate in isolation is exactly what it warns against."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_portfolio_construction.g",
@@ -1498,7 +1498,7 @@
     {
      "id": "r17_active_eq_pc_los_g_q4",
      "number": 4,
-     "stem": "Example 8 David Larrabee custom portfolio specifications most likely:",
+     "stem": "Example 8: David Larrabee specifies a custom low-volatility, high-payout-yield portfolio to serve as the core of a client's global equity allocation. The investable universe most likely specified is:",
      "options": {
       "A": "investable universe Russell 2000.",
       "B": "investable universe S&P 500.",
@@ -1548,15 +1548,15 @@
      "number": 6,
      "stem": "Larrabee tracking error concern interpretation most likely:",
      "options": {
-      "A": "no concern.",
+      "A": "the positive alpha confirms the excess return came from stock selection rather than factor exposure.",
       "B": "6% active risk on 65% of equity allocation may be too high.",
-      "C": "no issue."
+      "C": "the tracking error is immaterial because the under-allocation to information technology reduces active risk."
      },
      "correct": "B",
      "rationales": {
-      "A": "Recommendations.",
+      "A": "Incorrect. The simulated alpha is negative, and the excess return was achieved largely through very high, intentional exposure to rewarded factors (Value, BAB, Quality), not stock selection; understanding that negative alpha is essential.",
       "B": "Full statement: 6% active risk on 65% of equity allocation may be too high; some tracking error attributed to significant under-allocation to information technology sector; excess return achieved largely through very high and intentional exposure to rewarded factors (Value, BAB, Quality) which may not have been rewarded over simulated period; alpha is negative — understanding source of this negative alpha is essential.\n\nCorrect. Per Example 8 solution: 'Given the size of this allocation relative to the total equity portfolio, this poses a problem. Some of this tracking error may be attributed to a significant under-allocation to the information technology sector. Finally, although the portfolio would have generated an excess return on average over the past 12 years, the alpha is negative. Understanding the source of this negative alpha is essential. In this instance, the excess return was achieved largely through a very high and intentional exposure to rewarded factors, such as Value, BAB, and Quality, which may not have been rewarded over the simulated period.'",
-      "C": "Concerns to address."
+      "C": "Incorrect. The significant under-allocation to information technology contributes to the tracking error, and 6% active risk on 65% of the equity allocation poses a problem — it is not immaterial."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_portfolio_construction.g",
@@ -1572,14 +1572,14 @@
      "number": 7,
      "stem": "Larrabee satellite manager recommendations most likely:",
      "options": {
-      "A": "no recommendations.",
-      "B": "no advice.",
+      "A": "hire satellite managers whose active returns are highly correlated with the core mandate to reinforce its factor tilts.",
+      "B": "eliminate the technology underweight entirely by matching the MSCI World information technology weight exactly.",
       "C": "first investigate further source of significant negative alpha."
      },
      "correct": "C",
      "rationales": {
-      "A": "Three recommendations.",
-      "B": "Real advice.",
+      "A": "Incorrect. Because tracking error is a concern, the recommendation is to identify satellite managers whose active returns have low correlation with the core mandate, perhaps even lower active risk — not correlated managers reinforcing existing tilts.",
+      "B": "Incorrect. The objective is not necessarily to match the MSCI World technology exposure but to lower the consistent underexposure to a more reasonable level and continuously monitor structural biases.",
       "C": "Full statement: first investigate further source of significant negative alpha; if tracking error is concern, identify satellite managers whose active returns have low correlation with core mandate perhaps even lower active risk; considering importance of information technology sector, could be prudent to hire manager with strong technology orientation — objective not to maintain technology exposure equal to MSCI World but to lower consistent underexposure to more reasonable level; structural biases should be continuously monitored.\n\nCorrect. Per Example 8 second solution: 'The first recommendation would be to investigate further the source of the significant negative alpha. Because the excess performance is so strongly explained by exposure to specific factors, we should be concerned about how the portfolio would perform if factor returns were to decline. Is there a systemic reason that can explain this observation? Secondly, if tracking error is a concern, it is important to identify satellite managers whose active returns have a low correlation with the core mandate, perhaps even a lower active risk. Finally, considering the importance of the information technology sector, it could be prudent to hire a manager that has a strong technology orientation. The objective is not necessarily to maintain a technology exposure equal to that of the MSCI World Index but perhaps to lower the consistent underexposure to a more reasonable level. At the very least, these structural biases should be continuously monitored.'"
      },
      "type": "mc",
@@ -1597,14 +1597,14 @@
      "stem": "Manager comparison — three managers Exhibit 16 most likely patterns:",
      "options": {
       "A": "Manager A (factor diversified) 3.4% active risk, 0.76 Active Share, 3.6% avg sector deviation, Market source 98.0%.",
-      "B": "identical.",
-      "C": "no data."
+      "B": "Manager A (factor diversified) 4.5% active risk, 0.87 Active Share, 5.6% avg sector deviation, Market source 69.2%.",
+      "C": "Manager C (sector rotator) 3.6% active risk, 0.63 Active Share, 3.9% avg sector deviation, Market source 99.2%."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: Manager A (factor diversified) 3.4% active risk, 0.76 Active Share, 3.6% avg sector deviation, Market source 98.0%; Manager B (factor diversified) 3.6% AR, 0.63 AS, 3.9% deviation, Market 99.2%; Manager C (sector rotator) 4.5% AR, 0.87 AS, 5.6% deviation, Market 69.2%, Sectors 11.6%, Styles 9.7%, Unexplained 9.5%; sector rotator holds 21 positions, top 5 = 25.1%, cash/bonds 21.3%.\n\nCorrect. Per Exhibits 16 and 17: 'Manager A: Active risk 3.4%, Active Share 0.76, Average sector deviation 3.6%, Source of risk Market 98.0%, Sectors -0.8%, Styles 1.8%, Unexplained 1.0%. Manager B: Active risk 3.6%, Active Share 0.63, Average sector deviation 3.9%, Market 99.2%, Sectors -3.8%, Styles 4.2%, Unexplained 0.4%. Manager C (Sector Rotator): Number of securities 21, Weight of top 5 securities 25.1%, Cash and bond position 21.3%, Market beta 1.28, Absolute risk 11.69%, Active risk 4.5%, Active Share 0.87, Average sector deviation 5.6%, Source of risk Market 69.2%, Sectors 11.6%, Styles 9.7%, Unexplained 9.5%.'",
-      "B": "Detailed profiles.",
-      "C": "Real data."
+      "B": "Incorrect. Those are Manager C's figures — the concentrated sector rotator. Manager A, a factor-diversified manager, shows 3.4% active risk, 0.76 Active Share, 3.6% average sector deviation, with the Market factor explaining 98.0% of risk.",
+      "C": "Incorrect. The 3.6%/0.63/3.9%/99.2% profile belongs to Manager B, the other factor-diversified manager. Manager C, the sector rotator, shows 4.5% active risk, 0.87 Active Share, 5.6% sector deviation, with Market explaining only 69.2% of risk."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_portfolio_construction.g",
@@ -1620,15 +1620,15 @@
      "number": 9,
      "stem": "Manager C profile interpretation most likely:",
      "options": {
-      "A": "trivial.",
+      "A": "the 21-stock concentration implies a benchmark-aware closet indexer whose risk is almost fully explained by the Market factor.",
       "B": "large cash position dampens overall portfolio volatility.",
-      "C": "no interpretation."
+      "C": "the 21.3% cash-and-bond position raises the portfolio's absolute risk above what its 1.28 Market beta alone implies."
      },
      "correct": "B",
      "rationales": {
-      "A": "Detailed interpretation.",
+      "A": "Incorrect. Twenty-one holdings, 0.87 Active Share, high sector deviation, and 9.5% unexplained risk indicate a benchmark-agnostic, concentrated strategy — the opposite of a closet indexer, and Market explains only 69.2% of risk.",
       "B": "Full statement: large cash position dampens overall portfolio volatility; weighted avg cap much closer to capitalization of the index; Market beta 1.28 significantly higher consistent with absolute risk measures; absolute risk only slightly higher, likely dampened by large cash position; Active Share high consistent with security concentration; sector deviation 5.6% higher consistent with willingness to take sector bets; significantly less Market exposure, significantly more Sector and Style risk, and significantly higher proportion of risk is unexplained — indicates benchmark-agnostic strategy with significant and concentrated security/sector/style exposures.\n\nCorrect. Per Exhibit 17 with the reading: 'Number of securities 21 (Very concentrated; high levels of security-specific risk). Weight of top 5 securities 25.1%. Cash and bond position 21.3% (Large cash position dampens overall portfolio volatility). Weighted average capitalization ($ billions) 164.0 (Much closer to the capitalization of the index). Market beta 1.28 (Significantly higher, consistent with the absolute risk measures). Absolute risk 11.69% (Absolute risk only slightly higher, likely dampened by the large cash position). Active risk 4.5% (Higher). Active Share 0.87 (High, consistent with the level of security concentration). Average sector deviation 5.6% (Higher, consistent with willingness to take sector bets). Source of risk: Market 69.2% (Significantly less exposure to the Market factor, consistent with a concentrated, high-Active-Share manager). Sectors 11.6% (Significantly more Sector risk). Styles 9.7% (Significantly more Style risk). Unexplained 9.5% (Significantly higher proportion of risk is unexplained). Taken together, these measures indicate a benchmark-agnostic strategy with significant and concentrated security, sector, and style exposures.'",
-      "C": "Concentrated benchmark-agnostic."
+      "C": "Incorrect. The large cash position dampens volatility: despite the 1.28 Market beta, absolute risk (11.69%) is only slightly higher than the index's, likely because of the 21.3% cash-and-bond position."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_portfolio_construction.g",
@@ -1654,14 +1654,14 @@
      "number": 1,
      "stem": "Long/short strategies umbrella most likely:",
      "options": {
-      "A": "single strategy.",
-      "B": "no relationship.",
+      "A": "'market-neutral' is the most encompassing term, with long/short and long extension as two of its sub-types.",
+      "B": "'long extension' is the umbrella term, since 130/30 products can replicate both long/short and market-neutral exposures.",
       "C": "'long/short' is the most encompassing term and can include long extension and market-neutral products."
      },
      "correct": "C",
      "rationales": {
-      "A": "Umbrella term.",
-      "B": "Encompassing term.",
+      "A": "Incorrect. The hierarchy is inverted — 'long/short' is the most encompassing term and can include long extension and market-neutral products as variants.",
+      "B": "Incorrect. Long extension (e.g., 130/30) is one variation under the long/short umbrella, constrained to 100% net exposure; it is not the encompassing category.",
       "C": "Full statement: 'long/short' is the most encompassing term and can include long extension and market-neutral products; commonly refers to strategies that are relatively unconstrained in the extent to which they can lever both positive and negative insights; each is predicated on belief that research insights can be exploited not only in pursuit of stocks expected to perform well but also to profit from negative insights.\n\nCorrect. Per the reading: 'Long/short, long extension, and market-neutral portfolio approaches are all variations on a theme: Each is predicated on the belief that research insights can be exploited not only in the pursuit of stocks that are expected to perform well but also to profit from the negative insights gathered during the research process. \"Long/short\" is the most encompassing term and can include long extension and market-neutral products. Most commonly, the term \"long/short\" refers to strategies that are relatively unconstrained in the extent to which they can lever both positive and negative insights.'"
      },
      "type": "mc",
@@ -1774,15 +1774,15 @@
      "number": 6,
      "stem": "Exhibit 27 portfolio structures (illustrative) most likely:",
      "options": {
-      "A": "no data.",
+      "A": "130/30 long extension: 100% gross exposure, 160% net exposure.",
       "B": "long only 100/0 (0% cash), 100% gross, 100% net.",
-      "C": "no structures."
+      "C": "market neutral − higher risk (100/100): 0% gross exposure, 200% net exposure."
      },
      "correct": "B",
      "rationales": {
-      "A": "Detailed structures.",
+      "A": "Incorrect. This swaps the measures: a 130/30 long extension has gross exposure of 160% (130 long + 30 short) and net exposure of 100% (130 − 30).",
       "B": "Full statement: long only 100/0 (0% cash), 100% gross, 100% net; 130/30 long extension = 130/30, 0% cash, 160% gross, 100% net; market neutral low risk = 50/50, 100% cash, 100% gross, 0% net; market neutral higher risk = 100/100, 100% cash, 200% gross, 0% net; directional low risk = 80/40, 60% cash, 120% gross, 40% net; net short = 40/100, 160% cash, 140% gross, -60% net.\n\nCorrect. Per Exhibit 27 (Illustrative Long/Short Portfolio Structures as % of capital): 'Long only: Long 100, Short 0, Cash 0, Gross 100, Net 100. 130/30 long extension: Long 130, Short 30, Cash 0, Gross 160, Net 100. Market neutral − low risk: Long 50, Short 50, Cash 100, Gross 100, Net 0. Market neutral − higher risk: Long 100, Short 100, Cash 100, Gross 200, Net 0. Directional − low risk: Long 80, Short 40, Cash 60, Gross 120, Net 40. Net short: Long 40, Short 100, Cash 160, Gross 140, Net -60.'",
-      "C": "Real data."
+      "C": "Incorrect. A 100/100 market-neutral structure has gross exposure of 200% (100 + 100) and net exposure of 0% (100 − 100), not the reverse."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_portfolio_construction.h",
@@ -1798,14 +1798,14 @@
      "number": 7,
      "stem": "Long/short benefits most likely:",
      "options": {
-      "A": "no benefits.",
-      "B": "no advantages.",
+      "A": "(1) guaranteed reduction of collateral requirements relative to a long-only strategy.",
+      "B": "(1) elimination of market risk in every long/short variant, regardless of gross and net exposures.",
       "C": "(1) ability to more fully express short ideas than under long-only strategy."
      },
      "correct": "C",
      "rationales": {
-      "A": "Three benefits.",
-      "B": "Real benefits.",
+      "A": "Incorrect. Short-selling increases collateral demands — the prime broker requires collateral that grows with the relative amount of short-selling; reduced collateral is not among the listed benefits.",
+      "B": "Incorrect. Only market-neutral variants target zero Market exposure. The listed benefits are fuller expression of short ideas, efficient use of leverage and diversification, and greater ability to calibrate exposure to factors, sectors, and geography.",
       "C": "Full statement: (1) ability to more fully express short ideas than under long-only strategy; (2) efficient use of leverage and of benefits of diversification; (3) greater ability to calibrate/control exposure to factors (Market and other rewarded factors), sectors, geography, or any undesired exposure (such as sensitivity to price of oil).\n\nCorrect. Per the reading: 'Long/short strategies offer the following benefits: Ability to more fully express short ideas than under a long-only strategy. Efficient use of leverage and of the benefits of diversification. Greater ability to calibrate/control exposure to factors (such as Market and other rewarded factors), sectors, geography, or any undesired exposure (such as, perhaps, sensitivity to the price of oil).'"
      },
      "type": "mc",
@@ -1846,15 +1846,15 @@
      "number": 9,
      "stem": "Collateral requirements for short positions most likely:",
      "options": {
-      "A": "no collateral.",
+      "A": "collateral is set as a flat percentage of short positions regardless of the portfolio's short intensity.",
       "B": "prime broker requires collateral to assure lenders that contracts will be honored.",
-      "C": "no requirements."
+      "C": "all asset types count at 100% of market value toward the collateral requirement."
      },
      "correct": "B",
      "rationales": {
-      "A": "Detailed rules.",
+      "A": "Incorrect. Collateral scales with short intensity — a portfolio with 20% of capital invested short may post collateral equal to 40% of the short positions, while a 100%-short portfolio could be required to post 200%.",
       "B": "Full statement: prime broker requires collateral to assure lenders that contracts will be honored; higher relative amount of short-selling means greater collateral required; portfolio with 20% capital invested short may be required to put up collateral equal to 40% of short positions, whereas 100% short portfolio could be required to put up 200% of short positions; different asset types weighed differently (US Treasury bill may be 100% of value toward required collateral; high-yield bond or restricted-liquidity asset only portion of market value counts).\n\nCorrect. Per the reading: 'As previously indicated, to short-sell securities, investors typically rely on a prime broker who can help them locate the securities they wish to borrow. But the prime broker will require collateral from the short-sellers to assure the lenders of these securities that their contracts will be honored. The higher the relative amount of short-selling in a portfolio, the greater the amount of collateral required. A portfolio with 20% of capital invested short may be required to put up collateral equal to 40% of the short positions, whereas a portfolio with 100% of capital invested short could be required to put up collateral equal to 200% of the short positions. In addition, different types of assets are weighed differently in the calculation of collateral value. For example, a US Treasury bill may be viewed as very safe collateral and accorded 100% of its value toward the required collateral. In contrast, a high-yield bond or some other asset with restricted liquidity would have only a portion of its market value counted toward the collateral requirement.'",
-      "C": "Real requirements."
+      "C": "Incorrect. Asset types are weighed differently: a US Treasury bill may count at 100% of its value, but a high-yield bond or another restricted-liquidity asset counts only partially toward the requirement."
      },
      "type": "mc",
      "primary_los": "active_equity_investing_portfolio_construction.h",

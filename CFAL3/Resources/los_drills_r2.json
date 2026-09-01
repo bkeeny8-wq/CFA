@@ -24,7 +24,7 @@
      "correct": "A",
      "rationales": {
       "A": "Correct. The reading identifies three approaches: (1) discounted cash flow (DCF), (2) risk premium / building block, and (3) equilibrium models (useful as a first step in Black–Litterman).",
-      "B": "These are inputs or techniques but not the three main approaches.",
+      "B": "Historical averages and consensus surveys are inputs, and forward-rate methods (like full return decomposition) are implementations of the DCF approach — none of these is one of the curriculum's three main approaches, which are DCF, risk premium (building block), and equilibrium models.",
       "C": "These are portfolio-management strategies for matching liabilities, not CME approaches."
      },
      "type": "mc",
@@ -95,7 +95,7 @@
      },
      "correct": "A",
      "rationales": {
-      "A": "Correct. The reading identifies the four components as the one-period default-free rate, the term premium, the credit premium, and the liquidity premium — compensating for interest-rate risk, duration risk, credit risk, and illiquidity respectively.",
+      "A": "Correct. The reading identifies the four components as the one-period default-free rate, the term premium, the credit premium, and the liquidity premium — the short-term default-free rate is the baseline time-value component, while the term, credit, and liquidity premiums compensate for duration risk, credit risk, and illiquidity respectively.",
       "B": "These mix equity and other components not in the FI building block model.",
       "C": "These are yield-decomposition concepts but not the four building blocks."
      },
@@ -135,7 +135,7 @@
     {
      "id": "r2_cme2_los_a_q6",
      "number": 6,
-     "stem": "Based on Ilmanen (2012) as presented in Exhibit 1, the indicator with the strongest relationship to future excess bond returns across all horizons (1 quarter, 1 year, 5 years) is most likely:",
+     "stem": "Based on Ilmanen (2012) as presented in the reading, the indicator with the strongest relationship to future excess bond returns across all horizons (1 quarter, 1 year, 5 years) is most likely:",
      "options": {
       "A": "the yield curve slope (10 year − 3 month).",
       "B": "the unemployment rate.",
@@ -411,15 +411,15 @@
      "number": 7,
      "stem": "Political and legal risk factors that particularly affect EM debt investors most likely include:",
      "options": {
-      "A": "convergence of legal systems toward global standards.",
+      "A": "exchange-rate pegs that eliminate currency risk for foreign bondholders.",
       "B": "sovereign immunity making it difficult to force a sovereign borrower to pay.",
-      "C": "abolition of capital controls in all EM economies."
+      "C": "IMF membership guaranteeing repayment of sovereign obligations."
      },
      "correct": "B",
      "rationales": {
-      "A": "The reading does not describe convergence; weak enforcement is one of the identified risks.",
+      "A": "Pegs do not eliminate currency risk — they can collapse abruptly — and currency regimes are not among the political/legal risks the reading identifies, which center on weak enforcement and willingness to pay.",
       "B": "Correct. The reading identifies sovereign immunity as a factor making it very difficult to force a sovereign borrower to pay its debts. It also identifies weak property rights, weak contract enforcement, confiscation, nationalization, corruption, and capital controls as political/legal risks.",
-      "C": "Capital controls are noted as an ongoing risk in EM economies."
+      "C": "IMF membership carries no repayment guarantee; sovereign defaults occur among IMF members, and the reading's point is that legal recourse against a sovereign borrower is limited."
      },
      "type": "mc",
      "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.b",
@@ -565,15 +565,15 @@
      "number": 4,
      "stem": "Cynthia Casey applies the Grinold–Kroner model with these inputs: dividend yield 2.25%, net share repurchase 1%, earnings growth 6%, P/E multiple expansion 0.25%. The implied expected equity return is closest to:",
      "options": {
-      "A": "6.50%.",
+      "A": "8.50%.",
       "B": "9.50%.",
       "C": "7.50%."
      },
      "correct": "B",
      "rationales": {
-      "A": "This value is below the correct answer.",
+      "A": "Results from omitting the share-change term entirely: 2.25% + 6.0% + 0.25% = 8.50%. Net repurchases (%ΔS = −1%) must be included and add 1% to growth.",
       "B": "Correct. E(Re) ≈ 2.25% + [6.0% − (−1.0%)] + 0.25% = 2.25% + 7.00% + 0.25% = 9.50%. Net repurchases (%ΔS = −1%) mean EPS grows faster than total earnings, adding 1% to the growth term.",
-      "C": "This is below the correct answer."
+      "C": "Results from treating the 1% net repurchase as net issuance (+%ΔS), subtracting it instead of adding: 2.25% + 6.0% − 1.0% + 0.25% = 7.50%."
      },
      "type": "mc",
      "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.c",
@@ -615,13 +615,13 @@
      "options": {
       "A": "the average level of earnings for the last 10 years, adjusted for inflation.",
       "B": "the most recent quarter's earnings.",
-      "C": "the trailing 12 months of forward-looking analyst earnings estimates."
+      "C": "consensus analyst estimates of the next 12 months of earnings (a forward P/E)."
      },
      "correct": "A",
      "rationales": {
       "A": "Correct. The reading defines CAPE as the current price level divided by the average level of earnings for the last 10 years (adjusted for inflation), rather than by the most current earnings. The idea is to average away cyclical variation in earnings and provide a more reliable base against which to assess the current market price.",
       "B": "This is the standard trailing P/E, not the cyclically adjusted version.",
-      "C": "This is not the CAPE construction."
+      "C": "This describes a forward P/E based on analyst estimates; CAPE instead uses a 10-year average of inflation-adjusted historical earnings."
      },
      "type": "mc",
      "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.c",
@@ -768,14 +768,14 @@
      "stem": "Political, legal, and regulatory weaknesses that affect emerging market equity investors most likely include which of the following?",
      "options": {
       "A": "Manipulation of company capital structures and misuse of business assets by interested parties, enabled by weak corporate governance.",
-      "B": "Enforcement of internationally consistent accounting standards across all EM.",
-      "C": "Strong disclosure rules limiting insider advantages."
+      "B": "Inability to enforce collateral claims against sovereign borrowers because of sovereign immunity.",
+      "C": "Mandatory dual-listing requirements that fragment trading liquidity across exchanges."
      },
      "correct": "A",
      "rationales": {
       "A": "Correct. The reading identifies weak corporate governance standards as allowing interested parties to manipulate capital structures and misuse business assets.",
-      "B": "The reading emphasizes inadequate accounting standards, not enforcement of consistent ones.",
-      "C": "The reading emphasizes weak disclosure that favors insiders."
+      "B": "This is a risk emphasized for EM debt investors — sovereign immunity limits creditors' recourse — not the corporate-governance weakness the reading highlights for equity investors.",
+      "C": "The reading does not identify dual-listing mandates as an EM weakness; the equity-investor concerns are weak governance, weak disclosure favoring insiders, and inadequate accounting standards."
      },
      "type": "mc",
      "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.d",
@@ -791,15 +791,15 @@
      "number": 3,
      "stem": "The reading notes that emerging market equity investors need to focus on risks that are most likely different from those facing emerging market debt investors. The key distinction is:",
      "options": {
-      "A": "EM debt investors face no political risks; EM equity investors face all political risks.",
+      "A": "EM debt and equity investors face identical risk sets, so the same country credit analysis suffices for both.",
       "B": "EM debt investors focus on ability and willingness to pay specific obligations; EM equity investors need to focus on a variety of risks beyond traditional credit and counterparty risks, especially during macro/political distress.",
-      "C": "EM equity investors face no informational efficiency issues; EM debt investors face all such issues."
+      "C": "EM equity risk reduces to currency risk once country credit risk has been assessed."
      },
      "correct": "B",
      "rationales": {
-      "A": "Both types of investors face political risks, though of somewhat different forms.",
+      "A": "The risk sets overlap but are not identical; the reading stresses that equity investors must look beyond the ability- and willingness-to-pay analysis that debt investors emphasize.",
       "B": "Correct. The reading states EM debt investors focus on ability and willingness to pay specific obligations, whereas EM equity investors need to focus on a variety of risks beyond traditional credit/counterparty risks, especially in times of macroeconomic and political distress.",
-      "C": "Both face informational efficiency issues."
+      "C": "Equity risk extends well beyond currency risk — weak governance, disclosure, and legal protections matter, especially during macroeconomic and political distress."
      },
      "type": "mc",
      "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.d",
@@ -1019,13 +1019,13 @@
      "options": {
       "A": "leases are perfectly flexible, allowing rents to adjust instantly to demand.",
       "B": "perceptions of rising demand and profitability induce overbuilding, and property's long life, immobility, and multi-year staggered leases make excess supply slow to absorb.",
-      "C": "central banks explicitly time construction cycles as part of monetary policy."
+      "C": "short construction lead times allow supply to respond quickly, so excess supply is absorbed within months."
      },
      "correct": "B",
      "rationales": {
       "A": "The reading emphasizes the opposite — leases are typically multi-year and staggered, creating slow adjustment.",
       "B": "Correct. The reading describes the classic boom-bust: perceptions of rising demand → new property development that helps sustain the economy → optimistic overbuilding → declining property values, lease rates, and occupancy → slow absorption of excess supply because property has a very long life and is immobile, and leases are typically for multiple years and staggered across tenants.",
-      "C": "This is not a mechanism the reading identifies."
+      "C": "The reading describes the opposite: property's very long life, immobility, and multi-year staggered leases mean excess supply is absorbed slowly, prolonging the bust phase."
      },
      "type": "mc",
      "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.e",
@@ -1162,7 +1162,7 @@
      "stem": "According to the reading's data on direct real estate vs REITs (Exhibit 7), an important characteristic of REITs relative to unlevered direct real estate is most likely:",
      "options": {
       "A": "REITs consistently sacrifice performance to obtain liquidity.",
-      "B": "REITs offer similar or higher aggregate returns and equivalent liquidity to direct real estate.",
+      "B": "REITs offer similar or higher aggregate returns while providing far superior liquidity relative to direct real estate.",
       "C": "REITs lag the direct market with significantly lower volatility."
      },
      "correct": "B",
@@ -1196,13 +1196,13 @@
      "stem": "The reading argues that trade flows—exports minus imports—in general influence contemporaneous exchange rate movements most likely:",
      "options": {
       "A": "significantly, because trade flows dominate all foreign exchange transactions.",
-      "B": "not at all, since trade never crosses the foreign exchange market.",
+      "B": "strongly but with a lag, because trade invoices settle only at quarter-end.",
       "C": "modestly, because net trade flows are typically small relative to actual and potential financial flows."
      },
      "correct": "C",
      "rationales": {
       "A": "This overstates trade flows' influence.",
-      "B": "Trade does affect exchange rates through financing needs.",
+      "B": "Settlement timing is not the mechanism; the reading's point is that net trade flows are small relative to actual and potential financial flows, so their contemporaneous influence is modest, not strong-with-a-lag.",
       "C": "Correct. The reading states trade flows do not, in general, exert a significant impact on contemporaneous exchange rate movements, provided they can be financed. Net trade flows are typically much smaller relative to the economy and to actual and potential financial flows. If trade-related flows become large relative to financing/investment flows, it likely indicates an emerging crisis."
      },
      "type": "mc",
@@ -1221,13 +1221,13 @@
      "options": {
       "A": "the expected percentage change in the exchange rate equals the difference in expected inflation rates.",
       "B": "the expected percentage change in the exchange rate equals the difference in nominal interest rates.",
-      "C": "exchange rates should always equal 1.0 across all currencies."
+      "C": "the level of the nominal exchange rate equals the ratio of the two countries' money supplies at every point in time."
      },
      "correct": "A",
      "rationales": {
       "A": "Correct. Relative PPP states that the expected percentage change in the exchange rate should equal the difference in expected inflation rates. Equivalently, if the real exchange rate is the ratio of price levels converted to a common currency, PPP says the expected change in the real exchange rate should be zero.",
       "B": "This is the interest rate parity / UIP relationship, not PPP.",
-      "C": "This is not PPP."
+      "C": "PPP relates exchange rates to relative price levels (expected inflation differentials), not money-supply ratios, and holds at best as a long-run tendency rather than at every point in time."
      },
      "type": "mc",
      "primary_los": "capital_market_expectations_part_2_forecasting_asset_class_returns.g",

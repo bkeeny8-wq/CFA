@@ -138,13 +138,13 @@
      "stem": "The Size factor tilt toward smaller size most likely involves:",
      "options": {
       "A": "buying largest-cap stocks.",
-      "B": "no tilt.",
+      "B": "buying stocks with low prices per share regardless of market capitalization.",
       "C": "buying stocks with low float-adjusted market capitalization."
      },
      "correct": "C",
      "rationales": {
       "A": "Opposite direction.",
-      "B": "Real tilt.",
+      "B": "Incorrect. The Size factor is defined by low float-adjusted market capitalization, not by a low price per share.",
       "C": "Correct. Per Exhibit 1: 'Size: A tilt toward smaller size involves buying stocks with low float-adjusted market capitalization.'"
      },
      "type": "mc",
@@ -162,14 +162,14 @@
      "stem": "The Momentum factor most likely attempts to capture:",
      "options": {
       "A": "further returns from stocks that have experienced an above-average increase in price during the prior period.",
-      "B": "future returns.",
+      "B": "returns from stocks that have recently underperformed the market.",
       "C": "reversion effects."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: further returns from stocks that have experienced an above-average increase in price during the prior period; example: MSCI's Momentum Index uses stock's most recent 12-month and 6-month price performance to weight securities.\n\nCorrect. Per Exhibit 1: 'Momentum: Momentum attempts to capture further returns from stocks that have experienced an above-average increase in price during the prior period.' Per the reading: 'Another return-oriented strategy is momentum, which is generally defined by the amount of a stock's excess price return relative to the market over a specified time period. Momentum can be determined in various ways. One example is MSCI's Momentum Index family, in which a stock's most recent 12-month and 6-month price performance are determined and then used to weight the securities in the index.'",
-      "B": "Backward-looking.",
-      "C": "Backward-looking."
+      "B": "Incorrect. Buying recent underperformers describes a contrarian/reversal strategy; momentum buys stocks with above-average price increases in the prior period.",
+      "C": "Incorrect. Reversion is the opposite of momentum, which seeks a continuation of returns from recent winners rather than a reversal."
      },
      "type": "mc",
      "primary_los": "index_based_equity_strategies.a",
@@ -234,14 +234,14 @@
      "stem": "Factor tilts by investors most likely:",
      "options": {
       "A": "intentionally overweight and underweight certain risk factors based on judgment of market conditions.",
-      "B": "avoid all overweighting.",
-      "C": "eliminate all factors."
+      "B": "require continuous daily rebalancing to maintain exact factor weights.",
+      "C": "guarantee outperformance whenever the tilted factor carries a long-run premium."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: intentionally overweight and underweight certain risk factors based on judgment of market conditions; index-based factor strategies can be used in place of or to complement more traditional market-cap-weighted indexed portfolio.\n\nCorrect. Per the reading: 'Many investors apply factor tilts — intentionally overweighting and underweighting certain risk factors — to their portfolios based on their judgment of market conditions. Index-based factor strategies can be used in place of or to complement a more traditional market-cap-weighted indexed portfolio.'",
-      "B": "Intentional overweight.",
-      "C": "Deliberate approach."
+      "B": "Incorrect. Factor tilts are judgment-based overweights and underweights of risk factors; they do not require continuous daily rebalancing to exact factor weights.",
+      "C": "Incorrect. Factor premiums are not guaranteed over any given horizon; a tilt reflects the investor's judgment of market conditions, not assured outperformance."
      },
      "type": "mc",
      "primary_los": "index_based_equity_strategies.a",
@@ -457,17 +457,17 @@
     {
      "id": "r15_index_los_b_q6",
      "number": 6,
-     "stem": "Factor-based ETFs by segment share most likely:",
+     "stem": "Factor-based ETFs' share of the global equity ETF market most likely:",
      "options": {
       "A": "accounted for 17% of approximately $7 trillion in global equity ETF AUM as of Q4 2022.",
-      "B": "small share.",
-      "C": "no factor ETFs."
+      "B": "accounted for approximately 3% of global equity ETF AUM as of Q4 2022.",
+      "C": "accounted for approximately 77% of global equity ETF AUM as of Q4 2022."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: accounted for 17% of approximately $7 trillion in global equity ETF AUM as of Q4 2022; index-tracking ETFs 77%, actively managed 3%, other 3%; provide exposure to single factors (Size, Value, Momentum, Quality, Volatility, Yield) or multifactor mixes.\n\nCorrect. Per the reading's Exhibit 2: 'Factor-based ETFs have become a large segment of the market, accounting for 17% of the approximately $7 trillion in global equity ETF assets under management as of the fourth quarter 2022. Factor-based ETFs provide exposure to such single factors as Size, Value, Momentum, Quality, Volatility, and Yield. There are also multifactor ETFs, such as the iShares U.S. Equity Factor ETF, which emphasizes exposure to the Size, Value, Momentum, Quality, and Volatility factors.' Distribution: Index 77%, Factor-based 17%, Actively managed 3%, Other 3%.",
-      "B": "Real segment.",
-      "C": "17% share."
+      "B": "Incorrect. Approximately 3% was the share of actively managed ETFs as of Q4 2022; factor-based ETFs accounted for 17%.",
+      "C": "Incorrect. Approximately 77% was the share of conventional index-tracking ETFs as of Q4 2022; factor-based ETFs accounted for 17%."
      },
      "type": "mc",
      "primary_los": "index_based_equity_strategies.b",
@@ -508,13 +508,13 @@
      "stem": "Regulatory frameworks for open-end mutual funds most likely:",
      "options": {
       "A": "same globally.",
-      "B": "no regulation.",
+      "B": "US funds governed by UCITS and European funds by the Investment Company Act of 1940.",
       "C": "US governed by Investment Company Act of 1940."
      },
      "correct": "C",
      "rationales": {
       "A": "Regional frameworks.",
-      "B": "Regulated.",
+      "B": "Incorrect. The frameworks are reversed: the Investment Company Act of 1940 governs US mutual funds, while UCITS governs the management and sale of collective investment funds across EU borders.",
       "C": "Full statement: US governed by Investment Company Act of 1940; Europe governed by UCITS (Undertakings for Collective Investment in Transferable Securities) — agreement among EU countries governing management and sale of collective investment funds across European borders.\n\nCorrect. Per the reading: 'In the United States, mutual funds are governed by provisions of the Investment Company Act of 1940. In Europe, Undertakings for Collective Investment in Transferable Securities (UCITS) is an agreement among countries in the European Union that governs the management and sale of collective investment funds (mutual funds) across European borders.'"
      },
      "type": "mc",
@@ -686,14 +686,14 @@
      "stem": "Derivatives leverage through notional value most likely means:",
      "options": {
       "A": "notional value of contracts can be many times greater than initial cash outlay.",
-      "B": "no leverage.",
-      "C": "always cash-backed."
+      "B": "notional value equals the margin the buyer must post.",
+      "C": "leverage is capped at 2x by exchange rules."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: notional value of contracts can be many times greater than initial cash outlay; but derivatives expire (stocks can be held indefinitely); risk of expiring options: complete loss of premium paid; futures and swaps can be extended by 'rolling' (selling expiring contract and buying longer-dated one).\n\nCorrect. Per the reading: 'Derivatives allow for leverage through their notional value amounts. Notional value of the contracts can be many times greater than the initial cash outlay. However, derivatives expire, whereas stocks can be held indefinitely. The risk of an expiring options contract is a complete loss of the relatively small premium paid to acquire the exposure. Futures and swaps can be extended by \"rolling\" the contract forward, which means selling the expiring contract and buying a longer dated one.'",
-      "B": "Leverage feature.",
-      "C": "Notional leverage."
+      "B": "Incorrect. Margin is a small fraction of notional value; the gap between the initial cash outlay and the much larger notional exposure is precisely the source of leverage.",
+      "C": "Incorrect. No such 2x cap exists; the notional value of derivative contracts can be many times greater than the initial cash outlay."
      },
      "type": "mc",
      "primary_los": "index_based_equity_strategies.c",
@@ -709,13 +709,13 @@
      "number": 4,
      "stem": "Overlays are most likely:",
      "options": {
-      "A": "unused.",
+      "A": "cash-market trades used to permanently restructure the portfolio.",
       "B": "derivative positions typically used to adjust a pre-existing portfolio to move closer to meeting its objectives.",
       "C": "primary strategy."
      },
      "correct": "B",
      "rationales": {
-      "A": "Adjustments.",
+      "A": "Incorrect. Overlays are derivative positions, not cash-market trades, and they are typically used to adjust an existing portfolio toward its objectives rather than to permanently restructure it.",
       "B": "Full statement: derivative positions typically used to adjust a pre-existing portfolio to move closer to meeting its objectives; three types: completion overlay (correct diverged exposure), rebalancing overlay (need to sell some securities and buy others), currency overlay (hedge foreign currency exposure back to home currency).\n\nCorrect. Per the reading: 'It is uncommon for index-based portfolio managers to use derivatives in the long term to synthetically mimic the return from the underlying securities. Derivatives are typically used to adjust a pre-existing portfolio to move closer to meeting its objectives. These derivative positions are often referred to as an overlay. A completion overlay addresses an indexed portfolio that has diverged from its proper exposure. A common example is a portfolio that has built up a surplus of cash from investor flows or dividends, causing the portfolio's beta to be significantly less than that of the benchmark... A rebalancing overlay addresses a portfolio's need to sell certain constituent securities and buy others. Particularly in the context of a mixed stock and bond portfolio, using equity index derivatives to rebalance toward investment policy target weights can be efficient and cost-effective. A currency overlay assists a portfolio manager in hedging the returns of securities that are held in a foreign currency back to the home country's currency.'",
       "C": "Adjustment tools."
      },
@@ -733,14 +733,14 @@
      "number": 5,
      "stem": "Equity index derivative advantages over cash-based portfolio construction most likely include:",
      "options": {
-      "A": "no advantages.",
-      "B": "worse liquidity.",
+      "A": "elimination of all tracking error versus the index.",
+      "B": "unlimited position sizes with no exchange-imposed limits.",
       "C": "increase/decrease exposure to entire index portfolio in single transaction."
      },
      "correct": "C",
      "rationales": {
-      "A": "Real advantages.",
-      "B": "Often more liquid.",
+      "A": "Incorrect. Derivatives allow quick, low-cost exposure adjustment, but futures/spot basis risk means tracking error is not eliminated.",
+      "B": "Incorrect. Exchanges impose position limits and margin requirements; the advantage is efficient, liquid, single-transaction exposure adjustment, not unlimited size.",
       "C": "Full statement: increase/decrease exposure to entire index portfolio in single transaction; managers make tactical adjustments more efficiently than cash-market transactions; many derivatives contracts highly liquid (sometimes more than underlying cash assets); adjustment quick and low cost.\n\nCorrect. Per the reading: 'Equity index derivatives offer several advantages over cash-based portfolio construction approaches. A portfolio manager can increase or decrease exposure to the entire index portfolio in a single transaction. Managers who want to make tactical adjustments to portfolio exposure often find derivatives to be a more efficient tool than cash-market transactions for achieving their goals. Many derivatives contracts are highly liquid, sometimes more so than the underlying cash assets. Especially in this case, portfolio exposures can be tactically adjusted quickly and at low cost.'"
      },
      "type": "mc",
@@ -781,15 +781,15 @@
      "number": 7,
      "stem": "Equity index futures most likely are:",
      "options": {
-      "A": "physically settled.",
+      "A": "settled by delivery of an ETF tracking the index.",
       "B": "cash-settled (unlike many commodity futures) — counterparties exchange cash rather than underlying shares.",
-      "C": "physical delivery."
+      "C": "settled by physical delivery of the underlying index constituents."
      },
      "correct": "B",
      "rationales": {
-      "A": "Cash settled.",
+      "A": "Incorrect. Index futures are cash-settled; no ETF shares or underlying securities change hands at settlement.",
       "B": "Full statement: cash-settled (unlike many commodity futures) — counterparties exchange cash rather than underlying shares; provide exposure to specific index; buyer obtains right to buy underlying on expiration date at futures price prevailing at purchase; buyer required to post margin (collateral) to decrease credit risk to exchange.\n\nCorrect. Per the reading: 'In addition to options, which have nonlinear payoffs, the two primary types of equity index derivatives contracts are futures and swaps. Equity index futures provide exposure to a specific index. Unlike many commodity futures contracts, index futures are cash-settled, which means the counterparties exchange cash rather than the underlying shares. The buyer of an equity index futures contract obtains the right to buy the underlying (in this case, an index) on the expiration date of the contract at the futures price prevailing at the time the derivative was purchased. For exchange-traded futures, the buyer is required to post margin (collateral) in the account to decrease the credit risk to the exchange, which is the effective counterparty.'",
-      "C": "Cash settled."
+      "C": "Incorrect. Unlike many commodity futures, equity index futures involve no physical delivery; the counterparties exchange cash."
      },
      "type": "mc",
      "primary_los": "index_based_equity_strategies.c",
@@ -830,13 +830,13 @@
      "stem": "Futures commission merchant (FCM) role most likely is:",
      "options": {
       "A": "clearing house member assigned to trade on behalf of investor for futures positions.",
-      "B": "no role.",
+      "B": "the exchange employee who sets initial and maintenance margin levels.",
       "C": "self-clearing only."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: clearing house member assigned to trade on behalf of investor for futures positions; posts initial margin required to open position; settles daily to comply with maintenance margin required by clearing house; helps close position at expiration; futures accounts require management of daily cash flows (adding or drawing down).\n\nCorrect. Per the reading: 'Futures positions must be initiated with a futures commission merchant (FCM), a clearing house member assigned to trade on behalf of the investor. The FCM posts the initial margin required to open the position and then settles on a daily basis to comply with the maintenance margin required by the clearing house. The FCM also helps close the position upon expiration. However, futures accounts are not free of effort on the client's part. Having a futures account requires the management of daily cash flows, sometimes committing additional money and sometimes drawing it down.'",
-      "B": "Distinct role.",
+      "B": "Incorrect. Margin levels are set by the clearing house, not the FCM; the FCM is a clearing house member that trades on the investor's behalf and posts the required margin for the client.",
       "C": "Essential intermediary."
      },
      "type": "mc",
@@ -851,17 +851,17 @@
     {
      "id": "r15_index_los_c_q10",
      "number": 10,
-     "stem": "Common short-sale constraints on stock positions are most likely:",
+     "stem": "Relative to short-selling stocks, opening a short equity index futures position most likely:",
      "options": {
-      "A": "same for futures.",
-      "B": "many institutional investors face short-sale constraints on stocks.",
-      "C": "no shorting anywhere."
+      "A": "is subject to the same short-sale constraints that apply to stock positions.",
+      "B": "is not subject to the short-sale constraints many institutional investors face on stock positions.",
+      "C": "is prohibited for most institutional investors."
      },
      "correct": "B",
      "rationales": {
-      "A": "Different for futures.",
+      "A": "Incorrect. Many institutional investors who face short-sale constraints on stock positions do not face constraints on opening a futures position with a sale of the contracts.",
       "B": "Full statement: many institutional investors face short-sale constraints on stocks; but many do NOT face constraints on opening a futures position with a sale of the contracts — futures market provides easy shorting mechanism relative to cash equities.\n\nCorrect. Per the reading: 'Unlike some institutional investors' short-sale constraints on stock positions, many investors do not face constraints on opening a futures position with a sale of the contracts. Among other benefits of futures is the high degree of liquidity in the market, as evidenced by low bid–ask spreads. Both commission and execution costs also tend to be low relative to the exposure achieved. The low cost of transacting makes it easy for portfolio managers to use futures contracts to modify the equity risk exposure of their portfolios.'",
-      "C": "Constraints differ."
+      "C": "Incorrect. Selling index futures is widely permitted and, with low bid-ask spreads and low transaction costs, provides an easy shorting mechanism relative to cash equities."
      },
      "type": "mc",
      "primary_los": "index_based_equity_strategies.c",
@@ -878,13 +878,13 @@
      "stem": "Equity index swaps most likely:",
      "options": {
       "A": "exchange-traded.",
-      "B": "no OTC market.",
+      "B": "cleared through a central clearing house that removes all counterparty risk.",
       "C": "over-the-counter contracts, generally executed with a single counterparty adding counterparty default risk."
      },
      "correct": "C",
      "rationales": {
       "A": "OTC.",
-      "B": "OTC market.",
+      "B": "Incorrect. Unlike exchange-traded futures backed by a clearing house, equity swaps are generally executed with a single counterparty, which adds counterparty default risk.",
       "C": "Full statement: over-the-counter contracts, generally executed with a single counterparty adding counterparty default risk; unlike futures which are exchange-traded; sometimes used strategically to synthetically mimic index return; can be extended by rolling.\n\nCorrect. Per the reading: 'Equity swaps, on the other hand, are generally executed with a single counterparty and so add the risk of default by that counterparty.' Swaps are OTC, so counterparty selection matters; they may be used for tactical adjustments or currency hedging as overlays."
      },
      "type": "mc",
@@ -901,7 +901,7 @@
      "number": 12,
      "stem": "The choice among pooled investments, derivatives, or SMAs for index exposure most likely depends on:",
      "options": {
-      "A": "investor size (large investors find building their own portfolios via replication/sampling/optimization more cost-effective.",
+      "A": "investor size — large investors find building their own portfolios via replication, sampling, or optimization more cost-effective, while smaller investors prefer pooled vehicles or ETFs.",
       "B": "The choice among pooled funds, derivatives, and separate accounts is arbitrary and driven by no identifiable factors.",
       "C": "Vehicle choice depends on a single factor: the investor's tax status."
      },
@@ -923,17 +923,17 @@
     {
      "id": "r15_index_los_c_q13",
      "number": 13,
-     "stem": "Futures futures/spot basis risk most likely is:",
+     "stem": "Futures/spot basis risk most likely is:",
      "options": {
-      "A": "no risk.",
+      "A": "eliminated by daily marking to market of the futures position.",
       "B": "risk that futures and spot prices do not move in concert.",
-      "C": "always identical."
+      "C": "the risk that the clearing house defaults on the contract at settlement."
      },
      "correct": "B",
      "rationales": {
-      "A": "Real risk.",
+      "A": "Incorrect. Daily settlement manages credit exposure; it does not prevent futures and spot prices from diverging, so basis risk remains.",
       "B": "Full statement: risk that futures and spot prices do not move in concert — index fund managers use futures because instruments are expected to move in line with underlying index, but any divergence creates tracking error.\n\nCorrect. Per the reading: 'Equity index futures do come with some disadvantages. Futures are used by index fund managers because the instruments are expected to move in line with the underlying index. To the extent that the futures and spot prices do not move in concert, the manager may see performance divergence from the intended index-tracking outcome.' Even the excellent match between futures and spot is not perfect, creating basis risk.",
-      "C": "Divergence possible."
+      "C": "Incorrect. Clearing house default is counterparty/credit risk; basis risk is the risk that futures and spot prices do not move in concert."
      },
      "type": "mc",
      "primary_los": "index_based_equity_strategies.c",
@@ -960,13 +960,13 @@
      "stem": "Full replication most likely:",
      "options": {
       "A": "samples 10 stocks.",
-      "B": "no securities.",
+      "B": "holds all constituents at equal weights.",
       "C": "holds ALL constituent securities of the index in the same proportion as the index — provides the tightest tracking."
      },
      "correct": "C",
      "rationales": {
       "A": "Not sampling.",
-      "B": "Holds all constituents.",
+      "B": "Incorrect. Full replication holds every constituent in the same proportion as the index, not at equal weights.",
       "C": "Full statement: holds ALL constituent securities of the index in the same proportion as the index — provides the tightest tracking; requires large-scale portfolio and high-quality information about constituent characteristics; portfolio manager must maintain portfolio according to index changes; trade at market-on-close price where available to match index calculation.\n\nCorrect. Per the reading: 'Full replication is a sensible and desirable approach... Building an index-based portfolio by full replication, meaning to hold all the index constituents, requires a large-scale portfolio and high-quality information about the constituent characteristics.' Additionally: 'A fully replicated portfolio must make those changes in a timely manner to maintain its performance tracking with the index. Again, a perfectly replicated index portfolio must trade at the market-on-close price where available to match the price used by the index provider in calculating the index performance.'"
      },
      "type": "mc",
@@ -1079,15 +1079,15 @@
      "number": 6,
      "stem": "Optimization advantages over stratified sampling most likely include:",
      "options": {
-      "A": "always inferior.",
+      "A": "lower cost and less need for technical sophistication.",
       "B": "lower tracking error than stratified sampling.",
-      "C": "no advantage."
+      "C": "no need for periodic re-estimation of inputs."
      },
      "correct": "B",
      "rationales": {
-      "A": "Real advantages.",
+      "A": "Incorrect. Optimization is more complex and data-intensive than stratified sampling; its advantages are lower tracking error and explicit treatment of covariances, not lower cost or simplicity.",
       "B": "Full statement: lower tracking error than stratified sampling; optimization process accounts explicitly for covariances among portfolio constituents — although two securities from different industry sectors may be included under stratified sampling, if their returns move strongly together one will likely be excluded from an optimized portfolio.\n\nCorrect. Per the reading: 'Advantages of optimization involve a lower amount of tracking error than stratified sampling. Also, the optimization process accounts explicitly for the covariances among the portfolio constituents. Although two securities from different industry sectors may be included in a portfolio under stratified sampling, if their returns move strongly together, one will likely be excluded from an optimized portfolio.'",
-      "C": "Covariance-aware."
+      "C": "Incorrect. Optimization relies on estimated covariances among constituents, which must be re-estimated periodically as market relationships change."
      },
      "type": "mc",
      "primary_los": "index_based_equity_strategies.d",
@@ -1176,13 +1176,13 @@
      "stem": "The stratified sampling knowledge check example (S&P 500 Value Index tracking with $750,000 minimum) most likely recommends:",
      "options": {
       "A": "hold all 300+ constituents.",
-      "B": "no stratification.",
+      "B": "select the 200 securities with the lowest price volatility rather than the largest market caps.",
       "C": "set maximum number of constituents (e.g., 200) to limit average lot size and reduce commission costs."
      },
      "correct": "C",
      "rationales": {
       "A": "Sample and reweight.",
-      "B": "Structured sampling.",
+      "B": "Incorrect. The example selects the 200 securities with the largest market capitalizations and then matches the sampled portfolio's sector weights to those of the index.",
       "C": "Full statement: set maximum number of constituents (e.g., 200) to limit average lot size and reduce commission costs; select securities based on largest market capitalizations; then match sector weightings of sampled portfolio to those of index by comparing and reweighting.\n\nCorrect. Per the reading's knowledge check solution: 'The manager recommends that the client set a maximum number of constituents (for example, 200) to limit the average lot size and to reduce commission costs. Next, the manager seeks to identify the constituents to hold based on their market capitalization. That is, the manager selects the 200 securities with the largest market capitalizations. Then the manager seeks to more closely match the performance of the index by matching the sector weightings of the sampled portfolio to the sector weightings of the index. After comparing sector weights, the manager reweights the sampled portfolio.'"
      },
      "type": "mc",
@@ -1200,13 +1200,13 @@
      "stem": "Full replication is most likely preferred when:",
      "options": {
       "A": "indexes have few constituents — full replication typically advisable.",
-      "B": "very few constituents.",
+      "B": "the index spans thousands of small-cap, illiquid names.",
       "C": "many illiquid constituents."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: indexes have few constituents — full replication typically advisable; when index has many constituents or hard-to-find securities, sampling/optimization become preferred; large-cap portions of broad indexes support full replication due to high liquidity and low costs.\n\nCorrect. Per the reading: 'For indexes that have few constituent securities, full replication is typically advisable. When the reverse is true, sampling or optimization are likely to be the preferred methods.' Full replication requires large-scale portfolio and high-quality information about constituents; when constituents are few and liquid, replication is straightforward and cost-effective.",
-      "B": "Few constituents.",
+      "B": "Incorrect. When an index has many constituents or hard-to-find, illiquid securities, sampling or optimization is the preferred method; full replication is advisable when constituents are few and liquid.",
       "C": "Few/liquid preferred."
      },
      "type": "mc",
@@ -1223,15 +1223,15 @@
      "number": 12,
      "stem": "Model-portfolio matching using an OMS (order management system) most likely involves:",
      "options": {
-      "A": "no systematic process.",
+      "A": "post-trade compliance checks only, since pre-trade restrictions cannot be automated.",
       "B": "using spreadsheet/database programs (Excel, Access) to compute current vs model weights variance and shares to trade.",
-      "C": "manual only."
+      "C": "delivery of orders by email rather than FIX or SWIFT protocol."
      },
      "correct": "B",
      "rationales": {
-      "A": "Systematic OMS process.",
+      "A": "Incorrect. The OMS is programmed to provide pre-trade compliance, checking client-specific restrictions, front-running issues, and other compliance rules before orders are sent.",
       "B": "Full statement: using spreadsheet/database programs (Excel, Access) to compute current vs model weights variance and shares to trade; OMS provides pre-trade compliance checks for client-specific restrictions, front-running issues, and other compliance rules; OMS delivers buy and sell orders using FIX or SWIFT protocol; changes announced publicly by index provider must be tracked and applied timely.\n\nCorrect. Per the reading: 'This type of modeling can easily and cheaply be conducted using spreadsheet and database programs, such as Excel and Access. However, the modeling is only a part of the portfolio management process. The OMS should also be programmed to provide the investor with pre-trade compliance to check for client-specific restrictions, front-running issues, and other compliance rules. The OMS is also used to deliver the buy and sell orders for execution using FIX or SWIFT Protocol, as described previously. After initial creation of the indexed portfolio, the manager must maintain the portfolio according to any changes in the index. The changes are announced publicly by the index provider. Index fund managers use those details to update their models in the OMS and to determine the number of shares to buy or sell.'",
-      "C": "OMS-driven."
+      "C": "Incorrect. The OMS delivers buy and sell orders for execution using the FIX or SWIFT protocol, not email."
      },
      "type": "mc",
      "primary_los": "index_based_equity_strategies.d",
@@ -1353,15 +1353,15 @@
      "number": 4,
      "stem": "The primary causes of tracking error most likely include:",
      "options": {
-      "A": "(1) fees charged (always negative, drive down excess return).",
-      "B": "no causes.",
-      "C": "single cause."
+      "A": "fees charged (always negative, drive down excess return).",
+      "B": "benchmark index turnover, which affects the index but not the fund.",
+      "C": "securities-lending income, which always raises tracking error."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: (1) fees charged (always negative, drive down excess return); (2) number of securities held vs benchmark (sampled portfolios have higher TE); (3) intra-day trading price differences from close prices; (4) commission costs; (5) cash holdings (equity indexes don't have cash allocation).\n\nCorrect. Per the reading: 'Tracking error in an indexed equity fund can arise for several reasons. A major reason involves the fees charged... higher fees will contribute to lower excess returns and higher tracking error. A second issue to consider is the number of securities held by the portfolio versus the benchmark index... Sampled portfolios typically report greater tracking error than those that are fully replicated. The intra-day trading of the constituent stocks of an indexed portfolio also presents an important issue... The price levels used to report index returns are struck at the close of the trading day, so any securities that are bought or sold at a different price than that of the index will contribute to portfolio tracking error... A secondary component of trading costs that contributes to tracking error is the trading commission paid to brokers... Another issue to consider is the cash holding of the portfolio. Equity indexes do not have a cash allocation, so any cash balance creates tracking error.'",
-      "B": "Multiple causes.",
-      "C": "Multiple causes."
+      "B": "Incorrect. Index constituent changes affect the fund as well — the manager must trade to match them. The primary causes are fees, number of securities held versus the benchmark, intra-day trading prices versus closing prices, commissions, and cash holdings.",
+      "C": "Incorrect. Securities-lending income offsets management costs and can reduce negative excess return; it is not among the primary causes of tracking error."
      },
      "type": "mc",
      "primary_los": "index_based_equity_strategies.e",
@@ -1426,13 +1426,13 @@
      "stem": "Equitization using derivatives most likely addresses:",
      "options": {
       "A": "cash drag — Hill and Cheong (1996) discuss how to equitize a portfolio that would otherwise suffer from cash drag.",
-      "B": "no issue.",
+      "B": "commission costs on constituent trades.",
       "C": "worsens tracking."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: cash drag — Hill and Cheong (1996) discuss how to equitize a portfolio that would otherwise suffer from cash drag; one method uses futures contracts (widely used); ETFs also used; portfolio managers establish FCM relationship to offset cash positions with futures contract representing replicated index and calculate accrued dividends to hedge dividend drag.\n\nCorrect. Per the reading: 'Hill and Cheong (1996) discuss how to equitize a portfolio that would otherwise suffer from cash drag. One method is to use futures contracts. ETFs have been used widely for this purpose. Some portfolio managers establish a futures commission merchant relationship to offset their cash positions with a futures contract that represents the replicated index. When a manager does this, she will calculate the accrued dividends as well to hedge the dividend drag, which is cash drag attributable to accrued cash dividends paid to shareholders.'",
-      "B": "Cash drag fix.",
+      "B": "Incorrect. Equitization addresses cash drag — the tracking error created by uninvested cash — using futures or ETFs; it does not address commission costs.",
       "C": "Solves cash drag."
      },
      "type": "mc",
@@ -1473,13 +1473,13 @@
      "number": 9,
      "stem": "Controlling tracking error most likely involves trade-offs. Portfolio managers most likely:",
      "options": {
-      "A": "ignore constraints.",
+      "A": "target a portfolio beta slightly above 1.0 to offset fee drag.",
       "B": "hold much cash.",
       "C": "minimize cash held (creates undesirable TE)."
      },
      "correct": "C",
      "rationales": {
-      "A": "Manage carefully.",
+      "A": "Incorrect. Managers aim to maintain a beta of 1.0 relative to the benchmark while keeping other risk factor exposures similar to the index; deliberately running beta above 1.0 adds tracking error rather than controlling it.",
       "B": "Beta = 1 target.",
       "C": "Full statement: minimize cash held (creates undesirable TE); invest cash flows at same valuations used by benchmark index provider (not always feasible); aim to maintain beta of 1.0 relative to benchmark index while keeping other risk factor exposures similar to index; net investor cash inflows/redemptions; use equitization tools.\n\nCorrect. Per the reading: 'The process of controlling tracking error involves trade-offs between the benefits and costs of maintaining complete faithfulness to the benchmark index... Portfolio managers who are unconstrained would keep the number of constituent securities and their weights as closely aligned to the benchmark index as possible. Even so, trading costs and other fees cause actual investment performance to deviate from index performance. Managers trade to accommodate inflows and outflows of cash from investors, to reinvest dividends, and to reflect changes in constituents of the underlying index. Most index-based portfolio managers attempt to minimize cash held because a cash position generally creates undesirable tracking error. To keep tracking error low, portfolio managers need to invest cash flows received at the same valuations used by the benchmark index provider. Of course, because this is not always feasible, portfolio managers aim to maintain a beta of 1.0 relative to the benchmark index, while keeping other risk factor exposures similar to those of the index.'"
      },
@@ -1495,17 +1495,17 @@
     {
      "id": "r15_index_los_e_q10",
      "number": 10,
-     "stem": "Data frequency affects tracking error measurement because most likely:",
+     "stem": "The effect of data frequency on measured tracking error is most likely that:",
      "options": {
       "A": "value will differ depending on whether data frequency is daily or less frequent.",
-      "B": "no effect.",
-      "C": "always identical."
+      "B": "monthly data always produce higher measured tracking error than daily data.",
+      "C": "annualized tracking error is identical whether computed from daily or monthly data, because annualization removes the frequency effect."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: value will differ depending on whether data frequency is daily or less frequent; for an index fund, degree of tracking error fluctuates over time.\n\nCorrect. Per the reading: 'For an index fund, the degree of tracking error fluctuates over time. Also, the value will differ depending on whether the data frequency is daily or less frequent.' Daily vs monthly vs annual measurement produces different TE values because return volatility scales with time period.",
-      "B": "Frequency matters.",
-      "C": "Frequency-dependent."
+      "B": "Incorrect. There is no fixed ordering; the point is that the measured value differs with data frequency and fluctuates over time.",
+      "C": "Incorrect. Annualization does not remove the frequency effect; the tracking error value will differ depending on whether the data frequency is daily or less frequent."
      },
      "type": "mc",
      "primary_los": "index_based_equity_strategies.e",
@@ -1523,13 +1523,13 @@
      "options": {
       "A": "identical portfolios.",
       "B": "Australian funds have far more constituents than Korean funds and lower explicit fund fees.",
-      "C": "no explanation."
+      "C": "the Korean funds hold more constituents than their index, which mechanically raises tracking error."
      },
      "correct": "B",
      "rationales": {
       "A": "Sampling vs replication.",
       "B": "Full statement: Australian funds have far more constituents than Korean funds and lower explicit fund fees; Korean funds hold ~80% of index constituents (using sampling) while Australian funds hold more like ~100% (replication); Australian negative excess returns close to management fees of 18-20 bps.\n\nCorrect. Per the reading's knowledge check solution: 'Based on the number of stocks in the fund compared to the index constituent number, it appears most funds are attempting to replicate. Two of the funds (Macquarie True Index and KIM Cruise Index) have 80% to 90% of the stocks in the index, which indicates they are more likely to be using sampling. One fund (Samsung Index Premium) actually holds more than the index, which can happen if buffering is used. No fund contains the same number of stocks as constituents in the index. Thus, it is not surprising that the funds failed to track their respective indexes perfectly. On an annualized basis, tracking error for the Australian funds is less than one-tenth the level of the Korean funds. However, the Korean funds' excess return—which is fund return less the benchmark index return—is positive in all three cases. The negative excess returns for two of the Australian funds are relatively close and possibly attributable to their management fees of 18–20 basis points.'",
-      "C": "Structural differences."
+      "C": "Incorrect. Only one Korean fund (using buffering) held more names than its index; the driver is that the Australian funds hold nearly all constituents (close to full replication) with low, stable fees, while the Korean funds sample."
      },
      "type": "mc",
      "primary_los": "index_based_equity_strategies.e",
@@ -1581,13 +1581,13 @@
      "options": {
       "A": "company-specific returns, sector returns, country returns, and currency returns — same as for any actively managed fund.",
       "B": "only market return.",
-      "C": "no attribution possible."
+      "C": "manager security-selection alpha, the dominant source for an index fund."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: company-specific returns, sector returns, country returns, and currency returns — same as for any actively managed fund; can also group by portfolio objective (e.g., high dividend yield indexed portfolio grouped by dividend yield vs broad market benchmark; low volatility portfolio grouped by volatility buckets).\n\nCorrect. Per the reading: 'The sources of return for an equity index replication portfolio are the same as for any actively managed fund and include company-specific returns, sector returns, country returns, and currency returns. Beyond the traditional methods of grouping the risk and returns of the indexed portfolio, portfolio managers can group their indexed portfolios according to the stated portfolio objective. For example, a high dividend yield indexed portfolio may be grouped against the broad market benchmark by dividend yield. A low volatility portfolio could be grouped by volatility buckets.'",
       "B": "Multiple sources.",
-      "C": "Attribution possible."
+      "C": "Incorrect. An index replication portfolio does not pursue security-selection alpha; its sources of return are company-specific, sector, country, and currency returns, as for any fund."
      },
      "type": "mc",
      "primary_los": "index_based_equity_strategies.f",
@@ -1603,15 +1603,15 @@
      "number": 2,
      "stem": "Portfolio attribution analysis for an index fund most likely:",
      "options": {
-      "A": "irrelevant for index.",
+      "A": "is irrelevant, since an index fund takes no active positions.",
       "B": "helps understand sources of return.",
-      "C": "no analysis needed."
+      "C": "is used to isolate the manager's stock-selection alpha, the main return driver of an index fund."
      },
      "correct": "B",
      "rationales": {
-      "A": "Relevant even for index.",
+      "A": "Incorrect. Even index fund managers need attribution to understand what factors drive the returns of the portfolio and its underlying index.",
       "B": "Full statement: helps understand sources of return; index fund managers who track a broad market index need to understand what factors are driving returns of portfolio and underlying index; factor-based strategy managers should understand sources of return AND how those returns relate to broad market from which constituents were chosen — similar to actively managed funds since factor-based strategies are actively chosen.\n\nCorrect. Per the reading: 'Most portfolio managers will rely on their portfolio attribution system to help them in understanding the sources of return. Index fund managers who track a broad market index need to understand what factors are driving the returns of that portfolio and its underlying index. Index fund managers of factor-based strategies should understand both the sources of return for their indexed portfolios and how those returns relate to the broad market index from which the constituents were chosen. In this way, factor-based strategies are similar to actively managed funds in the sense that they are actively chosen.'",
-      "C": "Valuable analysis."
+      "C": "Incorrect. An index fund does not pursue stock-selection alpha; attribution is used to understand the sources of return of the portfolio and its underlying index."
      },
      "type": "mc",
      "primary_los": "index_based_equity_strategies.f",
@@ -1627,14 +1627,14 @@
      "number": 3,
      "stem": "In Exhibit 8 attribution analysis example, Portfolio X return of 5.62% vs benchmark 5.65% most likely indicates:",
      "options": {
-      "A": "poor tracking.",
-      "B": "large deviation.",
+      "A": "poor index tracking that warrants restructuring the portfolio.",
+      "B": "a positive excess return attributable to sector-selection skill.",
       "C": "close replication — only 3 basis points of return difference; portfolio is undoubtedly tracking index closely."
      },
      "correct": "C",
      "rationales": {
-      "A": "Very tight.",
-      "B": "3 bps = tight.",
+      "A": "Incorrect. A gap of only 3 basis points indicates very tight tracking; no corrective restructuring is warranted.",
+      "B": "Incorrect. The portfolio trailed the benchmark by 3 bps — a negative excess return — and an index fund does not pursue sector-selection skill; attribution is used to locate the sources of the small difference.",
       "C": "Correct. Per the reading's Exhibit 8 section: 'Portfolio X is an index fund that seeks to replicate the performance of its benchmark. The manager of Portfolio X confirms that the portfolio, which has a return of 5.62%, is closely replicating the performance of the benchmark, which has a return of 5.65%. Using Exhibit 8, the manager analyzes the relative sector weights and sources of the three basis points of return difference. A portfolio that is within three basis points of its benchmark index is undoubtedly tracking the index closely.'"
      },
      "type": "mc",
@@ -1652,14 +1652,14 @@
      "stem": "Securities lending by index fund managers most likely provides:",
      "options": {
       "A": "additional revenue offset against portfolio management costs — often resulting in lower net fees to investors.",
-      "B": "no revenue.",
-      "C": "always cost."
+      "B": "revenue that must be passed through to the borrower along with dividends received on loaned shares.",
+      "C": "a benefit captured entirely by the lending agent, with no offset to fund fees."
      },
      "correct": "A",
      "rationales": {
       "A": "Full statement: additional revenue offset against portfolio management costs — often resulting in lower net fees to investors; example: iShares Russell 2000 ETF (IWM) $63.9B AUM lent $5.97B in securities as of 31 March 2021 (100% collateralized with cash); net securities lending income ~$63M nearly offset ~$90.7M in investment advisory fees.\n\nCorrect. Per the reading: 'A popular exchange-traded fund (ETF) represents a good example of how securities lending revenue can provide a benefit to investment beneficiaries. As of 31 March 2021, the USD63.9 billion iShares Russell 2000 ETF (IWM) had lent USD5.97 billion in securities to various counterparties. This amount was 100% collateralized with cash. An affiliated party, BlackRock Institutional Trust Company, served as the securities lending agent in exchange for 4 basis points of collateral investment fees annually. IWM's net securities lending income for the year was slightly above USD63 million, which nearly offset the approximately USD90.7 million in investment advisory fees charged by the portfolio managers.'",
-      "B": "Revenue source.",
-      "C": "Substantial revenue."
+      "B": "Incorrect. The flow runs the other way: the lender earns lending fees, and the borrower compensates the lender for dividends paid on loaned shares.",
+      "C": "Incorrect. Net lending income accrues to the fund and offsets management costs — IWM's roughly USD 63 million of net lending income nearly offset its approximately USD 90.7 million in advisory fees."
      },
      "type": "mc",
      "primary_los": "index_based_equity_strategies.f",
@@ -1677,13 +1677,13 @@
      "options": {
       "A": "small market.",
       "B": "EUR 28 trillion in securities made available for lending by institutional investors.",
-      "C": "no lending."
+      "C": "EUR 2.6 trillion in securities made available for lending, of which EUR 28 trillion was actually loaned."
      },
      "correct": "B",
      "rationales": {
       "A": "Substantial market.",
       "B": "Full statement: EUR 28 trillion in securities made available for lending by institutional investors; of this EUR 2.6 trillion in value was actually loaned; collective investment vehicles and pension funds accounted for 59% of total value of securities loaned; collateral held with European triparty agents: equities 45%, government bonds 44%.\n\nCorrect. Per the reading: 'According to the International Securities Lending Association (2021), the 30 June 2021 global value of securities made available for lending by institutional investors was EUR28 trillion. Of this, EUR2.6 trillion in value was actually loaned. Collective investment vehicles and pension funds accounted for 59% of the total value of securities loaned. Collateral held with European triparty agents was in line with previous historical norms with equities and government bonds representing 45% and 44% of reported collateral, respectively.'",
-      "C": "€28T/€2.6T loaned."
+      "C": "Incorrect. The figures are reversed: EUR 28 trillion was made available for lending, of which EUR 2.6 trillion in value was actually loaned."
      },
      "type": "mc",
      "primary_los": "index_based_equity_strategies.f",
@@ -1699,13 +1699,13 @@
      "number": 6,
      "stem": "Securities lending risks most likely include:",
      "options": {
-      "A": "no risk.",
+      "A": "only the risk that loaned shares lose their voting rights permanently.",
       "B": "always low risk.",
       "C": "credit risk (borrower credit quality), market risk (value of posted collateral), liquidity risk, operational risk."
      },
      "correct": "C",
      "rationales": {
-      "A": "Real risks.",
+      "A": "Incorrect. Voting rights transfer only while shares are on loan, and shares can be recalled; the main risks are borrower credit risk and collateral market risk, with liquidity and operational risk as additional considerations.",
       "B": "Multiple risks.",
       "C": "Full statement: credit risk (borrower credit quality), market risk (value of posted collateral), liquidity risk, operational risk; collateral investment risk (if lender invests cash collateral in long-term/risky securities, collateral value at risk of erosion); Sigma Finance Company 2008-2009 example: SIV downgraded, lost short-term borrowing ability, defaulted; investors who lent securities suffered substantial losses.\n\nCorrect. Per the reading: 'Securities lending carries risks that can offset the benefits. The main risks are the credit quality of the borrower (credit risk) and the value of the posted collateral (market risk), although liquidity risk and operational risk are additional considerations. Lenders are permitted to sell loaned securities at any time under the normal course of the portfolio management mandate, and the borrowed shares must be returned in time for normal settlement of that sale. However, there is no guarantee that the borrower can deliver on a timely basis. An additional risk is that lenders can invest cash held as collateral; and if a lender elects to invest the cash in long-term or risky securities, the collateral value is at risk of erosion... The example of Sigma Finance Company illustrates collateral investment risk. Sigma Finance was a structured investment vehicle... During the credit 2008–2009 global financial crisis, Sigma was downgraded by the rating agencies and lost its ability to borrow in the short-term markets, which led to default. Investors in Sigma's credit offerings, many of them security lenders, suffered substantial losses because of the default.'"
      },
@@ -1819,15 +1819,15 @@
      "number": 11,
      "stem": "Costs of activist engagement most likely include:",
      "options": {
-      "A": "no costs.",
+      "A": "costs borne entirely by the proxy voting service rather than the fund manager.",
       "B": "staff resources to become familiar with key issues and engage management, regulators, and other investors.",
-      "C": "always free."
+      "C": "only the cost of attending annual meetings, since proxy research is provided free by issuers."
      },
      "correct": "B",
      "rationales": {
-      "A": "Real costs.",
+      "A": "Incorrect. Managers pay for proxy voting services such as ISS or Broadridge; staff resources and potential conflicts of interest are costs borne by the manager.",
       "B": "Full statement: staff resources to become familiar with key issues and engage management, regulators, and other investors; researching and voting thousands of proxy ballots (many managers hire proxy voting service like Institutional Shareholder Services or Broadridge Financial Services); potential conflicts of interest (e.g., financial firm managing retirement plan of company whose stock is index constituent may hesitate to challenge that company's management).\n\nCorrect. Per the reading: 'Although shareholder return can be enhanced by engagement, the costs of these measures must also be considered. Among the more significant costs are staff resources required to become familiar with key issues and to engage management, regulators, and other investors. Researching and voting thousands of proxy ballots becomes problematic for many managers. They frequently hire a proxy voting service, such as Institutional Shareholder Services or Broadridge Financial Services, to achieve their goal of voting the proxy ballots in their clients' favor. Although a strong argument can be made in favor of even index-based managers voting their shares in an informed way and pursuing governance changes when warranted, potential conflicts of interest may limit investors' propensity to challenge company management.'",
-      "C": "Substantial costs."
+      "C": "Incorrect. Researching and voting thousands of proxy ballots is costly — many managers hire a proxy voting service — and significant staff resources are needed to engage management, regulators, and other investors."
      },
      "type": "mc",
      "primary_los": "index_based_equity_strategies.f",
