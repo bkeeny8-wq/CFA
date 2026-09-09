@@ -57,11 +57,11 @@ Replace these files to update the question bank; do not edit them at runtime fro
 
 The **Study** tab is a digital version of your review materials:
 
-- **Study notes** — all **25 readings** (`CFA_L3_Notes_R01–R25.docx`) bundled as `reading_notes.json`
-- **LOS checklist** — all **237 LOS** with tap-to-mark progress
+- **Study notes** — all **35 readings** bundled as `reading_notes.json` (every curriculum reading is covered)
+- **LOS checklist** — all **255 LOS** with tap-to-mark progress
 - **Practice questions** — filtered by reading/LOS from the question bank
 
-Readings **without** bundled notes: Ethics (no reading in curriculum JSON), Endowment case study (no R26 notes file yet).
+Note: the R26 Endowment case-study notes were authored in-app (no `.docx` source exists), so `convert_reading_notes.py` will **not** regenerate that entry — preserve it when re-converting from Word files.
 
 Re-convert notes after editing the Word files:
 
