@@ -8,6 +8,11 @@ struct PracticeBuilderView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Query(sort: \Attempt.timestamp, order: .reverse) private var attempts: [Attempt]
 
+    /// Non-nil only when this is the Practice tab's root, where it renders the
+    /// build/browse switcher. Pushed copies (from Home's weak-topic chips) leave
+    /// it nil so they get a plain title instead.
+    var practiceMode: Binding<PracticeMode>?
+
     @State private var showSession = false
     @State private var showTopics = false
     @State private var showReadings = false
@@ -98,6 +103,7 @@ struct PracticeBuilderView: View {
         .frame(maxWidth: horizontalSizeClass == .regular ? 640 : .infinity)
         .frame(maxWidth: .infinity)
         .navigationTitle("Practice")
+        .navigationBarTitleDisplayMode(practiceMode == nil ? .automatic : .inline)
         .safeAreaInset(edge: .bottom) {
             Button {
                 startQuiz()
@@ -146,6 +152,11 @@ struct PracticeBuilderView: View {
             SessionRunnerView()
         }
         .toolbar {
+            if let practiceMode {
+                ToolbarItem(placement: .principal) {
+                    PracticeModePicker(mode: practiceMode)
+                }
+            }
             ToolbarItem(placement: .topBarTrailing) {
                 Button("Reset", role: .destructive) {
                     pref.reset()

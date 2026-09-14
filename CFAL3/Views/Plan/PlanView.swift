@@ -28,6 +28,9 @@ struct PlanView: View {
             }
         }
         .navigationTitle("Plan")
+        // Pushed from Home now, and it opens already scrolled to today — a
+        // large title would collapse before it ever renders, leaving a bare bar.
+        .navigationBarTitleDisplayMode(.inline)
         .frame(maxWidth: horizontalSizeClass == .regular ? 960 : .infinity)
         .frame(maxWidth: .infinity)
     }

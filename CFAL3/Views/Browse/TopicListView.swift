@@ -5,6 +5,10 @@ struct TopicListView: View {
     @Environment(ContentLoader.self) private var content
     @Query private var attempts: [Attempt]
 
+    /// Non-nil when shown as the Practice tab's browse mode; renders the
+    /// build/browse switcher in place of the title.
+    var practiceMode: Binding<PracticeMode>?
+
     private let columns = [
         GridItem(.flexible(), spacing: 10),
         GridItem(.flexible(), spacing: 10),
@@ -51,9 +55,26 @@ struct TopicListView: View {
                     }
                 }
                 .padding()
+
+                Label(
+                    "Open a case to read its vignette, then work all of its questions as one timed item set.",
+                    systemImage: "info.circle"
+                )
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .padding(.horizontal)
+                .padding(.bottom, 12)
             }
         }
         .navigationTitle("Cases")
+        .navigationBarTitleDisplayMode(practiceMode == nil ? .automatic : .inline)
+        .toolbar {
+            if let practiceMode {
+                ToolbarItem(placement: .principal) {
+                    PracticeModePicker(mode: practiceMode)
+                }
+            }
+        }
     }
 
     private func topicProgress(for topic: BankTopic) -> (attempted: Int, total: Int, correctRate: Double) {

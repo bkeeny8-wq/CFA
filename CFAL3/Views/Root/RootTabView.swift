@@ -1,12 +1,13 @@
 import SwiftUI
 
+/// Five tabs, deliberately. iPhone collapses anything past the fifth into a
+/// "More" list, which is where Practice — the most-used screen — used to live.
+/// Plan is reached from Home, and case browsing is a mode inside Practice.
 enum AppTab: Hashable {
     case home
-    case plan
     case study
-    case cards
-    case browse
     case practice
+    case cards
     case progress
 }
 
@@ -26,36 +27,24 @@ private struct RootTabContent: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             NavigationStack {
-                HomeView(selectedTab: $selectedTab)
+                HomeView()
             }
             .tabItem { Label("Home", systemImage: "house.fill") }
             .tag(AppTab.home)
 
-            NavigationStack {
-                PlanView()
-            }
-            .tabItem { Label("Plan", systemImage: "calendar") }
-            .tag(AppTab.plan)
-
             studyRoot
                 .tabItem { Label("Study", systemImage: "checklist") }
                 .tag(AppTab.study)
+
+            PracticeRootView()
+                .tabItem { Label("Practice", systemImage: "square.and.pencil") }
+                .tag(AppTab.practice)
 
             NavigationStack {
                 FlashcardsHomeView()
             }
             .tabItem { Label("Cards", systemImage: "rectangle.on.rectangle.angled") }
             .tag(AppTab.cards)
-
-            browseRoot
-                .tabItem { Label("Cases", systemImage: "books.vertical.fill") }
-                .tag(AppTab.browse)
-
-            NavigationStack {
-                PracticeBuilderView()
-            }
-            .tabItem { Label("Practice", systemImage: "square.and.pencil") }
-            .tag(AppTab.practice)
 
             NavigationStack {
                 ProgressDashboardView()
@@ -72,17 +61,6 @@ private struct RootTabContent: View {
         } else {
             NavigationStack {
                 StudyPlannerView()
-            }
-        }
-    }
-
-    @ViewBuilder
-    private var browseRoot: some View {
-        if horizontalSizeClass == .regular {
-            BrowseSplitView()
-        } else {
-            NavigationStack {
-                TopicListView()
             }
         }
     }

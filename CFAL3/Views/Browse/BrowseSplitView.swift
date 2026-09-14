@@ -12,6 +12,11 @@ struct BrowseSplitView: View {
     @Environment(ContentLoader.self) private var content
     @Query private var attempts: [Attempt]
 
+    /// Non-nil when shown as the Practice tab's browse mode. The switcher has to
+    /// live in the sidebar's own bar — an outer `.toolbar` cannot reach into a
+    /// split view's columns.
+    var practiceMode: Binding<PracticeMode>?
+
     @State private var selectedTopicID: String?
     @State private var selectedCaseID: String?
     @State private var columnVisibility: NavigationSplitViewVisibility = .all
@@ -62,6 +67,14 @@ struct BrowseSplitView: View {
                 }
             }
             .navigationTitle("Cases")
+            .navigationBarTitleDisplayMode(practiceMode == nil ? .automatic : .inline)
+            .toolbar {
+                if let practiceMode {
+                    ToolbarItem(placement: .principal) {
+                        PracticeModePicker(mode: practiceMode)
+                    }
+                }
+            }
         }
     }
 

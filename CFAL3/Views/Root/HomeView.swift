@@ -2,8 +2,6 @@ import SwiftUI
 import SwiftData
 
 struct HomeView: View {
-    @Binding var selectedTab: AppTab
-
     @Environment(ContentLoader.self) private var content
     @Environment(StudySessionCoordinator.self) private var sessionCoordinator
     @Environment(PracticeBuilderPreference.self) private var practicePref
@@ -54,6 +52,17 @@ struct HomeView: View {
             PracticeBuilderView()
         }
         .toolbar {
+            // Plan lost its tab, so it needs an entry point that exists even on
+            // a rest day or a build with no schedule — cases where the card
+            // below renders nothing.
+            ToolbarItem(placement: .topBarLeading) {
+                NavigationLink {
+                    PlanView()
+                } label: {
+                    Image(systemName: "calendar")
+                }
+                .accessibilityLabel("Study plan")
+            }
             ToolbarItem(placement: .topBarTrailing) {
                 NavigationLink {
                     SettingsView()
@@ -110,8 +119,8 @@ struct HomeView: View {
             let delta = ScheduleProgress.delta(schedule: schedule, completions: dayCompletions)
             let isDone = dayCompletions.contains { $0.dateKey == today.date }
 
-            Button {
-                selectedTab = .plan
+            NavigationLink {
+                PlanView()
             } label: {
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
@@ -122,6 +131,10 @@ struct HomeView: View {
                         Text(Formatting.hours(today.hours))
                             .font(.caption)
                             .foregroundStyle(.secondary)
+                            // The done-toggle is overlaid on this corner (a
+                            // Button inside a NavigationLink label would never
+                            // get the tap), so the hours have to yield its room.
+                            .padding(.trailing, 26)
                     }
 
                     if today.hours == 0 {
