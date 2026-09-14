@@ -33,6 +33,12 @@ final class ContentLoader {
     var totalReadingNotes: Int { readingNotesByID.count }
     var totalDrillQuestions: Int { drillQuestionsByID.count }
 
+    /// Every question a session or a review card can draw from: the case bank
+    /// plus the LOS drills. This is the universe `bootstrapReviewCards` spans
+    /// and the one an Attempt's questionId comes from, so it — not the
+    /// bank-only `totalQuestions` — is the denominator for "attempted".
+    var totalBankAndDrillQuestions: Int { totalQuestions + totalDrillQuestions }
+
     func load() {
         do {
             let bank: QuestionBank = try loadJSON("question_bank")

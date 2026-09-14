@@ -14,7 +14,7 @@ struct ProgressDashboardView: View {
     var body: some View {
         let overall = ProgressStats.overallStats(
             attempts: attempts,
-            totalQuestions: content.totalQuestions
+            totalQuestions: content.totalBankAndDrillQuestions
         )
         let topicProgress = ProgressStats.topicProgress(content: content, attempts: attempts, cards: cards)
         let coverage = ProgressStats.losCoverage(content: content, attempts: attempts)
@@ -49,17 +49,24 @@ struct ProgressDashboardView: View {
     }
 
     private func statCards(
-        overall: (attempted: Int, unique: Int, correctRate: Double, avgSeconds: Double),
+        overall: (attempted: Int, unique: Int, total: Int, correctRate: Double, avgSeconds: Double),
         dueCount: Int
     ) -> some View {
         HStack(spacing: 8) {
             ProgressStatTile(label: "Accuracy", value: Formatting.percent(overall.correctRate))
-            ProgressStatTile(label: "Attempted", value: "\(overall.unique)/\(content.totalQuestions)")
+            ProgressStatTile(
+                label: "Attempted",
+                value: "\(overall.unique.formatted())/\(overall.total.formatted())"
+            )
 
             Button {
                 startReviewDue()
             } label: {
-                ProgressStatTile(label: "Due today", value: "\(dueCount)", isAccent: dueCount > 0)
+                ProgressStatTile(
+                    label: "Due today",
+                    value: dueCount.formatted(),
+                    isAccent: dueCount > 0
+                )
             }
             .buttonStyle(.plain)
             .disabled(dueCount == 0)
@@ -67,10 +74,28 @@ struct ProgressDashboardView: View {
     }
 
     private func bookGrid(_ topics: [TopicProgress]) -> some View {
-        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 8) {
-            ForEach(topics, id: \.topicID) { topic in
-                TopicProgressCard(progress: topic)
+        VStack(alignment: .leading, spacing: 6) {
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 8) {
+                ForEach(topics, id: \.topicID) { topic in
+                    TopicProgressCard(progress: topic)
+                }
             }
+            bookOverlapNote(topics)
+        }
+    }
+
+    /// A reading shared by two books puts its drills in both, so the cards sum
+    /// to more than the inventory above them. Each card is right on its own;
+    /// say so rather than let the arithmetic look broken. Computed, so it
+    /// disappears if the curriculum mapping ever stops overlapping.
+    @ViewBuilder
+    private func bookOverlapNote(_ topics: [TopicProgress]) -> some View {
+        let overlap = topics.map(\.total).reduce(0, +) - content.totalBankAndDrillQuestions
+        if overlap > 0 {
+            Text("Books overlap by \(overlap.formatted()) questions — a reading that belongs to two books counts toward both, so these totals sum to more than the inventory.")
+                .font(.caption2)
+                .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
         }
     }
 
@@ -106,7 +131,7 @@ struct ProgressDashboardView: View {
     private func drillDownRows(
         coverage: [LOSAreaCoverage],
         density: [ContentDensityProgress],
-        overall: (attempted: Int, unique: Int, correctRate: Double, avgSeconds: Double)
+        overall: (attempted: Int, unique: Int, total: Int, correctRate: Double, avgSeconds: Double)
     ) -> some View {
         VStack(spacing: 0) {
             NavigationLink {
@@ -127,7 +152,7 @@ struct ProgressDashboardView: View {
             } label: {
                 DrillDownRow(
                     title: "Question inventory",
-                    value: "\(content.totalQuestions.formatted()) questions",
+                    value: "\(content.totalBankAndDrillQuestions.formatted()) questions",
                     systemImage: "shippingbox"
                 )
             }
@@ -136,10 +161,16 @@ struct ProgressDashboardView: View {
         .background(RoundedRectangle(cornerRadius: 12).fill(Color(.systemGray6)))
     }
 
+    /// Shown as a percentage, not a fraction. A question tagged to three
+    /// readings is counted once per reading — correct for the per-reading rows
+    /// behind this one, but summing them yields reading-slots, not questions.
+    /// Printing that sum put a third "total questions" number on this screen.
     private func losCoverageSummary(_ coverage: [LOSAreaCoverage]) -> String {
-        let attempted = coverage.flatMap(\.readings).map(\.attempted).reduce(0, +)
-        let total = coverage.flatMap(\.readings).map(\.questionCount).reduce(0, +)
-        return "\(attempted)/\(total)"
+        let readings = coverage.flatMap(\.readings)
+        let attempted = readings.map(\.attempted).reduce(0, +)
+        let total = readings.map(\.questionCount).reduce(0, +)
+        let fraction = total == 0 ? 0 : Double(attempted) / Double(total)
+        return "\(Formatting.percent(fraction)) attempted"
     }
 
     private func weeklyDelta(current: Int, previous: Int) -> String {

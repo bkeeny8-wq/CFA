@@ -127,7 +127,10 @@ struct SettingsView: View {
     /// Clears quiz history only — attempts, sessions, and the (attempt-derived)
     /// review schedule — while preserving LOS study states and plan check-offs.
     private func clearQuizAttempts() {
-        let removed = attempts.count + sessions.count + cards.count
+        // ReviewCards are excluded from the count, not from the delete: one is
+        // seeded per question at launch, so counting them would report ~3,115
+        // "quiz records" to someone who answered three questions.
+        let removed = attempts.count + sessions.count
         for item in attempts { modelContext.delete(item) }
         for item in sessions { modelContext.delete(item) }
         for item in cards { modelContext.delete(item) }
@@ -141,7 +144,8 @@ struct SettingsView: View {
     }
 
     private func resetAllProgress() {
-        let removed = attempts.count + cards.count + sessions.count
+        // Same as above: the seeded review schedule is erased but not counted.
+        let removed = attempts.count + sessions.count
             + dayCompletions.count + losStudyStatuses.count
         for item in attempts { modelContext.delete(item) }
         for item in cards { modelContext.delete(item) }

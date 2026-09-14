@@ -120,7 +120,11 @@ enum ProgressStats {
         return streak
     }
 
-    static func overallStats(attempts: [Attempt], totalQuestions: Int) -> (attempted: Int, unique: Int, correctRate: Double, avgSeconds: Double) {
+    /// `unique` counts distinct questionIds across ALL attempts — bank and
+    /// drill alike — so `total` has to span the same union. It is returned
+    /// rather than left to the caller: when each view supplied its own
+    /// denominator, both picked the bank-only count and "812/490" was reachable.
+    static func overallStats(attempts: [Attempt], totalQuestions: Int) -> (attempted: Int, unique: Int, total: Int, correctRate: Double, avgSeconds: Double) {
         let unique = Set(attempts.map(\.questionId)).count
         let gradable = attempts.filter { $0.wasCorrect != nil }
         let correct = gradable.filter { $0.wasCorrect == true }.count
@@ -128,7 +132,7 @@ enum ProgressStats {
         let avg = attempts.isEmpty
             ? 0
             : Double(attempts.map(\.durationSeconds).reduce(0, +)) / Double(attempts.count)
-        return (attempts.count, unique, rate, avg)
+        return (attempts.count, unique, totalQuestions, rate, avg)
     }
 
     static func weeklyVolumes(attempts: [Attempt], weeks: Int = 8, now: Date = .now) -> [WeeklyAttemptVolume] {

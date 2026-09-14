@@ -25,8 +25,11 @@ struct HomeView: View {
         ProgressStats.weakestTopics(content: content, attempts: attempts)
     }
 
-    private var overallStats: (attempted: Int, unique: Int, correctRate: Double, avgSeconds: Double) {
-        ProgressStats.overallStats(attempts: attempts, totalQuestions: content.totalQuestions)
+    private var overallStats: (attempted: Int, unique: Int, total: Int, correctRate: Double, avgSeconds: Double) {
+        ProgressStats.overallStats(
+            attempts: attempts,
+            totalQuestions: content.totalBankAndDrillQuestions
+        )
     }
 
     var body: some View {
@@ -95,8 +98,10 @@ struct HomeView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(due > 0 ? "Start review · \(due) due" : "All caught up")
                     .font(.headline)
+                // The estimate covers the capped slice, not the whole queue —
+                // say so, or "3,115 due · ~66 min" reads as 3,115 in an hour.
                 Text(due > 0
-                     ? "~\(minutes) min · spaced repetition"
+                     ? "~\(minutes) min · next \(sessionSize) of \(due)"
                      : "Build a practice session instead")
                     .font(.caption)
             }
@@ -191,7 +196,7 @@ struct HomeView: View {
                 label: "Accuracy"
             )
             StatCard(
-                value: "\(overallStats.unique)/\(content.totalQuestions)",
+                value: "\(overallStats.unique.formatted())/\(overallStats.total.formatted())",
                 label: "Attempted"
             )
         }

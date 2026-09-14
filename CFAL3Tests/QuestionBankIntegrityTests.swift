@@ -86,4 +86,70 @@ final class QuestionBankIntegrityTests: XCTestCase {
         }
         XCTAssertTrue(unmapped.isEmpty, "Unmapped drill readings: \(unmapped)")
     }
+
+    /// The "Attempted" tile divides distinct attempted questionIds by this
+    /// total. Attempts come from the bank AND the drills, so a bank-only
+    /// denominator let the fraction exceed 100%. Pin the union.
+    func testAttemptedDenominatorSpansBankAndDrills() throws {
+        let content = ContentLoader()
+        content.load()
+        XCTAssertNil(content.loadError, content.loadError ?? "")
+
+        XCTAssertEqual(content.totalQuestions, 490)
+        XCTAssertEqual(content.totalDrillQuestions, 2_625)
+        XCTAssertEqual(
+            content.totalBankAndDrillQuestions,
+            content.totalQuestions + content.totalDrillQuestions
+        )
+        XCTAssertEqual(content.totalBankAndDrillQuestions, 3_115)
+    }
+
+    /// Every attemptable question is seeded a ReviewCard, so the due-count
+    /// universe and the Attempted denominator must be the same set — that
+    /// equality is what makes the two numbers legible side by side.
+    func testReviewCardUniverseMatchesTheAttemptedDenominator() throws {
+        let content = ContentLoader()
+        content.load()
+
+        let bankIDs = Set(allQuestions(try loadBank()).map(\.id))
+        var drillIDs = Set<String>()
+        for bundle in content.losDrillBundles.values {
+            for group in bundle.drills {
+                for question in group.questions { drillIDs.insert(question.id) }
+            }
+        }
+
+        XCTAssertTrue(bankIDs.isDisjoint(with: drillIDs), "A drill reuses a bank question ID")
+        XCTAssertEqual(bankIDs.union(drillIDs).count, content.totalBankAndDrillQuestions)
+    }
+
+    /// Case titles are user-facing. Guard the defects the cleanup removed so a
+    /// regenerated bank cannot reintroduce them.
+    func testCaseTitlesAreCleanAndUnique() throws {
+        let bank = try loadBank()
+        let cases = bank.topics.flatMap(\.cases)
+
+        for caseStudy in cases {
+            let title = caseStudy.title
+            XCTAssertEqual(title, title.trimmingCharacters(in: .whitespaces),
+                           "Untrimmed title: \(caseStudy.id)")
+            XCTAssertFalse(title.hasSuffix(":"), "Trailing colon: \(caseStudy.id)")
+            XCTAssertFalse(title.contains("  "), "Doubled space: \(caseStudy.id)")
+            XCTAssertFalse(title.contains(")C"), "Missing space after paren: \(caseStudy.id)")
+            XCTAssertEqual(title.filter { $0 == "(" }.count,
+                           title.filter { $0 == ")" }.count,
+                           "Unbalanced parentheses: \(caseStudy.id)")
+
+            // A parenthetical that merely repeats what precedes it.
+            if let open = title.lastIndex(of: "("), title.hasSuffix(")") {
+                let inner = String(title[title.index(after: open)..<title.index(before: title.endIndex)])
+                let stem = title[..<open].trimmingCharacters(in: .whitespaces)
+                XCTAssertNotEqual(inner.lowercased(), stem.lowercased(),
+                                  "Title repeats itself: \(caseStudy.id) — \(title)")
+            }
+        }
+
+        let titles = cases.map(\.title)
+        XCTAssertEqual(Set(titles).count, titles.count, "Duplicate case titles")
+    }
 }
