@@ -4,6 +4,7 @@ enum AppTab: Hashable {
     case home
     case plan
     case study
+    case cards
     case browse
     case practice
     case progress
@@ -39,6 +40,12 @@ private struct RootTabContent: View {
             studyRoot
                 .tabItem { Label("Study", systemImage: "checklist") }
                 .tag(AppTab.study)
+
+            NavigationStack {
+                FlashcardsHomeView()
+            }
+            .tabItem { Label("Cards", systemImage: "rectangle.on.rectangle.angled") }
+            .tag(AppTab.cards)
 
             browseRoot
                 .tabItem { Label("Cases", systemImage: "books.vertical.fill") }

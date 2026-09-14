@@ -9,7 +9,7 @@ struct CFAL3App: App {
     @State private var practicePref = PracticeBuilderPreference()
 
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([Attempt.self, ReviewCard.self, Session.self, LOSStudyStatus.self, DayCompletion.self])
+        let schema = Schema([Attempt.self, ReviewCard.self, Session.self, LOSStudyStatus.self, DayCompletion.self, FlashcardProgress.self])
         let config = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
         do {
             return try ModelContainer(for: schema, configurations: [config])

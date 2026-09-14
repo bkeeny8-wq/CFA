@@ -1,22 +1,41 @@
 import Foundation
 
+/// Anything that carries SM-2 scheduling state. Implemented by `ReviewCard`
+/// (bank + drill questions) and `FlashcardProgress` so both age through the
+/// exact same algorithm rather than two drifting copies of it.
+protocol SpacedRepetitionItem: AnyObject {
+    var easeFactor: Double { get set }
+    var interval: Int { get set }
+    var repetitions: Int { get set }
+    var dueDate: Date { get set }
+    var totalAttempts: Int { get set }
+    var totalCorrect: Int { get set }
+    var lastAttemptedAt: Date? { get set }
+}
+
+extension ReviewCard: SpacedRepetitionItem {}
+
 enum ReviewScheduler {
     static func update(card: ReviewCard, quality: Int, now: Date = .now) {
+        update(item: card, quality: quality, now: now)
+    }
+
+    static func update(item: some SpacedRepetitionItem, quality: Int, now: Date = .now) {
         let q = max(0, min(5, quality))
 
         if q < 3 {
-            card.repetitions = 0
-            card.interval = 1
+            item.repetitions = 0
+            item.interval = 1
         } else {
-            switch card.repetitions {
+            switch item.repetitions {
             case 0:
-                card.interval = 1
+                item.interval = 1
             case 1:
-                card.interval = 6
+                item.interval = 6
             default:
-                card.interval = Int((Double(card.interval) * card.easeFactor).rounded())
+                item.interval = Int((Double(item.interval) * item.easeFactor).rounded())
             }
-            card.repetitions += 1
+            item.repetitions += 1
         }
 
         // DELIBERATE deviation from canonical SM-2: the ease factor is updated
@@ -25,14 +44,14 @@ enum ReviewScheduler {
         // cards resurface faster after relearning, which is the desired behavior
         // for exam prep. Do not "fix" this to match the canonical algorithm —
         // changing it mid-study would silently shift every card’s future schedule.
-        let ef = card.easeFactor + (0.1 - Double(5 - q) * (0.08 + Double(5 - q) * 0.02))
-        card.easeFactor = max(1.3, ef)
+        let ef = item.easeFactor + (0.1 - Double(5 - q) * (0.08 + Double(5 - q) * 0.02))
+        item.easeFactor = max(1.3, ef)
 
-        card.dueDate = Calendar.current.date(byAdding: .day, value: card.interval, to: now) ?? now
-        card.lastAttemptedAt = now
-        card.totalAttempts += 1
+        item.dueDate = Calendar.current.date(byAdding: .day, value: item.interval, to: now) ?? now
+        item.lastAttemptedAt = now
+        item.totalAttempts += 1
         if q >= 3 {
-            card.totalCorrect += 1
+            item.totalCorrect += 1
         }
     }
 
@@ -42,5 +61,17 @@ enum ReviewScheduler {
 
     static func suggestedQuality(essayGrade: Int) -> Int {
         max(0, min(5, essayGrade))
+    }
+
+    /// The interval a rating would produce, without mutating anything — used to
+    /// label the rating buttons ("Good · 6d") so the choice is informed.
+    static func previewInterval(item: some SpacedRepetitionItem, quality: Int) -> Int {
+        let q = max(0, min(5, quality))
+        guard q >= 3 else { return 1 }
+        switch item.repetitions {
+        case 0: return 1
+        case 1: return 6
+        default: return Int((Double(item.interval) * item.easeFactor).rounded())
+        }
     }
 }

@@ -11,8 +11,12 @@ final class ContentLoader {
     private(set) var readingNotesBundle: ReadingNotesBundle?
     private(set) var contentTargets: ContentTargets?
     private(set) var losDrillBundles: [String: LOSDrillBundle] = [:]
+    private(set) var flashcardBundle: FlashcardBundle?
     private(set) var schedule: StudySchedule?
     private(set) var loadError: String?
+
+    private var flashcardsByID: [String: Flashcard] = [:]
+    private var flashcardsByReading: [String: [Flashcard]] = [:]
 
     private var questionsByID: [String: Question] = [:]
     private var drillQuestionsByID: [String: DrillQuestion] = [:]
@@ -44,6 +48,7 @@ final class ContentLoader {
             contentTargets = targets
 
             try loadDrillBundles()
+            loadFlashcards()
 
             if let loaded: StudySchedule = try? loadJSON("study_schedule") {
                 schedule = loaded
@@ -96,6 +101,56 @@ final class ContentLoader {
             context.insert(card)
         }
         try? context.save()
+    }
+
+    // MARK: - Flashcards
+
+    /// Flashcards are optional content: a build without the bundle simply shows
+    /// an empty Cards tab rather than failing the whole content load.
+    private func loadFlashcards() {
+        flashcardsByID = [:]
+        flashcardsByReading = [:]
+        guard let bundle: FlashcardBundle = try? loadJSON("flashcards") else {
+            flashcardBundle = nil
+            return
+        }
+        flashcardBundle = bundle
+        for card in bundle.cards {
+            flashcardsByID[card.id] = card
+            flashcardsByReading[card.readingID, default: []].append(card)
+        }
+    }
+
+    var allFlashcards: [Flashcard] { flashcardBundle?.cards ?? [] }
+    var totalFlashcards: Int { flashcardsByID.count }
+
+    func flashcard(id: String) -> Flashcard? { flashcardsByID[id] }
+
+    func flashcards(forReading readingID: String) -> [Flashcard] {
+        flashcardsByReading[readingID] ?? []
+    }
+
+    func flashcards(forArea areaID: String) -> [Flashcard] {
+        allFlashcards.filter { $0.areaID == areaID }
+    }
+
+    /// Insert a progress row for every card that does not have one yet, so a
+    /// newly added deck shows up as due instead of invisible.
+    func bootstrapFlashcardProgress(context: ModelContext) {
+        let cards = allFlashcards
+        guard !cards.isEmpty else { return }
+
+        let existing = (try? context.fetch(FetchDescriptor<FlashcardProgress>())) ?? []
+        let existingIDs = Set(existing.map(\.cardId))
+        var inserted = false
+
+        for card in cards where !existingIDs.contains(card.id) {
+            context.insert(
+                FlashcardProgress(cardId: card.id, readingId: card.readingID, areaId: card.areaID)
+            )
+            inserted = true
+        }
+        if inserted { try? context.save() }
     }
 
     func drillBundle(forReading readingID: String) -> LOSDrillBundle? {
