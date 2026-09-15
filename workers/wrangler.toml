@@ -2,25 +2,19 @@ name = "cfal3-grader"
 main = "grader-proxy-worker.js"
 compatibility_date = "2025-01-01"
 
-# Structured log retention so `wrangler tail` is not the only way to see abuse.
+# Keeps the console log lines (unauthorized attempts, upstream errors)
+# queryable without leaving `wrangler tail` running.
 [observability]
 enabled = true
 
-# Tunable caps. These are plain vars, not secrets — they are not sensitive,
-# and keeping them here means changing a ceiling is a diff, not a dashboard
-# click nobody remembers making. Lower them freely; the app never reads them.
-[vars]
-DAILY_USD = "5"
-MONTHLY_USD = "25"
-DAILY_REQUESTS = "40"
-MAX_BODY_BYTES = "65536"
-
-# Strongly-consistent spend counters. KV would be eventually consistent, and a
-# spend cap that concurrent requests can race is not a cap.
-[[durable_objects.bindings]]
-name = "LEDGER"
-class_name = "Ledger"
-
+# Migration history is cumulative, so v1 has to stay even though the class is
+# gone — v2 is what actually removes it. The spend ledger it backed was
+# dropped deliberately: Anthropic's own workspace spend limit enforces the
+# ceiling for free and holds even if this worker is wrong.
 [[migrations]]
 tag = "v1"
 new_sqlite_classes = ["Ledger"]
+
+[[migrations]]
+tag = "v2"
+deleted_classes = ["Ledger"]

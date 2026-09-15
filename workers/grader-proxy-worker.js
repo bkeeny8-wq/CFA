@@ -3,144 +3,54 @@
 //
 // THREAT MODEL — read this before changing anything.
 //
-// PROXY_TOKEN is hardcoded in the iOS app (CFAL3/Services/GraderConfig.swift)
-// and that source file lives in a PUBLIC GitHub repo. The token is therefore
-// PUBLIC INFORMATION. It is not a secret and must never be treated as one.
-// Obfuscating it, moving it to an xcconfig, or injecting it at build time
-// would change nothing: any shipped client secret is recoverable with
-// `strings` on the binary.
+// PROXY_TOKEN is shipped inside the iOS app, so it reaches every install and
+// is recoverable from any build. It is not a secret and must not be treated as
+// one. An earlier version of it was also committed to this PUBLIC repository
+// and sat readable for eight weeks; it has since been rotated.
 //
-// This worker is written on that premise. Its job is NOT to keep the token
-// secret. Its job is to make holding the token nearly worthless:
+// This worker does not try to keep the token secret. It makes holding the
+// token useless for anything except grading an essay:
 //
-//   * a hard daily and monthly USD ceiling on Anthropic spend,
-//   * a daily request ceiling,
-//   * a pinned model allowlist (four grading models, nothing else),
+//   * a pinned model allowlist,
 //   * a per-model max_tokens ceiling,
-//   * a request body rebuilt from an allowlist, so the proxy cannot be used
-//     as a general-purpose Anthropic endpoint (no tools, no agents, no
-//     web search, no code execution, no 200k-token prompts),
-//   * a structured log line per request,
-//   * an instant kill switch that needs no redeploy.
+//   * a request body rebuilt from an allowlist, so this cannot be used as a
+//     general-purpose Anthropic endpoint — no tools, no agents, no web search,
+//     no code execution, no 200k-token prompts,
+//   * a request size cap.
 //
-// Worst case for a thief is therefore bounded at DAILY_USD per day and
-// MONTHLY_USD per month of grading-shaped requests, and the owner can cut
-// it to zero in about ten seconds. See workers/README.md.
+// Deliberately NOT here: spend metering and a kill-switch endpoint. Both need
+// durable state, and both duplicate controls that already exist for free and
+// hold even if this file is wrong:
+//
+//   * the SPEND CEILING belongs on the Anthropic workspace, where Anthropic
+//     enforces it regardless of what this worker does;
+//   * the KILL SWITCH is `wrangler secret put PROXY_TOKEN` with a fresh
+//     value, which revokes every client instantly and needs no code.
 //
 // Secrets (wrangler secret put <NAME>):
 //   ANTHROPIC_API_KEY  — the real Anthropic key
-//   PROXY_TOKEN        — the value hardcoded in GraderConfig.swift
-//   ADMIN_TOKEN        — a DIFFERENT long random string, never shipped in
-//                        the app, used only for /usage and /panic
+//   PROXY_TOKEN        — the value the app sends as a bearer token
 
-import { DurableObject } from "cloudflare:workers";
-
-// ---------------------------------------------------------------------------
-// Pinned model allowlist.
-//
-// Keys must match GraderModel.rawValue in CFAL3/Services/ClaudeGrader.swift.
-// maxTokens must match GraderModel.maxTokens — the app sends exactly these
-// values, so clamping never affects legitimate traffic and always defeats a
-// caller asking for a 128k output.
-//
-// Prices are USD per million tokens, expressed as micro-dollars per token
-// (they are numerically identical: $10/MTok == 10 micro-$/token).
-// ---------------------------------------------------------------------------
+// Keys must match GraderModel.rawValue, and maxTokens must match
+// GraderModel.maxTokens, in CFAL3/Services/ClaudeGrader.swift. The app sends
+// exactly these values, so clamping never affects real traffic — it only
+// stops a caller asking for a 128k output.
 const MODELS = {
-  "claude-fable-5":              { maxTokens: 12000, in: 10, out: 50 },
-  "claude-opus-4-8":             { maxTokens:  8000, in:  5, out: 25 },
-  "claude-sonnet-4-6":           { maxTokens:  4000, in:  3, out: 15 },
-  "claude-haiku-4-5":            { maxTokens:  2000, in:  1, out:  5 },
-  // The app currently sends this date-suffixed spelling. Allowlisted so
-  // pinning does not break Haiku grading; see workers/README.md.
-  "claude-haiku-4-5-20251001":   { maxTokens:  2000, in:  1, out:  5 },
+  "claude-fable-5": { maxTokens: 12000 },
+  "claude-opus-4-8": { maxTokens: 8000 },
+  "claude-sonnet-4-6": { maxTokens: 4000 },
+  "claude-haiku-4-5": { maxTokens: 2000 },
+  // The date-suffixed spelling the app actually sends for Haiku.
+  "claude-haiku-4-5-20251001": { maxTokens: 2000 },
 };
 
+// Measured against the bundled content: the largest real grading request is
+// ~12,200 characters of content and ~18 KB of body, so these sit at roughly
+// three times the worst legitimate case.
+const MAX_BODY_BYTES = 65536;
 const MAX_SYSTEM_CHARS = 24000;
-const MAX_MESSAGES = 2;
 const MAX_CONTENT_CHARS = 40000;
-
-// ---------------------------------------------------------------------------
-// Ledger: one globally-consistent Durable Object holding the spend counters.
-//
-// A Durable Object (not KV) because a spend cap that can be raced by
-// concurrent requests is not a cap. Every request serializes through this
-// single instance, so N parallel requests cannot all read the same
-// under-limit counter and all pass.
-// ---------------------------------------------------------------------------
-export class Ledger extends DurableObject {
-  async #state() {
-    const now = new Date();
-    const day = now.toISOString().slice(0, 10);   // UTC YYYY-MM-DD
-    const month = now.toISOString().slice(0, 7);  // UTC YYYY-MM
-
-    let s = await this.ctx.storage.get("s");
-    if (!s) s = { day, month, dayMicros: 0, monthMicros: 0, dayRequests: 0, disabled: false };
-
-    if (s.day !== day) { s.day = day; s.dayMicros = 0; s.dayRequests = 0; }
-    if (s.month !== month) { s.month = month; s.monthMicros = 0; }
-    return s;
-  }
-
-  /**
-   * Pessimistic pre-debit. Charges the WORST CASE cost of the request before
-   * it is forwarded, so a caller who opens a request and disconnects (or
-   * floods concurrently) cannot outrun the accounting. settle() refunds the
-   * difference once real usage is known.
-   */
-  async reserve(worstCaseMicros, limits) {
-    const s = await this.#state();
-
-    if (s.disabled) {
-      await this.ctx.storage.put("s", s);
-      return { ok: false, reason: "disabled", ...s };
-    }
-    if (s.dayRequests + 1 > limits.dailyRequests) {
-      await this.ctx.storage.put("s", s);
-      return { ok: false, reason: "daily_requests", ...s };
-    }
-    if (s.dayMicros + worstCaseMicros > limits.dailyMicros) {
-      await this.ctx.storage.put("s", s);
-      return { ok: false, reason: "daily_spend", ...s };
-    }
-    if (s.monthMicros + worstCaseMicros > limits.monthlyMicros) {
-      await this.ctx.storage.put("s", s);
-      return { ok: false, reason: "monthly_spend", ...s };
-    }
-
-    s.dayRequests += 1;
-    s.dayMicros += worstCaseMicros;
-    s.monthMicros += worstCaseMicros;
-    await this.ctx.storage.put("s", s);
-    return { ok: true, ...s };
-  }
-
-  /** Adjust the pre-debit to actual usage. deltaMicros is normally negative. */
-  async settle(deltaMicros) {
-    const s = await this.#state();
-    s.dayMicros = Math.max(0, s.dayMicros + deltaMicros);
-    s.monthMicros = Math.max(0, s.monthMicros + deltaMicros);
-    await this.ctx.storage.put("s", s);
-    return s;
-  }
-
-  async usage() {
-    const s = await this.#state();
-    await this.ctx.storage.put("s", s);
-    return s;
-  }
-
-  async setDisabled(disabled) {
-    const s = await this.#state();
-    s.disabled = !!disabled;
-    await this.ctx.storage.put("s", s);
-    return s;
-  }
-}
-
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
+const MAX_MESSAGES = 2;
 
 /** Anthropic-shaped error, so the app's existing parseAPIErrorMessage works. */
 function apiError(status, type, message) {
@@ -150,7 +60,7 @@ function apiError(status, type, message) {
   );
 }
 
-/** Constant-time-ish string compare; avoids leaking length via early exit. */
+/** Length-independent compare, so a wrong token leaks nothing by timing. */
 function tokenEquals(a, b) {
   if (typeof a !== "string" || typeof b !== "string") return false;
   if (a.length !== b.length) return false;
@@ -159,24 +69,11 @@ function tokenEquals(a, b) {
   return diff === 0;
 }
 
-function limitsFrom(env) {
-  return {
-    dailyMicros: Math.round(Number(env.DAILY_USD ?? 5) * 1e6),
-    monthlyMicros: Math.round(Number(env.MONTHLY_USD ?? 25) * 1e6),
-    dailyRequests: Number(env.DAILY_REQUESTS ?? 40),
-    maxBodyBytes: Number(env.MAX_BODY_BYTES ?? 65536),
-  };
-}
-
-function ledger(env) {
-  return env.LEDGER.get(env.LEDGER.idFromName("global"));
-}
-
 /**
  * Rebuild the upstream body from an allowlist. Nothing the caller sent is
- * forwarded verbatim. This is the control that stops the proxy being used as
- * a general Anthropic endpoint: unknown top-level fields (tools, thinking,
- * output_config, container, mcp_servers, betas, ...) are dropped on the floor.
+ * forwarded verbatim — this is the control that stops the proxy being a
+ * general Anthropic endpoint. Unknown top-level fields (tools, thinking,
+ * mcp_servers, container, betas, ...) are dropped on the floor.
  */
 function buildUpstreamBody(raw) {
   if (typeof raw !== "object" || raw === null || Array.isArray(raw)) {
@@ -186,11 +83,12 @@ function buildUpstreamBody(raw) {
   const spec = MODELS[raw.model];
   if (!spec) return { error: `model not allowed: ${String(raw.model).slice(0, 64)}` };
 
+  // The app always streams; refusing non-streaming keeps the surface to one shape.
   if (raw.stream !== true) return { error: "stream must be true" };
 
   const system = raw.system;
   if (typeof system !== "string" || system.length > MAX_SYSTEM_CHARS) {
-    return { error: "system must be a string under 24000 characters" };
+    return { error: `system must be a string under ${MAX_SYSTEM_CHARS} characters` };
   }
 
   if (!Array.isArray(raw.messages) || raw.messages.length === 0 || raw.messages.length > MAX_MESSAGES) {
@@ -212,9 +110,6 @@ function buildUpstreamBody(raw) {
   const maxTokens = Math.max(1, Math.min(requested, spec.maxTokens));
 
   return {
-    spec,
-    model: raw.model,
-    maxTokens,
     body: JSON.stringify({
       model: raw.model,
       max_tokens: maxTokens,
@@ -225,87 +120,8 @@ function buildUpstreamBody(raw) {
   };
 }
 
-/** Pull real token usage out of the Anthropic SSE stream. */
-async function meterStream(stream, spec, reservedMicros, env, logBase) {
-  let inTok = 0, outTok = 0;
-  try {
-    const reader = stream.pipeThrough(new TextDecoderStream()).getReader();
-    let buf = "";
-    for (;;) {
-      const { value, done } = await reader.read();
-      if (done) break;
-      buf += value;
-      let nl;
-      while ((nl = buf.indexOf("\n")) !== -1) {
-        const line = buf.slice(0, nl);
-        buf = buf.slice(nl + 1);
-        if (!line.startsWith("data: ")) continue;
-        let j;
-        try { j = JSON.parse(line.slice(6)); } catch { continue; }
-        if (j.type === "message_start" && j.message?.usage) {
-          const u = j.message.usage;
-          inTok = (u.input_tokens ?? 0)
-                + (u.cache_creation_input_tokens ?? 0)
-                + (u.cache_read_input_tokens ?? 0);
-          outTok = u.output_tokens ?? 0;
-        } else if (j.type === "message_delta" && j.usage?.output_tokens != null) {
-          outTok = j.usage.output_tokens;
-        }
-      }
-    }
-  } catch (e) {
-    // Metering failed — keep the pessimistic pre-debit rather than refunding.
-    console.log(JSON.stringify({ ...logBase, event: "meter_error", error: String(e) }));
-    return;
-  }
-
-  const actualMicros = inTok * spec.in + outTok * spec.out;
-  const after = await ledger(env).settle(actualMicros - reservedMicros);
-  console.log(JSON.stringify({
-    ...logBase,
-    event: "settled",
-    inTok,
-    outTok,
-    actualUsd: +(actualMicros / 1e6).toFixed(4),
-    dayUsd: +(after.dayMicros / 1e6).toFixed(4),
-    monthUsd: +(after.monthMicros / 1e6).toFixed(4),
-  }));
-}
-
-// ---------------------------------------------------------------------------
-// Worker
-// ---------------------------------------------------------------------------
 export default {
-  async fetch(request, env, ctx) {
-    const url = new URL(request.url);
-    const limits = limitsFrom(env);
-
-    // --- admin surface (ADMIN_TOKEN, never shipped in the app) -------------
-    if (url.pathname === "/usage" || url.pathname === "/panic") {
-      if (!env.ADMIN_TOKEN || !tokenEquals(request.headers.get("X-Admin-Token") || "", env.ADMIN_TOKEN)) {
-        return new Response("unauthorized", { status: 401 });
-      }
-      if (url.pathname === "/usage") {
-        const s = await ledger(env).usage();
-        return Response.json({
-          ...s,
-          dayUsd: +(s.dayMicros / 1e6).toFixed(4),
-          monthUsd: +(s.monthMicros / 1e6).toFixed(4),
-          limits: {
-            dailyUsd: limits.dailyMicros / 1e6,
-            monthlyUsd: limits.monthlyMicros / 1e6,
-            dailyRequests: limits.dailyRequests,
-          },
-        });
-      }
-      // /panic?on=1 kills grading instantly, worldwide, with no redeploy and
-      // no app change. /panic?on=0 restores it.
-      const on = url.searchParams.get("on") !== "0";
-      const s = await ledger(env).setDisabled(on);
-      return Response.json({ disabled: s.disabled });
-    }
-
-    // --- grading path ------------------------------------------------------
+  async fetch(request, env) {
     if (request.method !== "POST") {
       return new Response("method not allowed", { status: 405 });
     }
@@ -316,13 +132,11 @@ export default {
         event: "unauthorized",
         ip: request.headers.get("cf-connecting-ip"),
         country: request.cf?.country,
-        asn: request.cf?.asn,
       }));
       return new Response("unauthorized", { status: 401 });
     }
 
-    const declared = Number(request.headers.get("content-length") || 0);
-    if (declared > limits.maxBodyBytes) {
+    if (Number(request.headers.get("content-length") || 0) > MAX_BODY_BYTES) {
       return apiError(400, "invalid_request_error", "request too large");
     }
 
@@ -332,43 +146,20 @@ export default {
     } catch {
       return apiError(400, "invalid_request_error", "unreadable body");
     }
-    if (new TextEncoder().encode(text).length > limits.maxBodyBytes) {
+    if (new TextEncoder().encode(text).length > MAX_BODY_BYTES) {
       return apiError(400, "invalid_request_error", "request too large");
     }
 
     let parsed;
-    try { parsed = JSON.parse(text); } catch {
+    try {
+      parsed = JSON.parse(text);
+    } catch {
       return apiError(400, "invalid_request_error", "body is not JSON");
     }
 
     const built = buildUpstreamBody(parsed);
     if (built.error) {
       return apiError(400, "invalid_request_error", built.error);
-    }
-
-    const logBase = {
-      ts: new Date().toISOString(),
-      ip: request.headers.get("cf-connecting-ip"),
-      country: request.cf?.country,
-      asn: request.cf?.asn,
-      model: built.model,
-      maxTokens: built.maxTokens,
-      bodyBytes: text.length,
-    };
-
-    // Pessimistic worst case: full output budget, plus a deliberately
-    // generous input estimate (bytes / 3 is well under real tokens-per-byte).
-    const estInTok = Math.ceil(text.length / 3);
-    const worstCaseMicros = built.maxTokens * built.spec.out + estInTok * built.spec.in;
-
-    const res = await ledger(env).reserve(worstCaseMicros, limits);
-    if (!res.ok) {
-      console.log(JSON.stringify({ ...logBase, event: "capped", reason: res.reason }));
-      if (res.reason === "disabled") {
-        return apiError(503, "api_error", "Grading is disabled by the owner.");
-      }
-      return apiError(429, "rate_limit_error",
-        `Grading budget reached (${res.reason}). Resets at 00:00 UTC.`);
     }
 
     let upstream;
@@ -383,31 +174,13 @@ export default {
         body: built.body,
       });
     } catch (e) {
-      ctx.waitUntil(ledger(env).settle(-worstCaseMicros));
-      console.log(JSON.stringify({ ...logBase, event: "upstream_error", error: String(e) }));
+      console.log(JSON.stringify({ event: "upstream_error", error: String(e) }));
       return apiError(502, "api_error", "Upstream request failed.");
     }
 
-    if (!upstream.ok || !upstream.body) {
-      // Nothing was generated; refund the whole reservation.
-      ctx.waitUntil(ledger(env).settle(-worstCaseMicros));
-      const errBody = await upstream.text();
-      console.log(JSON.stringify({ ...logBase, event: "upstream_status", status: upstream.status }));
-      return new Response(errBody, {
-        status: upstream.status,
-        headers: { "content-type": "application/json" },
-      });
-    }
-
-    // Tee: one branch to the app, one branch metered under waitUntil. The
-    // metering branch keeps pulling even if the app disconnects, so a
-    // connect-and-drop flood is still billed against the ledger.
-    const [toClient, toMeter] = upstream.body.tee();
-    ctx.waitUntil(meterStream(toMeter, built.spec, worstCaseMicros, env, logBase));
-
-    // Header shape deliberately unchanged from the original worker: the app
-    // reads raw bytes and never inspects content-type.
-    return new Response(toClient, {
+    // Stream straight through. The app reads SSE via URLSession.bytes, so
+    // buffering here would break every grade.
+    return new Response(upstream.body, {
       status: upstream.status,
       headers: { "content-type": "application/json" },
     });
