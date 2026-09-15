@@ -51,13 +51,22 @@ struct BrowseSplitView: View {
         if let error = content.loadError {
             Text(error)
         } else {
+            // Same book names, same exam-weight chips and same caption as the
+            // compact layout in TopicListView — this is one screen, and which
+            // rendering you get is only a matter of window width.
             List(selection: $selectedTopicID) {
                 ForEach(content.questionBank?.topics ?? []) { topic in
-                    let progress = topicProgress(for: topic)
+                    let progress = ProgressStats.caseProgress(topic: topic, attempts: attempts)
                     VStack(alignment: .leading, spacing: 8) {
-                        Text(topic.shortName)
-                            .font(.headline)
-                        Text("\(progress.attempted)/\(progress.total) attempted · \(Formatting.percent(progress.correctRate)) correct")
+                        HStack {
+                            Text(ProgressDisplay.shortName(topic.id, fallback: topic.shortName))
+                                .font(.headline)
+                            Spacer()
+                            if let weight = ProgressDisplay.examWeights[topic.id] {
+                                CapsuleBadge(text: weight)
+                            }
+                        }
+                        Text("\(progress.total) case questions · \(Formatting.percent(progress.correctRate)) correct")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                         MasteryBar(value: progress.total == 0 ? 0 : Double(progress.attempted) / Double(progress.total))
@@ -87,7 +96,7 @@ struct BrowseSplitView: View {
                 selectedCaseID: $selectedCaseID,
                 onCaseSelected: { _ in collapseToCase() }
             )
-            .navigationTitle(topic.shortName)
+            .navigationTitle(ProgressDisplay.shortName(topic.id, fallback: topic.shortName))
             .toolbar {
                 // Same principle as Study: switching books must not depend
                 // on the topics column being on screen.
@@ -97,10 +106,13 @@ struct BrowseSplitView: View {
                             Button {
                                 selectedTopicID = candidate.id
                             } label: {
+                                let name = ProgressDisplay.shortName(
+                                    candidate.id, fallback: candidate.shortName
+                                )
                                 if candidate.id == selectedTopicID {
-                                    Label(candidate.shortName, systemImage: "checkmark")
+                                    Label(name, systemImage: "checkmark")
                                 } else {
-                                    Text(candidate.shortName)
+                                    Text(name)
                                 }
                             }
                         }
@@ -155,13 +167,4 @@ struct BrowseSplitView: View {
         selectedTopicID = first.id
     }
 
-    private func topicProgress(for topic: BankTopic) -> (attempted: Int, total: Int, correctRate: Double) {
-        let questionIDs = Set(topic.cases.flatMap { $0.questions.map(\.id) })
-        let topicAttempts = attempts.filter { questionIDs.contains($0.questionId) }
-        let unique = Set(topicAttempts.map(\.questionId)).count
-        let gradable = topicAttempts.filter { $0.wasCorrect != nil }
-        let correct = gradable.filter { $0.wasCorrect == true }.count
-        let rate = gradable.isEmpty ? 0 : Double(correct) / Double(gradable.count)
-        return (unique, questionIDs.count, rate)
-    }
 }

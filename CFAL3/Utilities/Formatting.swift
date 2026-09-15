@@ -9,6 +9,18 @@ enum Formatting {
         return Calendar.current.dateComponents([.day], from: start, to: end).day ?? 0
     }
 
+    /// Minutes a set of questions should take. One definition for the whole
+    /// app: the review card used to price every question at a flat 1.1 min
+    /// while Practice and the case detail used these figures, so the same 60
+    /// questions were quoted as 66 minutes on one screen and up to 240 on
+    /// another.
+    static let minutesPerMC = 1.5
+    static let minutesPerEssay = 4.0
+
+    static func estimatedMinutes(mc: Int, essays: Int) -> Int {
+        Int(ceil(Double(mc) * minutesPerMC + Double(essays) * minutesPerEssay))
+    }
+
     static func shortTopicName(_ name: String) -> String {
         if let range = name.range(of: " (", options: .backwards) {
             return String(name[..<range.lowerBound])

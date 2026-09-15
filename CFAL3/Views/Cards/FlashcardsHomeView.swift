@@ -9,11 +9,12 @@ struct FlashcardsHomeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var progress: [FlashcardProgress]
 
+    @Environment(PracticeBuilderPreference.self) private var practicePref
     @State private var typeFilter: FlashcardType?
 
     private var areas: [CurriculumArea] { content.losMaster?.areas ?? [] }
 
-    private var dueByCard: [String: FlashcardProgress] {
+    private var rowsByCard: [String: FlashcardProgress] {
         Dictionary(progress.map { ($0.cardId, $0) }, uniquingKeysWith: { a, _ in a })
     }
 
@@ -21,10 +22,11 @@ struct FlashcardsHomeView: View {
         typeFilter == nil || card.type == typeFilter
     }
 
-    /// A card with no progress row yet counts as due — a freshly added deck
-    /// should never look empty.
+    /// Only a card that has actually been rated can come back as due. A card
+    /// with no row, or a row with no ratings, has never been seen — counting
+    /// those as due made a fresh install announce the entire deck.
     private func isDue(_ card: Flashcard, now: Date = .now) -> Bool {
-        guard let row = dueByCard[card.id] else { return true }
+        guard let row = rowsByCard[card.id], row.totalAttempts > 0 else { return false }
         return row.dueDate <= now
     }
 
@@ -33,7 +35,15 @@ struct FlashcardsHomeView: View {
     }
 
     private var allFiltered: [Flashcard] { content.allFlashcards.filter(matchesFilter) }
-    private var dueCards: [Flashcard] { allFiltered.filter { isDue($0) } }
+
+    /// The count shown and the deck handed to the session are the same value.
+    private var plan: FlashcardQueue.Plan {
+        FlashcardQueue.plan(
+            cards: allFiltered,
+            progress: progress,
+            dailyNewLimit: practicePref.dailyNewFlashcardLimit
+        )
+    }
 
     var body: some View {
         Group {
@@ -54,23 +64,27 @@ struct FlashcardsHomeView: View {
     private var list: some View {
         List {
             Section {
+                let plan = plan
+                let byID = Dictionary(
+                    content.allFlashcards.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a }
+                )
                 NavigationLink {
                     FlashcardSessionView(
-                        title: "Due now",
-                        cards: dueCards.shuffled()
+                        title: plan.newInSession > 0 && plan.dueInSession == 0 ? "New cards" : "Today's cards",
+                        cards: plan.sessionIDs.compactMap { byID[$0] }
                     )
                 } label: {
                     HStack {
-                        Label("Review due", systemImage: "bolt.fill")
+                        Label(todayLabel(plan), systemImage: "bolt.fill")
                             .font(.body.weight(.semibold))
                             .foregroundStyle(Theme.accent)
                         Spacer()
-                        Text("\(dueCards.count)")
+                        Text("\(plan.sessionIDs.count)")
                             .font(.headline.monospacedDigit())
-                            .foregroundStyle(dueCards.isEmpty ? .secondary : Theme.accent)
+                            .foregroundStyle(plan.isEmpty ? .secondary : Theme.accent)
                     }
                 }
-                .disabled(dueCards.isEmpty)
+                .disabled(plan.isEmpty)
 
                 NavigationLink {
                     FlashcardSessionView(title: "Shuffle all", cards: allFiltered.shuffled())
@@ -84,7 +98,7 @@ struct FlashcardsHomeView: View {
                     }
                 }
             } footer: {
-                Text("Cards are scheduled with the same spaced-repetition algorithm as question review, tracked separately.")
+                Text(todayFooter(plan))
             }
 
             Section("Card type") {
@@ -108,6 +122,25 @@ struct FlashcardsHomeView: View {
                 }
             }
         }
+    }
+
+    private func todayLabel(_ plan: FlashcardQueue.Plan) -> String {
+        if plan.dueInSession > 0 && plan.newInSession > 0 { return "Review + new" }
+        if plan.newInSession > 0 { return "Start new cards" }
+        if plan.dueInSession > 0 { return "Review due" }
+        if plan.isNewExhausted { return "Today's new cards are done" }
+        return "All caught up"
+    }
+
+    private func todayFooter(_ plan: FlashcardQueue.Plan) -> String {
+        let base = "Cards use the same spaced-repetition schedule as question review, tracked separately."
+        if plan.isNewExhausted {
+            return "\(plan.dailyNewLimit) new cards resume tomorrow · \(plan.notStartedCount.formatted()) not started. " + base
+        }
+        if plan.notStartedCount > 0 {
+            return "\(plan.dueCount.formatted()) due · \(plan.notStartedCount.formatted()) not started. " + base
+        }
+        return base
     }
 
     private func deckRow(_ reading: Reading) -> some View {

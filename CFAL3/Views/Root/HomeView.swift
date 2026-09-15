@@ -143,8 +143,13 @@ struct HomeView: View {
             return "Build a practice session instead"
         }
         // The estimate covers the capped slice, not the whole queue — say so,
-        // or "3,115 due · ~66 min" reads as 3,115 questions in an hour.
-        let minutes = max(5, Int(ceil(Double(plan.sessionIDs.count) * 1.1)))
+        // or "3,115 due · ~66 min" reads as 3,115 questions in an hour. Priced
+        // by question type, like every other estimate in the app.
+        let essays = plan.sessionIDs.filter { questionType(for: $0) == .essay }.count
+        let minutes = max(5, Formatting.estimatedMinutes(
+            mc: plan.sessionIDs.count - essays,
+            essays: essays
+        ))
         var parts = ["~\(minutes) min"]
         if plan.dueInSession > 0 && plan.newInSession > 0 {
             parts.append("\(plan.dueInSession) due + \(plan.newInSession) new")
@@ -178,10 +183,10 @@ struct HomeView: View {
                             // The done-toggle is overlaid on this corner (a
                             // Button inside a NavigationLink label would never
                             // get the tap), so the hours have to yield its room.
-                            .padding(.trailing, 26)
+                            .padding(.trailing, today.isRestDay ? 0 : 26)
                     }
 
-                    if today.hours == 0 {
+                    if today.isRestDay {
                         Text(today.note ?? "Rest day")
                             .font(.caption)
                             .foregroundStyle(.secondary)
@@ -205,7 +210,11 @@ struct HomeView: View {
             }
             .buttonStyle(.plain)
             .cfaCard()
+            // Rest days get no check-off, matching PlanView. They used to be
+            // checkable here only, which wrote a DayCompletion row that the
+            // Plan screen had no control to clear.
             .overlay(alignment: .topTrailing) {
+                if !today.isRestDay {
                 Button {
                     toggleTodayCompletion(today, isDone: isDone)
                 } label: {
@@ -215,6 +224,7 @@ struct HomeView: View {
                 }
                 .buttonStyle(.plain)
                 .accessibilityLabel(isDone ? "Mark incomplete" : "Mark done")
+                }
             }
         }
     }
@@ -369,6 +379,12 @@ struct HomeView: View {
         content.readingNotes(id: reading.id)?.title ?? reading.name
     }
 
+
+    private func questionType(for id: String) -> QuestionType {
+        if let q = content.question(id: id) { return q.type }
+        if let d = content.drillQuestion(id: id) { return d.type }
+        return .mc
+    }
 
     private func startReviewSession(_ plan: ReviewQueue.Plan) {
         guard !plan.isEmpty else { return }

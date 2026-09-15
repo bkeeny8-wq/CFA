@@ -29,7 +29,7 @@ struct PracticeBuilderView: View {
     private var estimatedMinutes: Int {
         let essays = previewedIDs.filter { questionType(for: $0) == .essay }.count
         let mc = matching - essays
-        return Int(ceil(Double(mc) * 1.5 + Double(essays) * 4.0))
+        return Formatting.estimatedMinutes(mc: mc, essays: essays)
     }
 
     var body: some View {

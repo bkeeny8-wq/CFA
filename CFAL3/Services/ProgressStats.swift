@@ -201,6 +201,24 @@ enum ProgressStats {
         }
     }
 
+    /// Progress over a book's CASE questions only — deliberately narrower than
+    /// `topicProgress`, which also counts the LOS drills. The case browser can
+    /// only reach case questions, so a drill-inclusive total there would be a
+    /// denominator the user cannot move. Callers must label it as such; the
+    /// two screens that show it used to keep private, divergent copies.
+    static func caseProgress(
+        topic: BankTopic,
+        attempts: [Attempt]
+    ) -> (attempted: Int, total: Int, correctRate: Double) {
+        let questionIDs = Set(topic.cases.flatMap { $0.questions.map(\.id) })
+        let mine = attempts.filter { questionIDs.contains($0.questionId) }
+        let unique = Set(mine.map(\.questionId)).count
+        let gradable = mine.filter { $0.wasCorrect != nil }
+        let correct = gradable.filter { $0.wasCorrect == true }.count
+        let rate = gradable.isEmpty ? 0 : Double(correct) / Double(gradable.count)
+        return (unique, questionIDs.count, rate)
+    }
+
     static func cardStats(for questionID: String, attempts: [Attempt], card: ReviewCard?) -> (attempts: Int, correct: Int, lastWasCorrect: Bool?) {
         let questionAttempts = attempts.filter { $0.questionId == questionID }
         let correctCount = questionAttempts.filter { $0.wasCorrect == true }.count

@@ -189,6 +189,9 @@ struct FlashcardSessionView: View {
             modelContext.insert(new)
             return new
         }()
+        // Stamp the first rating before the scheduler runs: this is the only
+        // record that the card was introduced, and it drives the daily pace.
+        if row.firstAttemptedAt == nil { row.firstAttemptedAt = .now }
         ReviewScheduler.update(item: row, quality: quality)
         try? modelContext.save()
 

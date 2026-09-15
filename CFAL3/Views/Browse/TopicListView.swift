@@ -25,7 +25,7 @@ struct TopicListView: View {
             } else {
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(content.questionBank?.topics ?? []) { topic in
-                        let progress = topicProgress(for: topic)
+                        let progress = ProgressStats.caseProgress(topic: topic, attempts: attempts)
                         NavigationLink {
                             CaseListView(topicID: topic.id)
                         } label: {
@@ -45,7 +45,10 @@ struct TopicListView: View {
                                     .font(.subheadline.weight(.medium))
                                     .lineLimit(1)
                                     .foregroundStyle(.primary)
-                                Text("\(progress.total) questions · \(Formatting.percent(progress.correctRate)) correct")
+                                // "case questions", not "questions": the Progress
+                                // tab counts this book's drills too, and the two
+                                // numbers must not read as the same measure.
+                                Text("\(progress.total) case questions · \(Formatting.percent(progress.correctRate)) correct")
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
@@ -77,13 +80,4 @@ struct TopicListView: View {
         }
     }
 
-    private func topicProgress(for topic: BankTopic) -> (attempted: Int, total: Int, correctRate: Double) {
-        let questionIDs = Set(topic.cases.flatMap { $0.questions.map(\.id) })
-        let topicAttempts = attempts.filter { questionIDs.contains($0.questionId) }
-        let unique = Set(topicAttempts.map(\.questionId)).count
-        let gradable = topicAttempts.filter { $0.wasCorrect != nil }
-        let correct = gradable.filter { $0.wasCorrect == true }.count
-        let rate = gradable.isEmpty ? 0 : Double(correct) / Double(gradable.count)
-        return (unique, questionIDs.count, rate)
-    }
 }

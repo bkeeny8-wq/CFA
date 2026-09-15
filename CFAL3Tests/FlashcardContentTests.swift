@@ -87,4 +87,103 @@ final class FlashcardContentTests: XCTestCase {
         XCTAssertLessThan(row.easeFactor, 2.7, "failure penalizes EF (deliberate deviation)")
         XCTAssertGreaterThanOrEqual(row.easeFactor, 1.3, "EF floor")
     }
+
+    // MARK: - Queue
+
+    private func deck(_ n: Int, reading: String = "r1") -> [Flashcard] {
+        (1...n).map {
+            Flashcard(
+                id: "c\($0)", readingID: reading, areaID: "a1", losID: "los1",
+                type: .concept, front: "f", back: "b",
+                formula: nil, mnemonic: nil, difficulty: .core
+            )
+        }
+    }
+
+    private func row(_ id: String, attempts: Int, due: Date = .now, first: Date? = nil) -> FlashcardProgress {
+        let r = FlashcardProgress(cardId: id, readingId: "r1", areaId: "a1")
+        r.totalAttempts = attempts
+        r.dueDate = due
+        r.firstAttemptedAt = first
+        return r
+    }
+
+    /// The reported bug: every card was seeded due, and a card with no row at
+    /// all also read as due, so a fresh install announced the whole deck.
+    func testFreshDeckHasNothingDueAndIsMeteredByTheDailyLimit() {
+        let p = FlashcardQueue.plan(cards: deck(445), progress: [], dailyNewLimit: 20)
+        XCTAssertEqual(p.dueCount, 0, "an unrated card is not 'due'")
+        XCTAssertEqual(p.notStartedCount, 445)
+        XCTAssertEqual(p.sessionIDs.count, 20)
+    }
+
+    func testASeededRowWithNoRatingsIsStillNotDue() {
+        let cards = deck(10)
+        let rows = cards.map { row($0.id, attempts: 0) }
+        let p = FlashcardQueue.plan(cards: cards, progress: rows, dailyNewLimit: 5)
+        XCTAssertEqual(p.dueCount, 0)
+        XCTAssertEqual(p.notStartedCount, 10)
+        XCTAssertEqual(p.sessionIDs.count, 5)
+    }
+
+    func testRatedCardsComeBackWhenTheirIntervalElapses() {
+        let cards = deck(4)
+        let past = Date.now.addingTimeInterval(-3_600)
+        let rows = [
+            row("c1", attempts: 1, due: past, first: past),
+            row("c2", attempts: 1, due: .now.addingTimeInterval(86_400), first: past),
+        ]
+        let p = FlashcardQueue.plan(cards: cards, progress: rows, dailyNewLimit: 0)
+        XCTAssertEqual(p.dueCount, 1, "only the elapsed one is due")
+        XCTAssertEqual(p.notStartedCount, 2)
+        XCTAssertEqual(p.sessionIDs, ["c1"])
+    }
+
+    func testTodaysAllowanceIsSpentByCardsFirstRatedToday() {
+        let cards = deck(50)
+        let rows = (1...20).map { row("c\($0)", attempts: 1, due: .now.addingTimeInterval(86_400), first: .now) }
+        let p = FlashcardQueue.plan(cards: cards, progress: rows, dailyNewLimit: 20)
+        XCTAssertEqual(p.introducedToday, 20)
+        XCTAssertEqual(p.newRemainingToday, 0)
+        XCTAssertTrue(p.isEmpty)
+        XCTAssertTrue(p.isNewExhausted)
+    }
+
+    func testCardsFirstRatedYesterdayDoNotSpendTodaysAllowance() {
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: .now)!
+        let cards = deck(30)
+        let rows = (1...10).map {
+            row("c\($0)", attempts: 2, due: .now.addingTimeInterval(86_400), first: yesterday)
+        }
+        let p = FlashcardQueue.plan(cards: cards, progress: rows, dailyNewLimit: 20)
+        XCTAssertEqual(p.introducedToday, 0)
+        XCTAssertEqual(p.newRemainingToday, 20)
+    }
+
+    /// A row predating this field reads nil and must not crash or be counted.
+    func testRowsWithoutAFirstRatingDateAreNotCountedAsIntroducedToday() {
+        let rows = [row("c1", attempts: 5, first: nil)]
+        XCTAssertEqual(FlashcardQueue.introducedToday(progress: rows), 0)
+    }
+
+    func testTheCountShownIsTheSessionItStarts() {
+        let cards = deck(100)
+        let p = FlashcardQueue.plan(cards: cards, progress: [], dailyNewLimit: 20)
+        XCTAssertEqual(p.sessionIDs.count, p.dueInSession + p.newInSession)
+        XCTAssertEqual(Set(p.sessionIDs).count, p.sessionIDs.count, "no duplicates")
+        XCTAssertFalse(p.isEmpty)
+    }
+
+    func testAnEmptyDeckYieldsAnEmptyPlanRatherThanACrash() {
+        let p = FlashcardQueue.plan(cards: [], progress: [], dailyNewLimit: 20)
+        XCTAssertTrue(p.isEmpty)
+        XCTAssertEqual(p.dueCount, 0)
+    }
+
+    func testPlanIsStableRegardlessOfDeckOrder() {
+        let cards = deck(40)
+        let a = FlashcardQueue.plan(cards: cards, progress: [], dailyNewLimit: 20)
+        let b = FlashcardQueue.plan(cards: cards.reversed(), progress: [], dailyNewLimit: 20)
+        XCTAssertEqual(a.sessionIDs, b.sessionIDs)
+    }
 }

@@ -138,7 +138,7 @@ struct CaseDetailView: View {
     private func caseMetadata(_ caseStudy: CaseStudy) -> (questionCount: Int, essayCount: Int, minutes: Int) {
         let essays = caseStudy.questions.filter { $0.type == .essay }.count
         let mc = caseStudy.questions.count - essays
-        let minutes = Int(ceil(Double(mc) * 1.5 + Double(essays) * 4.0))
+        let minutes = Formatting.estimatedMinutes(mc: mc, essays: essays)
         return (caseStudy.questions.count, essays, minutes)
     }
 

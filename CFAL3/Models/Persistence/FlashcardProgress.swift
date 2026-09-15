@@ -24,6 +24,13 @@ final class FlashcardProgress {
     var lastAttemptedAt: Date?
     var flaggedForReview: Bool
 
+    /// When this card was first rated. Questions derive the same fact from
+    /// their `Attempt` rows, but flashcard ratings write no Attempt, so the
+    /// daily new-card pace has nothing to derive from unless it is recorded.
+    /// Optional, so existing stores migrate without work: a pre-existing row
+    /// reads as nil and simply never counts against a day's allowance.
+    var firstAttemptedAt: Date?
+
     init(cardId: String, readingId: String, areaId: String) {
         self.cardId = cardId
         self.readingId = readingId

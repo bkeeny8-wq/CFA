@@ -69,6 +69,7 @@ final class PracticeBuilderPreference {
         static let selectedLOS = "practice.selectedLOS"
         static let weaknessWeighted = "practice.weaknessWeighted"
         static let dailyNewLimit = "review.dailyNewLimit"
+        static let dailyNewFlashcardLimit = "review.dailyNewFlashcardLimit"
     }
 
     var typeFilter: QuestionTypeFilter {
@@ -104,6 +105,12 @@ final class PracticeBuilderPreference {
     /// preference idiom — see the note above about observation.
     var dailyNewLimit: Int {
         didSet { defaults.set(dailyNewLimit, forKey: Keys.dailyNewLimit) }
+    }
+
+    /// Separate from `dailyNewLimit`: cards and questions are separate queues
+    /// with separate paces, so one shared number would mean neither.
+    var dailyNewFlashcardLimit: Int {
+        didSet { defaults.set(dailyNewFlashcardLimit, forKey: Keys.dailyNewFlashcardLimit) }
     }
 
     init(defaults: UserDefaults = .standard) {
@@ -143,6 +150,10 @@ final class PracticeBuilderPreference {
         dailyNewLimit = defaults.object(forKey: Keys.dailyNewLimit) == nil
             ? ReviewQueue.defaultDailyNewLimit
             : defaults.integer(forKey: Keys.dailyNewLimit)
+
+        dailyNewFlashcardLimit = defaults.object(forKey: Keys.dailyNewFlashcardLimit) == nil
+            ? FlashcardQueue.defaultDailyNewLimit
+            : defaults.integer(forKey: Keys.dailyNewFlashcardLimit)
 
         // Write the sanitized topic set back so defaults converge.
         if storedTopics != selectedTopics {

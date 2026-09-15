@@ -46,6 +46,11 @@ struct SettingsView: View {
                         .monospacedDigit()
                         .foregroundStyle(.secondary)
                 }
+                Picker("New cards per day", selection: Bindable(practicePref).dailyNewFlashcardLimit) {
+                    ForEach(FlashcardQueue.newLimitOptions, id: \.self) { limit in
+                        Text(limit == 0 ? "Off" : "\(limit)").tag(limit)
+                    }
+                }
             } header: {
                 Text("Review")
             } footer: {
