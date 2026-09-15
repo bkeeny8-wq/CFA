@@ -70,15 +70,25 @@ struct ProgressDashboardView: View {
             Button {
                 startReviewSession(plan)
             } label: {
+                // Show the session this tile actually starts, not the due
+                // count: gating on plan.isEmpty while printing dueCount made
+                // it read "0" in the accent colour and then run 20 questions.
                 ProgressStatTile(
-                    label: plan.newInSession > 0 ? "Due · +\(plan.newInSession) new" : "Due today",
-                    value: plan.dueCount.formatted(),
+                    label: reviewTileLabel(plan),
+                    value: plan.isEmpty ? "0" : plan.sessionIDs.count.formatted(),
                     isAccent: !plan.isEmpty
                 )
             }
             .buttonStyle(.plain)
             .disabled(plan.isEmpty)
         }
+    }
+
+    private func reviewTileLabel(_ plan: ReviewQueue.Plan) -> String {
+        if plan.isEmpty { return "Nothing due" }
+        if plan.dueInSession > 0 && plan.newInSession > 0 { return "Review + new" }
+        if plan.newInSession > 0 { return "New today" }
+        return plan.overflowDue > 0 ? "Due (of \(plan.dueCount.formatted()))" : "Due today"
     }
 
     private func bookGrid(_ topics: [TopicProgress]) -> some View {

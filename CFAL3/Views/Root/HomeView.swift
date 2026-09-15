@@ -129,6 +129,7 @@ struct HomeView: View {
         }
         if plan.dueCount > 0 { return "Start review · \(plan.dueCount.formatted()) due" }
         if plan.newInSession > 0 { return "Start studying · \(plan.newInSession) new" }
+        if plan.isNewOff { return "New questions are switched off" }
         if plan.isNewExhausted { return "Today's new questions are done" }
         // Never claim "caught up" before the deck has been seeded.
         if reviewCards.isEmpty && content.isLoaded { return "Preparing your review queue" }
@@ -137,6 +138,9 @@ struct HomeView: View {
 
     private func reviewSubtitle(_ plan: ReviewQueue.Plan) -> String {
         guard !plan.isEmpty else {
+            if plan.isNewOff {
+                return "\(plan.notStartedCount.formatted()) not started · turn on new questions per day in Settings"
+            }
             if plan.isNewExhausted {
                 return "\(plan.dailyNewLimit) new resume tomorrow · \(plan.notStartedCount.formatted()) not started"
             }

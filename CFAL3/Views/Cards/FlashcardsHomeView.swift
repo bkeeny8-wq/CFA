@@ -14,7 +14,10 @@ struct FlashcardsHomeView: View {
 
     private var areas: [CurriculumArea] { content.losMaster?.areas ?? [] }
 
-    private var rowsByCard: [String: FlashcardProgress] {
+    /// Built ONCE per body evaluation and threaded through the rows. As a
+    /// computed property it was rebuilt on every `isDue` call — 445 cards
+    /// each reconstructing a 445-entry dictionary, on the main thread.
+    private func makeRows() -> [String: FlashcardProgress] {
         Dictionary(progress.map { ($0.cardId, $0) }, uniquingKeysWith: { a, _ in a })
     }
 
@@ -25,8 +28,12 @@ struct FlashcardsHomeView: View {
     /// Only a card that has actually been rated can come back as due. A card
     /// with no row, or a row with no ratings, has never been seen — counting
     /// those as due made a fresh install announce the entire deck.
-    private func isDue(_ card: Flashcard, now: Date = .now) -> Bool {
-        guard let row = rowsByCard[card.id], row.totalAttempts > 0 else { return false }
+    private func isDue(
+        _ card: Flashcard,
+        rows: [String: FlashcardProgress],
+        now: Date = .now
+    ) -> Bool {
+        guard let row = rows[card.id], row.totalAttempts > 0 else { return false }
         return row.dueDate <= now
     }
 
@@ -62,12 +69,15 @@ struct FlashcardsHomeView: View {
     }
 
     private var list: some View {
-        List {
+        // Both maps built once here and threaded down, rather than rebuilt
+        // inside every row.
+        let rows = makeRows()
+        let plan = plan
+        let byID = Dictionary(
+            content.allFlashcards.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a }
+        )
+        return List {
             Section {
-                let plan = plan
-                let byID = Dictionary(
-                    content.allFlashcards.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a }
-                )
                 NavigationLink {
                     FlashcardSessionView(
                         title: plan.newInSession > 0 && plan.dueInSession == 0 ? "New cards" : "Today's cards",
@@ -116,7 +126,7 @@ struct FlashcardsHomeView: View {
                 if !readings.isEmpty {
                     Section(area.name) {
                         ForEach(readings) { reading in
-                            deckRow(reading)
+                            deckRow(reading, rows: rows)
                         }
                     }
                 }
@@ -128,24 +138,31 @@ struct FlashcardsHomeView: View {
         if plan.dueInSession > 0 && plan.newInSession > 0 { return "Review + new" }
         if plan.newInSession > 0 { return "Start new cards" }
         if plan.dueInSession > 0 { return "Review due" }
+        if plan.isNewOff { return "New cards are switched off" }
         if plan.isNewExhausted { return "Today's new cards are done" }
         return "All caught up"
     }
 
+    /// Always states the real due total and any overflow. Showing only the
+    /// session size hid the backlog completely once every card was started.
     private func todayFooter(_ plan: FlashcardQueue.Plan) -> String {
         let base = "Cards use the same spaced-repetition schedule as question review, tracked separately."
-        if plan.isNewExhausted {
-            return "\(plan.dailyNewLimit) new cards resume tomorrow · \(plan.notStartedCount.formatted()) not started. " + base
+        var parts: [String] = []
+        if plan.dueCount > 0 { parts.append("\(plan.dueCount.formatted()) due") }
+        if plan.overflowDue > 0 { parts.append("\(plan.overflowDue.formatted()) after this session") }
+        if plan.notStartedCount > 0 { parts.append("\(plan.notStartedCount.formatted()) not started") }
+
+        if plan.isNewOff {
+            parts.append("new cards are off — turn them on in Settings")
+        } else if plan.isNewExhausted {
+            parts.append("\(plan.dailyNewLimit) new resume tomorrow")
         }
-        if plan.notStartedCount > 0 {
-            return "\(plan.dueCount.formatted()) due · \(plan.notStartedCount.formatted()) not started. " + base
-        }
-        return base
+        return parts.isEmpty ? base : parts.joined(separator: " · ") + ". " + base
     }
 
-    private func deckRow(_ reading: Reading) -> some View {
+    private func deckRow(_ reading: Reading, rows: [String: FlashcardProgress]) -> some View {
         let deck = cards(for: reading)
-        let due = deck.filter { isDue($0) }.count
+        let due = deck.filter { isDue($0, rows: rows) }.count
         return NavigationLink {
             FlashcardSessionView(title: reading.name, cards: deck)
         } label: {

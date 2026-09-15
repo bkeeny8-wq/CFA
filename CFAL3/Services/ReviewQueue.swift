@@ -59,10 +59,14 @@ enum ReviewQueue {
         /// payload itself, so an enabled button always has something to run.
         var isEmpty: Bool { sessionIDs.isEmpty }
 
-        /// True when there is unseen material left but today's ration is
-        /// spent — "come back tomorrow", not "all caught up".
+        /// The user switched intake off; nothing resumes tomorrow.
+        var isNewOff: Bool { dailyNewLimit == 0 && notStartedCount > 0 }
+
+        /// Today's ration is spent but more arrives tomorrow. Distinct from
+        /// `isNewOff`, which otherwise satisfies the same condition and made
+        /// the UI promise a batch that would never come.
         var isNewExhausted: Bool {
-            dueCount == 0 && notStartedCount > 0 && newRemainingToday == 0
+            dailyNewLimit > 0 && dueCount == 0 && notStartedCount > 0 && newRemainingToday == 0
         }
 
         static let empty = Plan(
@@ -167,13 +171,6 @@ enum ReviewQueue {
         // Deterministic orders. Thousands of cards share a bootstrap dueDate
         // and the dictionary they came from has no stable iteration order, so
         // without a tie-break the session reshuffles on every launch.
-        due.sort { ($0.dueDate, $0.questionId) < ($1.dueDate, $1.questionId) }
-        notStarted.sort {
-            let lhs = (startedReadings.isDisjoint(with: $0.readingIds) ? 1 : 0, $0.caseId, $0.questionId)
-            let rhs = (startedReadings.isDisjoint(with: $1.readingIds) ? 1 : 0, $1.caseId, $1.questionId)
-            return lhs < rhs
-        }
-
         let introduced = introducedToday(attempts: attempts, now: now)
         let remaining = max(0, dailyNewLimit - introduced)
 
@@ -184,10 +181,17 @@ enum ReviewQueue {
         let newSlots = min(newWanted, max(minNewSlotsPerSession, sessionCap - due.count))
         let dueSlots = min(due.count, sessionCap - newSlots)
 
-        let sessionIDs = interleave(
-            reviews: due.prefix(dueSlots).map(\.questionId),
-            new: notStarted.prefix(newSlots).map(\.questionId)
-        )
+        // Select only the slots we need instead of sorting every card. This
+        // runs on each body evaluation of two screens, so a full O(n log n)
+        // sort of 3,115 cards — with set operations inside the comparator —
+        // was showing up as scroll hitching.
+        let dueIDs = smallestK(due, k: dueSlots) { $0.dueDate.timeIntervalSinceReferenceDate }
+            .map(\.questionId)
+        let newIDs = smallestK(notStarted, k: newSlots) {
+            startedReadings.isDisjoint(with: $0.readingIds) ? 1.0 : 0.0
+        }.map(\.questionId)
+
+        let sessionIDs = interleave(reviews: dueIDs, new: newIDs)
 
         return Plan(
             dueCount: due.count,
@@ -200,6 +204,40 @@ enum ReviewQueue {
             newInSession: newSlots,
             overflowDue: max(0, due.count - dueSlots)
         )
+    }
+
+    /// The `k` cards with the lowest rank, ties broken by questionId so the
+    /// result is identical across launches (bootstrap gives thousands of cards
+    /// the same dueDate, and the collection they came from has no stable
+    /// order). O(n log k) with the rank computed once per card, rather than
+    /// sorting everything and discarding all but the first few.
+    static func smallestK(
+        _ cards: [ReviewCard],
+        k: Int,
+        rank: (ReviewCard) -> Double
+    ) -> [ReviewCard] {
+        guard k > 0 else { return [] }
+        guard cards.count > k else {
+            return cards
+                .map { (rank($0), $0) }
+                .sorted { ($0.0, $0.1.questionId) < ($1.0, $1.1.questionId) }
+                .map(\.1)
+        }
+
+        var best: [(rank: Double, card: ReviewCard)] = []
+        best.reserveCapacity(k + 1)
+        for card in cards {
+            let r = rank(card)
+            if best.count == k, let worst = best.last,
+               (r, card.questionId) >= (worst.rank, worst.card.questionId) { continue }
+            let entry = (rank: r, card: card)
+            let index = best.firstIndex {
+                (r, card.questionId) < ($0.rank, $0.card.questionId)
+            } ?? best.count
+            best.insert(entry, at: index)
+            if best.count > k { best.removeLast() }
+        }
+        return best.map(\.card)
     }
 
     /// Spread new questions evenly through the session instead of stacking

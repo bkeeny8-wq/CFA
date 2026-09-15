@@ -12,6 +12,7 @@ struct SettingsView: View {
     @Query private var sessions: [Session]
     @Query private var dayCompletions: [DayCompletion]
     @Query private var losStudyStatuses: [LOSStudyStatus]
+    @Query private var flashcardProgress: [FlashcardProgress]
 
     @State private var exportURL: URL?
     @State private var showExporter = false
@@ -90,8 +91,12 @@ struct SettingsView: View {
                 } label: {
                     Label("Erase all progress", systemImage: "trash")
                 }
+                // Flashcard rows are seeded like ReviewCards, so only a RATED
+                // one counts as progress worth erasing. Without this a
+                // Cards-only user found both buttons permanently disabled.
                 .disabled(attempts.isEmpty && sessions.isEmpty
-                          && dayCompletions.isEmpty && losStudyStatuses.isEmpty)
+                          && dayCompletions.isEmpty && losStudyStatuses.isEmpty
+                          && !flashcardProgress.contains { $0.totalAttempts > 0 })
             } header: {
                 Text("Reset")
             } footer: {
@@ -187,17 +192,23 @@ struct SettingsView: View {
     }
 
     private func resetAllProgress() {
-        // Same as above: the seeded review schedule is erased but not counted.
+        // Same as above: seeded scheduling rows are erased but not counted —
+        // for flashcards that means only the rated ones are user progress.
+        let ratedCards = flashcardProgress.filter { $0.totalAttempts > 0 }.count
         let removed = attempts.count + sessions.count
-            + dayCompletions.count + losStudyStatuses.count
+            + dayCompletions.count + losStudyStatuses.count + ratedCards
         for item in attempts { modelContext.delete(item) }
         for item in cards { modelContext.delete(item) }
         for item in sessions { modelContext.delete(item) }
         for item in dayCompletions { modelContext.delete(item) }
         for item in losStudyStatuses { modelContext.delete(item) }
+        // "Erase all progress" promises a clean slate; leaving 445 flashcard
+        // schedules in place made that promise false.
+        for item in flashcardProgress { modelContext.delete(item) }
         do {
             try modelContext.save()
             content.bootstrapReviewCards(context: modelContext)
+            content.bootstrapFlashcardProgress(context: modelContext)
             resetSummary = "Erased \(removed) records. Progress is back to a clean slate."
         } catch {
             modelContext.rollback()
@@ -267,7 +278,27 @@ struct SettingsView: View {
             dayCompletions: dayCompletions.map {
                 DayCompletionExport(dateKey: $0.dateKey,
                                     completedHours: $0.completedHours)
-            }
+            },
+            // Only rated cards: the other 400-odd are seeded scaffolding that
+            // the destination device regenerates for itself.
+            flashcardProgress: flashcardProgress
+                .filter { $0.totalAttempts > 0 }
+                .map {
+                    FlashcardProgressExport(
+                        cardId: $0.cardId,
+                        readingId: $0.readingId,
+                        areaId: $0.areaId,
+                        easeFactor: $0.easeFactor,
+                        interval: $0.interval,
+                        repetitions: $0.repetitions,
+                        dueDate: $0.dueDate,
+                        totalAttempts: $0.totalAttempts,
+                        totalCorrect: $0.totalCorrect,
+                        lastAttemptedAt: $0.lastAttemptedAt,
+                        firstAttemptedAt: $0.firstAttemptedAt,
+                        flaggedForReview: $0.flaggedForReview
+                    )
+                }
         )
 
         let url = FileManager.default.temporaryDirectory.appendingPathComponent("cfal3-export-\(Int(Date().timeIntervalSince1970)).json")
@@ -361,6 +392,44 @@ struct SettingsView: View {
                     modelContext.insert(card)
                     inserted += 1
                 }
+            }
+
+            // Same newer-wins merge as review cards. Absent in backups written
+            // before flashcards shipped, which is why the field is optional.
+            let progressByCard = Dictionary(
+                flashcardProgress.map { ($0.cardId, $0) }, uniquingKeysWith: { a, _ in a }
+            )
+            for item in payload.flashcardProgress ?? [] {
+                guard let card = content.flashcard(id: item.cardId) else {
+                    skipped += 1
+                    continue
+                }
+                let local = progressByCard[item.cardId] ?? {
+                    let row = FlashcardProgress(
+                        cardId: item.cardId,
+                        readingId: item.readingId ?? card.readingID,
+                        areaId: item.areaId ?? card.areaID
+                    )
+                    modelContext.insert(row)
+                    inserted += 1
+                    return row
+                }()
+                let importedLater = (item.lastAttemptedAt ?? .distantPast)
+                    >= (local.lastAttemptedAt ?? .distantPast)
+                guard importedLater else {
+                    skipped += 1
+                    continue
+                }
+                local.easeFactor = item.easeFactor
+                local.interval = item.interval
+                local.repetitions = item.repetitions
+                local.dueDate = item.dueDate
+                local.totalAttempts = item.totalAttempts
+                local.totalCorrect = item.totalCorrect
+                local.lastAttemptedAt = item.lastAttemptedAt
+                local.firstAttemptedAt = item.firstAttemptedAt
+                local.flaggedForReview = item.flaggedForReview
+                updated += 1
             }
 
             let existingSessionIDs = Set(sessions.map(\.id))
@@ -467,6 +536,23 @@ private struct ExportPayload: Codable {
     let sessions: [SessionExport]
     let losStudyStatuses: [LOSStudyStatusExport]
     var dayCompletions: [DayCompletionExport]?
+    /// Optional so backups written before flashcards existed still decode.
+    var flashcardProgress: [FlashcardProgressExport]?
+}
+
+private struct FlashcardProgressExport: Codable {
+    let cardId: String
+    let readingId: String?
+    let areaId: String?
+    let easeFactor: Double
+    let interval: Int
+    let repetitions: Int
+    let dueDate: Date
+    let totalAttempts: Int
+    let totalCorrect: Int
+    let lastAttemptedAt: Date?
+    let firstAttemptedAt: Date?
+    let flaggedForReview: Bool
 }
 
 private struct AttemptExport: Codable {

@@ -144,6 +144,42 @@ final class ReviewQueueTests: XCTestCase {
         }
     }
 
+    /// "Off" and "today's ration is spent" look identical to a naive
+    /// predicate, and the UI said "0 new resume tomorrow" for the Off case.
+    func testOffIsDistinguishedFromRationSpent() {
+        let off = plan(cards: (1...50).map { card("q\($0)") }, limit: 0)
+        XCTAssertTrue(off.isNewOff)
+        XCTAssertFalse(off.isNewExhausted, "nothing resumes tomorrow when new questions are off")
+
+        let spent = plan(
+            cards: (1...50).map { card("q\($0)", attempts: $0 <= 5 ? 1 : 0,
+                                        due: .now.addingTimeInterval(86_400)) },
+            attempts: (1...5).map { attempt("q\($0)", at: .now) },
+            limit: 5
+        )
+        XCTAssertTrue(spent.isNewExhausted)
+        XCTAssertFalse(spent.isNewOff)
+    }
+
+    func testSmallestKReturnsTheLowestRankedAndIsOrderIndependent() {
+        let cards = (1...200).map {
+            card("q\(String(format: "%03d", $0))", due: Date(timeIntervalSinceReferenceDate: Double(200 - $0)))
+        }
+        let picked = ReviewQueue.smallestK(cards, k: 10) { $0.dueDate.timeIntervalSinceReferenceDate }
+        XCTAssertEqual(picked.count, 10)
+        XCTAssertEqual(picked.map(\.questionId), picked.sorted {
+            ($0.dueDate, $0.questionId) < ($1.dueDate, $1.questionId)
+        }.map(\.questionId), "result is in rank order")
+        XCTAssertEqual(
+            picked.map(\.questionId),
+            ReviewQueue.smallestK(cards.reversed(), k: 10) { $0.dueDate.timeIntervalSinceReferenceDate }
+                .map(\.questionId),
+            "input order must not change the selection"
+        )
+        XCTAssertEqual(ReviewQueue.smallestK(cards, k: 0) { _ in 0 }.count, 0)
+        XCTAssertEqual(ReviewQueue.smallestK(cards, k: 500) { _ in 0 }.count, 200)
+    }
+
     func testLimitOffStillServesReviews() {
         let due = (1...10).map { card("due\($0)", attempts: 1, due: .now.addingTimeInterval(-60)) }
         let p = plan(cards: due + [card("new1")], limit: 0)

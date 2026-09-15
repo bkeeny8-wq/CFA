@@ -279,7 +279,9 @@ struct ContentStatsView: View {
             if let error = content.loadError {
                 Text("Load error: \(error)")
             } else {
-                Text("\(content.totalQuestions) questions · \(content.totalReadingNotes) study notes · \(content.totalDrillQuestions) drills")
+                // The union, matching every other total in the app — this
+                // screen was the last one still advertising the bank's 490.
+                Text("\(content.totalBankAndDrillQuestions.formatted()) questions (\(content.totalQuestions.formatted()) case · \(content.totalDrillQuestions.formatted()) drill) · \(content.totalReadingNotes) study notes · \(content.totalFlashcards.formatted()) cards")
             }
         }
         .navigationTitle("Content Stats")

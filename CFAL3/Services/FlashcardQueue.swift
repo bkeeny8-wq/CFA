@@ -33,8 +33,14 @@ enum FlashcardQueue {
         /// so an enabled control always has cards to show.
         var isEmpty: Bool { sessionIDs.isEmpty }
 
+        /// The user switched intake off; nothing resumes tomorrow.
+        var isNewOff: Bool { dailyNewLimit == 0 && notStartedCount > 0 }
+
+        /// Today's ration is spent but more arrives tomorrow. Distinct from
+        /// `isNewOff`, which otherwise satisfies the same condition and made
+        /// the UI promise a batch that would never come.
         var isNewExhausted: Bool {
-            dueCount == 0 && notStartedCount > 0 && newRemainingToday == 0
+            dailyNewLimit > 0 && dueCount == 0 && notStartedCount > 0 && newRemainingToday == 0
         }
 
         static let empty = Plan(
