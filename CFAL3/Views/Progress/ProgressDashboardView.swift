@@ -19,23 +19,15 @@ struct ProgressDashboardView: View {
         let topicProgress = ProgressStats.topicProgress(content: content, attempts: attempts, cards: cards)
         let coverage = ProgressStats.losCoverage(content: content, attempts: attempts)
         let density = ProgressStats.contentDensity(content: content)
-        let plan = ReviewQueue.plan(
-            cards: cards,
-            attempts: attempts,
-            dailyNewLimit: practicePref.dailyNewLimit,
-            isEligible: ReviewQueue.eligibility(
-                content: content,
-                typeFilter: practicePref.typeFilter
-            )
-        )
 
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
-                headerCaption
-                statCards(overall: overall, plan: plan)
+                // No header or stat row here: you arrive by tapping exactly
+                // those numbers on Home, so repeating them wastes the screen
+                // and pushes what you came for below the fold.
+                drillDownRows(coverage: coverage, density: density, overall: overall)
                 bookGrid(topicProgress)
                 weeklySparkline
-                drillDownRows(coverage: coverage, density: density, overall: overall)
             }
             .padding()
             .frame(maxWidth: horizontalSizeClass == .regular ? 960 : .infinity)
@@ -46,45 +38,6 @@ struct ProgressDashboardView: View {
             SessionRunnerView()
         }
     }
-
-    private var headerCaption: some View {
-        HStack(spacing: 12) {
-            Label("\(Formatting.daysUntilExam()) days to exam", systemImage: "calendar")
-            Label("\(ProgressStats.streakDays(attempts: attempts))-day streak", systemImage: "flame")
-        }
-        .font(.caption)
-        .foregroundStyle(.secondary)
-    }
-
-    private func statCards(
-        overall: (attempted: Int, unique: Int, total: Int, correctRate: Double, avgSeconds: Double),
-        plan: ReviewQueue.Plan
-    ) -> some View {
-        HStack(spacing: 8) {
-            ProgressStatTile(label: "Accuracy", value: ProgressStats.accuracyDisplay(attempts: attempts))
-            ProgressStatTile(
-                label: "Attempted",
-                value: "\(overall.unique.formatted())/\(overall.total.formatted())"
-            )
-
-            Button {
-                startReviewSession(plan)
-            } label: {
-                // Show the session this tile actually starts, not the due
-                // count: gating on plan.isEmpty while printing dueCount made
-                // it read "0" in the accent colour and then run 20 questions.
-                let tile = ReviewCTA.tile(for: plan)
-                ProgressStatTile(
-                    label: tile.label,
-                    value: tile.value,
-                    isAccent: !plan.isEmpty
-                )
-            }
-            .buttonStyle(.plain)
-            .disabled(plan.isEmpty)
-        }
-    }
-
 
     private func bookGrid(_ topics: [TopicProgress]) -> some View {
         VStack(alignment: .leading, spacing: 6) {
@@ -190,16 +143,6 @@ struct ProgressDashboardView: View {
         if current > previous { return "up from \(previous)" }
         if current < previous { return "down from \(previous)" }
         return "level with \(previous)"
-    }
-
-    private func startReviewSession(_ plan: ReviewQueue.Plan) {
-        guard !plan.isEmpty else { return }
-        sessionCoordinator.start(
-            questionIDs: plan.sessionIDs,
-            mode: .reviewDue,
-            filterDescription: ReviewQueue.sessionLabel(for: plan)
-        )
-        showSession = true
     }
 
 }

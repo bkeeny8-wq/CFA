@@ -59,7 +59,7 @@ struct PracticeBuilderView: View {
                     showTopics = true
                 } label: {
                     HStack {
-                        Text("Topics")
+                        Text("Books")
                         Spacer()
                         Text(topicsSummary)
                             .foregroundStyle(.secondary)
@@ -169,14 +169,14 @@ struct PracticeBuilderView: View {
         return "book"
     }
 
-    private var perUnitLabel: String { "Per \(perUnitNoun)" }
+    private var perUnitLabel: String { "Questions per \(perUnitNoun)" }
 
     /// Footer that spells out the scaling: how many per unit, and how many
     /// questions that works out to for the current scope.
     private var scopeSummary: String {
         let tail = "\(matching) questions · \(unseen) unseen · est. \(estimatedMinutes) min"
-        guard pref.count != .all else { return tail }
-        return "\(pref.count.displayName) per \(perUnitNoun) → \(tail)"
+        guard pref.count != .all else { return "All in scope → " + tail }
+        return "\(pref.count.displayName) per \(perUnitNoun) in scope → \(tail)"
     }
 
     private var topicsSummary: String {
@@ -299,7 +299,7 @@ private struct TopicMultiSelectSheet: View {
                     }
                 }
             }
-            .navigationTitle("Topics")
+            .navigationTitle("Books")
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }
