@@ -105,9 +105,17 @@ enum StudyDisplay {
         return Double(gradable.filter { $0.wasCorrect == true }.count) / Double(gradable.count)
     }
 
+    /// Only questions the user has actually answered can be "due" — every
+    /// card is seeded with `dueDate = .now`, so without the attempts test this
+    /// pill reported the reading's entire question count on a fresh install.
+    ///
+    /// Uses `totalAttempts` alone rather than ReviewQueue's stricter union,
+    /// because this call site has no attempts array in scope. The difference
+    /// only shows for a question abandoned at the grading screen, which reads
+    /// as not-started on this one pill.
     static func dueCount(for reading: Reading, cards: [ReviewCard], now: Date = .now) -> Int {
         cards.filter { card in
-            card.dueDate <= now && card.readingIds.contains(reading.id)
+            card.totalAttempts > 0 && card.dueDate <= now && card.readingIds.contains(reading.id)
         }.count
     }
 }

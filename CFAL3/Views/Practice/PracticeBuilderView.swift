@@ -258,7 +258,10 @@ struct PracticeBuilderView: View {
     }
 
     private func startQuiz() {
-        let ids = QuizAssembler.assemble(pref: pref, content: content, attempts: attempts)
+        // Start the set the footer counted. `assemble` shuffles, so calling it
+        // again here produced a different selection than the one previewed —
+        // the builder promised N questions and ran a different N.
+        let ids = previewedIDs
         guard !ids.isEmpty else { return }
         sessionCoordinator.start(
             questionIDs: ids,

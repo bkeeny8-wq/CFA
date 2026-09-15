@@ -19,12 +19,20 @@ struct ProgressDashboardView: View {
         let topicProgress = ProgressStats.topicProgress(content: content, attempts: attempts, cards: cards)
         let coverage = ProgressStats.losCoverage(content: content, attempts: attempts)
         let density = ProgressStats.contentDensity(content: content)
-        let dueCount = ProgressStats.dueCountByTopic(cards: cards).values.reduce(0, +)
+        let plan = ReviewQueue.plan(
+            cards: cards,
+            attempts: attempts,
+            dailyNewLimit: practicePref.dailyNewLimit,
+            isEligible: ReviewQueue.eligibility(
+                content: content,
+                typeFilter: practicePref.typeFilter
+            )
+        )
 
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
                 headerCaption
-                statCards(overall: overall, dueCount: dueCount)
+                statCards(overall: overall, plan: plan)
                 bookGrid(topicProgress)
                 weeklySparkline
                 drillDownRows(coverage: coverage, density: density, overall: overall)
@@ -50,7 +58,7 @@ struct ProgressDashboardView: View {
 
     private func statCards(
         overall: (attempted: Int, unique: Int, total: Int, correctRate: Double, avgSeconds: Double),
-        dueCount: Int
+        plan: ReviewQueue.Plan
     ) -> some View {
         HStack(spacing: 8) {
             ProgressStatTile(label: "Accuracy", value: Formatting.percent(overall.correctRate))
@@ -60,16 +68,16 @@ struct ProgressDashboardView: View {
             )
 
             Button {
-                startReviewDue()
+                startReviewSession(plan)
             } label: {
                 ProgressStatTile(
-                    label: "Due today",
-                    value: dueCount.formatted(),
-                    isAccent: dueCount > 0
+                    label: plan.newInSession > 0 ? "Due · +\(plan.newInSession) new" : "Due today",
+                    value: plan.dueCount.formatted(),
+                    isAccent: !plan.isEmpty
                 )
             }
             .buttonStyle(.plain)
-            .disabled(dueCount == 0)
+            .disabled(plan.isEmpty)
         }
     }
 
@@ -179,30 +187,16 @@ struct ProgressDashboardView: View {
         return "level with \(previous)"
     }
 
-    private func startReviewDue() {
-        let due = cards.filter { $0.dueDate <= .now }.map(\.questionId)
-        let filtered = Array(applyTypeFilter(due).prefix(60))
-        guard !filtered.isEmpty else { return }
+    private func startReviewSession(_ plan: ReviewQueue.Plan) {
+        guard !plan.isEmpty else { return }
         sessionCoordinator.start(
-            questionIDs: filtered,
+            questionIDs: plan.sessionIDs,
             mode: .reviewDue,
-            filterDescription: "Due review"
+            filterDescription: ReviewQueue.sessionLabel(for: plan)
         )
         showSession = true
     }
 
-    private func applyTypeFilter(_ ids: [String]) -> [String] {
-        ids.filter { qid in
-            if let q = content.question(id: qid) {
-                return practicePref.typeFilter.allows(q.type)
-                    && (q.type != .mc || q.canGradeMC)
-            }
-            if let d = content.drillQuestion(id: qid) {
-                return practicePref.typeFilter.allows(d.type) && d.correct != nil
-            }
-            return false
-        }
-    }
 }
 
 private struct ProgressStatTile: View {

@@ -47,9 +47,21 @@ struct GradingResult: Codable, Equatable {
 }
 
 enum GradingResponseParser {
-    enum ParserError: Error, Equatable {
+    /// LocalizedError, because these surface directly under the Submit button
+    /// in QuestionAttemptView. Without it the user reads
+    /// "The operation couldn't be completed. (CFAL3...ParserError error 1.)"
+    enum ParserError: LocalizedError, Equatable {
         case empty
         case invalidJSON
+
+        var errorDescription: String? {
+            switch self {
+            case .empty:
+                return "The grader returned an empty response. Check your connection and submit again."
+            case .invalidJSON:
+                return "The grader's response couldn't be read. Submit again, or switch grader model in Settings."
+            }
+        }
     }
 
     static func parse(_ raw: String) throws -> GradingResult {

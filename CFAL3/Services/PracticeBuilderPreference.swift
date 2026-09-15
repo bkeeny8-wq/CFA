@@ -68,6 +68,7 @@ final class PracticeBuilderPreference {
         static let selectedReadings = "practice.selectedReadings"
         static let selectedLOS = "practice.selectedLOS"
         static let weaknessWeighted = "practice.weaknessWeighted"
+        static let dailyNewLimit = "review.dailyNewLimit"
     }
 
     var typeFilter: QuestionTypeFilter {
@@ -96,6 +97,13 @@ final class PracticeBuilderPreference {
 
     var weaknessWeighted: Bool {
         didSet { defaults.set(weaknessWeighted, forKey: Keys.weaknessWeighted) }
+    }
+
+    /// Never-seen questions admitted to a review session per day. Lives here
+    /// rather than in @AppStorage because this object is the app's one
+    /// preference idiom — see the note above about observation.
+    var dailyNewLimit: Int {
+        didSet { defaults.set(dailyNewLimit, forKey: Keys.dailyNewLimit) }
     }
 
     init(defaults: UserDefaults = .standard) {
@@ -129,6 +137,12 @@ final class PracticeBuilderPreference {
         selectedReadings = Set(defaults.stringArray(forKey: Keys.selectedReadings) ?? [])
         selectedLOS = Set(defaults.stringArray(forKey: Keys.selectedLOS) ?? [])
         weaknessWeighted = defaults.bool(forKey: Keys.weaknessWeighted)
+
+        // `integer(forKey:)` returns 0 for a missing key, and 0 is a valid
+        // choice here ("Off"), so absence has to be tested separately.
+        dailyNewLimit = defaults.object(forKey: Keys.dailyNewLimit) == nil
+            ? ReviewQueue.defaultDailyNewLimit
+            : defaults.integer(forKey: Keys.dailyNewLimit)
 
         // Write the sanitized topic set back so defaults converge.
         if storedTopics != selectedTopics {

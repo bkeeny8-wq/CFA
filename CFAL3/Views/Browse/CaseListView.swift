@@ -76,6 +76,18 @@ struct CaseListView: View {
             }
         }
 
+        // Without this the screen renders as a lone "Filtered by 1 LOS" row
+        // with no explanation — most often because the LOS only has drills.
+        if cases.isEmpty {
+            ContentUnavailableView(
+                "No cases match",
+                systemImage: "line.3.horizontal.decrease.circle",
+                description: Text(selectedLOS.isEmpty
+                    ? "This book has no case studies yet."
+                    : "No case in this book covers the selected LOS. Its questions may be drills, which you can reach from Practice.")
+            )
+        }
+
         ForEach(cases) { caseStudy in
             if selectionMode {
                 Button {

@@ -201,14 +201,6 @@ enum ProgressStats {
         }
     }
 
-    static func dueCountByTopic(cards: [ReviewCard], now: Date = .now) -> [String: Int] {
-        Dictionary(
-            grouping: cards.filter { $0.dueDate <= now },
-            by: { canonicalTopicID($0.topicId) }
-        )
-        .mapValues(\.count)
-    }
-
     static func cardStats(for questionID: String, attempts: [Attempt], card: ReviewCard?) -> (attempts: Int, correct: Int, lastWasCorrect: Bool?) {
         let questionAttempts = attempts.filter { $0.questionId == questionID }
         let correctCount = questionAttempts.filter { $0.wasCorrect == true }.count

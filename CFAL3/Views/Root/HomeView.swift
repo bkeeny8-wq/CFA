@@ -15,10 +15,18 @@ struct HomeView: View {
     @State private var showSession = false
     @State private var showPractice = false
 
-    private let reviewSessionCap = 60
-
-    private var dueToday: Int {
-        reviewCards.filter { $0.dueDate <= .now }.count
+    /// One computation feeds both the card's numbers and the session it
+    /// starts, so they cannot disagree.
+    private var reviewPlan: ReviewQueue.Plan {
+        ReviewQueue.plan(
+            cards: reviewCards,
+            attempts: attempts,
+            dailyNewLimit: practicePref.dailyNewLimit,
+            isEligible: ReviewQueue.eligibility(
+                content: content,
+                typeFilter: practicePref.typeFilter
+            )
+        )
     }
 
     private var weakestTopics: [TopicProgress] {
@@ -36,7 +44,7 @@ struct HomeView: View {
         ScrollView {
             VStack(spacing: 12) {
                 headerCaption
-                reviewCTACard
+                reviewCTACard(reviewPlan)
                 todaysPlanCard
                 statCardsRow
                 continueCard
@@ -87,23 +95,20 @@ struct HomeView: View {
         .foregroundStyle(.secondary)
     }
 
-    private var reviewCTACard: some View {
-        let due = dueToday
-        let sessionSize = min(due, reviewSessionCap)
-        let minutes = max(5, Int(ceil(Double(sessionSize) * 1.1)))
-
-        return Button {
-            startReviewDue()
+    private func reviewCTACard(_ plan: ReviewQueue.Plan) -> some View {
+        Button {
+            startReviewSession(plan)
         } label: {
             VStack(alignment: .leading, spacing: 2) {
-                Text(due > 0 ? "Start review · \(due) due" : "All caught up")
+                Text(reviewTitle(plan))
                     .font(.headline)
-                // The estimate covers the capped slice, not the whole queue —
-                // say so, or "3,115 due · ~66 min" reads as 3,115 in an hour.
-                Text(due > 0
-                     ? "~\(minutes) min · next \(sessionSize) of \(due)"
-                     : "Build a practice session instead")
+                Text(reviewSubtitle(plan))
                     .font(.caption)
+                if plan.notStartedCount > 0 && plan.dueCount > 0 {
+                    Text("\(plan.notStartedCount.formatted()) not started")
+                        .font(.caption2)
+                        .opacity(0.8)
+                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(14)
@@ -114,7 +119,41 @@ struct HomeView: View {
             .foregroundStyle(Theme.accent)
         }
         .buttonStyle(.plain)
-        .disabled(due == 0)
+        // The payload itself is the gate, so an enabled card always runs.
+        .disabled(plan.isEmpty)
+    }
+
+    private func reviewTitle(_ plan: ReviewQueue.Plan) -> String {
+        if plan.dueCount > 0 && plan.newInSession > 0 {
+            return "Start review · \(plan.dueCount.formatted()) due · \(plan.newInSession) new"
+        }
+        if plan.dueCount > 0 { return "Start review · \(plan.dueCount.formatted()) due" }
+        if plan.newInSession > 0 { return "Start studying · \(plan.newInSession) new" }
+        if plan.isNewExhausted { return "Today's new questions are done" }
+        // Never claim "caught up" before the deck has been seeded.
+        if reviewCards.isEmpty && content.isLoaded { return "Preparing your review queue" }
+        return "All caught up"
+    }
+
+    private func reviewSubtitle(_ plan: ReviewQueue.Plan) -> String {
+        guard !plan.isEmpty else {
+            if plan.isNewExhausted {
+                return "\(plan.dailyNewLimit) new resume tomorrow · \(plan.notStartedCount.formatted()) not started"
+            }
+            return "Build a practice session instead"
+        }
+        // The estimate covers the capped slice, not the whole queue — say so,
+        // or "3,115 due · ~66 min" reads as 3,115 questions in an hour.
+        let minutes = max(5, Int(ceil(Double(plan.sessionIDs.count) * 1.1)))
+        var parts = ["~\(minutes) min"]
+        if plan.dueInSession > 0 && plan.newInSession > 0 {
+            parts.append("\(plan.dueInSession) due + \(plan.newInSession) new")
+        } else {
+            parts.append("\(plan.sessionIDs.count) questions")
+        }
+        if plan.overflowDue > 0 { parts.append("\(plan.overflowDue.formatted()) more after this") }
+        if practicePref.typeFilter != .mixed { parts.append(practicePref.typeFilter.displayName) }
+        return parts.joined(separator: " · ")
     }
 
     @ViewBuilder
@@ -330,27 +369,13 @@ struct HomeView: View {
         content.readingNotes(id: reading.id)?.title ?? reading.name
     }
 
-    private func applyTypeFilter(_ ids: [String]) -> [String] {
-        ids.filter { qid in
-            if let q = content.question(id: qid) {
-                return practicePref.typeFilter.allows(q.type)
-                    && (q.type != .mc || q.canGradeMC)
-            }
-            if let d = content.drillQuestion(id: qid) {
-                return practicePref.typeFilter.allows(d.type) && d.correct != nil
-            }
-            return false
-        }
-    }
 
-    private func startReviewDue() {
-        let due = reviewCards.filter { $0.dueDate <= .now }.map(\.questionId)
-        let filtered = Array(applyTypeFilter(due).prefix(reviewSessionCap))
-        guard !filtered.isEmpty else { return }
+    private func startReviewSession(_ plan: ReviewQueue.Plan) {
+        guard !plan.isEmpty else { return }
         sessionCoordinator.start(
-            questionIDs: filtered,
+            questionIDs: plan.sessionIDs,
             mode: .reviewDue,
-            filterDescription: "Due review"
+            filterDescription: ReviewQueue.sessionLabel(for: plan)
         )
         showSession = true
     }

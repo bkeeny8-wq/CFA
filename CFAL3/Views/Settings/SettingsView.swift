@@ -5,6 +5,7 @@ import UniformTypeIdentifiers
 struct SettingsView: View {
     @Environment(ClaudeGrader.self) private var grader
     @Environment(ContentLoader.self) private var content
+    @Environment(PracticeBuilderPreference.self) private var practicePref
     @Environment(\.modelContext) private var modelContext
     @Query private var attempts: [Attempt]
     @Query private var cards: [ReviewCard]
@@ -35,6 +36,23 @@ struct SettingsView: View {
             }
 
             Section {
+                Picker("New questions per day", selection: Bindable(practicePref).dailyNewLimit) {
+                    ForEach(ReviewQueue.newLimitOptions, id: \.self) { limit in
+                        Text(limit == 0 ? "Off" : "\(limit)").tag(limit)
+                    }
+                }
+                LabeledContent("Introduced today") {
+                    Text("\(ReviewQueue.introducedToday(attempts: attempts))/\(practicePref.dailyNewLimit)")
+                        .monospacedDigit()
+                        .foregroundStyle(.secondary)
+                }
+            } header: {
+                Text("Review")
+            } footer: {
+                Text(newPerDayFooter)
+            }
+
+            Section {
                 Button {
                     exportData()
                 } label: {
@@ -57,14 +75,17 @@ struct SettingsView: View {
                 } label: {
                     Label("Clear quiz attempts", systemImage: "arrow.counterclockwise")
                 }
-                .disabled(attempts.isEmpty && sessions.isEmpty && cards.isEmpty)
+                // ReviewCards are seeded for every question at launch, so
+                // including them here left both buttons permanently enabled —
+                // and a confirmed erase then reported "0 records".
+                .disabled(attempts.isEmpty && sessions.isEmpty)
 
                 Button(role: .destructive) {
                     showResetConfirm = true
                 } label: {
                     Label("Erase all progress", systemImage: "trash")
                 }
-                .disabled(attempts.isEmpty && cards.isEmpty && sessions.isEmpty
+                .disabled(attempts.isEmpty && sessions.isEmpty
                           && dayCompletions.isEmpty && losStudyStatuses.isEmpty)
             } header: {
                 Text("Reset")
@@ -124,6 +145,19 @@ struct SettingsView: View {
         }
     }
 
+    /// Explains what the limit does and, when the chosen pace cannot finish
+    /// the remaining material before exam day, says so with the rate needed.
+    private var newPerDayFooter: String {
+        let base = "Questions you've already answered come back on schedule and are never limited. This caps how many brand-new ones enter a review session each day; questions you answer in Practice count toward the same number."
+        let notStarted = cards.filter { $0.totalAttempts == 0 }.count
+        let days = Formatting.daysUntilExam()
+        guard notStarted > 0, days > 0 else { return base }
+
+        let needed = Int(ceil(Double(notStarted) / Double(days)))
+        guard practicePref.dailyNewLimit < needed else { return base }
+        return base + "\n\nAt this rate you won't reach all \(notStarted.formatted()) unseen questions before the exam — that needs about \(needed)/day over \(days) days."
+    }
+
     /// Clears quiz history only — attempts, sessions, and the (attempt-derived)
     /// review schedule — while preserving LOS study states and plan check-offs.
     private func clearQuizAttempts() {
@@ -136,6 +170,10 @@ struct SettingsView: View {
         for item in cards { modelContext.delete(item) }
         do {
             try modelContext.save()
+            // Re-seed immediately: bootstrapReviewCards only runs once per
+            // launch, so without this the app reads "All caught up" over an
+            // untouched corpus until the user quits and reopens it.
+            content.bootstrapReviewCards(context: modelContext)
             resetSummary = "Cleared \(removed) quiz records. LOS study progress and plan are untouched."
         } catch {
             modelContext.rollback()
@@ -154,6 +192,7 @@ struct SettingsView: View {
         for item in losStudyStatuses { modelContext.delete(item) }
         do {
             try modelContext.save()
+            content.bootstrapReviewCards(context: modelContext)
             resetSummary = "Erased \(removed) records. Progress is back to a clean slate."
         } catch {
             modelContext.rollback()
@@ -235,7 +274,8 @@ struct SettingsView: View {
             exportURL = url
             showExporter = true
         } catch {
-            // no-op
+            // Was a silent no-op: the button did nothing and said nothing.
+            importSummary = "Export failed: \(error.localizedDescription)"
         }
     }
 
