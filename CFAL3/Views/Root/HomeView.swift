@@ -113,6 +113,7 @@ struct HomeView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(ReviewCTA.title(ctaInputs(plan)))
                     .font(.headline)
+                    .accessibilityIdentifier("home.review.title")
                 Text(ReviewCTA.subtitle(ctaInputs(plan)))
                     .font(.caption)
                 if plan.notStartedCount > 0 && plan.dueCount > 0 {

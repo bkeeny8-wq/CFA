@@ -97,6 +97,12 @@ struct PracticeBuilderView: View {
                 )
                 .font(.caption)
                 .foregroundStyle(.secondary)
+                // Combine, or this reads as two elements and the symbol's own
+                // name ("Filter") is what a screen reader announces instead of
+                // the summary.
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel(scopeSummary)
+                .accessibilityIdentifier("practice.scopeSummary")
             }
         }
         .listStyle(.insetGrouped)

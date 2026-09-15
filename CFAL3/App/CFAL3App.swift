@@ -1,12 +1,32 @@
 import SwiftUI
 import SwiftData
 
+/// UI tests need a known starting state on every run. Under this flag the app
+/// keeps its store in memory and reads preferences from a throwaway suite, so
+/// a test never inherits a previous run's answers or settings — and never
+/// touches the real device's data.
+enum UITestMode {
+    static let launchArgument = "-uitesting"
+
+    static var isActive: Bool {
+        ProcessInfo.processInfo.arguments.contains(launchArgument)
+    }
+
+    static var defaults: UserDefaults {
+        guard isActive,
+              let suite = UserDefaults(suiteName: "com.brandonkeeny.CFAL3.uitests")
+        else { return .standard }
+        suite.removePersistentDomain(forName: "com.brandonkeeny.CFAL3.uitests")
+        return suite
+    }
+}
+
 @main
 struct CFAL3App: App {
     @State private var contentLoader = ContentLoader()
     @State private var grader = ClaudeGrader()
     @State private var sessionCoordinator = StudySessionCoordinator()
-    @State private var practicePref = PracticeBuilderPreference()
+    @State private var practicePref = PracticeBuilderPreference(defaults: UITestMode.defaults)
 
     /// True when the on-disk store could not be opened and the app is running
     /// against a temporary one, so the UI can say so instead of looking as if
@@ -21,7 +41,10 @@ struct CFAL3App: App {
             Attempt.self, ReviewCard.self, Session.self,
             LOSStudyStatus.self, DayCompletion.self, FlashcardProgress.self
         ])
-        let config = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+        let config = ModelConfiguration(
+            schema: schema,
+            isStoredInMemoryOnly: UITestMode.isActive
+        )
         do {
             sharedModelContainer = try ModelContainer(for: schema, configurations: [config])
             storeFailure = nil

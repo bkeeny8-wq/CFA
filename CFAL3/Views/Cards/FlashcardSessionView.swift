@@ -57,6 +57,7 @@ struct FlashcardSessionView: View {
                     Text("\(index + 1) / \(cards.count)")
                         .font(.footnote.monospacedDigit())
                         .foregroundStyle(.secondary)
+                        .accessibilityIdentifier("flashcard.progress")
                 }
             }
         }
@@ -68,58 +69,21 @@ struct FlashcardSessionView: View {
     private func cardScreen(_ card: Flashcard) -> some View {
         VStack(spacing: 0) {
             ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
-                    typeBadge(card)
-
-                    Text(card.front)
-                        .font(.title3.weight(.semibold))
-                        .fixedSize(horizontal: false, vertical: true)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-
-                    if isRevealed {
-                        Divider()
-
-                        if let formula = card.formula, !formula.trimmingCharacters(in: .whitespaces).isEmpty {
-                            Text(formula)
-                                .font(.system(.body, design: .monospaced))
-                                .padding(12)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .background(Theme.subtleFill)
-                                .clipShape(RoundedRectangle(cornerRadius: 8))
-                                .textSelection(.enabled)
-                        }
-
-                        Text(card.back)
-                            .font(.body)
-                            .lineSpacing(3)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .textSelection(.enabled)
-
-                        if let m = card.mnemonic, !m.trimmingCharacters(in: .whitespaces).isEmpty {
-                            Label(m, systemImage: "brain")
-                                .font(.callout)
-                                .foregroundStyle(Theme.accent)
-                                .padding(.top, 2)
-                                .fixedSize(horizontal: false, vertical: true)
-                        }
-                    } else {
-                        Text("Tap to reveal")
-                            .font(.footnote)
-                            .foregroundStyle(.secondary)
-                            .frame(maxWidth: .infinity, alignment: .center)
-                            .padding(.top, 24)
+                if isRevealed {
+                    cardBody(card)
+                } else {
+                    // A real Button, not a tap gesture on a container: the
+                    // gesture was invisible to VoiceOver, which had no way to
+                    // reveal an answer at all.
+                    Button {
+                        withAnimation(.snappy) { isRevealed = true }
+                    } label: {
+                        cardBody(card)
                     }
-                }
-                .padding(16)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Theme.cardFill)
-                .clipShape(RoundedRectangle(cornerRadius: Theme.cardRadius))
-                .padding(.horizontal)
-                .padding(.top, 12)
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    if !isRevealed { withAnimation(.snappy) { isRevealed = true } }
+                    .buttonStyle(.plain)
+                    .accessibilityIdentifier("flashcard.reveal")
+                    .accessibilityLabel("Reveal answer")
+                    .accessibilityHint(card.front)
                 }
             }
 
@@ -127,6 +91,60 @@ struct FlashcardSessionView: View {
                 ratingBar(card)
             }
         }
+    }
+
+    /// The card itself. Used as a Button's label before the answer is shown
+    /// and as plain content after, so the revealed text stays selectable.
+    private func cardBody(_ card: Flashcard) -> some View {
+        VStack(alignment: .leading, spacing: 16) {
+            typeBadge(card)
+
+            Text(card.front)
+                .font(.title3.weight(.semibold))
+                .fixedSize(horizontal: false, vertical: true)
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+            if isRevealed {
+                Divider()
+
+                if let formula = card.formula, !formula.trimmingCharacters(in: .whitespaces).isEmpty {
+                    Text(formula)
+                        .font(.system(.body, design: .monospaced))
+                        .padding(12)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(Theme.subtleFill)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .textSelection(.enabled)
+                }
+
+                Text(card.back)
+                    .font(.body)
+                    .lineSpacing(3)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .textSelection(.enabled)
+
+                if let m = card.mnemonic, !m.trimmingCharacters(in: .whitespaces).isEmpty {
+                    Label(m, systemImage: "brain")
+                        .font(.callout)
+                        .foregroundStyle(Theme.accent)
+                        .padding(.top, 2)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            } else {
+                Text("Tap to reveal")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(.top, 24)
+            }
+        }
+        .padding(16)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Theme.cardFill)
+        .clipShape(RoundedRectangle(cornerRadius: Theme.cardRadius))
+        .padding(.horizontal)
+        .padding(.top, 12)
     }
 
     private func typeBadge(_ card: Flashcard) -> some View {
@@ -184,6 +202,7 @@ struct FlashcardSessionView: View {
             .foregroundStyle(tint)
         }
         .buttonStyle(.plain)
+        .accessibilityIdentifier("flashcard.rate.\(label.lowercased())")
     }
 
     private func intervalLabel(row: FlashcardProgress?, quality: Int) -> String {

@@ -103,6 +103,7 @@ struct FlashcardsHomeView: View {
                     }
                 }
                 .disabled(plan.isEmpty)
+                .accessibilityIdentifier("cards.today")
 
                 NavigationLink {
                     FlashcardSessionView(title: "Shuffle all", cards: allFiltered.shuffled())

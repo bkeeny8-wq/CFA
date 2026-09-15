@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5UI000000000000000B0001 /* CFAL3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5UI000000000000000F0001 /* CFAL3UITests.swift */; };
 		0129E235548143B29A5EE5BE /* los_drills_r20.json in Resources */ = {isa = PBXBuildFile; fileRef = 33F2C548B15A41CFB8DDC270 /* los_drills_r20.json */; };
 		D8A7AE1F2C46417398D5F0AC /* flashcards.json in Resources */ = {isa = PBXBuildFile; fileRef = 0926237E850345FF84A9E17E /* flashcards.json */; };
 		060E3661B80C446EB54AAF30 /* los_drills_r1.json in Resources */ = {isa = PBXBuildFile; fileRef = 479EB4F438A2484786E6010D /* los_drills_r1.json */; };
@@ -136,6 +137,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E5UI000000000000000F0001 /* CFAL3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFAL3UITests.swift; sourceTree = "<group>"; };
+		E5UI000000000000000R0001 /* CFAL3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CFAL3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0219DF3DFFB842E4AC0403D8 /* ProgressDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDashboardView.swift; sourceTree = "<group>"; };
 		0698DAB318924D249D37E46B /* los_drills_r25.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r25.json; sourceTree = "<group>"; };
 		0896740AF093488E8FAE406D /* los_drills_r2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r2.json; sourceTree = "<group>"; };
@@ -267,6 +270,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E5UI000000000000000P0002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		41565EDA7DAC499D8E6399D1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -284,6 +294,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E5UI000000000000000G0001 /* CFAL3UITests */ = {
+			isa = PBXGroup;
+			children = (
+				E5UI000000000000000F0001 /* CFAL3UITests.swift */,
+			);
+			path = CFAL3UITests;
+			sourceTree = "<group>";
+		};
 		0B37B403E8A7479797D3FD55 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -494,6 +512,7 @@
 			children = (
 				EF468980A60843F381286721 /* CFAL3.app */,
 				190BC8A0E9F945EAA9212243 /* CFAL3Tests.xctest */,
+				E5UI000000000000000R0001 /* CFAL3UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -563,6 +582,7 @@
 			children = (
 				5B99CF359D594C9B93B5C65B /* CFAL3 */,
 				EDD76A824FA94729AF97F0B0 /* CFAL3Tests */,
+				E5UI000000000000000G0001 /* CFAL3UITests */,
 				B15B79EAE9CD48AD94D30A0E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -630,7 +650,42 @@
 			productReference = 190BC8A0E9F945EAA9212243 /* CFAL3Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		E5UI000000000000000T0001 /* CFAL3UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5UI000000000000000C0001 /* Build configuration list for PBXNativeTarget "CFAL3UITests" */;
+			buildPhases = (
+				E5UI000000000000000P0001 /* Sources */,
+				E5UI000000000000000P0002 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5UI000000000000000D0001 /* PBXTargetDependency */,
+			);
+			name = CFAL3UITests;
+			productName = CFAL3UITests;
+			productReference = E5UI000000000000000R0001 /* CFAL3UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
+
+/* Begin PBXContainerItemProxy section */
+		E5UI000000000000000D0002 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0263D8E1DC19440DA273C3D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 101695F5EC174BD08F865933;
+			remoteInfo = CFAL3;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXTargetDependency section */
+		E5UI000000000000000D0001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 101695F5EC174BD08F865933 /* CFAL3 */;
+			targetProxy = E5UI000000000000000D0002 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXProject section */
 		0263D8E1DC19440DA273C3D0 /* Project object */ = {
@@ -655,6 +710,7 @@
 			targets = (
 				101695F5EC174BD08F865933 /* CFAL3 */,
 				98A04A9B4E1A462F9DDD55BC /* CFAL3Tests */,
+				E5UI000000000000000T0001 /* CFAL3UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -714,6 +770,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E5UI000000000000000P0001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5UI000000000000000B0001 /* CFAL3UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0239909DA84A49FEA01C23F9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -813,6 +877,34 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		E5UI000000000000000C0002 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandonkeeny.CFAL3UITests;
+				PRODUCT_NAME = CFAL3UITests;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CFAL3;
+			};
+			name = Debug;
+		};
+		E5UI000000000000000C0003 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandonkeeny.CFAL3UITests;
+				PRODUCT_NAME = CFAL3UITests;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CFAL3;
+			};
+			name = Release;
+		};
 		00850735EA1B4F8E92BEC033 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -921,6 +1013,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E5UI000000000000000C0001 /* Build configuration list for PBXNativeTarget "CFAL3UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5UI000000000000000C0002 /* Debug */,
+				E5UI000000000000000C0003 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D74379A8255744E6985C70CE /* Build configuration list for PBXNativeTarget "CFAL3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
