@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct LOSDrillReadingView: View {
     @Environment(StudySessionCoordinator.self) private var sessionCoordinator
@@ -191,6 +192,7 @@ struct LOSDrillReadingView: View {
 struct DrillSessionRunnerView: View {
     @Environment(ContentLoader.self) private var content
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var modelContext
     @Environment(StudySessionCoordinator.self) private var sessionCoordinator
 
     @State private var showSummary = false
@@ -204,6 +206,12 @@ struct DrillSessionRunnerView: View {
                     }
                     Section {
                         Button("Done") {
+                            // Drill sessions were never recorded, so half the
+                            // content never appeared in history or backups.
+                            if !sessionCoordinator.completedAttemptIDs.isEmpty {
+                                modelContext.insert(sessionCoordinator.makeSessionRecord())
+                                try? modelContext.save()
+                            }
                             sessionCoordinator.finish()
                             dismiss()
                         }

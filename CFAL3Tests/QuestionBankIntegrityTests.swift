@@ -152,4 +152,73 @@ final class QuestionBankIntegrityTests: XCTestCase {
         let titles = cases.map(\.title)
         XCTAssertEqual(Set(titles).count, titles.count, "Duplicate case titles")
     }
+
+    /// Nine Ethics readings use numbered sections instead of "LOS N —"
+    /// headers, so the header-skip found no anchor and the export preamble
+    /// rendered as page content.
+    func testNotesNeverRenderTheExportPreambleAsContent() throws {
+        let content = ContentLoader()
+        content.load()
+        let master = try XCTUnwrap(content.losMaster)
+
+        var offenders: [String] = []
+        for area in master.areas {
+            for reading in area.readings {
+                guard let entry = content.readingNotes(id: reading.id) else { continue }
+                let blocks = NotesContentParser.parse(entry.content)
+                let rendered = blocks.compactMap { block -> String? in
+                    switch block {
+                    case .subheading(let t): return t
+                    case .paragraph(let t): return t
+                    default: return nil
+                    }
+                }
+                if rendered.contains(where: {
+                    $0.contains("Study Notes") || $0.hasPrefix("Topic Area:") || $0.hasPrefix("Reading:")
+                }) {
+                    offenders.append(reading.id)
+                }
+            }
+        }
+        XCTAssertTrue(offenders.isEmpty, "Export preamble leaked into notes: \(offenders)")
+    }
+
+    /// Every reading's notes must produce something to read.
+    func testEveryReadingsNotesParseToBlocks() throws {
+        let content = ContentLoader()
+        content.load()
+        let master = try XCTUnwrap(content.losMaster)
+        for area in master.areas {
+            for reading in area.readings {
+                guard let entry = content.readingNotes(id: reading.id) else { continue }
+                XCTAssertFalse(NotesContentParser.parse(entry.content).isEmpty,
+                               "No renderable blocks for \(reading.id)")
+            }
+        }
+    }
+
+    /// A question with no reading is unreachable from any reading-scoped
+    /// practice session and invisible to LOS coverage.
+    func testEveryQuestionIsTaggedToAReading() throws {
+        let untagged = allQuestions(try loadBank())
+            .filter { $0.primaryReadingIDs.isEmpty }
+            .map(\.id)
+        XCTAssertTrue(untagged.isEmpty, "Questions with no reading: \(untagged)")
+    }
+
+    /// And that reading must be one the curriculum actually has.
+    func testQuestionReadingsResolve() throws {
+        let content = ContentLoader()
+        content.load()
+        let master = try XCTUnwrap(content.losMaster)
+        let readingIDs = Set(master.areas.flatMap { $0.readings.map(\.id) })
+
+        var unknown: [String] = []
+        for q in allQuestions(try loadBank()) {
+            for readingID in q.primaryReadingIDs where !readingIDs.contains(readingID) {
+                unknown.append("\(q.id) -> \(readingID)")
+            }
+        }
+        XCTAssertTrue(unknown.isEmpty, "Unknown readings: \(unknown)")
+    }
 }

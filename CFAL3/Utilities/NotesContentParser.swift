@@ -62,6 +62,13 @@ enum NotesContentParser {
         if skipHeader {
             if let idx = lines.firstIndex(where: { $0.hasPrefix("LOS 1") }) {
                 lines = Array(lines[idx...])
+            } else {
+                // Nine Ethics readings are organised as numbered sections
+                // rather than "LOS N —" headers, so the search above found
+                // nothing and the export preamble rendered as content — the
+                // line "CFA® Level III — Study Notes" even matched the
+                // subheading rule and came out bold. Strip it explicitly.
+                lines = Array(lines.drop(while: isExportHeaderLine))
             }
         }
 
@@ -134,6 +141,17 @@ enum NotesContentParser {
         }
 
         return blocks
+    }
+
+    /// The machine-written preamble every notes export carries. Kept narrow on
+    /// purpose: it must not eat the "Orientation." paragraph that follows, or
+    /// any real content.
+    private static func isExportHeaderLine(_ line: String) -> Bool {
+        let trimmed = line.trimmingCharacters(in: .whitespaces)
+        if trimmed.isEmpty { return true }
+        if trimmed.hasPrefix("Topic Area:") { return true }
+        if trimmed.hasPrefix("Reading:") { return true }
+        return trimmed.contains("Level III") && trimmed.contains("Study Notes")
     }
 
     private static func parseCallout(_ line: String) -> NotesBlock? {

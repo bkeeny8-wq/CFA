@@ -87,14 +87,7 @@ struct SessionRunnerView: View {
     }
 
     private func saveSession() {
-        let session = Session(
-            startedAt: .now,
-            endedAt: .now,
-            mode: sessionCoordinator.mode.rawValue,
-            filterDescription: sessionCoordinator.filterDescription,
-            attemptIds: sessionCoordinator.completedAttemptIDs
-        )
-        modelContext.insert(session)
+        modelContext.insert(sessionCoordinator.makeSessionRecord())
         try? modelContext.save()
     }
 }
