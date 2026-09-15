@@ -23,5 +23,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<!-- Substituted from GRADER_PROXY_TOKEN in the gitignored
+	     Config/Secrets.local.xcconfig. Empty on a clone without that file,
+	     which the app treats as "grading not configured". -->
+	<key>GraderProxyToken</key>
+	<string>$(GRADER_PROXY_TOKEN)</string>
 </dict>
 </plist>

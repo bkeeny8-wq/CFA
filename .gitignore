@@ -12,3 +12,5 @@ workers/.wrangler/
 # Secrets — never commit. This repo is public.
 Secrets/
 *.xcconfig
+# ...but the tracked template must ship, or a clone cannot build.
+!Config/Secrets.xcconfig
