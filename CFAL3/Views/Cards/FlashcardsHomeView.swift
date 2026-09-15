@@ -1,9 +1,9 @@
 import SwiftUI
 import SwiftData
 
-/// Deck browser for the Cards tab: what's due now, then every book and its
-/// readings with per-deck counts. Mirrors the Study tab's book → reading shape
-/// so the two tabs navigate the same way.
+/// Deck browser for the Cards half of the Study tab: what's due now, then
+/// every book and its readings with per-deck counts. It shares Study's
+/// book → reading shape, which is why the two fold together behind one menu.
 struct FlashcardsHomeView: View {
     @Environment(ContentLoader.self) private var content
     @Environment(\.modelContext) private var modelContext
@@ -67,6 +67,11 @@ struct FlashcardsHomeView: View {
             }
         }
         .navigationTitle("Cards")
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                StudySectionMenu()
+            }
+        }
         .onAppear { content.bootstrapFlashcardProgress(context: modelContext) }
         .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in
             // No .id() here: mutating this @State already re-runs body, and

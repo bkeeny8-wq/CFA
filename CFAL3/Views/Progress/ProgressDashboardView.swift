@@ -61,7 +61,7 @@ struct ProgressDashboardView: View {
         plan: ReviewQueue.Plan
     ) -> some View {
         HStack(spacing: 8) {
-            ProgressStatTile(label: "Accuracy", value: Formatting.percent(overall.correctRate))
+            ProgressStatTile(label: "Accuracy", value: ProgressStats.accuracyDisplay(attempts: attempts))
             ProgressStatTile(
                 label: "Attempted",
                 value: "\(overall.unique.formatted())/\(overall.total.formatted())"

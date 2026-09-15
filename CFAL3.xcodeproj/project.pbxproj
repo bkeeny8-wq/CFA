@@ -82,7 +82,7 @@
 		9B30E00C7EBD420080C706E0 /* LOSDrill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D51CCE71B8479DB70E049A /* LOSDrill.swift */; };
 		9C2C712717334360968FFDB2 /* los_drills_r27.json in Resources */ = {isa = PBXBuildFile; fileRef = EF5D4EE859D841FB95270867 /* los_drills_r27.json */; };
 		9FE84FDE8AFD47B2850E055F /* StudyReadingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59971326BB734A9DA1D869CB /* StudyReadingDetailView.swift */; };
-		A1C0FF0100000000000000A1 /* PracticeRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C0FF0200000000000000A2 /* PracticeRootView.swift */; };
+		A1C0FF0100000000000000A1 /* StudyRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C0FF0200000000000000A2 /* StudyRootView.swift */; };
 		A55600316463473185D99CD8 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60728E62419F4D3AAADED1E4 /* RootTabView.swift */; };
 		AC6614F71CD64BB092A5FC78 /* GradingResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBF716757A74CBCA6D91269 /* GradingResponseParser.swift */; };
 		AEC9019C50A74073B83D1CC6 /* ReadingNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E553728AAB1455896D12DAD /* ReadingNotes.swift */; };
@@ -228,7 +228,7 @@
 		98437221DE424A2BB725E6F0 /* QuizAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizAssembler.swift; sourceTree = "<group>"; };
 		98A1C80B8FC944D38112F410 /* CFAL3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFAL3App.swift; sourceTree = "<group>"; };
 		9D8C5D1B2964494D853FC285 /* FlashcardsHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsHomeView.swift; sourceTree = "<group>"; };
-		A1C0FF0200000000000000A2 /* PracticeRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeRootView.swift; sourceTree = "<group>"; };
+		A1C0FF0200000000000000A2 /* StudyRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StudyRootView.swift; path = CFAL3/Views/Study/StudyRootView.swift; sourceTree = SOURCE_ROOT; };
 		A37A7F81751C442382E848B8 /* ContentDensitySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDensitySection.swift; sourceTree = "<group>"; };
 		A4703EEBE28948DD9CBB6BD2 /* NotesContentParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesContentParser.swift; sourceTree = "<group>"; };
 		A47F557D6A7E458189CDA91E /* los_drills_r23.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r23.json; sourceTree = "<group>"; };
@@ -583,7 +583,7 @@
 			isa = PBXGroup;
 			children = (
 				86B5BD339A05470B924BDA72 /* PracticeBuilderView.swift */,
-				A1C0FF0200000000000000A2 /* PracticeRootView.swift */,
+				A1C0FF0200000000000000A2 /* StudyRootView.swift */,
 			);
 			path = Practice;
 			sourceTree = "<group>";
@@ -798,7 +798,7 @@
 				9B30E00C7EBD420080C706E0 /* LOSDrill.swift in Sources */,
 				678D7E377FEF4EE79312DD4B /* FlashcardSessionView.swift in Sources */,
 				F8EADDB27D404E1DB0370DE4 /* FlashcardsHomeView.swift in Sources */,
-				A1C0FF0100000000000000A1 /* PracticeRootView.swift in Sources */,
+				A1C0FF0100000000000000A1 /* StudyRootView.swift in Sources */,
 				FE2B69D3DF5C400E87678B71 /* FlashcardProgress.swift in Sources */,
 				0B4EC735B5344C2C80FC6780 /* Flashcard.swift in Sources */,
 				D9C73CD92A4149C8A11E805A /* Question.swift in Sources */,

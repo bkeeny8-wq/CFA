@@ -50,8 +50,14 @@ final class CFAL3UITests: XCTestCase {
     /// When the deck was a plain `let`, the parent rebuilt it on every rating —
     /// the total shrank as the index grew, and cards in between were skipped.
     func testRatingACardAdvancesPositionWithoutShrinkingTheDeck() {
-        XCTAssertTrue(waitFor(tab("Cards")), "tab bar never appeared")
-        tab("Cards").tap()
+        XCTAssertTrue(waitFor(tab("Study")), "tab bar never appeared")
+        tab("Study").tap()
+
+        // Cards folded into Study behind the section menu.
+        let menu = app.buttons["study.sectionMenu"]
+        XCTAssertTrue(waitFor(menu), "the Study section menu is missing")
+        menu.tap()
+        app.buttons["Cards"].firstMatch.tap()
 
         let today = app.buttons["cards.today"]
         XCTAssertTrue(waitFor(today), "the Cards session row never appeared")
@@ -91,14 +97,14 @@ final class CFAL3UITests: XCTestCase {
         XCTAssertEqual(bar.buttons.count, 5, "iOS shows five tabs; a sixth creates a More menu")
         XCTAssertFalse(bar.buttons["More"].exists, "no tab should be hidden behind More")
 
-        for name in ["Home", "Study", "Practice", "Cards", "Progress"] {
+        for name in ["Home", "Plan", "Study", "Practice", "Vignettes"] {
             XCTAssertTrue(bar.buttons[name].exists, "missing tab: \(name)")
         }
     }
 
     func testEveryTabOpensWithoutCrashing() {
         XCTAssertTrue(waitFor(tab("Home")))
-        for name in ["Study", "Practice", "Cards", "Progress", "Home"] {
+        for name in ["Plan", "Study", "Practice", "Vignettes", "Home"] {
             tab(name).tap()
             XCTAssertTrue(tab(name).waitForExistence(timeout: 10), "\(name) did not settle")
             XCTAssertEqual(app.state, .runningForeground, "app left the foreground on \(name)")
@@ -120,19 +126,68 @@ final class CFAL3UITests: XCTestCase {
                       "expected a metered start, got: \(title.label)")
     }
 
-    // MARK: - Practice owns case browsing
+    // MARK: - Vignettes are their own tab
 
-    func testPracticeCanSwitchBetweenBuildingAQuizAndBrowsingCases() {
-        XCTAssertTrue(waitFor(tab("Practice")))
-        tab("Practice").tap()
-
-        let browse = app.buttons["Browse cases"]
-        XCTAssertTrue(waitFor(browse), "the build/browse switcher is missing")
-        XCTAssertTrue(app.buttons["Build a quiz"].exists)
-
-        browse.tap()
+    func testVignettesAreTheirOwnTabAndListTheBooks() {
+        XCTAssertTrue(waitFor(tab("Vignettes")))
+        tab("Vignettes").tap()
         XCTAssertTrue(app.staticTexts["Ethics"].waitForExistence(timeout: 10),
-                      "browsing cases should list the books")
+                      "the Vignettes tab should list the books")
+    }
+
+    /// The complaint that prompted the split: inside Practice, opening a case
+    /// hid the switcher and left no visible way back to the quiz builder.
+    /// Separate tabs mean the tab bar is always the way back.
+    func testCanReturnToPracticeAfterOpeningAVignette() {
+        XCTAssertTrue(waitFor(tab("Vignettes")))
+        tab("Vignettes").tap()
+        XCTAssertTrue(app.staticTexts["Ethics"].waitForExistence(timeout: 10))
+        app.staticTexts["Ethics"].tap()
+
+        // Deep inside the vignettes stack, one tap still reaches Practice.
+        XCTAssertTrue(waitFor(tab("Practice"), 10), "the tab bar vanished inside a vignette")
+        tab("Practice").tap()
+        XCTAssertTrue(app.descendants(matching: .any)["practice.scopeSummary"]
+                        .firstMatch.waitForExistence(timeout: 10),
+                      "could not get back to the quiz builder")
+    }
+
+    /// Study folds notes and cards together, so the menu must be able to
+    /// return to notes as well as reach cards.
+    func testStudySectionMenuTogglesBothWays() {
+        XCTAssertTrue(waitFor(tab("Study")))
+        tab("Study").tap()
+        let menu = app.buttons["study.sectionMenu"]
+        XCTAssertTrue(waitFor(menu))
+
+        menu.tap()
+        app.buttons["Cards"].firstMatch.tap()
+        XCTAssertTrue(app.buttons["cards.today"].waitForExistence(timeout: 10),
+                      "menu did not switch to Cards")
+
+        app.buttons["study.sectionMenu"].tap()
+        app.buttons["Notes"].firstMatch.tap()
+        XCTAssertTrue(app.navigationBars["Study"].waitForExistence(timeout: 10),
+                      "menu did not switch back to Notes")
+    }
+
+    /// A freshly erased app has no accuracy, and "0%" reads as a score.
+    func testFreshInstallShowsNoAccuracyScore() {
+        XCTAssertTrue(waitFor(tab("Home")))
+        let accuracy = app.staticTexts["—"]
+        XCTAssertTrue(accuracy.waitForExistence(timeout: 15),
+                      "expected a dash for accuracy with nothing attempted")
+        XCTAssertFalse(app.staticTexts["0%"].exists,
+                       "0% reads as a score, not as an empty history")
+    }
+
+    func testProgressIsReachableFromHome() {
+        XCTAssertTrue(waitFor(tab("Home")))
+        let link = app.buttons["home.progressLink"]
+        XCTAssertTrue(waitFor(link), "the stats row should open Progress")
+        link.tap()
+        XCTAssertTrue(app.staticTexts["LOS coverage"].waitForExistence(timeout: 10),
+                      "Progress did not open")
     }
 
     /// The footer promises a session size; starting one must deliver it.
@@ -162,7 +217,7 @@ final class CFAL3UITests: XCTestCase {
     /// These are the controls a screen reader had nothing to say about.
     func testIconOnlyControlsAreNamed() {
         XCTAssertTrue(waitFor(tab("Home")))
-        XCTAssertTrue(app.buttons["Study plan"].exists, "the calendar button needs a label")
+        XCTAssertTrue(app.tabBars.buttons["Plan"].exists, "Plan is a tab now, not a toolbar glyph")
         XCTAssertTrue(app.buttons["Settings"].exists, "the settings button needs a label")
     }
 

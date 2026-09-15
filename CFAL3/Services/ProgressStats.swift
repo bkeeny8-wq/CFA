@@ -120,6 +120,18 @@ enum ProgressStats {
         return streak
     }
 
+    /// Accuracy over gradable attempts, or a dash when nothing has been graded.
+    ///
+    /// The rate is 0 both for "answered nothing" and for "got everything
+    /// wrong", so printing it raw showed a freshly-erased app a bold "0%"
+    /// under Accuracy — which reads as a score, not as an empty history.
+    static func accuracyDisplay(attempts: [Attempt]) -> String {
+        let graded = attempts.filter { $0.wasCorrect != nil }
+        guard !graded.isEmpty else { return "—" }
+        let correct = graded.filter { $0.wasCorrect == true }.count
+        return Formatting.percent(Double(correct) / Double(graded.count))
+    }
+
     /// `unique` counts distinct questionIds across ALL attempts — bank and
     /// drill alike — so `total` has to span the same union. It is returned
     /// rather than left to the caller: when each view supplied its own

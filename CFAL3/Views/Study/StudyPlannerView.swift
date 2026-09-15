@@ -39,5 +39,10 @@ struct StudyPlannerView: View {
             }
         }
         .navigationTitle("Study")
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                StudySectionMenu()
+            }
+        }
     }
 }

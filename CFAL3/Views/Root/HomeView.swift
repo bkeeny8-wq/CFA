@@ -3,6 +3,7 @@ import SwiftData
 
 struct HomeView: View {
     @Environment(ContentLoader.self) private var content
+    @Environment(TabRouter.self) private var router
     @Environment(StudySessionCoordinator.self) private var sessionCoordinator
     @Environment(PracticeBuilderPreference.self) private var practicePref
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
@@ -13,7 +14,6 @@ struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
 
     @State private var showSession = false
-    @State private var showPractice = false
     /// Bumped when the calendar day changes. The daily allowance is derived
     /// from "today", but nothing observed the boundary — iOS keeps an app
     /// resident for days, so reopening it the next morning still showed
@@ -64,9 +64,6 @@ struct HomeView: View {
         .navigationDestination(isPresented: $showSession) {
             SessionRunnerView()
         }
-        .navigationDestination(isPresented: $showPractice) {
-            PracticeBuilderView()
-        }
         .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in
             // No .id() here: mutating this @State already re-runs body, and
             // re-identifying the view would tear down the hierarchy — popping
@@ -74,17 +71,6 @@ struct HomeView: View {
             dayToken &+= 1
         }
         .toolbar {
-            // Plan lost its tab, so it needs an entry point that exists even on
-            // a rest day or a build with no schedule — cases where the card
-            // below renders nothing.
-            ToolbarItem(placement: .topBarLeading) {
-                NavigationLink {
-                    PlanView()
-                } label: {
-                    Image(systemName: "calendar")
-                }
-                .accessibilityLabel("Study plan")
-            }
             ToolbarItem(placement: .topBarTrailing) {
                 NavigationLink {
                     SettingsView()
@@ -155,8 +141,10 @@ struct HomeView: View {
             let delta = ScheduleProgress.delta(schedule: schedule, completions: dayCompletions)
             let isDone = dayCompletions.contains { $0.dateKey == today.date }
 
-            NavigationLink {
-                PlanView()
+            // Switches tabs rather than pushing a second PlanView — two live
+            // copies of one screen kept separate scroll positions.
+            Button {
+                router.selected = .plan
             } label: {
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
@@ -225,10 +213,22 @@ struct HomeView: View {
         try? modelContext.save()
     }
 
+    /// Progress lost its tab, so these become the door to it — they are the
+    /// same numbers its header used to repeat.
     private var statCardsRow: some View {
+        NavigationLink {
+            ProgressDashboardView()
+        } label: {
+            statCards
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier("home.progressLink")
+    }
+
+    private var statCards: some View {
         HStack(spacing: 10) {
             StatCard(
-                value: Formatting.percent(overallStats.correctRate),
+                value: ProgressStats.accuracyDisplay(attempts: attempts),
                 label: "Accuracy"
             )
             StatCard(
@@ -280,7 +280,7 @@ struct HomeView: View {
                             practicePref.selectedTopics = [topic.topicID]
                             practicePref.selectedReadings = []
                             practicePref.selectedLOS = []
-                            showPractice = true
+                            router.selected = .practice
                         } label: {
                             Text("\(ProgressDisplay.shortName(topic.topicID, fallback: topic.name)) \(Int((topic.correctRate * 100).rounded()))%")
                                 .font(.caption2.weight(.medium))
