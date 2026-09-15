@@ -11,6 +11,8 @@ struct FlashcardsHomeView: View {
 
     @Environment(PracticeBuilderPreference.self) private var practicePref
     @State private var typeFilter: FlashcardType?
+    /// See HomeView: the daily new-card allowance is a function of "today".
+    @State private var dayToken = 0
 
     private var areas: [CurriculumArea] { content.losMaster?.areas ?? [] }
 
@@ -66,6 +68,12 @@ struct FlashcardsHomeView: View {
         }
         .navigationTitle("Cards")
         .onAppear { content.bootstrapFlashcardProgress(context: modelContext) }
+        .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in
+            // No .id() here: mutating this @State already re-runs body, and
+            // re-identifying the view would tear down the hierarchy — popping
+            // an in-progress session at midnight.
+            dayToken &+= 1
+        }
     }
 
     private var list: some View {

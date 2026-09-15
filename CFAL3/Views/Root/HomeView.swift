@@ -14,6 +14,11 @@ struct HomeView: View {
 
     @State private var showSession = false
     @State private var showPractice = false
+    /// Bumped when the calendar day changes. The daily allowance is derived
+    /// from "today", but nothing observed the boundary — iOS keeps an app
+    /// resident for days, so reopening it the next morning still showed
+    /// yesterday's "resume tomorrow".
+    @State private var dayToken = 0
 
     /// One computation feeds both the card's numbers and the session it
     /// starts, so they cannot disagree.
@@ -61,6 +66,12 @@ struct HomeView: View {
         }
         .navigationDestination(isPresented: $showPractice) {
             PracticeBuilderView()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in
+            // No .id() here: mutating this @State already re-runs body, and
+            // re-identifying the view would tear down the hierarchy — popping
+            // an in-progress session at midnight.
+            dayToken &+= 1
         }
         .toolbar {
             // Plan lost its tab, so it needs an entry point that exists even on
@@ -131,13 +142,20 @@ struct HomeView: View {
         if plan.newInSession > 0 { return "Start studying · \(plan.newInSession) new" }
         if plan.isNewOff { return "New questions are switched off" }
         if plan.isNewExhausted { return "Today's new questions are done" }
-        // Never claim "caught up" before the deck has been seeded.
-        if reviewCards.isEmpty && content.isLoaded { return "Preparing your review queue" }
+        if content.loadError != nil { return "Content unavailable" }
+        // Never claim "caught up" before the deck exists. The condition used
+        // to require content.isLoaded, which is precisely FALSE during the
+        // load this was meant to cover — so every cold launch opened on
+        // "All caught up" until the bundle finished decoding.
+        if !content.isLoaded || reviewCards.isEmpty { return "Preparing your review queue" }
         return "All caught up"
     }
 
     private func reviewSubtitle(_ plan: ReviewQueue.Plan) -> String {
         guard !plan.isEmpty else {
+            if content.loadError == nil && (!content.isLoaded || reviewCards.isEmpty) {
+                return "Loading your questions…"
+            }
             if plan.isNewOff {
                 return "\(plan.notStartedCount.formatted()) not started · turn on new questions per day in Settings"
             }

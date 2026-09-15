@@ -159,7 +159,13 @@ struct SettingsView: View {
     /// the remaining material before exam day, says so with the rate needed.
     private var newPerDayFooter: String {
         let base = "Questions you've already answered come back on schedule and are never limited. This caps how many brand-new ones enter a review session each day; questions you answer in Practice count toward the same number."
-        let notStarted = cards.filter { $0.totalAttempts == 0 }.count
+        // Must match ReviewQueue's definition of "seen", or this warning
+        // contradicts the count on Home. Attempts count even when
+        // totalAttempts is still 0 (grading dismissed backwards).
+        let attempted = Set(attempts.map(\.questionId))
+        let notStarted = cards.filter {
+            $0.totalAttempts == 0 && !attempted.contains($0.questionId)
+        }.count
         let days = Formatting.daysUntilExam()
         guard notStarted > 0, days > 0 else { return base }
 

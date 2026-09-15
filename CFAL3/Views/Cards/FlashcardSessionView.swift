@@ -10,7 +10,17 @@ struct FlashcardSessionView: View {
     @Query private var progress: [FlashcardProgress]
 
     let title: String
-    let cards: [Flashcard]
+
+    /// A SNAPSHOT, taken once. The deck arrives from an expression the parent
+    /// recomputes on every body evaluation, and rating a card invalidates the
+    /// parent's @Query — so a plain `let` meant each rating rebuilt the deck
+    /// underneath the index walking it, skipping cards and shuffling the rest.
+    @State private var cards: [Flashcard]
+
+    init(title: String, cards: [Flashcard]) {
+        self.title = title
+        _cards = State(initialValue: cards)
+    }
 
     @State private var index = 0
     @State private var isRevealed = false
