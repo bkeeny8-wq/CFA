@@ -72,9 +72,15 @@ struct ProgressRing: View {
                 .stroke(Theme.accent, style: .init(lineWidth: 4, lineCap: .round))
                 .rotationEffect(.degrees(-90))
             Text("\(Int((fraction * 100).rounded()))%")
+                // Scales with Dynamic Type instead of being pinned to the
+                // ring's diameter, which locked it at ~9pt.
                 .font(.system(size: size * 0.28, weight: .medium))
+                .dynamicTypeSize(...DynamicTypeSize.accessibility1)
+                .minimumScaleFactor(0.6)
         }
         .frame(width: size, height: size)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("\(Int((fraction * 100).rounded())) percent attempted")
     }
 }
 

@@ -113,6 +113,9 @@ struct LOSFilterSheet: View {
 
                 Spacer()
 
+                // Named "All"/"None" alone, every one of these read as an
+                // identical button to VoiceOver with no way to tell which
+                // reading it belonged to.
                 Button(allSelected ? "None" : "All") {
                     if allSelected {
                         for los in reading.los { draftSelection.remove(los.id) }
@@ -120,6 +123,11 @@ struct LOSFilterSheet: View {
                         for los in reading.los { draftSelection.insert(los.id) }
                     }
                 }
+                .accessibilityLabel(
+                    allSelected
+                        ? "Deselect all LOS in \(reading.name)"
+                        : "Select all LOS in \(reading.name)"
+                )
                 .font(.caption)
                 .buttonStyle(.borderless)
             }
@@ -148,7 +156,9 @@ struct LOSFilterSheet: View {
 
                 Text(los.text)
                     .font(.subheadline)
-                    .lineLimit(2)
+                    // The statement is the only thing identifying the row, and
+                    // most of them are longer than two lines.
+                    .fixedSize(horizontal: false, vertical: true)
                     .multilineTextAlignment(.leading)
                     .foregroundStyle(.primary)
 

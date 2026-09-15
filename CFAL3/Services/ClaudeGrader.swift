@@ -20,6 +20,20 @@ enum GraderModel: String, CaseIterable, Identifiable {
         case .haiku: return "Haiku 4.5 (fastest)"
         }
     }
+
+    /// `max_tokens` bounds reasoning AND the reply. On a model that always
+    /// reasons, a budget sized for the reply alone is spent thinking and the
+    /// response is cut off before the grading JSON is emitted — which the
+    /// parser then reports as an unreadable response. A flat 2000 made the
+    /// default model fail on any non-trivial essay.
+    var maxTokens: Int {
+        switch self {
+        case .fable: return 12_000
+        case .opus: return 8_000
+        case .sonnet: return 4_000
+        case .haiku: return 2_000
+        }
+    }
 }
 
 @Observable
@@ -358,10 +372,14 @@ final class ClaudeGrader {
         request.httpMethod = "POST"
         request.setValue("Bearer \(GraderConfig.proxyToken)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        // Without this the only bound is URLSession's 60s inactivity default,
+        // which a slow stream keeps resetting — so a stalled grade could hang
+        // on "Submitting…" with no upper limit.
+        request.timeoutInterval = 180
 
         let body: [String: Any] = [
             "model": selectedModel.rawValue,
-            "max_tokens": 2000,
+            "max_tokens": selectedModel.maxTokens,
             "stream": true,
             "system": system,
             "messages": [
@@ -418,8 +436,13 @@ enum ClaudeGraderError: LocalizedError {
         switch self {
         case .apiError(let status, let message):
             switch status {
-            case 401:
-                return "Grader endpoint rejected the request — check GraderConfig."
+            case 401, 403:
+                // Names no source file: this reaches shipped users, and the
+                // cause (a rotated proxy token) needs an app update, not
+                // anything they can do in Settings.
+                return "Essay grading is unavailable — this build's grader "
+                     + "access was rejected. Update the app, or grade by hand "
+                     + "against the model answer."
             case 404:
                 return "Selected model is not available on this account. "
                      + "Choose another model in Settings."
@@ -427,8 +450,16 @@ enum ClaudeGraderError: LocalizedError {
                 return "Rate limited by the API. Wait a moment and resubmit."
             case 500...529:
                 return "Anthropic servers are busy. Try again shortly."
+            case 400:
+                return "The grader rejected this request"
+                     + (message.map { ": \($0)" } ?? ".")
+                     + " Try a different model in Settings."
             default:
-                return message ?? "Grading request failed (HTTP \(status))."
+                // A raw API message can be arbitrary developer text; keep it
+                // as context behind a sentence that tells the user what to do.
+                return "Grading failed (HTTP \(status)). Try again, or switch "
+                     + "grader model in Settings."
+                     + (message.map { "\n\n\($0)" } ?? "")
             }
         case .streamError(let message):
             return "Grading stream failed: \(message)"

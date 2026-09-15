@@ -60,6 +60,11 @@ struct LOSDrillAttemptView: View {
                 } label: {
                     Image(systemName: reviewCard?.flaggedForReview == true ? "flag.fill" : "flag")
                 }
+                .accessibilityLabel(
+                    reviewCard?.flaggedForReview == true
+                        ? "Remove review flag"
+                        : "Flag for review"
+                )
             }
         }
         .onAppear { startedAt = .now }

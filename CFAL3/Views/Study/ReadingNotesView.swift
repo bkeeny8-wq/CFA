@@ -65,13 +65,18 @@ struct ReadingNotesView: View {
                     } label: {
                         Text("LOS \(section.number)")
                             .font(.caption.weight(.semibold))
-                            .padding(.horizontal, 10)
+                            .padding(.horizontal, 12)
                             .padding(.vertical, 6)
+                            // 44pt minimum touch target — these were ~28pt
+                            // tall with 8pt gaps, so neighbouring chips were
+                            // easy to hit by mistake.
+                            .frame(minHeight: 44)
                             .background(Theme.accent.opacity(0.12))
                             .foregroundStyle(Theme.accent)
                             .clipShape(Capsule())
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel("Jump to LOS \(section.number)")
                 }
             }
         }

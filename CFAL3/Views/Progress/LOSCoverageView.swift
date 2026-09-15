@@ -16,23 +16,42 @@ struct LOSCoverageView: View {
                                 .foregroundStyle(.secondary)
                         }
                         Spacer()
-                        coverageColor(for: reading)
+                        // Colour alone cannot carry this: the green/yellow/
+                        // orange tiers are indistinguishable with the common
+                        // forms of colour blindness, and VoiceOver read the
+                        // swatch as nothing at all.
+                        Label(coverageTier(for: reading).name,
+                              systemImage: coverageTier(for: reading).symbol)
+                            .labelStyle(.iconOnly)
+                            .font(.title3)
+                            .foregroundStyle(coverageColor(for: reading))
                             .frame(width: 28, height: 28)
-                            .clipShape(RoundedRectangle(cornerRadius: 6))
+                            .accessibilityLabel("Coverage: \(coverageTier(for: reading).name)")
                     }
                 }
             }
         }
     }
 
-    private func coverageColor(for reading: LOSReadingCoverage) -> Color {
-        guard reading.questionCount > 0 else { return Color.secondary.opacity(0.2) }
+    /// One classification, rendered as a shape AND a colour AND a spoken name.
+    private func coverageTier(
+        for reading: LOSReadingCoverage
+    ) -> (name: String, symbol: String) {
+        guard reading.questionCount > 0 else { return ("no questions", "minus.circle") }
         let attemptRatio = Double(reading.attempted) / Double(reading.questionCount)
-        let correctness = reading.correctRate ?? 0.5
-        let score = attemptRatio * correctness
-        if score >= 0.75 { return .green.opacity(0.7) }
-        if score >= 0.4 { return .yellow.opacity(0.7) }
-        if attemptRatio > 0 { return .orange.opacity(0.7) }
-        return Color.secondary.opacity(0.25)
+        let score = attemptRatio * (reading.correctRate ?? 0.5)
+        if score >= 0.75 { return ("strong", "checkmark.circle.fill") }
+        if score >= 0.4 { return ("partial", "circle.lefthalf.filled") }
+        if attemptRatio > 0 { return ("weak", "exclamationmark.circle") }
+        return ("not started", "circle")
+    }
+
+    private func coverageColor(for reading: LOSReadingCoverage) -> Color {
+        switch coverageTier(for: reading).name {
+        case "strong": return .green
+        case "partial": return .yellow
+        case "weak": return .orange
+        default: return .secondary
+        }
     }
 }

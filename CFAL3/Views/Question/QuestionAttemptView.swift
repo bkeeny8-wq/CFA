@@ -21,6 +21,10 @@ struct QuestionAttemptView: View {
     @State private var showResult = false
     @State private var isSubmitting = false
     @State private var submitError: String?
+    /// Held so leaving the screen cancels the in-flight grading call. An
+    /// unstructured Task outlives the view, so backing out kept a paid request
+    /// running and then wrote an attempt for a question already abandoned.
+    @State private var submitTask: Task<Void, Never>?
 
     private var question: Question? { content.question(id: questionID) }
     private var caseStudy: CaseStudy? {
@@ -82,7 +86,10 @@ struct QuestionAttemptView: View {
                         }
 
                         Button(submitTitle(for: question)) {
-                            Task { await submit(question: question, caseStudy: caseStudy) }
+                            submitTask?.cancel()
+                            submitTask = Task {
+                                await submit(question: question, caseStudy: caseStudy)
+                            }
                         }
                         .buttonStyle(.borderedProminent)
                         .tint(Theme.accent)
@@ -110,11 +117,22 @@ struct QuestionAttemptView: View {
                 } label: {
                     Image(systemName: reviewCard?.flaggedForReview == true ? "flag.fill" : "flag")
                 }
+                .accessibilityLabel(
+                    reviewCard?.flaggedForReview == true
+                        ? "Remove review flag"
+                        : "Flag for review"
+                )
             }
         }
         .onAppear {
             startedAt = .now
             vignetteExpanded = false
+            restoreDraft()
+        }
+        .onDisappear {
+            submitTask?.cancel()
+            submitTask = nil
+            saveDraft()
         }
         .navigationDestination(isPresented: $showResult) {
             if let submittedAttempt, let question {
@@ -151,6 +169,10 @@ struct QuestionAttemptView: View {
 
     @MainActor
     private func submit(question: Question, caseStudy: CaseStudy) async {
+        // One answer, one Attempt. Returning to an already-submitted question
+        // left the answer in place and the button live, so a second tap wrote
+        // a duplicate row and aged the card twice.
+        guard submittedAttempt == nil, !isSubmitting else { return }
         isSubmitting = true
         submitError = nil
         defer { isSubmitting = false }
@@ -183,8 +205,11 @@ struct QuestionAttemptView: View {
                     grade = parsed.grade
                     feedback = parsed.feedbackMarkdown
                 } catch {
-                    submitError = error.localizedDescription
-                    return
+                    // The multiple-choice result is computed locally and owes
+                    // the network nothing. Aborting here threw away a correct
+                    // answer because an OPTIONAL reasoning critique failed.
+                    if Task.isCancelled { return }
+                    feedback = "Reasoning feedback unavailable: \(error.localizedDescription)"
                 }
             }
         case .essay:
@@ -203,10 +228,14 @@ struct QuestionAttemptView: View {
                 pointsPossible = parsed.pointsPossible
                 feedback = parsed.feedbackMarkdown
             } catch {
-                submitError = error.localizedDescription
+                // An essay has no locally-computable result, so there is
+                // nothing to record — but say so rather than failing silently.
+                if !Task.isCancelled { submitError = error.localizedDescription }
                 return
             }
         }
+
+        guard !Task.isCancelled else { return }
 
         let attempt = Attempt(
             questionId: questionID,
@@ -225,8 +254,46 @@ struct QuestionAttemptView: View {
         modelContext.insert(attempt)
         try? modelContext.save()
 
+        clearDraft()
         submittedAttempt = attempt
         showResult = true
+    }
+
+    // MARK: - Drafts
+
+    // An in-progress essay lived only in @State, so a back tap or an edge
+    // swipe destroyed it with no warning. Persisting beats confirming: it also
+    // survives the app being killed, and needs no navigation interception.
+
+    private var draftKey: String { "draft.answer.\(questionID)" }
+    private var draftReasoningKey: String { "draft.reasoning.\(questionID)" }
+
+    private func restoreDraft() {
+        guard submittedAttempt == nil else { return }
+        let defaults = UserDefaults.standard
+        if essayText.isEmpty, let saved = defaults.string(forKey: draftKey) {
+            essayText = saved
+        }
+        if reasoningText.isEmpty, let saved = defaults.string(forKey: draftReasoningKey) {
+            reasoningText = saved
+            if !saved.isEmpty { explainReasoning = true }
+        }
+    }
+
+    private func saveDraft() {
+        let defaults = UserDefaults.standard
+        guard submittedAttempt == nil else { return clearDraft() }
+        let answer = essayText.trimmingCharacters(in: .whitespacesAndNewlines)
+        let reasoning = reasoningText.trimmingCharacters(in: .whitespacesAndNewlines)
+        answer.isEmpty ? defaults.removeObject(forKey: draftKey)
+                       : defaults.set(essayText, forKey: draftKey)
+        reasoning.isEmpty ? defaults.removeObject(forKey: draftReasoningKey)
+                          : defaults.set(reasoningText, forKey: draftReasoningKey)
+    }
+
+    private func clearDraft() {
+        UserDefaults.standard.removeObject(forKey: draftKey)
+        UserDefaults.standard.removeObject(forKey: draftReasoningKey)
     }
 
     private func toggleFlag() {

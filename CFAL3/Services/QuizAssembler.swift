@@ -85,7 +85,8 @@ enum QuizAssembler {
         return stratifiedPick(
             ordered,
             pref: pref,
-            quotaPerUnit: pref.count.rawValue
+            quotaPerUnit: pref.count.rawValue,
+            bookIDs: Set(content.questionBank?.topics.map(\.id) ?? [])
         )
     }
 
@@ -107,7 +108,8 @@ enum QuizAssembler {
     private static func targetUnits(
         stratum: Stratum,
         pref: PracticeBuilderPreference,
-        pool: [PoolItem]
+        pool: [PoolItem],
+        bookIDs: Set<String>
     ) -> Set<String> {
         switch stratum {
         case .los:
@@ -116,15 +118,26 @@ enum QuizAssembler {
             return pref.selectedReadings
         case .topic:
             if !pref.selectedTopics.isEmpty { return pref.selectedTopics }
-            return pool.reduce(into: Set<String>()) { $0.formUnion($1.topicIDs) }
+            // Only the six books. A PoolItem's topicIDs also carry the
+            // topics.json summary IDs (cme_1, equity, ethics…), which share
+            // this namespace but are not books — counting them made "5 per
+            // book" spread its quota over ~16 units and return roughly twice
+            // the questions the footer promised.
+            let books = pool.reduce(into: Set<String>()) { $0.formUnion($1.topicIDs) }
+            return books.intersection(bookIDs)
         }
     }
 
-    private static func units(of item: PoolItem, stratum: Stratum) -> Set<String> {
+    private static func units(
+        of item: PoolItem,
+        stratum: Stratum,
+        bookIDs: Set<String>
+    ) -> Set<String> {
         switch stratum {
         case .los: return item.losIDs
         case .reading: return item.readingIDs
-        case .topic: return item.topicIDs
+        // Same reason as targetUnits: keep non-book topic IDs out.
+        case .topic: return item.topicIDs.intersection(bookIDs)
         }
     }
 
@@ -135,10 +148,11 @@ enum QuizAssembler {
     private static func stratifiedPick(
         _ ordered: [PoolItem],
         pref: PracticeBuilderPreference,
-        quotaPerUnit: Int
+        quotaPerUnit: Int,
+        bookIDs: Set<String>
     ) -> [String] {
         let stratum = stratum(for: pref)
-        let targets = targetUnits(stratum: stratum, pref: pref, pool: ordered)
+        let targets = targetUnits(stratum: stratum, pref: pref, pool: ordered, bookIDs: bookIDs)
         guard !targets.isEmpty, quotaPerUnit > 0 else { return [] }
 
         var takenPerUnit: [String: Int] = [:]
@@ -146,7 +160,7 @@ enum QuizAssembler {
         var result: [String] = []
 
         for item in ordered {
-            let itemUnits = units(of: item, stratum: stratum).intersection(targets)
+            let itemUnits = units(of: item, stratum: stratum, bookIDs: bookIDs).intersection(targets)
             let underQuota = itemUnits.filter { (takenPerUnit[$0] ?? 0) < quotaPerUnit }
             guard !underQuota.isEmpty, seen.insert(item.id).inserted else { continue }
             result.append(item.id)

@@ -8,6 +8,11 @@ struct SessionRunnerView: View {
     @Environment(ContentLoader.self) private var content
 
     @State private var showSummary = false
+    /// The session this runner was opened for. There is one coordinator for
+    /// the whole app, so starting a session from another tab replaces it —
+    /// and this runner, still on screen, would silently begin showing the new
+    /// session's questions under the old title. Close instead.
+    @State private var openedSessionID: UUID?
 
     var body: some View {
         Group {
@@ -28,10 +33,15 @@ struct SessionRunnerView: View {
             }
         }
         .onAppear {
+            if openedSessionID == nil { openedSessionID = sessionCoordinator.sessionID }
             if sessionCoordinator.currentIndex >= sessionCoordinator.questionIDs.count,
                !sessionCoordinator.questionIDs.isEmpty {
                 showSummary = true
             }
+        }
+        .onChange(of: sessionCoordinator.sessionID) { _, newValue in
+            guard let openedSessionID, openedSessionID != newValue else { return }
+            dismiss()
         }
     }
 
