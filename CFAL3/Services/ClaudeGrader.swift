@@ -368,6 +368,12 @@ final class ClaudeGrader {
         userMessage: String,
         onText: (String) -> Void
     ) async throws {
+        // Say so plainly rather than sending an empty bearer and reporting the
+        // worker's 401 as if the grader had rejected the answer.
+        guard GraderConfig.isGraderConfigured else {
+            throw ClaudeGraderError.notConfigured
+        }
+
         var request = URLRequest(url: GraderConfig.endpoint)
         request.httpMethod = "POST"
         request.setValue("Bearer \(GraderConfig.proxyToken)", forHTTPHeaderField: "Authorization")
@@ -431,9 +437,13 @@ final class ClaudeGrader {
 enum ClaudeGraderError: LocalizedError {
     case apiError(status: Int, message: String?)
     case streamError(message: String)
+    case notConfigured
 
     var errorDescription: String? {
         switch self {
+        case .notConfigured:
+            return "Essay grading isn't configured in this build. "
+                 + "Everything else works; grade by hand against the model answer."
         case .apiError(let status, let message):
             switch status {
             case 401, 403:

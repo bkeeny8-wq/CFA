@@ -624,6 +624,7 @@
 				52D768514ADB4D8FA0647ECA /* Sources */,
 				DE658E1A3169450FBFBFDDB0 /* Frameworks */,
 				FDC4FC6897B64EB8830EE80C /* Resources */,
+				E5SEC00000000000000P0001 /* Inject grader token */,
 			);
 			buildRules = (
 			);
@@ -768,6 +769,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E5SEC00000000000000P0001 /* Inject grader token */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Inject grader token";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh \"$SRCROOT/scripts/inject-grader-token.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E5UI000000000000000P0001 /* Sources */ = {
