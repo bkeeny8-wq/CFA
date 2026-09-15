@@ -241,9 +241,17 @@ struct GradingResultView: View {
             : "Finish session"
     }
 
+    /// Grader feedback is built as sections separated by blank lines, with
+    /// bulleted points inside each. The default markdown parsing is
+    /// inline-only and discards every newline, so the whole critique rendered
+    /// as one run-on paragraph — "…required two.**Strengths**Correctly
+    /// identifies…". Preserving whitespace keeps the structure.
     @ViewBuilder
     private func markdownText(_ text: String) -> some View {
-        if let attributed = try? AttributedString(markdown: text) {
+        if let attributed = try? AttributedString(
+            markdown: text,
+            options: .init(interpretedSyntax: .inlineOnlyPreservingWhitespace)
+        ) {
             Text(attributed)
         } else {
             Text(text)

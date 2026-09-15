@@ -85,15 +85,33 @@ struct QuestionAttemptView: View {
                                 .font(.footnote)
                         }
 
-                        Button(submitTitle(for: question)) {
-                            submitTask?.cancel()
-                            submitTask = Task {
-                                await submit(question: question, caseStudy: caseStudy)
+                        if isSubmitting {
+                            // Grading was a dead, disabled "Submitting…" with
+                            // no spinner and no way out, so a slow or stalled
+                            // request looked like a frozen screen.
+                            HStack(spacing: 12) {
+                                ProgressView()
+                                Text("Grading your answer…")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                                Spacer()
+                                Button("Cancel") { cancelSubmission() }
+                                    .buttonStyle(.bordered)
                             }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .accessibilityElement(children: .contain)
+                            .accessibilityLabel("Grading your answer")
+                        } else {
+                            Button(submitTitle(for: question)) {
+                                submitTask?.cancel()
+                                submitTask = Task {
+                                    await submit(question: question, caseStudy: caseStudy)
+                                }
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .tint(Theme.accent)
+                            .disabled(!canSubmit(question: question) || (question.type == .mc && !question.canGradeMC && explainReasoning))
                         }
-                        .buttonStyle(.borderedProminent)
-                        .tint(Theme.accent)
-                        .disabled(!canSubmit(question: question) || isSubmitting || (question.type == .mc && !question.canGradeMC && explainReasoning))
                     }
                     .readableContentWidth()
                     .padding()
@@ -146,8 +164,9 @@ struct QuestionAttemptView: View {
         }
     }
 
+    /// Only reached when not submitting — the in-flight state is its own row
+    /// with a spinner and a cancel control.
     private func submitTitle(for question: Question) -> String {
-        if isSubmitting { return "Submitting…" }
         switch question.type {
         case .mc where explainReasoning && !reasoningText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty:
             return "Grade answer & reasoning"
@@ -257,6 +276,16 @@ struct QuestionAttemptView: View {
         clearDraft()
         submittedAttempt = attempt
         showResult = true
+    }
+
+    /// Stop waiting on the grader. The in-flight call is cancelled and the
+    /// controls come back immediately; `submit` bails at its cancellation
+    /// guards rather than writing an attempt after the fact.
+    private func cancelSubmission() {
+        submitTask?.cancel()
+        submitTask = nil
+        isSubmitting = false
+        submitError = nil
     }
 
     // MARK: - Drafts
