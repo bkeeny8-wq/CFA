@@ -73,9 +73,10 @@ struct ProgressDashboardView: View {
                 // Show the session this tile actually starts, not the due
                 // count: gating on plan.isEmpty while printing dueCount made
                 // it read "0" in the accent colour and then run 20 questions.
+                let tile = ReviewCTA.tile(for: plan)
                 ProgressStatTile(
-                    label: reviewTileLabel(plan),
-                    value: plan.isEmpty ? "0" : plan.sessionIDs.count.formatted(),
+                    label: tile.label,
+                    value: tile.value,
                     isAccent: !plan.isEmpty
                 )
             }
@@ -84,12 +85,6 @@ struct ProgressDashboardView: View {
         }
     }
 
-    private func reviewTileLabel(_ plan: ReviewQueue.Plan) -> String {
-        if plan.isEmpty { return "Nothing due" }
-        if plan.dueInSession > 0 && plan.newInSession > 0 { return "Review + new" }
-        if plan.newInSession > 0 { return "New today" }
-        return plan.overflowDue > 0 ? "Due (of \(plan.dueCount.formatted()))" : "Due today"
-    }
 
     private func bookGrid(_ topics: [TopicProgress]) -> some View {
         VStack(alignment: .leading, spacing: 6) {

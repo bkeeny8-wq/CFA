@@ -272,3 +272,107 @@ enum ReviewQueue {
         return "Due review"
     }
 }
+
+/// What the review controls say, as a value.
+///
+/// This lives outside the views on purpose. Every test in this project used to
+/// be value-in/value-out over a pure service, so the bugs that survived were
+/// the ones where the plan was right and the screen reading it was wrong — a
+/// launch-window guard whose condition could never be true, and a tile that
+/// printed one number while starting a different session. Both are decisions,
+/// not layout, so they belong somewhere a test can reach.
+enum ReviewCTA {
+
+    /// Everything the copy depends on, so a test can pose any situation
+    /// without building a view or a store.
+    struct Inputs {
+        let plan: ReviewQueue.Plan
+        /// Content finished decoding. False during the launch window.
+        let contentIsLoaded: Bool
+        /// Content failed to decode at all.
+        let contentFailed: Bool
+        /// Review cards have been seeded. False during launch and briefly
+        /// after a wipe, before the re-seed runs.
+        let hasSeededCards: Bool
+        let typeFilter: QuestionTypeFilter
+        let essaysInSession: Int
+
+        init(
+            plan: ReviewQueue.Plan,
+            contentIsLoaded: Bool = true,
+            contentFailed: Bool = false,
+            hasSeededCards: Bool = true,
+            typeFilter: QuestionTypeFilter = .mixed,
+            essaysInSession: Int = 0
+        ) {
+            self.plan = plan
+            self.contentIsLoaded = contentIsLoaded
+            self.contentFailed = contentFailed
+            self.hasSeededCards = hasSeededCards
+            self.typeFilter = typeFilter
+            self.essaysInSession = essaysInSession
+        }
+
+        /// The queue cannot be judged yet — nothing is decoded or seeded.
+        var isPreparing: Bool { !contentFailed && (!contentIsLoaded || !hasSeededCards) }
+    }
+
+    static func title(_ input: Inputs) -> String {
+        let plan = input.plan
+        if plan.dueCount > 0 && plan.newInSession > 0 {
+            return "Start review · \(plan.dueCount.formatted()) due · \(plan.newInSession) new"
+        }
+        if plan.dueCount > 0 { return "Start review · \(plan.dueCount.formatted()) due" }
+        if plan.newInSession > 0 { return "Start studying · \(plan.newInSession) new" }
+        if plan.isNewOff { return "New questions are switched off" }
+        if plan.isNewExhausted { return "Today's new questions are done" }
+        if input.contentFailed { return "Content unavailable" }
+        // Checked BEFORE "All caught up": claiming a clear queue while the
+        // queue does not yet exist is the launch-window bug.
+        if input.isPreparing { return "Preparing your review queue" }
+        return "All caught up"
+    }
+
+    static func subtitle(_ input: Inputs) -> String {
+        let plan = input.plan
+        guard !plan.isEmpty else {
+            if input.isPreparing { return "Loading your questions…" }
+            if plan.isNewOff {
+                return "\(plan.notStartedCount.formatted()) not started · turn on new questions per day in Settings"
+            }
+            if plan.isNewExhausted {
+                return "\(plan.dailyNewLimit) new resume tomorrow · \(plan.notStartedCount.formatted()) not started"
+            }
+            return "Build a practice session instead"
+        }
+        let minutes = max(5, Formatting.estimatedMinutes(
+            mc: plan.sessionIDs.count - input.essaysInSession,
+            essays: input.essaysInSession
+        ))
+        var parts = ["~\(minutes) min"]
+        if plan.dueInSession > 0 && plan.newInSession > 0 {
+            parts.append("\(plan.dueInSession) due + \(plan.newInSession) new")
+        } else {
+            parts.append("\(plan.sessionIDs.count) questions")
+        }
+        if plan.overflowDue > 0 { parts.append("\(plan.overflowDue.formatted()) more after this") }
+        if input.typeFilter != .mixed { parts.append(input.typeFilter.displayName) }
+        return parts.joined(separator: " · ")
+    }
+
+    /// The Progress tile. The value is the session the tile STARTS — printing
+    /// the due count while gating on the session let it read a bold "0" and
+    /// then run twenty questions.
+    static func tile(for plan: ReviewQueue.Plan) -> (value: String, label: String) {
+        guard !plan.isEmpty else { return ("0", "Nothing due") }
+        let label: String
+        if plan.dueInSession > 0 && plan.newInSession > 0 {
+            label = "Review + new"
+        } else if plan.newInSession > 0 {
+            label = "New today"
+        } else {
+            label = plan.overflowDue > 0 ? "Due (of \(plan.dueCount.formatted()))" : "Due today"
+        }
+        return (plan.sessionIDs.count.formatted(), label)
+    }
+}

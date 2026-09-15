@@ -111,9 +111,9 @@ struct HomeView: View {
             startReviewSession(plan)
         } label: {
             VStack(alignment: .leading, spacing: 2) {
-                Text(reviewTitle(plan))
+                Text(ReviewCTA.title(ctaInputs(plan)))
                     .font(.headline)
-                Text(reviewSubtitle(plan))
+                Text(ReviewCTA.subtitle(ctaInputs(plan)))
                     .font(.caption)
                 if plan.notStartedCount > 0 && plan.dueCount > 0 {
                     Text("\(plan.notStartedCount.formatted()) not started")
@@ -134,53 +134,17 @@ struct HomeView: View {
         .disabled(plan.isEmpty)
     }
 
-    private func reviewTitle(_ plan: ReviewQueue.Plan) -> String {
-        if plan.dueCount > 0 && plan.newInSession > 0 {
-            return "Start review · \(plan.dueCount.formatted()) due · \(plan.newInSession) new"
-        }
-        if plan.dueCount > 0 { return "Start review · \(plan.dueCount.formatted()) due" }
-        if plan.newInSession > 0 { return "Start studying · \(plan.newInSession) new" }
-        if plan.isNewOff { return "New questions are switched off" }
-        if plan.isNewExhausted { return "Today's new questions are done" }
-        if content.loadError != nil { return "Content unavailable" }
-        // Never claim "caught up" before the deck exists. The condition used
-        // to require content.isLoaded, which is precisely FALSE during the
-        // load this was meant to cover — so every cold launch opened on
-        // "All caught up" until the bundle finished decoding.
-        if !content.isLoaded || reviewCards.isEmpty { return "Preparing your review queue" }
-        return "All caught up"
-    }
-
-    private func reviewSubtitle(_ plan: ReviewQueue.Plan) -> String {
-        guard !plan.isEmpty else {
-            if content.loadError == nil && (!content.isLoaded || reviewCards.isEmpty) {
-                return "Loading your questions…"
-            }
-            if plan.isNewOff {
-                return "\(plan.notStartedCount.formatted()) not started · turn on new questions per day in Settings"
-            }
-            if plan.isNewExhausted {
-                return "\(plan.dailyNewLimit) new resume tomorrow · \(plan.notStartedCount.formatted()) not started"
-            }
-            return "Build a practice session instead"
-        }
-        // The estimate covers the capped slice, not the whole queue — say so,
-        // or "3,115 due · ~66 min" reads as 3,115 questions in an hour. Priced
-        // by question type, like every other estimate in the app.
-        let essays = plan.sessionIDs.filter { questionType(for: $0) == .essay }.count
-        let minutes = max(5, Formatting.estimatedMinutes(
-            mc: plan.sessionIDs.count - essays,
-            essays: essays
-        ))
-        var parts = ["~\(minutes) min"]
-        if plan.dueInSession > 0 && plan.newInSession > 0 {
-            parts.append("\(plan.dueInSession) due + \(plan.newInSession) new")
-        } else {
-            parts.append("\(plan.sessionIDs.count) questions")
-        }
-        if plan.overflowDue > 0 { parts.append("\(plan.overflowDue.formatted()) more after this") }
-        if practicePref.typeFilter != .mixed { parts.append(practicePref.typeFilter.displayName) }
-        return parts.joined(separator: " · ")
+    /// Gathers what the copy depends on. The wording itself lives in
+    /// ReviewCTA so it can be tested without building a view.
+    private func ctaInputs(_ plan: ReviewQueue.Plan) -> ReviewCTA.Inputs {
+        ReviewCTA.Inputs(
+            plan: plan,
+            contentIsLoaded: content.isLoaded,
+            contentFailed: content.loadError != nil,
+            hasSeededCards: !reviewCards.isEmpty,
+            typeFilter: practicePref.typeFilter,
+            essaysInSession: plan.sessionIDs.filter { questionType(for: $0) == .essay }.count
+        )
     }
 
     @ViewBuilder
