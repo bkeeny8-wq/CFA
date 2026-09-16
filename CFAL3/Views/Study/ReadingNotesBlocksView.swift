@@ -5,7 +5,12 @@ struct ReadingNotesBlocksView: View {
 
     var body: some View {
         LazyVStack(alignment: .leading, spacing: 20) {
-            ForEach(blocks) { block in
+            // By position, not by `NotesBlock.id`. A reading's blocks are a
+            // fixed list that only changes when you open a different reading,
+            // so the index IS the identity — and two genuinely identical
+            // blocks (the same one-line bullet list under two LOS, say) would
+            // otherwise collide and make ForEach drop one of them.
+            ForEach(Array(blocks.enumerated()), id: \.offset) { _, block in
                 blockView(block)
             }
         }
