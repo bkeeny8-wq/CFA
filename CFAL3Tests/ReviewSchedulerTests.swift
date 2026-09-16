@@ -21,7 +21,44 @@ final class ReviewSchedulerTests: XCTestCase {
         XCTAssertEqual(card.interval, 1)
         XCTAssertEqual(card.totalAttempts, 1)
         XCTAssertEqual(card.totalCorrect, 0)
-        XCTAssertEqual(card.dueDate, Calendar.current.date(byAdding: .day, value: 1, to: now))
+        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: now)!
+        XCTAssertEqual(card.dueDate, Calendar.current.startOfDay(for: tomorrow))
+    }
+
+    /// Intervals are counted in DAYS, so a card owed tomorrow must be waiting
+    /// first thing tomorrow — not at the hour you happened to review it.
+    ///
+    /// This previously asserted the opposite: `dueDate` kept the review's clock
+    /// time, and both queues ask `dueDate <= now`, so an evening review did not
+    /// come due until that same evening the next day.
+    func testCardReviewedAtNightIsDueFirstThingTheNextMorning() {
+        var cal = Calendar(identifier: .gregorian)
+        cal.timeZone = TimeZone(identifier: "America/New_York")!
+
+        let tuesday2000 = cal.date(from: DateComponents(
+            year: 2026, month: 9, day: 15, hour: 20, minute: 0))!
+        let card = makeCard()
+
+        ReviewScheduler.update(card: card, quality: 4, now: tuesday2000)
+        XCTAssertEqual(card.interval, 1)
+
+        let wednesday0700 = cal.date(from: DateComponents(
+            year: 2026, month: 9, day: 16, hour: 7, minute: 0))!
+        XCTAssertLessThanOrEqual(
+            card.dueDate, wednesday0700,
+            "a card owed 'tomorrow' must be due at breakfast, not held back until 20:00"
+        )
+    }
+
+    /// The flip side: one day out must not collapse into today.
+    func testOneDayIntervalIsNotDueOnTheSameDay() {
+        let card = makeCard()
+        let now = Date(timeIntervalSince1970: 1_700_000_000)
+
+        ReviewScheduler.update(card: card, quality: 4, now: now)
+
+        XCTAssertGreaterThan(card.dueDate, now,
+                             "a one-day interval must not be due immediately")
     }
 
     func testFirstSuccessfulReviewSetsOneDayInterval() {

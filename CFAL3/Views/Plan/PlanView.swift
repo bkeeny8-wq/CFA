@@ -33,6 +33,13 @@ struct PlanView: View {
         .navigationBarTitleDisplayMode(.inline)
         .frame(maxWidth: horizontalSizeClass == .regular ? 960 : .infinity)
         .frame(maxWidth: .infinity)
+        // Paint the grouped colour across the FULL window, not just the capped
+        // content. Measured on a 1032pt iPad before this: white (255,255,255)
+        // outside, grouped grey (242,242,247) inside, meeting as two hard
+        // vertical seams at x=36 and x=996 — the same defect Practice had. The
+        // other half of the fix is on the List itself, which otherwise keeps
+        // painting its own background inside the 960pt frame.
+        .background(Color(.systemGroupedBackground))
     }
 
     @ViewBuilder
@@ -63,6 +70,9 @@ struct PlanView: View {
                     }
                 }
                 .listStyle(.insetGrouped)
+                // Let the window behind it supply the grouped colour; drawing
+                // its own only inside the 960pt cap is what produced the seams.
+                .scrollContentBackground(.hidden)
                 .onAppear {
                     DispatchQueue.main.async {
                         withAnimation {

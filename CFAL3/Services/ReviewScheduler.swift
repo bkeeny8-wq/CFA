@@ -47,7 +47,15 @@ enum ReviewScheduler {
         let ef = item.easeFactor + (0.1 - Double(5 - q) * (0.08 + Double(5 - q) * 0.02))
         item.easeFactor = max(1.3, ef)
 
-        item.dueDate = Calendar.current.date(byAdding: .day, value: item.interval, to: now) ?? now
+        // Due at the START of the target day, not at this review's clock time.
+        // Both queues test readiness with `dueDate <= now`, so carrying the
+        // time of day forward meant a card reviewed at 20:00 with a one-day
+        // interval was not due until 20:00 the NEXT day: sit down to study at
+        // breakfast and yesterday's work is simply missing, then trickles back
+        // in as the evening comes round. Intervals here are counted in days,
+        // so the due moment has to be a day, not a timestamp.
+        let target = Calendar.current.date(byAdding: .day, value: item.interval, to: now) ?? now
+        item.dueDate = Calendar.current.startOfDay(for: target)
         item.lastAttemptedAt = now
         item.totalAttempts += 1
         if q >= 3 {

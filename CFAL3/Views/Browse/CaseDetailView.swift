@@ -171,30 +171,30 @@ private struct QuestionRowLabel: View {
         }
     }
 
+    private func pill(_ text: String, _ tint: Color) -> some View {
+        Text(text)
+            .font(.caption)
+            .padding(.horizontal, 8)
+            .padding(.vertical, 4)
+            .background(tint.opacity(0.15))
+            .clipShape(Capsule())
+    }
+
     @ViewBuilder
     private var statusPill: some View {
         let stats = ProgressStats.cardStats(for: question.id, attempts: attempts, card: card)
         if stats.attempts == 0 {
-            Text("Not attempted")
-                .font(.caption)
-                .padding(.horizontal, 8)
-                .padding(.vertical, 4)
-                .background(Color.secondary.opacity(0.15))
-                .clipShape(Capsule())
+            pill("Not attempted", .secondary)
         } else if stats.correct > 0 {
-            Text("Correct \(stats.correct)×")
-                .font(.caption)
-                .padding(.horizontal, 8)
-                .padding(.vertical, 4)
-                .background(Color.green.opacity(0.15))
-                .clipShape(Capsule())
+            pill("Correct \(stats.correct)×", .green)
+        } else if let best = stats.bestPoints {
+            // Essays carry no wasCorrect, so they can never satisfy the branch
+            // above. Without this they fell through to "Missed" — a full-marks
+            // essay was labelled in red as a failure.
+            pill("Best \(best.earned)/\(best.possible)",
+                 Double(best.earned) / Double(best.possible) >= 0.6 ? .green : .orange)
         } else {
-            Text("Missed")
-                .font(.caption)
-                .padding(.horizontal, 8)
-                .padding(.vertical, 4)
-                .background(Color.red.opacity(0.15))
-                .clipShape(Capsule())
+            pill("Missed", .red)
         }
     }
 }

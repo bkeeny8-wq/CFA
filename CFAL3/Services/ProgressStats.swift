@@ -231,11 +231,35 @@ enum ProgressStats {
         return (unique, questionIDs.count, rate)
     }
 
-    static func cardStats(for questionID: String, attempts: [Attempt], card: ReviewCard?) -> (attempts: Int, correct: Int, lastWasCorrect: Bool?) {
+    /// `bestPoints` exists because essays have no `wasCorrect` — they are
+    /// scored out of a mark. Without it a caller can only ask "was it correct",
+    /// which is false for every essay ever written, however good.
+    static func cardStats(
+        for questionID: String,
+        attempts: [Attempt],
+        card: ReviewCard?
+    ) -> (attempts: Int, correct: Int, lastWasCorrect: Bool?, bestPoints: (earned: Int, possible: Int)?) {
         let questionAttempts = attempts.filter { $0.questionId == questionID }
         let correctCount = questionAttempts.filter { $0.wasCorrect == true }.count
         let last = questionAttempts.sorted { $0.timestamp > $1.timestamp }.first?.wasCorrect
-        return (questionAttempts.count, correctCount, last)
+
+        let scored = questionAttempts.compactMap { attempt -> (Int, Int)? in
+            guard let earned = attempt.pointsEarned,
+                  let possible = attempt.pointsPossible,
+                  possible > 0
+            else { return nil }
+            return (earned, possible)
+        }
+        // Best attempt, not latest: the pill is a record of what you have shown
+        // you can do, and a scratch re-attempt should not erase it.
+        let best = scored.max { Double($0.0) / Double($0.1) < Double($1.0) / Double($1.1) }
+
+        return (
+            questionAttempts.count,
+            correctCount,
+            last,
+            best.map { (earned: $0.0, possible: $0.1) }
+        )
     }
 
     static func contentDensity(content: ContentLoader) -> [ContentDensityProgress] {

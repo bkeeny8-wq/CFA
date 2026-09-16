@@ -51,11 +51,6 @@ enum AppTab: Hashable {
 @Observable
 final class TabRouter {
     var selected: AppTab = .home
-
-    /// Bumped when an already-selected tab is tapped again, which pops that
-    /// tab's stack. Without it, going deep into a case leaves no one-tap way
-    /// back to the tab's own root.
-    var popToRootToken = 0
 }
 
 struct RootTabView: View {
@@ -72,23 +67,37 @@ private struct RootTabContent: View {
     @Environment(TabRouter.self) private var router
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
-    /// Re-tapping the current tab means "take me back to the top of it".
-    private var selection: Binding<AppTab> {
-        Binding(
-            get: { router.selected },
-            set: { tapped in
-                if tapped == router.selected { router.popToRootToken &+= 1 }
-                router.selected = tapped
-            }
-        )
-    }
-
+    /// No `.id()` on any tab, deliberately.
+    ///
+    /// Re-tapping the selected tab used to bump a token that each tab's root
+    /// carried as its `.id()`, the intention being "take me back to the top of
+    /// this tab". But changing a view's id does not POP it, it DESTROYS it, and
+    /// a destroyed tab takes everything inside it along:
+    ///
+    /// - Study: measured on an iPad, one re-tap during a card session at 2/20
+    ///   threw the deck away and returned to the Cards root. Today's allowance
+    ///   had already been spent on the rated card, so the same session could
+    ///   not even be restarted. This is precisely the loss `StudyRootView`
+    ///   mounts both halves to prevent — the token defeated it by another route.
+    /// - Vignettes: one re-tap while reading an Ethics case reset the sidebar
+    ///   to the FIRST book and the detail pane to "Select a case", silently
+    ///   moving the user to a different book.
+    ///
+    /// The affordance is not worth that. Every pushed screen has a back button,
+    /// and since vignettes became their own tab the tab bar is itself always
+    /// the way back — which was the complaint the token was added for.
+    ///
+    /// (An ordinary switch between tabs was never affected: `TabView` does not
+    /// re-evaluate a hidden tab's id, so the sentinel never materialised and
+    /// state survived. Verified on device before removing this — the damage was
+    /// always and only on re-tap.)
     var body: some View {
-        TabView(selection: selection) {
+        @Bindable var router = router
+
+        return TabView(selection: $router.selected) {
             NavigationStack {
                 HomeView()
             }
-            .id(router.selected == .home ? router.popToRootToken : -1)
             .tabItem { tabLabel(.home) }
             .tag(AppTab.home)
 
@@ -99,7 +108,6 @@ private struct RootTabContent: View {
             .tag(AppTab.plan)
 
             StudyRootView()
-                .id(router.selected == .study ? router.popToRootToken : -1)
                 .tabItem { tabLabel(.study) }
                 .tag(AppTab.study)
 
@@ -110,7 +118,6 @@ private struct RootTabContent: View {
             .tag(AppTab.practice)
 
             vignettesRoot
-                .id(router.selected == .vignettes ? router.popToRootToken : -1)
                 .tabItem { tabLabel(.vignettes) }
                 .tag(AppTab.vignettes)
         }
