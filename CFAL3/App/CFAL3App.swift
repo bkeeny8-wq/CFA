@@ -12,13 +12,26 @@ enum UITestMode {
         ProcessInfo.processInfo.arguments.contains(launchArgument)
     }
 
-    static var defaults: UserDefaults {
-        guard isActive,
-              let suite = UserDefaults(suiteName: "com.brandonkeeny.CFAL3.uitests")
-        else { return .standard }
-        suite.removePersistentDomain(forName: "com.brandonkeeny.CFAL3.uitests")
+    private static let suiteName = "com.brandonkeeny.CFAL3.uitests"
+
+    /// `let`, not `var`, and the distinction is load-bearing: as a computed
+    /// property this wiped the suite on EVERY access, so anything written
+    /// between two reads was silently thrown away.
+    ///
+    /// A `static let` is initialised once per process, which is exactly the
+    /// lifetime wanted — every launch starts clean, and nothing is lost while
+    /// the app is running.
+    ///
+    /// Everything that persists anything must read it from here rather than
+    /// reach for `.standard` directly, or it survives across launches and one
+    /// test inherits the last one's state. That is not hypothetical: the Study
+    /// tab's section was a plain `@AppStorage`, so a test that opened Cards
+    /// left the next test opening on Cards too.
+    static let defaults: UserDefaults = {
+        guard isActive, let suite = UserDefaults(suiteName: suiteName) else { return .standard }
+        suite.removePersistentDomain(forName: suiteName)
         return suite
-    }
+    }()
 }
 
 @main

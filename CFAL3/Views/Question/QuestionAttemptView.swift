@@ -299,7 +299,7 @@ struct QuestionAttemptView: View {
 
     private func restoreDraft() {
         guard submittedAttempt == nil else { return }
-        let defaults = UserDefaults.standard
+        let defaults = UITestMode.defaults
         if essayText.isEmpty, let saved = defaults.string(forKey: draftKey) {
             essayText = saved
         }
@@ -310,7 +310,7 @@ struct QuestionAttemptView: View {
     }
 
     private func saveDraft() {
-        let defaults = UserDefaults.standard
+        let defaults = UITestMode.defaults
         guard submittedAttempt == nil else { return clearDraft() }
         let answer = essayText.trimmingCharacters(in: .whitespacesAndNewlines)
         let reasoning = reasoningText.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -321,8 +321,8 @@ struct QuestionAttemptView: View {
     }
 
     private func clearDraft() {
-        UserDefaults.standard.removeObject(forKey: draftKey)
-        UserDefaults.standard.removeObject(forKey: draftReasoningKey)
+        UITestMode.defaults.removeObject(forKey: draftKey)
+        UITestMode.defaults.removeObject(forKey: draftReasoningKey)
     }
 
     private func toggleFlag() {

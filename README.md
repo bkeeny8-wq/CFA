@@ -2,10 +2,24 @@
 
 Personal iOS study app for CFA Level III case-based questions, spaced repetition, and Claude-powered essay grading.
 
+## Device
+
+**iPad only.** `TARGETED_DEVICE_FAMILY = 2`. Build, run and TEST on an iPad
+simulator — the layouts that matter (the Study and Vignettes split views, the
+width-capped Practice list, the tab bar rendered as a floating pill at the
+top) only exist at regular width. A green run on an iPhone simulator proves
+very little: the UI suite once passed in full on iPhone while every test in it
+failed on iPad.
+
+```bash
+xcodebuild -project CFAL3.xcodeproj -scheme CFAL3 \
+  -destination 'platform=iOS Simulator,name=iPad Pro 13-inch (M5)' test
+```
+
 ## Requirements
 
 - **Xcode 15+** with the **iOS 17 SDK**
-- **iOS 17.0+** device or simulator
+- **iPadOS 17.0+** device or simulator
 - Network access for essay grading and optional MC reasoning grading (via the deployed grader proxy)
 
 ## Open the project

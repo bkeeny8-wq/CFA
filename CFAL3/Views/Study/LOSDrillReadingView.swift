@@ -236,6 +236,7 @@ struct DrillSessionRunnerView: View {
         }
         .navigationTitle(sessionCoordinator.filterDescription)
         .navigationBarTitleDisplayMode(.inline)
+        .hidesStudySelector()
         .onChange(of: sessionCoordinator.currentIndex) { _, newValue in
             if newValue >= sessionCoordinator.questionIDs.count, !sessionCoordinator.questionIDs.isEmpty {
                 showSummary = true

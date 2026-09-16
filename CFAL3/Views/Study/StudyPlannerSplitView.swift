@@ -9,6 +9,12 @@ import SwiftData
 /// the tap itself, never by selection *change* detection. No reading is ever
 /// auto-selected, so the user always chooses when to enter full screen.
 struct StudyPlannerSplitView: View {
+    /// Applied per COLUMN, not to the split view as a whole. Study keeps this
+    /// view mounted while Cards is on screen, and each column is its own
+    /// hosting controller — a modifier on the container never reaches them, so
+    /// the whole planner stayed readable by VoiceOver from the Cards screen.
+    var accessibilityHidden = false
+
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(ContentLoader.self) private var content
     @Query private var statuses: [LOSStudyStatus]
@@ -35,13 +41,16 @@ struct StudyPlannerSplitView: View {
             areasColumn
                 .navigationSplitViewColumnWidth(min: 220, ideal: 250)
                 .toolbar(removing: .sidebarToggle)
+                .accessibilityHidden(accessibilityHidden)
         } content: {
             readingsColumn
                 .navigationSplitViewColumnWidth(min: 240, ideal: 270)
                 .toolbar(removing: .sidebarToggle)
+                .accessibilityHidden(accessibilityHidden)
         } detail: {
             detailColumn
                 .toolbar(removing: .sidebarToggle)
+                .accessibilityHidden(accessibilityHidden)
         }
         .navigationSplitViewStyle(.balanced)
         .onAppear {

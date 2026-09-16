@@ -45,10 +45,10 @@ struct CaseDetailView: View {
             }
         }
         .onAppear {
-            if UserDefaults.standard.object(forKey: "visited_\(caseID)") != nil {
+            if UITestMode.defaults.object(forKey: "visited_\(caseID)") != nil {
                 vignetteExpanded = false
             }
-            UserDefaults.standard.set(true, forKey: "visited_\(caseID)")
+            UITestMode.defaults.set(true, forKey: "visited_\(caseID)")
             collapseSplitColumnsIfNeeded()
         }
     }

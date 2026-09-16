@@ -101,8 +101,15 @@ struct PracticeBuilderView: View {
             }
         }
         .listStyle(.insetGrouped)
+        // The List paints its grouped background only inside its own frame, so
+        // capping the width at 640 on iPad left two hard vertical seams where
+        // that background stopped and the window's showed through. Let the
+        // list draw no background of its own and paint it across the full
+        // width instead: the content stays readable, the seams go.
+        .scrollContentBackground(.hidden)
         .frame(maxWidth: horizontalSizeClass == .regular ? 640 : .infinity)
         .frame(maxWidth: .infinity)
+        .background(Color(.systemGroupedBackground))
         .navigationTitle("Practice")
         .safeAreaInset(edge: .bottom) {
             Button {

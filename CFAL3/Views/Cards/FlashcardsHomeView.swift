@@ -67,11 +67,6 @@ struct FlashcardsHomeView: View {
             }
         }
         .navigationTitle("Cards")
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                StudySectionMenu()
-            }
-        }
         .onAppear { content.bootstrapFlashcardProgress(context: modelContext) }
         .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in
             // No .id() here: mutating this @State already re-runs body, and

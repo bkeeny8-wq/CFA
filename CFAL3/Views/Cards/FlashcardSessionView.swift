@@ -50,6 +50,7 @@ struct FlashcardSessionView: View {
             }
         }
         .navigationTitle(title)
+        .hidesStudySelector()
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {

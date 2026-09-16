@@ -40,12 +40,12 @@ enum GraderModel: String, CaseIterable, Identifiable {
 final class ClaudeGrader {
     var selectedModel: GraderModel = ClaudeGrader.loadStoredModel() {
         didSet {
-            UserDefaults.standard.set(selectedModel.rawValue, forKey: "graderModel")
+            UITestMode.defaults.set(selectedModel.rawValue, forKey: "graderModel")
         }
     }
 
     private static func loadStoredModel() -> GraderModel {
-        if let raw = UserDefaults.standard.string(forKey: "graderModel"),
+        if let raw = UITestMode.defaults.string(forKey: "graderModel"),
            let model = GraderModel(rawValue: raw) {
             return model
         }
