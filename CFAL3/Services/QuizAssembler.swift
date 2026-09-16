@@ -31,8 +31,15 @@ enum QuizAssembler {
         let isDrill: Bool
     }
 
-    /// Drill readings that no bank question references, mapped to the bank
-    /// topic they belong to so the Topics filter still reaches them.
+    /// Last-resort book for a reading `los_master` does not carry.
+    ///
+    /// Every bundled drill reading is in los_master today, so nothing here
+    /// fires; it exists so a future content drop that adds drills before the
+    /// master is updated still reaches the Books filter. Entries must agree
+    /// with los_master — the endowment case study used to be listed under
+    /// portfolio_construction here while los_master files it under the PM
+    /// pathway, and back when this table was consulted unconditionally that
+    /// single disagreement was enough to strand all 75 of its questions.
     private static let supplementalReadingTopics: [String: String] = [
         "guidance_standard_i_professionalism": "ethical_and_professional_standards",
         "guidance_standard_ii_integrity_capital_markets": "ethical_and_professional_standards",
@@ -41,7 +48,7 @@ enum QuizAssembler {
         "guidance_standard_v_investment_analysis": "ethical_and_professional_standards",
         "guidance_standard_vi_conflicts_of_interest": "ethical_and_professional_standards",
         "guidance_standard_vii_responsibilities": "ethical_and_professional_standards",
-        "case_study_in_portfolio_management_institutional_endowment": "portfolio_construction",
+        "case_study_in_portfolio_management_institutional_endowment": "portfolio_management_pathway",
         "case_study_in_portfolio_management_institutional_swf": "portfolio_construction",
     ]
 
@@ -142,9 +149,22 @@ enum QuizAssembler {
     }
 
     /// Walk the priority-ordered pool once, giving each in-scope unit up to
-    /// `quotaPerUnit` questions. A question tagged to several in-scope units
-    /// counts toward every under-quota unit it touches, so multi-tagged
-    /// questions fill scope efficiently and are never returned twice.
+    /// `quotaPerUnit` questions.
+    ///
+    /// A picked question is charged to exactly ONE unit — the emptiest one it
+    /// touches — never to every under-quota unit at once. Charging them all
+    /// reads like efficient scope-filling, but a bank question's
+    /// `candidate_los` is the candidate list for its whole reading, not a
+    /// claim that the question tests all of them: 213 of the 490 bank
+    /// questions name 24 or more LOS, and some name 33. So five such
+    /// questions landing early drove all nine counters of a nine-LOS
+    /// selection to the quota at once and the walk stopped — 5 questions out
+    /// of 145 eligible, against a promise of 45, and a different number on
+    /// every visit because the pool is reshuffled each time the builder
+    /// appears. Measured over 400 shuffles: 5–23 before, a full 45 after.
+    ///
+    /// One charge per question is also what makes the per-unit contract
+    /// honest: N units in scope yield up to N × quota.
     private static func stratifiedPick(
         _ ordered: [PoolItem],
         pref: PracticeBuilderPreference,
@@ -164,8 +184,14 @@ enum QuizAssembler {
             let underQuota = itemUnits.filter { (takenPerUnit[$0] ?? 0) < quotaPerUnit }
             guard !underQuota.isEmpty, seen.insert(item.id).inserted else { continue }
             result.append(item.id)
-            for unit in underQuota {
-                takenPerUnit[unit, default: 0] += 1
+            // Emptiest unit first, so the quota spreads across the selection
+            // instead of piling onto whichever unit happens to be listed
+            // first; the unit ID breaks ties so one shuffle always yields one
+            // session.
+            if let charged = underQuota.min(by: {
+                (takenPerUnit[$0] ?? 0, $0) < (takenPerUnit[$1] ?? 0, $1)
+            }) {
+                takenPerUnit[charged, default: 0] += 1
             }
         }
         return result
@@ -219,30 +245,36 @@ enum QuizAssembler {
         return pool
     }
 
-    /// Maps every reading ID to the bank topics whose questions reference it
-    /// (plus the topic summaries' declared readings), supplemented with static
-    /// entries for drill-only readings. All inserts are union-based so
-    /// malformed content can never crash assembly.
+    /// Maps every reading to the book it belongs to, on `los_master`'s say-so.
+    ///
+    /// los_master has to be the authority here because it is what the scope
+    /// UI is built from: the Books sheet, the Readings sheet and the LOS
+    /// filter all enumerate `losMaster.areas`. Any other answer means the
+    /// builder offers a reading under a book and then filters away every
+    /// question belonging to it.
+    ///
+    /// Which is what happened. This used to be derived the other way round —
+    /// from topics.json summaries, plus every bank question's
+    /// `primary_reading_ids`, plus a static table — and a reading's book was
+    /// then whatever cited it. Six readings came out under the wrong book and
+    /// two of those dead-ended completely: picking book "Portfolio
+    /// Construction" together with "Overview of Equity Portfolio Management"
+    /// matched 0 of that reading's 145 questions, and the mirror case did the
+    /// same to the endowment case study's 75. The same mis-mapping filed 300
+    /// drills under a second book, which is the "books overlap" the Progress
+    /// dashboard used to have to apologise for.
     static func readingTopicIndex(content: ContentLoader) -> [String: Set<String>] {
         var index: [String: Set<String>] = [:]
-        for summary in content.topicSummaries {
-            for readingID in summary.readingIDs {
-                index[readingID, default: []].insert(summary.id)
+        for area in content.losMaster?.areas ?? [] {
+            for reading in area.readings {
+                index[reading.id, default: []].insert(area.id)
             }
         }
-        if let bank = content.questionBank {
-            for topic in bank.topics {
-                for caseStudy in topic.cases {
-                    for q in caseStudy.questions {
-                        for readingID in q.primaryReadingIDs {
-                            index[readingID, default: []].insert(topic.id)
-                        }
-                    }
-                }
-            }
-        }
-        for (readingID, topicID) in supplementalReadingTopics {
-            index[readingID, default: []].insert(topicID)
+        // Only for a reading los_master does not carry at all. Every bundled
+        // drill reading is in los_master today, so this is a safety net, not
+        // a second opinion — it must never override the authority above.
+        for (readingID, topicID) in supplementalReadingTopics where index[readingID] == nil {
+            index[readingID] = [topicID]
         }
         return index
     }
