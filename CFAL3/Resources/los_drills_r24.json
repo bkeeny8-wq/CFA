@@ -18,7 +18,7 @@
           "stem": "A bond's yield spread over a comparable government bond is most likely compensation for:",
           "options": {
             "A": "credit risk and liquidity risk — a risk premium above the default risk-free benchmark.",
-            "B": "only reinvestment risk — as a complete reading of bond's yield spread over a comparable government bond.",
+            "B": "A bond's yield spread over a comparable government bond is only reinvestment risk. That specification would be used as-is, with no forward-looking overlay.",
             "C": "call risk only."
           },
           "correct": "A",
@@ -41,7 +41,7 @@
           "number": 2,
           "stem": "The reading's credit valuation adjustment (CVA) framework identifies key components. Expected loss (EL) is most likely computed as:",
           "options": {
-            "A": "Expected loss is computed as the probability of default alone: EL = POD. As a complete reading of expected loss (EL).",
+            "A": "Expected loss is computed as the probability of default alone: EL = POD. That specification would be used as-is, with no forward-looking overlay.",
             "B": "EL = LGD × POD, where LGD = EE × (1 − RR) and POD is the probability of default; CVA is Σ(PV of Expected Loss).",
             "C": "Expected loss is computed as the loss given default alone: EL = LGD."
           },
@@ -66,7 +66,7 @@
           "stem": "The reading's one-period spread approximation is most likely:",
           "options": {
             "A": "Spread = POD only.",
-            "B": "Spread = coupon − YTM — as the = coupon − YTM reading.",
+            "B": "The reading's one-period spread approximation is spread = coupon − YTM.",
             "C": "Spread ≈ LGD × POD, so POD ≈ Spread/LGD."
           },
           "correct": "C",
@@ -90,7 +90,7 @@
           "stem": "Per Moody's data, high-yield bond credit loss rates over 1983-2019 most likely:",
           "options": {
             "A": "averaged 2.53% for high-yield vs 0.05% average for US investment-grade (max 0.41%).",
-            "B": "averaged 2.53%, but annual losses never exceeded 3%, even during recessions. As those rates.",
+            "B": "Averaged 2.53%, but annual losses never exceeded 3%, even during recessions. That specification would be used as-is, with no forward-looking overlay.",
             "C": "peaked at 0.41% with an average of just 0.05%."
           },
           "correct": "A",
@@ -115,7 +115,7 @@
           "options": {
             "A": "first lien bank loan at 64%.",
             "B": "junior subordinated bond at 14%.",
-            "C": "senior unsecured bond at 35% — as that rate."
+            "C": "US corporate debt recovery rates 1983-2019), the lowest volume-weighted recovery rate is senior unsecured bond at 35%."
           },
           "correct": "B",
           "rationales": {
@@ -137,7 +137,7 @@
           "number": 6,
           "stem": "Credit migration (change in credit rating) is most likely:",
           "options": {
-            "A": "always net positive for bondholders — as that rating.",
+            "A": "Credit migration (change in credit rating) is always net positive for bondholders.",
             "B": "irrelevant to fixed-income returns.",
             "C": "usually has a negative effect on bond prices."
           },
@@ -162,7 +162,7 @@
           "stem": "Empirical duration differs from analytical duration because most likely:",
           "options": {
             "A": "empirical duration is derived by regressing bond price returns on changes in benchmark rates using historical market data.",
-            "B": "empirical duration is only used for government bonds — as a complete reading of empirical duration differs from analytical duration.",
+            "B": "Empirical duration is only used for government bonds. That specification would be used as-is, with no forward-looking overlay.",
             "C": "empirical duration ignores market data."
           },
           "correct": "A",
@@ -197,7 +197,7 @@
           "options": {
             "A": "the spread over swap rates.",
             "B": "the difference between a bond's YTM and the YTM of an on-the-run government bond of similar maturity.",
-            "C": "the spread over the CDS market — namely the spread over the CDS market, as a complete account of simple yield spread (benchmark spread) and of every implication that reading is usually thought to carry."
+            "C": "The simple yield spread (benchmark spread) is the spread over the CDS market. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
           "rationales": {
@@ -219,7 +219,7 @@
           "number": 2,
           "stem": "The G-spread is most likely:",
           "options": {
-            "A": "identical to the yield spread — namely identical to the yield spread, as a complete account of G-spread and of every implication that reading is usually thought to carry.",
+            "A": "The G-spread is identical to the yield spread. That specification would be used as-is, with no forward-looking overlay.",
             "B": "the spread over swaps.",
             "C": "the spread over an interpolated government bond (using constant maturity Treasury YTMs)."
           },
@@ -244,7 +244,7 @@
           "stem": "The I-spread (interpolated spread) is most likely:",
           "options": {
             "A": "spread over an interpolated swap rate of same tenor — versus MRR-based measure often used as hedge or for carry trade; limited to option-free bonds.",
-            "B": "the difference between government and Treasury bonds — namely the difference between government and Treasury bonds, as a complete account of I-spread (interpolated spread) and of every implication that reading is usually thought to carry.",
+            "B": "The I-spread (interpolated spread) is the difference between government and Treasury bonds. That specification would be used as-is, with no forward-looking overlay.",
             "C": "the CDS basis."
           },
           "correct": "A",
@@ -292,7 +292,7 @@
           "stem": "The Z-spread (zero-volatility spread) is most likely:",
           "options": {
             "A": "The Z-spread is identical to the simple yield spread over a single benchmark bond.",
-            "B": "The Z-spread measures the bond's spread attributable to interest rate volatility over the zero curve. Namely the Z-spread measures the bond's spread attributable to interest rate volatility over the zero curve, as a complete account of Z-spread (zero-volatility spread) and of every implication that reading is usually thought to carry.",
+            "B": "The Z-spread (zero-volatility spread) is the Z-spread measures the bond's spread attributable to interest rate volatility over the zero curve. That specification would be used as-is, with no forward-looking overlay.",
             "C": "a constant spread over a government (or interest rate swap) spot curve added to each spot rate such that PV of bond cash flows equals the bond price — accurately captures term structure of zero rates."
           },
           "correct": "C",
@@ -316,7 +316,7 @@
           "stem": "The option-adjusted spread (OAS) is most likely:",
           "options": {
             "A": "a generalization of the Z-spread calculation that incorporates bond option pricing based on assumed interest rate volatility.",
-            "B": "The option-adjusted spread is identical to the Z-spread for all bonds, whether or not options are embedded. As the not options are embedded reading.",
+            "B": "The option-adjusted spread is identical to the Z-spread for all bonds, whether or not options are embedded. That specification would be used as-is, with no forward-looking overlay.",
             "C": "The option-adjusted spread is defined only for callable bonds and cannot be computed for other structures."
           },
           "correct": "A",
@@ -398,7 +398,7 @@
           "stem": "A bottom-up credit approach most likely:",
           "options": {
             "A": "divides the credit universe into sectors of comparable companies, then evaluates each issuer's implied credit risk by comparing company-specific financial information to spread-related compensation for assuming default, credit migration, and liquidity risks.",
-            "B": "A bottom-up credit approach focuses only on macroeconomic factors such as growth, inflation, and policy rates. Namely A bottom-up credit approach focuses only on macroeconomic factors such as growth, inflation, and policy rates, as a complete account of bottom-up credit approach and of every implication that reading is usually thought to carry.",
+            "B": "A bottom-up credit approach focuses only on macroeconomic factors such as growth, inflation, and policy rates. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class. No cycle overlay would be allowed to lift or cut that bound.",
             "C": "A bottom-up credit approach ignores individual bond issuers entirely, allocating by sector aggregates alone."
           },
           "correct": "A",
@@ -445,7 +445,7 @@
           "number": 3,
           "stem": "Reduced form credit models are most likely:",
           "options": {
-            "A": "Reduced form credit models use market-based variables only, inferring default from equity prices and asset volatility. Namely reduced form credit models use market-based variables only, inferring default from equity prices and asset volatility, as a complete account of reduced form credit models and of every implication that reading is usually thought to carry.",
+            "A": "Reduced form credit models are reduced form credit models use market-based variables only, inferring default from equity prices and asset volatility. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "Reduced form models are based purely on qualitative analyst judgment without quantitative inputs.",
             "C": "solve for default intensity (POD over a specific time period) using observable company-specific variables such as financial ratios and recovery assumptions as well as macroeconomic variables (economic growth, market volatility measures)."
           },
@@ -470,7 +470,7 @@
           "stem": "Structural credit models are most likely:",
           "options": {
             "A": "use market-based variables to estimate the market value of an issuer's assets and the volatility of asset value.",
-            "B": "use only financial ratios — namely use only financial ratios, as a complete account of structural credit models and of every implication that reading is usually thought to carry.",
+            "B": "Structural credit models are use only financial ratios. That specification would be used as-is, with no forward-looking overlay.",
             "C": "have no default threshold."
           },
           "correct": "A",
@@ -493,7 +493,7 @@
           "number": 5,
           "stem": "In a structural credit model, an increase in the issuer's stock price volatility would most likely:",
           "options": {
-            "A": "An increase in the issuer's stock price volatility would decrease the structural model's probability of default. As the model's probability of default reading.",
+            "A": "An increase in the issuer's stock price volatility would decrease the structural model's probability of default. That specification would be used as-is, with no forward-looking overlay.",
             "B": "increase the POD, because higher equity volatility increases the likelihood that the market value of the issuer's assets will fall below the default threshold.",
             "C": "Stock price volatility has no effect on the probability of default in a structural model."
           },
@@ -543,7 +543,7 @@
           "options": {
             "A": "choose bonds of the issuer with the higher yield spread, given the greater potential for excess returns.",
             "B": "avoid both bonds.",
-            "C": "choose the lower-yielding bond — as a complete reading of bottom-up relative value analysis for two bonds with similar credit risk."
+            "C": "Choose the lower-yielding bond. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
           "rationales": {
@@ -575,7 +575,7 @@
           "number": 1,
           "stem": "A top-down credit approach most likely focuses on:",
           "options": {
-            "A": "individual company financial ratios only — as that approach.",
+            "A": "Individual company financial ratios only. That specification would be used as-is, with no forward-looking overlay.",
             "B": "a broader set of macro factors — as that approach.",
             "C": "individual bond identifiers only."
           },
@@ -600,7 +600,7 @@
           "stem": "The reading identifies the credit cycle relationship with GDP growth as most likely:",
           "options": {
             "A": "default rates lead GDP declines by several years.",
-            "B": "the relationship holds only for investment-grade issuers. As the only for investment-grade issuers reading.",
+            "B": "The relationship holds only for investment-grade issuers. That specification would be used as-is, with no forward-looking overlay.",
             "C": "sharp declines in GDP growth are often associated with rising speculative-grade default rates."
           },
           "correct": "C",
@@ -625,7 +625,7 @@
           "options": {
             "A": "default risk rises much more rapidly as ratings decline than ordinal 1-2-3 spacing suggests, so weighted factors (e.g., Moody's Baa3/BBB- = 610, Ba1/BB+ = 940) capture credit loss likelihood more accurately.",
             "B": "ratings should be treated identically.",
-            "C": "there is no difference in risk between ratings — namely there is no difference in risk between ratings, as a complete account of this and of every implication that reading is usually thought to carry. As that exhibit."
+            "C": "This is there is no difference in risk between ratings. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class. No cycle overlay would be allowed to lift or cut that bound."
           },
           "correct": "A",
           "rationales": {
@@ -647,7 +647,7 @@
           "number": 4,
           "stem": "The reading identifies four fixed-income factor-based strategies (Israel, Palhares, Richardson 2018) with positive risk-adjusted returns. These are most likely:",
           "options": {
-            "A": "Only size and value — as those strategies.",
+            "A": "These are only size and value. That specification would be used as-is, with no forward-looking overlay.",
             "B": "Carry, defensive, momentum, and value.",
             "C": "Only credit rating."
           },
@@ -671,7 +671,7 @@
           "number": 5,
           "stem": "Active credit investors most likely incorporate ESG in one of three basic ways:",
           "options": {
-            "A": "Active credit investors incorporate ESG through purely random issuer selection weighted by market values. Namely active credit investors incorporate ESG through purely random issuer selection weighted by market values, as a complete account of active credit investors and of every implication that reading is usually thought to carry.",
+            "A": "Active credit investors incorporate ESG through purely random issuer selection weighted by market values. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "Active credit investors ignore ESG entirely, treating it as immaterial to credit outcomes.",
             "C": "screens (exclude industries or issuers below ESG threshold), targeting relatively favorable ESG issuers within a given sector/rating while matching index risk/return, and directly funding ESG-specific initiatives."
           },
@@ -696,7 +696,7 @@
           "stem": "The reading's credit cycle framework identifies four phases. In the late expansion phase, credit spreads are most likely:",
           "options": {
             "A": "beginning to widen (rising), with corporate profits stable/peak and defaults rising.",
-            "B": "at their tightest levels — as a complete reading of in the late expansion phase, credit spreads.",
+            "B": "In the late expansion phase, credit spreads are at their tightest levels. That specification would be used as-is, with no forward-looking overlay.",
             "C": "unchanged."
           },
           "correct": "A",
@@ -719,7 +719,7 @@
           "number": 7,
           "stem": "In an economic downturn, high-yield issuers' spread curves most likely:",
           "options": {
-            "A": "In an economic downturn, high-yield spread curves steepen dramatically as long-dated risk dominates. Namely in an economic downturn, high-yield spread curves steepen dramatically as long-dated risk dominates, as a complete account of in an economic downturn, high-yield issuers' spread curves and of every implication that reading is usually thought to carry.",
+            "A": "In an economic downturn, high-yield spread curves steepen dramatically as long-dated risk dominates. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "flatten or invert — because the probability of downgrade or default is higher in the near term than the long term, HY often experience more pronounced flattening/inversion than investment-grade.",
             "C": "High-yield spread curves remain unchanged across the economic cycle."
           },
@@ -743,7 +743,7 @@
           "number": 8,
           "stem": "In selecting rating categories in a top-down approach using expected excess return E[ExcessSpread] ≈ Spread_0 − (EffSpreadDur × ΔSpread) − (POD × LGD), the most attractive category is most likely:",
           "options": {
-            "A": "always the highest rated — as a complete reading of spread_0 − (EffSpreadDur × ΔSpread) − (POD × LGD), the most attractive category.",
+            "A": "(EffSpreadDur × ΔSpread) − (POD × LGD), the most attractive category is always the highest rated. That specification would be used as-is, with no forward-looking overlay.",
             "B": "always the lowest rated.",
             "C": "the category with the highest expected excess return — in the reading's example, Ba at 4.10% (vs A 2.37%, Baa 3.15%, B 3.50%)."
           },
@@ -779,7 +779,7 @@
           "options": {
             "A": "OTC markets — liquidity rests with individual dealers, their specific portfolio and depth of inventory, and appetite to supply liquidity at a cost.",
             "B": "Corporate bond market liquidity is characterized by highly liquid centralized exchange trading like equities.",
-            "C": "Corporate bond trading is dominated by an interdealer central limit order book, with dealers required to quote continuous two-way prices. As that characterized."
+            "C": "Corporate bond trading is dominated by an interdealer central limit order book, with dealers required to quote continuous two-way prices. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
           "rationales": {
@@ -801,7 +801,7 @@
           "number": 2,
           "stem": "For estimating trading costs, the reading identifies TRACE as most likely:",
           "options": {
-            "A": "TRACE is a US equity exchange where corporate bonds are listed for order-book trading. Namely TRACE is a US equity exchange where corporate bonds are listed for order-book trading, as a complete account of for estimating trading costs, the reading identifies TRACE and of every implication that reading is usually thought to carry.",
+            "A": "TRACE is a US equity exchange where corporate bonds are listed for order-book trading. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "a separate ex-post liquidity gauge specific to the US corporate bond market — the Trade Reporting and Compliance Engine reporting system introduced in 2002 to track real-time price and volume reporting for bond transactions.",
             "C": "TRACE is an exchange-traded fund tracking the US corporate bond market."
           },
@@ -825,7 +825,7 @@
           "number": 3,
           "stem": "The reading identifies steps active managers most likely take to manage liquidity risk in bond portfolios:",
           "options": {
-            "A": "Managers control liquidity risk by trading their most illiquid positions as frequently as possible. Namely managers control liquidity risk by trading their most illiquid positions as frequently as possible, as a complete account of reading identifies steps active managers and of every implication that reading is usually thought to carry.",
+            "A": "Managers control liquidity risk by trading their most illiquid positions as frequently as possible. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "Managers control liquidity risk by avoiding all fixed-income exposure whenever spreads widen.",
             "C": "favor on-the-run government bonds or most recently issued corporate/other bonds for short-term tactical positioning while reserving relatively illiquid positions for buy-and-hold strategies."
           },
@@ -850,7 +850,7 @@
           "stem": "Fixed-income ETFs are most likely:",
           "options": {
             "A": "liquid, exchange-traded bond portfolios that create and redeem shares using an OTC primary market between institutional investors and the ETF sponsor.",
-            "B": "Fixed-income ETFs are economically identical to holding the individual underlying bonds directly. As the individual underlying bonds directly reading.",
+            "B": "Fixed-income ETFs are economically identical to holding the individual underlying bonds directly. That specification would be used as-is, with no forward-looking overlay.",
             "C": "Fixed-income ETFs are actively managed products carrying high management fees."
           },
           "correct": "A",
@@ -875,7 +875,7 @@
           "options": {
             "A": "unhedged exposure only.",
             "B": "enter into an asset swap (pay fixed, receive floating), unwinding the swap position over time in proportion to the amount of the bond sold.",
-            "C": "an asset swap paying floating, receiving fixed — as a complete reading of slow bond position sale via TRACE data suggesting long execution time, the reading recommends."
+            "C": "An asset swap paying floating, receiving fixed. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class."
           },
           "correct": "B",
           "rationales": {
@@ -898,7 +898,7 @@
           "stem": "The reading identifies bond dealers' bid-ask spreads on illiquid bonds are most likely:",
           "options": {
             "A": "Dealers quote narrower bid-ask spreads on illiquid bonds to compensate buyers for holding them.",
-            "B": "Bid-ask spreads on illiquid bonds are identical to those on liquid bonds under competitive quoting. As a complete reading of reading identifies bond dealers' bid-ask spreads on illiquid bonds.",
+            "B": "Bid-ask spreads on illiquid bonds are identical to those on liquid bonds under competitive quoting. That specification would be used as-is, with no forward-looking overlay.",
             "C": "wider because dealers must finance inventories, less liquid bonds remain in inventory longer, and dealers seek to cover funding/holding costs and profit through the spread."
           },
           "correct": "C",
@@ -932,7 +932,7 @@
           "stem": "Tail events are most likely:",
           "options": {
             "A": "extreme adverse outcomes that exceed those expected from a normally distributed portfolio.",
-            "B": "average market outcomes — namely average market outcomes, as a complete account of tail events and of every implication that reading is usually thought to carry.",
+            "B": "Tail events are average market outcomes. That specification would be used as-is, with no forward-looking overlay.",
             "C": "always positive."
           },
           "correct": "A",
@@ -957,7 +957,7 @@
           "options": {
             "A": "the portfolio always loses €8.7M daily.",
             "B": "a portfolio manager should expect a daily portfolio loss of at least €8.7 million on 5% of all trading days.",
-            "C": "the maximum possible daily loss is €8.7 million — namely the maximum possible daily loss is €8.7 million, as a complete account of 5% daily VaR of €8.7 million and of every implication that reading is usually thought to carry."
+            "C": "The maximum possible daily loss is €8.7 million. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
           "rationales": {
@@ -1005,7 +1005,7 @@
           "options": {
             "A": "expected loss over a specific time period conditional on that loss exceeding the VaR threshold.",
             "B": "same as VaR.",
-            "C": "a maximum gain measure — namely a maximum gain measure, as a complete account of conditional VaR (CVaR) and of every implication that reading is usually thought to carry."
+            "C": "Conditional VaR (CVaR) is a maximum gain measure. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
           "rationales": {
@@ -1027,7 +1027,7 @@
           "number": 5,
           "stem": "For a manager considering increasing an overweight allocation to BBB health care, the most appropriate VaR measure is most likely:",
           "options": {
-            "A": "Relative VaR only — as a complete reading of increasing an overweight allocation to BBB health care, the most appropriate VaR measure.",
+            "A": "Overweight allocation to BBB health care, the most appropriate VaR measure is relative VaR only.",
             "B": "Incremental VaR (measures the impact of a specific portfolio position change on VaR).",
             "C": "CVaR only."
           },
@@ -1051,7 +1051,7 @@
           "number": 6,
           "stem": "The three methods to assess portfolio tail risk (Exhibit 24) are most likely:",
           "options": {
-            "A": "parametric method, delta-normal mapping, and factor decomposition. As those methods.",
+            "A": "The three methods to assess portfolio tail risk (Exhibit 24) are parametric method, delta-normal mapping, and factor decomposition.",
             "B": "historical simulation, stress testing, and incremental VaR.",
             "C": "parametric method, historical simulation, and Monte Carlo analysis."
           },
@@ -1086,7 +1086,7 @@
           "stem": "The reading's CDS price at contract inception (Equation 14) is most likely approximated by:",
           "options": {
             "A": "CDS Price ≈ 1 + ((Fixed Coupon − CDS Spread) × EffSpreadDur_CDS).",
-            "B": "CDS Price = notional × spread — as the = notional × spread reading.",
+            "B": "The reading's CDS price at contract inception (Equation 14) is CDS Price = notional × spread.",
             "C": "CDS Price = 1 always."
           },
           "correct": "A",
@@ -1133,7 +1133,7 @@
           "number": 3,
           "stem": "CDS price changes for a given spread change are most likely quantified as (Equation 15):",
           "options": {
-            "A": "Δ(CDS Price) = Δ(CDS Spread) — as the Price) = Δ(CDS Spread) reading.",
+            "A": "CDS price changes for a given spread change are Δ(CDS Price) = Δ(CDS Spread).",
             "B": "Δ(CDS Price) = 0.",
             "C": "Δ(CDS Price) ≈ −(Δ(CDS Spread) × EffSpreadDur_CDS)."
           },
@@ -1159,7 +1159,7 @@
           "options": {
             "A": "gains €68,925 = −€10,000,000 × (−0.15% × 4.595).",
             "B": "loses €68,925.",
-            "C": "gains €150,000 — as a complete reading of if spreads widen 15 bps (to 125 bps), her position."
+            "C": "Gains €150,000. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
           "rationales": {
@@ -1181,7 +1181,7 @@
           "number": 5,
           "stem": "The reading identifies four CDS strategy types (Exhibit 27). These most likely include:",
           "options": {
-            "A": "Only interest rate swaps — namely only interest rate swaps, as a complete account of these and of every implication that reading is usually thought to carry.",
+            "A": "These are only interest rate swaps. That specification would be used as-is, with no forward-looking overlay.",
             "B": "Single-name CDS, Index-based CDS, Payer Option on CDS Index, Receiver Option on CDS Index.",
             "C": "Only OTC forwards."
           },
@@ -1206,7 +1206,7 @@
           "stem": "In Example 24 long-short strategy (buy French protection at 110 bps EffSpreadDur 4.697, sell German protection at 130 bps EffSpreadDur 4.669, €10M each), if French spread widens 10 bps and German spread narrows 25 bps, total gain most likely:",
           "options": {
             "A": "€46,970 only.",
-            "B": "loss of €70,000 — as a complete reading of if French spread widens 10 bps and German spread narrows 25 bps, total gain.",
+            "B": "Loss of €70,000. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "€163,695 = short risk gain €46,970 (French widens) + long risk gain €116,725 (German narrows)."
           },
           "correct": "C",
@@ -1230,7 +1230,7 @@
           "stem": "The reading's most frequently traded CDS index for US IG is most likely:",
           "options": {
             "A": "Markit CDX North American Investment Grade index consisting of 125 equally weighted CDS contracts on entities, with six subindexes.",
-            "B": "The most frequently traded US investment-grade CDS index is the European iTraxx Crossover index. As the European iTraxx Crossover index reading.",
+            "B": "The most frequently traded US investment-grade CDS index is the European iTraxx Crossover index. That specification would be used as-is, with no forward-looking overlay.",
             "C": "The most frequently traded US investment-grade CDS index is the S&P 500 index."
           },
           "correct": "A",
@@ -1255,7 +1255,7 @@
           "options": {
             "A": "only buying short-term protection.",
             "B": "selling short-term protection and buying long-term protection using the same reference entity.",
-            "C": "buying short-term protection and selling long-term protection on the same reference entity. As that strategy."
+            "C": "Buying short-term protection and selling long-term protection on the same reference entity. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
           "rationales": {
@@ -1288,7 +1288,7 @@
           "stem": "Under a static credit curve view (constant spreads over horizon), the buy-and-hold credit strategy most likely rewards:",
           "options": {
             "A": "greater return from lower spread duration.",
-            "B": "the same return regardless of spread duration, since spreads are assumed constant over the horizon. As the constant over the horizon reading.",
+            "B": "The same return regardless of spread duration, since spreads are assumed constant over the horizon. That specification would be used as-is, with no forward-looking overlay.",
             "C": "greater return from higher spread duration — buying risky bonds with durations above the benchmark without active trading."
           },
           "correct": "C",
@@ -1335,7 +1335,7 @@
           "number": 3,
           "stem": "For tactical credit spread strategies, a manager expecting widening HY vs IG spreads in an economic slowdown most likely:",
           "options": {
-            "A": "Expecting HY spreads to widen versus IG, the manager buys HY bonds and sells IG bonds. As a complete reading of spread strategies, a manager expecting widening HY vs IG spreads in an economic slowdown.",
+            "A": "Expecting HY spreads to widen versus IG, the manager buys HY bonds and sells IG bonds. That specification would be used as-is, with no forward-looking overlay.",
             "B": "sells (goes short in) HY bonds and buys (goes long in) IG bonds, or synthetically: buys protection on HY CDS index and sells protection on IG CDS index.",
             "C": "Expecting relative spread widening, the manager makes no portfolio changes."
           },
@@ -1359,7 +1359,7 @@
           "number": 4,
           "stem": "Example 30 (tactical portfolio 33.3% each Ba/B, remaining 33.3% split A/Baa) under expected 33% spread narrowing scenario. The tactical portfolio most likely:",
           "options": {
-            "A": "matches the equally weighted portfolio — as the equally weighted portfolio reading.",
+            "A": "Matches the equally weighted portfolio. That specification would be used as-is, with no forward-looking overlay.",
             "B": "underperforms.",
             "C": "returns 7.795% vs 7.059% for the passive equally weighted portfolio."
           },
@@ -1385,7 +1385,7 @@
           "options": {
             "A": "selling protection on 5y CDX HY (with notional adjusted to BPV-match) and buying protection on 10y CDX HY.",
             "B": "buying protection on both maturities.",
-            "C": "selling protection on both maturities — as a complete reading of expected economic recovery, 5y CDX HY 450 bps, 10y 375 bps)."
+            "C": "Selling protection on both maturities. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
           "rationales": {
@@ -1409,7 +1409,7 @@
           "options": {
             "A": "spreads move dramatically.",
             "B": "credit spreads and benchmark yields remain stable over the horizon.",
-            "C": "benchmark yields rise while credit spreads remain stable. As that spread."
+            "C": "Spread carry-and-roll-down strategies to be effective, the reading identifies the manager must benchmark yields rise while credit spreads remain stable."
           },
           "correct": "B",
           "rationales": {
@@ -1431,7 +1431,7 @@
           "number": 7,
           "stem": "The reading identifies derivative-based credit strategies to add spread duration or increase exposure. These most likely include:",
           "options": {
-            "A": "Derivative-based strategies to add credit spread exposure consist only of buying CDS protection. As the of buying CDS protection reading.",
+            "A": "These are derivative-based strategies to add credit spread exposure consist only of buying CDS protection. That specification would be used as-is, with no forward-looking overlay.",
             "B": "Managers seeking additional spread duration must avoid derivatives entirely and buy cash bonds.",
             "C": "selling CDS single-name or index protection for longer maturities or lower credit quality, or using a long-short approach."
           },
@@ -1491,7 +1491,7 @@
           "options": {
             "A": "The Bloomberg SRSK model estimates sovereign credit risk using political risk as its only input.",
             "B": "a combination of quantitative and qualitative factors — external debt to GDP, currency reserves, GDP growth, and political risk — to estimate a sovereign issuer's one-year POD.",
-            "C": "The SRSK model relies only on historical default rates, extrapolating past sovereign defaults forward. As a complete reading of reading's Bloomberg SRSK model estimates sovereign credit risk using."
+            "C": "The SRSK model relies only on historical default rates, extrapolating past sovereign defaults forward. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class."
           },
           "correct": "B",
           "rationales": {
@@ -1538,7 +1538,7 @@
           "stem": "The sovereign ceiling is most likely:",
           "options": {
             "A": "the concept that a company's rating is typically no higher than the sovereign credit rating of its domicile.",
-            "B": "an upper bound on all corporate spreads — namely an upper bound on all corporate spreads, as a complete account of sovereign ceiling and of every implication that reading is usually thought to carry.",
+            "B": "The sovereign ceiling is an upper bound on all corporate spreads. That specification would be used as-is, with no forward-looking overlay.",
             "C": "a US federal debt limit."
           },
           "correct": "A",
@@ -1561,7 +1561,7 @@
           "number": 5,
           "stem": "Emerging markets are most likely characterized by:",
           "options": {
-            "A": "Emerging markets exhibit lower economic growth but more stable credit fundamentals than developed markets, given IMF support programs. As that characterized.",
+            "A": "Emerging markets are emerging markets exhibit lower economic growth but more stable credit fundamentals than developed markets, given IMF support programs.",
             "B": "higher, more volatile, and less balanced economic growth than developed markets, greater geopolitical risk, currency restrictions, and capital controls.",
             "C": "Emerging market investments carry no currency risk because local currencies are pegged to the dollar."
           },
@@ -1585,7 +1585,7 @@
           "number": 6,
           "stem": "Emerging market currency risk is most likely:",
           "options": {
-            "A": "fully mitigated by holding USD-denominated EM debt, which eliminates currency considerations for foreign investors. As the considerations for foreign investors reading.",
+            "A": "Emerging market currency risk is fully mitigated by holding USD-denominated EM debt, which eliminates currency considerations for foreign investors.",
             "B": "offset by interest rate parity, since higher EM yields exactly compensate for expected currency depreciation.",
             "C": "significant — restrictive currency regimes and derivative markets amplify volatility. As the derivative markets amplify volatility reading."
           },
@@ -1645,7 +1645,7 @@
           "options": {
             "A": "Collateralized Debt Obligations (CDOs) and Collateralized Loan Obligations (CLOs).",
             "B": "Individual corporate bonds — as a complete reading of which is least likely one of them?",
-            "C": "Mortgage-Backed Securities (MBS), Asset-Backed Securities (ABS), and Covered Bonds. As that exhibit."
+            "C": "Mortgage-Backed Securities (MBS), Asset-Backed Securities (ABS), and Covered Bonds. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
           "rationales": {
@@ -1667,7 +1667,7 @@
           "number": 2,
           "stem": "Structured products most likely offer active credit managers:",
           "options": {
-            "A": "Structured products offer active credit managers no additional benefits over corporate bonds, since securitized cash flows carry the same risk-return profile as the issuing institutions' senior unsecured debt. Namely structured products offer active credit managers no additional benefits over corporate bonds, since securitized cash flows carry the same risk-return profile as the issuing institutions' senior unsecured debt, as a complete account of structured products and of every implication that reading is usually thought to carry.",
+            "A": "Structured products offer active credit managers no additional benefits over corporate bonds, since securitized cash flows carry the same risk-return profile as the issuing institutions' senior unsecured debt. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "Structured products offer only lower returns than corporate bonds of comparable rating, because the costs of structuring and servicing consume any yield advantage the underlying collateral provides.",
             "C": "the ability to access fixed-income cash flows (commercial/residential real estate, consumer loans), enhance returns by increasing exposure to interest rate volatility (via mortgage prepayment/extension risk), and add debt exposure created by redistribution of default risk into tranches across the credit spectrum."
           },
@@ -1717,7 +1717,7 @@
           "options": {
             "A": "Covered bonds differ from ABS in offering no recourse to the issuing institution.",
             "B": "covered bonds offer dual recourse (i.e., to both the issuing financial institution and the underlying asset pool) as well as substitution of non-performing assets.",
-            "C": "Covered bonds differ from ABS in always carrying the highest yield among secured instruments. Namely covered bonds differ from ABS in always carrying the highest yield among secured instruments, as a complete account of covered bonds differ from ABS and of every implication that reading is usually thought to carry."
+            "C": "Covered bonds differ from ABS in always carrying the highest yield among secured instruments. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
           "rationales": {
@@ -1764,7 +1764,7 @@
           "stem": "For a manager anticipating economic recovery with rising short-term rates and flatter benchmark yield curve, the most appropriate structured product strategy is most likely:",
           "options": {
             "A": "Shift exposure from A rated CDO tranche to BBB rated CLO tranche.",
-            "B": "Increase covered bonds, decrease MBS — as the covered bonds, decrease MBS reading.",
+            "B": "And flatter benchmark yield curve, the most appropriate structured product strategy is increase covered bonds, decrease MBS.",
             "C": "Shift from BB to A rated auto ABS."
           },
           "correct": "A",
@@ -1797,7 +1797,7 @@
           "number": 1,
           "stem": "The primary inputs for fixed-income analytical models most likely include:",
           "options": {
-            "A": "The primary inputs for fixed-income analytical models are limited to cash bond positions, since derivatives and financing transactions are tracked separately in settlement systems rather than analytics platforms. As a complete reading of primary inputs for fixed-income analytical models.",
+            "A": "The primary inputs for fixed-income analytical models are limited to cash bond positions, since derivatives and financing transactions are tracked separately in settlement systems rather than analytics platforms. That specification would be used as-is, with no forward-looking overlay.",
             "B": "all long and short cash bond and derivative positions, repurchase agreements, and cash across currencies, using CUSIP or ISIN identifiers to capture features like interest/principal dates, day count conventions, put-call features, plus derivative and repo details.",
             "C": "The primary inputs are real-time market feeds only, with no position-level data required because models infer holdings from custodial records automatically."
           },
@@ -1822,7 +1822,7 @@
           "stem": "Real-time market data feeds from vendors most likely include:",
           "options": {
             "A": "Real-time vendor market data feeds for fixed-income models include only stock prices.",
-            "B": "Real-time feeds include only currency data, with rates and credit curves sourced manually. Namely real-time feeds include only currency data, with rates and credit curves sourced manually, as a complete account of real-time market data feeds from vendors and of every implication that reading is usually thought to carry.",
+            "B": "Real-time feeds include only currency data, with rates and credit curves sourced manually. That specification would be used as-is, with no forward-looking overlay.",
             "C": "spot and forward rates, credit curves, implied volatilities, and exchange rates — used to value historical, existing, and potential future new portfolio positions."
           },
           "correct": "C",
@@ -1847,7 +1847,7 @@
           "options": {
             "A": "are subject to constant change as a result of both new debt issuance and bond maturities as well as ratings changes, bond callability, and prepayment.",
             "B": "Fixed-income indexes, like equity indexes, are fully static between annual reconstitutions.",
-            "C": "Fixed-income indexes change only through ratings migration, since matured bonds remain in the index at their final price. As the at their final price reading."
+            "C": "Fixed-income indexes change only through ratings migration, since matured bonds remain in the index at their final price. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
           "rationales": {
@@ -1869,7 +1869,7 @@
           "number": 4,
           "stem": "Model assumptions in fixed-income analytical tools most likely include:",
           "options": {
-            "A": "Model assumptions in fixed-income analytics are limited to market data supplied by vendors. Namely model assumptions in fixed-income analytics are limited to market data supplied by vendors, as a complete account of model assumptions in fixed-income analytical tools and of every implication that reading is usually thought to carry.",
+            "A": "Model assumptions in fixed-income analytics are limited to market data supplied by vendors. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "user-defined parameters such as term structure models, investment time horizon, VaR methodology, historical and/or specific market scenarios, and portfolio filters (inclusion/exclusion of specific sectors or minimum ESG threshold).",
             "C": "standardized parameters fixed by regulators so that results are comparable across managers."
           },
@@ -1893,7 +1893,7 @@
           "number": 5,
           "stem": "The outputs of fixed-income analytical models most likely support:",
           "options": {
-            "A": "Model outputs support only portfolio construction, with risk analysis handled outside the tools. Namely model outputs support only portfolio construction, with risk analysis handled outside the tools, as a complete account of outputs of fixed-income analytical models and of every implication that reading is usually thought to carry.",
+            "A": "Model outputs support only portfolio construction, with risk analysis handled outside the tools. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "Model outputs support only ratings analysis for surveillance purposes.",
             "C": "each stage of the active portfolio management process — portfolio selection and construction, risk analysis of existing/prospective positions, and trading/position management."
           },

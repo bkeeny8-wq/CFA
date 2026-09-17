@@ -26,7 +26,7 @@
           "options": {
             "A": "over-the-counter (OTC) contract between two parties that agree to exchange cash flows on specified payment dates — one based on variable (floating) interest rate and the other based on a fixed rate (the 'swap rate') determined at time swap is initiated.",
             "B": "An interest rate swap is an exchange-traded contract standardized by the futures clearinghouse.",
-            "C": "An interest rate swap involves the exchange of notional principal amounts at initiation and maturity. Namely an interest rate swap involves the exchange of notional principal amounts at initiation and maturity, as a complete account of interest rate swap and of every implication that reading is usually thought to carry."
+            "C": "An interest rate swap involves the exchange of notional principal amounts at initiation and maturity. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class. No cycle overlay would be allowed to lift or cut that bound."
           },
           "correct": "A",
           "rationales": {
@@ -48,7 +48,7 @@
           "number": 2,
           "stem": "Synthetic fixed security from floating debt + pay-fixed swap Example 1 case most likely:",
           "options": {
-            "A": "The Example 1 firm issues fixed-rate debt and swaps it to floating using a receive-fixed swap. As the using a receive-fixed swap reading.",
+            "A": "The Example 1 firm issues fixed-rate debt and swaps it to floating using a receive-fixed swap. That specification would be used as-is, with no forward-looking overlay.",
             "B": "firm sells £20 million of three-year floating-rate bonds that pay semiannual coupon equal to six-month reference rate plus 50 bps.",
             "C": "The Example 1 firm leaves its floating-rate exposure unhedged for the full three years."
           },
@@ -72,7 +72,7 @@
           "number": 3,
           "stem": "Modified duration of pay-fixed receive-floating swap most likely:",
           "options": {
-            "A": "The pay-fixed party's position has a positive modified duration equal to that of the equivalent fixed-rate bond. As that swap.",
+            "A": "The pay-fixed party's position has a positive modified duration equal to that of the equivalent fixed-rate bond. That specification would be used as-is, with no forward-looking overlay.",
             "B": "A swap has zero modified duration because its fixed and floating legs offset each other exactly.",
             "C": "modified duration of a swap is net of modified durations of the equivalent positions in fixed- and floating-rate bonds."
           },
@@ -97,7 +97,7 @@
           "stem": "Swap notional principal formula for target duration most likely:",
           "options": {
             "A": "N_S = [(MDUR_T - MDUR_P) / MDUR_S] × MV_P where MDUR_T is target modified duration, MDUR_P is portfolio modified duration, MDUR_S is swap modified duration, MV_P is market value of bond portfolio.",
-            "B": "The swap notional for a duration target is N_S = (MDUR_T × MDUR_P) / MDUR_S × MV_P. Namely the swap notional for a duration target is N_S = (MDUR_T × MDUR_P) / MDUR_S × MV_P, as a complete account of swap notional principal formula for target duration and of every implication that reading is usually thought to carry.",
+            "B": "The swap notional for a duration target is N_S = (MDUR_T × MDUR_P) / MDUR_S × MV_P. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "The swap notional for a duration target is N_S = MV_P × MDUR_S / (MDUR_T − MDUR_P)."
           },
           "correct": "A",
@@ -170,7 +170,7 @@
           "options": {
             "A": "OTC derivative instrument used mainly to hedge a loan expected to be taken out in the near future or to hedge against changes in the level of interest rates in the future.",
             "B": "A forward rate agreement is an exchange-traded contract on physical delivery of government bonds.",
-            "C": "A forward rate agreement obligates both parties to exchange the full notional loan amount at settlement. Namely A forward rate agreement obligates both parties to exchange the full notional loan amount at settlement, as a complete account of forward rate agreement (FRA) and of every implication that reading is usually thought to carry."
+            "C": "A forward rate agreement obligates both parties to exchange the full notional loan amount at settlement. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
           "rationales": {
@@ -264,7 +264,7 @@
           "number": 11,
           "stem": "BPV of CTD bond worked calc — CTD MDUR 8.623, price 98.14, contract size €100,000 most likely:",
           "options": {
-            "A": "BPV_CTD = 8.623 × 0.0001 × €100,000 = €86.23 — as that size.",
+            "A": "BPV_CTD = 8.623 × 0.0001 × €100,000 = €86.23. That specification would be used as-is, with no forward-looking overlay.",
             "B": "BPV_CTD = 8.623 × 0.0001 × (98.14/100 × €100,000) = €84.63.",
             "C": "BPV_CTD = €84.63 × 0.619489 = €52.43."
           },
@@ -346,7 +346,7 @@
           "number": 1,
           "stem": "Currency swap vs interest rate swap most likely:",
           "options": {
-            "A": "A currency swap is identical to an interest rate swap in structure and cash flows. As a complete reading of currency swap vs interest rate swap.",
+            "A": "A currency swap is identical to an interest rate swap in structure and cash flows. That specification would be used as-is, with no forward-looking overlay.",
             "B": "currency swap is similar to interest rate swap but different in two ways: (1) interest rates are associated with different currencies.",
             "C": "Currency swaps never involve any exchange of principal amounts."
           },
@@ -371,7 +371,7 @@
           "stem": "Cross-currency basis swap most likely:",
           "options": {
             "A": "A cross-currency basis swap avoids exchanging notional principals to minimize settlement risk.",
-            "B": "A cross-currency basis swap exchanges fixed rates in one currency for fixed rates in the same currency. As a complete reading of cross-currency basis swap.",
+            "B": "A cross-currency basis swap exchanges fixed rates in one currency for fixed rates in the same currency. That specification would be used as-is, with no forward-looking overlay.",
             "C": "exchanges notional principals because goal of transaction is to issue at more favorable funding rate and swap the amount back to currency of choice."
           },
           "correct": "C",
@@ -395,7 +395,7 @@
           "stem": "Canadian PE LBO Example 7 setup most likely:",
           "options": {
             "A": "Canadian PE firm executing $40M LBO of US electronics manufacturer. As the of US electronics manufacturer reading.",
-            "B": "Canadian PE firm funds the $40M LBO by borrowing US dollars directly at the USD reference rate plus 100 bps. As that setup.",
+            "B": "Canadian PE firm funds the $40M LBO by borrowing US dollars directly at the USD reference rate plus 100 bps. That specification would be used as-is, with no forward-looking overlay.",
             "C": "Canadian PE firm hedges the LBO using a plain fixed-for-fixed single-currency interest rate swap."
           },
           "correct": "A",
@@ -490,7 +490,7 @@
           "number": 7,
           "stem": "Cash flows at maturity Example 7 most likely:",
           "options": {
-            "A": "At maturity of the cross-currency swap there are no cash flows, since all principal was settled at initiation. Namely at maturity of the cross-currency swap there are no cash flows, since all principal was settled at initiation, as a complete account of cash flows at maturity Example 7 and of every implication that reading is usually thought to carry.",
+            "A": "At maturity of the cross-currency swap there are no cash flows, since all principal was settled at initiation. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "at maturity of swap (after successful exit from LBO via US IPO), Canadian PE firm swaps back US dollars in exchange for Canadian dollars at same rate: PE Firm returns USD40 million to swap dealer, receives CAD50 million (= USD40M × 1/0.8000).",
             "C": "At maturity the Canadian PE firm keeps the US dollars and pays only accrued interest."
           },
@@ -515,7 +515,7 @@
           "stem": "Currency risk definition most likely:",
           "options": {
             "A": "Currency risk is the risk that domestic interest rates rise, lowering domestic bond prices.",
-            "B": "Currency risk applies only to assets, never to liabilities denominated in foreign currencies. Namely currency risk applies only to assets, never to liabilities denominated in foreign currencies, as a complete account of currency risk definition and of every implication that reading is usually thought to carry.",
+            "B": "Currency risk applies only to assets, never to liabilities denominated in foreign currencies. That specification would be used as-is, with no forward-looking overlay.",
             "C": "risk that value of a current or future asset (liability) in a foreign currency will decrease (increase) when converted into the domestic currency."
           },
           "correct": "C",
@@ -539,7 +539,7 @@
           "stem": "Fixed exchange rate S_0 for all payments in cross-currency swap most likely:",
           "options": {
             "A": "N is notional principal of Canadian dollar leg of swap, and S_0 (agreed at start) is spot exchange rate for all payments (at inception, on interest payment dates, and at maturity).",
-            "B": "The exchange rate for each payment in a cross-currency swap resets to the prevailing spot rate at each settlement date. As a complete reading of fixed exchange rate S_0 for all payments in cross-currency swap.",
+            "B": "The exchange rate for each payment in a cross-currency swap resets to the prevailing spot rate at each settlement date. That specification would be used as-is, with no forward-looking overlay.",
             "C": "The notional principal of the swap is redenominated at every payment date using updated market rates."
           },
           "correct": "A",
@@ -562,7 +562,7 @@
           "number": 10,
           "stem": "Cross-currency basis and forward rate connection most likely:",
           "options": {
-            "A": "The cross-currency basis is fully explained by covered interest rate parity holding at all times. As a complete reading of cross-currency basis and forward rate connection.",
+            "A": "The cross-currency basis is fully explained by covered interest rate parity holding at all times. That specification would be used as-is, with no forward-looking overlay.",
             "B": "if covered interest rate parity held perfectly, forward exchange rate would be determined solely by spot exchange rate and interest rate differential between currencies.",
             "C": "Forward exchange rates are set independently of spot rates and interest differentials."
           },
@@ -644,7 +644,7 @@
           "number": 1,
           "stem": "Total return swap on concentrated stock position most likely:",
           "options": {
-            "A": "A total return swap on a concentrated stock position increases the holder's exposure to the stock's price movements. As a complete reading of total return swap on concentrated stock position.",
+            "A": "A total return swap on a concentrated stock position increases the holder's exposure to the stock's price movements. That specification would be used as-is, with no forward-looking overlay.",
             "B": "investor holding large concentrated position paying dividends can enter total return swap requiring her to transfer total performance of stock to counterparty for prespecified fee.",
             "C": "A total return swap requires the investor to sell the concentrated position, triggering immediate capital gains tax."
           },
@@ -669,7 +669,7 @@
           "stem": "Equity swap cash vs physical settlement most likely:",
           "options": {
             "A": "single-stock equity swaps must always be physically settled by delivering the shares at maturity.",
-            "B": "single-stock equity swaps can be settled only in cash, since the shares themselves never change hands. As that settlement.",
+            "B": "Single-stock equity swaps can be settled only in cash, since the shares themselves never change hands. That specification would be used as-is, with no forward-looking overlay.",
             "C": "equity swaps that have single stock as underlying can be cash settled or physically settled. As that settlement."
           },
           "correct": "C",
@@ -740,7 +740,7 @@
           "number": 5,
           "stem": "Hedge ratio for beta targeting with futures most likely:",
           "options": {
-            "A": "The futures hedge ratio for beta targeting is N_f = (β_T + β_S) / β_f × (F/S). Namely the futures hedge ratio for beta targeting is N_f = (β_T + β_S) / β_f × (F/S), as a complete account of hedge ratio for beta targeting with futures and of every implication that reading is usually thought to carry.",
+            "A": "The futures hedge ratio for beta targeting is N_f = (β_T + β_S) / β_f × (F/S). That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "The futures hedge ratio for beta targeting is N_f = β_T × β_S × β_f × (S/F).",
             "C": "N_f = [(β_T - β_S) / β_f] × (S/F) where β_T is target beta, β_S is portfolio beta, β_f is beta of futures, S is market value of stock portfolio, F is value per futures contract."
           },
@@ -765,7 +765,7 @@
           "stem": "Increasing beta example Bianchi £40M, β_S 0.85 to β_T 1.10, FTSE 100 futures £73,000 per contract most likely:",
           "options": {
             "A": "Buy 137 FTSE 100 futures: N_f = [(1.10 − 0.85)/1.00] × (£40,000,000/£73,000) = 136.99 ≈ 137.",
-            "B": "Sell 137 FTSE 100 futures contracts — as a complete reading of example Bianchi £40M, β_S 0.85 to β_T 1.10, FTSE 100 futures £73,000 per contract.",
+            "B": "Sell 137 FTSE 100 futures contracts. That specification would be used as-is, with no forward-looking overlay.",
             "C": "Buy 548 FTSE 100 futures contracts."
           },
           "correct": "A",
@@ -813,7 +813,7 @@
           "stem": "Fujiwara cash equitization Example 11 JPY140M excess cash, Nikkei 225 futures JPY23M/contract most likely:",
           "options": {
             "A": "N_f = (1.00/1.00)(JPY140,000,000/JPY2,300,000) = 60.87 ≈ 61 contracts.",
-            "B": "N_f = (1.00/1.00)(JPY140,000,000/JPY23,000) = 6,086.96 ≈ 6,087 contracts. As the 6,086.96 ≈ 6,087 contracts reading.",
+            "B": "N_f = (1.00/1.00)(JPY140,000,000/JPY23,000) = 6,086.96 ≈ 6,087 contracts. That specification would be used as-is, with no forward-looking overlay.",
             "C": "N_f = (β_T/β_f)(S/F) = (1.00/1.00)(JPY140,000,000/JPY23,000,000) = 6.087 rounded to 6 contracts."
           },
           "correct": "C",
@@ -909,7 +909,7 @@
           "stem": "Direction of futures trade for beta change most likely:",
           "options": {
             "A": "if investor wants to increase portfolio's beta, β_T will exceed β_S and sign of N_f will be positive (must buy futures).",
-            "B": "if investor wants to increase portfolio's beta, β_T exceeds β_S and sign of N_f is negative (must sell futures). As that change.",
+            "B": "If investor wants to increase portfolio's beta, β_T exceeds β_S and sign of N_f is negative (must sell futures). That specification would be used as-is, with no forward-looking overlay.",
             "C": "to eliminate market risk the investor sets β_T equal to β_S, giving an N_f of zero."
           },
           "correct": "A",
@@ -942,7 +942,7 @@
           "number": 1,
           "stem": "Long volatility exposure as hedge most likely:",
           "options": {
-            "A": "Long volatility exposure amplifies losses in an equity sell-off because volatility falls when prices fall. As the falls when prices fall reading.",
+            "A": "Long volatility exposure amplifies losses in an equity sell-off because volatility falls when prices fall. That specification would be used as-is, with no forward-looking overlay.",
             "B": "long volatility exposure can be effective hedge against sell-off in long equity portfolio, notably during periods of extreme market movements.",
             "C": "Volatility exposure bears no relationship to equity portfolio performance."
           },
@@ -1136,7 +1136,7 @@
           "options": {
             "A": "variance swap traders typically agree on: (1) variance swap trade size expressed in vega notional N_Vega (not in variance notional).",
             "B": "Vega notional and variance notional are the same quantity under two names.",
-            "C": "Variance swap sizes are quoted only in variance notional, never in vega terms. As a complete reading of vega notional vs variance notional."
+            "C": "Variance swap sizes are quoted only in variance notional, never in vega terms. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
           "rationales": {
@@ -1183,7 +1183,7 @@
           "stem": "Santos, who sold (is short) a one-year variance swap with a 20% volatility strike and a variance notional of 1,250, sees realized volatility over the year come in at 18%. The settlement at expiration is most likely:",
           "options": {
             "A": "Santos pays $95,000 at settlement because realized volatility of 18% fell below the 20% strike.",
-            "B": "The settlement equals the vega notional times the volatility difference: 1,250 × (18 − 20) = −$2,500. As the − 20) = −$2,500 reading.",
+            "B": "The settlement equals the vega notional times the volatility difference: 1,250 × (18 − 20) = −$2,500. That specification would be used as-is, with no forward-looking overlay.",
             "C": "SettlementT = Variance notional × (Realized variance - Variance strike) = 1,250 × (18² - 20²) = 1,250 × (324 - 400) = -$95,000."
           },
           "correct": "C",
@@ -1208,7 +1208,7 @@
           "options": {
             "A": "variance swap payoff is convex in volatility — as the is convex in volatility reading.",
             "B": "variance swap payoff is linear in volatility, like a futures position.",
-            "C": "variance swap payoff is concave in volatility, capping gains as volatility rises. As that payoff."
+            "C": "Variance swap payoff is concave in volatility, capping gains as volatility rises. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
           "rationales": {
@@ -1230,7 +1230,7 @@
           "number": 13,
           "stem": "Sensitivity to implied volatility over time most likely:",
           "options": {
-            "A": "sensitivity remains constant over the swap's life — as the over the swap's life reading.",
+            "A": "Sensitivity remains constant over the swap's life. That specification would be used as-is, with no forward-looking overlay.",
             "B": "sensitivity of a variance swap to changes in implied volatility diminishes over time.",
             "C": "sensitivity increases as expiration approaches."
           },
@@ -1265,7 +1265,7 @@
           "stem": "Total return swap to protect concentrated stock position most likely:",
           "options": {
             "A": "For the Tundra concentrated position, exchange-traded options provide the complete hedging solution.",
-            "B": "The client should simply sell the 100,000 Tundra shares, since transaction costs are the only consideration. As the are the only consideration reading.",
+            "B": "The client should simply sell the 100,000 Tundra shares, since transaction costs are the only consideration. That specification would be used as-is, with no forward-looking overlay.",
             "C": "example: client holding 100,000 shares of Tundra at €14/share (position €1.4M) with low tax basis, exchange-traded options unavailable."
           },
           "correct": "C",
@@ -1290,7 +1290,7 @@
           "options": {
             "A": "total return on stock = [(14 × 1.01) - 14 + 0.10]/14 = 1.71%.",
             "B": "total return on stock = [(14 × 1.01) − 14]/14 = 1.00%.",
-            "C": "the client receives €21,620 from the swap counterparty. As that reference."
+            "C": "The client receives €21,620 from the swap counterparty. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
           "rationales": {
@@ -1312,7 +1312,7 @@
           "number": 3,
           "stem": "Tundra Scenario B — €0.10 dividend, price -1% most likely:",
           "options": {
-            "A": "total return on stock = [(14 × 0.99) − 14]/14 = −1.00%. As that price.",
+            "A": "Total return on stock = [(14 × 0.99) − 14]/14 = −1.00%. That specification would be used as-is, with no forward-looking overlay.",
             "B": "total return on stock = [(14 × 0.99) - 14 + 0.10]/14 = -0.29%.",
             "C": "the client pays the swap counterparty €6,380."
           },
@@ -1336,7 +1336,7 @@
           "number": 4,
           "stem": "McMillian FTSE 100 cash equitization £20M cash, FTSE futures £79,000/contract most likely:",
           "options": {
-            "A": "N_f = (1.0/1.0)(20,000,000/79,000) = 25.3 ≈ 25 contracts. As the 25.3 ≈ 25 contracts reading.",
+            "A": "N_f = (1.0/1.0)(20,000,000/79,000) = 25.3 ≈ 25 contracts. That specification would be used as-is, with no forward-looking overlay.",
             "B": "sell 253 FTSE 100 futures contracts.",
             "C": "N_f = (β_T/β_f)(S/F) = (1.0/1.0)(20,000,000/79,000) = 253.16 ≈ 253 contracts."
           },
@@ -1456,7 +1456,7 @@
           "number": 9,
           "stem": "Using derivatives to achieve exposures without disturbing underlying most likely advantage:",
           "options": {
-            "A": "derivatives overlays require selling underlying holdings to fund margin, disturbing the portfolio's tax basis. As that advantage.",
+            "A": "Derivatives overlays require selling underlying holdings to fund margin, disturbing the portfolio's tax basis. That specification would be used as-is, with no forward-looking overlay.",
             "B": "derivatives can achieve targeted equity and interest rate risk exposures without disturbing underlying holdings.",
             "C": "derivatives overlays eliminate tracking risk entirely relative to physical rebalancing."
           },
@@ -1481,7 +1481,7 @@
           "stem": "Total return swap replication of asset allocation change most likely:",
           "options": {
             "A": "Asset allocation changes cannot be replicated with total return swaps.",
-            "B": "The TMM example uses a single swap on one index to accomplish the entire reallocation. As a complete reading of total return swap replication of asset allocation change.",
+            "B": "The TMM example uses a single swap on one index to accomplish the entire reallocation. That specification would be used as-is, with no forward-looking overlay.",
             "C": "e.g., TMM decides to increase allocation in large-cap sector by investing in S&P 500 Index, increase small-cap by investing in S&P SmallCap 600 Index (SPSC)."
           },
           "correct": "C",
@@ -1505,7 +1505,7 @@
           "stem": "Swap replication limitations most likely:",
           "options": {
             "A": "transaction will not perfectly replicate performance of TMM's equity and fixed-income portfolios unless they are indexed to indexes selected as underlying of swaps.",
-            "B": "Swap replication of an allocation change is always perfect regardless of how the portfolios are constructed. Namely swap replication of an allocation change is always perfect regardless of how the portfolios are constructed, as a complete account of swap replication limitations and of every implication that reading is usually thought to carry.",
+            "B": "Swap replication of an allocation change is always perfect regardless of how the portfolios are constructed. That specification would be used as-is, with no forward-looking overlay.",
             "C": "The only limitation of swap-based replication is exchange margin requirements."
           },
           "correct": "A",
@@ -1528,7 +1528,7 @@
           "number": 12,
           "stem": "Cash equitization purpose for indexed fund most likely:",
           "options": {
-            "A": "cash equitization used to increase the fund's tracking error against its benchmark. As the error against its benchmark reading.",
+            "A": "Cash equitization used to increase the fund's tracking error against its benchmark. That specification would be used as-is, with no forward-looking overlay.",
             "B": "cash equitization used to minimize tracking error risk. As the minimize tracking error risk reading.",
             "C": "cash equitization used to add leverage beyond the fund's benchmark exposure."
           },
@@ -1552,7 +1552,7 @@
           "number": 13,
           "stem": "Portfolio manager unwinding swap position most likely:",
           "options": {
-            "A": "A swap position cannot be exited before its scheduled maturity under any circumstances. Namely A swap position cannot be exited before its scheduled maturity under any circumstances, as a complete account of portfolio manager unwinding swap position and of every implication that reading is usually thought to carry.",
+            "A": "A swap position cannot be exited before its scheduled maturity under any circumstances. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "Unwinding a swap requires physically delivering the underlying index constituents.",
             "C": "TMM could decide to unwind position before one year elapses, which it could do by executing new swap with opposite payments for remainder of life of original swap."
           },
@@ -1634,7 +1634,7 @@
           "number": 3,
           "stem": "Fed funds futures for inferring FOMC expectations most likely:",
           "options": {
-            "A": "Market expectations for FOMC policy are inferred primarily from equity index dividend futures. As a complete reading of fed funds futures for inferring FOMC expectations.",
+            "A": "Market expectations for FOMC policy are inferred primarily from equity index dividend futures. That specification would be used as-is, with no forward-looking overlay.",
             "B": "No traded instrument allows inference of expected Federal Reserve policy moves.",
             "C": "commonly followed metric is probability of change in federal funds rate at upcoming FOMC meetings implied by prices of fed funds futures contracts."
           },
@@ -1756,7 +1756,7 @@
           "options": {
             "A": "No method exists to correct fed funds futures inference for end-of-month rate distortions.",
             "B": "one prominent data provider uses method that builds forward rate structure based on where market believes interest rates will settle in non-FOMC meeting months and then uses these forward rates to make appropriate adjustments.",
-            "C": "The smoothing correction discards futures data entirely in favor of survey-based expectations. Namely the smoothing correction discards futures data entirely in favor of survey-based expectations, as a complete account of smoothing method for EOM bias and of every implication that reading is usually thought to carry."
+            "C": "The smoothing correction discards futures data entirely in favor of survey-based expectations. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class."
           },
           "correct": "B",
           "rationales": {
@@ -1803,7 +1803,7 @@
           "stem": "Inferences represent current expectations of future events most likely:",
           "options": {
             "A": "important to emphasize that inferences from derivatives relate to current expectations of future events — they do NOT foretell what will actually happen — which can change with the arrival of new information.",
-            "B": "Derivatives-implied probabilities reliably foretell the actual outcome of future central bank decisions. Namely derivatives-implied probabilities reliably foretell the actual outcome of future central bank decisions, as a complete account of inferences represent current expectations of future events and of every implication that reading is usually thought to carry.",
+            "B": "Derivatives-implied probabilities reliably foretell the actual outcome of future central bank decisions. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "Inferences from derivatives prices are meaningless noise with no informational content."
           },
           "correct": "A",
@@ -1826,7 +1826,7 @@
           "number": 11,
           "stem": "Sum of probabilities at each FOMC meeting most likely:",
           "options": {
-            "A": "The probabilities of all possible rate outcomes at a given FOMC meeting sum to more than one when uncertainty is high. Namely the probabilities of all possible rate outcomes at a given FOMC meeting sum to more than one when uncertainty is high, as a complete account of sum of probabilities at each FOMC meeting and of every implication that reading is usually thought to carry.",
+            "A": "The probabilities of all possible rate outcomes at a given FOMC meeting sum to more than one when uncertainty is high. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "probability of rate hike or cut is represented as probability of move from current target range at specified meeting date, and probabilities of all three actions (hike/no change/cut) at a particular meeting date sum to 1.",
             "C": "Probabilities across meeting outcomes are unrelated to one another."
           },

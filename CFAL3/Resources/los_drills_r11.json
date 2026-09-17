@@ -19,7 +19,7 @@
           "options": {
             "A": "direct costs of trading — broker commission costs, transaction taxes, stamp duties, and fees paid to exchanges.",
             "B": "market impact only.",
-            "C": "bid-ask spread and delay — namely bid-ask spread and delay, as a complete account of explicit trading costs and of every implication that reading is usually thought to carry."
+            "C": "Bid-ask spread and delay. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class."
           },
           "correct": "A",
           "rationales": {
@@ -41,7 +41,7 @@
           "number": 2,
           "stem": "Implicit trading costs result from most likely:",
           "options": {
-            "A": "commissions — namely commissions, as a complete account of implicit trading costs result from and of every implication that reading is usually thought to carry.",
+            "A": "Commissions. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "(1) bid-ask spread, (2) market impact/price impact, (3) delay costs/slippage, (4) opportunity costs/unrealized P&L.",
             "C": "taxes."
           },
@@ -137,7 +137,7 @@
           "number": 6,
           "stem": "Opportunity costs most likely arise from:",
           "options": {
-            "A": "Opportunity costs arise from executions that complete successfully at favorable prices. As a complete reading of opportunity costs.",
+            "A": "Opportunity costs arise from executions that complete successfully at favorable prices. That specification would be used as-is, with no forward-looking overlay.",
             "B": "Opportunity costs are another name for broker commissions.",
             "C": "the failure to execute a trade promptly — traders fail to profit when their orders fail to trade and prices move as they expect."
           },
@@ -163,7 +163,7 @@
           "options": {
             "A": "costs of employing buy-side traders, costs of equipping them with proper trading tools (electronic systems and data), costs of office space (trading rooms or corners).",
             "B": "Buy-side fixed trading costs consist of commissions only.",
-            "C": "Buy-side institutions bear no fixed trading costs of any kind. Namely buy-side institutions bear no fixed trading costs of any kind, as a complete account of for buy-side institutions, fixed trading costs and of every implication that reading is usually thought to carry."
+            "C": "Buy-side institutions bear no fixed trading costs of any kind. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class."
           },
           "correct": "A",
           "rationales": {
@@ -185,7 +185,7 @@
           "number": 8,
           "stem": "The limit order book for ECSI example shows Dealer A bid 98.85/600 shares ask 100.51/1,000; Dealer B bid 98.84/500 ask 100.55/500; Dealer C bid 98.82/700 ask 100.49/200. The market spread is most likely:",
           "options": {
-            "A": "1.66 (Dealer A's spread) — as a complete reading of market spread.",
+            "A": "The market spread is 1.66 (Dealer A's spread). That specification would be used as-is, with no forward-looking overlay.",
             "B": "1.64 = best ask 100.49 (Dealer C) - best bid 98.85 (Dealer A).",
             "C": "1.71."
           },
@@ -245,7 +245,7 @@
           "options": {
             "A": "trade execution prices are better than quoted prices — buy fills below the ask price or sell fills above the bid.",
             "B": "always worse than quoted.",
-            "C": "an order fills at a price outside the quoted spread, making the effective spread larger than the quoted spread. As those occurs."
+            "C": "An order fills at a price outside the quoted spread, making the effective spread larger than the quoted spread. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
           "rationales": {
@@ -267,7 +267,7 @@
           "number": 3,
           "stem": "The effective spread is a poor estimate of transaction costs when most likely:",
           "options": {
-            "A": "The effective spread is a poor cost estimate when orders always fill immediately in single executions. As the immediately in single executions reading.",
+            "A": "The effective spread is a poor cost estimate when orders always fill immediately in single executions. That specification would be used as-is, with no forward-looking overlay.",
             "B": "traders split large orders into many parts filled over time — orders often move the market and cause bid/ask prices to rise or fall.",
             "C": "The effective spread fails only in markets where no orders exist."
           },
@@ -291,7 +291,7 @@
           "number": 4,
           "stem": "In the Alpha Company example: Trade 1 was a market sell of 2,000 shares at C$10.15 when market was C$10.12 bid / C$10.24 ask. The effective spread is most likely:",
           "options": {
-            "A": "C$0.12 (quoted spread) — namely C$0.12 (quoted spread), as a complete account of effective spread and of every implication that reading is usually thought to carry.",
+            "A": "The effective spread is C$0.12 (quoted spread). That specification would be used as-is, with no forward-looking overlay.",
             "B": "C$0.24.",
             "C": "C$0.06 = 2 × (C$10.18 midpoint − C$10.15 trade price) — less than quoted spread of C$0.12."
           },
@@ -341,7 +341,7 @@
           "options": {
             "A": "zero.",
             "B": "~C$266 = 10,000 × (C$10.0946 − C$10.0680).",
-            "C": "C$10,000 — as a complete reading of VWAP transaction cost estimate."
+            "C": "The VWAP transaction cost estimate is C$10,000."
           },
           "correct": "B",
           "rationales": {
@@ -363,7 +363,7 @@
           "number": 7,
           "stem": "VWAP transaction cost estimate interpretation problem most likely is:",
           "options": {
-            "A": "VWAP transaction cost estimates are impossible to interpret under any conditions. Namely VWAP transaction cost estimates are impossible to interpret under any conditions, as a complete account of VWAP transaction cost estimate interpretation problem and of every implication that reading is usually thought to carry.",
+            "A": "VWAP transaction cost estimates are impossible to interpret under any conditions. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "VWAP cost estimates are always exactly zero by construction.",
             "C": "when trades being evaluated are substantial fraction of all trades in benchmark, or trades took place at same rate as other trades, Trade VWAP and VWAP benchmark will be nearly equal — suggesting trades were not costly."
           },
@@ -388,7 +388,7 @@
           "stem": "Effective spread relation to quoted spread: If a large order 'walks down' the limit order book (sell order exceeds bid size), the effective spread will most likely be:",
           "options": {
             "A": "greater than the quoted spread — because the large order size that exceeds the bid size causes the order to walk down the limit order book.",
-            "B": "When a large sell order walks down the book, the effective spread will be less than the quoted spread. As the than the quoted spread reading.",
+            "B": "When a large sell order walks down the book, the effective spread will be less than the quoted spread. That specification would be used as-is, with no forward-looking overlay.",
             "C": "When a large order exceeds the bid size, the effective spread remains identical to the quoted spread."
           },
           "correct": "A",
@@ -423,7 +423,7 @@
           "options": {
             "A": "Implementation shortfall measures only the commissions paid on executed trades.",
             "B": "the total cost of implementing an investment decision by capturing all explicit and implicit costs — includes market impact costs, delay costs, and opportunity costs which are often significant for large orders.",
-            "C": "Implementation shortfall measures only the market impact component of trading cost. Namely implementation shortfall measures only the market impact component of trading cost, as a complete account of implementation shortfall and of every implication that reading is usually thought to carry."
+            "C": "Implementation shortfall measures only the market impact component of trading cost. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class."
           },
           "correct": "B",
           "rationales": {
@@ -446,7 +446,7 @@
           "stem": "Implementation shortfall compares most likely:",
           "options": {
             "A": "Implementation shortfall compares the actual portfolio to its benchmark index.",
-            "B": "Implementation shortfall compares the target portfolio to the planning document. Namely implementation shortfall compares the target portfolio to the planning document, as a complete account of implementation shortfall compares and of every implication that reading is usually thought to carry.",
+            "B": "Implementation shortfall compares the target portfolio to the planning document. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "the values of the actual portfolio with the paper portfolio (constructed on assumption trades could be arranged at prices that prevailed when the decision to trade was made)."
           },
           "correct": "C",
@@ -470,7 +470,7 @@
           "stem": "The decision price/arrival price/strike price most likely:",
           "options": {
             "A": "is the midquote price at the time of the trade decision — the reference point for the paper portfolio.",
-            "B": "is the closing price — namely is the closing price, as a complete account of decision price/arrival price/strike price and of every implication that reading is usually thought to carry.",
+            "B": "Is the closing price. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "always the ask price."
           },
           "correct": "A",
@@ -493,7 +493,7 @@
           "number": 4,
           "stem": "Implementation shortfall is most likely preferred over effective spread when:",
           "options": {
-            "A": "Implementation shortfall is preferred over effective spread when orders always fill in single executions. Namely implementation shortfall is preferred over effective spread when orders always fill in single executions, as a complete account of implementation shortfall and of every implication that reading is usually thought to carry.",
+            "A": "Implementation shortfall is preferred over effective spread when orders always fill in single executions. That specification would be used as-is, with no forward-looking overlay.",
             "B": "orders are large and split over time — IS captures market impact costs, delay costs, opportunity costs that arise as prices move away during protracted execution.",
             "C": "Implementation shortfall is preferred only in markets where no orders exist."
           },
@@ -517,7 +517,7 @@
           "number": 5,
           "stem": "The paper portfolio in IS most likely assumes:",
           "options": {
-            "A": "actual execution prices — namely actual execution prices, as a complete account of paper portfolio in and of every implication that reading is usually thought to carry.",
+            "A": "The paper portfolio in IS actual execution prices. That specification would be used as-is, with no forward-looking overlay.",
             "B": "worst-case prices.",
             "C": "trades could be arranged at prices prevailing when the decision to trade was made."
           },
@@ -542,7 +542,7 @@
           "stem": "Excess of paper value over actual value is most likely:",
           "options": {
             "A": "the implementation shortfall — a positive number represents the total costs of implementation.",
-            "B": "always negative — namely always negative, as a complete account of excess of paper value over actual value and of every implication that reading is usually thought to carry.",
+            "B": "Excess of paper value over actual value is always negative. That specification would be used as-is, with no forward-looking overlay.",
             "C": "the return."
           },
           "correct": "A",
@@ -567,7 +567,7 @@
           "options": {
             "A": "Implementation shortfall addresses no limitation because the effective spread has none.",
             "B": "effective spread's failure to capture market impact of split large orders across trades, delay costs, and opportunity costs from unfilled orders.",
-            "C": "Implementation shortfall's advantage is that it is simpler to compute than the effective spread. As a complete reading of implementation shortfall addresses which limitation of effective spread."
+            "C": "Implementation shortfall's advantage is that it is simpler to compute than the effective spread. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
           "rationales": {
@@ -599,7 +599,7 @@
           "number": 1,
           "stem": "The widespread use of electronic trading systems most likely has:",
           "options": {
-            "A": "increased trading costs — as the increased trading costs reading.",
+            "A": "Increased trading costs. That specification would be used as-is, with no forward-looking overlay.",
             "B": "no impact on costs.",
             "C": "significantly decreased trading costs for buy-side traders."
           },
@@ -624,7 +624,7 @@
           "stem": "Advantages of electronic exchange systems over floor-based systems most likely include:",
           "options": {
             "A": "cheap to operate once built (server rooms vs floors), precisely enforce order precedence and pricing rules without error, keep perfect audit trails, keep hidden orders perfectly hidden (unlike floor brokers), operate continuously around-the-clock, operate when bad weather prevents floor workers.",
-            "B": "Electronic exchange systems offer no advantages over floor-based trading systems, since human floor brokers can negotiate nuances and accommodate order handling that machines cannot replicate. Namely electronic exchange systems offer no advantages over floor-based trading systems, since human floor brokers can negotiate nuances and accommodate order handling that machines cannot replicate, as a complete account of advantages of electronic exchange systems over floor-based systems and of every implication that reading is usually thought to carry.",
+            "B": "Electronic exchange systems offer no advantages over floor-based trading systems, since human floor brokers can negotiate nuances and accommodate order handling that machines cannot replicate. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "Electronic systems offer exactly one advantage over floor-based trading — longer daily trading hours — while matching floors on cost, accuracy, and record keeping."
           },
           "correct": "A",
@@ -647,7 +647,7 @@
           "number": 3,
           "stem": "Computers are effective for implementing trading strategies most likely because they have:",
           "options": {
-            "A": "Computers implement trading strategies effectively because they possess human intuition. Namely computers implement trading strategies effectively because they possess human intuition, as a complete account of computers are effective for implementing trading strategies and of every implication that reading is usually thought to carry.",
+            "A": "Computers implement trading strategies effectively because they possess human intuition. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class. No cycle overlay would be allowed to lift or cut that bound.",
             "B": "infinite attention spans and wide attention scope (watch many instruments simultaneously), extraordinarily fast responses, perfect discipline (do exactly what programmed), and perfect memory retention of any information programmers want to save.",
             "C": "Computers bring no relevant capabilities to trading strategy implementation."
           },
@@ -696,7 +696,7 @@
           "stem": "The electronification of bond markets most likely has:",
           "options": {
             "A": "lagged that of equities, futures, and options markets — despite efforts of many creative developers, most public investors still trade largely over-the-counter with dealers.",
-            "B": "The electronification of bond markets has fully occurred, matching equities in every respect. Namely the electronification of bond markets has fully occurred, matching equities in every respect, as a complete account of electronification of bond markets and of every implication that reading is usually thought to carry.",
+            "B": "The electronification of bond markets has fully occurred, matching equities in every respect. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "Bond markets have no potential for electronic trading given their structure."
           },
           "correct": "A",
@@ -719,7 +719,7 @@
           "number": 6,
           "stem": "The two co-dependent systems essential to electronic trading are most likely:",
           "options": {
-            "A": "clearinghouse settlement systems and floor-broker communication networks. Namely clearinghouse settlement systems and floor-broker communication networks, as a complete account of two co-dependent systems essential to electronic trading and of every implication that reading is usually thought to carry.",
+            "A": "The two co-dependent systems essential to electronic trading are clearinghouse settlement systems and floor-broker communication networks. That specification would be used as-is, with no forward-looking overlay.",
             "B": "traders' high-speed order processing and communication systems, and exchanges' electronic exchange systems that process the vast numbers of orders electronic traders produce.",
             "C": "regulatory surveillance systems and consolidated tape data feeds."
           },
@@ -743,7 +743,7 @@
           "number": 7,
           "stem": "Studies on electronic trading transaction costs most likely show:",
           "options": {
-            "A": "costs unchanged — as a complete reading of studies on electronic trading transaction costs.",
+            "A": "Costs unchanged. That specification would be used as-is, with no forward-looking overlay.",
             "B": "costs increased.",
             "C": "transaction costs declined with the growth of electronic trading over time."
           },
@@ -825,7 +825,7 @@
           "number": 3,
           "stem": "Alternative trading systems (ATSs) are also known as most likely:",
           "options": {
-            "A": "traditional exchanges — as a complete reading of alternative trading systems (ATSs) are also known.",
+            "A": "Traditional exchanges. That specification would be used as-is, with no forward-looking overlay.",
             "B": "brokerages.",
             "C": "electronic communication networks (ECNs) or multilateral trading facilities (MTFs)."
           },
@@ -850,7 +850,7 @@
           "stem": "Liquidity aggregators most likely:",
           "options": {
             "A": "create 'super books' that present liquidity across markets for a given instrument. As those aggregators.",
-            "B": "route each order to the single venue displaying the greatest volume for that instrument. As those aggregators.",
+            "B": "Route each order to the single venue displaying the greatest volume for that instrument. That specification would be used as-is, with no forward-looking overlay.",
             "C": "consolidate all resting orders for an instrument into one exchange's limit order book."
           },
           "correct": "A",
@@ -897,7 +897,7 @@
           "number": 6,
           "stem": "Traders filling large orders adapt trading strategies to most likely:",
           "options": {
-            "A": "Traders filling large orders adapt by concentrating all activity in a single venue. As a complete reading of traders filling large orders adapt trading strategies.",
+            "A": "Traders filling large orders adapt trading strategies to traders filling large orders adapt by concentrating all activity in a single venue. That specification would be used as-is, with no forward-looking overlay.",
             "B": "Traders filling large orders adapt by executing everything at once in one block.",
             "C": "search for liquidity across multiple venues and across time to control market impacts of their trades — response to increasing market fragmentation."
           },
@@ -922,7 +922,7 @@
           "stem": "Available liquidity for an instrument on any single exchange most likely:",
           "options": {
             "A": "often represents just a small fraction of the aggregate liquidity for that instrument — due to fragmentation across multiple venues.",
-            "B": "Any single exchange's displayed liquidity represents all of the aggregate liquidity for the instrument. As the liquidity for the instrument reading.",
+            "B": "Any single exchange's displayed liquidity represents all of the aggregate liquidity for the instrument. That specification would be used as-is, with no forward-looking overlay.",
             "C": "A single exchange's displayed liquidity represents nothing about the instrument's tradability."
           },
           "correct": "A",
@@ -979,7 +979,7 @@
           "number": 2,
           "stem": "Low-latency traders most likely include:",
           "options": {
-            "A": "Low-latency traders are exclusively high-frequency market-making firms. Namely low-latency traders are exclusively high-frequency market-making firms, as a complete account of low-latency traders and of every implication that reading is usually thought to carry.",
+            "A": "Low-latency traders are exclusively high-frequency market-making firms. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "No category of low-latency traders exists in modern markets.",
             "C": "news traders (trade on electronic news feeds) and certain parasitic traders (speculators who base predictions on information about orders others intend to fill)."
           },
@@ -1004,7 +1004,7 @@
           "stem": "Electronic news traders most likely:",
           "options": {
             "A": "subscribe to high-speed electronic news feeds, quickly analyze releases to determine if information will move markets and in which direction, send marketable orders (instructions to fill at best available price).",
-            "B": "Electronic news traders trade only random orders unrelated to information flow. Namely electronic news traders trade only random orders unrelated to information flow, as a complete account of electronic news traders and of every implication that reading is usually thought to carry.",
+            "B": "Electronic news traders trade only random orders unrelated to information flow. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "Electronic news traders deliberately avoid news to reduce information risk."
           },
           "correct": "A",
@@ -1029,7 +1029,7 @@
           "options": {
             "A": "trade all sizes.",
             "B": "make markets by placing bids and offers expecting to profit from round trips at favorable net spreads.",
-            "C": "hold huge positions — namely hold huge positions, as a complete account of electronic dealers and of every implication that reading is usually thought to carry."
+            "C": "Hold huge positions. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class."
           },
           "correct": "B",
           "rationales": {
@@ -1051,7 +1051,7 @@
           "number": 5,
           "stem": "Electronic arbitrageurs most likely:",
           "options": {
-            "A": "Electronic arbitrageurs trade a single instrument in a single market, avoiding cross-market activity. As a complete reading of electronic arbitrageurs.",
+            "A": "Electronic arbitrageurs trade a single instrument in a single market, avoiding cross-market activity. That specification would be used as-is, with no forward-looking overlay.",
             "B": "No arbitrage opportunities exist in electronic markets, so no such traders operate.",
             "C": "look across markets for arbitrage opportunities in which they can buy an undervalued instrument and sell a similar overvalued one."
           },
@@ -1076,7 +1076,7 @@
           "stem": "Electronic front runners most likely:",
           "options": {
             "A": "use artificial intelligence to identify when large traders (or many small traders) are trying to fill orders on the same side of the market.",
-            "B": "Electronic front runners trade only after all other market participants have completed their orders. As the have completed their orders reading.",
+            "B": "Electronic front runners trade only after all other market participants have completed their orders. That specification would be used as-is, with no forward-looking overlay.",
             "C": "No category of electronic front running exists in modern markets."
           },
           "correct": "A",
@@ -1123,7 +1123,7 @@
           "number": 8,
           "stem": "Buy-side traders and their brokers, aware of front runners, most likely respond by:",
           "options": {
-            "A": "Buy-side traders aware of front runners welcome detection, since attention improves their fills. Namely buy-side traders aware of front runners welcome detection, since attention improves their fills, as a complete account of buy-side traders and their brokers, aware of front runners and of every implication that reading is usually thought to carry.",
+            "A": "Buy-side traders aware of front runners welcome detection, since attention improves their fills. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "Buy-side traders respond to front runners by trading in regular, predictable patterns.",
             "C": "randomizing their strategies to make them more difficult to detect — submitting orders at random times instead of regular intervals, submitting various sizes instead of same size, hiding among other orders."
           },
@@ -1158,7 +1158,7 @@
           "stem": "Algorithms ('algos') for filling orders most likely:",
           "options": {
             "A": "are programmed strategies using combinations or sequences of simple orders, advanced orders, or multiple orders to achieve objectives.",
-            "B": "Trading algorithms process only one simple order at a time. Namely trading algorithms process only one simple order at a time, as a complete account of algorithms ('algos') for filling orders and of every implication that reading is usually thought to carry.",
+            "B": "Trading algorithms process only one simple order at a time. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "Trading algorithms submit market orders exclusively."
           },
           "correct": "A",
@@ -1230,7 +1230,7 @@
           "stem": "Pinging the market most likely means:",
           "options": {
             "A": "submitting a small IOC limit order for only a few shares at a price where hidden orders may exist.",
-            "B": "large order execution — namely large order execution, as a complete account of pinging the market and of every implication that reading is usually thought to carry.",
+            "B": "Large order execution. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "no such practice."
           },
           "correct": "A",
@@ -1253,7 +1253,7 @@
           "number": 5,
           "stem": "Flickering quotes most likely are:",
           "options": {
-            "A": "permanent orders — namely permanent orders, as a complete account of flickering quotes and of every implication that reading is usually thought to carry.",
+            "A": "Permanent orders. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "exposed limit orders that electronic traders submit and then cancel shortly thereafter, often within a second.",
             "C": "no such orders."
           },
@@ -1278,7 +1278,7 @@
           "stem": "Leapfrog behavior most likely occurs when:",
           "options": {
             "A": "spreads are narrow.",
-            "B": "spread is exactly zero — namely spread is exactly zero, as a complete account of leapfrog behavior and of every implication that reading is usually thought to carry.",
+            "B": "Spread is exactly zero. That specification would be used as-is, with no forward-looking overlay.",
             "C": "bid-ask spreads are wide — dealers often willing to trade at better prices than quoted."
           },
           "correct": "C",
@@ -1302,7 +1302,7 @@
           "stem": "Machine learning in electronic trading is most likely effective when:",
           "options": {
             "A": "problems repeat regularly and often — stable processes generate vast amounts of data (as in active financial markets).",
-            "B": "volatility is extreme — namely volatility is extreme, as a complete account of machine learning in electronic trading and of every implication that reading is usually thought to carry.",
+            "B": "Machine learning in electronic trading is volatility is extreme. That specification would be used as-is, with no forward-looking overlay.",
             "C": "novel problems only."
           },
           "correct": "A",
@@ -1335,7 +1335,7 @@
           "number": 1,
           "stem": "Reacting to an event electronically involves three major steps most likely:",
           "options": {
-            "A": "(1) receive the exchange's data feed; (2) confirm the event with the exchange; (3) wait for the exchange to request new instructions. As the to request new instructions reading.",
+            "A": "(1) receive the exchange's data feed; (2) confirm the event with the exchange; (3) wait for the exchange to request new instructions. That specification would be used as-is, with no forward-looking overlay.",
             "B": "(1) learn that the event took place; (2) respond to the new information with a new order instruction; (3) send, and the exchange receive, the new instruction.",
             "C": "(1) send a new order instruction; (2) learn whether the event took place; (3) compute the appropriate response."
           },
@@ -1359,7 +1359,7 @@
           "number": 2,
           "stem": "Collocation is most likely:",
           "options": {
-            "A": "Collocation is banned by securities regulators in major markets. Namely collocation is banned by securities regulators in major markets, as a complete account of collocation and of every implication that reading is usually thought to carry.",
+            "A": "Collocation is banned by securities regulators in major markets. That specification would be used as-is, with no forward-looking overlay.",
             "B": "Collocation is not a practice that exists in electronic markets.",
             "C": "the practice where exchanges allow electronic traders to place their servers in the rooms where the exchange servers operate."
           },
@@ -1384,7 +1384,7 @@
           "stem": "Communication distances matter most likely because:",
           "options": {
             "A": "no message can travel faster than the speed of light (300,000 km/s in vacuum, ~31% slower in optical fiber).",
-            "B": "signals travel faster through optical fiber than through the air, so only fiber-route length matters. As that matter.",
+            "B": "Signals travel faster through optical fiber than through the air, so only fiber-route length matters. That specification would be used as-is, with no forward-looking overlay.",
             "C": "router and switch processing latencies dominate, so transmission distance is negligible."
           },
           "correct": "A",
@@ -1431,7 +1431,7 @@
           "number": 5,
           "stem": "Fast computations strategies for electronic traders most likely include:",
           "options": {
-            "A": "Electronic traders pursuing fast computations rely on deliberately slowed, underclocked processors, accepting lower speeds in exchange for the thermal stability that continuous trading requires. Namely electronic traders pursuing fast computations rely on deliberately slowed, underclocked processors, accepting lower speeds in exchange for the thermal stability that continuous trading requires, as a complete account of fast computations strategies for electronic traders and of every implication that reading is usually thought to carry.",
+            "A": "Electronic traders pursuing fast computations rely on deliberately slowed, underclocked processors, accepting lower speeds in exchange for the thermal stability that continuous trading requires. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class. No cycle overlay would be allowed to lift or cut that bound.",
             "B": "Fast computation for electronic trading requires no hardware or software optimization, since exchange matching engines impose uniform processing delays that equalize all participants.",
             "C": "very fast overclocked processors (with liquid cooling), fast memory (avoiding physical disk drive latencies), specialized processors (sometimes on gallium arsenide vs silicon), simple efficient operating systems (variants of MS-DOS due to simplicity), assembler language for repeated functions, avoiding interpreter languages like Python for time-critical code."
           },
@@ -1479,7 +1479,7 @@
           "number": 7,
           "stem": "The ideal use of Python by electronic traders most likely is:",
           "options": {
-            "A": "always Python for speed — namely always Python for speed, as a complete account of ideal use of Python by electronic traders and of every implication that reading is usually thought to carry.",
+            "A": "Always Python for speed. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "when speed of coding is more important than speed of execution — for ever-changing sets of conditions or exceptions.",
             "C": "never Python."
           },
@@ -1514,7 +1514,7 @@
           "stem": "The HFT arms race most likely creates:",
           "options": {
             "A": "no barriers.",
-            "B": "unlimited competition — namely unlimited competition, as a complete account of HFT arms race and of every implication that reading is usually thought to carry.",
+            "B": "Unlimited competition. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "expensive state-of-the-art high-frequency trading technologies as barriers to entry that can create natural monopolies."
           },
           "correct": "C",
@@ -1539,7 +1539,7 @@
           "options": {
             "A": "arise when failure hurts more than just the entity responsible.",
             "B": "no such risks.",
-            "C": "always compensated — as a complete reading of systemic risks of electronic trading."
+            "C": "Always compensated. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
           "rationales": {
@@ -1561,7 +1561,7 @@
           "number": 3,
           "stem": "The Knight Capital trading failure on 1 August 2012 most likely:",
           "options": {
-            "A": "The Knight Capital failure of 1 August 2012 was a minor incident with limited financial consequence. As a complete reading of knight Capital trading failure on 1 August 2012.",
+            "A": "The Knight Capital failure of 1 August 2012 was a minor incident with limited financial consequence. That specification would be used as-is, with no forward-looking overlay.",
             "B": "was a runaway algorithm — due to a software programming mistake, Knight sent millions of orders to markets over 45-minute period when it intended only 212 orders.",
             "C": "The Knight Capital failure was caused by a human trader's manual order entry error."
           },
@@ -1586,7 +1586,7 @@
           "stem": "The 6 May 2010 Flash Crash most likely:",
           "options": {
             "A": "The 6 May 2010 Flash Crash was not tied to any single identifiable order.",
-            "B": "The Flash Crash was a slow, orderly decline spread evenly across the session. Namely the Flash Crash was a slow, orderly decline spread evenly across the session, as a complete account of 6 May 2010 Flash Crash and of every implication that reading is usually thought to carry.",
+            "B": "The Flash Crash was a slow, orderly decline spread evenly across the session. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "was triggered by a large institutional trader (Waddell & Reed) selling $4.1B in E-mini S&P 500 futures using an algorithm designed to participate in fixed fraction of market volume."
           },
           "correct": "C",
@@ -1611,7 +1611,7 @@
           "options": {
             "A": "occur when a manual trader submits a larger order than intended (hits wrong key or key more often than intended).",
             "B": "are unique to electronic trading systems and cannot occur in manual, floor-based markets.",
-            "C": "have smaller consequences in electronic systems because automated risk checks catch them before execution. As those errors."
+            "C": "Have smaller consequences in electronic systems because automated risk checks catch them before execution. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
           "rationales": {
@@ -1635,7 +1635,7 @@
           "options": {
             "A": "no such threat.",
             "B": "are created deliberately to disrupt markets.",
-            "C": "always accidental — as the always accidental reading."
+            "C": "Always accidental. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
           "rationales": {
@@ -1658,7 +1658,7 @@
           "stem": "Solutions to systemic risk problems most likely are multifold and include:",
           "options": {
             "A": "permit sponsored naked access so client orders bypass latency-adding broker checks.",
-            "B": "rely on post-trade audits alone, because real-time surveillance of order flow is infeasible. As that include.",
+            "B": "Rely on post-trade audits alone, because real-time surveillance of order flow is infeasible. That specification would be used as-is, with no forward-looking overlay.",
             "C": "test software thoroughly before use (exchanges conduct mock trading sessions). As that include."
           },
           "correct": "C",
@@ -1682,7 +1682,7 @@
           "stem": "Trade halts on exchanges most likely:",
           "options": {
             "A": "stop trading when prices move too quickly — rules stop trading when excess demands for liquidity occur.",
-            "B": "always harmful — namely always harmful, as a complete account of trade halts on exchanges and of every implication that reading is usually thought to carry.",
+            "B": "Always harmful. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "no such rules."
           },
           "correct": "A",
@@ -1715,7 +1715,7 @@
           "number": 1,
           "stem": "Real-time market surveillance most likely aims to:",
           "options": {
-            "A": "detect market abuse in overnight batch reviews after markets close. As those aims.",
+            "A": "Detect market abuse in overnight batch reviews after markets close. That specification would be used as-is, with no forward-looking overlay.",
             "B": "detect potential market abuse while it is happening — as those aims.",
             "C": "replace brokers' surveillance of their own clients' orders."
           },
@@ -1740,7 +1740,7 @@
           "stem": "Front running most likely:",
           "options": {
             "A": "is always legal.",
-            "B": "no such practice — namely no such practice, as a complete account of front running and of every implication that reading is usually thought to carry.",
+            "B": "No such practice. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "involves buying in front of anticipated purchases and selling in front of anticipated sales."
           },
           "correct": "C",
@@ -1764,7 +1764,7 @@
           "stem": "Rumormongering most likely is:",
           "options": {
             "A": "the dissemination of false information about fundamental values or about other traders' trading intentions to alter investors' value assessments.",
-            "B": "Rumormongering is always legal because opinions about securities are protected speech. Namely rumormongering is always legal because opinions about securities are protected speech, as a complete account of rumormongering and of every implication that reading is usually thought to carry.",
+            "B": "Rumormongering is always legal because opinions about securities are protected speech. That specification would be used as-is, with no forward-looking overlay.",
             "C": "Rumormongering is not a practice recognized in market-abuse taxonomies."
           },
           "correct": "A",
@@ -1789,7 +1789,7 @@
           "options": {
             "A": "trades between unrelated parties that happen to execute repeatedly at the same price.",
             "B": "trades arranged among commonly controlled accounts to create the impression of market activity at a particular price.",
-            "C": "falsely reporting only the prices — never the volumes — of trades that actually occurred. As a complete reading of wash trading."
+            "C": "Falsely reporting only the prices — never the volumes — of trades that actually occurred. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
           "rationales": {
@@ -1837,7 +1837,7 @@
           "options": {
             "A": "submitting orders and arranging trades to influence other traders' perceptions of value.",
             "B": "placing hidden orders to conceal trading intentions from momentum traders.",
-            "C": "buying immediately after valid positive news to correct a perceived undervaluation. As those involves."
+            "C": "Buying immediately after valid positive news to correct a perceived undervaluation. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
           "rationales": {
@@ -1861,7 +1861,7 @@
           "options": {
             "A": "Gunning the market is not a recognized manipulation strategy.",
             "B": "strategy used by market manipulators to force traders to do disadvantageous trades — generally by selling quickly to push prices down with hope of triggering stop-loss sell orders.",
-            "C": "Gunning the market is a legitimate strategy for providing liquidity in stressed conditions. Namely gunning the market is a legitimate strategy for providing liquidity in stressed conditions, as a complete account of gunning the market and of every implication that reading is usually thought to carry."
+            "C": "Gunning the market is a legitimate strategy for providing liquidity in stressed conditions. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class."
           },
           "correct": "B",
           "rationales": {
@@ -1883,7 +1883,7 @@
           "number": 8,
           "stem": "Squeezing and cornering most likely are:",
           "options": {
-            "A": "Squeezing and cornering are not practices that occur in modern markets, having been eliminated by position limits and electronic surveillance of deliverable contracts. Namely squeezing and cornering are not practices that occur in modern markets, having been eliminated by position limits and electronic surveillance of deliverable contracts, as a complete account of squeezing and cornering and of every implication that reading is usually thought to carry.",
+            "A": "Squeezing and cornering are not practices that occur in modern markets, having been eliminated by position limits and electronic surveillance of deliverable contracts. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "Squeezing and cornering are always legal expressions of market power, protected as legitimate accumulation of scarce assets by traders with superior foresight.",
             "C": "schemes to force traders to do disadvantageous trades — manipulator obtains control over resources necessary to settle trading contracts, then unexpectedly withdraws those resources from market causing traders to default on contracts (some of which manipulator may hold)."
           },

@@ -72,7 +72,7 @@
           "number": 3,
           "stem": "The combination of a long call and a short put with identical strike price and expiration, on the same underlying, is equivalent to:",
           "options": {
-            "A": "synthetic long put — as that equivalent.",
+            "A": "Identical strike price and expiration, on the same underlying, is equivalent to synthetic long put.",
             "B": "long straddle.",
             "C": "a long forward position."
           },
@@ -97,7 +97,7 @@
           "stem": "Synthetic short forward position is created by:",
           "options": {
             "A": "selling a call and buying a put at the same strike price and maturity — payoff is exact opposite of synthetic long forward.",
-            "B": "buying a call and selling a put at the same strike price and maturity — payoff mirrors the underlying itself. As that created.",
+            "B": "Buying a call and selling a put at the same strike price and maturity — payoff mirrors the underlying itself. That specification would be used as-is, with no forward-looking overlay.",
             "C": "buying both a call and a put with the same strike price and maturity."
           },
           "correct": "A",
@@ -120,7 +120,7 @@
           "number": 5,
           "stem": "Synthetic long put is created by:",
           "options": {
-            "A": "A synthetic long put is created by combining long stock with a short call on the same underlying. Namely A synthetic long put is created by combining long stock with a short call on the same underlying, as a complete account of synthetic long put is created by and of every implication that reading is usually thought to carry.",
+            "A": "A synthetic long put is created by combining long stock with a short call on the same underlying. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "short stock (or short forward/futures) + long call — the symmetric payoff of a short stock position becomes asymmetrical if transformed into a synthetic long put by buying a call.",
             "C": "A synthetic long put is created by combining long stock with a long call on the same underlying."
           },
@@ -145,7 +145,7 @@
           "stem": "Motivation for creating a synthetic long forward position most likely:",
           "options": {
             "A": "The only motivation for a synthetic long forward is avoiding margin requirements on the actual forward.",
-            "B": "Synthetic forward positions are created to obtain the underlying's upside while eliminating all downside risk. As a complete reading of motivation for creating a synthetic long forward position.",
+            "B": "Synthetic forward positions are created to obtain the underlying's upside while eliminating all downside risk. That specification would be used as-is, with no forward-looking overlay.",
             "C": "to exploit an ARBITRAGE opportunity presented by the actual forward price OR the need for an ALTERNATIVE to the outright purchase of a long forward position."
           },
           "correct": "C",
@@ -169,7 +169,7 @@
           "stem": "Market maker hedge of a short forward using synthetic long forward — she purchases a call and sells a put both with the strike equal to the forward price and same expiration; at expiry if stock is ABOVE strike:",
           "options": {
             "A": "the market maker exercises her call, pays the strike × shares, receives the shares, then delivers to client and receives the forward price × shares.",
-            "B": "The market maker hedging a short forward simply waits until expiration and buys shares in the open market at the prevailing price. As the at the prevailing price reading.",
+            "B": "The market maker hedging a short forward simply waits until expiration and buys shares in the open market at the prevailing price. That specification would be used as-is, with no forward-looking overlay.",
             "C": "The market maker's synthetic hedge leaves her exposed to unlimited losses if the stock rallies before delivery."
           },
           "correct": "A",
@@ -202,7 +202,7 @@
           "number": 1,
           "stem": "Covered call structure consists of:",
           "options": {
-            "A": "long stock + long call — namely long stock + long call, as a complete account of covered call structure consists and of every implication that reading is usually thought to carry.",
+            "A": "Long stock + long call. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "long stock + SHORT call — a long position in 100 shares of the underlying is required for each short call contract.",
             "C": "long stock + long put."
           },
@@ -227,7 +227,7 @@
           "stem": "Most common motivation for writing covered calls most likely:",
           "options": {
             "A": "DOWNSIDE PROTECTION against a large decline in the underlying.",
-            "B": "profiting from an expected SHARP INCREASE in the underlying's volatility. As those calls.",
+            "B": "Profiting from an expected SHARP INCREASE in the underlying's volatility. That specification would be used as-is, with no forward-looking overlay.",
             "C": "CASH GENERATION in anticipation of limited upside moves in the underlying."
           },
           "correct": "C",
@@ -251,7 +251,7 @@
           "stem": "Covered call maximum gain, loss, and breakeven formulas most likely:",
           "options": {
             "A": "Max gain = (X − S₀) + c₀; Max loss = S₀ − c₀; Breakeven = S₀ − c₀.",
-            "B": "Max gain = X + c₀; Max loss = S₀ + c₀; Breakeven = X − c₀. As those formulas.",
+            "B": "Max gain = X + c₀; Max loss = S₀ + c₀; Breakeven = X − c₀. That specification would be used as-is, with no forward-looking overlay.",
             "C": "Max gain = c₀; Max loss = unlimited; Breakeven = X + c₀."
           },
           "correct": "A",
@@ -298,7 +298,7 @@
           "number": 5,
           "stem": "For a covered call, the relationship between the breakeven price and the maximum loss is most likely:",
           "options": {
-            "A": "the breakeven price lies ABOVE the maximum loss by the amount of the call premium. As the of the call premium reading.",
+            "A": "Call, the relationship between the breakeven price and the maximum loss is the breakeven price lies ABOVE the maximum loss by the amount of the call premium.",
             "B": "the breakeven price equals the STRIKE PRICE minus the premium (X − c₀).",
             "C": "with a covered call, the breakeven price and the maximum loss are THE SAME VALUE (both equal S₀ − c₀)."
           },
@@ -371,7 +371,7 @@
           "stem": "Same setup. Maximum loss from covered call most likely:",
           "options": {
             "A": "S_T − c₀ = 31.33 − 1.55 = 29.78.",
-            "B": "S_T − X + c₀ = 31.33 − 30.00 + 1.55 = 2.88 — as the + 1.55 = 2.88 reading.",
+            "B": "S_T − X + c₀ = 31.33 − 30.00 + 1.55 = 2.88. That specification would be used as-is, with no forward-looking overlay.",
             "C": "23.45 — as a complete reading of maximum loss from covered call."
           },
           "correct": "C",
@@ -420,7 +420,7 @@
           "options": {
             "A": "Call Premium = Time Value + Max(0, X − S).",
             "B": "Call Premium = Time Value + Intrinsic (Exercise) Value = Time Value + Max(0, S − X).",
-            "C": "Call Premium = Intrinsic Value − Time Value = Max(0, S − X) − Time Value. As that writing."
+            "C": "Call Premium = Intrinsic Value − Time Value = Max(0, S − X) − Time Value. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
           "rationales": {
@@ -477,7 +477,7 @@
           "stem": "Protective put maximum gain, loss, breakeven most likely:",
           "options": {
             "A": "Max gain = unlimited (theoretically); Max loss = S₀ − X + p₀; Breakeven = S₀ + p₀.",
-            "B": "Max gain = capped at X; Max loss = p₀; Breakeven = X + p₀. As the = X + p₀ reading.",
+            "B": "Max gain = capped at X; Max loss = p₀; Breakeven = X + p₀. That specification would be used as-is, with no forward-looking overlay.",
             "C": "Max gain = X + p₀; Max loss = unlimited; Breakeven = X."
           },
           "correct": "A",
@@ -524,7 +524,7 @@
           "number": 4,
           "stem": "To reduce the cost of protective-put insurance, a portfolio manager most likely:",
           "options": {
-            "A": "The cost of put protection is reduced by choosing a HIGHER strike price closer to the current stock price. As a complete reading of to reduce the cost of protective-put insurance, a portfolio manager.",
+            "A": "The cost of put protection is reduced by choosing a HIGHER strike price closer to the current stock price. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "buys a longer-dated put, since longer-maturity options carry lower premiums.",
             "C": "the portfolio manager can REDUCE the cost of insurance by INCREASING the size of the deductible (current stock price minus put exercise price) — for example, using a lower exercise price."
           },
@@ -550,7 +550,7 @@
           "options": {
             "A": "there is NOT a linear relationship between the put value and its time until expiration.",
             "B": "a two-month put sells for EXACTLY TWICE the price of a one-month put.",
-            "C": "the put's time value decays by a CONSTANT amount each day until expiration. As that expiration."
+            "C": "The relationship between a put's value and its time until expiration is the put's time value decays by a CONSTANT amount each day until expiration."
           },
           "correct": "A",
           "rationales": {
@@ -572,7 +572,7 @@
           "number": 6,
           "stem": "Theta of protective puts as expiration approaches most likely:",
           "options": {
-            "A": "all theta values are POSITIVE, so the long put GAINS value each day as time passes. As those approaches.",
+            "A": "All theta values are POSITIVE, so the long put GAINS value each day as time passes. That specification would be used as-is, with no forward-looking overlay.",
             "B": "all theta values are NEGATIVE, approximating daily losses on option positions as time passes.",
             "C": "the LONGER-TERM put suffers GREATER daily time decay than the shorter-term put."
           },
@@ -597,7 +597,7 @@
           "stem": "After the feared adverse event occurs, the holder of a protective put most likely should:",
           "options": {
             "A": "hold the put to expiration to collect its remaining time value.",
-            "B": "hold the put, because implied volatility typically falls after the event, depressing its resale price. As the depressing its resale price reading.",
+            "B": "Hold the put, because implied volatility typically falls after the event, depressing its resale price. That specification would be used as-is, with no forward-looking overlay.",
             "C": "sell the put early — the price shock may INCREASE the market's expectations of future volatility, thereby likely increasing the put premium."
           },
           "correct": "C",
@@ -622,7 +622,7 @@
           "options": {
             "A": "such continuous purchasing of puts to protect against a possible stock price decline is an EXPENSIVE strategy that would wipe out most of the long-term gain on an otherwise good investment.",
             "B": "Continuously purchasing protective puts over the long term is always advisable for any equity portfolio.",
-            "C": "Rolling shorter-dated protective puts is cheaper per year of protection than buying one long-dated put, making continuous protection cost-effective. As the making continuous protection cost-effective reading."
+            "C": "Rolling shorter-dated protective puts is cheaper per year of protection than buying one long-dated put, making continuous protection cost-effective. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
           "rationales": {
@@ -678,7 +678,7 @@
           "number": 2,
           "stem": "Position delta of an ATM protective put (long 100 shares + long ATM put) most likely:",
           "options": {
-            "A": "The position delta of long 100 shares plus one long ATM put is approximately +100. As the put is approximately +100 reading.",
+            "A": "The position delta of long 100 shares plus one long ATM put is approximately +100. That specification would be used as-is, with no forward-looking overlay.",
             "B": "The position delta of long 100 shares plus one long ATM put is approximately 0.",
             "C": "+50 — long stock delta +100 plus ATM long put delta approximately −0.5 × 100 = −50; overall +100 − 50 = +50."
           },
@@ -726,7 +726,7 @@
           "number": 4,
           "stem": "Comparison of ATM covered call, ATM protective put, and long stock/short forward positions with equal position deltas of +50 most likely:",
           "options": {
-            "A": "all three positions are COMPLETELY EQUIVALENT for any size move in the underlying. As a complete reading of ATM protective put, and long stock/short forward positions with equal position deltas of +50.",
+            "A": "All three positions are COMPLETELY EQUIVALENT for any size move in the underlying. That specification would be used as-is, with no forward-looking overlay.",
             "B": "for small movements in the underlying, the three positions show very similar gains and losses, though their full payoff profiles differ.",
             "C": "the three positions have identical maximum losses."
           },
@@ -808,7 +808,7 @@
           "number": 3,
           "stem": "Portfolio delta comparison: short stock (delta −1) + long SEP 16 PBR call (delta 0.516) — vs short stock + short SEP 15 PBR put (delta −0.335) most likely:",
           "options": {
-            "A": "Both structures produce identical portfolio deltas, since a long call and a short put carry the same delta. As that delta.",
+            "A": "Both structures produce identical portfolio deltas, since a long call and a short put carry the same delta. That specification would be used as-is, with no forward-looking overlay.",
             "B": "long call + short stock: portfolio delta = 0.516 − 1 = −0.484 (bearish, less bearish than short alone due to call).",
             "C": "The short stock plus long call combination has a positive portfolio delta, making it a bullish position."
           },
@@ -832,7 +832,7 @@
           "number": 4,
           "stem": "Vega and theta of long call on short vs short put on short most likely:",
           "options": {
-            "A": "The long call on short stock and the short put on short stock have the same vega and theta signs. As the vega and theta signs reading.",
+            "A": "The long call on short stock and the short put on short stock have the same vega and theta signs. That specification would be used as-is, with no forward-looking overlay.",
             "B": "Neither structure carries any vega or theta exposure, since the stock leg dominates.",
             "C": "long call + short stock: the investor is LONG VEGA (from purchasing call) and exposed to negative theta (time decay hurts)."
           },
@@ -857,7 +857,7 @@
           "stem": "Reason writing a put and writing a covered call have similar risk/reward profiles most likely:",
           "options": {
             "A": "the two strategies are very similar due to PUT-CALL PARITY. As those profiles.",
-            "B": "the two strategies are similar because both are LONG-VOLATILITY positions. As those profiles.",
+            "B": "The two strategies are similar because both are LONG-VOLATILITY positions. That specification would be used as-is, with no forward-looking overlay.",
             "C": "the two strategies are unrelated and produce OPPOSITE payoff profiles."
           },
           "correct": "A",
@@ -914,7 +914,7 @@
           "number": 2,
           "stem": "Debit spread vs credit spread most likely:",
           "options": {
-            "A": "A debit spread is one in which the investor receives a net cash inflow at initiation. As a complete reading of debit spread vs credit spread.",
+            "A": "A debit spread is one in which the investor receives a net cash inflow at initiation. That specification would be used as-is, with no forward-looking overlay.",
             "B": "The debit/credit distinction refers to whether the options are calls or puts.",
             "C": "if establishing the spread requires a cash payment by the investor, it is a DEBIT SPREAD (long option value exceeds short option value)."
           },
@@ -986,7 +986,7 @@
           "number": 5,
           "stem": "Example: S₀=44.50; OCT 45 call = 2.55, OCT 50 call = 1.45. Maximum gain from OCT 45/50 bull call spread most likely:",
           "options": {
-            "A": "Maximum gain on the OCT 45/50 bull call spread is 1.10. As a complete reading of maximum gain from OCT 45/50 bull call spread.",
+            "A": "Maximum gain on the OCT 45/50 bull call spread is 1.10. That specification would be used as-is, with no forward-looking overlay.",
             "B": "Maximum gain on the OCT 45/50 bull call spread is 3.05.",
             "C": "3.90 — at S_T ≥ 50, spread is worth 50 − 45 = 5; net cost = 2.55 − 1.45 = 1.10; max gain = 5 − 1.10 = 3.90."
           },
@@ -1058,7 +1058,7 @@
           "number": 8,
           "stem": "Example: OCT 45 call = 2.55, OCT 50 call = 1.45. Breakeven price for OCT 45/50 bull call spread most likely:",
           "options": {
-            "A": "47.50 — namely 47.50, as a complete account of breakeven price for OCT 45/50 bull call spread and of every implication that reading is usually thought to carry.",
+            "A": "47.50. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "48.88.",
             "C": "46.10 — lower exercise price of 45 plus 1.10 cost of the spread: 45 + 1.10 = 46.10."
           },
@@ -1083,7 +1083,7 @@
           "stem": "Long straddle structure and objective most likely:",
           "options": {
             "A": "a long straddle buys both a put AND a call with the SAME exercise price and SAME expiration date on the SAME underlying.",
-            "B": "a long straddle buys a call and a put with DIFFERENT exercise prices but the same expiration on the same underlying. As that objective.",
+            "B": "A long straddle buys a call and a put with DIFFERENT exercise prices but the same expiration on the same underlying. That specification would be used as-is, with no forward-looking overlay.",
             "C": "a long straddle buys a call and WRITES a put with the same exercise price and expiration on the same underlying."
           },
           "correct": "A",
@@ -1106,7 +1106,7 @@
           "number": 10,
           "stem": "Long straddle initial delta and gamma at ATM most likely:",
           "options": {
-            "A": "very HIGH DELTA (near +1 when ATM) with LOW GAMMA — as that gamma.",
+            "A": "Very HIGH DELTA (near +1 when ATM) with LOW GAMMA. That specification would be used as-is, with no forward-looking overlay.",
             "B": "very LOW DELTA (near zero when ATM) with HIGH GAMMA.",
             "C": "near-zero DELTA together with near-zero GAMMA."
           },
@@ -1178,7 +1178,7 @@
           "number": 13,
           "stem": "Collar structure most likely:",
           "options": {
-            "A": "A collar is a position combining a short underlying with a long ATM call and a long ATM put. Namely A collar is a position combining a short underlying with a long ATM call and a long ATM put, as a complete account of collar structure and of every implication that reading is usually thought to carry.",
+            "A": "A collar is a position combining a short underlying with a long ATM call and a long ATM put. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "a collar is an option position in which the investor is LONG the underlying, BUYS a put with exercise price BELOW current stock price (downside protection), and WRITES a call with exercise price ABOVE current stock price (finances put).",
             "C": "A collar consists of two calls at different strikes with no position in the underlying."
           },
@@ -1202,7 +1202,7 @@
           "number": 14,
           "stem": "Zero-cost collar most likely:",
           "options": {
-            "A": "a zero-cost collar involves BUYING a put and BUYING a call whose premiums offset. As that collar.",
+            "A": "A zero-cost collar involves BUYING a put and BUYING a call whose premiums offset. That specification would be used as-is, with no forward-looking overlay.",
             "B": "a zero-cost collar requires the put and the call to share the SAME STRIKE PRICE.",
             "C": "a ZERO-COST COLLAR involves the purchase of a put and sale of a call with the SAME PREMIUM."
           },
@@ -1227,7 +1227,7 @@
           "stem": "Collar value at expiration most likely:",
           "options": {
             "A": "V_T = S_T + Max(0, X_1 − S_T) − Max(0, S_T − X_2), where X_2 > X_1 (X_1 = long put strike, X_2 = short call strike).",
-            "B": "Collar value at expiration: V_T = S_T − Max(0, X_1 − S_T) + Max(0, S_T − X_2). As a complete reading of collar value at expiration.",
+            "B": "Collar value at expiration: V_T = S_T − Max(0, X_1 − S_T) + Max(0, S_T − X_2). That specification would be used as-is, with no forward-looking overlay.",
             "C": "Collar value at expiration: V_T = Max(S_T, X_2) − Min(S_T, X_1)."
           },
           "correct": "A",
@@ -1250,7 +1250,7 @@
           "number": 16,
           "stem": "Collar risk-return profile most likely:",
           "options": {
-            "A": "As the collar's strikes move farther apart, the position converges toward a riskless fixed-income payoff. Namely as the collar's strikes move farther apart, the position converges toward a riskless fixed-income payoff, as a complete account of collar risk-return profile and of every implication that reading is usually thought to carry.",
+            "A": "As the collar's strikes move farther apart, the position converges toward a riskless fixed-income payoff. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "as chosen put and call exercise prices move successively FARTHER in opposite directions from the current price, the collar begins to replicate the underlying gain/loss pattern of a LONG POSITION in the underlying security.",
             "C": "The collar's risk-return profile is unaffected by the choice of put and call strikes."
           },
@@ -1274,7 +1274,7 @@
           "number": 17,
           "stem": "Bear spread with puts breakeven and profit ranges most likely:",
           "options": {
-            "A": "For a bear put spread, breakeven is S_T* = X_L + p_H, with maximum profit when the stock rallies above X_H. As the stock rallies above X_H reading.",
+            "A": "For a bear put spread, breakeven is S_T* = X_L + p_H, with maximum profit when the stock rallies above X_H. That specification would be used as-is, with no forward-looking overlay.",
             "B": "A bear put spread has no defined breakeven point because both legs are puts.",
             "C": "for a bear put spread with lower strike X_L (short put p_L) and higher strike X_H (long put p_H), breakeven S_T* = X_H − p_H + p_L."
           },
@@ -1309,7 +1309,7 @@
           "stem": "Calendar spread definition most likely:",
           "options": {
             "A": "a strategy in which one SELLS an option and BUYS the same type of option (put or call) but with DIFFERENT EXPIRATION DATES on the SAME underlying asset and with the SAME STRIKE.",
-            "B": "A calendar spread combines options of the same type and expiration on two different underlyings. Namely A calendar spread combines options of the same type and expiration on two different underlyings, as a complete account of calendar spread definition and of every implication that reading is usually thought to carry.",
+            "B": "A calendar spread combines options of the same type and expiration on two different underlyings. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "A calendar spread combines a call and a put with the same strike and expiration."
           },
           "correct": "A",
@@ -1332,7 +1332,7 @@
           "number": 2,
           "stem": "Primary motivation for long calendar spread most likely:",
           "options": {
-            "A": "profiting from a large DIRECTIONAL MOVE in the underlying before expiration. As the underlying before expiration reading.",
+            "A": "Profiting from a large DIRECTIONAL MOVE in the underlying before expiration. That specification would be used as-is, with no forward-looking overlay.",
             "B": "taking advantage of TIME DECAY — as a complete reading of primary motivation for long calendar spread.",
             "C": "capturing the DIVIDEND paid on the underlying between the two expirations."
           },
@@ -1382,7 +1382,7 @@
           "options": {
             "A": "a long calendar spread is a LONG VOLATILITY trading strategy because the longer-term option has a HIGHER VEGA than the shorter-term option.",
             "B": "A long calendar spread is vega-neutral because the two option legs' vegas cancel exactly.",
-            "C": "A long calendar spread is a short volatility strategy that profits when implied volatility falls. As the when implied volatility falls reading."
+            "C": "A long calendar spread is a short volatility strategy that profits when implied volatility falls. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
           "rationales": {
@@ -1406,7 +1406,7 @@
           "options": {
             "A": "a stable market or a DECREASE in implied volatility will help a LONG calendar spread.",
             "B": "a big move in the underlying market or a DECREASE in implied volatility will help a SHORT calendar spread.",
-            "C": "a big move in the underlying or an INCREASE in implied volatility will help a SHORT calendar spread. As that spread."
+            "C": "A big move in the underlying or an INCREASE in implied volatility will help a SHORT calendar spread. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
           "rationales": {
@@ -1439,7 +1439,7 @@
           "stem": "Implied volatility definition most likely:",
           "options": {
             "A": "Implied volatility is the historical standard deviation of the underlying's returns over the past year.",
-            "B": "Implied volatility is the volatility obtained by annualizing the standard deviation of the underlying's most recent daily returns. As the most recent daily returns reading.",
+            "B": "Implied volatility is the volatility obtained by annualizing the standard deviation of the underlying's most recent daily returns. That specification would be used as-is, with no forward-looking overlay.",
             "C": "implied volatility is derived from an option pricing model (such as BSM) and is the value that EQUATES THE MODEL PRICE OF AN OPTION TO ITS MARKET PRICE."
           },
           "correct": "C",
@@ -1486,7 +1486,7 @@
           "number": 3,
           "stem": "Volatility smile vs volatility skew shapes most likely:",
           "options": {
-            "A": "A volatility smile is a downward-sloping line, while a skew is any flat volatility curve. As a complete reading of volatility smile vs volatility skew shapes.",
+            "A": "A volatility smile is a downward-sloping line, while a skew is any flat volatility curve. That specification would be used as-is, with no forward-looking overlay.",
             "B": "when implied volatilities of both OTM puts and OTM calls trade at a premium to ATM implied volatilities, the curve is U-shaped — a VOLATILITY SMILE.",
             "C": "Smile and skew are interchangeable terms for the same implied volatility shape."
           },
@@ -1535,7 +1535,7 @@
           "stem": "Volatility skew measurement (90-110 skew) most likely:",
           "options": {
             "A": "the 90% moneyness option is a put with strike (X) equal to 90% of the current underlying price (X/S = 90%).",
-            "B": "In the 90-110 skew measure, the 90% moneyness option is a call with strike at 110% of spot. As the at 110% of spot reading.",
+            "B": "In the 90-110 skew measure, the 90% moneyness option is a call with strike at 110% of spot. That specification would be used as-is, with no forward-looking overlay.",
             "C": "The 90-110 skew compares two ATM options with different expiration dates."
           },
           "correct": "A",
@@ -1560,7 +1560,7 @@
           "options": {
             "A": "The implied volatility surface is a two-dimensional plot of implied volatility against strike price only.",
             "B": "a THREE-DIMENSIONAL plot, for put and call options on the same underlying, of days to expiration (x-axis), option strike prices (y-axis), and implied volatilities (z-axis).",
-            "C": "The implied volatility surface is a three-dimensional plot of implied volatility against strike price and the underlying's current price level. As the underlying's current price level reading."
+            "C": "The implied volatility surface is a three-dimensional plot of implied volatility against strike price and the underlying's current price level. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
           "rationales": {
@@ -1593,7 +1593,7 @@
           "stem": "Exhibit 32: Bearish outlook + expected volatility DECREASE — most appropriate strategy most likely:",
           "options": {
             "A": "buy puts.",
-            "B": "buy straddle — as a complete reading of most appropriate strategy.",
+            "B": "Buy straddle. That specification would be used as-is, with no forward-looking overlay.",
             "C": "WRITE CALLS — bearish view + declining volatility."
           },
           "correct": "C",
@@ -1618,7 +1618,7 @@
           "options": {
             "A": "WRITE PUTS — bullish view + declining volatility.",
             "B": "buy calls.",
-            "C": "buy straddle — as a complete reading of most appropriate strategy."
+            "C": "Buy straddle. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
           "rationales": {
@@ -1640,7 +1640,7 @@
           "number": 3,
           "stem": "Exhibit 32: Neutral outlook (trading range) + expected volatility INCREASE — most appropriate strategy most likely:",
           "options": {
-            "A": "SELL STRADDLE — collect premium while expecting volatility to rise. As that strategy.",
+            "A": "SELL STRADDLE — collect premium while expecting volatility to rise. That specification would be used as-is, with no forward-looking overlay.",
             "B": "BUY STRADDLE — neutral on direction + expecting vol increase. As that strategy.",
             "C": "BUY a bull call spread — neutral direction with rising volatility."
           },
@@ -1665,7 +1665,7 @@
           "stem": "Exhibit 32: Neutral outlook (trading range) + expected volatility UNCHANGED — most appropriate strategy most likely:",
           "options": {
             "A": "BUY a straddle — neutral on direction while expecting volatility to INCREASE.",
-            "B": "WRITE a straddle — neutral on direction while expecting volatility to DECREASE. As that strategy.",
+            "B": "WRITE a straddle — neutral on direction while expecting volatility to DECREASE. That specification would be used as-is, with no forward-looking overlay.",
             "C": "CALENDAR SPREAD — combines longer-term directional outlook with near-term neutral outlook."
           },
           "correct": "C",
@@ -1690,7 +1690,7 @@
           "options": {
             "A": "long calls + short puts; used to implement a BULLISH view (the investor buys the calls) while LOWERING the cost (the investor sells the puts) of the long position in the underlying asset that will be established upon exercising the options.",
             "B": "A long risk reversal combines a long put with a short call to implement a bearish view.",
-            "C": "A long risk reversal is a delta-neutral volatility position with no directional exposure. Namely A long risk reversal is a delta-neutral volatility position with no directional exposure, as a complete account of long risk reversal strategy and of every implication that reading is usually thought to carry."
+            "C": "A long risk reversal is a delta-neutral volatility position with no directional exposure. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class. No cycle overlay would be allowed to lift or cut that bound."
           },
           "correct": "A",
           "rationales": {
@@ -1712,7 +1712,7 @@
           "number": 6,
           "stem": "When to use call bull spread vs put bear spread over outright directional bets most likely:",
           "options": {
-            "A": "Spreads are most appropriate when the investor expects an extreme move far beyond the short strike. Namely spreads are most appropriate when the investor expects an extreme move far beyond the short strike, as a complete account of when to use call bull spread vs put bear spread over outright directional bets and of every implication that reading is usually thought to carry.",
+            "A": "Spreads are most appropriate when the investor expects an extreme move far beyond the short strike. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "the purchase of call or put SPREADS is most appropriate when the investor has a bullish view (call bull spread) or a bearish view (put bear spread) but the underlying market is NOT clearly trending upward or downward.",
             "C": "Outright option purchases are always cheaper than spreads for the same directional view."
           },
@@ -1737,7 +1737,7 @@
           "stem": "Impact of skewed IV curve on bear put spread cost most likely:",
           "options": {
             "A": "A skewed implied volatility curve leaves the cost of a bear put spread unaffected.",
-            "B": "Put skew makes the bear put spread MORE expensive, since the higher implied volatility on deeper-OTM puts raises the cost of the puts purchased. As a complete reading of impact of skewed IV curve on bear put spread cost.",
+            "B": "Put skew makes the bear put spread MORE expensive, since the higher implied volatility on deeper-OTM puts raises the cost of the puts purchased. That specification would be used as-is, with no forward-looking overlay.",
             "C": "if the implied volatility curve is SKEWED — with the implied volatility of OTM puts relatively higher than for nearer-to-the-money options — the cost of a BEARISH SPREAD is EVEN LOWER."
           },
           "correct": "C",
@@ -1771,7 +1771,7 @@
           "stem": "Rivera/Parker covered call recommendation: Parker holds 5,000 MNZA shares at $169; needs $30,000 quickly; firm bearish 6-month outlook; Rivera recommends writing 50 MAY 170 calls at $6.45. Reasons most likely:",
           "options": {
             "A": "the 170 call generates $32,250 (adequate cash), and given the firm's bearish outlook plus Parker's willingness to sell soon, the risk of shares being called at 170 is acceptable.",
-            "B": "Rivera should recommend the MAY 160 call, since a deep-ITM strike maximizes premium income with no assignment risk. Namely rivera should recommend the MAY 160 call, since a deep-ITM strike maximizes premium income with no assignment risk, as a complete account of reasons and of every implication that reading is usually thought to carry.",
+            "B": "Rivera should recommend the MAY 160 call, since a deep-ITM strike maximizes premium income with no assignment risk. That specification would be used as-is, with no forward-looking overlay.",
             "C": "Rivera should recommend buying protective puts instead, since Parker's need is income generation."
           },
           "correct": "A",
@@ -1818,7 +1818,7 @@
           "number": 3,
           "stem": "Wu tail-risk hedge using VIX options: VIX = 14.87, VIX front-month futures = 15.60; buys 15.60 VIX call at 2.00, sells 14.75 VIX put at 1.55. Total net cost and breakeven most likely:",
           "options": {
-            "A": "net cost 3.55, breakeven 19.15 — as a complete reading of total net cost and breakeven.",
+            "A": "Net cost 3.55, breakeven 19.15. That specification would be used as-is, with no forward-looking overlay.",
             "B": "net cost 3.55, breakeven 14.30.",
             "C": "net cost 0.45, breakeven 16.05 — net cost = 2.00 − 1.55 = 0.45 per contract."
           },
@@ -1844,7 +1844,7 @@
           "options": {
             "A": "Option B — the £60 strike call: breakeven £63 (£60 + £3) is below the £70 target and it offers the highest profit per unit of premium, (£70 − £63)/£3 = 2.3.",
             "B": "Option A — highest delta.",
-            "C": "Option C — cheapest premium — namely option C — cheapest premium, as a complete account of best choice and of every implication that reading is usually thought to carry."
+            "C": "Best choice corresponds to option C — cheapest premium. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class."
           },
           "correct": "A",
           "rationales": {
@@ -1868,7 +1868,7 @@
           "options": {
             "A": "Option A — cheapest.",
             "B": "Option B (€42.50 strike) — breakevens: A €38.55, B €40.78, C €41.54.",
-            "C": "Option C — highest strike — as a complete reading of best choice for minimum-cost adequate protection."
+            "C": "Option C — highest strike. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
           "rationales": {
@@ -1891,7 +1891,7 @@
           "stem": "Investor's rationale for including options versus futures/forwards for equity exposure most likely:",
           "options": {
             "A": "The choice between options and futures/forwards for equity exposure depends only on which instrument has lower commissions.",
-            "B": "Futures are preferred whenever implied volatility is expected to rise, since they carry no vega exposure that could be lost. As the that could be lost reading.",
+            "B": "Futures are preferred whenever implied volatility is expected to rise, since they carry no vega exposure that could be lost. That specification would be used as-is, with no forward-looking overlay.",
             "C": "the choice of derivative depends on the OUTLOOK for the underlying asset, the INVESTMENT HORIZON, and EXPECTATIONS FOR IMPLIED VOLATILITY over that horizon."
           },
           "correct": "C",

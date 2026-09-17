@@ -25,7 +25,7 @@
           "stem": "Active return (R_A) of an actively managed portfolio most likely is driven by:",
           "options": {
             "A": "the difference in weights between the active portfolio and the benchmark, expressed as R_A = Σ ΔW_i × R_i where ΔW_i is the active weight (portfolio weight minus benchmark weight) and R_i is the return on security i.",
-            "B": "Active return is driven entirely by the benchmark's own returns, independent of portfolio weights. Namely active return is driven entirely by the benchmark's own returns, independent of portfolio weights, as a complete account of active return (R_A) of an actively managed portfolio and of every implication that reading is usually thought to carry.",
+            "B": "Active return is driven entirely by the benchmark's own returns, independent of portfolio weights. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "Active return bears no relation to the differences between portfolio and benchmark weights."
           },
           "correct": "A",
@@ -48,7 +48,7 @@
           "number": 2,
           "stem": "Positive active returns most likely are generated when:",
           "options": {
-            "A": "Actively managed portfolios always generate positive active returns by construction. Namely actively managed portfolios always generate positive active returns by construction, as a complete account of positive active returns and of every implication that reading is usually thought to carry.",
+            "A": "Actively managed portfolios always generate positive active returns by construction. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "gains from overweighting outperforming securities and underweighting underperforming securities are greater than losses from underweighting outperforming securities and overweighting underperforming securities.",
             "C": "No principle governs when active returns turn positive."
           },
@@ -72,7 +72,7 @@
           "number": 3,
           "stem": "Three sources of active return per Equation 2 most likely include:",
           "options": {
-            "A": "(1) matching benchmark weights so as to eliminate active risk while still collecting the market premium. As that return.",
+            "A": "(1) matching benchmark weights so as to eliminate active risk while still collecting the market premium. That specification would be used as-is, with no forward-looking overlay.",
             "B": "(1) minimizing portfolio turnover to reduce transaction costs and thereby lift active return.",
             "C": "(1) strategically adjusting active weights to create long-term exposures to rewarded risks different from benchmark."
           },
@@ -144,7 +144,7 @@
           "number": 6,
           "stem": "Fundamental law of active management per Grinold (1989)/Clarke-de Silva-Thorley (2002) most likely:",
           "options": {
-            "A": "The fundamental law of active management has no formal mathematical expression and is instead a qualitative principle stating that skilled managers should diversify their bets across as many securities as practical. Namely the fundamental law of active management has no formal mathematical expression and is instead a qualitative principle stating that skilled managers should diversify their bets across as many securities as practical, as a complete account of fundamental law of active management per Grinold (1989)/Clarke-de Silva-Thorley (2002) and of every implication that reading is usually thought to carry.",
+            "A": "The fundamental law of active management has no formal mathematical expression and is instead a qualitative principle stating that skilled managers should diversify their bets across as many securities as practical. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "The fundamental law states that expected active return equals the information coefficient alone, so a manager's forecasting accuracy fully determines active performance without regard to breadth or implementation.",
             "C": "E(R_A) = IC × √BR × σ_RA × TC, where IC = expected information coefficient (extent to which forecasted active returns correspond to realized), BR = breadth (number of truly independent decisions made each year), TC = transfer coefficient (ability to translate insights into decisions without constraint), σ_RA = the manager's active risk."
           },
@@ -169,7 +169,7 @@
           "stem": "The fundamental law example — active risk 6%, TC 0.25, IC 0.10 — most likely:",
           "options": {
             "A": "manager could expect to generate active return of 15 bps yearly on average with single independent decision (0.10 × √1 × 6% × 0.25 = 0.15%).",
-            "B": "The worked example is trivial, showing only that zero decisions produce zero return. As a complete reading of active risk 6%, TC 0.25, IC 0.10 —.",
+            "B": "The worked example is trivial, showing only that zero decisions produce zero return. That specification would be used as-is, with no forward-looking overlay.",
             "C": "The example provides no numerical answer."
           },
           "correct": "A",
@@ -194,7 +194,7 @@
           "options": {
             "A": "the total number of individual securities held in the portfolio.",
             "B": "uncorrelated decisions (much like two uncorrelated stocks are diversifying).",
-            "C": "the number of sectors in which the manager takes active positions. As that mean."
+            "C": "The number of sectors in which the manager takes active positions. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
           "rationales": {
@@ -216,7 +216,7 @@
           "number": 9,
           "stem": "Diversification's limitation on position sizing most likely:",
           "options": {
-            "A": "Diversification confers unlimited benefits, driving portfolio risk to zero as holdings increase. Namely diversification confers unlimited benefits, driving portfolio risk to zero as holdings increase, as a complete account of diversification's limitation on position sizing and of every implication that reading is usually thought to carry.",
+            "A": "Diversification confers unlimited benefits, driving portfolio risk to zero as holdings increase. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "Position sizing faces no diversification-related limits.",
             "C": "diversification is powerful tool but has limitations — even most diversified portfolio of high-volatility stocks (500-stock portfolio with 30% avg single-stock vol) cannot achieve same level of vol as portfolios of lower-vol stocks."
           },
@@ -274,7 +274,7 @@
           "number": 1,
           "stem": "Systematic strategies most likely are:",
           "options": {
-            "A": "Systematic strategies rely on purely discretionary judgment applied position by position. As the applied position by position reading.",
+            "A": "Systematic strategies rely on purely discretionary judgment applied position by position. That specification would be used as-is, with no forward-looking overlay.",
             "B": "designed around construction of portfolios seeking to extract return premiums from balanced exposure to known rewarded factors.",
             "C": "Systematic strategies operate without rules of any kind."
           },
@@ -298,7 +298,7 @@
           "number": 2,
           "stem": "Discretionary strategies most likely:",
           "options": {
-            "A": "Discretionary strategies are purely systematic, applying fixed rules without judgment. Namely discretionary strategies are purely systematic, applying fixed rules without judgment, as a complete account of discretionary strategies and of every implication that reading is usually thought to carry.",
+            "A": "Discretionary strategies are purely systematic, applying fixed rules without judgment. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class. No cycle overlay would be allowed to lift or cut that bound.",
             "B": "Discretionary and systematic strategies are identical in process and philosophy.",
             "C": "search for active returns by building greater depth of understanding of firm's governance, business model, and competitive landscape, through better factor proxies (e.g., better definition of Quality), or through successful timing strategies."
           },
@@ -324,7 +324,7 @@
           "options": {
             "A": "top-down seeks to understand overall geo-political/economic/financial/social/public policy environment then project effect on countries/asset classes/sectors/securities.",
             "B": "Top-down and bottom-up approaches are indistinguishable in practice.",
-            "C": "Neither top-down nor bottom-up describes an actual investment strategy. Namely neither top-down nor bottom-up describes an actual investment strategy, as a complete account of top-down vs bottom-up distinction and of every implication that reading is usually thought to carry."
+            "C": "Neither top-down nor bottom-up describes an actual investment strategy. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class."
           },
           "correct": "A",
           "rationales": {
@@ -370,7 +370,7 @@
           "number": 5,
           "stem": "Objective function for portfolio construction commonly most likely is:",
           "options": {
-            "A": "Portfolio construction proceeds without any objective function. Namely portfolio construction proceeds without any objective function, as a complete account of objective function for portfolio construction commonly and of every implication that reading is usually thought to carry.",
+            "A": "Portfolio construction proceeds without any objective function. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "The reading specifies no framework for construction objectives.",
             "C": "maximize risk-adjusted return — if risk measured by predicted active risk, objective seeks to maximize information ratio (ratio of active return to active risk)."
           },
@@ -418,7 +418,7 @@
           "number": 7,
           "stem": "The risk-based objective functions (minimum variance, maximum diversification) most likely:",
           "options": {
-            "A": "integrate explicit expected return forecasts for each rewarded factor into the objective function. As that objective.",
+            "A": "Integrate explicit expected return forecasts for each rewarded factor into the objective function. That specification would be used as-is, with no forward-looking overlay.",
             "B": "do not integrate explicit expected return component but implicitly create exposure to risk factors.",
             "C": "tend to favor growth and high-beta securities, producing Market betas above 1.0."
           },
@@ -442,7 +442,7 @@
           "number": 8,
           "stem": "Discretionary vs systematic on objectives/constraints most likely:",
           "options": {
-            "A": "Systematic and discretionary managers specify objectives and constraints with identical explicitness. As the constraints with identical explicitness reading.",
+            "A": "Systematic and discretionary managers specify objectives and constraints with identical explicitness. That specification would be used as-is, with no forward-looking overlay.",
             "B": "The reading draws no distinction in how the two manager types state objectives.",
             "C": "objectives and constraints of systematic managers are explicitly specified whereas those of discretionary managers are less explicitly specified."
           },
@@ -490,7 +490,7 @@
           "number": 10,
           "stem": "Both systematic and discretionary managers most likely:",
           "options": {
-            "A": "Systematic and discretionary managers operate under entirely unrelated frameworks with nothing in common. Namely systematic and discretionary managers operate under entirely unrelated frameworks with nothing in common, as a complete account of both systematic and discretionary managers and of every implication that reading is usually thought to carry.",
+            "A": "Systematic and discretionary managers operate under entirely unrelated frameworks with nothing in common. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "each investment approach is implemented within a framework that specifies acceptable levels of active risk and Active Share relative to a clearly articulated benchmark (Active Share is a measure of how similar a portfolio is to its benchmark).",
             "C": "Neither systematic nor discretionary managers operate within any framework."
           },
@@ -525,7 +525,7 @@
           "stem": "Active Share most likely is calculated as:",
           "options": {
             "A": "No formula exists for Active Share.",
-            "B": "Active Share is not a defined portfolio measure — namely active Share is not a defined portfolio measure, as a complete account of active Share and of every implication that reading is usually thought to carry.",
+            "B": "Active Share is not a defined portfolio measure. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "Active Share = ½ × Σ |Weight_portfolio,i − Weight_benchmark,i| where n represents total number of securities in either portfolio or benchmark."
           },
           "correct": "C",
@@ -549,7 +549,7 @@
           "stem": "The two sources of Active Share most likely are:",
           "options": {
             "A": "(1) including securities in the portfolio that are not in the benchmark, and (2) holding benchmark securities at weights different from their benchmark weights.",
-            "B": "(1) differences in sector allocation relative to the benchmark, and (2) differences in factor exposures relative to the benchmark. As the relative to the benchmark reading.",
+            "B": "(1) differences in sector allocation relative to the benchmark, and (2) differences in factor exposures relative to the benchmark. That specification would be used as-is, with no forward-looking overlay.",
             "C": "(1) the portfolio's active risk relative to the benchmark, and (2) the correlation of its active returns with the benchmark."
           },
           "correct": "A",
@@ -572,7 +572,7 @@
           "number": 3,
           "stem": "Active risk vs Active Share control most likely:",
           "options": {
-            "A": "Managers exercise the same degree of control over Active Share and active risk. Namely managers exercise the same degree of control over Active Share and active risk, as a complete account of active risk vs Active Share control and of every implication that reading is usually thought to carry.",
+            "A": "Managers exercise the same degree of control over Active Share and active risk. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "portfolio manager can completely control Active Share but cannot completely control active risk because active risk depends on correlations and variances of securities beyond her control.",
             "C": "Active Share and active risk are the same measure expressed in different units."
           },
@@ -621,7 +621,7 @@
           "stem": "Sapra and Hunjan (2013) observations on active risk, Active Share, and factor exposure most likely:",
           "options": {
             "A": "(1) high net exposure to a risk factor leads to high level of active risk irrespective of level of idiosyncratic risk.",
-            "B": "(1) active risk is independent of factor exposure and depends only on the number of securities held. As that exposure.",
+            "B": "(1) active risk is independent of factor exposure and depends only on the number of securities held. That specification would be used as-is, with no forward-looking overlay.",
             "C": "(1) fully neutralizing factor exposure raises active risk to its maximum possible level."
           },
           "correct": "A",
@@ -644,7 +644,7 @@
           "number": 6,
           "stem": "Exhibit 7 categories (investment styles matrix on Active Share vs Active Risk) most likely:",
           "options": {
-            "A": "Exhibit 7 provides no categorization of investment styles, treating all active managers as a single undifferentiated group regardless of their Active Share or active risk levels. As a complete reading of exhibit 7 categories (investment styles matrix on Active Share vs Active Risk).",
+            "A": "Exhibit 7 provides no categorization of investment styles, treating all active managers as a single undifferentiated group regardless of their Active Share or active risk levels. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "pure indexing (low AS, low AR), closet indexing (low AS, low AR), factor neutral and diversified stock picks (high AS, low AR), diversified factor bets (low-medium AS, medium AR), concentrated factor bets (high AS, high AR), concentrated stock picks (high AS, high AR).",
             "C": "The reading offers no framework relating Active Share to active risk, since the two measures are considered independent and cannot be jointly mapped for style classification."
           },
@@ -668,7 +668,7 @@
           "number": 7,
           "stem": "Multi-factor products most likely:",
           "options": {
-            "A": "Multi-factor products concentrate heavily in a small number of high-conviction securities. Namely multi-factor products concentrate heavily in a small number of high-conviction securities, as a complete account of multi-factor products and of every implication that reading is usually thought to carry.",
+            "A": "Multi-factor products concentrate heavily in a small number of high-conviction securities. That specification would be used as-is, with no forward-looking overlay.",
             "B": "Multi-factor products show no characteristic pattern in holdings or concentration.",
             "C": "have low concentration among securities, often holding more than 250 positions (purpose is balanced exposure to risk factors and minimize idiosyncratic risks)."
           },
@@ -750,7 +750,7 @@
           "number": 1,
           "stem": "Risk budgeting most likely is:",
           "options": {
-            "A": "process by which all active risk is eliminated so the portfolio tracks the benchmark exactly. As that budgeting.",
+            "A": "Process by which all active risk is eliminated so the portfolio tracks the benchmark exactly. That specification would be used as-is, with no forward-looking overlay.",
             "B": "process by which total portfolio return is maximized without regard to any risk limit.",
             "C": "process by which total risk appetite of portfolio is allocated among various components of portfolio choice."
           },
@@ -775,7 +775,7 @@
           "stem": "The effective risk management process requires the manager to do most likely:",
           "options": {
             "A": "(1) determine which type of risk measure is most appropriate to strategy. As that manager.",
-            "B": "(1) apply the same absolute risk measure to every strategy regardless of the mandate. As that manager.",
+            "B": "(1) apply the same absolute risk measure to every strategy regardless of the mandate. That specification would be used as-is, with no forward-looking overlay.",
             "C": "(1) delegate all risk-allocation decisions to the client rather than the manager."
           },
           "correct": "A",
@@ -800,7 +800,7 @@
           "options": {
             "A": "determined solely by the historical volatility of the benchmark index.",
             "B": "driven by mandate of manager and goals of investors — as the manager and goals of investors reading.",
-            "C": "dictated by regulatory requirements that are identical across all jurisdictions. As the identical across all jurisdictions reading."
+            "C": "Absolute vs relative risk measures choice corresponds to dictated by regulatory requirements that are identical across all jurisdictions."
           },
           "correct": "B",
           "rationales": {
@@ -823,7 +823,7 @@
           "stem": "Contribution of asset i to portfolio variance per Equation 9 most likely is:",
           "options": {
             "A": "No formula exists for an asset's contribution to portfolio variance.",
-            "B": "An asset's variance contribution bears no relation to its covariances with other holdings. Namely an asset's variance contribution bears no relation to its covariances with other holdings, as a complete account of contribution of asset i to portfolio variance per Equation 9 and of every implication that reading is usually thought to carry.",
+            "B": "An asset's variance contribution bears no relation to its covariances with other holdings. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "CV_i = Σ x_i × x_j × C_ij = x_i × C_ip where x_j is asset's weight in portfolio, C_ij is covariance of returns between asset i and asset j, C_ip is covariance of returns between asset i and portfolio."
           },
           "correct": "C",
@@ -847,7 +847,7 @@
           "stem": "The Asset A worked example (weight 40%, contribution) most likely:",
           "options": {
             "A": "Asset A's contribution = 0.40 × 0.40 × 0.04 + 0.40 × 0.50 × 0.0096 + 0.40 × 0.10 × 0.0024 = 0.008416.",
-            "B": "No worked contribution-to-variance example appears in the reading. As the appears in the reading reading.",
+            "B": "No worked contribution-to-variance example appears in the reading. That specification would be used as-is, with no forward-looking overlay.",
             "C": "The Asset A example is posed but never computed."
           },
           "correct": "A",
@@ -872,7 +872,7 @@
           "options": {
             "A": "Exhibit 12 contains no factor attribution data.",
             "B": "Russell 1000: 100.4% Market, -1.8% Size, 0.2% Value, 0.5% Momentum, 99.3% total explained, 14.5% absolute risk.",
-            "C": "The exhibit attributes risk for the funds but omits the benchmark indexes. As the omits the benchmark indexes reading."
+            "C": "The exhibit attributes risk for the funds but omits the benchmark indexes. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
           "rationales": {
@@ -920,7 +920,7 @@
           "options": {
             "A": "AV_p = Σ Σ (x_i - b_i)(x_j - b_j) × RC_ij where x_i = asset's weight in portfolio, b_i = benchmark weight in asset i, RC_ij = covariance of relative returns between asset i and asset j.",
             "B": "No formula exists for a portfolio's active variance.",
-            "C": "The reading references active variance without providing its expression. Namely the reading references active variance without providing its expression, as a complete account of relative/active variance per Equation 11 and of every implication that reading is usually thought to carry."
+            "C": "The reading references active variance without providing its expression. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class."
           },
           "correct": "A",
           "rationales": {
@@ -944,7 +944,7 @@
           "options": {
             "A": "maximizing exposure to every rewarded factor, regardless of where their perceived skills lie.",
             "B": "risks they choose to take should be related to perceived skills. As the related to perceived skills reading.",
-            "C": "diversifying away the risks tied to their perceived skills while retaining incidental exposures. As that concerned."
+            "C": "Diversifying away the risks tied to their perceived skills while retaining incidental exposures. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
           "rationales": {
@@ -976,7 +976,7 @@
           "number": 1,
           "stem": "Heuristic vs formal constraints most likely:",
           "options": {
-            "A": "Heuristic and formal constraints are identical in nature and differ only in name. Namely heuristic and formal constraints are identical in nature and differ only in name, as a complete account of heuristic vs formal constraints and of every implication that reading is usually thought to carry.",
+            "A": "Heuristic and formal constraints are identical in nature and differ only in name. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "The reading recognizes no distinction among constraint types.",
             "C": "heuristic constraints are portfolio-characteristics limits (e.g., limit single position to the lesser of 5× benchmark weight or 2%), while formal constraints are statistical risk measures linked to the distribution of returns."
           },
@@ -1024,7 +1024,7 @@
           "number": 3,
           "stem": "CVaR (Conditional VaR) most likely is:",
           "options": {
-            "A": "minimum loss that would be expected a certain percentage of the time over a period. As that conditional.",
+            "A": "Minimum loss that would be expected a certain percentage of the time over a period. That specification would be used as-is, with no forward-looking overlay.",
             "B": "average loss that would be incurred if the VaR cutoff is exceeded. As that conditional.",
             "C": "maximum loss that could ever be incurred over the investment horizon."
           },
@@ -1098,7 +1098,7 @@
           "options": {
             "A": "Exhibit 18 reports no risk measures for the three managers.",
             "B": "Manager A (Factor Diversified): 10.89% absolute risk, 3.4% active risk, VaR 5% 1.08%, VaR 1% 1.77%, CVaR 5% 1.50%, CVaR 1% 2.21%.",
-            "C": "The exhibit reports absolute risk only, omitting VaR and CVaR. As a complete reading of exhibit 18 risk measures for Manager A, B, C."
+            "C": "The exhibit reports absolute risk only, omitting VaR and CVaR. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
           "rationales": {
@@ -1146,7 +1146,7 @@
           "options": {
             "A": "in 2008 hedge fund owned 2× levered portfolio of highly-rated mortgage-related securities. As the of highly-rated mortgage-related securities reading.",
             "B": "in 2008 a hedge fund's subprime-heavy mortgage portfolio suffered permanent price declines, producing gradual losses over several years.",
-            "C": "in 2008 a hedge fund's unlevered mortgage portfolio declined modestly, and the manager recovered fully by holding through the volatility. As those securities."
+            "C": "In 2008 a hedge fund's unlevered mortgage portfolio declined modestly, and the manager recovered fully by holding through the volatility. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
           "rationales": {
@@ -1170,7 +1170,7 @@
           "options": {
             "A": "Exhibit 20 shows S&P 500 volatility constant across 1995–2020.",
             "B": "volatility remains in range of 10%-20% most of the time but periods of much higher volatility observed: 2000-2002 (technology stocks collapse), 2008-2009 (Global Financial Crisis), 2020 (COVID-19 pandemic).",
-            "C": "The exhibit shows no variation in realized volatility over the period. Namely the exhibit shows no variation in realized volatility over the period, as a complete account of S&P 500 volatility Exhibit 20 over 1995-2020 and of every implication that reading is usually thought to carry."
+            "C": "The exhibit shows no variation in realized volatility over the period. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class."
           },
           "correct": "B",
           "rationales": {
@@ -1227,7 +1227,7 @@
           "stem": "Information-containing trades most likely:",
           "options": {
             "A": "when discretionary manager with sizable AUM begins to buy a stock, trade signals to other market participants likely upward pressure as manager builds position.",
-            "B": "Trades by large discretionary managers convey no signal to other market participants. Namely trades by large discretionary managers convey no signal to other market participants, as a complete account of information-containing trades and of every implication that reading is usually thought to carry.",
+            "B": "Trades by large discretionary managers convey no signal to other market participants. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "Information-containing trades have no effect on execution prices."
           },
           "correct": "A",
@@ -1274,7 +1274,7 @@
           "number": 4,
           "stem": "Worked example — smallest company $2B cap, 1% daily trades ($20M avg), 10% liquidity policy, 2% position limit most likely:",
           "options": {
-            "A": "The worked example shows the position is unconstrained by either policy. As a complete reading of company $2B cap, 1% daily trades ($20M avg), 10% liquidity policy, 2% position limit.",
+            "A": "The worked example shows the position is unconstrained by either policy. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "The example poses the liquidity question but performs no arithmetic.",
             "C": "if manager has $200M AUM, allocation constraint says he could own as much as $4M of that security ($200M × 2% = $4M) but liquidity constraint limits position to $2M ($20M × 10%)."
           },
@@ -1300,7 +1300,7 @@
           "options": {
             "A": "(1) may establish position limits on individual securities that consider respective market-cap weights on absolute and relative basis (e.g., lesser of market-cap weight + 1% or 10× market-cap weight).",
             "B": "Large-AUM funds have no available mechanisms for managing liquidity constraints.",
-            "C": "The only remedy for a large fund's liquidity constraint is closing the fund to new investors. Namely the only remedy for a large fund's liquidity constraint is closing the fund to new investors, as a complete account of large-AUM fund addressing liquidity constraints and of every implication that reading is usually thought to carry."
+            "C": "The only remedy for a large fund's liquidity constraint is closing the fund to new investors. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class."
           },
           "correct": "A",
           "rationales": {
@@ -1324,7 +1324,7 @@
           "options": {
             "A": "Small-cap funds face no distinctive implementation issues.",
             "B": "weighted average capitalization of Russell 2000 is only $2.2 billion, and nearly 60% of companies in index have market cap below $1B.",
-            "C": "Small-cap benchmarks contain no companies with limited market capitalization. Namely small-cap benchmarks contain no companies with limited market capitalization, as a complete account of small-cap fund challenges and of every implication that reading is usually thought to carry."
+            "C": "Small-cap benchmarks contain no companies with limited market capitalization. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
           "rationales": {
@@ -1347,7 +1347,7 @@
           "stem": "Slippage most likely is:",
           "options": {
             "A": "Slippage is not a measurable trading cost.",
-            "B": "Slippage is unrelated to the prices at which trades execute. Namely slippage is unrelated to the prices at which trades execute, as a complete account of slippage and of every implication that reading is usually thought to carry.",
+            "B": "Slippage is unrelated to the prices at which trades execute. That specification would be used as-is, with no forward-looking overlay.",
             "C": "often measured as difference between execution price and midpoint of the bid and ask quotes at the time trade was first entered."
           },
           "correct": "C",
@@ -1394,7 +1394,7 @@
           "number": 9,
           "stem": "Unlit venues (dark pools, crossing networks) most likely:",
           "options": {
-            "A": "require full pre-trade transparency about order size, alerting other participants to pending activity. As those networks.",
+            "A": "Require full pre-trade transparency about order size, alerting other participants to pending activity. That specification would be used as-is, with no forward-looking overlay.",
             "B": "allow buyers and sellers to trade anonymously with one another. As the anonymously with one another reading.",
             "C": "are restricted to retail order flow and are therefore unusable for large institutional block trades."
           },
@@ -1453,7 +1453,7 @@
           "stem": "Risk efficiency judgment most likely should be:",
           "options": {
             "A": "judged in context of investor's total portfolio — namely judged in context of investor's total portfolio, as a complete account of risk efficiency judgment and of every implication that reading is usually thought to carry.",
-            "B": "judged solely by comparing each manager's information ratio, with the higher-IR manager always preferred. Namely judged solely by comparing each manager's information ratio, with the higher-IR manager always preferred, as a complete account of risk efficiency judgment and of every implication that reading is usually thought to carry.",
+            "B": "Judged solely by comparing each manager's information ratio, with the higher-IR manager always preferred. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "judged on each mandate in isolation, ignoring diversification effects on the investor's total portfolio."
           },
           "correct": "A",
@@ -1476,7 +1476,7 @@
           "number": 3,
           "stem": "The Exhibit 23-24 Products A & B evaluation most likely shows:",
           "options": {
-            "A": "Products A and B in Exhibits 23-24 are identical across every evaluated dimension — factor exposures, diversification, and risk characteristics — making the comparison uninformative for selection purposes. As a complete reading of exhibit 23-24 Products A & B evaluation.",
+            "A": "Products A and B in Exhibits 23-24 are identical across every evaluated dimension — factor exposures, diversification, and risk characteristics — making the comparison uninformative for selection purposes. That specification would be used as-is, with no forward-looking overlay.",
             "B": "Product A has Market β slightly less than 1, large-cap bias (negative Size coefficient), very large Value exposure, greater security-level diversification (~320 securities), Market risk 87.4% of total, significant portion of absolute risk attributed to Value factor.",
             "C": "The exhibits contain no comparative product data, presenting only a qualitative discussion of how such an evaluation might hypothetically be structured."
           },
@@ -1525,7 +1525,7 @@
           "stem": "Example 8 custom portfolio results most likely:",
           "options": {
             "A": "MSCI World: 7.0% return, 11.3% volatility, 1,700 securities, 2.4% turnover, 2.6% dividend yield.",
-            "B": "MSCI World: 8.45% return, 9.0% volatility, 325 securities, 35% turnover, 3.6% dividend yield. As those results.",
+            "B": "MSCI World: 8.45% return, 9.0% volatility, 325 securities, 35% turnover, 3.6% dividend yield. That specification would be used as-is, with no forward-looking overlay.",
             "C": "MSCI World: 7.0% return, 20.0% volatility, 500 securities, 15% turnover, 1.5% dividend yield."
           },
           "correct": "A",
@@ -1550,7 +1550,7 @@
           "options": {
             "A": "the positive alpha confirms the excess return came from stock selection rather than factor exposure.",
             "B": "6% active risk on 65% of equity allocation may be too high. As a complete reading of larrabee tracking error concern interpretation.",
-            "C": "the tracking error is immaterial because the under-allocation to information technology reduces active risk. As that interpretation."
+            "C": "The tracking error is immaterial because the under-allocation to information technology reduces active risk. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
           "rationales": {
@@ -1572,7 +1572,7 @@
           "number": 7,
           "stem": "Larrabee satellite manager recommendations most likely:",
           "options": {
-            "A": "hire satellite managers whose active returns are highly correlated with the core mandate to reinforce its factor tilts. As those recommendations.",
+            "A": "Hire satellite managers whose active returns are highly correlated with the core mandate to reinforce its factor tilts. That specification would be used as-is, with no forward-looking overlay.",
             "B": "eliminate the technology underweight entirely by matching the MSCI World information technology weight exactly.",
             "C": "first investigate further source of significant negative alpha. As a complete reading of larrabee satellite manager recommendations."
           },
@@ -1655,7 +1655,7 @@
           "stem": "Long/short strategies umbrella most likely:",
           "options": {
             "A": "'market-neutral' is the most encompassing term, with long/short and long extension as two of its sub-types.",
-            "B": "'long extension' is the umbrella term, since 130/30 products can replicate both long/short and market-neutral exposures. As those strategies.",
+            "B": "'long extension' is the umbrella term, since 130/30 products can replicate both long/short and market-neutral exposures. That specification would be used as-is, with no forward-looking overlay.",
             "C": "'long/short' is the most encompassing term and can include long extension and market-neutral products. As those strategies."
           },
           "correct": "C",
@@ -1679,7 +1679,7 @@
           "stem": "Long extension strategies most likely:",
           "options": {
             "A": "constrained long/short strategies — capital committed by client invested similarly to long-only strategy but levered to some extent to exploit manager's insights on projected losers as well as winners.",
-            "B": "Long extension strategies use no leverage, holding long positions equal to capital only. Namely long extension strategies use no leverage, holding long positions equal to capital only, as a complete account of long extension strategies and of every implication that reading is usually thought to carry.",
+            "B": "Long extension strategies use no leverage, holding long positions equal to capital only. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "The reading provides no framework for long extension strategies."
           },
           "correct": "A",
@@ -1704,7 +1704,7 @@
           "options": {
             "A": "The reading provides no definition of market-neutral strategies.",
             "B": "long/short portfolios constructed in a manner to ensure that the portfolio's exposures to a wide variety of risk factors is zero.",
-            "C": "Market-neutral portfolios deliberately carry large positive exposures to every major risk factor. As the every major risk factor reading."
+            "C": "Market-neutral portfolios deliberately carry large positive exposures to every major risk factor. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
           "rationales": {
@@ -1726,7 +1726,7 @@
           "number": 4,
           "stem": "Long-only reasons most likely:",
           "options": {
-            "A": "unlimited short-side profit potential (must short to capture). As those reasons.",
+            "A": "Unlimited short-side profit potential (must short to capture). That specification would be used as-is, with no forward-looking overlay.",
             "B": "guaranteed market-neutral returns (must hedge to capture).",
             "C": "long-term risk premiums (must own to capture) — as those reasons."
           },
@@ -1823,7 +1823,7 @@
           "stem": "Long/short inherent risks most likely include:",
           "options": {
             "A": "(1) unlike long position, short position moves against manager if price of security increases.",
-            "B": "(1) a short position, like a long position, can lose at most the amount initially invested. As that include.",
+            "B": "(1) a short position, like a long position, can lose at most the amount initially invested. That specification would be used as-is, with no forward-looking overlay.",
             "C": "(1) short positions never require additional collateral once the securities are borrowed."
           },
           "correct": "A",
@@ -1870,7 +1870,7 @@
           "number": 10,
           "stem": "Equitized market-neutral / equal-risk-premium products most likely:",
           "options": {
-            "A": "No strategy resembling equal-risk-premium products exists in practice, because return premiums from rewarded factors cannot be isolated or combined across asset classes in a single vehicle. Namely no strategy resembling equal-risk-premium products exists in practice, because return premiums from rewarded factors cannot be isolated or combined across asset classes in a single vehicle, as a complete account of equitized market-neutral / equal-risk-premium products and of every implication that reading is usually thought to carry.",
+            "A": "No strategy resembling equal-risk-premium products exists in practice, because return premiums from rewarded factors cannot be isolated or combined across asset classes in a single vehicle. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "The reading names equitized market-neutral products but provides no construction detail, leaving the mechanics of factor extraction and market-exposure restoration unexplained.",
             "C": "equal-risk-premium products seek to extract return premiums from rewarded factors often across asset classes — manager creates L/S sub-portfolios extracting premiums (Size, Value, Momentum, Low Beta) and combines using weightings ensuring each contributes same amount of risk to overall portfolio."
           },
