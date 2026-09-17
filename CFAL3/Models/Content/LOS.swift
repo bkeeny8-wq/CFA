@@ -15,11 +15,27 @@ struct LOS: Codable, Identifiable, Hashable {
 
     /// Standards I–VII share the same two templates. Prefix the standard so
     /// the Practice LOS picker and Study checklist can tell the rows apart.
+    /// Index-Based `.b`/`.c` are the outline's two near-duplicate compare-statements.
     var displayText: String {
         if let prefix = Self.ethicsStandardPrefix(for: readingID) {
             return "\(prefix) — \(text)"
         }
+        if let note = Self.indexBasedCompareNote(for: id) {
+            return "\(text) \(note)"
+        }
         return text
+    }
+
+    /// Official outline keeps both "strategies" and "investing" compare-statements.
+    static func indexBasedCompareNote(for losID: String) -> String? {
+        switch losID {
+        case "index_based_equity_strategies.b":
+            return "(outline compare-statement: strategies)"
+        case "index_based_equity_strategies.c":
+            return "(outline compare-statement: investing)"
+        default:
+            return nil
+        }
     }
 
     static func ethicsStandardPrefix(for readingID: String) -> String? {

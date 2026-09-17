@@ -55,10 +55,10 @@ final class ReviewQueueTests: XCTestCase {
     }
 
     func testDailyLimitCapsHowMuchNewMaterialEnters() {
-        let p = plan(cards: (1...3_115).map { card("q\($0)") })
+        let p = plan(cards: (1...3_157).map { card("q\($0)") })
         XCTAssertEqual(p.newRemainingToday, 20)
         XCTAssertEqual(p.sessionIDs.count, 20)
-        XCTAssertEqual(p.notStartedCount, 3_115)
+        XCTAssertEqual(p.notStartedCount, 3_157)
     }
 
     func testOnceTodaysAllowanceIsSpentTheQueueIsEmptyButNotCaughtUp() {

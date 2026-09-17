@@ -182,7 +182,7 @@ struct SettingsView: View {
     /// review schedule — while preserving LOS study states and plan check-offs.
     private func clearQuizAttempts() {
         // ReviewCards are excluded from the count, not from the delete: one is
-        // seeded per question at launch, so counting them would report ~3,115
+        // seeded per question at launch, so counting them would report ~3,157
         // "quiz records" to someone who answered three questions.
         let removed = attempts.count + sessions.count
         for item in attempts { modelContext.delete(item) }

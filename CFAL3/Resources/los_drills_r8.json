@@ -7,8 +7,8 @@
     "reading_id": "asset_allocation_to_alternative_investments",
     "reading_name": "Asset Allocation to Alternative Investments",
     "area_id": "portfolio_construction",
-    "los_count": 7,
-    "question_count": 75
+    "los_count": 8,
+    "question_count": 81
   },
   "drills": [
     {
@@ -184,6 +184,160 @@
           "area_id": "portfolio_construction",
           "difficulty": "l3_exam",
           "curriculum_ref": "AA to Alts §2 private credit",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        }
+      ]
+    },
+    {
+      "los_id": "asset_allocation_to_alternative_investments.b",
+      "los_letter": "b",
+      "los_text": "compare alternative investments and bonds as risk mitigators in relation to a long equity position",
+      "reading_id": "asset_allocation_to_alternative_investments",
+      "reading_name": "Asset Allocation to Alternative Investments",
+      "area_id": "portfolio_construction",
+      "questions": [
+        {
+          "id": "r8_altaa_mitigator_los_b_q1",
+          "number": 1,
+          "stem": "High-quality government bonds are the classic equity-risk mitigator most likely because they:",
+          "options": {
+            "A": "Tend to rally in an equity sell-off (flight-to-quality, often negative crisis correlation), stay liquid when liquidity is scarce, and gain from duration as policy rates are cut.",
+            "B": "Always earn a higher expected return than equities in expansions, so they mitigate by outgrowing the equity book rather than by correlation. The item is testing that operational difference, not a label.",
+            "C": "Are as illiquid as private credit in a crisis, which forces the investor to hold through the drawdown and therefore “mitigates” by preventing a sale."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Bonds mitigate via crisis correlation, crisis liquidity, and duration. That hedge is dependable relative to most alternatives — and it is the benchmark this LOS compares against.",
+            "B": "Incorrect. The bond hedge is not “higher return than equities.” Expected return is the cost of the hedge.",
+            "C": "Incorrect. Bond liquidity in a crisis is a reason they work as mitigators, not a lock-up."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_to_alternative_investments.b",
+          "reading_id": "asset_allocation_to_alternative_investments",
+          "area_id": "portfolio_construction",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Alts LOS b — why bonds mitigate",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_altaa_mitigator_los_b_q2",
+          "number": 2,
+          "stem": "The main cost of using high-quality bonds as the equity-risk mitigator, especially in a low-yield setting, is most likely:",
+          "options": {
+            "A": "Bonds become more liquid than usual, which unfortunately increases tracking error versus a private-asset benchmark the IPS does not use. Keep the mechanism, not the slogan, in view when you pick.",
+            "B": "Low expected return, and at low yields both that expected return and the size of the negative-correlation cushion shrink because there is less room for yields to fall.",
+            "C": "Bonds reliably raise equity beta in a crash, so they must be paired with leverage to restore the hedge that flight-to-quality would otherwise provide."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Crisis liquidity is a benefit of bonds as mitigators, not a cost versus a private benchmark.",
+            "B": "Correct. Bonds are reliable and liquid but low-returning; the cushion weakens when yields have little room to fall. That is the opening for some alternatives.",
+            "C": "Incorrect. High-quality bonds tend to lower, not raise, equity beta in a crash."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_to_alternative_investments.b",
+          "reading_id": "asset_allocation_to_alternative_investments",
+          "area_id": "portfolio_construction",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Alts LOS b — cost of the bond hedge",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_altaa_mitigator_los_b_q3",
+          "number": 3,
+          "stem": "Relative to high-quality bonds, managed futures / trend-following as an equity-risk mitigator is most likely to:",
+          "options": {
+            "A": "Match bonds on crisis liquidity and reliability, while also matching bond expected returns, so the two mitigators are interchangeable in an IPS.",
+            "B": "Increase equity beta in a prolonged drawdown, because trend strategies are long-biased equity funds with a different name. The item is testing that operational difference, not a label.",
+            "C": "Offer higher expected return via “crisis alpha” (profiting as it rides a prolonged equity decline) but sacrifice liquidity and some reliability of the hedge versus bonds."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Trend is less liquid and less certain than bonds; that is the trade-off.",
+            "B": "Incorrect. Trend/managed futures is the usual crisis-alpha example; long-biased equity hedge funds are the trap that still carry equity beta.",
+            "C": "Correct. Select alternatives (trend, macro, market-neutral) can mitigate with a higher expected return than bonds, at the cost of liquidity and hedge certainty."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_to_alternative_investments.b",
+          "reading_id": "asset_allocation_to_alternative_investments",
+          "area_id": "portfolio_construction",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Alts LOS b — trend vs bonds",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_altaa_mitigator_los_b_q4",
+          "number": 4,
+          "stem": "A long-biased equity hedge fund, compared with bonds or managed futures as a mitigator of a long equity position, is most likely:",
+          "options": {
+            "A": "Not a true mitigator. It retains meaningful equity beta, so it tends to fall with the market and fails the test that a mitigator must work when equities drop.",
+            "B": "The most reliable crisis hedge, because the hedge-fund label guarantees negative correlation with listed equity in a drawdown. The item is testing that operational difference, not a label.",
+            "C": "Equivalent to high-quality bonds on liquidity, because both can be sold T+1 without gates when a pension needs cash mid-crisis."
+          },
+          "correct": "A",
+          "rationales": {
+            "A": "Correct. Long-biased / credit-oriented strategies often correlate WITH equities in a crash. The label “hedge fund” does not make it a mitigator.",
+            "B": "Incorrect. The asset-class label is the trap this comparison is meant to catch.",
+            "C": "Incorrect. Many hedge funds have gates/lock-ups; they are not bond-like crisis liquidity."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_to_alternative_investments.b",
+          "reading_id": "asset_allocation_to_alternative_investments",
+          "area_id": "portfolio_construction",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Alts LOS b — long-biased is not a mitigator",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_altaa_mitigator_los_b_q5",
+          "number": 5,
+          "stem": "Rank (i) 10-year government bonds, (ii) a managed-futures fund, and (iii) a long-biased equity hedge fund as equity-risk mitigators:",
+          "options": {
+            "A": "(iii) first, then (ii), then (i). Long-biased funds mitigate most because they are already in the alternatives bucket the IPS treats as a diversifier.",
+            "B": "(i) and (ii) are genuine mitigators — bonds most reliable and liquid, managed futures higher-returning but less certain — while (iii) is not a mitigator.",
+            "C": "All three rank equally if each has the same trailing three-year volatility, because mitigator quality is a volatility ranking rather than a crisis-correlation ranking."
+          },
+          "correct": "B",
+          "rationales": {
+            "A": "Incorrect. Bucket labels do not rank mitigators. Long-biased equity is the non-mitigator.",
+            "B": "Correct. Bonds = reliable, liquid, low-return. Trend = crisis alpha, higher return, less certain/less liquid. Long-biased = equity beta, not a mitigator.",
+            "C": "Incorrect. Average volatility is not the test; behavior WHEN equities fall is."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_to_alternative_investments.b",
+          "reading_id": "asset_allocation_to_alternative_investments",
+          "area_id": "portfolio_construction",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Alts LOS b — rank three candidates",
+          "data_quality": "complete",
+          "data_quality_flags": []
+        },
+        {
+          "id": "r8_altaa_mitigator_los_b_q6",
+          "number": 6,
+          "stem": "For an alternative to beat high-quality bonds as a mitigator of a long equity position, it most likely must:",
+          "options": {
+            "A": "Carry a lock-up long enough that the investor cannot sell in a crash, which by itself is treated as risk mitigation in this comparison. Keep the mechanism, not the slogan, in view when you pick.",
+            "B": "Be grouped under “alternatives” in a traditional opportunity set, because the asset-class label is sufficient evidence of low equity correlation.",
+            "C": "Be reliably uncorrelated or negatively correlated when equities fall, and liquid enough for the hedge to matter — otherwise it is a return overlay, not a mitigator."
+          },
+          "correct": "C",
+          "rationales": {
+            "A": "Incorrect. Illiquidity that traps the investor mid-crisis is a cost, not the definition of a mitigator. Illiquid names often cannot be sold to raise cash.",
+            "B": "Incorrect. Traditional asset-class grouping is the next LOS; it is not proof of mitigation here.",
+            "C": "Correct. Two tests: works when equities drop, and can actually be used (liquidity). Trend often meets both better than long-biased funds; bonds remain the more reliable, more liquid, lower-return answer."
+          },
+          "type": "mc",
+          "primary_los": "asset_allocation_to_alternative_investments.b",
+          "reading_id": "asset_allocation_to_alternative_investments",
+          "area_id": "portfolio_construction",
+          "difficulty": "l3_exam",
+          "curriculum_ref": "Alts LOS b — tests of a true mitigator",
           "data_quality": "complete",
           "data_quality_flags": []
         }

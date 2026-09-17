@@ -127,7 +127,7 @@ enum FlashcardQueue {
 /// only to re-implement the same conditions and compare them with themselves
 /// — green regardless of what the buttons actually did.
 ///
-/// The distinction is the whole point: a `ReviewCard` exists for all 3,115
+/// The distinction is the whole point: a `ReviewCard` exists for all 3,157
 /// questions and a `FlashcardProgress` for all 445 cards from first launch, so
 /// their existence says nothing. Only a RATED card counts.
 enum ResetScope {

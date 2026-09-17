@@ -134,15 +134,15 @@ final class CFAL3UITests: XCTestCase {
 
     // MARK: - A fresh install is not a wall of work
 
-    /// The queue used to announce all 3,115 questions as due on first launch.
+    /// The queue used to announce all 3,157 questions as due on first launch.
     func testFreshInstallOffersAMeteredStartNotTheWholeCorpus() {
         let title = app.staticTexts["home.review.title"].firstMatch
         XCTAssertTrue(waitFor(title), "the review card never appeared")
 
-        XCTAssertFalse(title.label.contains("3,115"),
+        XCTAssertFalse(title.label.contains("3,157"),
                        "a fresh install must not present the entire corpus as due")
         XCTAssertFalse(title.label.contains("All caught up"),
-                       "3,115 unseen questions is not 'caught up'")
+                       "3,157 unseen questions is not 'caught up'")
         XCTAssertTrue(title.label.contains("new"),
                       "expected a metered start, got: \(title.label)")
     }

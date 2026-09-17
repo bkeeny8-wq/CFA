@@ -434,7 +434,7 @@ def process(dry_run: bool) -> int:
                 print(f"  {k}{mark} (unchanged) {s['after'][k][:160]}")
 
     if not dry_run:
-        assert after["n"] == 2625, after
+        assert after["n"] == 2667, after
         assert after["ul_rate"] < 0.40, after
         assert after["us_rate"] < 0.40, after
         print("OK")

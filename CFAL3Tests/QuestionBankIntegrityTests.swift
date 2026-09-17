@@ -96,12 +96,12 @@ final class QuestionBankIntegrityTests: XCTestCase {
         XCTAssertNil(content.loadError, content.loadError ?? "")
 
         XCTAssertEqual(content.totalQuestions, 490)
-        XCTAssertEqual(content.totalDrillQuestions, 2_625)
+        XCTAssertEqual(content.totalDrillQuestions, 2_667)
         XCTAssertEqual(
             content.totalBankAndDrillQuestions,
             content.totalQuestions + content.totalDrillQuestions
         )
-        XCTAssertEqual(content.totalBankAndDrillQuestions, 3_115)
+        XCTAssertEqual(content.totalBankAndDrillQuestions, 3_157)
     }
 
     /// Every attemptable question is seeded a ReviewCard, so the due-count
@@ -299,7 +299,7 @@ final class QuestionBankIntegrityTests: XCTestCase {
                 }
             }
         }
-        XCTAssertEqual(total, 2_625)
+        XCTAssertEqual(total, 2_667)
         XCTAssertLessThan(
             Double(uniqueLongest) / Double(total),
             0.40,
@@ -431,6 +431,9 @@ final class QuestionBankIntegrityTests: XCTestCase {
                             los.displayText
                         )
                         XCTAssertNotEqual(los.displayText, los.text)
+                    } else if let note = LOS.indexBasedCompareNote(for: los.id) {
+                        XCTAssertTrue(los.displayText.hasSuffix(note), los.displayText)
+                        XCTAssertNotEqual(los.displayText, los.text)
                     } else {
                         XCTAssertEqual(los.displayText, los.text)
                     }
@@ -534,6 +537,42 @@ final class QuestionBankIntegrityTests: XCTestCase {
                 "case_study_in_portfolio_management_institutional_endowment.f",
             ]
         )
+    }
+
+    /// Index-Based `.b` vs `.c` are the outline's two compare-statements.
+    func testIndexBasedCompareStatementsAreLabeled() throws {
+        let content = ContentLoader()
+        content.load()
+        let master = try XCTUnwrap(content.losMaster)
+        let byID = Dictionary(uniqueKeysWithValues: master.losFlat.map { ($0.id, $0) })
+        let strategies = try XCTUnwrap(byID["index_based_equity_strategies.b"])
+        let investing = try XCTUnwrap(byID["index_based_equity_strategies.c"])
+        XCTAssertTrue(strategies.displayText.contains("outline compare-statement: strategies"))
+        XCTAssertTrue(investing.displayText.contains("outline compare-statement: investing"))
+        XCTAssertNotEqual(strategies.displayText, investing.displayText)
+    }
+
+    /// AMC `.a`–`.d`, PWM `.a`/`.c`, and alts `.b` now have original drill groups.
+    func testPreviouslyEmptyOfficialLOSHaveOriginalDrills() throws {
+        let content = ContentLoader()
+        content.load()
+        XCTAssertNil(content.loadError, content.loadError ?? "")
+
+        func count(reading: String, letter: String) throws -> Int {
+            let bundle = try XCTUnwrap(content.drillBundle(forReading: reading))
+            let group = try XCTUnwrap(bundle.drills.first { $0.losLetter == letter })
+            XCTAssertEqual(group.losText, content.los(id: "\(reading).\(letter)")?.text)
+            XCTAssertGreaterThanOrEqual(group.questions.count, 6)
+            return group.questions.count
+        }
+
+        XCTAssertEqual(try count(reading: "asset_manager_code_of_professional_conduct", letter: "a"), 6)
+        XCTAssertEqual(try count(reading: "asset_manager_code_of_professional_conduct", letter: "b"), 6)
+        XCTAssertEqual(try count(reading: "asset_manager_code_of_professional_conduct", letter: "c"), 6)
+        XCTAssertEqual(try count(reading: "asset_manager_code_of_professional_conduct", letter: "d"), 6)
+        XCTAssertEqual(try count(reading: "an_overview_of_private_wealth_management", letter: "a"), 6)
+        XCTAssertEqual(try count(reading: "an_overview_of_private_wealth_management", letter: "c"), 6)
+        XCTAssertEqual(try count(reading: "asset_allocation_to_alternative_investments", letter: "b"), 6)
     }
 
     func testAssetManagerCodeHasOriginalStudyNotes() throws {
