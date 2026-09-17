@@ -246,4 +246,36 @@ final class QuestionBankIntegrityTests: XCTestCase {
         XCTAssertTrue(wide.isEmpty, "Questions with more than 3 LOS: \(wide)")
         XCTAssertTrue(unknown.isEmpty, "Unknown LOS ids: \(unknown)")
     }
+
+    /// A uniquely longest correct option is a length cue. Distractors were
+    /// lengthened so the key is not the long answer on most items.
+    func testDrillCorrectOptionIsNotUniquelyLongestOnMostItems() throws {
+        let content = ContentLoader()
+        content.load()
+        XCTAssertNil(content.loadError, content.loadError ?? "")
+
+        var total = 0
+        var uniqueLongest = 0
+        for bundle in content.losDrillBundles.values {
+            for group in bundle.drills {
+                for q in group.questions {
+                    guard let options = q.options, options.count == 3,
+                          let correct = q.correct, let keyText = options[correct]
+                    else { continue }
+                    total += 1
+                    let keyLen = keyText.count
+                    let other = options.compactMap { $0.key == correct ? nil : $0.value.count }
+                    if let longestOther = other.max(), keyLen > longestOther {
+                        uniqueLongest += 1
+                    }
+                }
+            }
+        }
+        XCTAssertEqual(total, 2_625)
+        XCTAssertLessThan(
+            Double(uniqueLongest) / Double(total),
+            0.40,
+            "correct option uniquely longest on \(uniqueLongest)/\(total)"
+        )
+    }
 }
