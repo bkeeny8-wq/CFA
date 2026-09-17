@@ -10,12 +10,16 @@ struct QuestionAttemptView: View {
     let questionID: String
     var standalone: Bool = false
     var sessionProgress: (current: Int, total: Int)?
+    /// Session sittings pass a binding so consecutive questions on the same
+    /// case keep the vignette open (or hidden) together. Standalone sittings
+    /// fall back to `localVignetteExpanded`.
+    var vignetteExpansion: Binding<Bool>? = nil
 
     @State private var selectedOption: String?
     @State private var essayText = ""
     @State private var reasoningText = ""
     @State private var explainReasoning = false
-    @State private var vignetteExpanded = false
+    @State private var localVignetteExpanded = true
     @State private var startedAt = Date()
     @State private var clockStarted = false
     @State private var submittedAttempt: Attempt?
@@ -35,6 +39,9 @@ struct QuestionAttemptView: View {
     private var reviewCard: ReviewCard? {
         cards.first { $0.questionId == questionID }
     }
+    private var isVignetteExpanded: Binding<Bool> {
+        vignetteExpansion ?? $localVignetteExpanded
+    }
 
     var body: some View {
         Group {
@@ -47,7 +54,7 @@ struct QuestionAttemptView: View {
                                 .foregroundStyle(.secondary)
                         }
 
-                        VignetteView(vignette: caseStudy.vignette, isExpanded: $vignetteExpanded)
+                        VignetteView(vignette: caseStudy.vignette, isExpanded: isVignetteExpanded)
 
 
                         Text(question.stem)
@@ -155,8 +162,14 @@ struct QuestionAttemptView: View {
                 startedAt = .now
                 clockStarted = true
             }
-            vignetteExpanded = false
+            if standalone, let caseStudy {
+                localVignetteExpanded = VignetteExpansionStore.isExpanded(caseID: caseStudy.id)
+            }
             restoreDraft()
+        }
+        .onChange(of: localVignetteExpanded) { _, expanded in
+            guard standalone, let caseStudy else { return }
+            VignetteExpansionStore.setExpanded(expanded, caseID: caseStudy.id)
         }
         .onDisappear {
             submitTask?.cancel()

@@ -221,4 +221,29 @@ final class QuestionBankIntegrityTests: XCTestCase {
         }
         XCTAssertTrue(unknown.isEmpty, "Unknown readings: \(unknown)")
     }
+
+    /// Spray-tagging a question with its reading's entire LOS list made
+    /// Practice-by-LOS and coverage credit readings the stem never tested.
+    func testCaseQuestionsAreTaggedToAtMostThreeLOS() throws {
+        let content = ContentLoader()
+        content.load()
+        let master = try XCTUnwrap(content.losMaster)
+        let known = Set(master.losFlat.map(\.id))
+
+        var empty: [String] = []
+        var wide: [String] = []
+        var unknown: [String] = []
+        for q in allQuestions(try loadBank()) {
+            if q.candidateLOS.isEmpty { empty.append(q.id) }
+            if q.candidateLOS.count > 3 {
+                wide.append("\(q.id) (\(q.candidateLOS.count))")
+            }
+            for losID in q.candidateLOS where !known.contains(losID) {
+                unknown.append("\(q.id) -> \(losID)")
+            }
+        }
+        XCTAssertTrue(empty.isEmpty, "Questions with no LOS: \(empty)")
+        XCTAssertTrue(wide.isEmpty, "Questions with more than 3 LOS: \(wide)")
+        XCTAssertTrue(unknown.isEmpty, "Unknown LOS ids: \(unknown)")
+    }
 }

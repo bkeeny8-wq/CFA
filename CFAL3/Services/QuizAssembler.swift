@@ -153,15 +153,12 @@ enum QuizAssembler {
     ///
     /// A picked question is charged to exactly ONE unit — the emptiest one it
     /// touches — never to every under-quota unit at once. Charging them all
-    /// reads like efficient scope-filling, but a bank question's
-    /// `candidate_los` is the candidate list for its whole reading, not a
-    /// claim that the question tests all of them: 213 of the 490 bank
-    /// questions name 24 or more LOS, and some name 33. So five such
-    /// questions landing early drove all nine counters of a nine-LOS
-    /// selection to the quota at once and the walk stopped — 5 questions out
-    /// of 145 eligible, against a promise of 45, and a different number on
-    /// every visit because the pool is reshuffled each time the builder
-    /// appears. Measured over 400 shuffles: 5–23 before, a full 45 after.
+    /// reads like efficient scope-filling, but a bank question can still
+    /// carry more than one LOS (now capped at 3). Before the tags were
+    /// narrowed, 213 of 490 named 24 or more, and five such questions
+    /// landing early drove all nine counters of a nine-LOS selection to the
+    /// quota at once — 5 questions out of 145 eligible, against a promise of
+    /// 45. Measured over 400 shuffles: 5–23 before, a full 45 after.
     ///
     /// One charge per question is also what makes the per-unit contract
     /// honest: N units in scope yield up to N × quota.

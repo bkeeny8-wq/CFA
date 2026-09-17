@@ -57,10 +57,17 @@ struct SessionRunnerView: View {
             total: sessionCoordinator.questionIDs.count
         )
         if content.question(id: questionID) != nil {
+            let caseID = content.context(for: questionID)?.caseId
             QuestionAttemptView(
                 questionID: questionID,
                 standalone: false,
-                sessionProgress: progress
+                sessionProgress: progress,
+                vignetteExpansion: caseID.map { id in
+                    Binding(
+                        get: { sessionCoordinator.vignetteExpanded(for: id) },
+                        set: { sessionCoordinator.setVignetteExpanded($0, for: id) }
+                    )
+                }
             )
         } else if let drill = content.drillQuestion(id: questionID) {
             LOSDrillAttemptView(

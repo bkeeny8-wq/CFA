@@ -1,5 +1,25 @@
 import SwiftUI
 
+/// Standalone sittings (opened from a case row, not a session) persist the
+/// user's hide/show per case. Session sittings use `StudySessionCoordinator`
+/// instead so consecutive questions share one toggle without a flash-reset.
+enum VignetteExpansionStore {
+    private static func key(_ caseID: String) -> String {
+        "vignetteExpanded.\(caseID)"
+    }
+
+    /// Default open — Level III is sat with the vignette on the page.
+    static func isExpanded(caseID: String) -> Bool {
+        let defaults = UITestMode.defaults
+        if defaults.object(forKey: key(caseID)) == nil { return true }
+        return defaults.bool(forKey: key(caseID))
+    }
+
+    static func setExpanded(_ expanded: Bool, caseID: String) {
+        UITestMode.defaults.set(expanded, forKey: key(caseID))
+    }
+}
+
 /// Renders a case vignette from its plain-text structure: paragraphs split on
 /// blank lines, "Exhibit N" headers styled as headers, bullet lines as
 /// bulleted rows, and pipe-delimited tables as real grids. The previous

@@ -14,6 +14,11 @@ final class StudySessionCoordinator {
     /// duration.
     var startedAt: Date = .now
 
+    /// Hide/show for the vignette, keyed by case. Consecutive questions in
+    /// the same case share this so the case does not collapse on every
+    /// advance; a new sitting starts expanded.
+    private var vignetteExpandedByCase: [String: Bool] = [:]
+
     var isActive: Bool { !questionIDs.isEmpty }
     var currentQuestionID: String? {
         guard currentIndex >= 0, currentIndex < questionIDs.count else { return nil }
@@ -28,6 +33,16 @@ final class StudySessionCoordinator {
         self.sessionID = UUID()
         self.completedAttemptIDs = []
         self.startedAt = .now
+        self.vignetteExpandedByCase = [:]
+    }
+
+    /// Default open — Level III is sat with the vignette on the page.
+    func vignetteExpanded(for caseID: String) -> Bool {
+        vignetteExpandedByCase[caseID] ?? true
+    }
+
+    func setVignetteExpanded(_ expanded: Bool, for caseID: String) {
+        vignetteExpandedByCase[caseID] = expanded
     }
 
     /// Persist the finished session. Lives here so the question runner and the
