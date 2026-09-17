@@ -16,12 +16,24 @@ struct WeeklyAttemptVolume: Identifiable {
     let count: Int
 }
 
+struct LOSItemCoverage: Identifiable, Hashable {
+    let losID: String
+    let letter: String
+    let displayText: String
+    let attempted: Int
+    let questionCount: Int
+    let correctRate: Double?
+
+    var id: String { losID }
+}
+
 struct LOSReadingCoverage {
     let readingID: String
     let readingName: String
     let attempted: Int
     let questionCount: Int
     let correctRate: Double?
+    let items: [LOSItemCoverage]
 }
 
 struct LOSAreaCoverage {
@@ -181,27 +193,27 @@ enum ProgressStats {
     static func losCoverage(content: ContentLoader, attempts: [Attempt]) -> [LOSAreaCoverage] {
         guard let master = content.losMaster, let bank = content.questionBank else { return [] }
 
-        let questionsByReading: [String: [String]] = {
-            var map: [String: Set<String>] = [:]
-            for topic in bank.topics {
-                for caseStudy in topic.cases {
-                    for question in caseStudy.questions {
-                        for readingID in question.primaryReadingIDs {
-                            map[readingID, default: []].insert(question.id)
-                        }
+        // Per-LOS pool: case items tagged on that LOS ∪ drills whose primary
+        // LOS is that row. Reading totals are the union of those pools, so
+        // Standard III and GIPS .k show their own attempted/size instead of
+        // disappearing into a reading-level smear.
+        var questionsByLOS: [String: Set<String>] = [:]
+        for topic in bank.topics {
+            for caseStudy in topic.cases {
+                for question in caseStudy.questions {
+                    for losID in question.candidateLOS {
+                        questionsByLOS[losID, default: []].insert(question.id)
                     }
                 }
             }
-            // drills are first-class practice content; count them per reading.
-            for bundle in content.losDrillBundles.values {
-                for group in bundle.drills {
-                    for drill in group.questions {
-                        map[drill.readingID, default: []].insert(drill.id)
-                    }
+        }
+        for bundle in content.losDrillBundles.values {
+            for group in bundle.drills {
+                for drill in group.questions {
+                    questionsByLOS[drill.primaryLOS, default: []].insert(drill.id)
                 }
             }
-            return map.mapValues { Array($0) }
-        }()
+        }
 
         let latestAttemptByQuestion: [String: Attempt] = {
             var map: [String: Attempt] = [:]
@@ -211,19 +223,42 @@ enum ProgressStats {
             return map
         }()
 
+        func coverage(for ids: Set<String>) -> (attempted: Int, total: Int, rate: Double?) {
+            let attemptedIDs = ids.filter { latestAttemptByQuestion[$0] != nil }
+            let gradable = attemptedIDs.compactMap { latestAttemptByQuestion[$0] }.filter { $0.wasCorrect != nil }
+            let correct = gradable.filter { $0.wasCorrect == true }.count
+            let rate: Double? = gradable.isEmpty ? nil : Double(correct) / Double(gradable.count)
+            return (attemptedIDs.count, ids.count, rate)
+        }
+
         return master.areas.map { area in
             let readings = area.readings.map { reading -> LOSReadingCoverage in
-                let questionIDs = questionsByReading[reading.id] ?? []
-                let attemptedIDs = questionIDs.filter { latestAttemptByQuestion[$0] != nil }
-                let gradable = attemptedIDs.compactMap { latestAttemptByQuestion[$0] }.filter { $0.wasCorrect != nil }
-                let correct = gradable.filter { $0.wasCorrect == true }.count
-                let rate: Double? = gradable.isEmpty ? nil : Double(correct) / Double(gradable.count)
+                let items = reading.los.map { los -> LOSItemCoverage in
+                    let ids = questionsByLOS[los.id] ?? []
+                    let stats = coverage(for: ids)
+                    return LOSItemCoverage(
+                        losID: los.id,
+                        letter: los.letter,
+                        displayText: los.displayText,
+                        attempted: stats.attempted,
+                        questionCount: stats.total,
+                        correctRate: stats.rate
+                    )
+                }
+                var readingIDs = Set<String>()
+                for los in reading.los {
+                    if let ids = questionsByLOS[los.id] {
+                        readingIDs.formUnion(ids)
+                    }
+                }
+                let stats = coverage(for: readingIDs)
                 return LOSReadingCoverage(
                     readingID: reading.id,
                     readingName: reading.name,
-                    attempted: attemptedIDs.count,
-                    questionCount: questionIDs.count,
-                    correctRate: rate
+                    attempted: stats.attempted,
+                    questionCount: stats.total,
+                    correctRate: stats.rate,
+                    items: items
                 )
             }
             return LOSAreaCoverage(areaID: area.id, areaName: area.name, readings: readings)

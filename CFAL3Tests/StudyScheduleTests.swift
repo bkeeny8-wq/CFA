@@ -105,6 +105,22 @@ final class StudyScheduleTests: XCTestCase {
         }
     }
 
+    func testEthicsPlanBlocksOpen2027Modules() {
+        let expected: [(needle: String, readingID: String, count: Int)] = [
+            ("B5-M1", "code_and_standards", 8),
+            ("B5-M2", "guidance_standard_i_professionalism", 8),
+            ("B5-M3", "application_of_code_and_standards_l3", 9),
+            ("B5-M4", "asset_manager_code_of_professional_conduct", 8),
+        ]
+        for row in expected {
+            let blocks = schedule.days.flatMap(\.blocks).filter { $0.label.contains(row.needle) }
+            XCTAssertEqual(blocks.count, row.count, row.needle)
+            for block in blocks {
+                XCTAssertEqual(block.readingID, row.readingID, block.label)
+            }
+        }
+    }
+
     func testScheduleBlockReadingIDDecodes() throws {
         let json = """
         {

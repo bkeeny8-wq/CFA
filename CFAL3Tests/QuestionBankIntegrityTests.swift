@@ -439,4 +439,123 @@ final class QuestionBankIntegrityTests: XCTestCase {
         }
         XCTAssertEqual(prefixed.count, 7)
     }
+
+    /// Per-LOS Progress pools are candidate_los ∪ drill primary_los, so a
+    /// Standard or GIPS letter is visible even when the reading row is busy.
+    func testPerLOSCoverageUsesCandidateLOSUnionDrills() throws {
+        let content = ContentLoader()
+        content.load()
+        XCTAssertNil(content.loadError, content.loadError ?? "")
+        let coverage = ProgressStats.losCoverage(content: content, attempts: [])
+
+        func reading(_ areaID: String, _ readingID: String) throws -> LOSReadingCoverage {
+            let area = try XCTUnwrap(coverage.first { $0.areaID == areaID })
+            return try XCTUnwrap(area.readings.first { $0.readingID == readingID })
+        }
+        func item(_ reading: LOSReadingCoverage, letter: String) throws -> LOSItemCoverage {
+            try XCTUnwrap(reading.items.first { $0.letter == letter })
+        }
+
+        let standardIII = try reading(
+            "ethical_and_professional_standards",
+            "guidance_standard_iii_duties_to_clients"
+        )
+        XCTAssertGreaterThan(standardIII.questionCount, 0)
+        XCTAssertGreaterThan(try item(standardIII, letter: "a").questionCount, 0)
+
+        let gips = try reading(
+            "performance_measurement",
+            "overview_of_the_global_investment_performance_standards"
+        )
+        XCTAssertGreaterThan(try item(gips, letter: "k").questionCount, 0)
+
+        let swf = try reading(
+            "portfolio_construction",
+            "case_study_in_portfolio_management_institutional_swf"
+        )
+        XCTAssertGreaterThan(swf.questionCount, 0)
+        XCTAssertGreaterThan(try item(swf, letter: "c").questionCount, 0)
+
+        let endowment = try reading(
+            "portfolio_management_pathway",
+            "case_study_in_portfolio_management_institutional_endowment"
+        )
+        XCTAssertGreaterThan(endowment.questionCount, 0)
+        XCTAssertGreaterThan(try item(endowment, letter: "a").questionCount, 0)
+    }
+
+    func testSWFAndEndowmentCaseStudyStemsAreTagged() throws {
+        let byID = Dictionary(uniqueKeysWithValues: allQuestions(try loadBank()).map { ($0.id, $0) })
+        func los(_ id: String) throws -> [String] {
+            try XCTUnwrap(byID[id], "missing \(id)").candidateLOS
+        }
+        XCTAssertEqual(
+            try los("elbe_society_the_elbe_society_q4"),
+            [
+                "case_study_in_portfolio_management_institutional_endowment.a",
+                "asset_allocation_to_alternative_investments.g",
+            ]
+        )
+        XCTAssertEqual(
+            try los("elbe_society_the_elbe_society_essay_q7"),
+            [
+                "case_study_in_portfolio_management_institutional_endowment.a",
+                "case_study_in_portfolio_management_institutional_endowment.c",
+                "asset_allocation_to_alternative_investments.g",
+            ]
+        )
+        XCTAssertEqual(
+            try los("elbe_society_the_elbe_society_essay_q8"),
+            [
+                "asset_allocation_to_alternative_investments.e",
+                "asset_allocation_to_alternative_investments.a",
+                "case_study_in_portfolio_management_institutional_swf.c",
+            ]
+        )
+        XCTAssertEqual(
+            try los("gambier_advisory_lucas_thompson_essay_q7"),
+            [
+                "asset_allocation_to_alternative_investments.a",
+                "asset_allocation_to_alternative_investments.f",
+                "case_study_in_portfolio_management_institutional_swf.d",
+            ]
+        )
+        XCTAssertEqual(
+            try los("rothhaven_foundation_alt_pathway_essay_q4"),
+            [
+                "case_study_in_portfolio_management_institutional_endowment.g",
+                "asset_allocation_to_alternative_investments.d",
+            ]
+        )
+        XCTAssertEqual(
+            try los("aventine_pension_swaps_pathway_essay_q3"),
+            [
+                "swaps_forwards_and_futures_strategies.a",
+                "case_study_in_portfolio_management_institutional_endowment.f",
+            ]
+        )
+    }
+
+    func testAssetManagerCodeHasOriginalStudyNotes() throws {
+        let content = ContentLoader()
+        content.load()
+        let entry = try XCTUnwrap(
+            content.readingNotes(id: "asset_manager_code_of_professional_conduct")
+        )
+        let blocks = NotesContentParser.parse(entry.content)
+        XCTAssertFalse(blocks.isEmpty)
+        let losHeaders = blocks.compactMap { block -> Int? in
+            if case .losSection(let number, _) = block { return number }
+            return nil
+        }
+        XCTAssertEqual(losHeaders, [1, 2, 3, 4])
+        XCTAssertFalse(blocks.contains { block in
+            switch block {
+            case .subheading(let t), .paragraph(let t):
+                return t.contains("Study Notes") || t.hasPrefix("Topic Area:") || t.hasPrefix("Reading:")
+            default:
+                return false
+            }
+        })
+    }
 }

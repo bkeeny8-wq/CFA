@@ -42,22 +42,39 @@ def book_for(label: str) -> int | None:
     return int(match.group(1)) if match else None
 
 
-AMC_READING_ID = "asset_manager_code_of_professional_conduct"
-
-
 def reading_id_for(label: str) -> str | None:
+    # 2026 calendar packs ethics as Code I / Code II / Application / AMC.
+    # 2027 splits Code II into seven Guidance modules; M2 opens Standard I,
+    # the first of that cluster.
+    if "B5-M1" in label:
+        return "code_and_standards"
+    if "B5-M2" in label:
+        return "guidance_standard_i_professionalism"
+    if "B5-M3" in label:
+        return "application_of_code_and_standards_l3"
     if "B5-M4" in label:
-        return AMC_READING_ID
+        return "asset_manager_code_of_professional_conduct"
     return None
 
 
 def normalize_label(label: str) -> str:
-    if "B5-M4 Asset Manager Code" in label and "Professional Conduct" not in label:
-        return label.replace(
+    replacements = (
+        ("B5-M1 Code of Ethics I", "B5-M1 Code of Ethics and Standards"),
+        ("B5-M2 Code of Ethics II", "B5-M2 Guidance for Standards I–VII"),
+        (
+            "B5-M3 Application of Code & Standards",
+            "B5-M3 Application of the Code and Standards",
+        ),
+        (
             "B5-M4 Asset Manager Code",
             "B5-M4 Asset Manager Code of Professional Conduct",
-        )
-    return label
+        ),
+    )
+    out = label
+    for old, new in replacements:
+        if old in out and new not in out:
+            out = out.replace(old, new)
+    return out
 
 
 def export(xlsx_path: Path) -> dict:
