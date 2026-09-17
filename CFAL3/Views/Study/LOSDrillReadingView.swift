@@ -208,10 +208,7 @@ struct DrillSessionRunnerView: View {
                         Button("Done") {
                             // Drill sessions were never recorded, so half the
                             // content never appeared in history or backups.
-                            if !sessionCoordinator.completedAttemptIDs.isEmpty {
-                                modelContext.insert(sessionCoordinator.makeSessionRecord())
-                                try? modelContext.save()
-                            }
+                            sessionCoordinator.persist(into: modelContext)
                             sessionCoordinator.finish()
                             dismiss()
                         }
@@ -241,6 +238,11 @@ struct DrillSessionRunnerView: View {
             if newValue >= sessionCoordinator.questionIDs.count, !sessionCoordinator.questionIDs.isEmpty {
                 showSummary = true
             }
+        }
+        // Same as the question runner: record as you go, so abandoning a drill
+        // session still leaves a row behind.
+        .onChange(of: sessionCoordinator.completedAttemptIDs.count) { _, _ in
+            sessionCoordinator.persist(into: modelContext)
         }
     }
 }

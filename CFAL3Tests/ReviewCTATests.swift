@@ -158,3 +158,63 @@ final class ReviewCTATests: XCTestCase {
         XCTAssertEqual(Formatting.estimatedMinutes(mc: 0, essays: 20), 80)
     }
 }
+
+// MARK: - Study streak
+
+/// The streak is the one number the app shows you before you have done
+/// anything that day, so when it is wrong it is wrong at exactly the wrong
+/// moment.
+final class StudyStreakTests: XCTestCase {
+
+    private var calendar: Calendar {
+        var c = Calendar(identifier: .gregorian)
+        c.timeZone = TimeZone(identifier: "America/New_York")!
+        return c
+    }
+
+    private func attempt(daysAgo: Int, from now: Date) -> Attempt {
+        let day = calendar.date(byAdding: .day, value: -daysAgo, to: now)!
+        return Attempt(
+            questionId: "q-\(daysAgo)", caseId: "c", topicId: "t",
+            timestamp: day, durationSeconds: 30
+        )
+    }
+
+    private var noonToday: Date {
+        calendar.date(from: DateComponents(year: 2026, month: 9, day: 17, hour: 12))!
+    }
+
+    /// The bug: counting began at today, so a streak collapsed to 0 at
+    /// midnight and stayed there until the first question of the day.
+    func testStreakSurvivesUntilTheDayEndsNotUntilItStarts() {
+        let now = noonToday
+        // Studied yesterday and the three days before. Nothing yet today.
+        let attempts = (1...4).map { attempt(daysAgo: $0, from: now) }
+
+        XCTAssertEqual(
+            ProgressStats.streakDays(attempts: attempts, now: now), 4,
+            "a four-day streak read as broken because today had not started yet"
+        )
+    }
+
+    func testStudyingTodayExtendsTheStreak() {
+        let now = noonToday
+        let attempts = (0...3).map { attempt(daysAgo: $0, from: now) }
+        XCTAssertEqual(ProgressStats.streakDays(attempts: attempts, now: now), 4)
+    }
+
+    /// Two clear days IS a broken streak — the grace period is one day, not
+    /// unlimited.
+    func testAGapOfAWholeDayBreaksTheStreak() {
+        let now = noonToday
+        let attempts = [2, 3, 4].map { attempt(daysAgo: $0, from: now) }
+        XCTAssertEqual(
+            ProgressStats.streakDays(attempts: attempts, now: now), 0,
+            "yesterday was missed as well, so there is no live streak"
+        )
+    }
+
+    func testNoAttemptsIsNoStreak() {
+        XCTAssertEqual(ProgressStats.streakDays(attempts: [], now: noonToday), 0)
+    }
+}

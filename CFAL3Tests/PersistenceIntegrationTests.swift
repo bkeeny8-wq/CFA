@@ -47,16 +47,52 @@ final class PersistenceIntegrationTests: XCTestCase {
         XCTAssertEqual(Set(cards.map(\.questionId)).count, cards.count, "duplicate seeds")
     }
 
-    /// It runs on every launch, so a second pass must add nothing — the unique
-    /// constraint on questionId would otherwise fail the save.
+    /// It runs on every launch, so a second pass must add nothing AND disturb
+    /// nothing.
+    ///
+    /// Counting rows alone was not enough: a re-seed that upserted over every
+    /// existing card would keep the count identical while resetting each one's
+    /// schedule to "new", silently wiping the user's spaced repetition on
+    /// every launch. So the schedules are captured and compared too.
     func testBootstrapIsIdempotent() throws {
         content.bootstrapReviewCards(context: context)
-        content.bootstrapReviewCards(context: context)
-        XCTAssertEqual(try fetch(ReviewCard.self).count, content.totalBankAndDrillQuestions)
+        content.bootstrapFlashcardProgress(context: context)
 
+        // Age a card and a flashcard so there is real state to disturb.
+        let card = try XCTUnwrap(try fetch(ReviewCard.self).first)
+        ReviewScheduler.update(card: card, quality: 5)
+        let flashcard = try XCTUnwrap(try fetch(FlashcardProgress.self).first)
+        flashcard.firstAttemptedAt = .now
+        ReviewScheduler.update(item: flashcard, quality: 4)
+        try context.save()
+
+        let cardsBefore = try fetch(ReviewCard.self)
+            .reduce(into: [String: (Int, Int, Date)]()) {
+                $0[$1.questionId] = ($1.interval, $1.repetitions, $1.dueDate)
+            }
+        let flashcardsBefore = try fetch(FlashcardProgress.self)
+            .reduce(into: [String: (Int, Int, Date?)]()) {
+                $0[$1.cardId] = ($1.interval, $1.totalAttempts, $1.firstAttemptedAt)
+            }
+
+        content.bootstrapReviewCards(context: context)
         content.bootstrapFlashcardProgress(context: context)
-        content.bootstrapFlashcardProgress(context: context)
+
+        XCTAssertEqual(try fetch(ReviewCard.self).count, content.totalBankAndDrillQuestions)
         XCTAssertEqual(try fetch(FlashcardProgress.self).count, content.totalFlashcards)
+
+        for row in try fetch(ReviewCard.self) {
+            let before = try XCTUnwrap(cardsBefore[row.questionId])
+            XCTAssertEqual(row.interval, before.0, "\(row.questionId): interval was re-seeded")
+            XCTAssertEqual(row.repetitions, before.1, "\(row.questionId): repetitions were re-seeded")
+            XCTAssertEqual(row.dueDate, before.2, "\(row.questionId): due date was re-seeded")
+        }
+        for row in try fetch(FlashcardProgress.self) {
+            let before = try XCTUnwrap(flashcardsBefore[row.cardId])
+            XCTAssertEqual(row.interval, before.0, "\(row.cardId): interval was re-seeded")
+            XCTAssertEqual(row.totalAttempts, before.1, "\(row.cardId): history was re-seeded")
+            XCTAssertEqual(row.firstAttemptedAt, before.2, "\(row.cardId): introduction was re-dated")
+        }
     }
 
     // MARK: - A freshly seeded store is not a queue full of work
@@ -186,35 +222,94 @@ final class PersistenceIntegrationTests: XCTestCase {
         content.bootstrapReviewCards(context: context)
         content.bootstrapFlashcardProgress(context: context)
 
-        let attempts = try fetch(Attempt.self)
-        let sessions = try fetch(Session.self)
-        let ratedCards = try fetch(FlashcardProgress.self).filter { $0.totalAttempts > 0 }
+        // Through the production gate, not a copy of it. This used to fetch
+        // the rows and assert emptiness inline, which is the same predicate
+        // agreeing with itself — it could not fail however the buttons behaved.
+        func hasProgress() throws -> Bool {
+            try ResetScope.hasAnyProgress(
+                attempts: fetch(Attempt.self),
+                sessions: fetch(Session.self),
+                dayCompletions: fetch(DayCompletion.self),
+                losStatuses: fetch(LOSStudyStatus.self),
+                flashcards: fetch(FlashcardProgress.self)
+            )
+        }
 
-        XCTAssertTrue(attempts.isEmpty && sessions.isEmpty && ratedCards.isEmpty,
-                      "a seeded store holds no user progress")
-        XCTAssertEqual(attempts.count + sessions.count + ratedCards.count, 0,
-                       "the erase summary would report zero, so the button must be disabled")
+        XCTAssertFalse(try hasProgress(), "a freshly seeded store holds no user progress")
+        XCTAssertFalse(
+            try ResetScope.hasQuizHistory(attempts: fetch(Attempt.self), sessions: fetch(Session.self)),
+            "…so Clear quiz attempts must be disabled too"
+        )
         XCTAssertFalse(try fetch(ReviewCard.self).isEmpty,
                        "…even though thousands of scheduling rows exist")
+
+        // And it must notice the moment there IS something to erase. A rated
+        // flashcard alone counts: a Cards-only user once found both buttons
+        // permanently disabled.
+        let row = try XCTUnwrap(try fetch(FlashcardProgress.self).first)
+        ReviewScheduler.update(item: row, quality: 4)
+        try context.save()
+
+        XCTAssertTrue(try hasProgress(), "a rated flashcard is progress worth erasing")
+        XCTAssertFalse(
+            try ResetScope.hasQuizHistory(attempts: fetch(Attempt.self), sessions: fetch(Session.self)),
+            "but it is not quiz history, so Clear stays disabled"
+        )
     }
 
     // MARK: - Flashcard pacing over a real store
 
+    /// Exercises the real introduction rule rather than hand-stamping the date
+    /// and asserting it stayed put. The old version set `firstAttemptedAt`
+    /// itself and then checked that a second rating did not change the count —
+    /// but nothing in that test ever ran the guard that decides whether to
+    /// stamp, so the "second rating spends no slot" claim could not fail.
     func testRatingAFlashcardSpendsExactlyOneDailySlot() throws {
         content.bootstrapFlashcardProgress(context: context)
-        let rows = try fetch(FlashcardProgress.self)
-        let row = try XCTUnwrap(rows.first)
+        let row = try XCTUnwrap(try fetch(FlashcardProgress.self).first)
 
-        row.firstAttemptedAt = .now
-        ReviewScheduler.update(item: row, quality: 4)
-        try context.save()
+        // What FlashcardSessionView.rate does, in the same order.
+        func rate(_ row: FlashcardProgress, quality: Int) throws {
+            if row.isBeingIntroduced { row.firstAttemptedAt = .now }
+            ReviewScheduler.update(item: row, quality: quality)
+            try context.save()
+        }
 
+        XCTAssertTrue(row.isBeingIntroduced, "a seeded, never-rated row is a new card")
+        try rate(row, quality: 4)
         XCTAssertEqual(FlashcardQueue.introducedToday(progress: try fetch(FlashcardProgress.self)), 1)
 
         // Rating the same card again the same day must not spend a second.
-        ReviewScheduler.update(item: row, quality: 5)
-        try context.save()
+        XCTAssertFalse(row.isBeingIntroduced, "it has been introduced now")
+        try rate(row, quality: 5)
         XCTAssertEqual(FlashcardQueue.introducedToday(progress: try fetch(FlashcardProgress.self)), 1)
+    }
+
+    /// A row carrying history but no `firstAttemptedAt` — written before that
+    /// field existed — is an OLD card, and rating it must not spend one of
+    /// today's new-card slots.
+    func testReviewingALegacyCardDoesNotSpendANewCardSlot() throws {
+        content.bootstrapFlashcardProgress(context: context)
+        let row = try XCTUnwrap(try fetch(FlashcardProgress.self).first)
+
+        // The shape a pre-migration row has: rated repeatedly, never dated.
+        row.firstAttemptedAt = nil
+        row.totalAttempts = 7
+        row.repetitions = 3
+        row.interval = 15
+        try context.save()
+
+        XCTAssertFalse(row.isBeingIntroduced,
+                       "history without a date is still history, not an introduction")
+
+        if row.isBeingIntroduced { row.firstAttemptedAt = .now }
+        ReviewScheduler.update(item: row, quality: 4)
+        try context.save()
+
+        XCTAssertEqual(
+            FlashcardQueue.introducedToday(progress: try fetch(FlashcardProgress.self)), 0,
+            "reviewing an old card ate one of today's new-card slots"
+        )
     }
 
     // MARK: - The queue is stable across evaluations
@@ -257,5 +352,60 @@ final class PersistenceIntegrationTests: XCTestCase {
         let a = ReviewQueue.plan(cards: cards, attempts: [], dailyNewLimit: 20, isEligible: eligible)
         let b = ReviewQueue.plan(cards: cards, attempts: [], dailyNewLimit: 20, isEligible: eligible)
         XCTAssertEqual(a.sessionIDs, b.sessionIDs)
+    }
+
+    // MARK: - Session records survive every way out
+
+    /// "Save & exit" used to be the only writer of a Session row, so leaving
+    /// by the back button, a swipe, or a tab switch lost the record of that
+    /// sitting entirely. The attempts survived — each is saved as it is graded
+    /// — but the row that groups them into a session did not, so history
+    /// under-counted sittings and backups exported fewer sessions than had
+    /// happened.
+    @MainActor
+    func testSessionIsRecordedAsItProgressesNotOnlyOnSaveAndExit() throws {
+        let coordinator = StudySessionCoordinator()
+        coordinator.start(questionIDs: ["q1", "q2", "q3"], mode: .reviewDue, filterDescription: "Due")
+
+        XCTAssertTrue(try fetch(Session.self).isEmpty, "nothing answered yet, nothing to record")
+
+        coordinator.recordAttempt(UUID())
+        coordinator.persist(into: context)
+
+        let afterOne = try fetch(Session.self)
+        XCTAssertEqual(afterOne.count, 1, "the sitting must be on record before the user leaves")
+        XCTAssertEqual(afterOne.first?.attemptIds.count, 1)
+        XCTAssertEqual(afterOne.first?.mode, SessionMode.reviewDue.rawValue)
+        XCTAssertEqual(afterOne.first?.filterDescription, "Due")
+
+        // Answering more updates the SAME row rather than piling up duplicates.
+        coordinator.recordAttempt(UUID())
+        coordinator.recordAttempt(UUID())
+        coordinator.persist(into: context)
+
+        let afterThree = try fetch(Session.self)
+        XCTAssertEqual(afterThree.count, 1, "each answer wrote a new session row")
+        XCTAssertEqual(afterThree.first?.attemptIds.count, 3)
+        XCTAssertEqual(afterThree.first?.startedAt, coordinator.startedAt,
+                       "the session kept its real start time")
+    }
+
+    /// Two sittings are two rows. The record is keyed on the session, so a
+    /// stable id must not mean one row forever.
+    @MainActor
+    func testASecondSessionGetsItsOwnRow() throws {
+        let coordinator = StudySessionCoordinator()
+
+        coordinator.start(questionIDs: ["q1"], mode: .reviewDue, filterDescription: "First")
+        coordinator.recordAttempt(UUID())
+        coordinator.persist(into: context)
+
+        coordinator.start(questionIDs: ["q2"], mode: .losDrill, filterDescription: "Second")
+        coordinator.recordAttempt(UUID())
+        coordinator.persist(into: context)
+
+        let sessions = try fetch(Session.self)
+        XCTAssertEqual(sessions.count, 2)
+        XCTAssertEqual(Set(sessions.map(\.filterDescription)), ["First", "Second"])
     }
 }

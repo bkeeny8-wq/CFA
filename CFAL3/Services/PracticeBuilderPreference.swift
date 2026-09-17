@@ -171,3 +171,61 @@ final class PracticeBuilderPreference {
         weaknessWeighted = false
     }
 }
+
+/// The Practice scope cascade: which readings a book selection allows, which
+/// LOS a reading selection allows, and what to drop when the selection above
+/// narrows.
+///
+/// This lived as private methods on `PracticeBuilderView`, which meant the
+/// tests covering it could only re-implement the same predicates inline and
+/// compare them with themselves — they exercised no production code and could
+/// not fail however the real cascade behaved. It is pure and takes the areas
+/// explicitly, so it is testable and the view is thinner for it.
+enum PracticeScope {
+    /// Readings belonging to the selected books; an empty selection means all.
+    static func readings(in areas: [CurriculumArea], topics: Set<String>) -> Set<String> {
+        var ids = Set<String>()
+        for area in areas where topics.isEmpty || topics.contains(area.id) {
+            for reading in area.readings { ids.insert(reading.id) }
+        }
+        return ids
+    }
+
+    /// LOS belonging to the selected readings, or — when no reading is picked
+    /// — to the selected books.
+    static func los(
+        in areas: [CurriculumArea],
+        readings: Set<String>,
+        topics: Set<String>
+    ) -> Set<String> {
+        var ids = Set<String>()
+        for area in areas {
+            for reading in area.readings {
+                let inScope = readings.isEmpty
+                    ? (topics.isEmpty || topics.contains(area.id))
+                    : readings.contains(reading.id)
+                if inScope { for los in reading.los { ids.insert(los.id) } }
+            }
+        }
+        return ids
+    }
+
+    /// The selection that survives after the books change: readings outside
+    /// the chosen books go, and then any LOS left without a home.
+    static func pruned(
+        areas: [CurriculumArea],
+        topics: Set<String>,
+        readings: Set<String>,
+        los selectedLOS: Set<String>
+    ) -> (readings: Set<String>, los: Set<String>) {
+        var keptReadings = readings
+        if !topics.isEmpty {
+            keptReadings.formIntersection(self.readings(in: areas, topics: topics))
+        }
+        guard !keptReadings.isEmpty || !topics.isEmpty else {
+            return (keptReadings, selectedLOS)
+        }
+        let allowedLOS = los(in: areas, readings: keptReadings, topics: topics)
+        return (keptReadings, selectedLOS.intersection(allowedLOS))
+    }
+}

@@ -84,7 +84,7 @@ struct SettingsView: View {
                 // ReviewCards are seeded for every question at launch, so
                 // including them here left both buttons permanently enabled —
                 // and a confirmed erase then reported "0 records".
-                .disabled(attempts.isEmpty && sessions.isEmpty)
+                .disabled(!ResetScope.hasQuizHistory(attempts: attempts, sessions: sessions))
 
                 Button(role: .destructive) {
                     showResetConfirm = true
@@ -94,9 +94,13 @@ struct SettingsView: View {
                 // Flashcard rows are seeded like ReviewCards, so only a RATED
                 // one counts as progress worth erasing. Without this a
                 // Cards-only user found both buttons permanently disabled.
-                .disabled(attempts.isEmpty && sessions.isEmpty
-                          && dayCompletions.isEmpty && losStudyStatuses.isEmpty
-                          && !flashcardProgress.contains { $0.totalAttempts > 0 })
+                .disabled(!ResetScope.hasAnyProgress(
+                    attempts: attempts,
+                    sessions: sessions,
+                    dayCompletions: dayCompletions,
+                    losStatuses: losStudyStatuses,
+                    flashcards: flashcardProgress
+                ))
             } header: {
                 Text("Reset")
             } footer: {

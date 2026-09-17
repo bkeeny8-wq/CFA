@@ -105,13 +105,30 @@ enum ProgressStats {
             .map { $0 }
     }
 
+    /// Consecutive days studied, counting back from today — or from yesterday
+    /// if today has not been studied YET.
+    ///
+    /// That "yet" is the whole point. Counting from today alone meant the
+    /// streak collapsed to 0 at midnight and stayed there until the first
+    /// question of the day: you opened the app having studied thirty days
+    /// running and were told your streak was zero, which is both wrong and
+    /// exactly the wrong thing to say to someone about to start.
     static func streakDays(attempts: [Attempt], now: Date = .now) -> Int {
         guard !attempts.isEmpty else { return 0 }
         let calendar = Calendar.current
         let daysWithAttempts = Set(attempts.map { calendar.startOfDay(for: $0.timestamp) })
-        var streak = 0
-        var cursor = calendar.startOfDay(for: now)
+        let today = calendar.startOfDay(for: now)
 
+        // A streak is alive until today ENDS, not until today begins.
+        var cursor = today
+        if !daysWithAttempts.contains(today) {
+            guard let yesterday = calendar.date(byAdding: .day, value: -1, to: today) else {
+                return 0
+            }
+            cursor = yesterday
+        }
+
+        var streak = 0
         while daysWithAttempts.contains(cursor) {
             streak += 1
             guard let previous = calendar.date(byAdding: .day, value: -1, to: cursor) else { break }

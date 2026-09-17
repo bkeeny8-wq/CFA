@@ -17,6 +17,7 @@ struct QuestionAttemptView: View {
     @State private var explainReasoning = false
     @State private var vignetteExpanded = false
     @State private var startedAt = Date()
+    @State private var clockStarted = false
     @State private var submittedAttempt: Attempt?
     @State private var showResult = false
     @State private var isSubmitting = false
@@ -143,7 +144,17 @@ struct QuestionAttemptView: View {
             }
         }
         .onAppear {
-            startedAt = .now
+            // First appearance only. `onAppear` fires again every time this
+            // view comes back — returning from the result screen, or leaving
+            // for another tab and coming back — and restarting the clock there
+            // both reset the pacing timer mid-question and made
+            // Attempt.durationSeconds report only the time since the last
+            // reappearance. Measured on device: a question open for 55 seconds
+            // recorded 19.
+            if !clockStarted {
+                startedAt = .now
+                clockStarted = true
+            }
             vignetteExpanded = false
             restoreDraft()
         }

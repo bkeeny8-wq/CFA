@@ -120,6 +120,11 @@ struct PracticeBuilderView: View {
             .buttonStyle(PrimaryCTA())
             .disabled(matching == 0)
             .padding(.horizontal)
+            // Match the form above it. The bar stays full width — it is a bar
+            // — but a 1000pt-wide button under a 640pt-wide list looked like
+            // it belonged to a different screen.
+            .frame(maxWidth: horizontalSizeClass == .regular ? 640 : .infinity)
+            .frame(maxWidth: .infinity)
             .padding(.bottom, 6)
             .background(.bar)
         }
@@ -216,39 +221,30 @@ struct PracticeBuilderView: View {
 
     /// Readings that belong to the selected books (empty selection ⇒ all books).
     private func readingsInScope(topics: Set<String>) -> Set<String> {
-        guard let areas = content.losMaster?.areas else { return [] }
-        var ids = Set<String>()
-        for area in areas where topics.isEmpty || topics.contains(area.id) {
-            for reading in area.readings { ids.insert(reading.id) }
-        }
-        return ids
+        PracticeScope.readings(in: content.losMaster?.areas ?? [], topics: topics)
     }
 
     /// LOS that belong to the selected readings, or — when no readings are
     /// picked — to the selected books.
     private func losInScope(readings: Set<String>, topics: Set<String>) -> Set<String> {
-        guard let areas = content.losMaster?.areas else { return [] }
-        var ids = Set<String>()
-        for area in areas {
-            for reading in area.readings {
-                let inScope = readings.isEmpty
-                    ? (topics.isEmpty || topics.contains(area.id))
-                    : readings.contains(reading.id)
-                if inScope { for los in reading.los { ids.insert(los.id) } }
-            }
-        }
-        return ids
+        PracticeScope.los(
+            in: content.losMaster?.areas ?? [],
+            readings: readings,
+            topics: topics
+        )
     }
 
     /// After the book selection changes, drop readings (and then LOS) that no
     /// longer fall inside the chosen books.
     private func pruneReadingsAndLOS() {
-        if !pref.selectedTopics.isEmpty {
-            let allowed = readingsInScope(topics: pref.selectedTopics)
-            let kept = pref.selectedReadings.intersection(allowed)
-            if kept != pref.selectedReadings { pref.selectedReadings = kept }
-        }
-        pruneLOS()
+        let kept = PracticeScope.pruned(
+            areas: content.losMaster?.areas ?? [],
+            topics: pref.selectedTopics,
+            readings: pref.selectedReadings,
+            los: pref.selectedLOS
+        )
+        if kept.readings != pref.selectedReadings { pref.selectedReadings = kept.readings }
+        if kept.los != pref.selectedLOS { pref.selectedLOS = kept.los }
     }
 
     /// Drop LOS picks that fall outside the current reading/book scope.

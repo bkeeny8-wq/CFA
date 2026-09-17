@@ -92,13 +92,22 @@ struct StudyReadingRowCard: View {
         let losFraction = progress.total == 0 ? 0 : Double(progress.mastered) / Double(progress.total)
 
         VStack(alignment: .leading, spacing: 4) {
-            HStack {
+            HStack(alignment: .firstTextBaseline) {
                 Text("R\(StudyDisplay.readingNumber(reading, content: content)) · \(StudyDisplay.readingShortTitle(reading, content: content))")
                     .font(.subheadline.weight(.medium))
-                    .lineLimit(1)
+                    // Two lines. One clipped nearly every row in the planner's
+                    // middle column — "R1 · Capital Market Expec…", "R3 ·
+                    // Overview of Asset Al…" — and the reading's name is the
+                    // only thing that column is for. Widening the column does
+                    // not help: `.balanced` holds it near 270pt whatever the
+                    // ideal says, and these names are far longer than that.
+                    .lineLimit(2)
                     .foregroundStyle(.primary)
-                Spacer()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                // Keeps its intrinsic width so the title wraps instead of the
+                // status being squeezed to nothing.
                 stateLabel
+                    .layoutPriority(1)
             }
 
             Text(captionLine)

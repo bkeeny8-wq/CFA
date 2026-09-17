@@ -145,6 +145,10 @@ struct FlashcardSessionView: View {
         .background(Theme.cardFill)
         .clipShape(RoundedRectangle(cornerRadius: Theme.cardRadius))
         .padding(.horizontal)
+        // A card answer set across the full 1032pt runs to about 968pt of text
+        // per line, which is roughly twice a comfortable measure and makes the
+        // eye lose its place between lines.
+        .readableContentWidth()
         .padding(.top, 12)
     }
 
@@ -221,7 +225,8 @@ struct FlashcardSessionView: View {
         }()
         // Stamp the first rating before the scheduler runs: this is the only
         // record that the card was introduced, and it drives the daily pace.
-        if row.firstAttemptedAt == nil { row.firstAttemptedAt = .now }
+        // `isBeingIntroduced` carries the reasoning and the test.
+        if row.isBeingIntroduced { row.firstAttemptedAt = .now }
         ReviewScheduler.update(item: row, quality: quality)
         try? modelContext.save()
 

@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 @Observable
 final class StudySessionCoordinator {
@@ -35,12 +36,44 @@ final class StudySessionCoordinator {
     /// from history and from every exported backup.
     func makeSessionRecord() -> Session {
         Session(
+            // The session's own id, so the row has a stable identity and can be
+            // kept up to date instead of only ever being created. It used to be
+            // a fresh UUID per call, which left `persist` no way to find the
+            // row it had already written.
+            id: sessionID,
             startedAt: startedAt,
             endedAt: .now,
             mode: mode.rawValue,
             filterDescription: filterDescription,
             attemptIds: completedAttemptIDs
         )
+    }
+
+    /// Write this session's row, or bring the existing one up to date.
+    ///
+    /// Called as the session progresses, not once at the end. "Save & exit" on
+    /// the summary screen used to be the only writer of a Session row, so
+    /// every other way out — the back button, a swipe, switching tabs — lost
+    /// the record of that sitting completely. The attempts themselves survived
+    /// (each is saved as it is graded), but the row that groups them into a
+    /// session did not, so history under-counted sittings and backups exported
+    /// fewer sessions than had actually happened.
+    ///
+    /// Idempotent: safe to call after every answer, and on the way out.
+    @MainActor
+    func persist(into context: ModelContext) {
+        guard !completedAttemptIDs.isEmpty else { return }
+
+        let id = sessionID
+        let descriptor = FetchDescriptor<Session>(predicate: #Predicate { $0.id == id })
+
+        if let existing = try? context.fetch(descriptor).first {
+            existing.endedAt = .now
+            existing.attemptIds = completedAttemptIDs
+        } else {
+            context.insert(makeSessionRecord())
+        }
+        try? context.save()
     }
 
     func recordAttempt(_ attemptID: UUID) {

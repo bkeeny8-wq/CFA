@@ -43,6 +43,11 @@ struct SessionRunnerView: View {
             guard let openedSessionID, openedSessionID != newValue else { return }
             dismiss()
         }
+        // Keep the session's row current as you go, so leaving by any route
+        // still records the sitting. "Save & exit" was the only writer.
+        .onChange(of: sessionCoordinator.completedAttemptIDs.count) { _, _ in
+            sessionCoordinator.persist(into: modelContext)
+        }
     }
 
     @ViewBuilder
@@ -87,7 +92,6 @@ struct SessionRunnerView: View {
     }
 
     private func saveSession() {
-        modelContext.insert(sessionCoordinator.makeSessionRecord())
-        try? modelContext.save()
+        sessionCoordinator.persist(into: modelContext)
     }
 }

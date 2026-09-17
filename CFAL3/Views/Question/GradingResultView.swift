@@ -41,8 +41,12 @@ struct GradingResultView: View {
                 footerRow
             }
             .padding()
+            // The CONTENT is capped, not the scroll view. Capping the
+            // ScrollView itself left the ~330pt either side of it outside the
+            // scrollable area, so a flick started in the margin — most of the
+            // screen on an iPad — did nothing at all.
+            .readableContentWidth(700)
         }
-        .readableContentWidth(700)
         .frame(maxWidth: .infinity)
         .navigationTitle("Result")
         .navigationBarBackButtonHidden(!standalone && sessionCoordinator.isActive)

@@ -118,3 +118,47 @@ enum FlashcardQueue {
         )
     }
 }
+
+/// What counts as the user's OWN progress, as opposed to rows the app seeds
+/// for itself at launch.
+///
+/// Both reset buttons gate on this and the erase summary counts it. It was
+/// written inline in the Settings view, which left the test guarding it able
+/// only to re-implement the same conditions and compare them with themselves
+/// — green regardless of what the buttons actually did.
+///
+/// The distinction is the whole point: a `ReviewCard` exists for all 3,115
+/// questions and a `FlashcardProgress` for all 445 cards from first launch, so
+/// their existence says nothing. Only a RATED card counts.
+enum ResetScope {
+    /// "Clear quiz attempts" — attempt history, sessions, review schedules.
+    static func hasQuizHistory(attempts: [Attempt], sessions: [Session]) -> Bool {
+        !attempts.isEmpty || !sessions.isEmpty
+    }
+
+    /// "Erase all progress" — the above, plus what Clear deliberately keeps.
+    static func hasAnyProgress(
+        attempts: [Attempt],
+        sessions: [Session],
+        dayCompletions: [DayCompletion],
+        losStatuses: [LOSStudyStatus],
+        flashcards: [FlashcardProgress]
+    ) -> Bool {
+        hasQuizHistory(attempts: attempts, sessions: sessions)
+            || !dayCompletions.isEmpty
+            || !losStatuses.isEmpty
+            || flashcards.contains { $0.totalAttempts > 0 }
+    }
+}
+
+extension FlashcardProgress {
+    /// Whether rating this row now is the card's INTRODUCTION.
+    ///
+    /// Not simply "it has no date". A row written before `firstAttemptedAt`
+    /// existed has no date but plenty of history, and treating that as an
+    /// introduction dated an old card as new — spending a slot from today's
+    /// new-card allowance on a card introduced months ago.
+    var isBeingIntroduced: Bool {
+        firstAttemptedAt == nil && totalAttempts == 0
+    }
+}
