@@ -129,3 +129,27 @@ struct PrimaryCTA: ButtonStyle {
             .foregroundStyle(.white)
     }
 }
+
+/// Shared 90s/point clock. Bank essays, drills, and the full-case booklet
+/// all read the same target so a sitting cannot disagree with the debrief.
+struct PacingTimer: View {
+    let startedAt: Date
+    let targetSeconds: Int
+
+    var body: some View {
+        TimelineView(.periodic(from: startedAt, by: 1)) { context in
+            let elapsed = Int(context.date.timeIntervalSince(startedAt))
+            let over = elapsed > targetSeconds
+            Label(
+                "\(format(elapsed)) / \(format(targetSeconds)) target",
+                systemImage: "timer"
+            )
+            .font(.subheadline.monospacedDigit())
+            .foregroundStyle(over ? .orange : .secondary)
+        }
+    }
+
+    private func format(_ s: Int) -> String {
+        String(format: "%d:%02d", s / 60, s % 60)
+    }
+}

@@ -352,6 +352,24 @@ final class AttemptHostTests: XCTestCase {
         XCTAssertEqual(AttemptHost.durationSeconds(from: start, now: start), 1)
         XCTAssertEqual(AttemptHost.skipTitle, "Skip & flag")
     }
+
+    func testBookletDurationSplitsElapsedByExamWeight() {
+        XCTAssertEqual(ExamPacing.secondsPerPoint, 90)
+        XCTAssertEqual(ExamPacing.targetSeconds(points: nil), 90)
+        XCTAssertEqual(ExamPacing.targetSeconds(points: 8), 720)
+
+        let even = ExamPacing.allocate(elapsedSeconds: 10, weights: [1, 1])
+        XCTAssertEqual(even.reduce(0, +), 10)
+        XCTAssertEqual(even, [5, 5])
+
+        let mixed = ExamPacing.allocate(elapsedSeconds: 1_000, weights: [1, 1, 8])
+        XCTAssertEqual(mixed.reduce(0, +), 1_000)
+        XCTAssertEqual(mixed[2], 800)
+        XCTAssertEqual(mixed[0] + mixed[1], 200)
+
+        XCTAssertEqual(ExamPacing.allocate(elapsedSeconds: 0, weights: [1, 1, 1]).reduce(0, +), 1)
+        XCTAssertTrue(ExamPacing.allocate(elapsedSeconds: 30, weights: []).isEmpty)
+    }
 }
 
 final class ProgressBackupTests: XCTestCase {

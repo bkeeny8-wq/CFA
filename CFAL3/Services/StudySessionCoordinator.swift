@@ -214,7 +214,7 @@ struct SessionDebrief: Equatable {
 
         for row in rows {
             elapsed += max(0, row.durationSeconds)
-            target += 90 * max(1, row.examPoints ?? 1)
+            target += ExamPacing.targetSeconds(points: row.examPoints)
 
             if row.isEssay {
                 if let earned = row.pointsEarned, let possible = row.pointsPossible, possible > 0 {

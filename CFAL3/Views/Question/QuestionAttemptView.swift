@@ -65,8 +65,11 @@ struct QuestionAttemptView: View {
                             Label("\(points) points", systemImage: "pencil.and.list.clipboard")
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
-                            PacingTimer(startedAt: clock.startedAt, targetSeconds: points * 90)
                         }
+                        PacingTimer(
+                            startedAt: clock.startedAt,
+                            targetSeconds: ExamPacing.targetSeconds(points: question.pointValue)
+                        )
 
                         if question.type == .mc {
                             if explainReasoning {
@@ -389,28 +392,6 @@ struct QuestionAttemptView: View {
             existing: reviewCard,
             context: modelContext
         )
-    }
-}
-
-private struct PacingTimer: View {
-    let startedAt: Date
-    let targetSeconds: Int
-
-    var body: some View {
-        TimelineView(.periodic(from: startedAt, by: 1)) { context in
-            let elapsed = Int(context.date.timeIntervalSince(startedAt))
-            let over = elapsed > targetSeconds
-            Label(
-                "\(format(elapsed)) / \(format(targetSeconds)) target",
-                systemImage: "timer"
-            )
-            .font(.subheadline.monospacedDigit())
-            .foregroundStyle(over ? .orange : .secondary)
-        }
-    }
-
-    private func format(_ s: Int) -> String {
-        String(format: "%d:%02d", s / 60, s % 60)
     }
 }
 

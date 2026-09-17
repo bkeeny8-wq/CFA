@@ -70,6 +70,114 @@ def paragraphs(text: str) -> list[str]:
     return [p.strip() for p in re.split(r"\n\s*\n", text) if p.strip()]
 
 
+def stem_front(front: str) -> str:
+    """Drop prior 'part n of m' suffixes so re-splits do not stack."""
+    return front.split("\n\n", 1)[0].rstrip()
+
+
+def pack_pieces(parts: list[str], target_words: int = 45, min_words: int = 12) -> list[str]:
+    out: list[str] = []
+    buf = ""
+    for part in parts:
+        piece = part.strip()
+        if not piece:
+            continue
+        candidate = f"{buf} {piece}".strip() if buf else piece
+        if (
+            buf
+            and len(buf.split()) >= min_words
+            and len(candidate.split()) > target_words
+        ):
+            out.append(buf)
+            buf = piece
+        else:
+            buf = candidate
+    if buf:
+        if out and len(buf.split()) < min_words:
+            out[-1] = f"{out[-1]} {buf}".strip()
+        else:
+            out.append(buf)
+    return out
+
+
+def clause_chunks(text: str, target_words: int = 45) -> list[str]:
+    """Last-resort split for remaining long single-block backs."""
+    lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+    if len(lines) >= 2:
+        packed = pack_pieces(lines, target_words)
+        if len(packed) >= 2:
+            return packed
+
+    numbered = [n.strip() for n in re.split(r"(?m)(?=^\d+\.\s+)", text.strip()) if n.strip()]
+    if len(numbered) >= 2:
+        return numbered
+
+    semi = [p.strip() for p in re.split(r";\s+", text) if p.strip()]
+    if len(semi) >= 3:
+        packed = pack_pieces(semi, target_words)
+        if len(packed) >= 2:
+            return packed
+
+    dash = [p.strip() for p in re.split(r"\s+—\s+", text) if p.strip()]
+    if len(dash) >= 2:
+        packed = pack_pieces(dash, target_words)
+        if len(packed) >= 2:
+            return packed
+
+    sents = sentence_chunks(text, target=max(120, target_words * 5))
+    if len(sents) >= 2:
+        return sents
+
+    words = text.split()
+    if len(words) <= target_words:
+        return [text]
+    return [
+        " ".join(words[i : i + target_words])
+        for i in range(0, len(words), target_words)
+        if words[i : i + target_words]
+    ]
+
+
+def merge_short(pieces: list[str], min_words: int = 8, max_words: int = 55) -> list[str]:
+    """Glue orphan labels ('2.', 'Weakness') onto a neighbor, but never
+    rebuild a back longer than max_words."""
+    if len(pieces) < 2:
+        return pieces
+    out: list[str] = []
+    for piece in pieces:
+        text = piece.strip()
+        if not text:
+            continue
+        if out and len(text.split()) < min_words:
+            combined = f"{out[-1]} {text}".strip()
+            if len(combined.split()) <= max_words:
+                out[-1] = combined
+                continue
+        out.append(text)
+    if len(out) >= 2 and len(out[-1].split()) < min_words:
+        combined = f"{out[-2]} {out[-1]}".strip()
+        if len(combined.split()) <= max_words:
+            out[-2] = combined
+            out.pop()
+    if len(out) >= 2 and len(out[0].split()) < min_words:
+        combined = f"{out[0]} {out[1]}".strip()
+        if len(combined.split()) <= max_words:
+            out[1] = combined
+            out.pop(0)
+    return out
+
+
+def word_windows(text: str, target: int = 45) -> list[str]:
+    words = text.split()
+    if len(words) <= target:
+        return [text]
+    return [
+        " ".join(words[i : i + target])
+        for i in range(0, len(words), target)
+        if words[i : i + target]
+    ]
+
+
 def next_atom_id(base: str, used: set[str]) -> str:
     n = 2
     while True:
@@ -81,6 +189,7 @@ def next_atom_id(base: str, used: set[str]) -> str:
 
 def atomize(card: dict, used: set[str]) -> list[dict]:
     preamble, items = bullets(card["back"])
+    words = len(card["back"].split())
     pieces: list[str]
     if len(items) >= 2:
         pieces = items
@@ -88,18 +197,30 @@ def atomize(card: dict, used: set[str]) -> list[dict]:
             pieces = [preamble] + items
     else:
         paras = paragraphs(card["back"])
-        words = len(card["back"].split())
         pipe_parts = [p.strip() for p in re.split(r"\s+\|\s+", card["back"]) if p.strip()]
-        if len(paras) >= 2 and words > 60:
+        numbered = [
+            n.strip()
+            for n in re.split(r"(?m)(?=^\d+\.\s+)", card["back"].strip())
+            if n.strip()
+        ]
+        if len(paras) >= 2 and words > 50:
             pieces = paras
         elif len(pipe_parts) >= 2 and words > 50:
             pieces = pipe_parts
-        elif words > 90:
-            chunks = sentence_chunks(card["back"], target=160)
-            pieces = chunks if len(chunks) >= 2 else [card["back"]]
+        elif len(numbered) >= 2 and words > 50:
+            pieces = numbered
+        elif words > 55:
+            pieces = clause_chunks(card["back"])
         else:
             return [card]
 
+    if len(pieces) < 2:
+        return [card]
+    pieces = merge_short(pieces)
+    exploded: list[str] = []
+    for piece in pieces:
+        exploded.extend(word_windows(piece, 45) if len(piece.split()) > 55 else [piece])
+    pieces = merge_short(exploded)
     if len(pieces) < 2:
         return [card]
 
@@ -107,6 +228,7 @@ def atomize(card: dict, used: set[str]) -> list[dict]:
     n = len(pieces)
     claimed = set(used)
     claimed.add(card["id"])
+    front = stem_front(card["front"])
     for i, piece in enumerate(pieces):
         atom = dict(card)
         if i == 0:
@@ -116,10 +238,34 @@ def atomize(card: dict, used: set[str]) -> list[dict]:
             atom["formula"] = None
             claimed.add(atom["id"])
         head = label(piece) if piece.startswith("•") else f"part {i + 1} of {n}"
-        atom["front"] = f"{card['front'].rstrip()}\n\n{head}"
+        atom["front"] = f"{front}\n\n{head}"
         atom["back"] = piece
         atoms.append(atom)
     return atoms
+
+
+def collapse_junk(cards: list[dict], protected: set[str], min_words: int = 3) -> list[dict]:
+    """Fold leftover 1–2 word atoms created in this run into the previous
+    sibling. Existing ids stay so progress rows still match."""
+    out: list[dict] = []
+    for card in cards:
+        tiny = len(card["back"].split()) < min_words
+        if tiny and out and card["id"] not in protected:
+            prev = dict(out[-1])
+            prev["back"] = f"{prev['back']} {card['back']}".strip()
+            out[-1] = prev
+            continue
+        out.append(card)
+    return out
+    words = [len(c["back"].split()) for c in cards]
+    words.sort()
+    n = len(words)
+    return {
+        "n": n,
+        "median_words": words[n // 2] if words else 0,
+        "p90_words": words[int(n * 0.9)] if words else 0,
+        "max_words": words[-1] if words else 0,
+    }
 
 
 def stats(cards: list[dict]) -> dict:
@@ -141,15 +287,25 @@ def main() -> int:
 
     bundle = json.load(open(PATH, encoding="utf-8"))
     before = stats(bundle["cards"])
-    out: list[dict] = []
+    out = list(bundle["cards"])
     split = 0
-    used = {c["id"] for c in bundle["cards"]}
-    for card in bundle["cards"]:
-        atoms = atomize(card, used)
-        if len(atoms) > 1:
-            split += 1
-        out.extend(atoms)
-        used.update(a["id"] for a in atoms[1:])
+    # Repeat until remaining longs stop splitting. A first pass can emit a
+    # still-long piece that needs its own cut.
+    while True:
+        used = {c["id"] for c in out}
+        nxt: list[dict] = []
+        round_split = 0
+        for card in out:
+            atoms = atomize(card, used)
+            if len(atoms) > 1:
+                round_split += 1
+            nxt.extend(atoms)
+            used.update(a["id"] for a in atoms[1:])
+        if round_split == 0:
+            break
+        split += round_split
+        out = nxt
+    out = collapse_junk(out, {c["id"] for c in bundle["cards"]})
     after = stats(out)
     ids = [c["id"] for c in out]
     assert len(ids) == len(set(ids)), "duplicate ids"
@@ -166,9 +322,10 @@ def main() -> int:
         return 0
 
     bundle["cards"] = out
-    bundle["generated_by"] = (
-        (bundle.get("generated_by") or "") + "; atomized to one idea per card"
-    ).strip("; ")
+    generated = bundle.get("generated_by") or ""
+    if "atomized to one idea per card" not in generated:
+        generated = (generated + "; atomized to one idea per card").strip("; ")
+    bundle["generated_by"] = generated
     with open(PATH, "w", encoding="utf-8") as fh:
         json.dump(bundle, fh, indent=1, ensure_ascii=False)
         fh.write("\n")

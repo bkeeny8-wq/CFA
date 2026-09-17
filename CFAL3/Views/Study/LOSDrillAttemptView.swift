@@ -37,6 +37,11 @@ struct LOSDrillAttemptView: View {
                 Text(drill.stem)
                     .font(.body)
 
+                PacingTimer(
+                    startedAt: clock.startedAt,
+                    targetSeconds: ExamPacing.secondsPerPoint
+                )
+
                 MultipleChoiceInput(
                     options: drill.options ?? [:],
                     sortedKeys: question.sortedOptionKeys,

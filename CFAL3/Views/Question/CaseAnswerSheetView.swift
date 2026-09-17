@@ -8,11 +8,11 @@ struct CaseAnswerSheetView: View {
     @Environment(ClaudeGrader.self) private var grader
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
-    @Query private var cards: [ReviewCard]
 
     let caseStudy: CaseStudy
 
     @State private var vignetteExpanded = true
+    @State private var clock = AttemptClock()
     @State private var mcAnswers: [String: String] = [:]
     @State private var essayAnswers: [String: String] = [:]
     @State private var isSubmitting = false
@@ -29,6 +29,14 @@ struct CaseAnswerSheetView: View {
             VStack(alignment: .leading, spacing: 16) {
                 VignetteView(vignette: caseStudy.vignette, isExpanded: $vignetteExpanded)
                     .cfaCard()
+
+                PacingTimer(
+                    startedAt: clock.startedAt,
+                    targetSeconds: ExamPacing.targetSeconds(for: questions)
+                )
+                Text("\(Formatting.duration(seconds: ExamPacing.targetSeconds(for: questions))) case · 90s/point")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
 
                 ForEach(questions) { question in
                     questionBlock(question)
@@ -63,6 +71,11 @@ struct CaseAnswerSheetView: View {
                 } else {
                     Text(scoreLine)
                         .font(.headline)
+                    if let elapsed = bookletElapsed {
+                        Text(paceLine(elapsed: elapsed))
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
                     Button("Done") { dismiss() }
                         .buttonStyle(PrimaryCTA())
                 }
@@ -87,10 +100,23 @@ struct CaseAnswerSheetView: View {
                 )
             }
         }
+        .onAppear {
+            clock.appear()
+            vignetteExpanded = VignetteExpansionStore.isExpanded(caseID: caseStudy.id)
+        }
+        .onChange(of: vignetteExpanded) { _, expanded in
+            VignetteExpansionStore.setExpanded(expanded, caseID: caseStudy.id)
+        }
         .onDisappear {
             submitTask?.cancel()
             submitTask = nil
         }
+    }
+
+    private var bookletElapsed: Int? {
+        guard isGraded else { return nil }
+        let total = results.values.reduce(0) { $0 + $1.durationSeconds }
+        return total > 0 ? total : nil
     }
 
     private var canSubmit: Bool {
@@ -102,6 +128,20 @@ struct CaseAnswerSheetView: View {
                     .trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
             }
         }
+    }
+
+    private func paceLine(elapsed: Int) -> String {
+        let target = ExamPacing.targetSeconds(for: questions)
+        let delta = elapsed - target
+        let vs: String
+        if delta == 0 {
+            vs = "on the 90s/point pace"
+        } else if delta > 0 {
+            vs = "\(Formatting.duration(seconds: delta)) over 90s/point"
+        } else {
+            vs = "\(Formatting.duration(seconds: -delta)) under 90s/point"
+        }
+        return "\(Formatting.duration(seconds: elapsed)) elapsed · \(Formatting.duration(seconds: target)) target · \(vs)"
     }
 
     private var scoreLine: String {
@@ -182,9 +222,14 @@ struct CaseAnswerSheetView: View {
         defer { isSubmitting = false }
 
         var graded: [String: Attempt] = [:]
-        for question in questions {
+        let elapsed = clock.durationSeconds()
+        let slices = ExamPacing.allocate(
+            elapsedSeconds: elapsed,
+            weights: questions.map { ExamPacing.weight(for: $0) }
+        )
+        for (question, duration) in zip(questions, slices) {
             if Task.isCancelled { return }
-            let attempt = await grade(question)
+            let attempt = await grade(question, durationSeconds: duration)
             modelContext.insert(attempt)
             graded[question.id] = attempt
         }
@@ -193,7 +238,7 @@ struct CaseAnswerSheetView: View {
     }
 
     @MainActor
-    private func grade(_ question: Question) async -> Attempt {
+    private func grade(_ question: Question, durationSeconds: Int) async -> Attempt {
         let ctx = content.context(for: question.id)
         switch question.type {
         case .mc:
@@ -202,7 +247,7 @@ struct CaseAnswerSheetView: View {
                 questionId: question.id,
                 caseId: caseStudy.id,
                 topicId: ctx?.topicId ?? caseStudy.topicID,
-                durationSeconds: 1,
+                durationSeconds: durationSeconds,
                 selectedOption: selected,
                 wasCorrect: question.correct.map { selected == $0 }
             )
@@ -235,7 +280,7 @@ struct CaseAnswerSheetView: View {
                 questionId: question.id,
                 caseId: caseStudy.id,
                 topicId: ctx?.topicId ?? caseStudy.topicID,
-                durationSeconds: 1,
+                durationSeconds: durationSeconds,
                 essayText: text,
                 grade: grade,
                 claudeFeedback: feedback,
