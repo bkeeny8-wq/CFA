@@ -970,7 +970,7 @@
                 "C": "Correct. Under unexpected near-term deflation, Treasury bonds benefit (falling yields, improved purchasing power of fixed cash flows), so that part of Grey's statement is right. Real estate, however, is a real asset whose income and values suffer in deflation — Grey's claim that real estate 'should do well' is the error."
               },
               "candidate_los": [
-                "capital_market_expectations_part_2_forecasting_asset_class_returns.f"
+                "capital_market_expectations_part_2_forecasting_asset_class_returns.e"
               ],
               "primary_reading_ids": [
                 "capital_market_expectations_part_2_forecasting_asset_class_returns"
@@ -995,7 +995,7 @@
                 "C": "It incorrectly uses the ratio of the correlation to the Sharpe ratio.  β~i~ = 0.34 (given by Grey)/0.36= 0.94"
               },
               "candidate_los": [
-                "capital_market_expectations_part_2_forecasting_asset_class_returns.f"
+                "capital_market_expectations_part_2_forecasting_asset_class_returns.e"
               ],
               "primary_reading_ids": [
                 "capital_market_expectations_part_2_forecasting_asset_class_returns"
@@ -1045,7 +1045,7 @@
                 "C": "Cortez's statement to calculate a weighted average for the covariance estimate is an example of shrinkage estimation. Shrinkage estimation involves taking a weighted average of a historical estimate of a parameter and some other parameter estimate, in which the weights reflect the analyst's relative belief in the estimates. A shrinkage estimator of the covariance matrix is a weighted average of the historical covariance matrix and an alternative estimator of the covariance matrix."
               },
               "candidate_los": [
-                "capital_market_expectations_part_2_forecasting_asset_class_returns.h"
+                "capital_market_expectations_part_2_forecasting_asset_class_returns.g"
               ],
               "primary_reading_ids": [
                 "capital_market_expectations_part_2_forecasting_asset_class_returns"
@@ -1084,7 +1084,7 @@
                 "model_answer": "VERDICT: GREY'S RECOMMENDATION IS DEBATABLE / NOT CLEARLY BETTER.\n\n===\nHISTORICAL SAMPLE (GloboStats):\nPROS:\n• Uses actual observed data.\n• Objective, transparent methodology.\n• No modeling assumptions beyond stationarity.\nCONS:\n• Sample errors can be large, especially for small samples.\n• Assumes past patterns will continue.\n• Sensitive to sample period choice.\n• MEAN estimates are especially noisy.\n\n===\nTARGET COVARIANCE MATRIX (RiteVal):\nPROS:\n• Uses economic theory to structure covariances (return drivers).\n• Reduces estimation error via factor structure.\n• Can incorporate forward-looking information.\nCONS:\n• Requires specifying factors correctly.\n• Model risk if factors are misspecified.\n\n===\nBOTH APPROACHES have merit; a WEIGHTED AVERAGE (as Cortez suggests) is often best practice.\n• Grey's dismissal of factor-based approach is UNDULY RESTRICTIVE.\n\nPARTIAL: 5=identifies both approaches have merit + Cortez's blending; 3=one aspect; 0=fully agrees with Grey."
               },
               "candidate_los": [
-                "capital_market_expectations_part_2_forecasting_asset_class_returns.h"
+                "capital_market_expectations_part_2_forecasting_asset_class_returns.g"
               ],
               "primary_reading_ids": [
                 "capital_market_expectations_part_2_forecasting_asset_class_returns"
@@ -1104,7 +1104,7 @@
                 "model_answer": "VERDICT: APPROPRIATE / SENSIBLE.\n\n===\nSUPPORT:\n• Weighted average LEVERAGES both firms' strengths: historical accuracy and factor-based structure.\n• Combines DIVERSE INFORMATION SOURCES — reduces model-specific biases.\n• Classical result: forecast combinations often outperform individual forecasts.\n• Aligned with BAYESIAN SHRINKAGE / factor-model shrinkage best practice.\n\n===\nCONSIDERATIONS:\n• WEIGHT DETERMINATION: how to set weights? Equal? Historical performance-based? Rolling window? These matter.\n• CONSISTENCY: covariance matrix must remain POSITIVE SEMI-DEFINITE — mixing may produce non-PSD result requiring adjustment.\n• MODEL RISK compounding if BOTH firms use similar underlying data.\n• COST-BENEFIT: weighting adds complexity vs single model.\n\n===\nBEST PRACTICE ELEMENTS:\n• Cross-validation to determine optimal weights.\n• Sensitivity analysis of asset allocation to weighting choices.\n• DOCUMENT the methodology and rationale.\n\nPARTIAL: 5=supports Cortez + implementation considerations; 3=supports; 0=rejects."
               },
               "candidate_los": [
-                "capital_market_expectations_part_2_forecasting_asset_class_returns.h"
+                "capital_market_expectations_part_2_forecasting_asset_class_returns.g"
               ],
               "primary_reading_ids": [
                 "capital_market_expectations_part_2_forecasting_asset_class_returns"
@@ -1124,7 +1124,7 @@
                 "model_answer": "===\nTREASURY BONDS in DEFLATION: CORRECT.\n• DEFLATION means unexpected DECREASE in inflation → REAL VALUE of fixed cash flows RISES.\n• Nominal yields decline as inflation expectations fall → bond prices RISE.\n• Treasury bonds SHOULD DO WELL in deflation.\n\n===\nREAL ESTATE (income-producing) in DEFLATION: INCORRECT.\n• Real estate is a REAL ASSET; income and value tend to TRACK inflation.\n• In DEFLATION, rents may DECLINE and property values DECLINE.\n• Real estate typically UNDERPERFORMS in deflation, not outperforms.\n• Grey has the direction WRONG for real estate.\n\n===\nEQUITIES when INFLATION RETURNS TO EXPECTED: LIKELY CORRECT.\n• If inflation returns to equilibrium expected level (from deflation), central banks may relax policy → equity supportive.\n• Equities perform well when inflation is stable/expected.\n• Correct directionally.\n\nPARTIAL: 5=all three assessed correctly + reasoning; 3=two correct; 0=fewer."
               },
               "candidate_los": [
-                "capital_market_expectations_part_2_forecasting_asset_class_returns.f"
+                "capital_market_expectations_part_2_forecasting_asset_class_returns.e"
               ],
               "primary_reading_ids": [
                 "capital_market_expectations_part_2_forecasting_asset_class_returns"
@@ -1243,7 +1243,7 @@
               },
               "candidate_los": [
                 "principles_of_asset_allocation.o",
-                "overview_of_asset_allocation.k"
+                "overview_of_asset_allocation.j"
               ],
               "primary_reading_ids": [
                 "principles_of_asset_allocation",
@@ -1270,7 +1270,7 @@
               },
               "candidate_los": [
                 "principles_of_asset_allocation.f",
-                "overview_of_asset_allocation.j"
+                "overview_of_asset_allocation.i"
               ],
               "primary_reading_ids": [
                 "principles_of_asset_allocation",
@@ -1474,8 +1474,7 @@
                 "C": "The ability to deviate from target portfolio weightings for short-term market opportunities is an example of tactical asset allocation, which is an active strategy and not a passive strategy, such as indexing strategies."
               },
               "candidate_los": [
-                "overview_of_asset_allocation.i",
-                "overview_of_asset_allocation.j"
+                "overview_of_asset_allocation.i"
               ],
               "primary_reading_ids": [
                 "overview_of_asset_allocation"
@@ -1500,7 +1499,6 @@
                 "C": "The UPPC must seek the board of regents' approval for any asset allocation the committee proposes to implement. Consequently, the decision rights in regard to the asset allocation process are very transparent, which is consistent with best governance practices. Governance audits being on an \"as requested\" basis instead of being periodic is inconsistent with best governance practices. The committee members' short terms (two years for faculty and one year for students because they are final-year students) and apparent lack of financial expertise are also inconsistent with best governance practices."
               },
               "candidate_los": [
-                "overview_of_asset_allocation.l",
                 "overview_of_asset_allocation.a"
               ],
               "primary_reading_ids": [
@@ -1619,7 +1617,7 @@
               },
               "candidate_los": [
                 "overview_of_asset_allocation.i",
-                "overview_of_asset_allocation.k",
+                "overview_of_asset_allocation.j",
                 "principles_of_asset_allocation.o"
               ],
               "primary_reading_ids": [
@@ -2234,7 +2232,7 @@
               },
               "candidate_los": [
                 "principles_of_asset_allocation.f",
-                "overview_of_asset_allocation.j"
+                "overview_of_asset_allocation.i"
               ],
               "primary_reading_ids": [
                 "principles_of_asset_allocation",
@@ -2375,7 +2373,7 @@
               },
               "candidate_los": [
                 "principles_of_asset_allocation.f",
-                "overview_of_asset_allocation.j"
+                "overview_of_asset_allocation.i"
               ],
               "primary_reading_ids": [
                 "principles_of_asset_allocation",
@@ -2433,7 +2431,7 @@
               "candidate_los": [
                 "overview_of_asset_allocation.h",
                 "asset_allocation_with_real_world_constraints.a",
-                "overview_of_asset_allocation.j"
+                "overview_of_asset_allocation.i"
               ],
               "primary_reading_ids": [
                 "overview_of_asset_allocation",
@@ -2486,7 +2484,7 @@
               "candidate_los": [
                 "asset_allocation_with_real_world_constraints.a",
                 "overview_of_asset_allocation.h",
-                "overview_of_asset_allocation.l"
+                "overview_of_asset_allocation.a"
               ],
               "primary_reading_ids": [
                 "asset_allocation_with_real_world_constraints",
@@ -2615,7 +2613,7 @@
                 "model_answer": "GRADING KEY — any TWO of the following earn full credit.\n\nAccepted strengths:\n• Two-thirds legislative supermajority required for changes — protects long-term policy stability from short-term political pressure.\n• $75M cap per external manager (Phase 3) — limits concentration and manager risk.\n• Foreign-only investment mandate — avoids overheating the domestic economy and provides diversification against national economic conditions.\n• Phased evolution with legislative approval — deliberate, transparent policy changes.\n• Reinstatement of oil-revenue transfers (Phase 3) — restored the original purpose.\n• Independent management structure with defined governance layers.\n• Explicit multi-generational mandate for future generations aligns incentives.\n\nPARTIAL: 5=two distinct valid strengths + brief reasoning; 3=one strength; 0=vague."
               },
               "candidate_los": [
-                "overview_of_asset_allocation.l",
+                "overview_of_asset_allocation.a",
                 "asset_allocation_with_real_world_constraints.a",
                 "overview_of_asset_allocation.h"
               ],
@@ -2639,7 +2637,7 @@
               },
               "candidate_los": [
                 "asset_allocation_with_real_world_constraints.e",
-                "overview_of_asset_allocation.k",
+                "overview_of_asset_allocation.j",
                 "overview_of_asset_allocation.e"
               ],
               "primary_reading_ids": [
@@ -2965,8 +2963,8 @@
               },
               "candidate_los": [
                 "asset_allocation_to_alternative_investments.a",
-                "asset_allocation_to_alternative_investments.d",
-                "asset_allocation_to_alternative_investments.h"
+                "asset_allocation_to_alternative_investments.c",
+                "asset_allocation_to_alternative_investments.g"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -2992,8 +2990,7 @@
               },
               "candidate_los": [
                 "asset_allocation_to_alternative_investments.a",
-                "asset_allocation_to_alternative_investments.b",
-                "asset_allocation_to_alternative_investments.f"
+                "asset_allocation_to_alternative_investments.e"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3018,9 +3015,8 @@
                 "C": "Zimmermann is correct that it is easier to explain traditional approaches to asset allocation than to explain risk-based approaches."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.b",
                 "asset_allocation_to_alternative_investments.a",
-                "asset_allocation_to_alternative_investments.e"
+                "asset_allocation_to_alternative_investments.d"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3045,9 +3041,9 @@
                 "C": "In an economic downturn, capital calls for a newer private equity fund can accelerate because depressed market prices produce good investment opportunities precisely when the endowment portfolio's public asset values are depressed. This can require either selling portfolio assets for negative returns to fund capital calls or abandoning the investment in private equity at a total loss. Further, in an economic downtown, the general partner of a more mature private equity fund will extend the fund's life and avoid selling holdings at depressed prices, thereby reducing cash flows the endowment portfolio had anticipated."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.h",
                 "asset_allocation_to_alternative_investments.g",
-                "asset_allocation_to_alternative_investments.c"
+                "asset_allocation_to_alternative_investments.f",
+                "asset_allocation_to_alternative_investments.b"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3066,9 +3062,9 @@
                 "model_answer": "===\nSTMT 1 (reported vol of IG FI more accurate than PE): CORRECT.\n• Public FI has continuous market pricing → accurate return series → accurate vol.\n• PE has infrequent valuations, smoothing → REPORTED vol UNDERSTATES true risk.\n• Il-liquidity smoothing effect makes PE appear less volatile than it is.\n\n===\nSTMT 2 (risk of not meeting long-term goals HIGHER for IG FI than PE): CORRECT.\n• IG FI typically has LOWER expected return; may not achieve 4% real target.\n• PE has HIGHER expected return, better positioned to meet long-term goals.\n• Higher chance of shortfall with FI-heavy allocation.\n\n===\nSTMT 3 (correlation of IG FI with public equity LESS accurate than PE's correlation with public equity): INCORRECT.\n• REVERSED: PE correlation with public equity is UNDERSTATED due to stale valuations.\n• IG FI correlations are measurable from actual public market data → MORE accurate.\n• PE correlations reported are typically 0.3-0.5 but TRUE correlations may be 0.7-0.8.\n\nPARTIAL: 5=all three assessed correctly + reasoning; 3=two correct; 0=fewer."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.f",
-                "asset_allocation_to_alternative_investments.b",
-                "asset_allocation_to_alternative_investments.e"
+                "asset_allocation_to_alternative_investments.e",
+                "asset_allocation_to_alternative_investments.a",
+                "asset_allocation_to_alternative_investments.d"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3088,9 +3084,9 @@
                 "model_answer": "===\nCORRECT ASPECTS:\n• Traditional approaches easier to communicate (naming asset classes vs abstract risk factors). ✓\n• Traditional approaches often COMMINGLE assets with different risk characteristics in the same class. ✓ (E.g., 'alternatives' bucket includes PE, HFs, RE — different risks.)\n• Portfolios with 'same asset allocation but very different risks' — TRUE. ✓\n\n===\nINCORRECT ASPECT:\n• 'Systematic risk factors do equally well at explaining risk and return patterns of public AND private assets' — OVERSTATED.\n• Risk-factor models struggle with private assets due to: infrequent pricing, smoothed returns, illiquidity premium, manager-specific effects.\n• Traditional factors (market, size, value, momentum, quality) do NOT fully capture PE returns.\n• Some factors are relatively good (market) but idiosyncratic PE returns are less well-explained.\n\nPARTIAL: 5=identifies both correct and incorrect aspects; 3=one aspect; 0=fully agrees or fully rejects."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.b",
-                "asset_allocation_to_alternative_investments.e",
-                "asset_allocation_to_alternative_investments.f"
+                "asset_allocation_to_alternative_investments.a",
+                "asset_allocation_to_alternative_investments.d",
+                "asset_allocation_to_alternative_investments.e"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3110,9 +3106,9 @@
                 "model_answer": "GRADING KEY — any TWO of the following.\n\nAccepted considerations:\n• CAPITAL CALL RISK: PE commitments require unpredictable capital calls (over 3-5 years); IG FI is fully invested — PE creates liquidity uncertainty.\n• DENOMINATOR EFFECT: in market downturns, public assets decline faster than PE (due to stale pricing) → PE % of portfolio INCREASES unintentionally.\n• INCREASED SPENDING (5% vs 4%) requires MORE liquid distributions; 25% PE (less liquid) is problematic.\n• REBALANCING CHALLENGE: cannot easily rebalance illiquid PE positions to target.\n• DISTRIBUTIONS TIMING: PE cash flows lumpy and unpredictable.\n• SECONDARY MARKET DISCOUNTS: if forced to sell PE for liquidity, typical 15-30% discount from NAV.\n• ANNUAL REBALANCING requirement conflicts with PE illiquidity.\n• ENDOWMENT MODEL success requires perpetual horizon and low withdrawal — not guaranteed with 5% spend.\n\nPARTIAL: 5=two clear considerations + reasoning; 3=one; 0=vague."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.h",
                 "asset_allocation_to_alternative_investments.g",
-                "asset_allocation_to_alternative_investments.e"
+                "asset_allocation_to_alternative_investments.f",
+                "asset_allocation_to_alternative_investments.d"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3132,8 +3128,7 @@
                 "model_answer": "GRADING KEY — any TWO of the following.\n\nAccepted considerations:\n• ILLIQUIDITY RISK: PE cannot be easily sold; 25% allocation is substantial.\n• J-CURVE EFFECT: early years of PE commitments have negative cash flows and returns; spending must be funded from other sources.\n• VINTAGE-YEAR RISK: PE returns highly dependent on entry year; single-vintage concentration is risky.\n• MANAGER SELECTION RISK: PE returns disperse widely across managers; poor selection = poor returns.\n• LEVERAGE / GEARING: PE portfolios typically use significant leverage — hidden risk factor.\n• VALUATION LAG: reported valuations lag public markets → understated volatility.\n• FEE DRAG: 2/20 fee structure erodes returns.\n• REGULATORY / TAX CHANGES affecting PE.\n• CORRELATION CHANGE in CRISIS: PE correlations to public equity increase in stress.\n• DUE-DILIGENCE COMPLEXITY.\n\nPARTIAL: 5=two clear considerations + reasoning; 3=one; 0=vague."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.f",
-                "asset_allocation_to_alternative_investments.j",
+                "asset_allocation_to_alternative_investments.e",
                 "asset_allocation_to_alternative_investments.a"
               ],
               "primary_reading_ids": [
@@ -3169,8 +3164,7 @@
               },
               "candidate_los": [
                 "asset_allocation_to_alternative_investments.a",
-                "asset_allocation_to_alternative_investments.b",
-                "asset_allocation_to_alternative_investments.i"
+                "asset_allocation_to_alternative_investments.h"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3195,9 +3189,8 @@
                 "C": "It is true that risk-based approaches identify a single set of common risk factors and estimate the sensitivities of each asset to these factors. Risk factors, however, are sensitive to the historical period examined for the estimation procedure; therefore, risk factor sensitivities are not stable over time"
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.b",
                 "asset_allocation_to_alternative_investments.a",
-                "asset_allocation_to_alternative_investments.e"
+                "asset_allocation_to_alternative_investments.d"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3222,9 +3215,9 @@
                 "C": "Although it is reasonable to expect a private equity or private credit general partner to explain how assets are being valued for reporting (e.g., using independent administrators), full transparency of holdings cannot be expected. Investors in these markets must, to some extent, be comfortable with buying into a blind pool of assets"
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.i",
-                "asset_allocation_to_alternative_investments.d",
-                "asset_allocation_to_alternative_investments.c"
+                "asset_allocation_to_alternative_investments.h",
+                "asset_allocation_to_alternative_investments.c",
+                "asset_allocation_to_alternative_investments.b"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3249,9 +3242,9 @@
                 "C": "With alternative investments, investors do need to pay attention to numerous aspects of the investment process, including key-person risk, conflicts of interest between the general partner and the investor, style drift, client and asset turnover, reliability of service providers, and so on. In general, investors do not need to monitor the manager or the investment process when investing in publicly traded assets because these tend to be more transparent and more highly regulated."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.f",
-                "asset_allocation_to_alternative_investments.j",
-                "asset_allocation_to_alternative_investments.i"
+                "asset_allocation_to_alternative_investments.e",
+                "asset_allocation_to_alternative_investments.a",
+                "asset_allocation_to_alternative_investments.h"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3271,8 +3264,8 @@
               },
               "candidate_los": [
                 "asset_allocation_to_alternative_investments.a",
-                "asset_allocation_to_alternative_investments.i",
-                "asset_allocation_to_alternative_investments.c"
+                "asset_allocation_to_alternative_investments.h",
+                "asset_allocation_to_alternative_investments.b"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3292,9 +3285,9 @@
                 "model_answer": "===\nBENEFIT 1 (doesn't group assets based on a few shared characteristics): CORRECT.\n• The risk-based approach identifies factor exposures rather than lumping assets into broad classes.\n• A genuine benefit over traditional asset-class allocation.\n\n===\nBENEFIT 2 (does equally well for alternative assets as for public assets): INCORRECT / OVERSTATED.\n• Risk-factor models do NOT capture private/alternative asset returns as well as public assets (R² roughly 0.3–0.7 for alternatives vs 0.8–1.0 for public assets).\n• Appraisal-based valuation, heavier reliance on manager choices, illiquidity premium, and other idiosyncratic risks are poorly explained by public factor models.\n\n===\nBENEFIT 3 (identifies factors AND sensitivities that are STABLE OVER TIME): INCORRECT.\n• Factor sensitivities (betas) are NOT stable over time — they vary with market regime, business cycle, and manager style.\n• Historical factor loadings may not persist.\n• Overstated claim.\n\nPARTIAL: 5=all three assessed; 3=two correct; 0=fewer."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.b",
-                "asset_allocation_to_alternative_investments.f",
-                "asset_allocation_to_alternative_investments.e"
+                "asset_allocation_to_alternative_investments.a",
+                "asset_allocation_to_alternative_investments.e",
+                "asset_allocation_to_alternative_investments.d"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3315,8 +3308,8 @@
               },
               "candidate_los": [
                 "asset_allocation_to_alternative_investments.a",
-                "asset_allocation_to_alternative_investments.g",
-                "asset_allocation_to_alternative_investments.d"
+                "asset_allocation_to_alternative_investments.f",
+                "asset_allocation_to_alternative_investments.c"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3336,9 +3329,9 @@
                 "model_answer": "GRADING KEY — any TWO of the following.\n\nAccepted considerations:\n• PACING PLAN: manage capital commitments across vintages to avoid over-commitment and undercommitment in any single vintage.\n• LIQUIDITY BUDGETING: monitor uncalled commitments vs available liquidity for capital calls.\n• MANAGER MONITORING: regular review of GP performance, style drift, key person changes.\n• DIVERSIFICATION across managers, vintages, sectors, geographies.\n• BENCHMARK RESULTS: appropriate benchmark selection for illiquid investments (private market indexes, PME).\n• EXPENSE and FEE MONITORING.\n• RISK REPORTING: understanding hidden leverage, concentration, correlation across the portfolio.\n• EXIT PLANNING: managing secondary sales if liquidity needed.\n• GOVERNANCE PROVISIONS in LP agreements (side letters, MFN clauses).\n\nPARTIAL: 5=two clear governance/monitoring items + reasoning; 3=one; 0=vague."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.j",
-                "asset_allocation_to_alternative_investments.d",
-                "asset_allocation_to_alternative_investments.h"
+                "asset_allocation_to_alternative_investments.a",
+                "asset_allocation_to_alternative_investments.c",
+                "asset_allocation_to_alternative_investments.g"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3372,9 +3365,9 @@
                 "C": "It is true that the number of providers of private equity, hedge funds, direct real estate, and similar investments has grown substantially over time; however, access to top-tier managers is quite limited because managers of alternative investments tend to be capacity constrained and many alternative investment strategies have limited market volume."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.d",
-                "asset_allocation_to_alternative_investments.h",
-                "asset_allocation_to_alternative_investments.i"
+                "asset_allocation_to_alternative_investments.c",
+                "asset_allocation_to_alternative_investments.g",
+                "asset_allocation_to_alternative_investments.h"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3399,8 +3392,8 @@
                 "C": "The statement regarding market efficiency is correct. Many alternative investment asset classes, including private equity, direct real estate, and many hedge fund strategies, are predicated on the notion that markets are inefficient in specific ways. Chan's current portfolio follows a well-diversified, low-cost indexing strategy indicative of a belief in market efficiency. In making the switch, it will be important for Chan and Gill to identify specific markets they believe to be inefficient and invest in alternative investment products and strategies that are most likely to take advantage of those specific perceived inefficiencies."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.i",
-                "asset_allocation_to_alternative_investments.c",
+                "asset_allocation_to_alternative_investments.h",
+                "asset_allocation_to_alternative_investments.b",
                 "asset_allocation_to_alternative_investments.a"
               ],
               "primary_reading_ids": [
@@ -3426,7 +3419,7 @@
                 "C": "It is common for portfolio optimization that includes alternative assets to be performed in two stages–the first following a traditional mean–variance analysis and the second using Monte Carlo simulation or other more advanced techniques to account for the non-normality of returns of alternatives."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.e"
+                "asset_allocation_to_alternative_investments.d"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3451,9 +3444,9 @@
                 "C": "Many alternative investments use limited partnership or similar structures in which each investor owns a fairly large portion of the fund. Strategies often involve investment in illiquid assets. If a few investors pull out of a fund, managers can be forced to sell positions at disadvantageous times, resulting in poor performance for all investors. Remaining positions might also be particularly illiquid."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.j",
-                "asset_allocation_to_alternative_investments.h",
-                "asset_allocation_to_alternative_investments.g"
+                "asset_allocation_to_alternative_investments.a",
+                "asset_allocation_to_alternative_investments.g",
+                "asset_allocation_to_alternative_investments.f"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3472,9 +3465,9 @@
                 "model_answer": "APPROPRIATENESS: LARGELY APPROPRIATE with important caveats.\n\n===\nAPPROPRIATE ASPECTS:\n• Long horizon (foundation is permanent) supports illiquid investments.\n• 50% shift keeps the other 50% liquid for annual grant distributions.\n• Foundation status supports allocation to alternatives that provide higher long-term returns.\n\n===\nCAVEATS (Chan's assumptions to challenge):\n• 'Easier to access top-tier managers due to growth in managers' — MISLEADING.\n  → More managers = more mediocrity; top-tier remains hard to access.\n  → Best PE managers oversubscribed; access requires established relationships.\n• 'Long-term horizon of the foundation' — CORRECT but ANNUAL GRANTS still require liquidity.\n• 'Confident of Gill's ability to do due diligence' — Gill has NO alt experience; this is a MAJOR CONCERN.\n• DUE DILIGENCE is significantly more complex for alts than for public investments.\n\nPARTIAL: 5=identifies appropriateness + at least 2 caveats; 3=general assessment; 0=uncritical."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.d",
-                "asset_allocation_to_alternative_investments.h",
-                "asset_allocation_to_alternative_investments.e"
+                "asset_allocation_to_alternative_investments.c",
+                "asset_allocation_to_alternative_investments.g",
+                "asset_allocation_to_alternative_investments.d"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3494,9 +3487,9 @@
                 "model_answer": "===\nAPPROPRIATENESS: PARTIALLY VALID.\n\n===\nSUPPORTIVE reasoning:\n• Transparency helps the investment committee understand risk and return.\n• Enables proper due diligence and risk aggregation across the portfolio.\n• Allows the foundation to detect strategy drift.\n\n===\nCRITIQUE:\n• Requiring FULL TRANSPARENCY may SCREEN OUT MANY SKILLED ALTERNATIVE MANAGERS.\n• Many top hedge funds and PE managers PROTECT TRADE SECRETS and holdings.\n• Insisting on transparency may relegate the foundation to lower-quality managers.\n• Best practice: seek REASONABLE transparency with appropriate NDAs, not FULL position disclosure.\n• Manager selection is a trade-off between transparency and access to skill.\n\nPARTIAL: 5=identifies both benefits AND drawbacks; 3=one-sided; 0=uncritical."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.i",
-                "asset_allocation_to_alternative_investments.c",
-                "asset_allocation_to_alternative_investments.j"
+                "asset_allocation_to_alternative_investments.h",
+                "asset_allocation_to_alternative_investments.b",
+                "asset_allocation_to_alternative_investments.a"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3517,8 +3510,7 @@
               },
               "candidate_los": [
                 "asset_allocation_to_alternative_investments.a",
-                "asset_allocation_to_alternative_investments.b",
-                "asset_allocation_to_alternative_investments.e"
+                "asset_allocation_to_alternative_investments.d"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3538,7 +3530,7 @@
                 "model_answer": "GRADING KEY — any TWO considerations.\n\nAccepted considerations:\n===\nTIME HORIZON:\n• Children's trusts have HORIZONS extending decades (beyond Chan's lifetime).\n• Foundation is PERPETUAL.\n• Retirement is a fixed period.\n• Different horizons → different risk tolerances.\n\n===\nBENEFICIARY NEEDS:\n• Children's trusts: unknown future needs; balance growth and stability.\n• Foundation: specific mission (environmental grants); need for regular distributions.\n• Retirement: known needs; focus on income stability.\n\n===\nTAX TREATMENT:\n• Children's trusts and foundation may have different tax structures.\n• Foundation may be tax-exempt; children's trusts may face beneficiary taxation.\n\n===\nGOVERNANCE:\n• Trusts have beneficiary rights and trustee obligations.\n• Foundation has board governance and grantmaking priorities.\n\n===\nLIQUIDITY:\n• Children's trusts: possible distributions at various life events.\n• Foundation: annual grants require regular liquidity.\n• Retirement: monthly income needs.\n\nPARTIAL: 5=two considerations covering multiple dimensions; 3=one; 0=vague."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.d"
+                "asset_allocation_to_alternative_investments.c"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3566,7 +3558,7 @@
                 "model_answer": "===\nRETURN IMPROVEMENT (~150 bps): PLAUSIBLE but overstated.\n• Private equity historical premium over public: 200-400 bps net of fees.\n• Private RE premium: 100-200 bps.\n• Hedge fund alpha: often negative net of fees post-2010.\n• Aggregate 150 bps improvement plausible if manager selection succeeds.\n\n===\nVOLATILITY REDUCTION (~200 bps): OVERSTATED.\n• Reported low volatility for PE/RE is due to STALE PRICING and SMOOTHING.\n• True underlying vol of PE ≈ 25% (comparable to equity).\n• Correlation understated similarly.\n• Genuine vol reduction is modest, maybe 50-100 bps.\n\n===\nDOWNSIDE PROTECTION VIA HEDGE FUNDS: OVERSTATED.\n• Hedge fund correlations to equity RISE in crisis (2008, 2020 examples).\n• Long-short equity strategies do provide some downside cushion.\n• Global macro can provide crisis alpha but with high dispersion across managers.\n• 'Genuine downside protection' is a strong claim not supported empirically.\n\nPARTIAL: 5=critiques all three claims + reasoning; 3=critiques one or two; 0=agrees."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.f",
+                "asset_allocation_to_alternative_investments.e",
                 "asset_allocation_to_alternative_investments.a"
               ],
               "primary_reading_ids": [
@@ -3587,9 +3579,9 @@
                 "model_answer": "===\nVALIDITY: Concern 1 IS VALID.\n\nAccepted reasoning:\n• 30% illiquid (PE + private RE) is significant given 4% annual grantmaking.\n• Capital calls in year 1-3 can exceed distributions from mature vintages, creating negative cash flow.\n• Denominator effect in downturns: public assets decline faster than PE marks, inflating alt % of portfolio and constraining rebalancing.\n• Grants must be paid regardless of illiquidity conditions.\n\n===\nLIQUIDITY MANAGEMENT STRATEGIES (any TWO):\n• PACING PLAN: commit to PE across multiple vintages (e.g., 3-4% per year over 4-5 years) to smooth capital calls.\n• LIQUIDITY BUFFERS: hold 3-5% cash + short-duration IG bonds explicitly for capital calls and grants.\n• BRIDGE FINANCING: subscription lines of credit to smooth capital calls.\n• SECONDARY MARKET: use PE secondaries market for interim liquidity.\n• DIVERSIFICATION across vintages so distributions from mature funds fund calls of new funds.\n• STRESS TESTING: model liquidity needs under adverse scenarios.\n\nPARTIAL: 5=validity + two strategies + reasoning; 3=validity + one strategy; 0=vague."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.h",
                 "asset_allocation_to_alternative_investments.g",
-                "asset_allocation_to_alternative_investments.e"
+                "asset_allocation_to_alternative_investments.f",
+                "asset_allocation_to_alternative_investments.d"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3609,9 +3601,9 @@
                 "model_answer": "===\nPME for PRIVATE EQUITY: APPROPRIATE.\n• Public Market Equivalent (PME) properly compares PE returns to what would have been earned in an equivalent public market investment.\n• Kaplan-Schoar PME and Direct Alpha are widely accepted PE benchmarks.\n• Accounts for timing of capital calls and distributions — critical for irregular cash flows.\n• Superior to IRR-only or time-weighted return comparisons.\n\n===\nHEDGE FUND COMPOSITE BENCHMARKS: PARTIALLY APPROPRIATE.\n• Hedge fund indices (HFRI, Credit Suisse) have well-known issues:\n  - SURVIVORSHIP BIAS: failed funds drop out.\n  - BACKFILL BIAS: successful funds added retroactively.\n  - SELF-SELECTION: only funds choosing to report are included.\n• Composite benchmarks overstate the true universe average return (survivorship and backfill biases inflate reported index returns), making them an inflated comparison hurdle.\n• Better: strategy-specific benchmarks (e.g., HFRX equity long-short for long-short equity component) with awareness of biases.\n\nPARTIAL: 5=both correctly assessed + reasoning; 3=one correctly; 0=vague."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.f",
-                "asset_allocation_to_alternative_investments.j",
-                "asset_allocation_to_alternative_investments.e"
+                "asset_allocation_to_alternative_investments.e",
+                "asset_allocation_to_alternative_investments.a",
+                "asset_allocation_to_alternative_investments.d"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3631,9 +3623,9 @@
                 "model_answer": "GRADING KEY — any TWO of the following.\n\nAccepted considerations:\n• ESG / IMPACT ALIGNMENT: Rothhaven's mission is medical research; consider impact investing in life-sciences PE or biotech venture funds.\n• MISSION-RELATED INVESTING (MRI): allocations to health-focused managers may align portfolio with foundation purpose.\n• REPUTATIONAL RISK: avoid managers investing in sectors that could reflect poorly on the foundation (e.g., tobacco, opioid manufacturers).\n• GRANT-RECIPIENT CONFLICTS: due diligence on managers' portfolio companies vs. Rothhaven's grantees.\n• GOVERNANCE STANDARDS: managers with robust ESG frameworks align with foundation values.\n• PROGRAM-RELATED INVESTMENTS (PRI): possible use of PRI category to align investment with mission tax-efficiently.\n• LIQUIDITY OF EXITS: PE portfolios may include health-tech companies whose exits could benefit Rothhaven's grantees.\n\nPARTIAL: 5=two clear considerations + reasoning; 3=one; 0=vague."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.d",
                 "asset_allocation_to_alternative_investments.c",
-                "asset_allocation_to_alternative_investments.g"
+                "asset_allocation_to_alternative_investments.b",
+                "asset_allocation_to_alternative_investments.f"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -4363,7 +4355,7 @@
               "candidate_los": [
                 "trading_costs_and_electronic_markets.g",
                 "trading_costs_and_electronic_markets.b",
-                "trading_costs_and_electronic_markets.k"
+                "trading_costs_and_electronic_markets.a"
               ],
               "primary_reading_ids": [
                 "trading_costs_and_electronic_markets"
@@ -4384,7 +4376,7 @@
               },
               "candidate_los": [
                 "trading_costs_and_electronic_markets.c",
-                "trading_costs_and_electronic_markets.k",
+                "trading_costs_and_electronic_markets.a",
                 "trading_costs_and_electronic_markets.b"
               ],
               "primary_reading_ids": [
@@ -4406,7 +4398,7 @@
               },
               "candidate_los": [
                 "trading_costs_and_electronic_markets.c",
-                "trading_costs_and_electronic_markets.k"
+                "trading_costs_and_electronic_markets.a"
               ],
               "primary_reading_ids": [
                 "trading_costs_and_electronic_markets"
@@ -5538,8 +5530,8 @@
                 "model_answer": "ANSWER: BUY NOVEMBER 2019 PUT and SELL JUNE 2019 PUT (long calendar put spread).\n\nAccepted reasoning (any ONE):\n• Short-term stable + long-term bearish → LONG CALENDAR PUT SPREAD is optimal.\n• Long the far-dated put (November) to profit from long-term bearish view.\n• Short the near-dated put (June) to capture time-decay premium while stock is stable.\n• Near-dated put decays quickly (higher theta), enriching the strategy.\n• Long-dated put maintains value longer, providing exposure to later decline.\n\nREJECTED:\n• Long straddle (buy both) — requires immediate large move.\n• Buy June put + sell November put — reverse calendar, benefits from immediate decline.\n\nPARTIAL: 5=long calendar put spread + reasoning; 3=identifies calendar spread; 0=other."
               },
               "candidate_los": [
-                "options_strategies.g",
-                "options_strategies.i",
+                "options_strategies.f",
+                "options_strategies.h",
                 "options_strategies.e"
               ],
               "primary_reading_ids": [
@@ -5560,8 +5552,8 @@
                 "model_answer": "===\nVOLATILITY SKEW description (IV↑ for OTM puts, IV↓ for OTM calls): CORRECT.\n• Standard skew observed in equity index options.\n\n===\nVOLATILITY SMILE description (Cho's version: IV↓ for OTM puts, IV↑ for OTM calls): INCORRECT.\n• A volatility SMILE means IV is HIGH at BOTH ends of the strike range (both OTM puts AND OTM calls have HIGHER IV than ATM).\n• Cho's description reverses OTM put IV — she describes a REVERSE SKEW, not a smile.\n\n===\nLONG RISK-REVERSAL STRATEGY (short OTM call + long OTM put when put IV is high relative to call IV): INCORRECT.\n• A LONG risk-reversal is BUY OTM call + SELL OTM put (bullish).\n• Cho describes a SHORT risk-reversal (bearish trade).\n• If put IV is HIGH relative to call IV, one should SELL the expensive put and BUY the cheap call = LONG risk-reversal (opposite of Cho's).\n\nPARTIAL: 5=all three assessed correctly; 3=identifies skew correct + issues; 0=vague."
               },
               "candidate_los": [
-                "options_strategies.i",
-                "options_strategies.h"
+                "options_strategies.h",
+                "options_strategies.g"
               ],
               "primary_reading_ids": [
                 "options_strategies"
@@ -5597,7 +5589,7 @@
               "candidate_los": [
                 "options_strategies.f",
                 "options_strategies.b",
-                "options_strategies.i"
+                "options_strategies.h"
               ],
               "primary_reading_ids": [
                 "options_strategies"
@@ -5622,7 +5614,7 @@
                 "C": "Minkoff is correct about the direction and timing of the price move."
               },
               "candidate_los": [
-                "options_strategies.g"
+                "options_strategies.f"
               ],
               "primary_reading_ids": [
                 "options_strategies"
@@ -5647,8 +5639,8 @@
                 "C": "Armitage is correct about the long risk reversal strategy of selling the OTM put and buying the OTM call if the put implied volatility is considered to be too high compared with the call implied volatility.."
               },
               "candidate_los": [
+                "options_strategies.g",
                 "options_strategies.h",
-                "options_strategies.i",
                 "options_strategies.e"
               ],
               "primary_reading_ids": [
@@ -5674,7 +5666,7 @@
                 "C": "Dufu is incorrect about buying calls and writing puts. The strategy of buying call options on an index and writing put options on the index is incorrect and would be implemented by an investor who has a bullish view of the market and an expectation that implied volatility will remain unchanged. The sale of puts is used to lower the cost of purchasing the calls."
               },
               "candidate_los": [
-                "options_strategies.i"
+                "options_strategies.h"
               ],
               "primary_reading_ids": [
                 "options_strategies"
@@ -5694,7 +5686,7 @@
               },
               "candidate_los": [
                 "options_strategies.f",
-                "options_strategies.i",
+                "options_strategies.h",
                 "options_strategies.e"
               ],
               "primary_reading_ids": [
@@ -5715,7 +5707,7 @@
                 "model_answer": "VERDICT: PARTIALLY VALID.\n\n===\nCORRECT aspects:\n• Calendar spreads DO exploit time-value decay.\n• Appropriate when price movement is expected but not immediate.\n\n===\nINCORRECT aspect:\n• Kadakia expects a SHARP DECLINE OVER THE NEXT MONTH — this is NEAR-TERM, not long-dated.\n• Calendar spreads are best for LONG-TERM directional views with near-term stability, not near-term moves.\n• Kadakia's outlook doesn't match calendar spread structure.\n\n===\nADDITIONAL INCORRECT CLAIM:\n• Minkoff claims calendar spread is 'only appropriate when implied volatility is expected to INCREASE' — this is not necessarily true.\n• LONG calendar spread (buy far, sell near) benefits from IV increase in the far-dated option.\n• But calendar spreads can be profitable if the near-dated option decays and stock remains close to strike — even without IV increase.\n\nPARTIAL: 5=identifies mismatch + evaluates IV claim; 3=partial; 0=fully agrees."
               },
               "candidate_los": [
-                "options_strategies.g"
+                "options_strategies.f"
               ],
               "primary_reading_ids": [
                 "options_strategies"
@@ -5737,7 +5729,7 @@
               "candidate_los": [
                 "options_strategies.f",
                 "options_strategies.b",
-                "options_strategies.j"
+                "options_strategies.i"
               ],
               "primary_reading_ids": [
                 "options_strategies"
@@ -5757,8 +5749,8 @@
                 "model_answer": "Observed skew (Exhibit 2): OTM put IV (26.31 / 22.40) far exceeds OTM call IV (15.54 / 14.65) - puts are expensive, calls are cheap.\n\nAccepted strategies (any TWO):\n\n===\nLONG RISK REVERSAL: SELL OTM PUT + BUY OTM CALL.\n• Sell the overpriced high-IV OTM put and buy the underpriced low-IV OTM call to exploit the skew; net bullish/directional.\n• Can be delta-hedged by shorting the underlying (as Armitage states). This matches the long-risk-reversal definition used in Q3/Q4 of this case.\n\n===\nLONG STRADDLE / STRANGLE (only if overall implied volatility is expected to rise further):\n• Buy both a call and a put to profit from an expansion in implied volatility.\n\n===\nVOLATILITY / SKEW-NORMALIZATION SPREAD (alternative):\n• A butterfly centered on the ATM strike, or a spread that buys the cheap call side and sells the expensive put side, profits if the put-call skew mean-reverts (put IV converges toward call IV).\n\nPARTIAL: 5=two strategies + reasoning; 3=one + reasoning; 0=vague."
               },
               "candidate_los": [
-                "options_strategies.i",
                 "options_strategies.h",
+                "options_strategies.g",
                 "options_strategies.f"
               ],
               "primary_reading_ids": [
@@ -5821,7 +5813,7 @@
               },
               "candidate_los": [
                 "options_strategies.b",
-                "options_strategies.j",
+                "options_strategies.i",
                 "options_strategies.c"
               ],
               "primary_reading_ids": [
@@ -5918,7 +5910,7 @@
               },
               "candidate_los": [
                 "options_strategies.b",
-                "options_strategies.j",
+                "options_strategies.i",
                 "options_strategies.e"
               ],
               "primary_reading_ids": [
@@ -6025,7 +6017,6 @@
               },
               "candidate_los": [
                 "swaps_forwards_and_futures_strategies.c",
-                "swaps_forwards_and_futures_strategies.g",
                 "swaps_forwards_and_futures_strategies.a"
               ],
               "primary_reading_ids": [
@@ -6101,8 +6092,7 @@
               },
               "candidate_los": [
                 "swaps_forwards_and_futures_strategies.a",
-                "swaps_forwards_and_futures_strategies.e",
-                "swaps_forwards_and_futures_strategies.g"
+                "swaps_forwards_and_futures_strategies.e"
               ],
               "primary_reading_ids": [
                 "swaps_forwards_and_futures_strategies"
@@ -6338,7 +6328,6 @@
               },
               "candidate_los": [
                 "currency_management_an_introduction.h",
-                "swaps_forwards_and_futures_strategies.g",
                 "swaps_forwards_and_futures_strategies.a"
               ],
               "primary_reading_ids": [
@@ -6709,7 +6698,7 @@
                 "C": "A short strangle (short an equal number of 15-delta calls and puts) would only be appropriate if volatility is expected to be low. The expectation is for increased volatility, so the long strangles would be more appropriate. A strategy of taking long positions on an equal number of 50-delta calls and 50-delta puts (i.e., a 50-delta straddle) is an appropriate way to take advantage of expected increased volatility in the USD/EUR currency pair. However, 50-delta calls and puts are at-the-money options and are more expensive than out-of-the-money options, such as 25-delta calls and puts (a 25-delta strangle)."
               },
               "candidate_los": [
-                "options_strategies.i",
+                "options_strategies.h",
                 "options_strategies.f",
                 "options_strategies.d"
               ],
@@ -6763,7 +6752,7 @@
               },
               "candidate_los": [
                 "currency_management_an_introduction.g",
-                "options_strategies.g",
+                "options_strategies.f",
                 "options_strategies.b"
               ],
               "primary_reading_ids": [
@@ -6830,7 +6819,7 @@
               },
               "candidate_los": [
                 "currency_management_an_introduction.e",
-                "options_strategies.i",
+                "options_strategies.h",
                 "currency_management_an_introduction.d"
               ],
               "primary_reading_ids": [
@@ -6950,8 +6939,7 @@
               },
               "candidate_los": [
                 "options_strategies.f",
-                "options_strategies.g",
-                "options_strategies.i"
+                "options_strategies.h"
               ],
               "primary_reading_ids": [
                 "options_strategies"
@@ -6980,8 +6968,7 @@
               },
               "candidate_los": [
                 "swaps_forwards_and_futures_strategies.c",
-                "swaps_forwards_and_futures_strategies.a",
-                "swaps_forwards_and_futures_strategies.g"
+                "swaps_forwards_and_futures_strategies.a"
               ],
               "primary_reading_ids": [
                 "swaps_forwards_and_futures_strategies"
@@ -7001,7 +6988,6 @@
                 "model_answer": "===\nCLAIMS FOR SWAPS:\n• More precise duration matching: TRUE — swaps can be constructed for exact duration/curve exposures.\n• Avoid basis risk from CTD bond selection: TRUE — swaps price off swap curve, not government bond curve; CTD basis risk avoided.\n• Require no rolling every quarter: TRUE — swaps have single maturity; futures must be rolled quarterly.\n\n===\nCLAIMS FOR FUTURES:\n• Less operational setup: TRUE — no ISDA agreement, no initial margin negotiation.\n• No counterparty credit risk: TRUE for exchange-cleared futures (via CCP); FALSE for OTC bilateral (not applicable here).\n\n===\nMISSING CONSIDERATIONS Kaminski overlooked:\n• SWAP CURVE BASIS RISK: liability discount curve is corporate/AA; swap curve is different — creates a basis risk not present in Treasury futures (which have Treasury basis risk).\n• LIQUIDITY: Treasury futures are highly liquid (deep, transparent markets); swap markets are OTC-driven with counterparty-specific pricing.\n• REGULATORY: Dodd-Frank clearing requirements for swaps.\n• MARGIN: swaps require ongoing variation margin plus IM.\n• ACCOUNTING: hedge accounting treatment may differ.\n\n===\nCONCLUSION: Kaminski's claim is MOSTLY VALID for pension LDI but overstates case. Best practice often uses BOTH.\n\nPARTIAL: 5=validates claims + identifies missing considerations; 3=validates; 0=uncritical."
               },
               "candidate_los": [
-                "swaps_forwards_and_futures_strategies.g",
                 "swaps_forwards_and_futures_strategies.a",
                 "swaps_forwards_and_futures_strategies.b"
               ],
@@ -7045,7 +7031,7 @@
                 "model_answer": "===\nAPPROACH: STRATEGIC CURRENCY HEDGE via ROLLING FORWARDS.\n• Estimate underlying currency exposure from ETF holdings (typically weighted average of EM basket currencies).\n• Sell forward each currency against USD to hedge exposure.\n• Roll forwards quarterly (typical) as they approach maturity.\n• Rebalance as ETF composition changes and currency movements alter exposures.\n\n===\nSIZING:\n• Full hedge (100%) or partial hedge (typically 50-75%) depending on plan's views on EM currency premium.\n• EM currencies have historical positive expected returns from carry — full hedging forfeits this.\n\n===\nDRAWBACKS/CHALLENGES:\n• MULTIPLE EM CURRENCIES: not all hedgeable via liquid forwards (INR, CNY often require NDFs).\n• BASKET CHANGES: ETF composition changes force hedge adjustments.\n• TRANSACTION COSTS: rolling multiple forward positions has meaningful cost drag.\n• REBALANCING: hedge ratio drifts as currency and asset returns move.\n• BASIS RISK: proxy hedging using G10 currencies (e.g., AUD proxy for EM Asia).\n• CURRENCY CARRY LOSS: EM currencies typically have positive carry (higher rates); hedging forfeits this premium.\n• EMERGING MARKET EQUITY RETURNS: often POSITIVELY correlated with EM currency returns — this amplifies unhedged volatility (minimum-variance hedge ratio can exceed 1) and strengthens, not weakens, the case for hedging.\n\nPARTIAL: 5=hedging approach + drawbacks; 3=one aspect; 0=vague."
               },
               "candidate_los": [
-                "swaps_forwards_and_futures_strategies.g",
+                "swaps_forwards_and_futures_strategies.a",
                 "swaps_forwards_and_futures_strategies.b",
                 "swaps_forwards_and_futures_strategies.d"
               ],
@@ -10565,7 +10551,7 @@
               "candidate_los": [
                 "index_based_equity_strategies.c",
                 "index_based_equity_strategies.e",
-                "active_equity_investing_portfolio_construction.g"
+                "active_equity_investing_portfolio_construction.f"
               ],
               "primary_reading_ids": [
                 "index_based_equity_strategies",
@@ -10875,7 +10861,7 @@
               },
               "candidate_los": [
                 "active_equity_investing_strategies.c",
-                "active_equity_investing_portfolio_construction.g",
+                "active_equity_investing_portfolio_construction.f",
                 "index_based_equity_strategies.c"
               ],
               "primary_reading_ids": [
@@ -11447,7 +11433,7 @@
                 "model_answer": "VERDICT: LUNNAR B.\n\nAnalysis of value/growth mix vs benchmark:\n• LUNNAR A: 68%/32% holdings, 68%/32% returns-based vs 75%/25% index → material growth tilt vs benchmark.\n• LUNNAR B: 67%/33% holdings, 68%/32% returns-based vs 65%/35% index → very close match.\n• LUNNAR C: 39%/61% holdings, 34%/66% returns-based vs 35%/65% index → close match too.\n\nBoth B and C are close. LUNNAR B has NEAR-EXACT match on both holdings and returns-based analysis (67/68 vs 65).\nLUNNAR C is also very close on returns-based (34/35) but shows slight holdings drift.\n\nACCEPTED: EITHER B or C with correct comparative reasoning.\n\nPARTIAL: 5=B or C + comparison of both holdings and returns basis; 3=identifies close-fit fund without full analysis; 0=A."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.g",
+                "active_equity_investing_portfolio_construction.f",
                 "index_based_equity_strategies.a",
                 "active_equity_investing_strategies.a"
               ],
@@ -11529,7 +11515,7 @@
                 "C": "Although the value style does appear to be out of favor as shown by the lower return than that of the market (0.66% versus 0.71%), the Value factor has a positive contribution to the return (0.08%)."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.g",
+                "active_equity_investing_portfolio_construction.f",
                 "index_based_equity_strategies.a",
                 "active_equity_investing_portfolio_construction.a"
               ],
@@ -11585,7 +11571,7 @@
               },
               "candidate_los": [
                 "active_equity_investing_portfolio_construction.c",
-                "active_equity_investing_portfolio_construction.g",
+                "active_equity_investing_portfolio_construction.f",
                 "active_equity_investing_strategies.d"
               ],
               "primary_reading_ids": [
@@ -11640,7 +11626,7 @@
                 "C": "The March Fund is the fund that is most consistent with Quint's requirements for the best risk-efficient delivery of results. It delivers the lowest active risk (3.2%) using far fewer securities (140), indicating an efficient approach. The higher Active Share (0.75) for the similar level of fees also supports this decision."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.g",
+                "active_equity_investing_portfolio_construction.f",
                 "index_based_equity_strategies.d",
                 "overview_of_equity_portfolio_management.e"
               ],
@@ -11691,7 +11677,7 @@
               "candidate_los": [
                 "active_equity_investing_portfolio_construction.a",
                 "active_equity_investing_portfolio_construction.d",
-                "active_equity_investing_portfolio_construction.g"
+                "active_equity_investing_portfolio_construction.f"
               ],
               "primary_reading_ids": [
                 "active_equity_investing_portfolio_construction"
@@ -11712,7 +11698,7 @@
               },
               "candidate_los": [
                 "active_equity_investing_portfolio_construction.b",
-                "active_equity_investing_portfolio_construction.g",
+                "active_equity_investing_portfolio_construction.f",
                 "active_equity_investing_portfolio_construction.a"
               ],
               "primary_reading_ids": [
@@ -11734,7 +11720,7 @@
               },
               "candidate_los": [
                 "active_equity_investing_portfolio_construction.c",
-                "active_equity_investing_portfolio_construction.g",
+                "active_equity_investing_portfolio_construction.f",
                 "active_equity_investing_portfolio_construction.e"
               ],
               "primary_reading_ids": [
@@ -11755,7 +11741,7 @@
                 "model_answer": "GRADING KEY — any TWO of the following.\n\nAccepted implications:\n• The fund's manager is NOT generating skill-based alpha; performance is fully explained by factor exposures.\n• INVESTORS should consider whether the fund's fees are justified given the lack of factor-neutral alpha.\n• CHEAPER PASSIVE FACTOR PRODUCTS could replicate the fund's returns.\n• The fund does not offer a compelling case for its active management fee.\n• Factor-based benchmarking is a fair standard — the fund's excess is not from skill.\n• Even the benchmark index has slightly negative non-factor alpha, suggesting factor-mimicking indexes can have implementation costs.\n\nPARTIAL: 5=two clear implications; 3=one; 0=vague."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.g",
+                "active_equity_investing_portfolio_construction.f",
                 "overview_of_equity_portfolio_management.e",
                 "active_equity_investing_portfolio_construction.a"
               ],
@@ -11818,7 +11804,7 @@
               },
               "candidate_los": [
                 "active_equity_investing_portfolio_construction.a",
-                "active_equity_investing_portfolio_construction.g",
+                "active_equity_investing_portfolio_construction.f",
                 "active_equity_investing_portfolio_construction.d"
               ],
               "primary_reading_ids": [
@@ -11845,7 +11831,7 @@
               },
               "candidate_los": [
                 "active_equity_investing_portfolio_construction.c",
-                "active_equity_investing_portfolio_construction.g",
+                "active_equity_investing_portfolio_construction.f",
                 "active_equity_investing_portfolio_construction.d"
               ],
               "primary_reading_ids": [
@@ -11872,7 +11858,7 @@
               },
               "candidate_los": [
                 "active_equity_investing_portfolio_construction.c",
-                "active_equity_investing_portfolio_construction.g"
+                "active_equity_investing_portfolio_construction.f"
               ],
               "primary_reading_ids": [
                 "active_equity_investing_portfolio_construction"
@@ -11897,9 +11883,8 @@
                 "C": "The allocation restriction is 1.75% of funds under management = 1.75% × $100 million = $1.75 million. However, the restriction on daily trading ($1.13 million) prevents this amount from being acquired."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.f",
-                "active_equity_investing_portfolio_construction.a",
-                "active_equity_investing_portfolio_construction.e"
+                "active_equity_investing_portfolio_construction.e",
+                "active_equity_investing_portfolio_construction.a"
               ],
               "primary_reading_ids": [
                 "active_equity_investing_portfolio_construction"
@@ -11944,7 +11929,7 @@
               },
               "candidate_los": [
                 "active_equity_investing_portfolio_construction.a",
-                "active_equity_investing_portfolio_construction.g",
+                "active_equity_investing_portfolio_construction.f",
                 "active_equity_investing_strategies.d"
               ],
               "primary_reading_ids": [
@@ -11967,7 +11952,7 @@
               },
               "candidate_los": [
                 "active_equity_investing_portfolio_construction.c",
-                "active_equity_investing_portfolio_construction.g"
+                "active_equity_investing_portfolio_construction.f"
               ],
               "primary_reading_ids": [
                 "active_equity_investing_portfolio_construction"
@@ -11988,7 +11973,7 @@
               },
               "candidate_los": [
                 "active_equity_investing_portfolio_construction.c",
-                "active_equity_investing_portfolio_construction.g",
+                "active_equity_investing_portfolio_construction.f",
                 "active_equity_investing_portfolio_construction.d"
               ],
               "primary_reading_ids": [
@@ -12009,9 +11994,9 @@
                 "model_answer": "GRADING KEY — constraints REDUCE alpha potential.\n\nAccepted reasoning:\n• The 7% ADV constraint limits POSITION SIZE — even with high-conviction ideas, the fund cannot fully express its view.\n• The 1.75% AUM position limit similarly caps concentration.\n• Small-cap securities have lower liquidity — positions must be accumulated/exited over multiple days, creating implementation costs.\n• At $1.8B average market cap and 0.90% daily turnover: daily volume = $16.2M. The liquidity constraint caps each position at 7% × $16.2M = $1.13M — below both the 1.75% × $100M = $1.75M allocation limit and the $100M / 60 ≈ $1.67M diversification-implied maximum — so the liquidity cap binds first: maximum active weight per position is ~1.13%, not 1.75%, diluting conviction and forcing roughly 89+ names if fully invested.\n• Constraint reduces active weight per position → dilutes potential alpha.\n• Diversification requirement (≥ 60 names) forces a higher position count, further diluting concentration.\n\nPARTIAL: 5=identifies constraints + explains impact + quantifies; 3=identifies impact without numbers; 0=vague."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.f",
+                "active_equity_investing_portfolio_construction.e",
                 "active_equity_investing_portfolio_construction.a",
-                "active_equity_investing_portfolio_construction.g"
+                "active_equity_investing_portfolio_construction.f"
               ],
               "primary_reading_ids": [
                 "active_equity_investing_portfolio_construction"

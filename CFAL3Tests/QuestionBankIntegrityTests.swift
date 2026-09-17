@@ -247,6 +247,30 @@ final class QuestionBankIntegrityTests: XCTestCase {
         XCTAssertTrue(unknown.isEmpty, "Unknown LOS ids: \(unknown)")
     }
 
+    /// Practice-by-LOS shows master text and serves that group's drills.
+    /// After the spine repair, every drill group must quote the same statement.
+    func testDrillLOSTextMatchesMaster() throws {
+        let content = ContentLoader()
+        content.load()
+        XCTAssertNil(content.loadError, content.loadError ?? "")
+        let master = try XCTUnwrap(content.losMaster)
+        let textByID = Dictionary(uniqueKeysWithValues: master.losFlat.map { ($0.id, $0.text) })
+
+        var mismatches: [String] = []
+        for bundle in content.losDrillBundles.values {
+            for group in bundle.drills {
+                guard let masterText = textByID[group.losID] else {
+                    mismatches.append("unknown \(group.losID)")
+                    continue
+                }
+                if group.losText != masterText {
+                    mismatches.append(group.losID)
+                }
+            }
+        }
+        XCTAssertTrue(mismatches.isEmpty, "drill los_text != master: \(mismatches)")
+    }
+
     /// A uniquely longest correct option is a length cue. Distractors were
     /// lengthened so the key is not the long answer on most items.
     func testDrillCorrectOptionIsNotUniquelyLongestOnMostItems() throws {

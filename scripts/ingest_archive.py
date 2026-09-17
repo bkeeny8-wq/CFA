@@ -43,6 +43,7 @@ READING_MAP = {
     23: "yield_curve_strategies",
     24: "fixed_income_active_management_credit_strategies",
     25: "trade_strategy_and_execution",
+    36: "asset_manager_code_of_professional_conduct",
 }
 
 

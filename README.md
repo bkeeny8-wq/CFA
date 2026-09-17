@@ -71,8 +71,8 @@ Replace these files to update the question bank; do not edit them at runtime fro
 
 The **Study** tab is a digital version of your review materials:
 
-- **Study notes** — all **35 readings** bundled as `reading_notes.json` (every curriculum reading is covered)
-- **LOS checklist** — all **255 LOS** with tap-to-mark progress
+- **Study notes** — **35 of 36** readings bundled as `reading_notes.json` (Asset Manager Code has no notes yet)
+- **LOS checklist** — all **247 LOS** with tap-to-mark progress
 - **Practice questions** — filtered by reading/LOS from the question bank
 
 Note: the R26 Endowment case-study notes were authored in-app (no `.docx` source exists), so `convert_reading_notes.py` will **not** regenerate that entry — preserve it when re-converting from Word files.

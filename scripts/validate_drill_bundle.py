@@ -46,6 +46,7 @@ READING_MAP = {
     33: "guidance_standard_vi_conflicts_of_interest",
     34: "guidance_standard_vii_responsibilities",
     35: "application_of_code_and_standards_l3",
+    36: "asset_manager_code_of_professional_conduct",
 }
 
 
@@ -92,10 +93,21 @@ def validate(path: Path) -> int:
             f"READING_MAP expects R{file_num}={READING_MAP[file_num]} but bundle has {reading_id}"
         )
 
+    seen_groups = set()
     for group in drills:
         los_id = group.get("los_id")
+        if los_id in seen_groups:
+            errors.append(f"duplicate group: {los_id}")
+        seen_groups.add(los_id)
         if los_id not in los_by_id:
             errors.append(f"unknown los_id: {los_id}")
+        else:
+            master_text = los_by_id[los_id]["text"]
+            if group.get("los_text") != master_text:
+                errors.append(f"{los_id}: los_text != master text")
+            letter = los_id.rsplit(".", 1)[-1]
+            if group.get("los_letter") != letter:
+                errors.append(f"{los_id}: los_letter {group.get('los_letter')} != {letter}")
         qs = group.get("questions", [])
         if not qs:
             errors.append(f"{los_id}: no questions")
