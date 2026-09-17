@@ -178,6 +178,7 @@ struct PlanView: View {
             .font(.subheadline.weight(.medium))
     }
 
+    @ViewBuilder
     private func blockLine(_ block: ScheduleBlock) -> some View {
         HStack(alignment: .top, spacing: 6) {
             if let book = block.book {
@@ -186,10 +187,27 @@ struct PlanView: View {
                     .frame(width: 6, height: 6)
                     .padding(.top, 4)
             }
-            Text("\(block.start) · \(block.minutes) min · \(block.label)")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-                .lineLimit(2)
+            if let match = content.reading(id: block.readingID) {
+                NavigationLink {
+                    StudyReadingDetailView(area: match.area, reading: match.reading)
+                } label: {
+                    HStack(alignment: .firstTextBaseline, spacing: 4) {
+                        Text("\(block.start) · \(block.minutes) min · \(block.label)")
+                            .font(.caption)
+                            .foregroundStyle(Theme.accent)
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(2)
+                        Image(systemName: "chevron.right")
+                            .font(.caption2.weight(.semibold))
+                            .foregroundStyle(.tertiary)
+                    }
+                }
+            } else {
+                Text("\(block.start) · \(block.minutes) min · \(block.label)")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(2)
+            }
         }
     }
 

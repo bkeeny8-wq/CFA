@@ -970,10 +970,10 @@
                 "C": "Correct. Under unexpected near-term deflation, Treasury bonds benefit (falling yields, improved purchasing power of fixed cash flows), so that part of Grey's statement is right. Real estate, however, is a real asset whose income and values suffer in deflation — Grey's claim that real estate 'should do well' is the error."
               },
               "candidate_los": [
-                "capital_market_expectations_part_2_forecasting_asset_class_returns.e"
+                "capital_market_expectations_part_1_framework_and_macro_considerations.g"
               ],
               "primary_reading_ids": [
-                "capital_market_expectations_part_2_forecasting_asset_class_returns"
+                "capital_market_expectations_part_1_framework_and_macro_considerations"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -1020,7 +1020,7 @@
                 "C": "The mistake is in reversing the weights for integrated and segmented."
               },
               "candidate_los": [
-                "capital_market_expectations_part_2_forecasting_asset_class_returns.c"
+                "capital_market_expectations_part_2_forecasting_asset_class_returns.e"
               ],
               "primary_reading_ids": [
                 "capital_market_expectations_part_2_forecasting_asset_class_returns"
@@ -1064,7 +1064,7 @@
                 "model_answer": "SINGER-TERHAAR:\nFully-integrated RP = σ × ρ × Sharpe_GIM\nFully-segmented RP = σ × Sharpe (own market — approximated with GIM Sharpe when not given)\n\nGIVEN:\n• σ_US_RE = 16.0% (Exhibit 1)\n• ρ_{RE,GIM} = 0.39 (assumed in this stem, replacing Grey's 0.34)\n• Sharpe_GIM = 0.36\n• Degree of integration = 60% (segmented weight = 40%)\n• Rf = 3.1%\n\n===\nFULLY-INTEGRATED RP:\nRP_int = 16.0% × 0.39 × 0.36 = 2.25%\n\n===\nFULLY-SEGMENTED RP:\nRP_seg = 16.0% × 0.36 = 5.76%\n\n===\nWEIGHTED RP:\nRP_weighted = 0.60 × 2.25% + 0.40 × 5.76% = 1.35% + 2.30% = 3.65%\n\n===\nEXPECTED RETURN:\nE(R) = Rf + Weighted RP = 3.1% + 3.65% = ~6.75%\n\nPARTIAL: 5=~6.75% + full work; 4=method correct, arithmetic minor; 3=partial components; 0=wrong."
               },
               "candidate_los": [
-                "capital_market_expectations_part_2_forecasting_asset_class_returns.c"
+                "capital_market_expectations_part_2_forecasting_asset_class_returns.e"
               ],
               "primary_reading_ids": [
                 "capital_market_expectations_part_2_forecasting_asset_class_returns"
@@ -1124,10 +1124,10 @@
                 "model_answer": "===\nTREASURY BONDS in DEFLATION: CORRECT.\n• DEFLATION means unexpected DECREASE in inflation → REAL VALUE of fixed cash flows RISES.\n• Nominal yields decline as inflation expectations fall → bond prices RISE.\n• Treasury bonds SHOULD DO WELL in deflation.\n\n===\nREAL ESTATE (income-producing) in DEFLATION: INCORRECT.\n• Real estate is a REAL ASSET; income and value tend to TRACK inflation.\n• In DEFLATION, rents may DECLINE and property values DECLINE.\n• Real estate typically UNDERPERFORMS in deflation, not outperforms.\n• Grey has the direction WRONG for real estate.\n\n===\nEQUITIES when INFLATION RETURNS TO EXPECTED: LIKELY CORRECT.\n• If inflation returns to equilibrium expected level (from deflation), central banks may relax policy → equity supportive.\n• Equities perform well when inflation is stable/expected.\n• Correct directionally.\n\nPARTIAL: 5=all three assessed correctly + reasoning; 3=two correct; 0=fewer."
               },
               "candidate_los": [
-                "capital_market_expectations_part_2_forecasting_asset_class_returns.e"
+                "capital_market_expectations_part_1_framework_and_macro_considerations.g"
               ],
               "primary_reading_ids": [
-                "capital_market_expectations_part_2_forecasting_asset_class_returns"
+                "capital_market_expectations_part_1_framework_and_macro_considerations"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -2702,13 +2702,10 @@
                 "C": "Point C of Moynahan's presentation is incorrect. Some fixed-income securities, such as inflation-linked bonds, provide a hedge for inflation that results in superior risk-adjusted real portfolio returns. However, not all fixed-income securities act as a hedge against inflation."
               },
               "candidate_los": [
-                "overview_of_fixed_income_portfolio_management.a",
-                "liability_driven_and_index_based_strategies.g",
-                "liability_driven_and_index_based_strategies.d"
+                "overview_of_fixed_income_portfolio_management.a"
               ],
               "primary_reading_ids": [
-                "overview_of_fixed_income_portfolio_management",
-                "liability_driven_and_index_based_strategies"
+                "overview_of_fixed_income_portfolio_management"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -3015,8 +3012,7 @@
                 "C": "Zimmermann is correct that it is easier to explain traditional approaches to asset allocation than to explain risk-based approaches."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.a",
-                "asset_allocation_to_alternative_investments.d"
+                "asset_allocation_to_alternative_investments.c"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3084,9 +3080,7 @@
                 "model_answer": "===\nCORRECT ASPECTS:\n• Traditional approaches easier to communicate (naming asset classes vs abstract risk factors). ✓\n• Traditional approaches often COMMINGLE assets with different risk characteristics in the same class. ✓ (E.g., 'alternatives' bucket includes PE, HFs, RE — different risks.)\n• Portfolios with 'same asset allocation but very different risks' — TRUE. ✓\n\n===\nINCORRECT ASPECT:\n• 'Systematic risk factors do equally well at explaining risk and return patterns of public AND private assets' — OVERSTATED.\n• Risk-factor models struggle with private assets due to: infrequent pricing, smoothed returns, illiquidity premium, manager-specific effects.\n• Traditional factors (market, size, value, momentum, quality) do NOT fully capture PE returns.\n• Some factors are relatively good (market) but idiosyncratic PE returns are less well-explained.\n\nPARTIAL: 5=identifies both correct and incorrect aspects; 3=one aspect; 0=fully agrees or fully rejects."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.a",
-                "asset_allocation_to_alternative_investments.d",
-                "asset_allocation_to_alternative_investments.e"
+                "asset_allocation_to_alternative_investments.c"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3189,8 +3183,7 @@
                 "C": "It is true that risk-based approaches identify a single set of common risk factors and estimate the sensitivities of each asset to these factors. Risk factors, however, are sensitive to the historical period examined for the estimation procedure; therefore, risk factor sensitivities are not stable over time"
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.a",
-                "asset_allocation_to_alternative_investments.d"
+                "asset_allocation_to_alternative_investments.c"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3285,9 +3278,7 @@
                 "model_answer": "===\nBENEFIT 1 (doesn't group assets based on a few shared characteristics): CORRECT.\n• The risk-based approach identifies factor exposures rather than lumping assets into broad classes.\n• A genuine benefit over traditional asset-class allocation.\n\n===\nBENEFIT 2 (does equally well for alternative assets as for public assets): INCORRECT / OVERSTATED.\n• Risk-factor models do NOT capture private/alternative asset returns as well as public assets (R² roughly 0.3–0.7 for alternatives vs 0.8–1.0 for public assets).\n• Appraisal-based valuation, heavier reliance on manager choices, illiquidity premium, and other idiosyncratic risks are poorly explained by public factor models.\n\n===\nBENEFIT 3 (identifies factors AND sensitivities that are STABLE OVER TIME): INCORRECT.\n• Factor sensitivities (betas) are NOT stable over time — they vary with market regime, business cycle, and manager style.\n• Historical factor loadings may not persist.\n• Overstated claim.\n\nPARTIAL: 5=all three assessed; 3=two correct; 0=fewer."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.a",
-                "asset_allocation_to_alternative_investments.e",
-                "asset_allocation_to_alternative_investments.d"
+                "asset_allocation_to_alternative_investments.c"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -4376,8 +4367,7 @@
               },
               "candidate_los": [
                 "trading_costs_and_electronic_markets.c",
-                "trading_costs_and_electronic_markets.a",
-                "trading_costs_and_electronic_markets.b"
+                "trading_costs_and_electronic_markets.a"
               ],
               "primary_reading_ids": [
                 "trading_costs_and_electronic_markets"
@@ -5614,7 +5604,7 @@
                 "C": "Minkoff is correct about the direction and timing of the price move."
               },
               "candidate_los": [
-                "options_strategies.f"
+                "options_strategies.g"
               ],
               "primary_reading_ids": [
                 "options_strategies"
@@ -5707,7 +5697,7 @@
                 "model_answer": "VERDICT: PARTIALLY VALID.\n\n===\nCORRECT aspects:\n• Calendar spreads DO exploit time-value decay.\n• Appropriate when price movement is expected but not immediate.\n\n===\nINCORRECT aspect:\n• Kadakia expects a SHARP DECLINE OVER THE NEXT MONTH — this is NEAR-TERM, not long-dated.\n• Calendar spreads are best for LONG-TERM directional views with near-term stability, not near-term moves.\n• Kadakia's outlook doesn't match calendar spread structure.\n\n===\nADDITIONAL INCORRECT CLAIM:\n• Minkoff claims calendar spread is 'only appropriate when implied volatility is expected to INCREASE' — this is not necessarily true.\n• LONG calendar spread (buy far, sell near) benefits from IV increase in the far-dated option.\n• But calendar spreads can be profitable if the near-dated option decays and stock remains close to strike — even without IV increase.\n\nPARTIAL: 5=identifies mismatch + evaluates IV claim; 3=partial; 0=fully agrees."
               },
               "candidate_los": [
-                "options_strategies.f"
+                "options_strategies.g"
               ],
               "primary_reading_ids": [
                 "options_strategies"
@@ -7168,7 +7158,8 @@
                 "application_of_code_and_standards_l3.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_i_professionalism",
+                "application_of_code_and_standards_l3"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7185,11 +7176,12 @@
                 "model_answer": "VERDICT: DOES NOT COMPLY.\n\nAccepted justifications (any ONE):\n• Fair dealing requires PRO-RATA allocation based on ORDER SIZE (or account size), not identical share counts — equal numbers systematically favor small accounts and disadvantage large ones.\n• Allocation must also reflect SUITABILITY — an oversubscribed IPO may be unsuitable for some accounts (e.g., conservative mandates), so blanket identical allocation ignores client-specific appropriateness.\n• 'Fair' does not mean 'equal' under Standard III(B); it means equitable, disclosed, and consistent with each client's mandate.\n\nPARTIAL: full=verdict + one accepted justification; half=verdict only; 0=complies."
               },
               "candidate_los": [
-                "application_of_code_and_standards_l3.a",
-                "application_of_code_and_standards_l3.b"
+                "asset_manager_code_of_professional_conduct.c",
+                "guidance_standard_iii_duties_to_clients.a"
               ],
               "primary_reading_ids": [
-                "application_of_code_and_standards_l3"
+                "asset_manager_code_of_professional_conduct",
+                "guidance_standard_iii_duties_to_clients"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7243,7 +7235,7 @@
                 "guidance_standard_iv_duties_to_employers.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_iv_duties_to_employers"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7268,7 +7260,7 @@
                 "guidance_standard_iv_duties_to_employers.b"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_iv_duties_to_employers"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7294,7 +7286,8 @@
                 "guidance_standard_i_professionalism.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_iii_duties_to_clients",
+                "guidance_standard_i_professionalism"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7319,7 +7312,7 @@
                 "guidance_standard_iii_duties_to_clients.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_iii_duties_to_clients"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7394,7 +7387,7 @@
                 "guidance_standard_v_investment_analysis.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_v_investment_analysis"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7419,7 +7412,7 @@
                 "guidance_standard_v_investment_analysis.b"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_v_investment_analysis"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7445,7 +7438,8 @@
                 "guidance_standard_v_investment_analysis.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_i_professionalism",
+                "guidance_standard_v_investment_analysis"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7471,7 +7465,8 @@
                 "guidance_standard_i_professionalism.b"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_vi_conflicts_of_interest",
+                "guidance_standard_i_professionalism"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7496,7 +7491,7 @@
                 "guidance_standard_i_professionalism.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_i_professionalism"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7521,7 +7516,7 @@
                 "guidance_standard_vi_conflicts_of_interest.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_vi_conflicts_of_interest"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7596,7 +7591,7 @@
                 "guidance_standard_vii_responsibilities.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_vii_responsibilities"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7622,7 +7617,8 @@
                 "guidance_standard_i_professionalism.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_v_investment_analysis",
+                "guidance_standard_i_professionalism"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7648,7 +7644,8 @@
                 "guidance_standard_iii_duties_to_clients.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_ii_integrity_capital_markets",
+                "guidance_standard_iii_duties_to_clients"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7673,7 +7670,7 @@
                 "guidance_standard_v_investment_analysis.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_v_investment_analysis"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7699,7 +7696,8 @@
                 "guidance_standard_vi_conflicts_of_interest.b"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_i_professionalism",
+                "guidance_standard_vi_conflicts_of_interest"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7725,7 +7723,8 @@
                 "guidance_standard_vi_conflicts_of_interest.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_ii_integrity_capital_markets",
+                "guidance_standard_vi_conflicts_of_interest"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7800,7 +7799,7 @@
                 "guidance_standard_vi_conflicts_of_interest.b"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_vi_conflicts_of_interest"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7825,7 +7824,7 @@
                 "guidance_standard_iii_duties_to_clients.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_iii_duties_to_clients"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7851,7 +7850,8 @@
                 "guidance_standard_i_professionalism.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_iv_duties_to_employers",
+                "guidance_standard_i_professionalism"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7876,7 +7876,7 @@
                 "guidance_standard_iii_duties_to_clients.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_iii_duties_to_clients"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7901,7 +7901,7 @@
                 "guidance_standard_v_investment_analysis.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_v_investment_analysis"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -7927,7 +7927,8 @@
                 "guidance_standard_vi_conflicts_of_interest.b"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_ii_integrity_capital_markets",
+                "guidance_standard_vi_conflicts_of_interest"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8004,7 +8005,9 @@
                 "guidance_standard_vi_conflicts_of_interest.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_iii_duties_to_clients",
+                "guidance_standard_v_investment_analysis",
+                "guidance_standard_vi_conflicts_of_interest"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8029,7 +8032,7 @@
                 "guidance_standard_ii_integrity_capital_markets.b"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_ii_integrity_capital_markets"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8054,7 +8057,7 @@
                 "guidance_standard_i_professionalism.b"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_i_professionalism"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8079,7 +8082,7 @@
                 "guidance_standard_iii_duties_to_clients.b"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_iii_duties_to_clients"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8104,7 +8107,7 @@
                 "guidance_standard_iii_duties_to_clients.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_iii_duties_to_clients"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8129,7 +8132,7 @@
                 "guidance_standard_iv_duties_to_employers.b"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_iv_duties_to_employers"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8205,7 +8208,8 @@
                 "guidance_standard_iv_duties_to_employers.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_i_professionalism",
+                "guidance_standard_iv_duties_to_employers"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8230,7 +8234,7 @@
                 "guidance_standard_i_professionalism.b"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_i_professionalism"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8255,7 +8259,7 @@
                 "guidance_standard_iii_duties_to_clients.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_iii_duties_to_clients"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8280,7 +8284,7 @@
                 "guidance_standard_v_investment_analysis.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_v_investment_analysis"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8305,7 +8309,7 @@
                 "guidance_standard_iv_duties_to_employers.b"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_iv_duties_to_employers"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8330,7 +8334,7 @@
                 "guidance_standard_iii_duties_to_clients.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_iii_duties_to_clients"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8405,7 +8409,7 @@
                 "guidance_standard_vii_responsibilities.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_vii_responsibilities"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8430,7 +8434,7 @@
                 "guidance_standard_iv_duties_to_employers.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_iv_duties_to_employers"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8457,7 +8461,9 @@
                 "guidance_standard_vi_conflicts_of_interest.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_i_professionalism",
+                "guidance_standard_iv_duties_to_employers",
+                "guidance_standard_vi_conflicts_of_interest"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8484,7 +8490,9 @@
                 "guidance_standard_vii_responsibilities.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_i_professionalism",
+                "guidance_standard_iv_duties_to_employers",
+                "guidance_standard_vii_responsibilities"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8509,7 +8517,7 @@
                 "guidance_standard_iv_duties_to_employers.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_iv_duties_to_employers"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8536,7 +8544,9 @@
                 "guidance_standard_iv_duties_to_employers.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_i_professionalism",
+                "guidance_standard_iii_duties_to_clients",
+                "guidance_standard_iv_duties_to_employers"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8570,7 +8580,8 @@
                 "guidance_standard_v_investment_analysis.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_ii_integrity_capital_markets",
+                "guidance_standard_v_investment_analysis"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8596,7 +8607,8 @@
                 "guidance_standard_i_professionalism.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_iii_duties_to_clients",
+                "guidance_standard_i_professionalism"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8621,7 +8633,7 @@
                 "guidance_standard_vi_conflicts_of_interest.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_vi_conflicts_of_interest"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8647,7 +8659,8 @@
                 "guidance_standard_ii_integrity_capital_markets.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_vi_conflicts_of_interest",
+                "guidance_standard_ii_integrity_capital_markets"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8672,7 +8685,7 @@
                 "guidance_standard_i_professionalism.a"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_i_professionalism"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8697,7 +8710,7 @@
                 "guidance_standard_v_investment_analysis.b"
               ],
               "primary_reading_ids": [
-                "code_and_standards"
+                "guidance_standard_v_investment_analysis"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -11719,9 +11732,7 @@
                 "model_answer": "===\nACTIVE SHARE: sum of absolute differences between fund weights and benchmark weights, divided by 2. Range 0% (identical to benchmark) to 100% (no overlap).\n\n===\nACTIVE RISK (tracking error volatility): standard deviation of the differences between fund and benchmark returns.\n\n===\nHIGH ACTIVE SHARE + LOW ACTIVE RISK possible because:\n• The fund holds DIFFERENT securities than the benchmark (high AS) but its positions have SIMILAR risk exposures / factor loadings as the benchmark.\n• Example: fund replaces benchmark stocks with securities of similar sector, market cap, and factor characteristics — different names but same risk profile.\n• The idiosyncratic differences across many holdings CANCEL OUT at the portfolio level.\n• Common in DIVERSIFIED, LOW-CONCENTRATION funds with high stock selection.\n\nPARTIAL: 5=both defined + explanation of the divergence; 3=definitions only; 0=confused."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.c",
-                "active_equity_investing_portfolio_construction.f",
-                "active_equity_investing_portfolio_construction.e"
+                "active_equity_investing_portfolio_construction.c"
               ],
               "primary_reading_ids": [
                 "active_equity_investing_portfolio_construction"

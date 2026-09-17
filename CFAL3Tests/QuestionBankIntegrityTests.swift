@@ -271,8 +271,8 @@ final class QuestionBankIntegrityTests: XCTestCase {
         XCTAssertTrue(mismatches.isEmpty, "drill los_text != master: \(mismatches)")
     }
 
-    /// A uniquely longest correct option is a length cue. Distractors were
-    /// lengthened so the key is not the long answer on most items.
+    /// A uniquely longest or uniquely shortest correct option is a length cue.
+    /// Distractors (or the short key) were lengthened so neither cue dominates.
     func testDrillCorrectOptionIsNotUniquelyLongestOnMostItems() throws {
         let content = ContentLoader()
         content.load()
@@ -280,6 +280,7 @@ final class QuestionBankIntegrityTests: XCTestCase {
 
         var total = 0
         var uniqueLongest = 0
+        var uniqueShortest = 0
         for bundle in content.losDrillBundles.values {
             for group in bundle.drills {
                 for q in group.questions {
@@ -292,6 +293,9 @@ final class QuestionBankIntegrityTests: XCTestCase {
                     if let longestOther = other.max(), keyLen > longestOther {
                         uniqueLongest += 1
                     }
+                    if let shortestOther = other.min(), keyLen < shortestOther {
+                        uniqueShortest += 1
+                    }
                 }
             }
         }
@@ -301,5 +305,138 @@ final class QuestionBankIntegrityTests: XCTestCase {
             0.40,
             "correct option uniquely longest on \(uniqueLongest)/\(total)"
         )
+        XCTAssertLessThan(
+            Double(uniqueShortest) / Double(total),
+            0.40,
+            "correct option uniquely shortest on \(uniqueShortest)/\(total)"
+        )
+    }
+
+    /// Practice-by-LOS finds Standards I–VII via candidate_los; Progress
+    /// coverage uses primary_reading_ids. Those must agree after unparking.
+    func testEthicsStandardCasesAreNotParkedOnCodeReading() throws {
+        var parked: [String] = []
+        var standardCoverage: [String: Int] = [:]
+        for q in allQuestions(try loadBank()) {
+            var seen = Set<String>()
+            let ordered = q.candidateLOS.compactMap { losID -> String? in
+                guard let dot = losID.lastIndex(of: ".") else { return nil }
+                return String(losID[..<dot])
+            }.filter { seen.insert($0).inserted }
+            if q.primaryReadingIDs == ["code_and_standards"],
+               ordered.contains(where: { $0 != "code_and_standards" }) {
+                parked.append(q.id)
+            }
+            for readingID in q.primaryReadingIDs {
+                standardCoverage[readingID, default: 0] += 1
+            }
+        }
+        XCTAssertTrue(parked.isEmpty, "Parked on code_and_standards: \(parked)")
+        for readingID in [
+            "guidance_standard_i_professionalism",
+            "guidance_standard_ii_integrity_capital_markets",
+            "guidance_standard_iii_duties_to_clients",
+            "guidance_standard_iv_duties_to_employers",
+            "guidance_standard_v_investment_analysis",
+            "guidance_standard_vi_conflicts_of_interest",
+            "guidance_standard_vii_responsibilities",
+            "asset_manager_code_of_professional_conduct",
+        ] {
+            XCTAssertGreaterThan(
+                standardCoverage[readingID] ?? 0,
+                0,
+                "no case coverage for \(readingID)"
+            )
+        }
+    }
+
+    /// Human retags after the 2027 letter repair — not another cosine dump.
+    func testKnownStemMissesUseStableLetters() throws {
+        let byID = Dictionary(uniqueKeysWithValues: allQuestions(try loadBank()).map { ($0.id, $0) })
+        func los(_ id: String) throws -> [String] {
+            try XCTUnwrap(byID[id], "missing \(id)").candidateLOS
+        }
+        XCTAssertEqual(try los("options_duane_armitage_duane_q2"), ["options_strategies.g"])
+        XCTAssertEqual(try los("options_duane_armitage_duane_essay_q6"), ["options_strategies.g"])
+        XCTAssertEqual(
+            try los("elbe_society_the_elbe_society_q3"),
+            ["asset_allocation_to_alternative_investments.c"]
+        )
+        XCTAssertEqual(
+            try los("elbe_society_the_elbe_society_essay_q6"),
+            ["asset_allocation_to_alternative_investments.c"]
+        )
+        XCTAssertEqual(
+            try los("gambier_advisory_lucas_thompson_q2"),
+            ["asset_allocation_to_alternative_investments.c"]
+        )
+        XCTAssertEqual(
+            try los("gambier_advisory_lucas_thompson_essay_q6"),
+            ["asset_allocation_to_alternative_investments.c"]
+        )
+        XCTAssertEqual(
+            try los("cme_foundation_the_united_states_q1"),
+            ["capital_market_expectations_part_1_framework_and_macro_considerations.g"]
+        )
+        XCTAssertEqual(
+            try los("cme_foundation_the_united_states_essay_q8"),
+            ["capital_market_expectations_part_1_framework_and_macro_considerations.g"]
+        )
+        XCTAssertEqual(
+            try los("cme_foundation_the_united_states_q3"),
+            ["capital_market_expectations_part_2_forecasting_asset_class_returns.e"]
+        )
+        XCTAssertEqual(
+            try los("cme_foundation_the_united_states_essay_q5"),
+            ["capital_market_expectations_part_2_forecasting_asset_class_returns.e"]
+        )
+        XCTAssertEqual(
+            try los("silverline_trading_pathway_essay_q2"),
+            [
+                "trading_costs_and_electronic_markets.c",
+                "trading_costs_and_electronic_markets.a",
+            ]
+        )
+        XCTAssertEqual(
+            try los("active_equity_investing_construction_lisette_langham_lisette_essay_q9"),
+            ["active_equity_investing_portfolio_construction.c"]
+        )
+        XCTAssertEqual(
+            try los("overview_of_fi_danny_moynahan_danny_q1"),
+            ["overview_of_fixed_income_portfolio_management.a"]
+        )
+        XCTAssertEqual(
+            try los("athena_investment_services_case_scenario_essay_q7"),
+            [
+                "asset_manager_code_of_professional_conduct.c",
+                "guidance_standard_iii_duties_to_clients.a",
+            ]
+        )
+    }
+
+    /// Standards I–VII share two templates; the picker prefixes the standard.
+    func testEthicsStandardLOSDisplayTextIsPrefixed() throws {
+        let content = ContentLoader()
+        content.load()
+        let master = try XCTUnwrap(content.losMaster)
+
+        var prefixed = Set<String>()
+        for area in master.areas {
+            for reading in area.readings {
+                for los in reading.los {
+                    if let prefix = LOS.ethicsStandardPrefix(for: los.readingID) {
+                        prefixed.insert(los.readingID)
+                        XCTAssertTrue(
+                            los.displayText.hasPrefix("\(prefix) — "),
+                            los.displayText
+                        )
+                        XCTAssertNotEqual(los.displayText, los.text)
+                    } else {
+                        XCTAssertEqual(los.displayText, los.text)
+                    }
+                }
+            }
+        }
+        XCTAssertEqual(prefixed.count, 7)
     }
 }

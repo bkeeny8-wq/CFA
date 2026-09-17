@@ -177,6 +177,16 @@ final class ContentLoader {
     func los(id: String) -> LOS? { losByID[id] }
     func readingNotes(id: String) -> ReadingNotesEntry? { readingNotesByID[id] }
 
+    func reading(id: String?) -> (area: CurriculumArea, reading: Reading)? {
+        guard let id, let master = losMaster else { return nil }
+        for area in master.areas {
+            if let reading = area.readings.first(where: { $0.id == id }) {
+                return (area, reading)
+            }
+        }
+        return nil
+    }
+
     func context(for questionId: String) -> (caseId: String, topicId: String)? {
         questionContext[questionId]
     }

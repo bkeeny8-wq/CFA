@@ -89,5 +89,35 @@ final class StudyScheduleTests: XCTestCase {
         """.data(using: .utf8)!
         let block = try JSONDecoder().decode(ScheduleBlock.self, from: json)
         XCTAssertEqual(block.kind, .other)
+        XCTAssertNil(block.readingID)
+    }
+
+    func testAssetManagerCodePlanBlocksOpenTheAMCReading() {
+        let amc = "asset_manager_code_of_professional_conduct"
+        let blocks = schedule.days.flatMap(\.blocks).filter { $0.label.contains("B5-M4") }
+        XCTAssertEqual(blocks.count, 8)
+        for block in blocks {
+            XCTAssertEqual(block.readingID, amc)
+            XCTAssertTrue(
+                block.label.contains("Asset Manager Code of Professional Conduct"),
+                block.label
+            )
+        }
+    }
+
+    func testScheduleBlockReadingIDDecodes() throws {
+        let json = """
+        {
+          "start": "06:00",
+          "label": "D3: B5-M4 Asset Manager Code of Professional Conduct",
+          "minutes": 120,
+          "kind": "deep3",
+          "book": 5,
+          "reading_id": "asset_manager_code_of_professional_conduct"
+        }
+        """.data(using: .utf8)!
+        let block = try JSONDecoder().decode(ScheduleBlock.self, from: json)
+        XCTAssertEqual(block.readingID, "asset_manager_code_of_professional_conduct")
+        XCTAssertEqual(block.book, 5)
     }
 }

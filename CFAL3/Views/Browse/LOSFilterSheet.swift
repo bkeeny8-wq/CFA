@@ -154,7 +154,7 @@ struct LOSFilterSheet: View {
                     )
                     .foregroundStyle(draftSelection.contains(los.id) ? .white : .secondary)
 
-                Text(los.text)
+                Text(los.displayText)
                     .font(.subheadline)
                     // The statement is the only thing identifying the row, and
                     // most of them are longer than two lines.

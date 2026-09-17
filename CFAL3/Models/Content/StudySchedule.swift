@@ -57,6 +57,13 @@ struct ScheduleBlock: Codable, Identifiable, Hashable {
     let minutes: Int
     let kind: ScheduleBlockKind
     let book: Int?
+    /// When set, Plan can open this block's curriculum reading.
+    let readingID: String?
+
+    enum CodingKeys: String, CodingKey {
+        case start, label, minutes, kind, book
+        case readingID = "reading_id"
+    }
 
     var id: String { "\(start)-\(label)" }
 }

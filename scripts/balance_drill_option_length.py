@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
-"""Lengthen short LOS-drill distractors so the correct option is not uniquely
-longest.
+"""Lengthen short LOS-drill options so the correct choice is not a length cue.
 
-Keeps the stem, the correct key letter, and the correct option text. Expands
-the closest shorter distractor (both only if needed) with a complete clause
-that restates that wrong choice. Pieces come from the distractor's own claim
-and from the non-contrast portion of its rationale. Does not copy CFA Institute
-exam item text; these drills are original study items.
+Unique-longest: keep the correct option text; expand the closest shorter
+distractor (both only if needed) so the key is not uniquely longest.
+
+Unique-shortest: expand the short correct option to the length of the shortest
+distractor using the same expander (complete clause from that option's claim
+and the non-contrast portion of its rationale). Then re-run unique-longest
+so an overshoot does not create the opposite cue. The correct *letter* does
+not change.
+
+Does not copy CFA Institute exam item text; these drills are original study
+items.
 
 Usage:
     python3 scripts/balance_drill_option_length.py --dry-run
@@ -238,12 +243,12 @@ def attach(option: str, piece: str) -> str:
 
 
 def expand_to_target(
-    option: str, rationale: str, correct: str, stem: str, target: int
+    option: str, rationale: str, avoid: str, stem: str, target: int
 ) -> str:
     """Use the shortest complete piece that reaches `target`; stack only if none do."""
     if len(option) >= target:
         return option
-    pieces = positive_clauses(rationale, correct, option) + claim_phrases(option, stem)
+    pieces = positive_clauses(rationale, avoid, option) + claim_phrases(option, stem)
     reaching = []
     falling = []
     for piece in pieces:
@@ -278,6 +283,10 @@ def uniquely_shortest(opts: dict, corr: str) -> bool:
     return cl < min(len(opts[k]) for k in opts if k != corr)
 
 
+def distractor_blob(opts: dict, corr: str) -> str:
+    return " ".join(opts[k] for k in KEYS if k != corr)
+
+
 def balance_item(q: dict) -> bool:
     opts = dict(q.get("options") or {})
     corr = q.get("correct")
@@ -287,6 +296,7 @@ def balance_item(q: dict) -> bool:
     if not uniquely_longest(opts, corr):
         return False
     target = len(opts[corr])
+    orig_correct = opts[corr]
     distractors = sorted(
         (k for k in KEYS if k != corr),
         key=lambda k: (target - len(opts[k]), k),
@@ -299,90 +309,121 @@ def balance_item(q: dict) -> bool:
             opts[key], rats.get(key, ""), opts[corr], q.get("stem") or "", target
         )
     q["options"] = opts
-    assert opts[corr] == q["options"][corr]
+    assert opts[corr] == orig_correct
     return True
+
+
+def balance_shortest_item(q: dict) -> bool:
+    """Lengthen the uniquely-shortest correct option to the shortest distractor."""
+    opts = dict(q.get("options") or {})
+    corr = q.get("correct")
+    rats = q.get("rationales") or {}
+    if corr not in opts or sorted(opts) != list(KEYS):
+        return False
+    if not uniquely_shortest(opts, corr):
+        return False
+    target = min(len(opts[k]) for k in opts if k != corr)
+    orig = opts[corr]
+    opts[corr] = expand_to_target(
+        opts[corr],
+        rats.get(corr, ""),
+        distractor_blob(opts, corr),
+        q.get("stem") or "",
+        target,
+    )
+    q["options"] = opts
+    return opts[corr] != orig
 
 
 def process(dry_run: bool) -> int:
     bundles: dict[str, dict] = {}
-    before_qs = []
-    changed = 0
-    still_ul = []
-    samples = []
-    large_gap = []
-
     for path in FILES:
         bundles[path] = json.load(open(path, encoding="utf-8"))
 
+    questions: list[tuple[str, dict]] = []
+    before_qs = []
     for path, bundle in bundles.items():
-        file_changed = False
         for group in bundle["drills"]:
             for q in group["questions"]:
+                questions.append((path, q))
                 before_qs.append(
                     {"options": dict(q.get("options") or {}), "correct": q.get("correct")}
                 )
-                orig = dict(q.get("options") or {})
-                orig_corr = q.get("correct")
-                orig_gap = 0
-                if orig_corr in orig and len(orig) == 3:
-                    orig_gap = len(orig[orig_corr]) - max(
-                        len(orig[k]) for k in orig if k != orig_corr
-                    )
-                if not balance_item(q):
-                    continue
-                file_changed = True
-                changed += 1
-                if uniquely_longest(q["options"], q["correct"]):
-                    still_ul.append(
-                        {"id": q["id"], "lens": {k: len(v) for k, v in q["options"].items()}}
-                    )
-                rec = {
+
+    # Unique-shortest first: lengthen the short key. Unique-longest then
+    # lengthens distractors if that overshoot made the key uniquely long.
+    changed_us = 0
+    us_samples = []
+    for _path, q in questions:
+        orig = dict(q.get("options") or {})
+        if not balance_shortest_item(q):
+            continue
+        changed_us += 1
+        if len(us_samples) < 8:
+            us_samples.append(
+                {
                     "id": q["id"],
                     "correct": q["correct"],
                     "stem": (q.get("stem") or "")[:130].replace("\n", " "),
                     "before": orig,
                     "after": dict(q["options"]),
-                    "gap": orig_gap,
                 }
-                if len(samples) < 8:
-                    samples.append(rec)
-                if orig_gap >= 80 and len(large_gap) < 4:
-                    large_gap.append(rec)
-        if file_changed and not dry_run:
-            with open(path, "w", encoding="utf-8") as fh:
-                json.dump(bundle, fh, indent=2, ensure_ascii=False)
-                fh.write("\n")
+            )
 
+    changed_ul = 0
+    for _path, q in questions:
+        if balance_item(q):
+            changed_ul += 1
+
+    still_ul = []
+    still_us = []
     after_qs = []
-    for bundle in bundles.values():
-        for group in bundle["drills"]:
-            after_qs.extend(group["questions"])
+    for _path, q in questions:
+        after_qs.append(q)
+        opts = q.get("options") or {}
+        corr = q.get("correct")
+        if corr not in opts or len(opts) != 3:
+            continue
+        if uniquely_longest(opts, corr):
+            still_ul.append({"id": q["id"], "lens": {k: len(v) for k, v in opts.items()}})
+        if uniquely_shortest(opts, corr):
+            still_us.append({"id": q["id"], "lens": {k: len(v) for k, v in opts.items()}})
+
+    if not dry_run:
+        for path, bundle in bundles.items():
+            original = json.load(open(path, encoding="utf-8"))
+            if original != bundle:
+                with open(path, "w", encoding="utf-8") as fh:
+                    json.dump(bundle, fh, indent=2, ensure_ascii=False)
+                    fh.write("\n")
 
     before = option_stats(before_qs)
     after = option_stats(after_qs)
     print("before", before)
     print("after", after)
-    print("rewrote", changed, "still uniquely longest", len(still_ul))
+    print(
+        "rewrote unique-shortest",
+        changed_us,
+        "still uniquely shortest",
+        len(still_us),
+        "rewrote unique-longest",
+        changed_ul,
+        "still uniquely longest",
+        len(still_ul),
+    )
+    if still_us:
+        print("remaining unique-shortest:")
+        for row in still_us[:15]:
+            print(" ", row["id"], row["lens"])
     if still_ul:
-        print("remaining:")
+        print("remaining unique-longest:")
         for row in still_ul[:15]:
             print(" ", row["id"], row["lens"])
-    print("\n--- samples ---")
-    for s in samples:
+    print("\n--- unique-shortest samples ---")
+    for s in us_samples:
         lb = {k: len(s["before"][k]) for k in KEYS}
         la = {k: len(s["after"][k]) for k in KEYS}
         print(f"\n{s['id']} correct={s['correct']} {lb} -> {la}")
-        print(" ", s["stem"])
-        for k in KEYS:
-            mark = " *" if k == s["correct"] else ""
-            if s["before"][k] != s["after"][k]:
-                print(f"  {k}{mark} BEFORE: {s['before'][k]}")
-                print(f"      AFTER:  {s['after'][k]}")
-    print("\n--- large-gap samples ---")
-    for s in large_gap:
-        lb = {k: len(s["before"][k]) for k in KEYS}
-        la = {k: len(s["after"][k]) for k in KEYS}
-        print(f"\n{s['id']} correct={s['correct']} gap={s['gap']} {lb} -> {la}")
         print(" ", s["stem"])
         for k in KEYS:
             mark = " *" if k == s["correct"] else ""

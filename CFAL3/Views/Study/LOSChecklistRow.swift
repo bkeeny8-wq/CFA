@@ -16,7 +16,7 @@ struct LOSChecklistRow: View {
                     .frame(width: 28)
 
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("\(los.letter.uppercased()). \(los.text)")
+                    Text("\(los.letter.uppercased()). \(los.displayText)")
                         .multilineTextAlignment(.leading)
                         .foregroundStyle(.primary)
 

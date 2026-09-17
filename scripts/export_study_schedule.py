@@ -42,6 +42,24 @@ def book_for(label: str) -> int | None:
     return int(match.group(1)) if match else None
 
 
+AMC_READING_ID = "asset_manager_code_of_professional_conduct"
+
+
+def reading_id_for(label: str) -> str | None:
+    if "B5-M4" in label:
+        return AMC_READING_ID
+    return None
+
+
+def normalize_label(label: str) -> str:
+    if "B5-M4 Asset Manager Code" in label and "Professional Conduct" not in label:
+        return label.replace(
+            "B5-M4 Asset Manager Code",
+            "B5-M4 Asset Manager Code of Professional Conduct",
+        )
+    return label
+
+
 def export(xlsx_path: Path) -> dict:
     wb = openpyxl.load_workbook(xlsx_path, data_only=True)
     ws = wb["2027"]
@@ -84,13 +102,16 @@ def export(xlsx_path: Path) -> dict:
                 end += 1
             block = {
                 "start": start,
-                "label": label,
+                "label": normalize_label(label),
                 "minutes": (end - index) * 15,
                 "kind": kind_for(label),
             }
             book = book_for(label)
             if book is not None:
                 block["book"] = book
+            reading_id = reading_id_for(label)
+            if reading_id is not None:
+                block["reading_id"] = reading_id
             blocks.append(block)
             index = end
 
