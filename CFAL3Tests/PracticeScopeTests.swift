@@ -20,27 +20,35 @@ final class PracticeScopeTests: XCTestCase {
 
         let allReadingIDs = Set(areas.flatMap { $0.readings.map(\.id) })
 
-        // Same predicate the readings sheet uses: filter areas by chosen book.
+        // Through PracticeScope, the code the sheet runs. This used to filter
+        // `areas` by a set holding one id and then assert the result was that
+        // id — a tautology over a predicate the test had written itself, which
+        // exercised nothing and could not fail.
         for area in areas {
-            let scopeTopics: Set<String> = [area.id]
-            let visible = areas.filter { scopeTopics.contains($0.id) }
-            XCTAssertEqual(visible.map(\.id), [area.id],
-                           "Only the chosen book should be offered")
+            let visibleReadings = PracticeScope.readings(in: areas, topics: [area.id])
 
-            let visibleReadings = Set(visible.flatMap { $0.readings.map(\.id) })
+            XCTAssertEqual(
+                visibleReadings, Set(area.readings.map(\.id)),
+                "\(area.id): scoping to one book must offer exactly that book's readings"
+            )
             XCTAssertFalse(visibleReadings.isEmpty, "\(area.id) has readings")
             XCTAssertTrue(visibleReadings.isSubset(of: allReadingIDs))
-            // Every visible reading actually belongs to the chosen book.
-            for reading in visible.flatMap(\.readings) {
-                XCTAssertEqual(reading.areaID, area.id)
+
+            // And nothing from any other book leaked in.
+            for other in areas where other.id != area.id {
+                XCTAssertTrue(
+                    visibleReadings.isDisjoint(with: Set(other.readings.map(\.id))),
+                    "\(area.id) offered a reading belonging to \(other.id)"
+                )
             }
         }
 
         // With more than one book, a single-book scope is a strict subset.
         if areas.count > 1, let first = areas.first {
-            let scoped = Set(areas.filter { [first.id].contains($0.id) }
-                .flatMap { $0.readings.map(\.id) })
-            XCTAssertLessThan(scoped.count, allReadingIDs.count)
+            XCTAssertLessThan(
+                PracticeScope.readings(in: areas, topics: [first.id]).count,
+                allReadingIDs.count
+            )
         }
     }
 

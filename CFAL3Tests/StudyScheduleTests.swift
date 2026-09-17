@@ -43,13 +43,39 @@ final class StudyScheduleTests: XCTestCase {
         XCTAssertEqual(ScheduleProgress.completedHours(completions: completions), 6.0, accuracy: 0.001)
     }
 
-    func testDeltaUsesPlannedThroughYesterday() {
+    /// The cutoff is planned-through-YESTERDAY: today's hours are not a debt
+    /// until today is over, or the plan would report you behind from the
+    /// moment you wake up.
+    ///
+    /// The reference date matters more than it looks. This used to sit on
+    /// 2026-07-12, which the bundled schedule gives 0.0 hours — a rest day —
+    /// so "through yesterday" and "through today" both summed to 6.0 and the
+    /// assertion held whichever cutoff the code used. 2026-07-13 is worth
+    /// 1.25h, so the two answers differ and the test can see which one it got.
+    func testDeltaUsesPlannedThroughYesterday() throws {
+        let reference = try XCTUnwrap(ScheduleDates.parse("2026-07-13"))
+        let todaysHours = try XCTUnwrap(schedule.days.first { $0.date == "2026-07-13" }?.hours)
+
+        // The reference day has to carry hours or the two cutoffs give the
+        // same answer and this test proves nothing. That is exactly what it
+        // used to do: it sat on 2026-07-12, a 0.0-hour rest day, so `delta`
+        // could have used either function and still read 0.0.
+        XCTAssertEqual(todaysHours, 1.25, accuracy: 0.001)
+
+        let throughYesterday = ScheduleProgress.plannedThroughYesterday(schedule: schedule, now: reference)
+        let throughToday = ScheduleProgress.plannedToDate(schedule: schedule, now: reference)
+        XCTAssertEqual(throughYesterday, 6.0, accuracy: 0.001)
+        XCTAssertEqual(throughToday, 7.25, accuracy: 0.001)
+        XCTAssertNotEqual(throughYesterday, throughToday, "the cutoffs must differ here")
+
+        // Six planned, six done: level. Today's 1.25h is not a debt until
+        // today is over, or the plan reports you behind the moment you wake up.
         let completions = schedule.days.prefix(6).map {
             DayCompletion(dateKey: $0.date, completedHours: $0.hours)
         }
-        let reference = ScheduleDates.parse("2026-07-12")!
         let delta = ScheduleProgress.delta(schedule: schedule, completions: completions, now: reference)
-        XCTAssertEqual(delta, 0.0, accuracy: 0.001)
+        XCTAssertEqual(delta, 0.0, accuracy: 0.001,
+                       "delta counted today's hours as already owed")
     }
 
     func testUnknownBlockKindDecodesAsOther() throws {

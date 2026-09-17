@@ -11,6 +11,7 @@ struct LOSDrillAttemptView: View {
 
     @State private var selectedOption: String?
     @State private var startedAt = Date()
+    @State private var clockStarted = false
     @State private var submittedAttempt: Attempt?
     @State private var showResult = false
 
@@ -67,7 +68,18 @@ struct LOSDrillAttemptView: View {
                 )
             }
         }
-        .onAppear { startedAt = .now }
+        // First appearance only, exactly as in QuestionAttemptView. `onAppear`
+        // fires again whenever this view comes back — from the result screen,
+        // or from another tab — and restarting the clock there restarted the
+        // pacing display mid-question and made durationSeconds count only from
+        // the last reappearance. Drills are 2,625 of the 3,115 questions, so
+        // fixing this in the bank view alone fixed the smaller half.
+        .onAppear {
+            if !clockStarted {
+                startedAt = .now
+                clockStarted = true
+            }
+        }
         .navigationDestination(isPresented: $showResult) {
             if let submittedAttempt {
                 GradingResultView(
