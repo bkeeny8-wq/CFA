@@ -3,6 +3,7 @@ import SwiftData
 
 struct LOSChecklistPanel: View {
     @Environment(ContentLoader.self) private var content
+    @Environment(StudySessionCoordinator.self) private var sessionCoordinator
     @Environment(\.modelContext) private var modelContext
     @Query private var statuses: [LOSStudyStatus]
     @Query private var attempts: [Attempt]
@@ -10,6 +11,8 @@ struct LOSChecklistPanel: View {
     let area: CurriculumArea
     let reading: Reading
     var onOpenNotes: (() -> Void)?
+
+    @State private var showEssaySession = false
 
     private var statusByLOS: [String: LOSStudyStatus] {
         Dictionary(uniqueKeysWithValues: statuses.map { ($0.losId, $0) })
@@ -47,6 +50,7 @@ struct LOSChecklistPanel: View {
 
             Section("Learning outcome statements") {
                 ForEach(reading.los) { los in
+                    let essayCount = content.essays(forLOS: los.id).count
                     LOSChecklistRow(
                         los: los,
                         state: statusByLOS[los.id]?.studyState ?? .notStarted,
@@ -60,7 +64,9 @@ struct LOSChecklistPanel: View {
                             content: content,
                             attempts: attempts
                         ).correctRate,
-                        onCycleState: { cycleState(for: los) }
+                        essayCount: essayCount,
+                        onCycleState: { cycleState(for: los) },
+                        onSitEssays: essayCount > 0 ? { sitEssays(for: los) } : nil
                     )
                 }
             }
@@ -71,6 +77,22 @@ struct LOSChecklistPanel: View {
                     .foregroundStyle(.secondary)
             }
         }
+        .navigationTitle("LOS checklist")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationDestination(isPresented: $showEssaySession) {
+            SessionRunnerView()
+        }
+    }
+
+    private func sitEssays(for los: LOS) {
+        let ids = content.essays(forLOS: los.id).map(\.id)
+        guard !ids.isEmpty else { return }
+        sessionCoordinator.start(
+            questionIDs: ids,
+            mode: .losDrill,
+            filterDescription: "Essays · \(reading.name) · \(los.letter.uppercased())"
+        )
+        showEssaySession = true
     }
 
     private func cycleState(for los: LOS) {

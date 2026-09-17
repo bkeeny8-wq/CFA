@@ -1,4 +1,5 @@
 import XCTest
+import UIKit
 
 /// Tests that drive the real app, because the unit suite structurally cannot.
 ///
@@ -26,6 +27,9 @@ final class CFAL3UITests: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = false
+        if UIDevice.current.userInterfaceIdiom != .pad {
+            throw XCTSkip("CFAL3 is iPad-only; pin the destination to iPad Pro 13-inch (M5)")
+        }
         app = XCUIApplication()
         app.launchArguments = ["-uitesting"]
         app.launch()
@@ -246,6 +250,13 @@ final class CFAL3UITests: XCTestCase {
         link.tap()
         XCTAssertTrue(app.staticTexts["LOS coverage"].firstMatch.waitForExistence(timeout: 10),
                       "Progress did not open")
+        app.navigationBars.buttons.firstMatch.tap()
+
+        let toolbar = app.buttons["home.progress"].firstMatch
+        XCTAssertTrue(waitFor(toolbar), "Home's Progress toolbar should open Progress")
+        toolbar.tap()
+        XCTAssertTrue(app.staticTexts["LOS coverage"].firstMatch.waitForExistence(timeout: 10),
+                      "Progress toolbar did not open the dashboard")
     }
 
     /// The footer promises a session size; starting one must deliver it.
@@ -278,6 +289,8 @@ final class CFAL3UITests: XCTestCase {
         XCTAssertEqual(tab("Plan").label, "Plan", "Plan is a tab now, not a toolbar glyph")
         XCTAssertTrue(app.buttons["Settings"].firstMatch.exists,
                       "the settings button needs a label")
+        XCTAssertTrue(app.buttons["Progress"].firstMatch.exists,
+                      "the Progress toolbar button needs a label")
     }
 
     /// Everything on screen must survive a large accessibility text size —

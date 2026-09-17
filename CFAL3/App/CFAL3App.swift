@@ -85,7 +85,7 @@ struct CFAL3App: App {
                 .task {
                     GraderConfig.purgeLegacyAPIKey()
                     if !contentLoader.isLoaded {
-                        contentLoader.load()
+                        await contentLoader.loadOffMainActor()
                     }
                     contentLoader.bootstrapReviewCards(context: sharedModelContainer.mainContext)
                     storeUnavailable = storeFailure != nil

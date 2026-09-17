@@ -212,8 +212,8 @@ struct SettingsView: View {
         for item in sessions { modelContext.delete(item) }
         for item in dayCompletions { modelContext.delete(item) }
         for item in losStudyStatuses { modelContext.delete(item) }
-        // "Erase all progress" promises a clean slate; leaving 445 flashcard
-        // schedules in place made that promise false.
+        // "Erase all progress" promises a clean slate; leaving every seeded
+        // flashcard schedule in place made that promise false.
         for item in flashcardProgress { modelContext.delete(item) }
         do {
             try modelContext.save()
@@ -227,100 +227,18 @@ struct SettingsView: View {
     }
 
     private func exportData() {
-        let payload = ExportPayload(
-            exportedAt: .now,
-            attempts: attempts.map {
-                AttemptExport(
-                    id: $0.id,
-                    questionId: $0.questionId,
-                    caseId: $0.caseId,
-                    topicId: $0.topicId,
-                    timestamp: $0.timestamp,
-                    durationSeconds: $0.durationSeconds,
-                    selectedOption: $0.selectedOption,
-                    wasCorrect: $0.wasCorrect,
-                    essayText: $0.essayText,
-                    grade: $0.grade,
-                    claudeFeedback: $0.claudeFeedback,
-                    reasoningText: $0.reasoningText,
-                    quality: $0.quality,
-                    pointsEarned: $0.pointsEarned,
-                    pointsPossible: $0.pointsPossible
-                )
-            },
-            reviewCards: cards.map {
-                ReviewCardExport(
-                    questionId: $0.questionId,
-                    caseId: $0.caseId,
-                    topicId: $0.topicId,
-                    readingIds: $0.readingIds,
-                    losIds: $0.losIds,
-                    easeFactor: $0.easeFactor,
-                    interval: $0.interval,
-                    repetitions: $0.repetitions,
-                    dueDate: $0.dueDate,
-                    totalAttempts: $0.totalAttempts,
-                    totalCorrect: $0.totalCorrect,
-                    lastAttemptedAt: $0.lastAttemptedAt,
-                    flaggedForReview: $0.flaggedForReview
-                )
-            },
-            sessions: sessions.map {
-                SessionExport(
-                    id: $0.id,
-                    startedAt: $0.startedAt,
-                    endedAt: $0.endedAt,
-                    mode: $0.mode,
-                    filterDescription: $0.filterDescription,
-                    attemptIds: $0.attemptIds
-                )
-            },
-            losStudyStatuses: losStudyStatuses.map {
-                LOSStudyStatusExport(
-                    losId: $0.losId,
-                    readingId: $0.readingId,
-                    areaId: $0.areaId,
-                    state: $0.state,
-                    notes: $0.notes,
-                    updatedAt: $0.updatedAt
-                )
-            },
-            dayCompletions: dayCompletions.map {
-                DayCompletionExport(dateKey: $0.dateKey,
-                                    completedHours: $0.completedHours)
-            },
-            // Only rated cards: the other 400-odd are seeded scaffolding that
-            // the destination device regenerates for itself.
+        let payload = ProgressBackup.payload(
+            attempts: attempts,
+            cards: cards,
+            sessions: sessions,
+            losStudyStatuses: losStudyStatuses,
+            dayCompletions: dayCompletions,
             flashcardProgress: flashcardProgress
-                .filter { $0.totalAttempts > 0 }
-                .map {
-                    FlashcardProgressExport(
-                        cardId: $0.cardId,
-                        readingId: $0.readingId,
-                        areaId: $0.areaId,
-                        easeFactor: $0.easeFactor,
-                        interval: $0.interval,
-                        repetitions: $0.repetitions,
-                        dueDate: $0.dueDate,
-                        totalAttempts: $0.totalAttempts,
-                        totalCorrect: $0.totalCorrect,
-                        lastAttemptedAt: $0.lastAttemptedAt,
-                        firstAttemptedAt: $0.firstAttemptedAt,
-                        flaggedForReview: $0.flaggedForReview
-                    )
-                }
         )
-
-        let url = FileManager.default.temporaryDirectory.appendingPathComponent("cfal3-export-\(Int(Date().timeIntervalSince1970)).json")
         do {
-            // Default JSONEncoder date strategy — importer mirrors this so old
-            // backups remain readable.
-            let data = try JSONEncoder().encode(payload)
-            try data.write(to: url)
-            exportURL = url
+            exportURL = try ProgressBackup.write(payload)
             showExporter = true
         } catch {
-            // Was a silent no-op: the button did nothing and said nothing.
             importSummary = "Export failed: \(error.localizedDescription)"
         }
     }
@@ -329,10 +247,7 @@ struct SettingsView: View {
         do {
             let needsAccess = url.startAccessingSecurityScopedResource()
             defer { if needsAccess { url.stopAccessingSecurityScopedResource() } }
-            let data = try Data(contentsOf: url)
-            // Match exporter encoding (default `Date` strategy) so existing
-            // backup files stay importable.
-            let payload = try JSONDecoder().decode(ExportPayload.self, from: data)
+            let payload = try ProgressBackup.decode(from: url)
 
             var inserted = 0
             var updated = 0
@@ -534,104 +449,5 @@ struct SettingsView: View {
             item.readingIds ?? [],
             item.losIds ?? []
         )
-    }
-}
-
-// MARK: - Export / import payload (shared; mirrors default JSONEncoder date strategy)
-
-private struct ExportPayload: Codable {
-    let exportedAt: Date
-    let attempts: [AttemptExport]
-    let reviewCards: [ReviewCardExport]
-    let sessions: [SessionExport]
-    let losStudyStatuses: [LOSStudyStatusExport]
-    var dayCompletions: [DayCompletionExport]?
-    /// Optional so backups written before flashcards existed still decode.
-    var flashcardProgress: [FlashcardProgressExport]?
-}
-
-private struct FlashcardProgressExport: Codable {
-    let cardId: String
-    let readingId: String?
-    let areaId: String?
-    let easeFactor: Double
-    let interval: Int
-    let repetitions: Int
-    let dueDate: Date
-    let totalAttempts: Int
-    let totalCorrect: Int
-    let lastAttemptedAt: Date?
-    let firstAttemptedAt: Date?
-    let flaggedForReview: Bool
-}
-
-private struct AttemptExport: Codable {
-    let id: UUID
-    let questionId: String
-    let caseId: String
-    let topicId: String
-    let timestamp: Date
-    let durationSeconds: Int
-    let selectedOption: String?
-    let wasCorrect: Bool?
-    let essayText: String?
-    let grade: Int?
-    let claudeFeedback: String?
-    let reasoningText: String?
-    let quality: Int?
-    let pointsEarned: Int?
-    let pointsPossible: Int?
-}
-
-private struct ReviewCardExport: Codable {
-    let questionId: String
-    let caseId: String?
-    let topicId: String?
-    let readingIds: [String]?
-    let losIds: [String]?
-    let easeFactor: Double
-    let interval: Int
-    let repetitions: Int
-    let dueDate: Date
-    let totalAttempts: Int
-    let totalCorrect: Int
-    let lastAttemptedAt: Date?
-    let flaggedForReview: Bool
-}
-
-private struct SessionExport: Codable {
-    let id: UUID
-    let startedAt: Date
-    let endedAt: Date?
-    let mode: String
-    let filterDescription: String
-    let attemptIds: [UUID]
-}
-
-private struct DayCompletionExport: Codable {
-    var dateKey: String
-    var completedHours: Double
-}
-
-struct LOSStudyStatusExport: Codable {
-    let losId: String
-    let readingId: String
-    let areaId: String
-    let state: String
-    let notes: String
-    let updatedAt: Date
-}
-
-private struct ExportDocument: FileDocument {
-    static var readableContentTypes: [UTType] { [.json] }
-    let url: URL
-
-    init(url: URL) { self.url = url }
-    init(configuration: ReadConfiguration) throws {
-        throw CocoaError(.fileReadUnknown)
-    }
-
-    func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
-        try FileWrapper(url: url, options: .immediate)
     }
 }

@@ -73,6 +73,15 @@ struct HomeView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 NavigationLink {
+                    ProgressDashboardView()
+                } label: {
+                    Image(systemName: "chart.bar")
+                }
+                .accessibilityLabel("Progress")
+                .accessibilityIdentifier("home.progress")
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                NavigationLink {
                     SettingsView()
                 } label: {
                     Image(systemName: "gearshape")
@@ -219,8 +228,8 @@ struct HomeView: View {
         try? modelContext.save()
     }
 
-    /// Progress lost its tab, so these become the door to it — they are the
-    /// same numbers its header used to repeat.
+    /// Progress lost its tab, so the stats row and the toolbar chart are the
+    /// doors to it — they are the same numbers its header used to repeat.
     private var statCardsRow: some View {
         NavigationLink {
             ProgressDashboardView()

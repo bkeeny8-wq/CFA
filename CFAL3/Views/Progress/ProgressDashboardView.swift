@@ -22,9 +22,9 @@ struct ProgressDashboardView: View {
 
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
-                // No header or stat row here: you arrive by tapping exactly
-                // those numbers on Home, so repeating them wastes the screen
-                // and pushes what you came for below the fold.
+                // No header or stat row here: you arrive from Home's toolbar
+                // or by tapping those numbers, so repeating them wastes the
+                // screen and pushes what you came for below the fold.
                 drillDownRows(coverage: coverage, density: density, overall: overall)
                 bookGrid(topicProgress)
                 weeklySparkline

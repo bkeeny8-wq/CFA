@@ -39,33 +39,23 @@ final class ContentLoader {
     /// bank-only `totalQuestions` — is the denominator for "attempted".
     var totalBankAndDrillQuestions: Int { totalQuestions + totalDrillQuestions }
 
+    /// Tests and anything that already owns the main actor keep the sync path.
     func load() {
         do {
-            let bank: QuestionBank = try loadJSON("question_bank")
-            let los: LOSMaster = try loadJSON("los_master")
-            let summaries: [TopicSummary] = try loadJSON("topics")
-            let notes: ReadingNotesBundle = try loadJSON("reading_notes")
-            let targets: ContentTargets? = try? loadJSON("content_targets")
+            apply(try Self.decodeSnapshot())
+            loadError = nil
+        } catch {
+            loadError = error.localizedDescription
+        }
+    }
 
-            questionBank = bank
-            losMaster = los
-            topicSummaries = summaries
-            readingNotesBundle = notes
-            contentTargets = targets
-
-            try loadDrillBundles()
-            loadFlashcards()
-
-            if let loaded: StudySchedule = try? loadJSON("study_schedule") {
-                schedule = loaded
-            } else {
-                schedule = nil
-                #if DEBUG
-                print("CFAL3: study_schedule.json failed to decode")
-                #endif
-            }
-
-            rebuildIndexes(from: bank, los: los, notes: notes)
+    /// Decode the ~9 MB bundle off the main actor, then publish on it.
+    func loadOffMainActor() async {
+        do {
+            let snapshot = try await Task.detached(priority: .userInitiated) {
+                try ContentLoader.decodeSnapshot()
+            }.value
+            apply(snapshot)
             loadError = nil
         } catch {
             loadError = error.localizedDescription
@@ -109,18 +99,84 @@ final class ContentLoader {
         try? context.save()
     }
 
-    // MARK: - Flashcards
+    // MARK: - Decode
+
+    private struct ContentSnapshot {
+        let bank: QuestionBank
+        let los: LOSMaster
+        let summaries: [TopicSummary]
+        let notes: ReadingNotesBundle
+        let targets: ContentTargets?
+        let drillBundles: [String: LOSDrillBundle]
+        let flashcardBundle: FlashcardBundle?
+        let schedule: StudySchedule?
+    }
+
+    private static func decodeSnapshot() throws -> ContentSnapshot {
+        let bank: QuestionBank = try decodeJSON("question_bank")
+        let los: LOSMaster = try decodeJSON("los_master")
+        let summaries: [TopicSummary] = try decodeJSON("topics")
+        let notes: ReadingNotesBundle = try decodeJSON("reading_notes")
+        let targets: ContentTargets? = try? decodeJSON("content_targets")
+        let drillBundles = try decodeDrillBundles()
+        let flashcardBundle: FlashcardBundle? = try? decodeJSON("flashcards")
+        let schedule: StudySchedule? = try? decodeJSON("study_schedule")
+        #if DEBUG
+        if schedule == nil {
+            print("CFAL3: study_schedule.json failed to decode")
+        }
+        #endif
+        return ContentSnapshot(
+            bank: bank,
+            los: los,
+            summaries: summaries,
+            notes: notes,
+            targets: targets,
+            drillBundles: drillBundles,
+            flashcardBundle: flashcardBundle,
+            schedule: schedule
+        )
+    }
+
+    private static func decodeJSON<T: Decodable>(_ name: String) throws -> T {
+        guard let url = Bundle.main.url(forResource: name, withExtension: "json") else {
+            throw ContentLoadError.missingFile(name)
+        }
+        let data = try Data(contentsOf: url)
+        return try JSONDecoder().decode(T.self, from: data)
+    }
+
+    private static func decodeDrillBundles() throws -> [String: LOSDrillBundle] {
+        var bundles: [String: LOSDrillBundle] = [:]
+        guard let index: LOSDrillIndex = try? decodeJSON("los_drills_index") else { return [:] }
+        for entry in index.bundles {
+            let bundle: LOSDrillBundle = try decodeJSON(entry.filename)
+            if let readingID = bundle.readingID {
+                bundles[readingID] = bundle
+            }
+        }
+        return bundles
+    }
+
+    private func apply(_ snapshot: ContentSnapshot) {
+        questionBank = snapshot.bank
+        losMaster = snapshot.los
+        topicSummaries = snapshot.summaries
+        readingNotesBundle = snapshot.notes
+        contentTargets = snapshot.targets
+        losDrillBundles = snapshot.drillBundles
+        schedule = snapshot.schedule
+        applyFlashcards(snapshot.flashcardBundle)
+        rebuildIndexes(from: snapshot.bank, los: snapshot.los, notes: snapshot.notes)
+    }
 
     /// Flashcards are optional content: a build without the bundle simply shows
     /// an empty Cards tab rather than failing the whole content load.
-    private func loadFlashcards() {
+    private func applyFlashcards(_ bundle: FlashcardBundle?) {
         flashcardsByID = [:]
         flashcardsByReading = [:]
-        guard let bundle: FlashcardBundle = try? loadJSON("flashcards") else {
-            flashcardBundle = nil
-            return
-        }
         flashcardBundle = bundle
+        guard let bundle else { return }
         for card in bundle.cards {
             flashcardsByID[card.id] = card
             flashcardsByReading[card.readingID, default: []].append(card)
@@ -171,6 +227,20 @@ final class ContentLoader {
         drillQuestionsByID.values.filter { $0.primaryLOS == losID }.sorted { $0.number < $1.number }
     }
 
+    /// Bank essays tagged to this LOS. Empty when the bank has none — callers
+    /// must not invent items to fill the gap.
+    func essays(forLOS losID: String) -> [Question] {
+        questionsByID.values
+            .filter { $0.type == .essay && $0.candidateLOS.contains(losID) }
+            .sorted {
+                let a = questionContext[$0.id]?.caseId ?? ""
+                let b = questionContext[$1.id]?.caseId ?? ""
+                if a != b { return a < b }
+                if $0.number != $1.number { return $0.number < $1.number }
+                return $0.id < $1.id
+            }
+    }
+
     func question(id: String) -> Question? { questionsByID[id] }
     func caseStudy(id: String) -> CaseStudy? { casesByID[id] }
     func topic(id: String) -> BankTopic? { topicsByID[id] }
@@ -212,14 +282,6 @@ final class ContentLoader {
         }
     }
 
-    private func loadJSON<T: Decodable>(_ name: String) throws -> T {
-        guard let url = Bundle.main.url(forResource: name, withExtension: "json") else {
-            throw ContentLoadError.missingFile(name)
-        }
-        let data = try Data(contentsOf: url)
-        return try JSONDecoder().decode(T.self, from: data)
-    }
-
     private func rebuildIndexes(from bank: QuestionBank, los: LOSMaster, notes: ReadingNotesBundle) {
         questionsByID = [:]
         casesByID = [:]
@@ -257,17 +319,6 @@ final class ContentLoader {
         }
     }
 
-    private func loadDrillBundles() throws {
-        losDrillBundles = [:]
-        guard let index: LOSDrillIndex = try? loadJSON("los_drills_index") else { return }
-
-        for entry in index.bundles {
-            let bundle: LOSDrillBundle = try loadJSON(entry.filename)
-            if let readingID = bundle.readingID {
-                losDrillBundles[readingID] = bundle
-            }
-        }
-    }
 }
 
 enum ContentLoadError: LocalizedError {

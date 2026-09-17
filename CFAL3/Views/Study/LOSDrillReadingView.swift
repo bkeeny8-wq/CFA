@@ -204,8 +204,9 @@ struct DrillSessionRunnerView: View {
             if showSummary {
                 SessionDebriefList(
                     debrief: debrief,
+                    skippedCount: sessionCoordinator.skippedQuestionIDs.count,
                     modeLine: sessionCoordinator.filterDescription,
-                    onRetry: debrief.canRetry ? retryMissed : nil,
+                    onRetry: (debrief.canRetry || !sessionCoordinator.skippedQuestionIDs.isEmpty) ? retryMissed : nil,
                     doneTitle: "Done",
                     onDone: {
                         sessionCoordinator.persist(into: modelContext)
@@ -259,7 +260,10 @@ struct DrillSessionRunnerView: View {
     }
 
     private func retryMissed() {
-        let ids = debrief.missedIDs
+        var ids = debrief.missedIDs
+        for id in sessionCoordinator.skippedQuestionIDs where !ids.contains(id) {
+            ids.append(id)
+        }
         guard !ids.isEmpty else { return }
         sessionCoordinator.persist(into: modelContext)
         let next = UUID()

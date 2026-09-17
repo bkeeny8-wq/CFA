@@ -16,8 +16,18 @@ final class FlashcardContentTests: XCTestCase {
     func testDeckLoadsAndIsNonTrivial() {
         let content = loadedContent()
         XCTAssertNil(content.loadError, content.loadError ?? "")
-        XCTAssertGreaterThan(content.totalFlashcards, 300, "expected a few hundred cards")
+        XCTAssertEqual(content.totalFlashcards, 2_670, "atomized deck size")
         XCTAssertEqual(content.allFlashcards.count, content.totalFlashcards)
+    }
+
+    func testAtomizedBacksStayShort() {
+        let cards = loadedContent().allFlashcards
+        let words = cards.map { $0.back.split { $0.isWhitespace || $0.isNewline }.count }.sorted()
+        XCTAssertFalse(words.isEmpty)
+        let median = words[words.count / 2]
+        XCTAssertLessThanOrEqual(median, 40, "median back should be one idea, not a note")
+        let p90 = words[Int(Double(words.count) * 0.9)]
+        XCTAssertLessThanOrEqual(p90, 80)
     }
 
     func testIDsAreUniqueAndResolvable() {

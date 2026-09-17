@@ -13,6 +13,7 @@ struct CaseDetailView: View {
 
     @State private var vignetteExpanded = true
     @State private var showSession = false
+    @State private var showAnswerSheet = false
 
     init(
         caseID: String,
@@ -29,6 +30,11 @@ struct CaseDetailView: View {
         .navigationTitle(caseStudy?.title ?? "Case")
         .navigationDestination(isPresented: $showSession) {
             SessionRunnerView()
+        }
+        .navigationDestination(isPresented: $showAnswerSheet) {
+            if let caseStudy {
+                CaseAnswerSheetView(caseStudy: caseStudy)
+            }
         }
         .toolbar {
             if let splitColumnVisibility, horizontalSizeClass == .regular {
@@ -59,6 +65,7 @@ struct CaseDetailView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     headerCard(caseStudy)
                     workCaseButton(caseStudy)
+                    answerSheetButton
                     vignetteCard(caseStudy)
                     questionsSection(caseStudy)
                 }
@@ -103,6 +110,17 @@ struct CaseDetailView: View {
             Text("Sit this case as a mock")
         }
         .buttonStyle(PrimaryCTA())
+    }
+
+    private var answerSheetButton: some View {
+        Button {
+            showAnswerSheet = true
+        } label: {
+            Text("Full-case answer sheet")
+        }
+        .buttonStyle(.bordered)
+        .frame(maxWidth: .infinity)
+        .accessibilityHint("Vignette pinned; every question on one page; submit all")
     }
 
     private func vignetteCard(_ caseStudy: CaseStudy) -> some View {

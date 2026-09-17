@@ -52,6 +52,12 @@ Essay and reasoning grading call a **Cloudflare Worker** (`workers/grader-proxy-
 
 In Xcode: **Product → Test** (⌘U). Unit tests cover SM-2 scheduling and grading JSON parsing.
 
+Always run against an iPad simulator. The UI suite skips on iPhone.
+
+```bash
+scripts/run_ipad_tests.sh
+```
+
 ## Bundled content
 
 - `question_bank.json` — cases and questions (read-only)

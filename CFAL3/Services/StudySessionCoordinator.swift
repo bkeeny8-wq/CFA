@@ -9,6 +9,8 @@ final class StudySessionCoordinator {
     var filterDescription: String = ""
     var sessionID: UUID = UUID()
     var completedAttemptIDs: [UUID] = []
+    /// Question IDs the candidate flagged and skipped without answering.
+    var skippedQuestionIDs: [String] = []
     /// When this session began. Sessions were persisted with startedAt and
     /// endedAt both set to the save moment, so every one recorded zero
     /// duration.
@@ -39,6 +41,7 @@ final class StudySessionCoordinator {
         self.completedAttemptIDs = []
         self.startedAt = .now
         self.vignetteExpandedByCase = [:]
+        self.skippedQuestionIDs = []
     }
 
     /// Default open — Level III is sat with the vignette on the page.
@@ -98,6 +101,15 @@ final class StudySessionCoordinator {
 
     func recordAttempt(_ attemptID: UUID) {
         completedAttemptIDs.append(attemptID)
+    }
+
+    /// Flag-and-move: leave this item unanswered, keep the sitting going.
+    @discardableResult
+    func skipCurrent() -> Bool {
+        if let id = currentQuestionID, !skippedQuestionIDs.contains(id) {
+            skippedQuestionIDs.append(id)
+        }
+        return advance()
     }
 
     func advance() -> Bool {

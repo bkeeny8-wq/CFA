@@ -18,6 +18,7 @@ struct StudyReadingDetailView: View {
     var splitColumnVisibility: Binding<NavigationSplitViewVisibility>?
 
     @State private var showDrillSession = false
+    @State private var showChecklist = false
 
     init(
         area: CurriculumArea,
@@ -41,6 +42,7 @@ struct StudyReadingDetailView: View {
         VStack(spacing: 0) {
             pillHeader
             readingDrillsCTA
+            checklistCTA
 
             if let notes {
                 ReadingNotesView(notes: notes, showsTopicArea: false)
@@ -56,6 +58,9 @@ struct StudyReadingDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(isPresented: $showDrillSession) {
             SessionRunnerView()
+        }
+        .navigationDestination(isPresented: $showChecklist) {
+            LOSChecklistPanel(area: area, reading: reading)
         }
         .toolbar {
             if let splitColumnVisibility, horizontalSizeClass == .regular {
@@ -113,6 +118,20 @@ struct StudyReadingDetailView: View {
             .frame(maxWidth: .infinity)
             .accessibilityHint("\(bundle.totalQuestions) questions, shuffled")
         }
+    }
+
+    private var checklistCTA: some View {
+        Button {
+            showChecklist = true
+        } label: {
+            Text("LOS checklist")
+        }
+        .buttonStyle(.bordered)
+        .padding(.horizontal, 12)
+        .padding(.top, 8)
+        .frame(maxWidth: LayoutMetrics.studyReadingMaxWidth)
+        .frame(maxWidth: .infinity)
+        .accessibilityHint("Mark statements and sit tagged essays")
     }
 }
 

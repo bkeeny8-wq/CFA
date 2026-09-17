@@ -43,6 +43,32 @@ final class QuestionBankIntegrityTests: XCTestCase {
         XCTAssertEqual(qs.filter { $0.type == .essay }.count, 223)
     }
 
+    /// LOS-scoped essays come from the existing bank. Do not invent items.
+    func testLOSScopedEssaysAreBankEssaysAlreadyTagged() throws {
+        let content = ContentLoader()
+        content.load()
+        XCTAssertNil(content.loadError, content.loadError ?? "")
+
+        var tagged = Set<String>()
+        var total = 0
+        for area in content.losMaster?.areas ?? [] {
+            for reading in area.readings {
+                for los in reading.los {
+                    let essays = content.essays(forLOS: los.id)
+                    total += essays.count
+                    if !essays.isEmpty { tagged.insert(los.id) }
+                    for essay in essays {
+                        XCTAssertEqual(essay.type, .essay, essay.id)
+                        XCTAssertTrue(essay.candidateLOS.contains(los.id), essay.id)
+                    }
+                }
+            }
+        }
+        XCTAssertEqual(tagged.count, 170)
+        XCTAssertGreaterThan(total, 223, "essays can tag more than one LOS")
+        XCTAssertEqual(content.essays(forLOS: "no.such.los").count, 0)
+    }
+
     func testEveryGradeableMCHasCorrectInOptions() throws {
         for q in allQuestions(try loadBank()) where q.type == .mc && q.canGradeMC {
             let options = q.options ?? [:]

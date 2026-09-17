@@ -3,7 +3,7 @@ import Foundation
 /// The flashcard counterpart to `ReviewQueue`, and it exists for the same
 /// reason: `bootstrapFlashcardProgress` seeds a row per card with
 /// `dueDate = .now`, and a card with no row at all also read as due, so the
-/// Cards tab announced all 445 on a fresh install. "Due" meant "exists".
+/// Cards tab announced the whole deck on a fresh install. "Due" meant "exists".
 ///
 /// It is a separate type rather than a reuse of `ReviewQueue` because the two
 /// derive "introduced today" from different places. Questions have `Attempt`
@@ -128,7 +128,7 @@ enum FlashcardQueue {
 /// — green regardless of what the buttons actually did.
 ///
 /// The distinction is the whole point: a `ReviewCard` exists for all 3,157
-/// questions and a `FlashcardProgress` for all 445 cards from first launch, so
+/// questions and a `FlashcardProgress` for every card from first launch, so
 /// their existence says nothing. Only a RATED card counts.
 enum ResetScope {
     /// "Clear quiz attempts" — attempt history, sessions, review schedules.

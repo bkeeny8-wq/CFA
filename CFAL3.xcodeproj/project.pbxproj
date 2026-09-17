@@ -135,6 +135,9 @@
 		F8EADDB27D404E1DB0370DE4 /* FlashcardsHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8C5D1B2964494D853FC285 /* FlashcardsHomeView.swift */; };
 		FAF0FB28A4074A6E8CA13738 /* NotesContentParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CAADDFEE34FF7ACA5F995 /* NotesContentParserTests.swift */; };
 		FE2B69D3DF5C400E87678B71 /* FlashcardProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97678F60837047BB877E3886 /* FlashcardProgress.swift */; };
+		A110E5710000000000000002 /* AttemptHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A110E5710000000000000001 /* AttemptHost.swift */; };
+		10B4C4B40000000000000002 /* ProgressBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B4C4B40000000000000001 /* ProgressBackup.swift */; };
+		CA5EA45E0000000000000002 /* CaseAnswerSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5EA45E0000000000000001 /* CaseAnswerSheetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -280,6 +283,9 @@
 		FB81A91BC2D74E76A0AB5F1B /* LOSFilterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSFilterSheet.swift; sourceTree = "<group>"; };
 		FBFB7C5F647745D08BA53068 /* los_drills_r32.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r32.json; sourceTree = "<group>"; };
 		FC34B73FE9EA4562B202CAF8 /* study_schedule.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = study_schedule.json; sourceTree = "<group>"; };
+		A110E5710000000000000001 /* AttemptHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttemptHost.swift; sourceTree = "<group>"; };
+		10B4C4B40000000000000001 /* ProgressBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBackup.swift; sourceTree = "<group>"; };
+		CA5EA45E0000000000000001 /* CaseAnswerSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseAnswerSheetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +395,8 @@
 				C3E1FF0200000000000000C2 /* FlashcardQueue.swift */,
 				3987664C2E83427588523765 /* StudyPlannerStats.swift */,
 				0D94B2388CE940E9AD778803 /* StudySessionCoordinator.swift */,
+				A110E5710000000000000001 /* AttemptHost.swift */,
+				10B4C4B40000000000000001 /* ProgressBackup.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -569,6 +577,7 @@
 				240140A69D2C47F4B91E31B0 /* GradingResultView.swift */,
 				D4BC1505535F4A68992F72E5 /* MultipleChoiceInput.swift */,
 				67D75174F099481C90E0545D /* QuestionAttemptView.swift */,
+				CA5EA45E0000000000000001 /* CaseAnswerSheetView.swift */,
 				13D985187F6C4B53B3101CC3 /* VignetteView.swift */,
 			);
 			path = Question;
@@ -842,6 +851,7 @@
 				D88B0B2015734B3B9107F515 /* GradingResultView.swift in Sources */,
 				F6DF3A9B5F784E15B344F99E /* MultipleChoiceInput.swift in Sources */,
 				1C5C86CC7FBD42F5AFC8336F /* QuestionAttemptView.swift in Sources */,
+				CA5EA45E0000000000000002 /* CaseAnswerSheetView.swift in Sources */,
 				5BFED40742ED4467B25AEEA1 /* VignetteView.swift in Sources */,
 				876456306C594941870BB2F2 /* DesignComponents.swift in Sources */,
 				DF722BC8E45B42D2A9CEC9A9 /* SessionRunnerView.swift in Sources */,
@@ -865,6 +875,8 @@
 				C3E1FF0100000000000000C1 /* FlashcardQueue.swift in Sources */,
 				F3DB51C89B484060AD989650 /* StudyPlannerStats.swift in Sources */,
 				1734ECEB45BC49BF90D20649 /* StudySessionCoordinator.swift in Sources */,
+				A110E5710000000000000002 /* AttemptHost.swift in Sources */,
+				10B4C4B40000000000000002 /* ProgressBackup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

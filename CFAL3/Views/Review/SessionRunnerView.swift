@@ -84,8 +84,9 @@ struct SessionRunnerView: View {
     private var sessionSummary: some View {
         SessionDebriefList(
             debrief: debrief,
+            skippedCount: sessionCoordinator.skippedQuestionIDs.count,
             modeLine: sessionCoordinator.filterDescription,
-            onRetry: debrief.canRetry ? retryMissed : nil,
+            onRetry: (debrief.canRetry || !sessionCoordinator.skippedQuestionIDs.isEmpty) ? retryMissed : nil,
             doneTitle: "Save & exit",
             onDone: {
                 saveSession()
@@ -107,7 +108,10 @@ struct SessionRunnerView: View {
     }
 
     private func retryMissed() {
-        let ids = debrief.missedIDs
+        var ids = debrief.missedIDs
+        for id in sessionCoordinator.skippedQuestionIDs where !ids.contains(id) {
+            ids.append(id)
+        }
         guard !ids.isEmpty else { return }
         saveSession()
         let next = UUID()
@@ -123,6 +127,7 @@ struct SessionRunnerView: View {
 
 struct SessionDebriefList: View {
     let debrief: SessionDebrief
+    var skippedCount: Int = 0
     let modeLine: String
     var onRetry: (() -> Void)?
     var doneTitle: String
@@ -132,6 +137,9 @@ struct SessionDebriefList: View {
         List {
             Section("Session debrief") {
                 Text(debrief.scoreLine)
+                if skippedCount > 0 {
+                    Text("\(skippedCount) skipped & flagged")
+                }
                 Text(debrief.paceLine)
                 Text("Mode: \(modeLine)")
             }
@@ -143,8 +151,8 @@ struct SessionDebriefList: View {
                 }
             }
             Section {
-                if let onRetry, debrief.canRetry {
-                    Button("Retry missed (\(debrief.missedIDs.count))") {
+                if let onRetry, debrief.canRetry || skippedCount > 0 {
+                    Button("Retry missed (\(debrief.missedIDs.count + skippedCount))") {
                         onRetry()
                     }
                 }

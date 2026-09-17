@@ -4,7 +4,9 @@ import SwiftData
 struct QuestionAttemptView: View {
     @Environment(ContentLoader.self) private var content
     @Environment(ClaudeGrader.self) private var grader
+    @Environment(StudySessionCoordinator.self) private var sessionCoordinator
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var dismiss
     @Query private var cards: [ReviewCard]
 
     let questionID: String
@@ -20,8 +22,7 @@ struct QuestionAttemptView: View {
     @State private var reasoningText = ""
     @State private var explainReasoning = false
     @State private var localVignetteExpanded = true
-    @State private var startedAt = Date()
-    @State private var clockStarted = false
+    @State private var clock = AttemptClock()
     @State private var submittedAttempt: Attempt?
     @State private var showResult = false
     @State private var isSubmitting = false
@@ -64,7 +65,7 @@ struct QuestionAttemptView: View {
                             Label("\(points) points", systemImage: "pencil.and.list.clipboard")
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
-                            PacingTimer(startedAt: startedAt, targetSeconds: points * 90)
+                            PacingTimer(startedAt: clock.startedAt, targetSeconds: points * 90)
                         }
 
                         if question.type == .mc {
@@ -110,15 +111,25 @@ struct QuestionAttemptView: View {
                             .accessibilityElement(children: .contain)
                             .accessibilityLabel("Grading your answer")
                         } else {
-                            Button(submitTitle(for: question)) {
-                                submitTask?.cancel()
-                                submitTask = Task {
-                                    await submit(question: question, caseStudy: caseStudy)
+                            VStack(spacing: 10) {
+                                Button(submitTitle(for: question)) {
+                                    submitTask?.cancel()
+                                    submitTask = Task {
+                                        await submit(question: question, caseStudy: caseStudy)
+                                    }
+                                }
+                                .buttonStyle(.borderedProminent)
+                                .tint(Theme.accent)
+                                .disabled(!canSubmit(question: question) || (question.type == .mc && !question.canGradeMC && explainReasoning))
+
+                                if sessionProgress != nil {
+                                    Button(AttemptHost.skipTitle) {
+                                        skipAndFlag(question: question, caseStudy: caseStudy)
+                                    }
+                                    .buttonStyle(.bordered)
+                                    .accessibilityIdentifier("attempt.skip")
                                 }
                             }
-                            .buttonStyle(.borderedProminent)
-                            .tint(Theme.accent)
-                            .disabled(!canSubmit(question: question) || (question.type == .mc && !question.canGradeMC && explainReasoning))
                         }
                     }
                     .readableContentWidth()
@@ -158,10 +169,7 @@ struct QuestionAttemptView: View {
             // Attempt.durationSeconds report only the time since the last
             // reappearance. Measured on device: a question open for 55 seconds
             // recorded 19.
-            if !clockStarted {
-                startedAt = .now
-                clockStarted = true
-            }
+            clock.appear()
             if standalone, let caseStudy {
                 localVignetteExpanded = VignetteExpansionStore.isExpanded(caseID: caseStudy.id)
             }
@@ -218,7 +226,7 @@ struct QuestionAttemptView: View {
         submitError = nil
         defer { isSubmitting = false }
 
-        let duration = max(1, Int(Date().timeIntervalSince(startedAt)))
+        let duration = clock.durationSeconds()
         let ctx = content.context(for: questionID)
 
         var wasCorrect: Bool?
@@ -349,21 +357,38 @@ struct QuestionAttemptView: View {
         UITestMode.defaults.removeObject(forKey: draftReasoningKey)
     }
 
-    private func toggleFlag() {
-        if let card = reviewCard {
-            card.flaggedForReview.toggle()
-        } else if let ctx = content.context(for: questionID), let question = content.question(id: questionID) {
-            let card = ReviewCard(
-                questionId: questionID,
-                caseId: ctx.caseId,
-                topicId: ctx.topicId,
-                readingIds: question.primaryReadingIDs,
-                losIds: question.candidateLOS
-            )
-            card.flaggedForReview = true
-            modelContext.insert(card)
+    private func skipAndFlag(question: Question, caseStudy: CaseStudy) {
+        guard submittedAttempt == nil, !isSubmitting else { return }
+        let ctx = content.context(for: questionID)
+        AttemptHost.flagForSkip(
+            questionId: questionID,
+            caseId: caseStudy.id,
+            topicId: ctx?.topicId ?? caseStudy.topicID,
+            readingIds: question.primaryReadingIDs,
+            losIds: question.candidateLOS,
+            existing: reviewCard,
+            context: modelContext
+        )
+        clearDraft()
+        if standalone || !sessionCoordinator.isActive {
+            dismiss()
+            return
         }
-        try? modelContext.save()
+        _ = sessionCoordinator.skipCurrent()
+    }
+
+    private func toggleFlag() {
+        let ctx = content.context(for: questionID)
+        AttemptHost.setFlagged(
+            !(reviewCard?.flaggedForReview ?? false),
+            questionId: questionID,
+            caseId: ctx?.caseId ?? caseStudy?.id ?? "",
+            topicId: ctx?.topicId ?? caseStudy?.topicID ?? "",
+            readingIds: question?.primaryReadingIDs ?? [],
+            losIds: question?.candidateLOS ?? [],
+            existing: reviewCard,
+            context: modelContext
+        )
     }
 }
 

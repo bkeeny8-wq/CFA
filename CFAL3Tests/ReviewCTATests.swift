@@ -318,4 +318,57 @@ final class SessionDebriefTests: XCTestCase {
         XCTAssertEqual(coordinator.currentIndex, 0)
         XCTAssertTrue(coordinator.completedAttemptIDs.isEmpty)
     }
+
+    func testSkipCurrentFlagsWithoutRecordingAnAttemptAndClearsOnStart() {
+        let coordinator = StudySessionCoordinator()
+        coordinator.start(questionIDs: ["a", "b", "c"], mode: .random, filterDescription: "Case")
+        XCTAssertTrue(coordinator.skipCurrent())
+        XCTAssertEqual(coordinator.skippedQuestionIDs, ["a"])
+        XCTAssertEqual(coordinator.currentQuestionID, "b")
+        XCTAssertTrue(coordinator.completedAttemptIDs.isEmpty)
+
+        XCTAssertTrue(coordinator.skipCurrent())
+        XCTAssertEqual(coordinator.skippedQuestionIDs, ["a", "b"])
+        XCTAssertEqual(coordinator.currentQuestionID, "c")
+
+        XCTAssertFalse(coordinator.skipCurrent())
+        XCTAssertEqual(coordinator.skippedQuestionIDs, ["a", "b", "c"])
+        XCTAssertNil(coordinator.currentQuestionID)
+        XCTAssertEqual(coordinator.currentIndex, 3)
+
+        coordinator.start(questionIDs: ["d"], mode: .random, filterDescription: "Next")
+        XCTAssertTrue(coordinator.skippedQuestionIDs.isEmpty)
+    }
+}
+
+final class AttemptHostTests: XCTestCase {
+    func testClockIgnoresReappearanceAndReportsAtLeastOneSecond() {
+        var clock = AttemptClock()
+        let start = Date(timeIntervalSince1970: 1_000)
+        clock.appear(now: start)
+        clock.appear(now: start.addingTimeInterval(40))
+        XCTAssertEqual(clock.durationSeconds(now: start.addingTimeInterval(40)), 40)
+
+        XCTAssertEqual(AttemptHost.durationSeconds(from: start, now: start), 1)
+        XCTAssertEqual(AttemptHost.skipTitle, "Skip & flag")
+    }
+}
+
+final class ProgressBackupTests: XCTestCase {
+    func testEmptyPayloadRoundTrips() throws {
+        let payload = ExportPayload(
+            exportedAt: Date(timeIntervalSince1970: 0),
+            attempts: [],
+            reviewCards: [],
+            sessions: [],
+            losStudyStatuses: [],
+            dayCompletions: [],
+            flashcardProgress: []
+        )
+        let url = try ProgressBackup.write(payload)
+        let decoded = try ProgressBackup.decode(from: url)
+        XCTAssertEqual(decoded.attempts.count, 0)
+        XCTAssertEqual(decoded.reviewCards.count, 0)
+        XCTAssertEqual(decoded.flashcardProgress?.count, 0)
+    }
 }

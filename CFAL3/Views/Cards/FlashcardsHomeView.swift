@@ -17,8 +17,8 @@ struct FlashcardsHomeView: View {
     private var areas: [CurriculumArea] { content.losMaster?.areas ?? [] }
 
     /// Built ONCE per body evaluation and threaded through the rows. As a
-    /// computed property it was rebuilt on every `isDue` call — 445 cards
-    /// each reconstructing a 445-entry dictionary, on the main thread.
+    /// computed property it was rebuilt on every `isDue` call — every card
+    /// reconstructing a dictionary of the whole deck, on the main thread.
     private func makeRows() -> [String: FlashcardProgress] {
         Dictionary(progress.map { ($0.cardId, $0) }, uniquingKeysWith: { a, _ in a })
     }

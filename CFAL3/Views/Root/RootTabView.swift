@@ -3,8 +3,8 @@ import SwiftUI
 /// Five tabs, deliberately. Seven sections have to fit, so two are folded:
 /// - Cards joins Study, which already navigates book → reading the same way;
 ///   a bar along the bottom of that tab switches between notes and cards.
-/// - Progress is reached by tapping Home's stats, which already show accuracy,
-///   attempted, streak and days-to-exam. The dashboard is their drill-down.
+/// - Progress is reached from Home's toolbar chart and by tapping the stats
+///   row, which already show accuracy, attempted, streak and days-to-exam.
 ///
 /// Keeping the count at five also keeps every tab visible: past a handful, the
 /// bar stops showing them all and buries the overflow.

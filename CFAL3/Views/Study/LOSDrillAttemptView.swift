@@ -3,6 +3,8 @@ import SwiftData
 
 struct LOSDrillAttemptView: View {
     @Environment(\.modelContext) private var modelContext
+    @Environment(StudySessionCoordinator.self) private var sessionCoordinator
+    @Environment(\.dismiss) private var dismiss
     @Query private var cards: [ReviewCard]
 
     let drill: DrillQuestion
@@ -10,8 +12,7 @@ struct LOSDrillAttemptView: View {
     var sessionProgress: (current: Int, total: Int)?
 
     @State private var selectedOption: String?
-    @State private var startedAt = Date()
-    @State private var clockStarted = false
+    @State private var clock = AttemptClock()
     @State private var submittedAttempt: Attempt?
     @State private var showResult = false
 
@@ -48,6 +49,14 @@ struct LOSDrillAttemptView: View {
                 .buttonStyle(.borderedProminent)
                 .tint(Theme.accent)
                 .disabled(selectedOption == nil)
+
+                if sessionProgress != nil {
+                    Button(AttemptHost.skipTitle) {
+                        skipAndFlag()
+                    }
+                    .buttonStyle(.bordered)
+                    .accessibilityIdentifier("attempt.skip")
+                }
             }
             .readableContentWidth()
             .padding()
@@ -75,10 +84,7 @@ struct LOSDrillAttemptView: View {
         // the last reappearance. Drills are 2,667 of the 3,157 questions, so
         // fixing this in the bank view alone fixed the smaller half.
         .onAppear {
-            if !clockStarted {
-                startedAt = .now
-                clockStarted = true
-            }
+            clock.appear()
         }
         .navigationDestination(isPresented: $showResult) {
             if let submittedAttempt {
@@ -93,7 +99,7 @@ struct LOSDrillAttemptView: View {
     }
 
     private func submit() {
-        let duration = max(1, Int(Date().timeIntervalSince(startedAt)))
+        let duration = clock.durationSeconds()
         let wasCorrect = drill.correct.map { selectedOption == $0 }
 
         let attempt = Attempt(
@@ -110,20 +116,34 @@ struct LOSDrillAttemptView: View {
         showResult = true
     }
 
-    private func toggleFlag() {
-        if let card = reviewCard {
-            card.flaggedForReview.toggle()
-        } else {
-            let card = ReviewCard(
-                questionId: drill.id,
-                caseId: DrillAttemptContext.caseId(readingID: drill.readingID),
-                topicId: drill.areaID,
-                readingIds: [drill.readingID],
-                losIds: [drill.primaryLOS]
-            )
-            card.flaggedForReview = true
-            modelContext.insert(card)
+    private func skipAndFlag() {
+        guard submittedAttempt == nil else { return }
+        AttemptHost.flagForSkip(
+            questionId: drill.id,
+            caseId: DrillAttemptContext.caseId(readingID: drill.readingID),
+            topicId: drill.areaID,
+            readingIds: [drill.readingID],
+            losIds: [drill.primaryLOS],
+            existing: reviewCard,
+            context: modelContext
+        )
+        if standalone || !sessionCoordinator.isActive {
+            dismiss()
+            return
         }
-        try? modelContext.save()
+        _ = sessionCoordinator.skipCurrent()
+    }
+
+    private func toggleFlag() {
+        AttemptHost.setFlagged(
+            !(reviewCard?.flaggedForReview ?? false),
+            questionId: drill.id,
+            caseId: DrillAttemptContext.caseId(readingID: drill.readingID),
+            topicId: drill.areaID,
+            readingIds: [drill.readingID],
+            losIds: [drill.primaryLOS],
+            existing: reviewCard,
+            context: modelContext
+        )
     }
 }
