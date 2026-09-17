@@ -191,14 +191,12 @@ struct QuestionAttemptView: View {
     /// Only reached when not submitting — the in-flight state is its own row
     /// with a spinner and a cancel control.
     private func submitTitle(for question: Question) -> String {
-        switch question.type {
-        case .mc where explainReasoning && !reasoningText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty:
-            return "Grade answer & reasoning"
-        case .mc:
-            return question.canGradeMC ? "Grade my MC answer" : "Submit answer"
-        case .essay:
-            return "Submit for grading"
-        }
+        QuestionSubmitCopy.title(
+            type: question.type,
+            canGradeMC: question.canGradeMC,
+            explainReasoning: explainReasoning,
+            hasReasoningText: !reasoningText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        )
     }
 
     private func canSubmit(question: Question) -> Bool {
@@ -271,10 +269,12 @@ struct QuestionAttemptView: View {
                 pointsPossible = parsed.pointsPossible
                 feedback = parsed.feedbackMarkdown
             } catch {
-                // An essay has no locally-computable result, so there is
-                // nothing to record — but say so rather than failing silently.
-                if !Task.isCancelled { submitError = error.localizedDescription }
-                return
+                // Record the sitting anyway and show the bundled key. Leaving
+                // without an Attempt made "grader down" look like the answer
+                // vanished, and hid the guideline the candidate still needs.
+                if Task.isCancelled { return }
+                feedback = "Grading unavailable: \(error.localizedDescription). The bundled guideline answer is shown instead."
+                pointsPossible = question.pointValue
             }
         }
 
@@ -386,5 +386,25 @@ private struct PacingTimer: View {
 
     private func format(_ s: Int) -> String {
         String(format: "%d:%02d", s / 60, s % 60)
+    }
+}
+
+/// "Grade" on a local key-check sounded like the Claude path. Keep that word
+/// for the network critique; a plain MC check is just a check.
+enum QuestionSubmitCopy {
+    static func title(
+        type: QuestionType,
+        canGradeMC: Bool,
+        explainReasoning: Bool,
+        hasReasoningText: Bool
+    ) -> String {
+        switch type {
+        case .mc where explainReasoning && hasReasoningText:
+            return "Grade reasoning"
+        case .mc:
+            return canGradeMC ? "Check answer" : "Submit answer"
+        case .essay:
+            return "Submit for grading"
+        }
     }
 }

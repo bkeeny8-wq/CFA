@@ -155,6 +155,15 @@ struct GradingResultView: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .cfaCard()
+        } else if question.type == .essay, let model = question.modelAnswer, !model.isEmpty {
+            VStack(alignment: .leading, spacing: 8) {
+                Text(attempt.grade == nil ? "Bundled guideline answer" : "Guideline answer")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                markdownText(model)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .cfaCard()
         }
     }
 
@@ -259,6 +268,9 @@ struct GradingResultView: View {
             }
             return "Grade \(grade)/5"
         }
+        if question.type == .essay, attempt.grade == nil {
+            return "Grader unavailable"
+        }
         return "Submitted"
     }
 
@@ -272,6 +284,9 @@ struct GradingResultView: View {
            let selected = attempt.selectedOption,
            let correct = question.correct {
             return "You chose \(selected) · Answer \(correct)"
+        }
+        if question.type == .essay, attempt.grade == nil {
+            return "The bundled key is shown below"
         }
         return nil
     }

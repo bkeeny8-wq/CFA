@@ -4,10 +4,11 @@ import SwiftData
 /// Reading detail: ONE column on every device, showing the reading's notes.
 /// At regular width the content centers inside the readable-width cap, so a
 /// full-screen iPad reading is a wide, comfortable page rather than a
-/// half-screen column fighting a pinned panel. Drills live in the Practice
-/// tab, so they are not duplicated here.
+/// half-screen column fighting a pinned panel. Daily drill work is one tap
+/// from here; the Practice tab remains the custom builder.
 struct StudyReadingDetailView: View {
     @Environment(ContentLoader.self) private var content
+    @Environment(StudySessionCoordinator.self) private var sessionCoordinator
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Query private var statuses: [LOSStudyStatus]
     @Query private var reviewCards: [ReviewCard]
@@ -15,6 +16,8 @@ struct StudyReadingDetailView: View {
     let area: CurriculumArea
     let reading: Reading
     var splitColumnVisibility: Binding<NavigationSplitViewVisibility>?
+
+    @State private var showDrillSession = false
 
     init(
         area: CurriculumArea,
@@ -37,6 +40,7 @@ struct StudyReadingDetailView: View {
     var body: some View {
         VStack(spacing: 0) {
             pillHeader
+            readingDrillsCTA
 
             if let notes {
                 ReadingNotesView(notes: notes, showsTopicArea: false)
@@ -50,6 +54,9 @@ struct StudyReadingDetailView: View {
         }
         .navigationTitle(reading.name)
         .navigationBarTitleDisplayMode(.inline)
+        .navigationDestination(isPresented: $showDrillSession) {
+            SessionRunnerView()
+        }
         .toolbar {
             if let splitColumnVisibility, horizontalSizeClass == .regular {
                 ToolbarItem(placement: .topBarLeading) {
@@ -83,6 +90,29 @@ struct StudyReadingDetailView: View {
         .frame(maxWidth: .infinity)
         .padding(.horizontal, 12)
         .padding(.top, 12)
+    }
+
+    @ViewBuilder
+    private var readingDrillsCTA: some View {
+        if let bundle = content.drillBundle(forReading: reading.id),
+           bundle.totalQuestions > 0 {
+            Button {
+                sessionCoordinator.start(
+                    questionIDs: bundle.drills.flatMap { $0.questions.map(\.id) }.shuffled(),
+                    mode: .losDrill,
+                    filterDescription: "This reading's drills — \(reading.name)"
+                )
+                showDrillSession = true
+            } label: {
+                Text("This reading's drills")
+            }
+            .buttonStyle(PrimaryCTA())
+            .padding(.horizontal, 12)
+            .padding(.top, 10)
+            .frame(maxWidth: LayoutMetrics.studyReadingMaxWidth)
+            .frame(maxWidth: .infinity)
+            .accessibilityHint("\(bundle.totalQuestions) questions, shuffled")
+        }
     }
 }
 

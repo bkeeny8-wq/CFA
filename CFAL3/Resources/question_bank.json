@@ -853,12 +853,10 @@
                 "C": "It incorrectly reverses weights: apply 0.65 weighting to 7.13% and 0.35 weighting to 6.06.    Step 1: Systematic risk premium in fully integrated market Risk Premium:  > RP~i~ = σ~i~ρ~i,M~(RP~M~/σ~M~) > >  = [23% × 0.85 × 0.31] > >  Step 2: Systematic risk premium in fully segmented market Risk Premium:  > RP~i~ = σ~i~(RP~M~/σ~M~) > >  = [23% × 0.31] > >  = 7.13% > >  Step 3: Error: reverse weights of systematic risk premiums by degree of integration:  0.35 × 6.06 + 0.65 × 7.13 = 6.76%    Step 4: Add the illiquidity premium:  6.76% + 0.60% = 7.36%    Step 5: Add the risk-free rate:  2.5% + 7.36% = 9.86%"
               },
               "candidate_los": [
-                "capital_market_expectations_part_1_framework_and_macro_considerations.a",
-                "capital_market_expectations_part_1_framework_and_macro_considerations.h",
-                "capital_market_expectations_part_1_framework_and_macro_considerations.b"
+                "capital_market_expectations_part_2_forecasting_asset_class_returns.c"
               ],
               "primary_reading_ids": [
-                "capital_market_expectations_part_1_framework_and_macro_considerations"
+                "capital_market_expectations_part_2_forecasting_asset_class_returns"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -915,10 +913,10 @@
                 "model_answer": "SINGER-TERHAAR: E(R_i) = Rf + [Weight × Fully-Integrated RP] + [(1-Weight) × Fully-Segmented RP]\n\nWhere:\n• Fully-integrated RP_i = σ_i × ρ_{i,GIM} × (Sharpe_{GIM})\n• Fully-segmented RP_i = σ_i × Sharpe_i (uses own market)\n\nGIVEN:\n• σ_EM_small = 23%\n• ρ_{EM,GIM} = 0.85\n• Integration = 65% (weight on integrated)\n• Sharpe_GIM = 0.31 (also Sharpe for EM equity)\n• Rf = 2.5%\n• Illiquidity premium = 0.60%\n\n===\nFULLY-INTEGRATED RP:\nRP_int = 23% × 0.85 × 0.31 = 6.06%\n\n===\nFULLY-SEGMENTED RP:\nRP_seg = 23% × 0.31 = 7.13%\n\n===\nWEIGHTED RP:\nRP_weighted = 0.65 × 6.06% + 0.35 × 7.13%\n= 3.94% + 2.50%\n= 6.44%\n\n===\nADD RISK-FREE + ILLIQUIDITY PREMIUM:\nE(R) = 2.5% + 6.44% + 0.60% = 9.54%\n\nPARTIAL: 5=~9.54% + full work; 4=method correct, arithmetic minor; 3=partial components; 0=wrong."
               },
               "candidate_los": [
-                "capital_market_expectations_part_1_framework_and_macro_considerations.d"
+                "capital_market_expectations_part_2_forecasting_asset_class_returns.c"
               ],
               "primary_reading_ids": [
-                "capital_market_expectations_part_1_framework_and_macro_considerations"
+                "capital_market_expectations_part_2_forecasting_asset_class_returns"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -935,11 +933,11 @@
                 "model_answer": "GRADING KEY — any TWO.\n\nAccepted considerations:\n• POLITICAL RISK: government stability, expropriation risk, capital controls.\n• CURRENCY RISK: potentially high FX volatility; devaluations impacting USD returns.\n• LIQUIDITY: EM markets typically less liquid than developed; higher transaction costs.\n• TAIL RISK: EM markets prone to sharp drawdowns during global stress episodes.\n• GOVERNANCE: corporate governance standards may differ from developed markets.\n• REGULATORY: cross-border investment restrictions.\n• INFORMATION ASYMMETRY: less transparent financial reporting.\n• CORRELATION SHIFT: EM correlations to developed markets rise in crisis, reducing diversification benefit precisely when needed.\n• DENOMINATION EFFECT of currency movements on realized USD returns.\n• SANCTIONS AND GEOPOLITICAL: potential asset freezes.\n• EM small-cap SPECIFIC: additional illiquidity, information gaps, higher volatility.\n\nPARTIAL: 5=two considerations + reasoning; 3=one; 0=vague."
               },
               "candidate_los": [
-                "capital_market_expectations_part_1_framework_and_macro_considerations.c",
-                "capital_market_expectations_part_1_framework_and_macro_considerations.d"
+                "capital_market_expectations_part_2_forecasting_asset_class_returns.c",
+                "capital_market_expectations_part_2_forecasting_asset_class_returns.d"
               ],
               "primary_reading_ids": [
-                "capital_market_expectations_part_1_framework_and_macro_considerations"
+                "capital_market_expectations_part_2_forecasting_asset_class_returns"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -3325,9 +3323,7 @@
                 "model_answer": "GRADING KEY — any TWO of the following.\n\nAccepted considerations:\n• PACING PLAN: manage capital commitments across vintages to avoid over-commitment and undercommitment in any single vintage.\n• LIQUIDITY BUDGETING: monitor uncalled commitments vs available liquidity for capital calls.\n• MANAGER MONITORING: regular review of GP performance, style drift, key person changes.\n• DIVERSIFICATION across managers, vintages, sectors, geographies.\n• BENCHMARK RESULTS: appropriate benchmark selection for illiquid investments (private market indexes, PME).\n• EXPENSE and FEE MONITORING.\n• RISK REPORTING: understanding hidden leverage, concentration, correlation across the portfolio.\n• EXIT PLANNING: managing secondary sales if liquidity needed.\n• GOVERNANCE PROVISIONS in LP agreements (side letters, MFN clauses).\n\nPARTIAL: 5=two clear governance/monitoring items + reasoning; 3=one; 0=vague."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.a",
-                "asset_allocation_to_alternative_investments.c",
-                "asset_allocation_to_alternative_investments.g"
+                "asset_allocation_to_alternative_investments.h"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3361,9 +3357,7 @@
                 "C": "It is true that the number of providers of private equity, hedge funds, direct real estate, and similar investments has grown substantially over time; however, access to top-tier managers is quite limited because managers of alternative investments tend to be capacity constrained and many alternative investment strategies have limited market volume."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.c",
-                "asset_allocation_to_alternative_investments.g",
-                "asset_allocation_to_alternative_investments.h"
+                "asset_allocation_to_alternative_investments.g"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3388,9 +3382,7 @@
                 "C": "The statement regarding market efficiency is correct. Many alternative investment asset classes, including private equity, direct real estate, and many hedge fund strategies, are predicated on the notion that markets are inefficient in specific ways. Chan's current portfolio follows a well-diversified, low-cost indexing strategy indicative of a belief in market efficiency. In making the switch, it will be important for Chan and Gill to identify specific markets they believe to be inefficient and invest in alternative investment products and strategies that are most likely to take advantage of those specific perceived inefficiencies."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.h",
-                "asset_allocation_to_alternative_investments.b",
-                "asset_allocation_to_alternative_investments.a"
+                "asset_allocation_to_alternative_investments.d"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3440,9 +3432,7 @@
                 "C": "Many alternative investments use limited partnership or similar structures in which each investor owns a fairly large portion of the fund. Strategies often involve investment in illiquid assets. If a few investors pull out of a fund, managers can be forced to sell positions at disadvantageous times, resulting in poor performance for all investors. Remaining positions might also be particularly illiquid."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.a",
-                "asset_allocation_to_alternative_investments.g",
-                "asset_allocation_to_alternative_investments.f"
+                "asset_allocation_to_alternative_investments.h"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3463,7 +3453,7 @@
               "candidate_los": [
                 "case_study_in_portfolio_management_institutional_endowment.b",
                 "asset_allocation_to_alternative_investments.g",
-                "asset_allocation_to_alternative_investments.d"
+                "asset_allocation_to_alternative_investments.e"
               ],
               "primary_reading_ids": [
                 "case_study_in_portfolio_management_institutional_endowment",
@@ -3484,9 +3474,7 @@
                 "model_answer": "===\nAPPROPRIATENESS: PARTIALLY VALID.\n\n===\nSUPPORTIVE reasoning:\n• Transparency helps the investment committee understand risk and return.\n• Enables proper due diligence and risk aggregation across the portfolio.\n• Allows the foundation to detect strategy drift.\n\n===\nCRITIQUE:\n• Requiring FULL TRANSPARENCY may SCREEN OUT MANY SKILLED ALTERNATIVE MANAGERS.\n• Many top hedge funds and PE managers PROTECT TRADE SECRETS and holdings.\n• Insisting on transparency may relegate the foundation to lower-quality managers.\n• Best practice: seek REASONABLE transparency with appropriate NDAs, not FULL position disclosure.\n• Manager selection is a trade-off between transparency and access to skill.\n\nPARTIAL: 5=identifies both benefits AND drawbacks; 3=one-sided; 0=uncritical."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.h",
-                "asset_allocation_to_alternative_investments.b",
-                "asset_allocation_to_alternative_investments.a"
+                "asset_allocation_to_alternative_investments.d"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -3506,13 +3494,10 @@
                 "model_answer": "REQUIRED RETURN CALCULATION:\nFor perpetuity: required RETURN = Withdrawal / Principal = $1M / $25M = 4%.\n\nREAL vs NOMINAL:\n• If Chan's $1M is desired in REAL terms (inflation-adjusted), required REAL return = 4%.\n• If $1M is nominal fixed, real return needs to be higher to maintain purchasing power (need to keep $25M principal growing with inflation).\n• Assuming Chan wants inflation-adjusted income: 4% real return needed.\n\nALLOCATION APPROPRIATENESS:\n• Current allocation 70% equities + 20% RE + 10% FI = high risk.\n• A 4% real return is achievable with moderate risk allocation (60/40 equity/bond).\n• The retirement sub-portfolio should prioritize STABILITY OF INCOME.\n• Current 70% equity + 10% FI is TOO AGGRESSIVE for a retirement income portfolio.\n• Recommend: 40-60% FI + moderate equity for growth + inflation hedge.\n\nPARTIAL: 5=4% required return + allocation critique; 3=return only; 0=wrong."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.a",
-                "asset_allocation_to_alternative_investments.d",
-                "case_study_in_portfolio_management_institutional_endowment.c"
+                "an_overview_of_private_wealth_management.e"
               ],
               "primary_reading_ids": [
-                "asset_allocation_to_alternative_investments",
-                "case_study_in_portfolio_management_institutional_endowment"
+                "an_overview_of_private_wealth_management"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -3529,7 +3514,7 @@
                 "model_answer": "GRADING KEY — any TWO considerations.\n\nAccepted considerations:\n===\nTIME HORIZON:\n• Children's trusts have HORIZONS extending decades (beyond Chan's lifetime).\n• Foundation is PERPETUAL.\n• Retirement is a fixed period.\n• Different horizons → different risk tolerances.\n\n===\nBENEFICIARY NEEDS:\n• Children's trusts: unknown future needs; balance growth and stability.\n• Foundation: specific mission (environmental grants); need for regular distributions.\n• Retirement: known needs; focus on income stability.\n\n===\nTAX TREATMENT:\n• Children's trusts and foundation may have different tax structures.\n• Foundation may be tax-exempt; children's trusts may face beneficiary taxation.\n\n===\nGOVERNANCE:\n• Trusts have beneficiary rights and trustee obligations.\n• Foundation has board governance and grantmaking priorities.\n\n===\nLIQUIDITY:\n• Children's trusts: possible distributions at various life events.\n• Foundation: annual grants require regular liquidity.\n• Retirement: monthly income needs.\n\nPARTIAL: 5=two considerations covering multiple dimensions; 3=one; 0=vague."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.c"
+                "asset_allocation_to_alternative_investments.e"
               ],
               "primary_reading_ids": [
                 "asset_allocation_to_alternative_investments"
@@ -11850,9 +11835,7 @@
                 "C": "The Mattley Fund exhibited relatively high Active Share but relatively low active risk. High Active Share indicates that a manager's holdings differ substantially from the benchmark, and low active risk indicates low idiosyncratic risk resulting from diversification: This combination indicates that the manager most likely follows a diversified stock picking strategy. A sector rotator typically has high active risk and could have either high or low Active Share, depending on whether a concentrated or diversified portfolio approach was followed. A closet index would exhibit both low Active Share and low active risk, because such funds make few active bets."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.c",
-                "active_equity_investing_portfolio_construction.f",
-                "active_equity_investing_portfolio_construction.d"
+                "active_equity_investing_portfolio_construction.c"
               ],
               "primary_reading_ids": [
                 "active_equity_investing_portfolio_construction"
@@ -11877,8 +11860,7 @@
                 "C": "Active risk does rise with an increase in factor and idiosyncratic volatility."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.c",
-                "active_equity_investing_portfolio_construction.f"
+                "active_equity_investing_portfolio_construction.c"
               ],
               "primary_reading_ids": [
                 "active_equity_investing_portfolio_construction"
@@ -11903,8 +11885,7 @@
                 "C": "The allocation restriction is 1.75% of funds under management = 1.75% × $100 million = $1.75 million. However, the restriction on daily trading ($1.13 million) prevents this amount from being acquired."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.e",
-                "active_equity_investing_portfolio_construction.a"
+                "active_equity_investing_portfolio_construction.f"
               ],
               "primary_reading_ids": [
                 "active_equity_investing_portfolio_construction"
@@ -11971,8 +11952,7 @@
                 "model_answer": "===\nSTMT 1 (active risk rises with idiosyncratic volatility): CORRECT.\n• Higher idiosyncratic risk in the securities increases active risk from unhedged security-specific bets.\n\n===\nSTMT 2 (active risk from Active Share is SMALLER in more diversified portfolios): CORRECT.\n• Diversification averages out idiosyncratic risks across many holdings.\n• The idiosyncratic component of active risk shrinks as N grows.\n\n===\nSTMT 3 (if factor exposure is fully neutralized, Active Share will be entirely attributed to active risk): INCORRECT — the statement reverses subject and object.\n• Correct relationship: in a single-factor model, when factor exposure is fully neutralized, ACTIVE RISK is entirely attributable to ACTIVE SHARE (a consequence of the manager deviating from benchmark weights) — not Active Share attributed to active risk.\n• With the factor component removed, the residual active risk arises entirely from the idiosyncratic bets captured by Active Share.\n• Mark INCORRECT; do NOT accept CORRECT. (Consistent with MC Q4, which keys the neutralizing-factor comment as the least accurate.)\n\nPARTIAL: 5=all three assessed with reasoning (STMT 3 identified as INCORRECT/reversed); 3=two clearly; 0=fewer."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.c",
-                "active_equity_investing_portfolio_construction.f"
+                "active_equity_investing_portfolio_construction.c"
               ],
               "primary_reading_ids": [
                 "active_equity_investing_portfolio_construction"
@@ -11992,9 +11972,7 @@
                 "model_answer": "GRADING KEY — assessment is NUANCED.\n\nAccepted reasoning:\n• HIGH ACTIVE SHARE + LOW ACTIVE RISK indicates the manager holds DIFFERENT SECURITIES than the benchmark but avoids concentrated factor bets.\n• This profile is consistent with DIVERSIFIED STOCK-SELECTION strategy.\n• It suggests the manager is:\n  - Not chasing beta (low active risk)\n  - Not making concentrated sector/factor bets\n  - Genuinely picking stocks based on fundamentals\n• SKILL VERIFICATION requires:\n  - Track record of positive alpha AFTER fees\n  - Consistency of alpha across market regimes\n  - Reasonable factor-neutral returns over long periods\n• The PROFILE ALONE doesn't prove skill; it's a positive PREDICTOR of active management value if alpha is present.\n\nPARTIAL: 5=nuanced discussion + skill verification framework; 3=one-sided claim; 0=vague."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.c",
-                "active_equity_investing_portfolio_construction.f",
-                "active_equity_investing_portfolio_construction.d"
+                "active_equity_investing_portfolio_construction.c"
               ],
               "primary_reading_ids": [
                 "active_equity_investing_portfolio_construction"
@@ -12014,8 +11992,6 @@
                 "model_answer": "GRADING KEY — constraints REDUCE alpha potential.\n\nAccepted reasoning:\n• The 7% ADV constraint limits POSITION SIZE — even with high-conviction ideas, the fund cannot fully express its view.\n• The 1.75% AUM position limit similarly caps concentration.\n• Small-cap securities have lower liquidity — positions must be accumulated/exited over multiple days, creating implementation costs.\n• At $1.8B average market cap and 0.90% daily turnover: daily volume = $16.2M. The liquidity constraint caps each position at 7% × $16.2M = $1.13M — below both the 1.75% × $100M = $1.75M allocation limit and the $100M / 60 ≈ $1.67M diversification-implied maximum — so the liquidity cap binds first: maximum active weight per position is ~1.13%, not 1.75%, diluting conviction and forcing roughly 89+ names if fully invested.\n• Constraint reduces active weight per position → dilutes potential alpha.\n• Diversification requirement (≥ 60 names) forces a higher position count, further diluting concentration.\n\nPARTIAL: 5=identifies constraints + explains impact + quantifies; 3=identifies impact without numbers; 0=vague."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.e",
-                "active_equity_investing_portfolio_construction.a",
                 "active_equity_investing_portfolio_construction.f"
               ],
               "primary_reading_ids": [

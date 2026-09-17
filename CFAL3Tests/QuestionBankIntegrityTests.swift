@@ -272,7 +272,6 @@ final class QuestionBankIntegrityTests: XCTestCase {
     }
 
     /// A uniquely longest or uniquely shortest correct option is a length cue.
-    /// Distractors (or the short key) were lengthened so neither cue dominates.
     func testDrillCorrectOptionIsNotUniquelyLongestOnMostItems() throws {
         let content = ContentLoader()
         content.load()
@@ -281,6 +280,12 @@ final class QuestionBankIntegrityTests: XCTestCase {
         var total = 0
         var uniqueLongest = 0
         var uniqueShortest = 0
+        var distractorTails = 0
+        var keys: [String: Int] = [:]
+        let tail = try NSRegularExpression(
+            pattern: #"(namely\s+.+\bas a complete account of|\bas the .{2,80} reading\.?$|\bas a complete reading of |every implication that reading is usually thought to carry|[—–-]\s*as (?:that|those) [A-Za-z][\w\-]{0,30}(?:\s+[A-Za-z][\w\-]{0,30}){0,4}\.?$|\.\s+As (?:that|those) [A-Za-z][\w\-]{0,30}(?:\s+[A-Za-z][\w\-]{0,30}){0,4}\.?$|,\s+as (?:that|those) [A-Za-z][\w\-]{0,30}(?:\s+[A-Za-z][\w\-]{0,30}){0,4}\.?$)"#,
+            options: [.caseInsensitive]
+        )
         for bundle in content.losDrillBundles.values {
             for group in bundle.drills {
                 for q in group.questions {
@@ -288,6 +293,7 @@ final class QuestionBankIntegrityTests: XCTestCase {
                           let correct = q.correct, let keyText = options[correct]
                     else { continue }
                     total += 1
+                    keys[correct, default: 0] += 1
                     let keyLen = keyText.count
                     let other = options.compactMap { $0.key == correct ? nil : $0.value.count }
                     if let longestOther = other.max(), keyLen > longestOther {
@@ -296,20 +302,22 @@ final class QuestionBankIntegrityTests: XCTestCase {
                     if let shortestOther = other.min(), keyLen < shortestOther {
                         uniqueShortest += 1
                     }
+                    for (letter, text) in options where letter != correct {
+                        let range = NSRange(text.startIndex..<text.endIndex, in: text)
+                        if tail.firstMatch(in: text, range: range) != nil {
+                            distractorTails += 1
+                        }
+                    }
                 }
             }
         }
         XCTAssertEqual(total, 2_667)
-        XCTAssertLessThan(
-            Double(uniqueLongest) / Double(total),
-            0.40,
-            "correct option uniquely longest on \(uniqueLongest)/\(total)"
-        )
-        XCTAssertLessThan(
-            Double(uniqueShortest) / Double(total),
-            0.40,
-            "correct option uniquely shortest on \(uniqueShortest)/\(total)"
-        )
+        XCTAssertEqual(uniqueLongest, 0, "correct option uniquely longest on \(uniqueLongest)/\(total)")
+        XCTAssertEqual(uniqueShortest, 0, "correct option uniquely shortest on \(uniqueShortest)/\(total)")
+        XCTAssertEqual(distractorTails, 0, "grammatical length tails remain on \(distractorTails) distractors")
+        XCTAssertEqual(keys["A"], 889)
+        XCTAssertEqual(keys["B"], 889)
+        XCTAssertEqual(keys["C"], 889)
     }
 
     /// Practice-by-LOS finds Standards I–VII via candidate_los; Progress
@@ -411,6 +419,63 @@ final class QuestionBankIntegrityTests: XCTestCase {
                 "asset_manager_code_of_professional_conduct.c",
                 "guidance_standard_iii_duties_to_clients.a",
             ]
+        )
+        XCTAssertEqual(try los("ava_chan_ava_chan_q1"), ["asset_allocation_to_alternative_investments.g"])
+        XCTAssertEqual(try los("ava_chan_ava_chan_q2"), ["asset_allocation_to_alternative_investments.d"])
+        XCTAssertEqual(try los("ava_chan_ava_chan_q4"), ["asset_allocation_to_alternative_investments.h"])
+        XCTAssertEqual(
+            try los("ava_chan_ava_chan_essay_q5"),
+            [
+                "case_study_in_portfolio_management_institutional_endowment.b",
+                "asset_allocation_to_alternative_investments.g",
+                "asset_allocation_to_alternative_investments.e",
+            ]
+        )
+        XCTAssertEqual(try los("ava_chan_ava_chan_essay_q6"), ["asset_allocation_to_alternative_investments.d"])
+        XCTAssertEqual(try los("ava_chan_ava_chan_essay_q7"), ["an_overview_of_private_wealth_management.e"])
+        XCTAssertEqual(try los("ava_chan_ava_chan_essay_q8"), ["asset_allocation_to_alternative_investments.e"])
+        XCTAssertEqual(
+            try los("ptolemy_foundation_the_ptolemy_foundation_q4"),
+            ["capital_market_expectations_part_2_forecasting_asset_class_returns.c"]
+        )
+        XCTAssertEqual(
+            try los("ptolemy_foundation_the_ptolemy_foundation_essay_q7"),
+            ["capital_market_expectations_part_2_forecasting_asset_class_returns.c"]
+        )
+        XCTAssertEqual(
+            try los("ptolemy_foundation_the_ptolemy_foundation_essay_q8"),
+            [
+                "capital_market_expectations_part_2_forecasting_asset_class_returns.c",
+                "capital_market_expectations_part_2_forecasting_asset_class_returns.d",
+            ]
+        )
+        XCTAssertEqual(
+            try los("active_equity_investing_construction_the_epsilon_institute_t_q3"),
+            ["active_equity_investing_portfolio_construction.c"]
+        )
+        XCTAssertEqual(
+            try los("active_equity_investing_construction_the_epsilon_institute_t_q4"),
+            ["active_equity_investing_portfolio_construction.c"]
+        )
+        XCTAssertEqual(
+            try los("active_equity_investing_construction_the_epsilon_institute_t_q5"),
+            ["active_equity_investing_portfolio_construction.f"]
+        )
+        XCTAssertEqual(
+            try los("active_equity_investing_construction_the_epsilon_institute_t_essay_q8"),
+            ["active_equity_investing_portfolio_construction.c"]
+        )
+        XCTAssertEqual(
+            try los("active_equity_investing_construction_the_epsilon_institute_t_essay_q9"),
+            ["active_equity_investing_portfolio_construction.c"]
+        )
+        XCTAssertEqual(
+            try los("active_equity_investing_construction_the_epsilon_institute_t_essay_q10"),
+            ["active_equity_investing_portfolio_construction.f"]
+        )
+        XCTAssertEqual(
+            try los("gambier_advisory_lucas_thompson_essay_q8"),
+            ["asset_allocation_to_alternative_investments.h"]
         )
     }
 

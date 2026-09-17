@@ -6,6 +6,7 @@ struct SessionRunnerView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(StudySessionCoordinator.self) private var sessionCoordinator
     @Environment(ContentLoader.self) private var content
+    @Query private var attempts: [Attempt]
 
     @State private var showSummary = false
     /// The session this runner was opened for. There is one coordinator for
@@ -81,24 +82,76 @@ struct SessionRunnerView: View {
     }
 
     private var sessionSummary: some View {
-        List {
-            Section("Session summary") {
-                Text("\(sessionCoordinator.completedAttemptIDs.count) attempts")
-                Text("Mode: \(sessionCoordinator.filterDescription)")
+        SessionDebriefList(
+            debrief: debrief,
+            modeLine: sessionCoordinator.filterDescription,
+            onRetry: debrief.canRetry ? retryMissed : nil,
+            doneTitle: "Save & exit",
+            onDone: {
+                saveSession()
+                sessionCoordinator.finish()
+                dismiss()
             }
-            Section {
-                Button("Save & exit") {
-                    saveSession()
-                    sessionCoordinator.finish()
-                    dismiss()
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(Theme.accent)
-            }
+        )
+    }
+
+    private var debrief: SessionDebrief {
+        SessionDebrief.snapshot(rows: debriefRows)
+    }
+
+    private var debriefRows: [SessionDebrief.Row] {
+        let byID = Dictionary(uniqueKeysWithValues: attempts.map { ($0.id, $0) })
+        return sessionCoordinator.completedAttemptIDs.compactMap { id in
+            byID[id].map { SessionDebrief.row(attempt: $0, content: content) }
         }
+    }
+
+    private func retryMissed() {
+        let ids = debrief.missedIDs
+        guard !ids.isEmpty else { return }
+        saveSession()
+        let next = UUID()
+        openedSessionID = next
+        sessionCoordinator.retryMissed(questionIDs: ids, sessionID: next)
+        showSummary = false
     }
 
     private func saveSession() {
         sessionCoordinator.persist(into: modelContext)
+    }
+}
+
+struct SessionDebriefList: View {
+    let debrief: SessionDebrief
+    let modeLine: String
+    var onRetry: (() -> Void)?
+    var doneTitle: String
+    var onDone: () -> Void
+
+    var body: some View {
+        List {
+            Section("Session debrief") {
+                Text(debrief.scoreLine)
+                Text(debrief.paceLine)
+                Text("Mode: \(modeLine)")
+            }
+            if !debrief.missedLabels.isEmpty {
+                Section("Missed") {
+                    ForEach(Array(debrief.missedLabels.enumerated()), id: \.offset) { _, label in
+                        Text(label)
+                    }
+                }
+            }
+            Section {
+                if let onRetry, debrief.canRetry {
+                    Button("Retry missed (\(debrief.missedIDs.count))") {
+                        onRetry()
+                    }
+                }
+                Button(doneTitle, action: onDone)
+                    .buttonStyle(.borderedProminent)
+                    .tint(Theme.accent)
+            }
+        }
     }
 }

@@ -75,7 +75,7 @@ struct HomeView: View {
                 NavigationLink {
                     SettingsView()
                 } label: {
-                    Image(systemName: "line.3.horizontal")
+                    Image(systemName: "gearshape")
                 }
                 .accessibilityLabel("Settings")
             }
@@ -97,6 +97,12 @@ struct HomeView: View {
             startReviewSession(plan)
         } label: {
             VStack(alignment: .leading, spacing: 2) {
+                if !plan.isEmpty {
+                    Text("Today's mix")
+                        .font(.caption2.weight(.semibold))
+                        .textCase(.uppercase)
+                        .accessibilityIdentifier("home.review.mix")
+                }
                 Text(ReviewCTA.title(ctaInputs(plan)))
                     .font(.headline)
                     .accessibilityIdentifier("home.review.title")

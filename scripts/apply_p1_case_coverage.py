@@ -71,6 +71,52 @@ RETAGS: dict[str, list[str]] = {
         "asset_manager_code_of_professional_conduct.c",
         "guidance_standard_iii_duties_to_clients.a",
     ],
+    # Ava Chan — liquidity / transparency / monitoring / IPS / suitability.
+    "ava_chan_ava_chan_q1": ["asset_allocation_to_alternative_investments.g"],
+    "ava_chan_ava_chan_q2": ["asset_allocation_to_alternative_investments.d"],
+    "ava_chan_ava_chan_q4": ["asset_allocation_to_alternative_investments.h"],
+    "ava_chan_ava_chan_essay_q5": [
+        "case_study_in_portfolio_management_institutional_endowment.b",
+        "asset_allocation_to_alternative_investments.g",
+        "asset_allocation_to_alternative_investments.e",
+    ],
+    "ava_chan_ava_chan_essay_q6": ["asset_allocation_to_alternative_investments.d"],
+    "ava_chan_ava_chan_essay_q7": ["an_overview_of_private_wealth_management.e"],
+    "ava_chan_ava_chan_essay_q8": ["asset_allocation_to_alternative_investments.e"],
+    # Ptolemy — Singer–Terhaar equity expected return is CME2, not CME1 growth.
+    "ptolemy_foundation_the_ptolemy_foundation_q4": [
+        "capital_market_expectations_part_2_forecasting_asset_class_returns.c"
+    ],
+    "ptolemy_foundation_the_ptolemy_foundation_essay_q7": [
+        "capital_market_expectations_part_2_forecasting_asset_class_returns.c"
+    ],
+    "ptolemy_foundation_the_ptolemy_foundation_essay_q8": [
+        "capital_market_expectations_part_2_forecasting_asset_class_returns.c",
+        "capital_market_expectations_part_2_forecasting_asset_class_returns.d",
+    ],
+    # Epsilon — Active Share vs active risk is construction .c; ADV/size is .f.
+    "active_equity_investing_construction_the_epsilon_institute_t_q3": [
+        "active_equity_investing_portfolio_construction.c"
+    ],
+    "active_equity_investing_construction_the_epsilon_institute_t_q4": [
+        "active_equity_investing_portfolio_construction.c"
+    ],
+    "active_equity_investing_construction_the_epsilon_institute_t_q5": [
+        "active_equity_investing_portfolio_construction.f"
+    ],
+    "active_equity_investing_construction_the_epsilon_institute_t_essay_q8": [
+        "active_equity_investing_portfolio_construction.c"
+    ],
+    "active_equity_investing_construction_the_epsilon_institute_t_essay_q9": [
+        "active_equity_investing_portfolio_construction.c"
+    ],
+    "active_equity_investing_construction_the_epsilon_institute_t_essay_q10": [
+        "active_equity_investing_portfolio_construction.f"
+    ],
+    # Gambier — governance / monitoring of an alts program is .h.
+    "gambier_advisory_lucas_thompson_essay_q8": [
+        "asset_allocation_to_alternative_investments.h"
+    ],
 }
 
 
@@ -218,7 +264,8 @@ def main() -> int:
     assert not unknown, unknown[:10]
     assert not missing_reading, missing_reading[:10]
     assert len(parked_after) == 0, parked_after
-    assert ethics_primary == 47, ethics_primary
+    # First pass unparked 47; later passes find none still parked.
+    assert ethics_primary in (0, 47), ethics_primary
     assert retagged == len(RETAGS)
     for rid, n in std_counts.items():
         assert n > 0, rid

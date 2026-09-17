@@ -218,3 +218,104 @@ final class StudyStreakTests: XCTestCase {
         XCTAssertEqual(ProgressStats.streakDays(attempts: [], now: noonToday), 0)
     }
 }
+
+final class QuestionSubmitCopyTests: XCTestCase {
+    func testLocalMCCheckDoesNotSayGrade() {
+        XCTAssertEqual(
+            QuestionSubmitCopy.title(
+                type: .mc, canGradeMC: true, explainReasoning: false, hasReasoningText: false
+            ),
+            "Check answer"
+        )
+    }
+
+    func testReasoningCritiqueUsesGrade() {
+        XCTAssertEqual(
+            QuestionSubmitCopy.title(
+                type: .mc, canGradeMC: true, explainReasoning: true, hasReasoningText: true
+            ),
+            "Grade reasoning"
+        )
+    }
+
+    func testEssaySubmitIsUnchanged() {
+        XCTAssertEqual(
+            QuestionSubmitCopy.title(
+                type: .essay, canGradeMC: false, explainReasoning: false, hasReasoningText: false
+            ),
+            "Submit for grading"
+        )
+    }
+}
+
+final class SessionDebriefTests: XCTestCase {
+    private func mc(_ id: String, correct: Bool, seconds: Int) -> SessionDebrief.Row {
+        SessionDebrief.Row(
+            questionID: id,
+            label: id,
+            durationSeconds: seconds,
+            wasCorrect: correct,
+            pointsEarned: nil,
+            pointsPossible: nil,
+            grade: nil,
+            examPoints: nil,
+            isEssay: false
+        )
+    }
+
+    func testScorePaceAndRetryListMissedIDs() {
+        let d = SessionDebrief.snapshot(rows: [
+            mc("q1", correct: true, seconds: 60),
+            mc("q2", correct: false, seconds: 150),
+            SessionDebrief.Row(
+                questionID: "e1",
+                label: "essay",
+                durationSeconds: 400,
+                wasCorrect: nil,
+                pointsEarned: 2,
+                pointsPossible: 8,
+                grade: 2,
+                examPoints: 8,
+                isEssay: true
+            ),
+        ])
+        XCTAssertEqual(d.scoreLine, "1/2 correct · 2/8 essay points")
+        XCTAssertEqual(d.targetSeconds, 90 + 90 + 720)
+        XCTAssertEqual(d.missedIDs, ["q2", "e1"])
+        XCTAssertTrue(d.canRetry)
+        XCTAssertTrue(d.paceLine.contains("90s/point"))
+    }
+
+    func testGraderFailureIsUngradedNotMissed() {
+        let d = SessionDebrief.snapshot(rows: [
+            SessionDebrief.Row(
+                questionID: "e1",
+                label: "essay",
+                durationSeconds: 10,
+                wasCorrect: nil,
+                pointsEarned: nil,
+                pointsPossible: 6,
+                grade: nil,
+                examPoints: 6,
+                isEssay: true
+            ),
+        ])
+        XCTAssertEqual(d.unscoredCount, 1)
+        XCTAssertTrue(d.missedIDs.isEmpty)
+        XCTAssertTrue(d.scoreLine.contains("ungraded"))
+    }
+
+    func testRetryMissedKeepsAdoptedSessionID() {
+        let coordinator = StudySessionCoordinator()
+        coordinator.start(questionIDs: ["a", "b"], mode: .random, filterDescription: "Case")
+        let first = coordinator.sessionID
+        let next = UUID()
+        coordinator.retryMissed(questionIDs: ["b"], sessionID: next)
+        XCTAssertEqual(coordinator.sessionID, next)
+        XCTAssertNotEqual(first, next)
+        XCTAssertEqual(coordinator.questionIDs, ["b"])
+        XCTAssertTrue(coordinator.filterDescription.hasPrefix("Retry missed"))
+        XCTAssertEqual(coordinator.currentIndex, 0)
+        XCTAssertTrue(coordinator.completedAttemptIDs.isEmpty)
+    }
+}

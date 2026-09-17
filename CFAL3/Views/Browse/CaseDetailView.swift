@@ -100,7 +100,7 @@ struct CaseDetailView: View {
             )
             showSession = true
         } label: {
-            Text("Work this case")
+            Text("Sit this case as a mock")
         }
         .buttonStyle(PrimaryCTA())
     }

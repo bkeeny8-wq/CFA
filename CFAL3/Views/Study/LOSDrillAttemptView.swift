@@ -42,7 +42,7 @@ struct LOSDrillAttemptView: View {
                     selected: $selectedOption
                 )
 
-                Button("Submit answer") {
+                Button("Check answer") {
                     submit()
                 }
                 .buttonStyle(.borderedProminent)
