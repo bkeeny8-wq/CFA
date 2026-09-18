@@ -141,6 +141,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E5UT000000000000000D0002 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0263D8E1DC19440DA273C3D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 101695F5EC174BD08F865933;
+			remoteInfo = CFAL3;
+		};
 		E5UI000000000000000D0002 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0263D8E1DC19440DA273C3D0 /* Project object */;
@@ -667,6 +674,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				E5UT000000000000000D0001 /* PBXTargetDependency */,
 			);
 			name = CFAL3Tests;
 			productName = CFAL3Tests;
@@ -700,6 +708,9 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 2700;
 				TargetAttributes = {
+					98A04A9B4E1A462F9DDD55BC = {
+						TestTargetID = 101695F5EC174BD08F865933;
+					};
 					E5UI000000000000000T0001 = {
 						TestTargetID = 101695F5EC174BD08F865933;
 					};
@@ -891,6 +902,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E5UT000000000000000D0001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 101695F5EC174BD08F865933 /* CFAL3 */;
+			targetProxy = E5UT000000000000000D0002 /* PBXContainerItemProxy */;
+		};
 		E5UI000000000000000D0001 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 101695F5EC174BD08F865933 /* CFAL3 */;
