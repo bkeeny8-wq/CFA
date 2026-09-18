@@ -1,56 +1,79 @@
 import SwiftUI
+import SwiftData
 
-/// Five tabs, deliberately. Seven sections have to fit, so two are folded:
-/// - Cards joins Study, which already navigates book → reading the same way;
-///   a bar along the bottom of that tab switches between notes and cards.
-/// - Progress is reached by tapping Home's stats, which already show accuracy,
-///   attempted, streak and days-to-exam. The dashboard is their drill-down.
-///
-/// Keeping the count at five also keeps every tab visible: past a handful, the
-/// bar stops showing them all and buries the overflow.
-enum AppTab: Hashable {
-    case home
+/// Browse destinations. A sitting is a full-window cover, not a tab.
+enum AppTab: Hashable, CaseIterable, Identifiable {
+    case today
     case plan
-    case study
+    case notes
+    case cards
     case practice
-    case vignettes
+    case cases
+    case progress
+
+    var id: String { identifier }
 
     var title: String {
         switch self {
-        case .home: return "Home"
+        case .today: return "Today"
         case .plan: return "Plan"
-        case .study: return "Study"
+        case .notes: return "Notes"
+        case .cards: return "Cards"
         case .practice: return "Practice"
-        case .vignettes: return "Vignettes"
+        case .cases: return "Cases"
+        case .progress: return "Progress"
         }
     }
 
     var symbol: String {
         switch self {
-        case .home: return "house.fill"
-        case .plan: return "calendar"
-        case .study: return "checklist"
-        case .practice: return "square.and.pencil"
-        case .vignettes: return "doc.richtext"
+        case .today: return "calendar"
+        case .plan: return "calendar.badge.clock"
+        case .notes: return "checklist"
+        case .cards: return "rectangle.on.rectangle.angled"
+        case .practice: return "target"
+        case .cases: return "briefcase"
+        case .progress: return "chart.bar"
         }
     }
 
-    /// Tabs are addressed by identifier rather than by chrome type, because
-    /// the chrome is not stable: on iPad this bar is a floating pill at the
-    /// TOP of the window and exposes no `TabBar` element at all — the items
-    /// are bare buttons in an untyped container, so `app.tabBars` finds
-    /// nothing. Left unset, each item's identifier defaults to its SF Symbol
-    /// name, which is an implementation detail, not a contract.
+    /// Sidebar rows are addressed by identifier. UITests used to hunt a
+    /// floating iPad tab pill; the chrome changed, the contract did not.
     var identifier: String { "tab.\(title.lowercased())" }
 }
 
-/// Lets a screen send the user to another TAB instead of pushing a second copy
-/// of it. Home's plan card used to push its own PlanView while Plan also
-/// existed elsewhere, so the same screen could be open twice with separate
-/// scroll positions.
+struct FlashcardSittingPayload: Identifiable {
+    let id = UUID()
+    let title: String
+    let cards: [Flashcard]
+}
+
 @Observable
 final class TabRouter {
-    var selected: AppTab = .home
+    var selected: AppTab = .today
+    var showSettings = false
+    var questionSitting = false
+    var flashcardSitting: FlashcardSittingPayload?
+
+    func presentQuestionSitting() {
+        questionSitting = true
+    }
+
+    func startQuestions(
+        _ coordinator: StudySessionCoordinator,
+        ids: [String],
+        mode: SessionMode,
+        description: String
+    ) {
+        guard !ids.isEmpty else { return }
+        coordinator.start(questionIDs: ids, mode: mode, filterDescription: description)
+        presentQuestionSitting()
+    }
+
+    func presentFlashcards(title: String, cards: [Flashcard]) {
+        guard !cards.isEmpty else { return }
+        flashcardSitting = FlashcardSittingPayload(title: title, cards: cards)
+    }
 }
 
 struct RootTabView: View {
@@ -59,86 +82,196 @@ struct RootTabView: View {
     var body: some View {
         RootTabContent()
             .environment(router)
-            .tint(Theme.accent)
+            .tint(Theme.pine)
+            .preferredColorScheme(.light)
     }
 }
 
 private struct RootTabContent: View {
     @Environment(TabRouter.self) private var router
+    @Environment(StudySessionCoordinator.self) private var sessionCoordinator
+    @Environment(\.modelContext) private var modelContext
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.storeUnavailable) private var storeUnavailable
 
-    /// No `.id()` on any tab, deliberately.
-    ///
-    /// Re-tapping the selected tab used to bump a token that each tab's root
-    /// carried as its `.id()`, the intention being "take me back to the top of
-    /// this tab". But changing a view's id does not POP it, it DESTROYS it, and
-    /// a destroyed tab takes everything inside it along:
-    ///
-    /// - Study: measured on an iPad, one re-tap during a card session at 2/20
-    ///   threw the deck away and returned to the Cards root. Today's allowance
-    ///   had already been spent on the rated card, so the same session could
-    ///   not even be restarted. This is precisely the loss `StudyRootView`
-    ///   mounts both halves to prevent — the token defeated it by another route.
-    /// - Vignettes: one re-tap while reading an Ethics case reset the sidebar
-    ///   to the FIRST book and the detail pane to "Select a case", silently
-    ///   moving the user to a different book.
-    ///
-    /// The affordance is not worth that. Every pushed screen has a back button,
-    /// and since vignettes became their own tab the tab bar is itself always
-    /// the way back — which was the complaint the token was added for.
-    ///
-    /// (An ordinary switch between tabs was never affected: `TabView` does not
-    /// re-evaluate a hidden tab's id, so the sentinel never materialised and
-    /// state survived. Verified on device before removing this — the damage was
-    /// always and only on re-tap.)
     var body: some View {
         @Bindable var router = router
 
-        return TabView(selection: $router.selected) {
-            NavigationStack {
-                HomeView()
+        return HStack(spacing: 0) {
+            if horizontalSizeClass == .regular {
+                DaybookSidebar()
+                    .frame(width: 228)
             }
-            .tabItem { tabLabel(.home) }
-            .tag(AppTab.home)
-
-            NavigationStack {
-                PlanView()
+            destination
+        }
+        .daybookPaper()
+        .safeAreaInset(edge: .top, spacing: 0) {
+            if storeUnavailable {
+                storeBanner
             }
-            .tabItem { tabLabel(.plan) }
-            .tag(AppTab.plan)
-
-            StudyRootView()
-                .tabItem { tabLabel(.study) }
-                .tag(AppTab.study)
-
+        }
+        .sheet(isPresented: $router.showSettings) {
             NavigationStack {
-                PracticeBuilderView()
+                SettingsView()
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button("Done") { router.showSettings = false }
+                        }
+                    }
             }
-            .tabItem { tabLabel(.practice) }
-            .tag(AppTab.practice)
-
-            vignettesRoot
-                .tabItem { tabLabel(.vignettes) }
-                .tag(AppTab.vignettes)
+        }
+        .fullScreenCover(isPresented: $router.questionSitting, onDismiss: endQuestionSitting) {
+            NavigationStack {
+                SessionRunnerView()
+            }
+            .tint(Theme.pine)
+            .preferredColorScheme(.light)
+            .daybookPaper()
+        }
+        .fullScreenCover(item: $router.flashcardSitting) { payload in
+            NavigationStack {
+                FlashcardSessionView(title: payload.title, cards: payload.cards)
+            }
+            .tint(Theme.pine)
+            .preferredColorScheme(.light)
+            .daybookPaper()
         }
     }
 
-    private func tabLabel(_ tab: AppTab) -> some View {
-        Label(tab.title, systemImage: tab.symbol)
-            .accessibilityIdentifier(tab.identifier)
+    private var storeBanner: some View {
+        Text("This session isn’t saving. Export is disabled until the on-disk store can be opened.")
+            .font(.footnote.weight(.medium))
+            .foregroundStyle(Theme.ink)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 10)
+            .background(Theme.copper.opacity(0.22))
+            .accessibilityIdentifier("store.unavailable")
     }
 
-    /// Case studies and their AI-graded essays, lifted out of Practice into
-    /// their own tab — inside Practice, pushing into a case hid the switcher
-    /// and left no visible way back to the quiz builder.
     @ViewBuilder
-    private var vignettesRoot: some View {
+    private var destination: some View {
+        switch router.selected {
+        case .today:
+            NavigationStack { HomeView() }
+        case .plan:
+            NavigationStack { PlanView() }
+        case .notes:
+            notesRoot
+        case .cards:
+            NavigationStack { FlashcardsHomeView() }
+        case .practice:
+            NavigationStack { PracticeBuilderView() }
+        case .cases:
+            casesRoot
+        case .progress:
+            NavigationStack { ProgressDashboardView() }
+        }
+    }
+
+    @ViewBuilder
+    private var notesRoot: some View {
+        if horizontalSizeClass == .regular {
+            StudyPlannerSplitView()
+        } else {
+            NavigationStack { StudyPlannerView() }
+        }
+    }
+
+    @ViewBuilder
+    private var casesRoot: some View {
         if horizontalSizeClass == .regular {
             BrowseSplitView()
         } else {
-            NavigationStack {
-                TopicListView()
-            }
+            NavigationStack { TopicListView() }
         }
+    }
+
+    private func endQuestionSitting() {
+        sessionCoordinator.persist(into: modelContext)
+        sessionCoordinator.finish()
+    }
+}
+
+private struct DaybookSidebar: View {
+    @Environment(TabRouter.self) private var router
+
+    var body: some View {
+        @Bindable var router = router
+
+        VStack(alignment: .leading, spacing: 0) {
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Daybook")
+                    .font(Theme.serif(.title2, weight: .semibold))
+                    .foregroundStyle(Theme.ink)
+                Text("Level III workbook")
+                    .font(.caption)
+                    .foregroundStyle(Theme.dust)
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, 28)
+            .padding(.bottom, 22)
+
+            VStack(spacing: 4) {
+                ForEach(AppTab.allCases) { tab in
+                    sidebarRow(tab, selected: router.selected == tab) {
+                        router.selected = tab
+                    }
+                }
+            }
+            .padding(.horizontal, 12)
+
+            Spacer()
+
+            HStack(spacing: 10) {
+                Circle()
+                    .fill(Theme.sage)
+                    .frame(width: 36, height: 36)
+                    .overlay(
+                        Text("B")
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(Theme.pine)
+                    )
+                    .accessibilityHidden(true)
+                Button {
+                    router.showSettings = true
+                } label: {
+                    Label("Settings", systemImage: "gearshape")
+                        .font(.subheadline.weight(.medium))
+                        .foregroundStyle(Theme.ink)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(minHeight: 44)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel("Settings")
+                .accessibilityIdentifier("tab.settings")
+            }
+            .padding(.horizontal, 16)
+            .padding(.bottom, 20)
+        }
+        .background(Theme.paper)
+        .accessibilityElement(children: .contain)
+        .accessibilityLabel("Daybook sidebar")
+    }
+
+    private func sidebarRow(_ tab: AppTab, selected: Bool, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Label(tab.title, systemImage: tab.symbol)
+                .font(.subheadline.weight(selected ? .semibold : .regular))
+                .foregroundStyle(Theme.ink)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 12)
+                .frame(minHeight: 44)
+                .background(
+                    RoundedRectangle(cornerRadius: 14, style: .continuous)
+                        .fill(selected ? Theme.sage : Color.clear)
+                )
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier(tab.identifier)
+        .accessibilityLabel(tab.title)
+        .accessibilityAddTraits(selected ? [.isButton, .isSelected] : .isButton)
     }
 }

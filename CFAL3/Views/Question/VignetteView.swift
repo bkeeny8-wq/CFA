@@ -1,5 +1,25 @@
 import SwiftUI
 
+/// Standalone sittings (opened from a case row, not a session) persist the
+/// user's hide/show per case. Session sittings use `StudySessionCoordinator`
+/// instead so consecutive questions share one toggle without a flash-reset.
+enum VignetteExpansionStore {
+    private static func key(_ caseID: String) -> String {
+        "vignetteExpanded.\(caseID)"
+    }
+
+    /// Default open — Level III is sat with the vignette on the page.
+    static func isExpanded(caseID: String) -> Bool {
+        let defaults = UITestMode.defaults
+        if defaults.object(forKey: key(caseID)) == nil { return true }
+        return defaults.bool(forKey: key(caseID))
+    }
+
+    static func setExpanded(_ expanded: Bool, caseID: String) {
+        UITestMode.defaults.set(expanded, forKey: key(caseID))
+    }
+}
+
 /// Renders a case vignette from its plain-text structure: paragraphs split on
 /// blank lines, "Exhibit N" headers styled as headers, bullet lines as
 /// bulleted rows, and pipe-delimited tables as real grids. The previous
@@ -8,13 +28,18 @@ import SwiftUI
 struct VignetteView: View {
     let vignette: String
     @Binding var isExpanded: Bool
+    var showsToggle: Bool = true
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Button(isExpanded ? "Hide vignette" : "Show vignette") {
-                withAnimation { isExpanded.toggle() }
+            if showsToggle {
+                Button(isExpanded ? "Hide vignette" : "Show vignette") {
+                    withSittingAnimation(reduceMotion) { isExpanded.toggle() }
+                }
+                .font(.subheadline)
+                .accessibilityHint(isExpanded ? "Hides the case vignette" : "Shows the case vignette")
             }
-            .font(.subheadline)
 
             if isExpanded {
                 VStack(alignment: .leading, spacing: 14) {
@@ -138,6 +163,7 @@ struct VignetteView: View {
                 .font(.subheadline.weight(.semibold))
                 .foregroundStyle(Theme.accent)
                 .padding(.top, 2)
+                .accessibilityAddTraits(.isHeader)
 
         case .bullets(let items):
             VStack(alignment: .leading, spacing: 6) {

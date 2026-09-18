@@ -3,6 +3,9 @@ import SwiftData
 
 struct LOSDrillAttemptView: View {
     @Environment(\.modelContext) private var modelContext
+    @Environment(StudySessionCoordinator.self) private var sessionCoordinator
+    @Environment(ContentLoader.self) private var content
+    @Environment(\.dismiss) private var dismiss
     @Query private var cards: [ReviewCard]
 
     let drill: DrillQuestion
@@ -10,8 +13,7 @@ struct LOSDrillAttemptView: View {
     var sessionProgress: (current: Int, total: Int)?
 
     @State private var selectedOption: String?
-    @State private var startedAt = Date()
-    @State private var clockStarted = false
+    @State private var clock = AttemptClock()
     @State private var submittedAttempt: Attempt?
     @State private var showResult = false
 
@@ -22,19 +24,13 @@ struct LOSDrillAttemptView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                if let sessionProgress {
-                    Text("\(sessionProgress.current) / \(sessionProgress.total)")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
-
-                Label("LOS Drill", systemImage: "bolt.fill")
-                    .font(.caption.weight(.semibold))
-                    .foregroundStyle(Theme.accent)
+            VStack(alignment: .leading, spacing: 18) {
+                losChip
 
                 Text(drill.stem)
-                    .font(.body)
+                    .font(Theme.serif(.title3, weight: .regular))
+                    .foregroundStyle(Theme.ink)
+                    .fixedSize(horizontal: false, vertical: true)
 
                 MultipleChoiceInput(
                     options: drill.options ?? [:],
@@ -42,43 +38,68 @@ struct LOSDrillAttemptView: View {
                     selected: $selectedOption
                 )
 
-                Button("Submit answer") {
+                Button("Check answer") {
                     submit()
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(Theme.accent)
+                .buttonStyle(PrimaryCTA())
                 .disabled(selectedOption == nil)
+
+                if sessionProgress != nil {
+                    Button {
+                        skipAndFlag()
+                    } label: {
+                        Label(AttemptHost.skipTitle, systemImage: "flag")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.bordered)
+                    .tint(Theme.pine)
+                    .accessibilityIdentifier("attempt.skip")
+                }
+
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Rate after you check:")
+                        .font(.caption)
+                        .foregroundStyle(Theme.dust)
+                        .frame(maxWidth: .infinity)
+                    NamedQualitySelector(
+                        selected: .constant(ReviewRating.good.rawValue),
+                        card: reviewCard,
+                        enabled: false,
+                        accessibilityPrefix: "drill"
+                    )
+                }
             }
             .readableContentWidth()
             .padding()
         }
+        .background(Theme.paper)
         .navigationTitle("Drill Q\(drill.number)")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    toggleFlag()
-                } label: {
-                    Image(systemName: reviewCard?.flaggedForReview == true ? "flag.fill" : "flag")
+            if standalone {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        toggleFlag()
+                    } label: {
+                        Image(systemName: reviewCard?.flaggedForReview == true ? "flag.fill" : "flag")
+                    }
+                    .accessibilityLabel(
+                        reviewCard?.flaggedForReview == true
+                            ? "Remove review flag"
+                            : "Flag for review"
+                    )
+                    .accessibilityIdentifier("attempt.flag")
                 }
-                .accessibilityLabel(
-                    reviewCard?.flaggedForReview == true
-                        ? "Remove review flag"
-                        : "Flag for review"
-                )
             }
         }
         // First appearance only, exactly as in QuestionAttemptView. `onAppear`
         // fires again whenever this view comes back — from the result screen,
         // or from another tab — and restarting the clock there restarted the
         // pacing display mid-question and made durationSeconds count only from
-        // the last reappearance. Drills are 2,625 of the 3,115 questions, so
+        // the last reappearance. Drills are 2,667 of the 3,164 questions, so
         // fixing this in the bank view alone fixed the smaller half.
         .onAppear {
-            if !clockStarted {
-                startedAt = .now
-                clockStarted = true
-            }
+            clock.appear()
         }
         .navigationDestination(isPresented: $showResult) {
             if let submittedAttempt {
@@ -92,8 +113,33 @@ struct LOSDrillAttemptView: View {
         }
     }
 
+    private var losChip: some View {
+        let los = content.los(id: drill.primaryLOS)
+        let label = los?.displayText ?? drill.primaryLOS
+        return VStack(spacing: 8) {
+            HStack(spacing: 10) {
+                Image(systemName: "tree.fill")
+                    .foregroundStyle(Theme.pine)
+                Text(label)
+                    .font(.headline)
+                    .foregroundStyle(Theme.pine)
+                    .multilineTextAlignment(.leading)
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
+            .background(Capsule().fill(Theme.sage))
+            if let reading = content.reading(id: drill.readingID) {
+                Text(reading.reading.name)
+                    .font(.caption)
+                    .foregroundStyle(Theme.dust)
+                    .frame(maxWidth: .infinity)
+            }
+        }
+        .frame(maxWidth: .infinity)
+    }
+
     private func submit() {
-        let duration = max(1, Int(Date().timeIntervalSince(startedAt)))
+        let duration = clock.durationSeconds()
         let wasCorrect = drill.correct.map { selectedOption == $0 }
 
         let attempt = Attempt(
@@ -110,20 +156,34 @@ struct LOSDrillAttemptView: View {
         showResult = true
     }
 
-    private func toggleFlag() {
-        if let card = reviewCard {
-            card.flaggedForReview.toggle()
-        } else {
-            let card = ReviewCard(
-                questionId: drill.id,
-                caseId: DrillAttemptContext.caseId(readingID: drill.readingID),
-                topicId: drill.areaID,
-                readingIds: [drill.readingID],
-                losIds: [drill.primaryLOS]
-            )
-            card.flaggedForReview = true
-            modelContext.insert(card)
+    private func skipAndFlag() {
+        guard submittedAttempt == nil else { return }
+        AttemptHost.flagForSkip(
+            questionId: drill.id,
+            caseId: DrillAttemptContext.caseId(readingID: drill.readingID),
+            topicId: drill.areaID,
+            readingIds: [drill.readingID],
+            losIds: [drill.primaryLOS],
+            existing: reviewCard,
+            context: modelContext
+        )
+        if standalone || !sessionCoordinator.isActive {
+            dismiss()
+            return
         }
-        try? modelContext.save()
+        _ = sessionCoordinator.skipCurrent()
+    }
+
+    private func toggleFlag() {
+        AttemptHost.setFlagged(
+            !(reviewCard?.flaggedForReview ?? false),
+            questionId: drill.id,
+            caseId: DrillAttemptContext.caseId(readingID: drill.readingID),
+            topicId: drill.areaID,
+            readingIds: [drill.readingID],
+            losIds: [drill.primaryLOS],
+            existing: reviewCard,
+            context: modelContext
+        )
     }
 }

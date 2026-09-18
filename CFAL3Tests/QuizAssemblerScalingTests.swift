@@ -185,12 +185,14 @@ final class QuizAssemblerScalingTests: XCTestCase {
 
     /// Widening from one LOS to many must widen the session.
     ///
-    /// It did not. A bank question's `candidate_los` is its reading's whole
-    /// candidate list — 213 of the 490 name 24 or more — and each pick was
+    /// It did not. A bank question used to carry its reading's whole
+    /// candidate list — 213 of the 490 named 24 or more — and each pick was
     /// charged against every under-quota LOS it touched, so five wide-tagged
     /// questions filled all nine counters at once. A nine-LOS selection with
     /// 145 eligible questions returned as few as 5, the same as selecting a
     /// single LOS, and a different count on each visit.
+    /// Tags are now 1–3 per item; one-charge-per-question is still the
+    /// contract, and drills still carry exactly one LOS.
     func testPerLOSQuotaScalesWithTheNumberOfSelectedLOS() {
         let content = loadedContent()
         let quota = 5

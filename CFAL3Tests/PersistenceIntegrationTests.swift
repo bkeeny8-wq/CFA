@@ -408,4 +408,22 @@ final class PersistenceIntegrationTests: XCTestCase {
         XCTAssertEqual(sessions.count, 2)
         XCTAssertEqual(Set(sessions.map(\.filterDescription)), ["First", "Second"])
     }
+
+    @MainActor
+    func testVignetteStartsExpandedAndSticksPerCaseUntilTheNextSitting() {
+        let coordinator = StudySessionCoordinator()
+        coordinator.start(questionIDs: ["q1", "q2"], mode: .random, filterDescription: "Case")
+
+        XCTAssertTrue(coordinator.vignetteExpanded(for: "caseA"),
+                      "a sitting must open with the vignette on the page")
+        coordinator.setVignetteExpanded(false, for: "caseA")
+        XCTAssertFalse(coordinator.vignetteExpanded(for: "caseA"),
+                       "hide/show must stick across questions in the same case")
+        XCTAssertTrue(coordinator.vignetteExpanded(for: "caseB"),
+                      "a different case is still expanded")
+
+        coordinator.start(questionIDs: ["q3"], mode: .random, filterDescription: "Next")
+        XCTAssertTrue(coordinator.vignetteExpanded(for: "caseA"),
+                      "a new sitting starts expanded again")
+    }
 }

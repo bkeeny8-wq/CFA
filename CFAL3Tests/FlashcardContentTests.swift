@@ -16,8 +16,19 @@ final class FlashcardContentTests: XCTestCase {
     func testDeckLoadsAndIsNonTrivial() {
         let content = loadedContent()
         XCTAssertNil(content.loadError, content.loadError ?? "")
-        XCTAssertGreaterThan(content.totalFlashcards, 300, "expected a few hundred cards")
+        XCTAssertEqual(content.totalFlashcards, 2_997, "atomized deck size")
         XCTAssertEqual(content.allFlashcards.count, content.totalFlashcards)
+    }
+
+    func testAtomizedBacksStayShort() {
+        let cards = loadedContent().allFlashcards
+        let words = cards.map { $0.back.split { $0.isWhitespace || $0.isNewline }.count }.sorted()
+        XCTAssertFalse(words.isEmpty)
+        let median = words[words.count / 2]
+        XCTAssertLessThanOrEqual(median, 40, "median back should be one idea, not a note")
+        let p90 = words[Int(Double(words.count) * 0.9)]
+        XCTAssertLessThanOrEqual(p90, 50)
+        XCTAssertLessThanOrEqual(words.last ?? 0, 49, "no remaining booklet-length backs")
     }
 
     func testIDsAreUniqueAndResolvable() {
@@ -169,7 +180,7 @@ final class FlashcardContentTests: XCTestCase {
     func testTheCountShownIsTheSessionItStarts() {
         let cards = deck(100)
         let p = FlashcardQueue.plan(cards: cards, progress: [], dailyNewLimit: 20)
-        XCTAssertEqual(p.sessionIDs.count, p.dueInSession + p.newInSession)
+        XCTAssertEqual(p.sessionIDs.count, p.dueInSession + p.newInSession + p.flaggedInSession)
         XCTAssertEqual(Set(p.sessionIDs).count, p.sessionIDs.count, "no duplicates")
         XCTAssertFalse(p.isEmpty)
     }
@@ -185,5 +196,25 @@ final class FlashcardContentTests: XCTestCase {
         let a = FlashcardQueue.plan(cards: cards, progress: [], dailyNewLimit: 20)
         let b = FlashcardQueue.plan(cards: cards.reversed(), progress: [], dailyNewLimit: 20)
         XCTAssertEqual(a.sessionIDs, b.sessionIDs)
+    }
+
+    func testSkippedFlagComesBackWithoutSpendingTheNewRation() {
+        let cards = deck(50)
+        let flagged = FlashcardProgress(cardId: "c1", readingId: "r1", areaId: "a1")
+        flagged.flaggedForReview = true
+        let p = FlashcardQueue.plan(cards: cards, progress: [flagged], dailyNewLimit: 0)
+        XCTAssertEqual(p.flaggedCount, 1)
+        XCTAssertEqual(p.sessionIDs.first, "c1")
+        XCTAssertEqual(p.newInSession, 0, "a skip must not spend the new-card ration")
+    }
+
+    func testFlaggedFutureDueCardReturnsToday() {
+        let cards = deck(2)
+        let flagged = row("c1", attempts: 3, due: .now.addingTimeInterval(86_400))
+        flagged.flaggedForReview = true
+        let p = FlashcardQueue.plan(cards: cards, progress: [flagged], dailyNewLimit: 0)
+        XCTAssertEqual(p.dueCount, 0)
+        XCTAssertEqual(p.flaggedCount, 1)
+        XCTAssertEqual(p.sessionIDs, ["c1"])
     }
 }

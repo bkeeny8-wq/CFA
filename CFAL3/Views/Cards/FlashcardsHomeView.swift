@@ -7,6 +7,7 @@ import SwiftData
 struct FlashcardsHomeView: View {
     @Environment(ContentLoader.self) private var content
     @Environment(\.modelContext) private var modelContext
+    @Environment(TabRouter.self) private var router
     @Query private var progress: [FlashcardProgress]
 
     @Environment(PracticeBuilderPreference.self) private var practicePref
@@ -17,8 +18,8 @@ struct FlashcardsHomeView: View {
     private var areas: [CurriculumArea] { content.losMaster?.areas ?? [] }
 
     /// Built ONCE per body evaluation and threaded through the rows. As a
-    /// computed property it was rebuilt on every `isDue` call — 445 cards
-    /// each reconstructing a 445-entry dictionary, on the main thread.
+    /// computed property it was rebuilt on every `isDue` call — every card
+    /// reconstructing a dictionary of the whole deck, on the main thread.
     private func makeRows() -> [String: FlashcardProgress] {
         Dictionary(progress.map { ($0.cardId, $0) }, uniquingKeysWith: { a, _ in a })
     }
@@ -58,15 +59,18 @@ struct FlashcardsHomeView: View {
         Group {
             if content.allFlashcards.isEmpty {
                 ContentUnavailableView(
-                    "No cards bundled",
+                    "No flashcards in this copy",
                     systemImage: "rectangle.on.rectangle.angled",
-                    description: Text("flashcards.json isn't in this build.")
+                    description: Text("The card deck didn't ship with this build. Reinstall the app from the project.")
                 )
             } else {
                 list
             }
         }
         .navigationTitle("Cards")
+        .toolbar(.hidden, for: .navigationBar)
+        .scrollContentBackground(.hidden)
+        .background(Theme.paper)
         .onAppear { content.bootstrapFlashcardProgress(context: modelContext) }
         .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in
             // No .id() here: mutating this @State already re-runs body, and
@@ -86,8 +90,20 @@ struct FlashcardsHomeView: View {
         )
         return List {
             Section {
-                NavigationLink {
-                    FlashcardSessionView(
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("Cards")
+                        .font(Theme.serif(.largeTitle, weight: .semibold))
+                        .foregroundStyle(Theme.ink)
+                    Text("One idea per back. Same Again / Hard / Good / Easy as questions.")
+                        .font(.subheadline)
+                        .foregroundStyle(Theme.dust)
+                }
+                .listRowInsets(EdgeInsets(top: 12, leading: 4, bottom: 8, trailing: 4))
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
+
+                Button {
+                    router.presentFlashcards(
                         title: plan.newInSession > 0 && plan.dueInSession == 0 ? "New cards" : "Today's cards",
                         cards: plan.sessionIDs.compactMap { byID[$0] }
                     )
@@ -104,9 +120,10 @@ struct FlashcardsHomeView: View {
                 }
                 .disabled(plan.isEmpty)
                 .accessibilityIdentifier("cards.today")
+                .accessibilityHint(plan.isEmpty ? todayFooter(plan) : "\(plan.sessionIDs.count) cards in today's mix")
 
-                NavigationLink {
-                    FlashcardSessionView(title: "Shuffle all", cards: allFiltered.shuffled())
+                Button {
+                    router.presentFlashcards(title: "Shuffle all", cards: allFiltered.shuffled())
                 } label: {
                     HStack {
                         Label("Shuffle all", systemImage: "shuffle")
@@ -144,6 +161,9 @@ struct FlashcardsHomeView: View {
     }
 
     private func todayLabel(_ plan: FlashcardQueue.Plan) -> String {
+        if plan.flaggedInSession > 0 && plan.dueInSession == 0 && plan.newInSession == 0 {
+            return "Review flagged"
+        }
         if plan.dueInSession > 0 && plan.newInSession > 0 { return "Review + new" }
         if plan.newInSession > 0 { return "Start new cards" }
         if plan.dueInSession > 0 { return "Review due" }
@@ -159,6 +179,7 @@ struct FlashcardsHomeView: View {
         var parts: [String] = []
         if plan.dueCount > 0 { parts.append("\(plan.dueCount.formatted()) due") }
         if plan.overflowDue > 0 { parts.append("\(plan.overflowDue.formatted()) after this session") }
+        if plan.flaggedCount > 0 { parts.append("\(plan.flaggedCount.formatted()) flagged") }
         if plan.notStartedCount > 0 { parts.append("\(plan.notStartedCount.formatted()) not started") }
 
         if plan.isNewOff {
@@ -172,8 +193,8 @@ struct FlashcardsHomeView: View {
     private func deckRow(_ reading: Reading, rows: [String: FlashcardProgress]) -> some View {
         let deck = cards(for: reading)
         let due = deck.filter { isDue($0, rows: rows) }.count
-        return NavigationLink {
-            FlashcardSessionView(title: reading.name, cards: deck)
+        return Button {
+            router.presentFlashcards(title: reading.name, cards: deck)
         } label: {
             HStack(alignment: .firstTextBaseline) {
                 VStack(alignment: .leading, spacing: 3) {

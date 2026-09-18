@@ -55,10 +55,10 @@ final class ReviewQueueTests: XCTestCase {
     }
 
     func testDailyLimitCapsHowMuchNewMaterialEnters() {
-        let p = plan(cards: (1...3_115).map { card("q\($0)") })
+        let p = plan(cards: (1...3_157).map { card("q\($0)") })
         XCTAssertEqual(p.newRemainingToday, 20)
         XCTAssertEqual(p.sessionIDs.count, 20)
-        XCTAssertEqual(p.notStartedCount, 3_115)
+        XCTAssertEqual(p.notStartedCount, 3_157)
     }
 
     func testOnceTodaysAllowanceIsSpentTheQueueIsEmptyButNotCaughtUp() {
@@ -125,7 +125,7 @@ final class ReviewQueueTests: XCTestCase {
             let p = plan(cards: due + fresh, limit: 60)
 
             XCTAssertLessThanOrEqual(p.sessionIDs.count, cap, "cap held (due=\(dueCount))")
-            XCTAssertEqual(p.dueInSession + p.newInSession, p.sessionIDs.count)
+            XCTAssertEqual(p.dueInSession + p.newInSession + p.flaggedInSession, p.sessionIDs.count)
 
             // New material is never crowded out entirely, however big the backlog.
             XCTAssertGreaterThanOrEqual(p.newInSession, min(floor, 200),
@@ -243,5 +243,37 @@ final class ReviewQueueTests: XCTestCase {
     func testSessionIsNotFiledAsDueReviewWhenItIsAllNew() {
         let p = plan(cards: (1...5).map { card("q\($0)") })
         XCTAssertEqual(ReviewQueue.sessionLabel(for: p), "New questions")
+    }
+
+    func testSkippedFlagComesBackWithoutSpendingTheNewRation() {
+        let flagged = card("skip1")
+        flagged.flaggedForReview = true
+        let p = plan(
+            cards: [flagged] + (2...50).map { card("q\($0)") },
+            limit: 0
+        )
+        XCTAssertEqual(p.flaggedCount, 1)
+        XCTAssertEqual(p.sessionIDs.first, "skip1")
+        XCTAssertEqual(p.newInSession, 0, "a skip must not spend the new-question ration")
+        XCTAssertEqual(ReviewQueue.sessionLabel(for: p), "Flagged review")
+    }
+
+    func testFlaggedFutureDueCardReturnsToday() {
+        let flagged = card("later", attempts: 3, due: .now.addingTimeInterval(86_400))
+        flagged.flaggedForReview = true
+        let p = plan(cards: [flagged], limit: 0)
+        XCTAssertEqual(p.dueCount, 0)
+        XCTAssertEqual(p.flaggedCount, 1)
+        XCTAssertEqual(p.sessionIDs, ["later"])
+    }
+
+    func testProjectedFinishWarnsWhenPaceMissesTheExam() {
+        let line = ReviewQueue.projectedFinishLine(notStarted: 3_000, dailyNewLimit: 5, from: .now)
+        XCTAssertEqual(line, "At 5/day, unseen won't finish before the exam")
+        XCTAssertNil(ReviewQueue.projectedFinishLine(notStarted: 0, dailyNewLimit: 20))
+        XCTAssertTrue(
+            ReviewQueue.projectedFinishLine(notStarted: 10, dailyNewLimit: 0)?
+                .contains("off") == true
+        )
     }
 }

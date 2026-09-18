@@ -62,4 +62,40 @@ final class GradingResponseParserTests: XCTestCase {
         XCTAssertEqual(result.pointsSummary, "5/6 points")
         XCTAssertTrue(result.feedbackMarkdown.contains("5/6 points"))
     }
+
+    func testParsesPartBreakdownAndSurfacesItInFeedback() throws {
+        let json = """
+        {
+          "grade": 4,
+          "points_earned": 5,
+          "points_possible": 6,
+          "verdict": "Strong with one gap.",
+          "part_breakdown": [
+            "part i: 2/2 pts — correct determination",
+            "part ii: 3/4 pts — missing the second justification"
+          ],
+          "strengths": ["Correct verdict on part i"],
+          "gaps": ["Thin justification on part ii"],
+          "corrections": ["Add the second accepted reason"],
+          "model_answer": "Correct with two brief justifications."
+        }
+        """
+        let result = try GradingResponseParser.parse(json)
+        XCTAssertEqual(result.partBreakdown.count, 2)
+        XCTAssertTrue(result.feedbackMarkdown.contains("**Part scores**"))
+        XCTAssertTrue(result.feedbackMarkdown.contains("part i: 2/2 pts"))
+        XCTAssertTrue(result.feedbackMarkdown.contains("5/6 points"))
+
+        let lines = GradingResultView.partScoreLines(in: result.feedbackMarkdown)
+        XCTAssertEqual(lines, result.partBreakdown)
+        let remainder = GradingResultView.feedbackWithoutPartScores(result.feedbackMarkdown) ?? ""
+        XCTAssertFalse(remainder.contains("Part scores"))
+        XCTAssertTrue(remainder.contains("Strengths"))
+    }
+
+    func testMissingPartBreakdownDoesNotFailParse() throws {
+        let result = try GradingResponseParser.parse(goldenJSON)
+        XCTAssertTrue(result.partBreakdown.isEmpty)
+        XCTAssertFalse(result.feedbackMarkdown.contains("Part scores"))
+    }
 }

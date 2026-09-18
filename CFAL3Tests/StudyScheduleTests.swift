@@ -89,5 +89,67 @@ final class StudyScheduleTests: XCTestCase {
         """.data(using: .utf8)!
         let block = try JSONDecoder().decode(ScheduleBlock.self, from: json)
         XCTAssertEqual(block.kind, .other)
+        XCTAssertNil(block.readingID)
+    }
+
+    func testAssetManagerCodePlanBlocksOpenTheAMCReading() {
+        let amc = "asset_manager_code_of_professional_conduct"
+        let blocks = schedule.days.flatMap(\.blocks).filter { $0.label.contains("B5-M4") }
+        XCTAssertEqual(blocks.count, 8)
+        for block in blocks {
+            XCTAssertEqual(block.readingID, amc)
+            XCTAssertTrue(
+                block.label.contains("Asset Manager Code of Professional Conduct"),
+                block.label
+            )
+        }
+    }
+
+    func testEthicsPlanBlocksOpen2027Modules() {
+        let expected: [(needle: String, readingID: String, count: Int)] = [
+            ("B5-M1", "code_and_standards", 8),
+            ("B5-M2", "guidance_standard_i_professionalism", 8),
+            ("B5-M3", "application_of_code_and_standards_l3", 9),
+            ("B5-M4", "asset_manager_code_of_professional_conduct", 8),
+        ]
+        for row in expected {
+            let blocks = schedule.days.flatMap(\.blocks).filter { $0.label.contains(row.needle) }
+            XCTAssertEqual(blocks.count, row.count, row.needle)
+            for block in blocks {
+                XCTAssertEqual(block.readingID, row.readingID, block.label)
+            }
+        }
+    }
+
+    func testScheduleBlockReadingIDDecodes() throws {
+        let json = """
+        {
+          "start": "06:00",
+          "label": "D3: B5-M4 Asset Manager Code of Professional Conduct",
+          "minutes": 120,
+          "kind": "deep3",
+          "book": 5,
+          "reading_id": "asset_manager_code_of_professional_conduct"
+        }
+        """.data(using: .utf8)!
+        let block = try JSONDecoder().decode(ScheduleBlock.self, from: json)
+        XCTAssertEqual(block.readingID, "asset_manager_code_of_professional_conduct")
+        XCTAssertEqual(block.book, 5)
+    }
+
+    func testScheduleBlockTitlesDropProductionCodes() {
+        XCTAssertEqual(
+            StudyDisplay.stripPlanCode("D3: B1-M1 Capital Market Expectations I"),
+            "Capital Market Expectations I"
+        )
+        XCTAssertEqual(
+            StudyDisplay.stripPlanCode("MM Video: B4-M2 Swaps, Forwards & Futures"),
+            "Swaps, Forwards & Futures"
+        )
+        XCTAssertEqual(
+            StudyDisplay.stripPlanCode("MM Q: B2-M1 Overview of Equity PM"),
+            "Overview of Equity PM"
+        )
+        XCTAssertEqual(StudyDisplay.stripPlanCode("Foster"), "Foster")
     }
 }

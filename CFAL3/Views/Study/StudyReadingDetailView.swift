@@ -4,17 +4,22 @@ import SwiftData
 /// Reading detail: ONE column on every device, showing the reading's notes.
 /// At regular width the content centers inside the readable-width cap, so a
 /// full-screen iPad reading is a wide, comfortable page rather than a
-/// half-screen column fighting a pinned panel. Drills live in the Practice
-/// tab, so they are not duplicated here.
+/// half-screen column fighting a pinned panel. Daily drill work is one tap
+/// from here; the Practice tab remains the custom builder.
 struct StudyReadingDetailView: View {
     @Environment(ContentLoader.self) private var content
+    @Environment(StudySessionCoordinator.self) private var sessionCoordinator
+    @Environment(TabRouter.self) private var router
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Query private var statuses: [LOSStudyStatus]
     @Query private var reviewCards: [ReviewCard]
 
     let area: CurriculumArea
     let reading: Reading
     var splitColumnVisibility: Binding<NavigationSplitViewVisibility>?
+
+    @State private var showChecklist = false
 
     init(
         area: CurriculumArea,
@@ -37,6 +42,8 @@ struct StudyReadingDetailView: View {
     var body: some View {
         VStack(spacing: 0) {
             pillHeader
+            readingDrillsCTA
+            checklistCTA
 
             if let notes {
                 ReadingNotesView(notes: notes, showsTopicArea: false)
@@ -44,17 +51,20 @@ struct StudyReadingDetailView: View {
                 ContentUnavailableView(
                     "Notes coming soon",
                     systemImage: "doc.text",
-                    description: Text("This reading doesn't have bundled notes yet.")
+                    description: Text("This reading doesn't have bundled notes yet. Use the drills and LOS checklist below until notes ship.")
                 )
             }
         }
         .navigationTitle(reading.name)
         .navigationBarTitleDisplayMode(.inline)
+        .navigationDestination(isPresented: $showChecklist) {
+            LOSChecklistPanel(area: area, reading: reading)
+        }
         .toolbar {
             if let splitColumnVisibility, horizontalSizeClass == .regular {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        withAnimation(.snappy) {
+                        withSittingAnimation(reduceMotion) {
                             splitColumnVisibility.wrappedValue =
                                 splitColumnVisibility.wrappedValue == .detailOnly ? .all : .detailOnly
                         }
@@ -84,6 +94,43 @@ struct StudyReadingDetailView: View {
         .padding(.horizontal, 12)
         .padding(.top, 12)
     }
+
+    @ViewBuilder
+    private var readingDrillsCTA: some View {
+        if let bundle = content.drillBundle(forReading: reading.id),
+           bundle.totalQuestions > 0 {
+            Button {
+                sessionCoordinator.start(
+                    questionIDs: bundle.drills.flatMap { $0.questions.map(\.id) }.shuffled(),
+                    mode: .losDrill,
+                    filterDescription: "This reading's drills — \(reading.name)"
+                )
+                router.presentQuestionSitting()
+            } label: {
+                Text("This reading's drills")
+            }
+            .buttonStyle(PrimaryCTA())
+            .padding(.horizontal, 12)
+            .padding(.top, 10)
+            .frame(maxWidth: LayoutMetrics.studyReadingMaxWidth)
+            .frame(maxWidth: .infinity)
+            .accessibilityHint("\(bundle.totalQuestions) questions, shuffled")
+        }
+    }
+
+    private var checklistCTA: some View {
+        Button {
+            showChecklist = true
+        } label: {
+            Text("LOS checklist")
+        }
+        .buttonStyle(.bordered)
+        .padding(.horizontal, 12)
+        .padding(.top, 8)
+        .frame(maxWidth: LayoutMetrics.studyReadingMaxWidth)
+        .frame(maxWidth: .infinity)
+        .accessibilityHint("Mark statements and sit tagged essays")
+    }
 }
 
 /// Picks a topic that has cases matching the LOS filter, then opens case list.
@@ -99,7 +146,7 @@ struct StudyPracticeTopicPicker: View {
                 ContentUnavailableView(
                     "No matching cases",
                     systemImage: "tray",
-                    description: Text("No bundled questions are tagged with these LOS yet.")
+                    description: Text("No bundled case questions are tagged with these LOS yet. Sit the reading's drills instead.")
                 )
             } else {
                 ForEach(matchingTopics, id: \.id) { topic in

@@ -35,5 +35,5 @@ for path in FILES:
 print("total:", total, "rotated:", rotated)
 print("before:", dict(dist_before))
 print("after: ", dict(dist_after))
-assert total == 2625 and dist_after["A"] == dist_after["B"] == dist_after["C"] == 875
+assert total == 2667 and dist_after["A"] == dist_after["B"] == dist_after["C"] == 889
 print("OK")

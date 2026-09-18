@@ -7,6 +7,9 @@ struct CaseListView: View {
 
     let topicID: String
     var initialLOSFilter: Set<String> = []
+    /// Daybook’s two-pane library hides the stack’s nav bar, so the LOS
+    /// filter has to live in the pane itself.
+    var hidesNavigationChrome: Bool = false
     var selectionMode: Bool = false
     var selectedCaseID: Binding<String?>? = nil
     /// Fired on EVERY tap of a case row in selection mode — including taps on
@@ -29,19 +32,48 @@ struct CaseListView: View {
     }
 
     var body: some View {
-        List {
-            caseRows
+        VStack(alignment: .leading, spacing: 0) {
+            if hidesNavigationChrome {
+                inlineHeader
+            }
+            ScrollView {
+                VStack(spacing: 10) {
+                    if !selectedLOS.isEmpty {
+                        Text("Filtered by \(selectedLOS.count) LOS")
+                            .font(.footnote)
+                            .foregroundStyle(Theme.dust)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    if cases.isEmpty {
+                        ContentUnavailableView(
+                            "No cases match",
+                            systemImage: "line.3.horizontal.decrease.circle",
+                            description: Text(selectedLOS.isEmpty
+                                ? "This book has no case studies yet."
+                                : "No case in this book covers the selected LOS. Sit that letter's drills from Study instead.")
+                        )
+                        .padding(.top, 24)
+                    } else {
+                        ForEach(cases) { caseStudy in
+                            caseCard(caseStudy)
+                        }
+                    }
+                }
+                .padding(.horizontal, 16)
+                .padding(.bottom, 20)
+            }
         }
+        .background(Theme.paper)
         .navigationTitle(topic?.shortName ?? "Cases")
         .toolbar {
-            Button {
-                showLOSFilter = true
-            } label: {
-                Image(systemName: selectedLOS.isEmpty
-                      ? "line.3.horizontal.decrease.circle"
-                      : "line.3.horizontal.decrease.circle.fill")
+            if !hidesNavigationChrome {
+                Button {
+                    showLOSFilter = true
+                } label: {
+                    Image(systemName: filterSymbol)
+                }
+                .accessibilityLabel("Filter by LOS")
             }
-            .accessibilityLabel("Filter by LOS")
         }
         .sheet(isPresented: $showLOSFilter) {
             // topic IDs == curriculum area IDs since the six-book
@@ -66,67 +98,75 @@ struct CaseListView: View {
         }
     }
 
+    private var filterSymbol: String {
+        selectedLOS.isEmpty
+            ? "line.3.horizontal.decrease.circle"
+            : "line.3.horizontal.decrease.circle.fill"
+    }
+
+    private var inlineHeader: some View {
+        HStack {
+            Text(topic.map { ProgressDisplay.shortName($0.id, fallback: $0.shortName) } ?? "Cases")
+                .font(Theme.serif(.title2, weight: .semibold))
+                .foregroundStyle(Theme.ink)
+            Spacer()
+            Button {
+                showLOSFilter = true
+            } label: {
+                Image(systemName: filterSymbol)
+                    .font(.title3)
+                    .foregroundStyle(Theme.pine)
+                    .frame(minWidth: 44, minHeight: 44)
+            }
+            .accessibilityLabel("Filter by LOS")
+        }
+        .padding(.horizontal, 20)
+        .padding(.top, 20)
+        .padding(.bottom, 8)
+    }
+
     @ViewBuilder
-    private var caseRows: some View {
-        if !selectedLOS.isEmpty {
-            Section {
-                Text("Filtered by \(selectedLOS.count) LOS")
-                    .font(.footnote)
-                    .foregroundStyle(.secondary)
-            }
-        }
-
-        // Without this the screen renders as a lone "Filtered by 1 LOS" row
-        // with no explanation — most often because the LOS only has drills.
-        if cases.isEmpty {
-            ContentUnavailableView(
-                "No cases match",
-                systemImage: "line.3.horizontal.decrease.circle",
-                description: Text(selectedLOS.isEmpty
-                    ? "This book has no case studies yet."
-                    : "No case in this book covers the selected LOS. Its questions may be drills, which you can reach from Practice.")
-            )
-        }
-
-        ForEach(cases) { caseStudy in
-            if selectionMode {
-                Button {
-                    activeCaseSelection?.wrappedValue = caseStudy.id
-                    onCaseSelected?(caseStudy.id)
-                } label: {
-                    caseRowLabel(caseStudy)
-                        .overlay {
-                            if activeCaseSelection?.wrappedValue == caseStudy.id {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .strokeBorder(Theme.accent, lineWidth: 2)
-                                    .padding(.vertical, -2)
-                            }
+    private func caseCard(_ caseStudy: CaseStudy) -> some View {
+        let selected = activeCaseSelection?.wrappedValue == caseStudy.id
+        if selectionMode {
+            Button {
+                activeCaseSelection?.wrappedValue = caseStudy.id
+                onCaseSelected?(caseStudy.id)
+            } label: {
+                caseRowLabel(caseStudy)
+                    .cfaCard(padding: 16)
+                    .overlay {
+                        if selected {
+                            RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous)
+                                .strokeBorder(Theme.pine, lineWidth: 2)
                         }
-                        .contentShape(Rectangle())
-                }
-                .buttonStyle(.plain)
-            } else {
-                NavigationLink {
-                    CaseDetailView(caseID: caseStudy.id)
-                } label: {
-                    caseRowLabel(caseStudy)
-                }
+                    }
             }
+            .buttonStyle(.plain)
+        } else {
+            NavigationLink {
+                CaseDetailView(caseID: caseStudy.id)
+            } label: {
+                caseRowLabel(caseStudy)
+                    .cfaCard(padding: 16)
+            }
+            .buttonStyle(.plain)
         }
     }
 
     private func caseRowLabel(_ caseStudy: CaseStudy) -> some View {
         let meta = caseMetadata(caseStudy)
-        return VStack(alignment: .leading, spacing: 3) {
+        return VStack(alignment: .leading, spacing: 6) {
             Text(caseStudy.title)
-                .font(.body)
+                .font(Theme.serif(.headline, weight: .semibold))
+                .foregroundStyle(Theme.ink)
             Text("\(caseStudy.questions.count) questions · \(meta.essays) essays"
                  + " · \(meta.attempted)/\(meta.total) tried"
                  + (meta.accuracy.map { " · \(Formatting.percent($0))" } ?? ""))
                 .font(.caption)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Theme.dust)
         }
-        .padding(.vertical, 4)
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 
     private func caseMetadata(_ caseStudy: CaseStudy) -> (essays: Int, attempted: Int, total: Int, accuracy: Double?) {

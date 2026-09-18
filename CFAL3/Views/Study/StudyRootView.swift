@@ -38,7 +38,7 @@ extension View {
     }
 }
 
-/// Study holds both the reading notes and the flashcards, because they are the
+/// Study holds the reading notes and the flashcards, because they are the
 /// same object — a reading — approached two ways, and five tab slots do not
 /// stretch to seven sections.
 ///
@@ -48,17 +48,17 @@ extension View {
 /// of the stack, so it evaporates the moment you push into a reading — which
 /// is exactly how the old Practice switcher stranded you inside a case.
 ///
-/// Both halves stay MOUNTED. Switching with a `switch` would tear the other
-/// one down, so flipping to Cards and back would dump you at the Study root
-/// and discard an in-progress drill. Keeping both alive makes the bar behave
-/// like a tab: you return exactly where you were, at whatever depth.
+/// Only the selected half is mounted. Dual-mounting kept List rows from the
+/// hidden half in the accessibility tree (`cards.today` readable from Notes)
+/// because `List` hosts its own controller and ignores a parent
+/// `.accessibilityHidden`. One tree means one half. Switching starts that
+/// half fresh; an in-progress sitting hides this bar so it cannot dump the
+/// sitting.
 struct StudyRootView: View {
     @AppStorage("study.section", store: UITestMode.defaults)
     private var storedSection = StudySection.notes.rawValue
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
-    /// Tracked per branch, because both are mounted: a single flag would let
-    /// the hidden half's preference hide the bar for the visible one.
     @State private var notesWantsHidden = false
     @State private var cardsWantsHidden = false
 
@@ -71,16 +71,16 @@ struct StudyRootView: View {
     }
 
     var body: some View {
-        ZStack {
-            branch(.notes) { notesRoot(active: section == .notes) }
-                .onPreferenceChange(StudySelectorHiddenKey.self) { notesWantsHidden = $0 }
-            branch(.cards) {
+        Group {
+            if section == .notes {
+                notesRoot
+                    .onPreferenceChange(StudySelectorHiddenKey.self) { notesWantsHidden = $0 }
+            } else {
                 NavigationStack {
                     FlashcardsHomeView()
-                        .accessibilityHidden(section != .cards)
                 }
+                .onPreferenceChange(StudySelectorHiddenKey.self) { cardsWantsHidden = $0 }
             }
-            .onPreferenceChange(StudySelectorHiddenKey.self) { cardsWantsHidden = $0 }
         }
         .safeAreaInset(edge: .bottom, spacing: 0) {
             if !selectorHidden {
@@ -89,46 +89,13 @@ struct StudyRootView: View {
         }
     }
 
-    /// The hidden half must be inert as well as invisible: left hit-testable
-    /// it would swallow taps, and left readable a screen reader would find two
-    /// of everything.
-    ///
-    /// Opacity and hit-testing are honoured from out here. Accessibility is
-    /// not: a11y modifiers do not cross a hosting-controller boundary, and
-    /// each branch roots a navigation container that creates one. So the same
-    /// hiding is pushed down INSIDE each branch as well (see `notesRoot` and
-    /// the Cards stack below) — that, not the modifier here, is what stops the
-    /// planner being readable from the Cards screen.
-    ///
-    /// That is still not airtight: `List` hosts its own rows, so rows inside
-    /// one — `cards.today`, for instance — remain enumerable from the other
-    /// half. The honest fix would be to mount one branch at a time, and that
-    /// is precisely what this screen must not do: a `switch` here changes view
-    /// identity, so toggling would dump an in-progress drill and return you to
-    /// the Study root. A residual VoiceOver leak is the cheaper defect.
-    ///
-    /// Tests must therefore assert on which branch is SELECTED, never on
-    /// whether the other branch's elements exist — they do.
     @ViewBuilder
-    private func branch<Content: View>(
-        _ which: StudySection,
-        @ViewBuilder content: () -> Content
-    ) -> some View {
-        let isActive = section == which
-        content()
-            .opacity(isActive ? 1 : 0)
-            .allowsHitTesting(isActive)
-            .accessibilityHidden(!isActive)
-    }
-
-    @ViewBuilder
-    private func notesRoot(active: Bool) -> some View {
+    private var notesRoot: some View {
         if horizontalSizeClass == .regular {
-            StudyPlannerSplitView(accessibilityHidden: !active)
+            StudyPlannerSplitView()
         } else {
             NavigationStack {
                 StudyPlannerView()
-                    .accessibilityHidden(!active)
             }
         }
     }
@@ -140,6 +107,7 @@ struct StudyRootView: View {
 /// stacked on each other.
 struct StudySectionBar: View {
     @Binding var selection: String
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
         HStack(spacing: 8) {
@@ -147,7 +115,9 @@ struct StudySectionBar: View {
                 let isSelected = selection == section.rawValue
                 Button {
                     guard !isSelected else { return }
-                    withAnimation(.snappy(duration: 0.2)) { selection = section.rawValue }
+                    withSittingAnimation(reduceMotion) {
+                        selection = section.rawValue
+                    }
                 } label: {
                     HStack(spacing: 6) {
                         Image(systemName: section.symbol)

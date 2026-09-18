@@ -9,12 +9,49 @@ struct GradingResult: Codable, Equatable {
     let modelAnswer: String
     let pointsEarned: Int?
     let pointsPossible: Int?
+    let partBreakdown: [String]
 
     enum CodingKeys: String, CodingKey {
         case grade, verdict, strengths, gaps, corrections
         case modelAnswer = "model_answer"
         case pointsEarned = "points_earned"
         case pointsPossible = "points_possible"
+        case partBreakdown = "part_breakdown"
+    }
+
+    init(
+        grade: Int,
+        verdict: String,
+        strengths: [String],
+        gaps: [String],
+        corrections: [String],
+        modelAnswer: String,
+        pointsEarned: Int?,
+        pointsPossible: Int?,
+        partBreakdown: [String]
+    ) {
+        self.grade = grade
+        self.verdict = verdict
+        self.strengths = strengths
+        self.gaps = gaps
+        self.corrections = corrections
+        self.modelAnswer = modelAnswer
+        self.pointsEarned = pointsEarned
+        self.pointsPossible = pointsPossible
+        self.partBreakdown = partBreakdown
+    }
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        grade = try c.decode(Int.self, forKey: .grade)
+        verdict = try c.decode(String.self, forKey: .verdict)
+        strengths = try c.decodeIfPresent([String].self, forKey: .strengths) ?? []
+        gaps = try c.decodeIfPresent([String].self, forKey: .gaps) ?? []
+        corrections = try c.decodeIfPresent([String].self, forKey: .corrections) ?? []
+        modelAnswer = try c.decodeIfPresent(String.self, forKey: .modelAnswer) ?? ""
+        pointsEarned = try c.decodeIfPresent(Int.self, forKey: .pointsEarned)
+        pointsPossible = try c.decodeIfPresent(Int.self, forKey: .pointsPossible)
+        partBreakdown = try c.decodeIfPresent([String].self, forKey: .partBreakdown) ?? []
     }
 
     /// "5/6 points" when points were graded, nil otherwise.
@@ -29,6 +66,11 @@ struct GradingResult: Codable, Equatable {
             parts.append("**\(pointsSummary)** — \(verdict)")
         } else {
             parts.append("**\(verdict)**")
+        }
+        if !partBreakdown.isEmpty {
+            parts.append(
+                "**Part scores**\n" + partBreakdown.map { "- \($0)" }.joined(separator: "\n")
+            )
         }
         if !strengths.isEmpty {
             parts.append("**Strengths**\n" + strengths.map { "- \($0)" }.joined(separator: "\n"))

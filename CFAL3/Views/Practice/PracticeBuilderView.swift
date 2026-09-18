@@ -6,9 +6,9 @@ struct PracticeBuilderView: View {
     @Environment(StudySessionCoordinator.self) private var sessionCoordinator
     @Environment(PracticeBuilderPreference.self) private var pref
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(TabRouter.self) private var router
     @Query(sort: \Attempt.timestamp, order: .reverse) private var attempts: [Attempt]
 
-    @State private var showSession = false
     @State private var showTopics = false
     @State private var showReadings = false
     @State private var showLOS = false
@@ -28,97 +28,148 @@ struct PracticeBuilderView: View {
     }
 
     var body: some View {
-        List {
-            Section {
-                Picker("Question type", selection: Bindable(pref).typeFilter) {
-                    ForEach(QuestionTypeFilter.allCases) { filter in
-                        Text(filter.displayName).tag(filter)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 18) {
+                HStack(alignment: .top) {
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text("Practice")
+                            .font(Theme.serif(.largeTitle, weight: .semibold))
+                            .foregroundStyle(Theme.ink)
+                        Text("Custom sitting builder. Daily mix lives on Today.")
+                            .font(.subheadline)
+                            .foregroundStyle(Theme.dust)
                     }
-                }
-                .pickerStyle(.segmented)
-
-                Picker("Source", selection: Bindable(pref).sourceFilter) {
-                    ForEach(QuestionSourceFilter.allCases) { source in
-                        Text(source.displayName).tag(source)
+                    Spacer()
+                    Button("Reset", role: .destructive) {
+                        pref.reset()
+                        refreshPreview()
                     }
-                }
-                .pickerStyle(.menu)
-
-                Picker(perUnitLabel, selection: Bindable(pref).count) {
-                    ForEach(PracticeCount.allCases) { count in
-                        Text(count.displayName).tag(count)
-                    }
-                }
-                .pickerStyle(.menu)
-
-                Toggle("Weight toward weaker questions", isOn: Bindable(pref).weaknessWeighted)
-            }
-
-            Section("Scope") {
-                Button {
-                    showTopics = true
-                } label: {
-                    HStack {
-                        Text("Books")
-                        Spacer()
-                        Text(topicsSummary)
-                            .foregroundStyle(.secondary)
-                    }
-                }
-                Button {
-                    showReadings = true
-                } label: {
-                    HStack {
-                        Text("Readings")
-                        Spacer()
-                        Text(readingsSummary)
-                            .foregroundStyle(.secondary)
-                    }
-                }
-                Button {
-                    showLOS = true
-                } label: {
-                    HStack {
-                        Text("LOS")
-                        Spacer()
-                        Text(losSummary)
-                            .foregroundStyle(.secondary)
-                    }
+                    .font(.subheadline.weight(.medium))
                 }
 
-                Label(
-                    scopeSummary,
-                    systemImage: "line.3.horizontal.decrease"
+                VStack(alignment: .leading, spacing: 16) {
+                    Picker("Question type", selection: Bindable(pref).typeFilter) {
+                        ForEach(QuestionTypeFilter.allCases) { filter in
+                            Text(filter.displayName).tag(filter)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+
+                    Picker("Source", selection: Bindable(pref).sourceFilter) {
+                        ForEach(QuestionSourceFilter.allCases) { source in
+                            Text(source.displayName).tag(source)
+                        }
+                    }
+                    .pickerStyle(.menu)
+
+                    Picker(perUnitLabel, selection: Bindable(pref).count) {
+                        ForEach(PracticeCount.allCases) { count in
+                            Text(count.displayName).tag(count)
+                        }
+                    }
+                    .pickerStyle(.menu)
+
+                    Toggle("Weight toward weaker questions", isOn: Bindable(pref).weaknessWeighted)
+                }
+                .padding(18)
+                .background(
+                    RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous)
+                        .fill(Theme.cardFill)
+                        .shadow(color: Color.black.opacity(0.04), radius: 10, y: 3)
                 )
-                .font(.caption)
-                .foregroundStyle(.secondary)
-                // Combine, or this reads as two elements and the symbol's own
-                // name ("Filter") is what a screen reader announces instead of
-                // the summary.
-                .accessibilityElement(children: .combine)
-                .accessibilityLabel(scopeSummary)
-                .accessibilityIdentifier("practice.scopeSummary")
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Scope")
+                        .font(.headline)
+                        .foregroundStyle(Theme.ink)
+                    Button {
+                        showTopics = true
+                    } label: {
+                        HStack {
+                            Text("Books")
+                                .foregroundStyle(Theme.ink)
+                            Spacer()
+                            Text(topicsSummary)
+                                .foregroundStyle(Theme.dust)
+                        }
+                        .padding(.vertical, 8)
+                        .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
+                    Button {
+                        showReadings = true
+                    } label: {
+                        HStack {
+                            Text("Readings")
+                                .foregroundStyle(Theme.ink)
+                            Spacer()
+                            Text(readingsSummary)
+                                .foregroundStyle(Theme.dust)
+                        }
+                        .padding(.vertical, 8)
+                        .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
+                    Button {
+                        showLOS = true
+                    } label: {
+                        HStack {
+                            Text("LOS")
+                                .foregroundStyle(Theme.ink)
+                            Spacer()
+                            Text(losSummary)
+                                .foregroundStyle(Theme.dust)
+                        }
+                        .padding(.vertical, 8)
+                        .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
+
+                    Label(
+                        scopeSummary,
+                        systemImage: "line.3.horizontal.decrease"
+                    )
+                    .font(.caption)
+                    .foregroundStyle(Theme.dust)
+                    // Combine, or this reads as two elements and the symbol's own
+                    // name ("Filter") is what a screen reader announces instead of
+                    // the summary.
+                    .accessibilityElement(children: .combine)
+                    .accessibilityLabel(scopeSummary)
+                    .accessibilityIdentifier("practice.scopeSummary")
+                }
+                .padding(18)
+                .background(
+                    RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous)
+                        .fill(Theme.cardFill)
+                        .shadow(color: Color.black.opacity(0.04), radius: 10, y: 3)
+                )
             }
+            .padding(24)
         }
-        .listStyle(.insetGrouped)
-        // The List paints its grouped background only inside its own frame, so
-        // capping the width at 640 on iPad left two hard vertical seams where
-        // that background stopped and the window's showed through. Let the
-        // list draw no background of its own and paint it across the full
-        // width instead: the content stays readable, the seams go.
-        .scrollContentBackground(.hidden)
         .frame(maxWidth: horizontalSizeClass == .regular ? 640 : .infinity)
         .frame(maxWidth: .infinity)
-        .background(Color(.systemGroupedBackground))
-        .navigationTitle("Practice")
+        .background(Theme.paper)
+        .toolbar(.hidden, for: .navigationBar)
         .safeAreaInset(edge: .bottom) {
-            Button {
-                startQuiz()
-            } label: {
-                Text(matching == 0 ? "No questions match" : "Start session")
+            VStack(spacing: 8) {
+                if matching == 0 {
+                    Text("Widen the book, reading, or LOS filters to find matching items.")
+                        .font(.footnote)
+                        .foregroundStyle(Theme.dust)
+                        .multilineTextAlignment(.center)
+                        .accessibilityLabel(
+                            "Nothing matches this scope. Widen the book, reading, or LOS filters."
+                        )
+                }
+                Button {
+                    startQuiz()
+                } label: {
+                    Text(matching == 0 ? "Nothing matches this scope" : "Start sitting")
+                }
+                .buttonStyle(PrimaryCTA())
+                .disabled(matching == 0)
             }
-            .buttonStyle(PrimaryCTA())
-            .disabled(matching == 0)
             .padding(.horizontal)
             // Match the form above it. The bar stays full width — it is a bar
             // — but a 1000pt-wide button under a 640pt-wide list looked like
@@ -126,7 +177,7 @@ struct PracticeBuilderView: View {
             .frame(maxWidth: horizontalSizeClass == .regular ? 640 : .infinity)
             .frame(maxWidth: .infinity)
             .padding(.bottom, 6)
-            .background(.bar)
+            .background(Theme.paper)
         }
         .onAppear { refreshPreview() }
         .onChange(of: pref.typeFilter) { _, _ in refreshPreview() }
@@ -159,17 +210,6 @@ struct PracticeBuilderView: View {
                 readingScope: pref.selectedReadings,
                 topicScope: pref.selectedTopics
             )
-        }
-        .navigationDestination(isPresented: $showSession) {
-            SessionRunnerView()
-        }
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button("Reset", role: .destructive) {
-                    pref.reset()
-                    refreshPreview()
-                }
-            }
         }
     }
 
@@ -266,7 +306,7 @@ struct PracticeBuilderView: View {
             mode: .random,
             filterDescription: filterLabel()
         )
-        showSession = true
+        router.presentQuestionSitting()
     }
 
     private func filterLabel() -> String {

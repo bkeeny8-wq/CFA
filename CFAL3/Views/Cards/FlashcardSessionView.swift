@@ -7,6 +7,7 @@ import SwiftData
 struct FlashcardSessionView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Query private var progress: [FlashcardProgress]
 
     let title: String
@@ -25,6 +26,7 @@ struct FlashcardSessionView: View {
     @State private var index = 0
     @State private var isRevealed = false
     @State private var ratedCount = 0
+    @State private var skippedCount = 0
 
     private var current: Flashcard? {
         guard index >= 0, index < cards.count else { return nil }
@@ -41,7 +43,7 @@ struct FlashcardSessionView: View {
                 ContentUnavailableView(
                     "Nothing to review",
                     systemImage: "checkmark.circle",
-                    description: Text("This deck has no cards due right now.")
+                    description: Text("This session has no cards. Go back and pick a deck, or start today's mix when cards are due.")
                 )
             } else if let card = current {
                 cardScreen(card)
@@ -52,13 +54,48 @@ struct FlashcardSessionView: View {
         .navigationTitle(title)
         .hidesStudySelector()
         .navigationBarTitleDisplayMode(.inline)
+        .background(Theme.paper)
         .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button("End sitting") { dismiss() }
+                    .foregroundStyle(Theme.pine)
+                    .accessibilityIdentifier("sitting.end")
+            }
+            ToolbarItem(placement: .principal) {
+                Text("Cards · \(index + 1) of \(cards.count)")
+                    .font(.headline)
+                    .foregroundStyle(Theme.ink)
+            }
             ToolbarItem(placement: .topBarTrailing) {
                 if current != nil {
                     Text("\(index + 1) / \(cards.count)")
                         .font(.footnote.monospacedDigit())
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(Theme.dust)
                         .accessibilityIdentifier("flashcard.progress")
+                        .accessibilityLabel("Card \(index + 1) of \(cards.count)")
+                }
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                if let card = current {
+                    Button {
+                        toggleFlag(card)
+                    } label: {
+                        Image(systemName: progressByCard[card.id]?.flaggedForReview == true
+                              ? "flag.fill" : "flag")
+                    }
+                    .accessibilityLabel(
+                        progressByCard[card.id]?.flaggedForReview == true
+                        ? "Remove flag" : "Flag for review"
+                    )
+                    .accessibilityIdentifier("flashcard.flag")
+                }
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                if current != nil {
+                    Button(AttemptHost.skipTitle) {
+                        if let card = current { skipAndFlag(card) }
+                    }
+                    .accessibilityIdentifier("flashcard.skip")
                 }
             }
         }
@@ -77,7 +114,7 @@ struct FlashcardSessionView: View {
                     // gesture was invisible to VoiceOver, which had no way to
                     // reveal an answer at all.
                     Button {
-                        withAnimation(.snappy) { isRevealed = true }
+                        sitAnimation { isRevealed = true }
                     } label: {
                         cardBody(card)
                     }
@@ -177,11 +214,18 @@ struct FlashcardSessionView: View {
 
     private func ratingBar(_ card: Flashcard) -> some View {
         let row = progressByCard[card.id]
-        return HStack(spacing: 8) {
-            ratingButton("Again", quality: 1, tint: Theme.danger, row: row, card: card)
-            ratingButton("Hard", quality: 3, tint: Theme.warning, row: row, card: card)
-            ratingButton("Good", quality: 4, tint: Theme.accent, row: row, card: card)
-            ratingButton("Easy", quality: 5, tint: Theme.success, row: row, card: card)
+        return VStack(spacing: 8) {
+            HStack(spacing: 8) {
+                ratingButton("Again", quality: 1, tint: Theme.danger, row: row, card: card)
+                ratingButton("Hard", quality: 3, tint: Theme.warning, row: row, card: card)
+                ratingButton("Good", quality: 4, tint: Theme.accent, row: row, card: card)
+                ratingButton("Easy", quality: 5, tint: Theme.success, row: row, card: card)
+            }
+            Button(AttemptHost.skipTitle) {
+                skipAndFlag(card)
+            }
+            .font(.footnote.weight(.medium))
+            .accessibilityIdentifier("flashcard.skip.rate")
         }
         .padding(.horizontal)
         .padding(.vertical, 10)
@@ -207,6 +251,8 @@ struct FlashcardSessionView: View {
             .foregroundStyle(tint)
         }
         .buttonStyle(.plain)
+        .frame(minHeight: 44)
+        .accessibilityLabel("\(label), \(intervalLabel(row: row, quality: quality))")
         .accessibilityIdentifier("flashcard.rate.\(label.lowercased())")
     }
 
@@ -231,7 +277,39 @@ struct FlashcardSessionView: View {
         try? modelContext.save()
 
         ratedCount += 1
-        withAnimation(.snappy) {
+        advance()
+    }
+
+    private func skipAndFlag(_ card: Flashcard) {
+        let row = row(for: card)
+        row.flaggedForReview = true
+        try? modelContext.save()
+        skippedCount += 1
+        advance()
+    }
+
+    private func toggleFlag(_ card: Flashcard) {
+        let row = row(for: card)
+        row.flaggedForReview.toggle()
+        try? modelContext.save()
+    }
+
+    private func row(for card: Flashcard) -> FlashcardProgress {
+        progressByCard[card.id] ?? {
+            let new = FlashcardProgress(
+                cardId: card.id, readingId: card.readingID, areaId: card.areaID
+            )
+            modelContext.insert(new)
+            return new
+        }()
+    }
+
+    private func sitAnimation(_ body: () -> Void) {
+        withSittingAnimation(reduceMotion, body)
+    }
+
+    private func advance() {
+        sitAnimation {
             isRevealed = false
             index += 1
         }
@@ -246,14 +324,22 @@ struct FlashcardSessionView: View {
                 .foregroundStyle(Theme.success)
             Text("Deck complete")
                 .font(.title3.weight(.semibold))
-            Text("\(ratedCount) card\(ratedCount == 1 ? "" : "s") reviewed and rescheduled.")
+                .accessibilityAddTraits(.isHeader)
+            Text(deckCompleteCopy)
                 .font(.callout)
                 .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
             Button("Done") { dismiss() }
                 .buttonStyle(PrimaryCTA())
                 .padding(.horizontal, 40)
                 .padding(.top, 6)
         }
         .padding()
+    }
+
+    private var deckCompleteCopy: String {
+        let reviewed = "\(ratedCount) card\(ratedCount == 1 ? "" : "s") reviewed and rescheduled"
+        if skippedCount == 0 { return "\(reviewed)." }
+        return "\(reviewed). \(skippedCount) skipped & flagged."
     }
 }

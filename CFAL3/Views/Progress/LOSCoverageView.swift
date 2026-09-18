@@ -7,47 +7,83 @@ struct LOSCoverageView: View {
         ForEach(coverage, id: \.areaID) { area in
             Section(area.areaName) {
                 ForEach(area.readings, id: \.readingID) { reading in
-                    HStack {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(reading.readingName)
-                                .font(.subheadline)
-                            Text("\(reading.attempted)/\(reading.questionCount) attempted")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
+                    DisclosureGroup {
+                        ForEach(reading.items) { item in
+                            losRow(item)
                         }
-                        Spacer()
-                        // Colour alone cannot carry this: the green/yellow/
-                        // orange tiers are indistinguishable with the common
-                        // forms of colour blindness, and VoiceOver read the
-                        // swatch as nothing at all.
-                        Label(coverageTier(for: reading).name,
-                              systemImage: coverageTier(for: reading).symbol)
-                            .labelStyle(.iconOnly)
-                            .font(.title3)
-                            .foregroundStyle(coverageColor(for: reading))
-                            .frame(width: 28, height: 28)
-                            .accessibilityLabel("Coverage: \(coverageTier(for: reading).name)")
+                    } label: {
+                        readingLabel(reading)
                     }
                 }
             }
         }
     }
 
+    private func readingLabel(_ reading: LOSReadingCoverage) -> some View {
+        let tier = coverageTier(
+            attempted: reading.attempted,
+            total: reading.questionCount,
+            rate: reading.correctRate
+        )
+        return HStack {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(reading.readingName)
+                    .font(.subheadline)
+                Text("\(reading.attempted)/\(reading.questionCount) attempted")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            Spacer()
+            Label(tier.name, systemImage: tier.symbol)
+                .labelStyle(.iconOnly)
+                .font(.title3)
+                .foregroundStyle(coverageColor(tier.name))
+                .frame(width: 28, height: 28)
+                .accessibilityLabel("Coverage: \(tier.name)")
+        }
+    }
+
+    private func losRow(_ item: LOSItemCoverage) -> some View {
+        HStack(alignment: .firstTextBaseline, spacing: 8) {
+            Text(item.letter.uppercased())
+                .font(.caption.weight(.semibold))
+                .frame(width: 18)
+                .foregroundStyle(.secondary)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(item.displayText)
+                    .font(.caption)
+                    .foregroundStyle(.primary)
+                    .fixedSize(horizontal: false, vertical: true)
+                Text("\(item.attempted)/\(item.questionCount)")
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+            }
+            Spacer(minLength: 0)
+        }
+        .padding(.vertical, 2)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel(
+            "LOS \(item.letter.uppercased()). \(item.displayText). \(item.attempted) of \(item.questionCount) attempted"
+        )
+    }
+
     /// One classification, rendered as a shape AND a colour AND a spoken name.
     private func coverageTier(
-        for reading: LOSReadingCoverage
+        attempted: Int,
+        total: Int,
+        rate: Double?
     ) -> (name: String, symbol: String) {
-        guard reading.questionCount > 0 else { return ("no questions", "minus.circle") }
-        let attemptRatio = Double(reading.attempted) / Double(reading.questionCount)
-        let score = attemptRatio * (reading.correctRate ?? 0.5)
+        guard total > 0 else { return ("no items", "minus.circle") }
+        let attemptRatio = Double(attempted) / Double(total)
+        let score = attemptRatio * (rate ?? 0.5)
         if score >= 0.75 { return ("strong", "checkmark.circle.fill") }
         if score >= 0.4 { return ("partial", "circle.lefthalf.filled") }
         if attemptRatio > 0 { return ("weak", "exclamationmark.circle") }
         return ("not started", "circle")
     }
 
-    private func coverageColor(for reading: LOSReadingCoverage) -> Color {
-        switch coverageTier(for: reading).name {
+    private func coverageColor(_ name: String) -> Color {
+        switch name {
         case "strong": return .green
         case "partial": return .yellow
         case "weak": return .orange

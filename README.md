@@ -31,18 +31,11 @@ xcodebuild -project CFAL3.xcodeproj -scheme CFAL3 \
 ## Signing & bundle identifier
 
 1. Select the **CFAL3** project in the navigator → **CFAL3** target → **Signing & Capabilities**.
-2. Set **Team** to your Apple ID (Personal Team works for sideloading).
+2. Set **Team** to your Apple ID (Personal Team works for sideloading onto an iPad).
 3. Change **Bundle Identifier** if needed (default: `com.brandonkeeny.CFAL3`).
 4. Repeat for **CFAL3Tests** if you run unit tests on device.
 
-## Install on your iPhone (free 7-day provisioning)
-
-1. Connect your iPhone and trust the computer.
-2. Choose your iPhone as the run destination.
-3. Press **Run** (⌘R). Xcode builds, signs, and installs the app.
-4. On first launch, if iOS blocks the app: **Settings → General → VPN & Device Management** → trust your developer certificate.
-
-**Note:** Free Apple ID provisioning expires every **7 days**. Re-run from Xcode to reinstall/re-sign. A paid Apple Developer Program membership gives **1-year** signing certificates.
+The target is **iPad-only** (`TARGETED_DEVICE_FAMILY = 2`). Do not install onto an iPhone — the Study and Vignettes split views, the width-capped Practice list, and the tab bar as a floating pill at the top only exist at regular width.
 
 ## Grader proxy
 
@@ -59,6 +52,12 @@ Essay and reasoning grading call a **Cloudflare Worker** (`workers/grader-proxy-
 
 In Xcode: **Product → Test** (⌘U). Unit tests cover SM-2 scheduling and grading JSON parsing.
 
+Always run against an iPad simulator. The UI suite skips on iPhone.
+
+```bash
+scripts/run_ipad_tests.sh
+```
+
 ## Bundled content
 
 - `question_bank.json` — cases and questions (read-only)
@@ -71,8 +70,8 @@ Replace these files to update the question bank; do not edit them at runtime fro
 
 The **Study** tab is a digital version of your review materials:
 
-- **Study notes** — all **35 readings** bundled as `reading_notes.json` (every curriculum reading is covered)
-- **LOS checklist** — all **255 LOS** with tap-to-mark progress
+- **Study notes** — **36 of 36** readings bundled as `reading_notes.json` (including Asset Manager Code)
+- **LOS checklist** — all **247 LOS** with tap-to-mark progress
 - **Practice questions** — filtered by reading/LOS from the question bank
 
 Note: the R26 Endowment case-study notes were authored in-app (no `.docx` source exists), so `convert_reading_notes.py` will **not** regenerate that entry — preserve it when re-converting from Word files.

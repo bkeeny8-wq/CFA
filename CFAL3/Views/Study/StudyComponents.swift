@@ -34,19 +34,25 @@ struct StudyMasteryHeaderCard: View {
 struct StudyAreaBookCard: View {
     let area: AreaStudyProgress
     let readingCount: Int
+    var selected: Bool = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(ProgressDisplay.shortName(area.areaID, fallback: area.name))
-                .font(.subheadline.weight(.medium))
+                .font(Theme.serif(.headline, weight: .semibold))
                 .lineLimit(2)
-                .foregroundStyle(.primary)
+                .foregroundStyle(Theme.ink)
             Text("\(area.mastered)/\(area.total) LOS · \(readingCount) readings")
                 .font(.caption)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Theme.dust)
             MasteryBar(value: area.masteredFraction)
         }
-        .cfaCard()
+        .padding(14)
+        .background(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .fill(selected ? Theme.sage : Theme.cardFill)
+                .shadow(color: Color.black.opacity(selected ? 0 : 0.04), radius: 8, y: 3)
+        )
     }
 }
 
@@ -102,7 +108,7 @@ struct StudyReadingRowCard: View {
                     // not help: `.balanced` holds it near 270pt whatever the
                     // ideal says, and these names are far longer than that.
                     .lineLimit(2)
-                    .foregroundStyle(.primary)
+                    .foregroundStyle(Theme.ink)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 // Keeps its intrinsic width so the title wraps instead of the
                 // status being squeezed to nothing.
@@ -112,21 +118,15 @@ struct StudyReadingRowCard: View {
 
             Text(captionLine)
                 .font(.caption)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Theme.dust)
 
             MasteryBar(value: losFraction)
         }
-        .padding(12)
+        .padding(14)
         .background(
-            RoundedRectangle(cornerRadius: Theme.cardRadius)
-                .fill(highlightInProgress ? Theme.accent.opacity(0.08) : Theme.cardFill)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: Theme.cardRadius)
-                .strokeBorder(
-                    highlightInProgress ? Theme.accent.opacity(0.35) : Theme.hairline,
-                    lineWidth: highlightInProgress ? 1 : 0.5
-                )
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .fill(highlightInProgress ? Theme.sage : Theme.cardFill)
+                .shadow(color: Color.black.opacity(0.04), radius: 8, y: 3)
         )
     }
 

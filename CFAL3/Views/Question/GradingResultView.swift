@@ -35,6 +35,7 @@ struct GradingResultView: View {
         ScrollView {
             VStack(spacing: 10) {
                 verdictCard
+                partScoresCard
                 graderNotesCard
                 guidelineAnswerCard
                 yourAnswerCard
@@ -51,7 +52,7 @@ struct GradingResultView: View {
         .navigationTitle("Result")
         .navigationBarBackButtonHidden(!standalone && sessionCoordinator.isActive)
         .onAppear {
-            selectedQuality = defaultQuality
+            selectedQuality = ReviewRating.nearest(defaultQuality).rawValue
         }
     }
 
@@ -62,6 +63,7 @@ struct GradingResultView: View {
             if let icon = verdictIcon {
                 Image(systemName: icon)
                     .font(.title2)
+                    .accessibilityHidden(true)
             }
             Text(verdictHeadline)
                 .font(.title2.weight(.semibold))
@@ -78,6 +80,32 @@ struct GradingResultView: View {
                 .fill(tint.opacity(0.14))
         )
         .foregroundStyle(tint)
+        .accessibilityElement(children: .combine)
+        .accessibilityAddTraits(.isHeader)
+        .accessibilityLabel(verdictAccessibilityLabel)
+    }
+
+    @ViewBuilder
+    private var partScoresCard: some View {
+        if !partScoreLines.isEmpty {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Part scores")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                ForEach(Array(partScoreLines.enumerated()), id: \.offset) { _, line in
+                    HStack(alignment: .firstTextBaseline, spacing: 8) {
+                        Image(systemName: "list.bullet.rectangle")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        Text(line)
+                            .font(.subheadline)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .cfaCard()
+        }
     }
 
     @ViewBuilder
@@ -87,7 +115,7 @@ struct GradingResultView: View {
                 Text("Grader notes")
                     .font(.caption)
                     .foregroundStyle(.secondary)
-                if let feedback = attempt.claudeFeedback, !feedback.isEmpty {
+                if let feedback = graderNotesBody, !feedback.isEmpty {
                     markdownText(feedback)
                 } else if question.type == .mc, let correct = question.correct,
                           let rationale = question.rationales?[correct] {
@@ -99,8 +127,19 @@ struct GradingResultView: View {
         }
     }
 
+    /// Split out of `claudeFeedback` so the part list is a first-class card
+    /// rather than a buried markdown heading, and so grader notes do not
+    /// repeat it.
+    private var partScoreLines: [String] {
+        Self.partScoreLines(in: attempt.claudeFeedback)
+    }
+
+    private var graderNotesBody: String? {
+        Self.feedbackWithoutPartScores(attempt.claudeFeedback)
+    }
+
     private var hasGraderNotes: Bool {
-        if let feedback = attempt.claudeFeedback, !feedback.isEmpty { return true }
+        if let feedback = graderNotesBody, !feedback.isEmpty { return true }
         if question.type == .mc, let correct = question.correct,
            let rationale = question.rationales?[correct], !rationale.isEmpty {
             return true
@@ -117,6 +156,15 @@ struct GradingResultView: View {
                     .foregroundStyle(.secondary)
                 Text("**\(correct).** \(question.options?[correct] ?? "")")
                     .foregroundStyle(Theme.accent)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .cfaCard()
+        } else if question.type == .essay, let model = question.modelAnswer, !model.isEmpty {
+            VStack(alignment: .leading, spacing: 8) {
+                Text(attempt.grade == nil ? "Bundled guideline answer" : "Guideline answer")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                markdownText(model)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .cfaCard()
@@ -157,17 +205,22 @@ struct GradingResultView: View {
     }
 
     private var footerRow: some View {
-        HStack(alignment: .center, spacing: 12) {
-            InlineQualitySelector(selected: Binding(
-                get: { selectedQuality ?? defaultQuality },
-                set: { selectedQuality = $0 }
-            ))
-            Spacer(minLength: 8)
-            Button(nextButtonTitle) {
-                saveQualityAndContinue()
+        VStack(alignment: .leading, spacing: 10) {
+            NamedQualitySelector(
+                selected: Binding(
+                    get: { selectedQuality ?? defaultQuality },
+                    set: { selectedQuality = $0 }
+                ),
+                card: reviewCard
+            )
+            HStack {
+                Spacer(minLength: 0)
+                Button(nextButtonTitle) {
+                    saveQualityAndContinue()
+                }
+                .font(.body.weight(.medium))
+                .foregroundStyle(Theme.accent)
             }
-            .font(.body.weight(.medium))
-            .foregroundStyle(Theme.accent)
         }
         .padding(.top, 4)
     }
@@ -219,6 +272,9 @@ struct GradingResultView: View {
             }
             return "Grade \(grade)/5"
         }
+        if question.type == .essay, attempt.grade == nil {
+            return "Grader unavailable"
+        }
         return "Submitted"
     }
 
@@ -233,7 +289,14 @@ struct GradingResultView: View {
            let correct = question.correct {
             return "You chose \(selected) · Answer \(correct)"
         }
+        if question.type == .essay, attempt.grade == nil {
+            return "The bundled key is shown below"
+        }
         return nil
+    }
+
+    private var verdictAccessibilityLabel: String {
+        [verdictHeadline, verdictSubtitle].compactMap { $0 }.joined(separator: ". ")
     }
 
     private var nextButtonTitle: String {
@@ -262,9 +325,54 @@ struct GradingResultView: View {
         }
     }
 
+    static func partScoreLines(in feedback: String?) -> [String] {
+        guard let feedback, !feedback.isEmpty else { return [] }
+        var lines: [String] = []
+        var inSection = false
+        for raw in feedback.components(separatedBy: "\n") {
+            let line = raw.trimmingCharacters(in: .whitespaces)
+            if line.hasPrefix("**Part scores**") {
+                inSection = true
+                continue
+            }
+            if inSection {
+                if line.hasPrefix("**") { break }
+                if line.hasPrefix("- ") {
+                    lines.append(String(line.dropFirst(2)))
+                }
+            }
+        }
+        return lines
+    }
+
+    static func feedbackWithoutPartScores(_ feedback: String?) -> String? {
+        guard let feedback, !feedback.isEmpty else { return nil }
+        var kept: [String] = []
+        var inSection = false
+        for raw in feedback.components(separatedBy: "\n") {
+            let trimmed = raw.trimmingCharacters(in: .whitespaces)
+            if trimmed.hasPrefix("**Part scores**") {
+                inSection = true
+                continue
+            }
+            if inSection {
+                if trimmed.hasPrefix("**") {
+                    inSection = false
+                } else {
+                    continue
+                }
+            }
+            kept.append(raw)
+        }
+        let text = kept.joined(separator: "\n")
+            .replacingOccurrences(of: "\n\n\n+", with: "\n\n", options: .regularExpression)
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        return text.isEmpty ? nil : text
+    }
+
     private func saveQualityAndContinue() {
         guard !savedQuality else { return }
-        let quality = selectedQuality ?? defaultQuality
+        let quality = ReviewRating.nearest(selectedQuality ?? defaultQuality).rawValue
         attempt.quality = quality
 
         if let card = reviewCard {
@@ -284,71 +392,6 @@ struct GradingResultView: View {
             dismiss()
         } else {
             dismiss()
-        }
-    }
-}
-
-private struct InlineQualitySelector: View {
-    @Binding var selected: Int
-
-    var body: some View {
-        HStack(spacing: 6) {
-            ForEach(0...5, id: \.self) { value in
-                Button {
-                    selected = value
-                } label: {
-                    Text("\(value)")
-                        .font(.caption.weight(.medium))
-                        .frame(width: 30, height: 30)
-                        .background(
-                            RoundedRectangle(cornerRadius: 6)
-                                .fill(selected == value
-                                      ? Theme.accent.opacity(0.15)
-                                      : Color.clear)
-                        )
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 6)
-                                .strokeBorder(
-                                    selected == value ? Theme.accent : Theme.hairline,
-                                    lineWidth: selected == value ? 1.5 : 1
-                                )
-                        )
-                        .foregroundStyle(selected == value ? Theme.accent : .secondary)
-                }
-                .buttonStyle(.plain)
-                .accessibilityLabel("Self-rate \(value)")
-            }
-        }
-    }
-}
-
-struct QualitySelector: View {
-    @Binding var selected: Int
-
-    private let labels = [
-        "0 — blank",
-        "1 — wrong",
-        "2 — wrong, primed",
-        "3 — hesitant",
-        "4 — minor hesitation",
-        "5 — confident"
-    ]
-
-    var body: some View {
-        ForEach(0...5, id: \.self) { value in
-            Button {
-                selected = value
-            } label: {
-                HStack {
-                    Text(labels[value])
-                    Spacer()
-                    if selected == value {
-                        Image(systemName: "checkmark")
-                            .foregroundStyle(Theme.accent)
-                    }
-                }
-            }
-            .buttonStyle(.plain)
         }
     }
 }

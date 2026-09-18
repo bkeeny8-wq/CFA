@@ -42,6 +42,41 @@ def book_for(label: str) -> int | None:
     return int(match.group(1)) if match else None
 
 
+def reading_id_for(label: str) -> str | None:
+    # 2026 calendar packs ethics as Code I / Code II / Application / AMC.
+    # 2027 splits Code II into seven Guidance modules; M2 opens Standard I,
+    # the first of that cluster.
+    if "B5-M1" in label:
+        return "code_and_standards"
+    if "B5-M2" in label:
+        return "guidance_standard_i_professionalism"
+    if "B5-M3" in label:
+        return "application_of_code_and_standards_l3"
+    if "B5-M4" in label:
+        return "asset_manager_code_of_professional_conduct"
+    return None
+
+
+def normalize_label(label: str) -> str:
+    replacements = (
+        ("B5-M1 Code of Ethics I", "B5-M1 Code of Ethics and Standards"),
+        ("B5-M2 Code of Ethics II", "B5-M2 Guidance for Standards I–VII"),
+        (
+            "B5-M3 Application of Code & Standards",
+            "B5-M3 Application of the Code and Standards",
+        ),
+        (
+            "B5-M4 Asset Manager Code",
+            "B5-M4 Asset Manager Code of Professional Conduct",
+        ),
+    )
+    out = label
+    for old, new in replacements:
+        if old in out and new not in out:
+            out = out.replace(old, new)
+    return out
+
+
 def export(xlsx_path: Path) -> dict:
     wb = openpyxl.load_workbook(xlsx_path, data_only=True)
     ws = wb["2027"]
@@ -84,13 +119,16 @@ def export(xlsx_path: Path) -> dict:
                 end += 1
             block = {
                 "start": start,
-                "label": label,
+                "label": normalize_label(label),
                 "minutes": (end - index) * 15,
                 "kind": kind_for(label),
             }
             book = book_for(label)
             if book is not None:
                 block["book"] = book
+            reading_id = reading_id_for(label)
+            if reading_id is not None:
+                block["reading_id"] = reading_id
             blocks.append(block)
             index = end
 

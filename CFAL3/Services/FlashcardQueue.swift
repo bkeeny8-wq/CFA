@@ -3,7 +3,7 @@ import Foundation
 /// The flashcard counterpart to `ReviewQueue`, and it exists for the same
 /// reason: `bootstrapFlashcardProgress` seeds a row per card with
 /// `dueDate = .now`, and a card with no row at all also read as due, so the
-/// Cards tab announced all 445 on a fresh install. "Due" meant "exists".
+/// Cards tab announced the whole deck on a fresh install. "Due" meant "exists".
 ///
 /// It is a separate type rather than a reuse of `ReviewQueue` because the two
 /// derive "introduced today" from different places. Questions have `Attempt`
@@ -28,6 +28,10 @@ enum FlashcardQueue {
         let dueInSession: Int
         let newInSession: Int
         let overflowDue: Int
+        /// Flagged cards that would not otherwise appear (never rated after
+        /// skip, or flagged-but-not-yet-due). Same extra lane as questions.
+        let flaggedCount: Int
+        let flaggedInSession: Int
 
         /// The gate for any button starting this session — it is the payload,
         /// so an enabled control always has cards to show.
@@ -46,7 +50,8 @@ enum FlashcardQueue {
         static let empty = Plan(
             dueCount: 0, notStartedCount: 0, introducedToday: 0,
             dailyNewLimit: 0, newRemainingToday: 0,
-            sessionIDs: [], dueInSession: 0, newInSession: 0, overflowDue: 0
+            sessionIDs: [], dueInSession: 0, newInSession: 0, overflowDue: 0,
+            flaggedCount: 0, flaggedInSession: 0
         )
     }
 
@@ -76,33 +81,48 @@ enum FlashcardQueue {
 
         var due: [(card: Flashcard, dueDate: Date)] = []
         var notStarted: [Flashcard] = []
+        var flaggedExtra: [Flashcard] = []
         for card in cards {
             // No row yet means the deck was added after the last bootstrap —
             // never seen, so it belongs in the metered lane, not in "due".
-            guard let row = rows[card.id], row.totalAttempts > 0 else {
+            let row = rows[card.id]
+            let seen = (row?.totalAttempts ?? 0) > 0
+            let flagged = row?.flaggedForReview == true
+            if !seen {
                 notStarted.append(card)
+                if flagged { flaggedExtra.append(card) }
                 continue
             }
-            if row.dueDate <= now { due.append((card, row.dueDate)) }
+            if let row, row.dueDate <= now {
+                due.append((card, row.dueDate))
+            } else if flagged {
+                flaggedExtra.append(card)
+            }
         }
+        let newPool = notStarted.filter { rows[$0.id]?.flaggedForReview != true }
 
         // Deterministic: bootstrap gives every row the same dueDate, so
         // without a tie-break the session reshuffles between launches.
         due.sort { ($0.dueDate, $0.card.id) < ($1.dueDate, $1.card.id) }
         // Keep a reading's cards together so a day's new material reads as
         // coherent material rather than a scatter across the curriculum.
-        notStarted.sort { ($0.readingID, $0.id) < ($1.readingID, $1.id) }
+        let newPoolSorted = newPool.sorted { ($0.readingID, $0.id) < ($1.readingID, $1.id) }
+        flaggedExtra.sort { $0.id < $1.id }
 
         let introduced = introducedToday(progress: progress, now: now)
         let remaining = max(0, dailyNewLimit - introduced)
 
-        let newWanted = min(remaining, notStarted.count)
-        let newSlots = min(newWanted, max(minNewSlotsPerSession, sessionCap - due.count))
-        let dueSlots = min(due.count, sessionCap - newSlots)
+        let flaggedSlots = min(flaggedExtra.count, sessionCap)
+        let remainingCap = sessionCap - flaggedSlots
+        let newWanted = min(remaining, newPoolSorted.count)
+        let newSlots = remainingCap == 0
+            ? 0
+            : min(newWanted, max(minNewSlotsPerSession, remainingCap - due.count))
+        let dueSlots = min(due.count, max(0, remainingCap - newSlots))
 
-        let sessionIDs = ReviewQueue.interleave(
+        let sessionIDs = flaggedExtra.prefix(flaggedSlots).map(\.id) + ReviewQueue.interleave(
             reviews: due.prefix(dueSlots).map(\.card.id),
-            new: notStarted.prefix(newSlots).map(\.id)
+            new: newPoolSorted.prefix(newSlots).map(\.id)
         )
 
         return Plan(
@@ -114,7 +134,9 @@ enum FlashcardQueue {
             sessionIDs: sessionIDs,
             dueInSession: dueSlots,
             newInSession: newSlots,
-            overflowDue: max(0, due.count - dueSlots)
+            overflowDue: max(0, due.count - dueSlots),
+            flaggedCount: flaggedExtra.count,
+            flaggedInSession: flaggedSlots
         )
     }
 }
@@ -127,8 +149,8 @@ enum FlashcardQueue {
 /// only to re-implement the same conditions and compare them with themselves
 /// — green regardless of what the buttons actually did.
 ///
-/// The distinction is the whole point: a `ReviewCard` exists for all 3,115
-/// questions and a `FlashcardProgress` for all 445 cards from first launch, so
+/// The distinction is the whole point: a `ReviewCard` exists for all 3,164
+/// questions and a `FlashcardProgress` for every card from first launch, so
 /// their existence says nothing. Only a RATED card counts.
 enum ResetScope {
     /// "Clear quiz attempts" — attempt history, sessions, review schedules.

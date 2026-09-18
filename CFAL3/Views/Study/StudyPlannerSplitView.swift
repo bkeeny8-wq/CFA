@@ -1,28 +1,17 @@
 import SwiftUI
 import SwiftData
 
-/// Three-column study planner for iPad: areas → readings → notes / drills / checklist.
-///
-/// Interaction model: columns visible = browsing; TAPPING a reading = reading.
-/// Every tap on a reading row collapses to the full-screen detail — including
-/// re-tapping the already-selected reading — because the collapse is driven by
-/// the tap itself, never by selection *change* detection. No reading is ever
-/// auto-selected, so the user always chooses when to enter full screen.
+/// Two-pane Notes library. Nested `NavigationSplitView` inside the Daybook
+/// sidebar hid the books column the same way Cases used to.
 struct StudyPlannerSplitView: View {
-    /// Applied per COLUMN, not to the split view as a whole. Study keeps this
-    /// view mounted while Cards is on screen, and each column is its own
-    /// hosting controller — a modifier on the container never reaches them, so
-    /// the whole planner stayed readable by VoiceOver from the Cards screen.
     var accessibilityHidden = false
 
-    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(ContentLoader.self) private var content
     @Query private var statuses: [LOSStudyStatus]
     @Query(sort: \Attempt.timestamp, order: .reverse) private var attempts: [Attempt]
 
     @State private var selectedAreaID: String?
     @State private var selectedReadingID: String?
-    @State private var columnVisibility: NavigationSplitViewVisibility = .all
 
     private var master: LOSMaster? { content.losMaster }
 
@@ -37,79 +26,90 @@ struct StudyPlannerSplitView: View {
     }
 
     var body: some View {
-        NavigationSplitView(columnVisibility: $columnVisibility) {
-            areasColumn
-                .navigationSplitViewColumnWidth(min: 220, ideal: 250)
-                .toolbar(removing: .sidebarToggle)
-                .accessibilityHidden(accessibilityHidden)
-        } content: {
-            readingsColumn
-                .navigationSplitViewColumnWidth(min: 240, ideal: 270)
-                .toolbar(removing: .sidebarToggle)
-                .accessibilityHidden(accessibilityHidden)
-        } detail: {
-            detailColumn
-                .toolbar(removing: .sidebarToggle)
-                .accessibilityHidden(accessibilityHidden)
-        }
-        .navigationSplitViewStyle(.balanced)
-        .onAppear {
-            seedAreaIfNeeded()
-        }
-        .onChange(of: selectedAreaID) { _, _ in
-            // Switching areas never auto-opens a reading; clear a selection
-            // that no longer belongs to the visible area.
-            if let area = selectedArea {
-                if !area.readings.contains(where: { $0.id == selectedReadingID }) {
-                    selectedReadingID = nil
-                }
-            } else {
-                selectedReadingID = nil
+        NavigationStack {
+            HStack(spacing: 0) {
+                booksColumn
+                    .frame(width: 320)
+                    .accessibilityHidden(accessibilityHidden)
+                Rectangle()
+                    .fill(Theme.pine.opacity(0.1))
+                    .frame(width: 1)
+                    .ignoresSafeArea()
+                readingsColumn
+                    .accessibilityHidden(accessibilityHidden)
             }
+            .background(Theme.paper)
+            .toolbar(.hidden, for: .navigationBar)
+            .navigationDestination(isPresented: showReading) {
+                if let area = selectedArea, let reading = selectedReading {
+                    StudyReadingDetailView(area: area, reading: reading)
+                        .toolbar(.visible, for: .navigationBar)
+                }
+            }
+        }
+        .onAppear { seedAreaIfNeeded() }
+        .onChange(of: selectedAreaID) { _, _ in
+            selectedReadingID = nil
         }
     }
 
-    // MARK: - Columns
+    private var showReading: Binding<Bool> {
+        Binding(
+            get: { selectedReadingID != nil },
+            set: { if !$0 { selectedReadingID = nil } }
+        )
+    }
 
     @ViewBuilder
-    private var areasColumn: some View {
-        if let master {
-            let areas = StudyPlannerStats.areaProgress(master: master, statuses: statuses)
+    private var booksColumn: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Notes")
+                    .font(Theme.serif(.largeTitle, weight: .semibold))
+                    .foregroundStyle(Theme.ink)
+                    .accessibilityIdentifier("notes.library")
+                Text("Book → reading → notes and LOS checklist.")
+                    .font(.subheadline)
+                    .foregroundStyle(Theme.dust)
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, 20)
+            .padding(.bottom, 12)
 
-            ScrollView {
-                VStack(spacing: 12) {
-                    StudyMasteryHeaderCard(master: master, statuses: statuses)
-
-                    StudyAreaBookGrid(areas: areas, master: master) { curriculumArea, areaProgress in
-                        Button {
-                            selectedAreaID = curriculumArea.id
-                        } label: {
-                            StudyAreaBookCard(
-                                area: areaProgress,
-                                readingCount: curriculumArea.readings.count
-                            )
-                            .overlay {
-                                if selectedAreaID == curriculumArea.id {
-                                    RoundedRectangle(cornerRadius: Theme.cardRadius)
-                                        .strokeBorder(Theme.accent, lineWidth: 2)
+            if let master {
+                let areas = StudyPlannerStats.areaProgress(master: master, statuses: statuses)
+                ScrollView {
+                    VStack(spacing: 12) {
+                        StudyMasteryHeaderCard(master: master, statuses: statuses)
+                        ForEach(areas) { areaProgress in
+                            if let curriculumArea = master.areas.first(where: { $0.id == areaProgress.areaID }) {
+                                Button {
+                                    selectedAreaID = curriculumArea.id
+                                } label: {
+                                    StudyAreaBookCard(
+                                        area: areaProgress,
+                                        readingCount: curriculumArea.readings.count,
+                                        selected: selectedAreaID == curriculumArea.id
+                                    )
                                 }
+                                .buttonStyle(.plain)
                             }
                         }
-                        .buttonStyle(.plain)
                     }
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 20)
                 }
-                .padding()
+            } else if let error = content.loadError {
+                Text(error)
+                    .font(.subheadline)
+                    .foregroundStyle(Theme.copper)
+                    .padding(20)
+            } else {
+                ProgressView("Loading curriculum…")
+                    .padding(20)
             }
-            .navigationTitle("Study")
-        } else if let error = content.loadError {
-            ContentUnavailableView(
-                "Content failed to load",
-                systemImage: "exclamationmark.triangle",
-                description: Text(error)
-            )
-        } else {
-            ProgressView("Loading curriculum…")
         }
+        .background(Theme.paper)
     }
 
     @ViewBuilder
@@ -121,100 +121,47 @@ struct StudyPlannerSplitView: View {
                 attempts: attempts,
                 content: content
             )
+            VStack(alignment: .leading, spacing: 0) {
+                Text(ProgressDisplay.shortName(area.id, fallback: area.name))
+                    .font(Theme.serif(.title2, weight: .semibold))
+                    .foregroundStyle(Theme.ink)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 20)
+                    .padding(.bottom, 12)
 
-            List {
-                Section {
-                    ForEach(area.readings) { reading in
-                        Button {
-                            open(reading)
-                        } label: {
-                            StudyReadingRowCard(
-                                area: area,
-                                reading: reading,
-                                statuses: statuses,
-                                attempts: attempts,
-                                highlightInProgress: reading.id == highlightedReadingID
-                            )
-                            .overlay {
-                                if selectedReadingID == reading.id {
-                                    RoundedRectangle(cornerRadius: Theme.cardRadius)
-                                        .strokeBorder(Theme.accent, lineWidth: 2)
-                                }
-                            }
-                            .contentShape(Rectangle())
-                        }
-                        .buttonStyle(.plain)
-                    }
-                }
-            }
-            .listStyle(.plain)
-            .navigationTitle(area.name)
-            .toolbar {
-                // Book switching must never depend on the areas column being
-                // visible — the split view can resolve to two columns on its
-                // own, which previously stranded the user inside one book.
-                ToolbarItem(placement: .topBarTrailing) {
-                    Menu {
-                        ForEach(master?.areas ?? []) { candidate in
+                ScrollView {
+                    VStack(spacing: 10) {
+                        ForEach(area.readings) { reading in
                             Button {
-                                selectedAreaID = candidate.id
+                                selectedReadingID = reading.id
                             } label: {
-                                if candidate.id == selectedAreaID {
-                                    Label(candidate.name, systemImage: "checkmark")
-                                } else {
-                                    Text(candidate.name)
-                                }
+                                StudyReadingRowCard(
+                                    area: area,
+                                    reading: reading,
+                                    statuses: statuses,
+                                    attempts: attempts,
+                                    highlightInProgress: reading.id == highlightedReadingID
+                                )
+                                .contentShape(Rectangle())
                             }
+                            .buttonStyle(.plain)
                         }
-                    } label: {
-                        Image(systemName: "books.vertical")
                     }
-                    .accessibilityLabel("Switch book")
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 20)
                 }
             }
+            .background(Theme.paper)
         } else {
             ContentUnavailableView(
-                "Select an area",
+                "Select a book",
                 systemImage: "books.vertical",
-                description: Text("Choose a curriculum area to see its readings.")
+                description: Text("Choose a book to see its readings.")
             )
+            .foregroundStyle(Theme.dust)
         }
     }
 
-    @ViewBuilder
-    private var detailColumn: some View {
-        if let area = selectedArea, let reading = selectedReading {
-            NavigationStack {
-                StudyReadingDetailView(
-                    area: area,
-                    reading: reading,
-                    splitColumnVisibility: $columnVisibility
-                )
-            }
-        } else {
-            ContentUnavailableView(
-                "Select a reading",
-                systemImage: "doc.text",
-                description: Text("Pick a reading to open its notes.")
-            )
-        }
-    }
-
-    // MARK: - Interaction
-
-    /// Tap = read. Sets the selection and, at regular width, collapses the
-    /// columns unconditionally — same-row taps included.
-    private func open(_ reading: Reading) {
-        selectedReadingID = reading.id
-        guard horizontalSizeClass == .regular else { return }
-        withAnimation(.snappy) {
-            columnVisibility = .detailOnly
-        }
-    }
-
-    /// Only the AREA is seeded so the readings column has content on first
-    /// launch. Readings are never auto-selected — entering full screen is
-    /// always a user action.
     private func seedAreaIfNeeded() {
         guard let master, !master.areas.isEmpty else { return }
         if selectedAreaID == nil {

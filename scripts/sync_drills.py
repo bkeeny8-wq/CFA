@@ -47,6 +47,7 @@ READING_MAP = {
     33: "guidance_standard_vi_conflicts_of_interest",
     34: "guidance_standard_vii_responsibilities",
     35: "application_of_code_and_standards_l3",
+    36: "asset_manager_code_of_professional_conduct",
 }
 
 

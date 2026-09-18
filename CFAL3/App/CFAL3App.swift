@@ -44,8 +44,6 @@ struct CFAL3App: App {
     /// True when the on-disk store could not be opened and the app is running
     /// against a temporary one, so the UI can say so instead of looking as if
     /// the user's progress vanished.
-    @State private var storeUnavailable = false
-
     let sharedModelContainer: ModelContainer
     let storeFailure: Error?
 
@@ -82,21 +80,13 @@ struct CFAL3App: App {
                 .environment(grader)
                 .environment(sessionCoordinator)
                 .environment(practicePref)
+                .environment(\.storeUnavailable, storeFailure != nil)
                 .task {
                     GraderConfig.purgeLegacyAPIKey()
                     if !contentLoader.isLoaded {
-                        contentLoader.load()
+                        await contentLoader.loadOffMainActor()
                     }
                     contentLoader.bootstrapReviewCards(context: sharedModelContainer.mainContext)
-                    storeUnavailable = storeFailure != nil
-                }
-                .alert("Saved progress couldn't be opened", isPresented: $storeUnavailable) {
-                    Button("Continue", role: .cancel) {}
-                } message: {
-                    Text("This session won't be saved. Your existing data is "
-                         + "still on the device — reinstalling an earlier "
-                         + "version, or updating again, may recover it.\n\n"
-                         + (storeFailure?.localizedDescription ?? ""))
                 }
         }
         .modelContainer(sharedModelContainer)

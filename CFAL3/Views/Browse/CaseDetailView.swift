@@ -4,7 +4,9 @@ import SwiftData
 struct CaseDetailView: View {
     @Environment(ContentLoader.self) private var content
     @Environment(StudySessionCoordinator.self) private var sessionCoordinator
+    @Environment(TabRouter.self) private var router
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Query private var attempts: [Attempt]
     @Query private var cards: [ReviewCard]
 
@@ -12,7 +14,7 @@ struct CaseDetailView: View {
     var splitColumnVisibility: Binding<NavigationSplitViewVisibility>?
 
     @State private var vignetteExpanded = true
-    @State private var showSession = false
+    @State private var showAnswerSheet = false
 
     init(
         caseID: String,
@@ -26,15 +28,24 @@ struct CaseDetailView: View {
 
     var body: some View {
         verticalLayout
+        .background(Theme.paper)
         .navigationTitle(caseStudy?.title ?? "Case")
-        .navigationDestination(isPresented: $showSession) {
-            SessionRunnerView()
+        .toolbar(.visible, for: .navigationBar)
+        .fullScreenCover(isPresented: $showAnswerSheet) {
+            if let caseStudy {
+                NavigationStack {
+                    CaseAnswerSheetView(caseStudy: caseStudy)
+                }
+                .tint(Theme.pine)
+                .preferredColorScheme(.light)
+                .daybookPaper()
+            }
         }
         .toolbar {
             if let splitColumnVisibility, horizontalSizeClass == .regular {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        withAnimation {
+                        withSittingAnimation(reduceMotion) {
                             splitColumnVisibility.wrappedValue =
                                 splitColumnVisibility.wrappedValue == .detailOnly ? .all : .detailOnly
                         }
@@ -59,6 +70,7 @@ struct CaseDetailView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     headerCard(caseStudy)
                     workCaseButton(caseStudy)
+                    answerSheetButton
                     vignetteCard(caseStudy)
                     questionsSection(caseStudy)
                 }
@@ -80,13 +92,14 @@ struct CaseDetailView: View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(alignment: .top) {
                 Text(caseStudy.title)
-                    .font(.headline)
+                    .font(Theme.serif(.title3, weight: .semibold))
+                    .foregroundStyle(Theme.ink)
                 Spacer(minLength: 8)
                 CapsuleBadge(text: bookName)
             }
             Text("\(meta.questionCount) questions · \(meta.essayCount) essays · ~\(meta.minutes) min")
                 .font(.caption)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Theme.dust)
         }
         .cfaCard()
     }
@@ -98,11 +111,28 @@ struct CaseDetailView: View {
                 mode: .random,
                 filterDescription: caseStudy.title
             )
-            showSession = true
+            router.presentQuestionSitting()
         } label: {
-            Text("Work this case")
+            Text("Sit this case as a mock")
         }
         .buttonStyle(PrimaryCTA())
+    }
+
+    private var answerSheetButton: some View {
+        Button {
+            guard let caseStudy else { return }
+            sessionCoordinator.start(
+                questionIDs: caseStudy.questions.map(\.id),
+                mode: .random,
+                filterDescription: caseStudy.title
+            )
+            showAnswerSheet = true
+        } label: {
+            Text("Sit this booklet")
+        }
+        .buttonStyle(.bordered)
+        .frame(maxWidth: .infinity)
+        .accessibilityHint("Sitting cover: vignette pinned, Check answer, Skip & flag, named ratings")
     }
 
     private func vignetteCard(_ caseStudy: CaseStudy) -> some View {
@@ -116,7 +146,7 @@ struct CaseDetailView: View {
         VStack(alignment: .leading, spacing: 6) {
             Text("Questions")
                 .font(.caption)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Theme.dust)
 
             ForEach(caseStudy.questions) { question in
                 NavigationLink {
@@ -146,7 +176,7 @@ struct CaseDetailView: View {
         guard horizontalSizeClass == .regular,
               let splitColumnVisibility,
               splitColumnVisibility.wrappedValue != .detailOnly else { return }
-        withAnimation {
+        withSittingAnimation(reduceMotion) {
             splitColumnVisibility.wrappedValue = .detailOnly
         }
     }
@@ -167,7 +197,7 @@ private struct QuestionRowLabel: View {
             }
             Text(Formatting.truncatedStem(question.stem))
                 .font(.subheadline)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Theme.dust)
         }
     }
 
