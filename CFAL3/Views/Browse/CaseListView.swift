@@ -143,12 +143,16 @@ struct CaseListView: View {
                         .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
+                .listRowBackground(Theme.paper)
+                .listRowSeparatorTint(Theme.pine.opacity(0.12))
             } else {
                 NavigationLink {
                     CaseDetailView(caseID: caseStudy.id)
                 } label: {
                     caseRowLabel(caseStudy)
                 }
+                .listRowBackground(Theme.paper)
+                .listRowSeparatorTint(Theme.pine.opacity(0.12))
             }
         }
     }

@@ -60,6 +60,8 @@ struct PlanView: View {
             }
         }
         .padding(24)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .background(Theme.paper)
     }
 
     private func monthGrid(_ schedule: StudySchedule) -> some View {
