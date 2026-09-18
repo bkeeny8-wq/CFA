@@ -17,7 +17,7 @@ struct SessionRunnerView: View {
 
     var body: some View {
         Group {
-            if showSummary {
+            if showSummary || sessionCoordinator.isPastLastQuestion {
                 sessionSummary
             } else if let questionID = sessionCoordinator.currentQuestionID {
                 attemptView(for: questionID)

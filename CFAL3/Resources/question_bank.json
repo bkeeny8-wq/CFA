@@ -10037,14 +10037,10 @@
                 "C": "The percentage of excess return arising from active factor weighting is 18.18%. Comparing the weights of the fund and the benchmark, the factors with different weights are Growth and Quality. The total contribution to return caused by active factor weighting is −0.04%: Growth (0.22 − 0.25) × 7.9% = −0.24%, and Quality (0.29 − 0.26) × 6.7% = +0.20%. The fund's holding of Momentum securities was less than the benchmark's (24 versus 30), so the fund incurred active security selection risk but no active factor risk, since its Momentum factor weight equals the benchmark's: 0.30 × (3.9% − 4.5%) = −0.18% of security selection. Total effect = −0.04% + (−0.18%) = −0.22%, so the share from active factor weighting = −0.04/−0.22 = 18.18%.\n\n| Factor | Fund Contribution (A × B) | Benchmark Contribution (C × D) | Total Effect | Due to Factor Weight | Due to Security Selection |\n| --- | --- | --- | --- | --- | --- |\n| Growth | 1.74% | 1.98% | −0.24% | −0.24% | — |\n| Value | 0.99% | 0.99% | 0.00% | — | — |\n| Quality | 1.94% | 1.74% | +0.20% | +0.20% | — |\n| Momentum | 1.17% | 1.35% | −0.18% | — | −0.18% |\n| Total | 5.84% | 6.06% | −0.22% | −0.04% | −0.18% |"
               },
               "candidate_los": [
-                "index_based_equity_strategies.a",
-                "active_equity_investing_portfolio_construction.d",
-                "active_equity_investing_strategies.d"
+                "index_based_equity_strategies.a"
               ],
               "primary_reading_ids": [
-                "index_based_equity_strategies",
-                "active_equity_investing_portfolio_construction",
-                "active_equity_investing_strategies"
+                "index_based_equity_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -10176,13 +10172,10 @@
                 "model_answer": "GRADING KEY — full decomposition from Exhibit 1 (fund 5.84% vs benchmark 6.06%; excess = −0.22%).\n\n===\nACTIVE FACTOR-WEIGHTING (allocation) = Σ (fund weight − benchmark weight) × benchmark factor return:\n• Growth: (0.22 − 0.25) × 7.9 = −0.237%\n• Value: (0.19 − 0.19) × 5.2 = 0\n• Quality: (0.29 − 0.26) × 6.7 = +0.201%\n• Momentum: (0.30 − 0.30) × 4.5 = 0\n• TOTAL ALLOCATION ≈ −0.036% (accept −0.03% to −0.04%)\n\n===\nSECURITY SELECTION = Σ fund weight × (fund factor return − benchmark factor return):\n• Only Momentum differs: 0.30 × (3.9 − 4.5) = −0.18%\n• TOTAL SELECTION = −0.18%\n\n===\nCHECK: −0.036% + (−0.18%) = −0.216% ≈ −0.22% excess ✓\n\n===\nSHARE OF EXCESS from factor-weighting = −0.036 / −0.216 ≈ 17% (selection ≈ 83%). Accept 15–20%.\n\nA bare correct pair of numbers (allocation ≈ −0.04%, selection ≈ −0.18%, or ~17%/83% split) earns full credit without prose.\n\nPARTIAL: full=both components (or the split) with method; half=correct method, arithmetic slip; low=one component; 0=wrong framework."
               },
               "candidate_los": [
-                "index_based_equity_strategies.a",
-                "active_equity_investing_portfolio_construction.d",
-                "active_equity_investing_portfolio_construction.a"
+                "index_based_equity_strategies.a"
               ],
               "primary_reading_ids": [
-                "index_based_equity_strategies",
-                "active_equity_investing_portfolio_construction"
+                "index_based_equity_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -10284,13 +10277,11 @@
                 "C": "Incorrect. Parker claims Manager B used currency overlays to LEVER foreign-currency returns. A currency overlay is used to HEDGE (manage) currency risk in a portfolio holding foreign-currency securities, not to leverage returns."
               },
               "candidate_los": [
-                "index_based_equity_strategies.c",
                 "index_based_equity_strategies.e",
-                "active_equity_investing_portfolio_construction.f"
+                "index_based_equity_strategies.f"
               ],
               "primary_reading_ids": [
-                "index_based_equity_strategies",
-                "active_equity_investing_portfolio_construction"
+                "index_based_equity_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -10339,13 +10330,10 @@
                 "C": "Incorrect. 0.28% is the contribution of the Low Volatility overweight alone (+0.279%). Active factor weighting must also net the Momentum underweight (−0.243%), giving 0.036% ≈ 0.04%."
               },
               "candidate_los": [
-                "index_based_equity_strategies.a",
-                "active_equity_investing_portfolio_construction.c",
-                "active_equity_investing_portfolio_construction.d"
+                "index_based_equity_strategies.a"
               ],
               "primary_reading_ids": [
-                "index_based_equity_strategies",
-                "active_equity_investing_portfolio_construction"
+                "index_based_equity_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -10367,13 +10355,11 @@
                 "C": "Incorrect. Replacing the highest-tracking-error manager with index ETFs is a manager-structure decision, not a rebalancing mechanism. It incurs transition costs and does not by itself restore the 60/40 allocation — the equity underweight remains."
               },
               "candidate_los": [
-                "index_based_equity_strategies.c",
-                "active_equity_investing_strategies.c",
-                "index_based_equity_strategies.b"
+                "index_based_equity_strategies.b",
+                "index_based_equity_strategies.c"
               ],
               "primary_reading_ids": [
-                "index_based_equity_strategies",
-                "active_equity_investing_strategies"
+                "index_based_equity_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -10588,14 +10574,10 @@
                 "C": "Annual rebalancing is too infrequent given the volatile nature of the factors used by Regulas."
               },
               "candidate_los": [
-                "active_equity_investing_strategies.c",
-                "active_equity_investing_portfolio_construction.f",
-                "index_based_equity_strategies.c"
+                "active_equity_investing_strategies.c"
               ],
               "primary_reading_ids": [
-                "active_equity_investing_strategies",
-                "active_equity_investing_portfolio_construction",
-                "index_based_equity_strategies"
+                "active_equity_investing_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -10781,14 +10763,10 @@
                 "C": "Opportunities in restructuring and distressed investing are generally counter-cyclical relative to the overall economy or a sector's business cycle. A distressed company that goes through restructuring may still have valuable assets, distribution channels, or patents that make it an attractive acquisition target. The goal of restructuring investing is to gain control or substantial influence over a company in distress at a large discount and then restructure it to restore a large part of its intrinsic value."
               },
               "candidate_los": [
-                "index_based_equity_strategies.a",
-                "active_equity_investing_strategies.b",
-                "overview_of_equity_portfolio_management.c"
+                "active_equity_investing_strategies.b"
               ],
               "primary_reading_ids": [
-                "index_based_equity_strategies",
-                "active_equity_investing_strategies",
-                "overview_of_equity_portfolio_management"
+                "active_equity_investing_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -11052,9 +11030,7 @@
                 "C": "The comment by Analyst 3 is inaccurate because GARP is a bottom-up strategy."
               },
               "candidate_los": [
-                "active_equity_investing_strategies.c",
-                "active_equity_investing_strategies.b",
-                "active_equity_investing_strategies.d"
+                "active_equity_investing_strategies.c"
               ],
               "primary_reading_ids": [
                 "active_equity_investing_strategies"
@@ -11221,13 +11197,10 @@
                 "C": "Although the value style does appear to be out of favor as shown by the lower return than that of the market (0.66% versus 0.71%), the Value factor has a positive contribution to the return (0.08%)."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.f",
-                "index_based_equity_strategies.a",
                 "active_equity_investing_portfolio_construction.a"
               ],
               "primary_reading_ids": [
-                "active_equity_investing_portfolio_construction",
-                "index_based_equity_strategies"
+                "active_equity_investing_portfolio_construction"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -11326,14 +11299,10 @@
                 "C": "The March Fund is the fund that is most consistent with Quint's requirements for the best risk-efficient delivery of results. It delivers the lowest active risk (3.2%) using far fewer securities (140), indicating an efficient approach. The higher Active Share (0.75) for the similar level of fees also supports this decision."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.f",
-                "index_based_equity_strategies.d",
-                "overview_of_equity_portfolio_management.e"
+                "active_equity_investing_portfolio_construction.c"
               ],
               "primary_reading_ids": [
-                "active_equity_investing_portfolio_construction",
-                "index_based_equity_strategies",
-                "overview_of_equity_portfolio_management"
+                "active_equity_investing_portfolio_construction"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -11375,9 +11344,7 @@
                 "model_answer": "VERDICT: MFC Value Fund does NOT ADD value relative to benchmark on rewarded factors basis.\n\nAnalysis:\n• MFC Value Fund alpha (non-factor): -0.05% same as benchmark → no factor-neutral alpha.\n• Factor decomposition shows the fund captures similar market/size/value/momentum exposures as benchmark.\n• Total performance 0.63% vs benchmark 0.66% — slightly underperforms.\n\nAccepted reasoning:\n• Non-factor alpha of -0.05% (same for both) means the fund does NOT generate manager skill beyond factor exposures.\n• Any outperformance/underperformance is coming from factor tilt differences, not security selection.\n• Better rewarded factors could be obtained through cheaper factor ETFs.\n\nPARTIAL: 5=DOES NOT ADD VALUE + non-factor alpha reasoning; 3=direction with weak reasoning; 0=claims adds value."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.a",
-                "active_equity_investing_portfolio_construction.d",
-                "active_equity_investing_portfolio_construction.f"
+                "active_equity_investing_portfolio_construction.d"
               ],
               "primary_reading_ids": [
                 "active_equity_investing_portfolio_construction"

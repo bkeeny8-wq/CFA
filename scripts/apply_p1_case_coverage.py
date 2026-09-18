@@ -684,6 +684,51 @@ RETAGS: dict[str, list[str]] = {
     "active_equity_investing_construction_the_epsilon_institute_t_essay_q7": [
         "active_equity_investing_portfolio_construction.d"
     ],
+    # --- closing pass: remaining unclear equity three-tags; drop extras ---
+    # Factor-weighting vs cap-weight attribution; not risk-budgeting / active-factor process.
+    "index_based_equity_strategies_sapphire_bay_edward_cullen_q3": [
+        "index_based_equity_strategies.a"
+    ],
+    "index_based_equity_strategies_sapphire_bay_edward_cullen_essay_q9": [
+        "index_based_equity_strategies.a"
+    ],
+    # Parker on Manager B: TE is the trap; excess return is luck for an indexer.
+    "index_based_equity_strategies_arthur_camme_arthur_camme_q3": [
+        "index_based_equity_strategies.e",
+        "index_based_equity_strategies.f",
+    ],
+    "index_based_equity_strategies_arthur_camme_arthur_camme_q5": [
+        "index_based_equity_strategies.a"
+    ],
+    # Cheapest restore = equity index futures overlay vs physical / manager swap.
+    "index_based_equity_strategies_arthur_camme_arthur_camme_q6": [
+        "index_based_equity_strategies.b",
+        "index_based_equity_strategies.c",
+    ],
+    # Regulas benefits from an FX overlay after global growth selection — top-down.
+    "active_equity_investing_strategies_allfunz_consulting_allfun_q5": [
+        "active_equity_investing_strategies.c"
+    ],
+    # Fund A = contrarian (poor earnings / out of favor / company analysis).
+    "active_equity_investing_strategies_grasmere_asset_morgon_abe_q3": [
+        "active_equity_investing_strategies.b"
+    ],
+    # Style rotation into deep value from the economic cycle is top-down.
+    "active_equity_investing_strategies_monica_popkirk_monica_pop_q4": [
+        "active_equity_investing_strategies.c"
+    ],
+    # Shaw's accurate comment is the Size-factor small-cap tilt (philosophy).
+    "active_equity_investing_construction_lisette_langham_lisette_q1": [
+        "active_equity_investing_portfolio_construction.a"
+    ],
+    # March: lowest active risk, fewer names, higher Active Share.
+    "active_equity_investing_construction_lisette_langham_lisette_q5": [
+        "active_equity_investing_portfolio_construction.c"
+    ],
+    # MFC Value vs R1000V on rewarded factors — risk-budgeting attribution.
+    "active_equity_investing_construction_lisette_langham_lisette_essay_q7": [
+        "active_equity_investing_portfolio_construction.d"
+    ],
 }
 
 

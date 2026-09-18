@@ -360,6 +360,7 @@ final class SessionDebriefTests: XCTestCase {
         XCTAssertEqual(coordinator.skippedQuestionIDs, ["a", "b", "c"])
         XCTAssertNil(coordinator.currentQuestionID)
         XCTAssertEqual(coordinator.currentIndex, 3)
+        XCTAssertTrue(coordinator.isPastLastQuestion)
 
         coordinator.start(questionIDs: ["d"], mode: .random, filterDescription: "Next")
         XCTAssertTrue(coordinator.skippedQuestionIDs.isEmpty)

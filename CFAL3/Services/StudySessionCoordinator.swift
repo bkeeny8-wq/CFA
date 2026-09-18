@@ -26,6 +26,13 @@ final class StudySessionCoordinator {
         guard currentIndex >= 0, currentIndex < questionIDs.count else { return nil }
         return questionIDs[currentIndex]
     }
+    /// Skip/advance on the last item walks `currentIndex` to `count`, so
+    /// `currentQuestionID` is nil. Runners must treat that as debrief, not
+    /// as an empty or missing item — otherwise one frame of "sitting is
+    /// empty" / "drill missing" flashes before `onChange` can flip summary.
+    var isPastLastQuestion: Bool {
+        !questionIDs.isEmpty && currentIndex >= questionIDs.count
+    }
 
     func start(
         questionIDs: [String],

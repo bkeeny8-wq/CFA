@@ -208,7 +208,7 @@ struct DrillSessionRunnerView: View {
 
     var body: some View {
         Group {
-            if showSummary {
+            if showSummary || sessionCoordinator.isPastLastQuestion {
                 SessionDebriefList(
                     debrief: debrief,
                     skippedCount: sessionCoordinator.skippedQuestionIDs.count,
@@ -243,9 +243,9 @@ struct DrillSessionRunnerView: View {
                 )
             } else {
                 ContentUnavailableView(
-                    "Drill missing",
-                    systemImage: "questionmark",
-                    description: Text("This drill isn't in the current build. Go back and continue from the next question.")
+                    "This sitting is empty",
+                    systemImage: "tray",
+                    description: Text("Go back and start a review, practice, or drill session.")
                 )
             }
         }
