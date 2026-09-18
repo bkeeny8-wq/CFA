@@ -7,6 +7,7 @@ import SwiftData
 struct FlashcardSessionView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Query private var progress: [FlashcardProgress]
 
     let title: String
@@ -62,6 +63,29 @@ struct FlashcardSessionView: View {
                         .accessibilityLabel("Card \(index + 1) of \(cards.count)")
                 }
             }
+            ToolbarItem(placement: .topBarTrailing) {
+                if let card = current {
+                    Button {
+                        toggleFlag(card)
+                    } label: {
+                        Image(systemName: progressByCard[card.id]?.flaggedForReview == true
+                              ? "flag.fill" : "flag")
+                    }
+                    .accessibilityLabel(
+                        progressByCard[card.id]?.flaggedForReview == true
+                        ? "Remove flag" : "Flag for review"
+                    )
+                    .accessibilityIdentifier("flashcard.flag")
+                }
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                if current != nil {
+                    Button(AttemptHost.skipTitle) {
+                        if let card = current { skipAndFlag(card) }
+                    }
+                    .accessibilityIdentifier("flashcard.skip")
+                }
+            }
         }
     }
 
@@ -78,7 +102,7 @@ struct FlashcardSessionView: View {
                     // gesture was invisible to VoiceOver, which had no way to
                     // reveal an answer at all.
                     Button {
-                        withAnimation(.snappy) { isRevealed = true }
+                        sitAnimation { isRevealed = true }
                     } label: {
                         cardBody(card)
                     }
@@ -178,11 +202,18 @@ struct FlashcardSessionView: View {
 
     private func ratingBar(_ card: Flashcard) -> some View {
         let row = progressByCard[card.id]
-        return HStack(spacing: 8) {
-            ratingButton("Again", quality: 1, tint: Theme.danger, row: row, card: card)
-            ratingButton("Hard", quality: 3, tint: Theme.warning, row: row, card: card)
-            ratingButton("Good", quality: 4, tint: Theme.accent, row: row, card: card)
-            ratingButton("Easy", quality: 5, tint: Theme.success, row: row, card: card)
+        return VStack(spacing: 8) {
+            HStack(spacing: 8) {
+                ratingButton("Again", quality: 1, tint: Theme.danger, row: row, card: card)
+                ratingButton("Hard", quality: 3, tint: Theme.warning, row: row, card: card)
+                ratingButton("Good", quality: 4, tint: Theme.accent, row: row, card: card)
+                ratingButton("Easy", quality: 5, tint: Theme.success, row: row, card: card)
+            }
+            Button(AttemptHost.skipTitle) {
+                skipAndFlag(card)
+            }
+            .font(.footnote.weight(.medium))
+            .accessibilityIdentifier("flashcard.skip.rate")
         }
         .padding(.horizontal)
         .padding(.vertical, 10)
@@ -232,7 +263,42 @@ struct FlashcardSessionView: View {
         try? modelContext.save()
 
         ratedCount += 1
-        withAnimation(.snappy) {
+        advance()
+    }
+
+    private func skipAndFlag(_ card: Flashcard) {
+        let row = row(for: card)
+        row.flaggedForReview = true
+        try? modelContext.save()
+        advance()
+    }
+
+    private func toggleFlag(_ card: Flashcard) {
+        let row = row(for: card)
+        row.flaggedForReview.toggle()
+        try? modelContext.save()
+    }
+
+    private func row(for card: Flashcard) -> FlashcardProgress {
+        progressByCard[card.id] ?? {
+            let new = FlashcardProgress(
+                cardId: card.id, readingId: card.readingID, areaId: card.areaID
+            )
+            modelContext.insert(new)
+            return new
+        }()
+    }
+
+    private func sitAnimation(_ body: () -> Void) {
+        if reduceMotion {
+            body()
+        } else {
+            withAnimation(.snappy, body)
+        }
+    }
+
+    private func advance() {
+        sitAnimation {
             isRevealed = false
             index += 1
         }

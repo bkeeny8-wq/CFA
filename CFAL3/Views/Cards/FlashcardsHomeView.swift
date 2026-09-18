@@ -144,6 +144,9 @@ struct FlashcardsHomeView: View {
     }
 
     private func todayLabel(_ plan: FlashcardQueue.Plan) -> String {
+        if plan.flaggedInSession > 0 && plan.dueInSession == 0 && plan.newInSession == 0 {
+            return "Review flagged"
+        }
         if plan.dueInSession > 0 && plan.newInSession > 0 { return "Review + new" }
         if plan.newInSession > 0 { return "Start new cards" }
         if plan.dueInSession > 0 { return "Review due" }
@@ -159,6 +162,7 @@ struct FlashcardsHomeView: View {
         var parts: [String] = []
         if plan.dueCount > 0 { parts.append("\(plan.dueCount.formatted()) due") }
         if plan.overflowDue > 0 { parts.append("\(plan.overflowDue.formatted()) after this session") }
+        if plan.flaggedCount > 0 { parts.append("\(plan.flaggedCount.formatted()) flagged") }
         if plan.notStartedCount > 0 { parts.append("\(plan.notStartedCount.formatted()) not started") }
 
         if plan.isNewOff {

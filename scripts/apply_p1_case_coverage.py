@@ -247,6 +247,94 @@ RETAGS: dict[str, list[str]] = {
     "active_equity_investing_construction_lisette_langham_lisette_essay_q8": [
         "active_equity_investing_portfolio_construction.b"
     ],
+    # Autland — when risk enters evaluation is the three-component interrelationship.
+    "autland_quantitative_autland_quantitative_q1": [
+        "portfolio_performance_evaluation.a"
+    ],
+    "autland_quantitative_autland_quantitative_essay_q11": [
+        "portfolio_performance_evaluation.a"
+    ],
+    # Funds vs managers, then interpret a capture ratio.
+    "teamwork_advisory_teamwork_advisory_essay_q12": [
+        "portfolio_performance_evaluation.h",
+        "portfolio_performance_evaluation.n",
+    ],
+    # Top-down fundamental is the top-down LOS, not style labels.
+    "active_equity_investing_strategies_monica_popkirk_monica_pop_q1": [
+        "active_equity_investing_strategies.c"
+    ],
+    # Classify fund/quant and top-down/bottom-up; drop style-classification spray.
+    "active_equity_investing_strategies_monica_popkirk_monica_pop_essay_q7": [
+        "active_equity_investing_strategies.a",
+        "active_equity_investing_strategies.c",
+    ],
+    "active_equity_investing_strategies_allfunz_consulting_allfun_essay_q10": [
+        "active_equity_investing_strategies.a"
+    ],
+    # Behavioral pitfalls in building fundamental vs quantitative processes.
+    "active_equity_investing_strategies_monica_popkirk_monica_pop_essay_q10": [
+        "active_equity_investing_strategies.g",
+        "active_equity_investing_strategies.h",
+    ],
+    # Pure Mobilebank — add/evaluate IPS language, not bank balance-sheet management.
+    "pure_case_lorelie_chan_q1": [
+        "portfolio_management_for_institutional_investors.f"
+    ],
+    "pure_case_lorelie_chan_q2": [
+        "portfolio_management_for_institutional_investors.c"
+    ],
+    "pure_case_lorelie_chan_essay_q7": [
+        "portfolio_management_for_institutional_investors.f"
+    ],
+    # Common institutional characteristics vs DB-plan risk issues.
+    "chattahoochee_demarcus_miller_q1": [
+        "portfolio_management_for_institutional_investors.a"
+    ],
+    "chattahoochee_demarcus_miller_essay_q8": [
+        "portfolio_management_for_institutional_investors.e"
+    ],
+    # Synthetic positions are replicate-with-options, not spreads or skew.
+    "options_wendy_manetti_wendy_manetti_q1": ["options_strategies.a"],
+    "options_wendy_manetti_wendy_manetti_essay_q5": ["options_strategies.a"],
+    # Identify the strategy given the view; the structure is a calendar put.
+    "options_cynthia_cynthia_essay_q7": [
+        "options_strategies.i",
+        "options_strategies.g",
+    ],
+    # The incorrect claim is about the volatility smile.
+    "options_duane_armitage_duane_q3": ["options_strategies.h"],
+    # Ongoing firm-wide GIPS compliance, not presentation layout.
+    "cascade_capital_gips_pathway_essay_q4": [
+        "overview_of_the_global_investment_performance_standards.b"
+    ],
+    # Political news: fiscal/policy shocks, not inflation or rate linkages.
+    "exeter_asset_martin_standish_essay_q6": [
+        "capital_market_expectations_part_1_framework_and_macro_considerations.c",
+        "capital_market_expectations_part_1_framework_and_macro_considerations.h",
+    ],
+    # Alts IC requests / evaluation comments.
+    "gambier_advisory_lucas_thompson_q3": [
+        "asset_allocation_to_alternative_investments.e"
+    ],
+    "gambier_advisory_lucas_thompson_q4": [
+        "asset_allocation_to_alternative_investments.d"
+    ],
+    # Longer track records vs Type I hiring error, then pick a manager.
+    "wood_valley_mat_dalton_essay_q5": ["investment_manager_selection.b"],
+    "wood_valley_mat_dalton_essay_q8": ["investment_manager_selection.e"],
+    # IG vs HY risk comments are the spread-portfolio risk LOS.
+    "credit_strategies_pm_pathway_harlow_choate_harlow_choate_q2": [
+        "fixed_income_active_management_credit_strategies.a"
+    ],
+    # Overlay program + correlation claims; the essay is overlay strategy.
+    "currency_sabanai_marina_campos_q2": [
+        "currency_management_an_introduction.a",
+        "currency_management_an_introduction.b",
+    ],
+    "currency_sabanai_marina_campos_essay_q7": [
+        "currency_management_an_introduction.b"
+    ],
+    "sabonete_sabonete_sa_q1": ["overview_of_asset_allocation.g"],
 }
 
 

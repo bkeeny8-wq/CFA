@@ -8,6 +8,7 @@ struct CaseAnswerSheetView: View {
     @Environment(ClaudeGrader.self) private var grader
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
+    @Query private var reviewCards: [ReviewCard]
 
     let caseStudy: CaseStudy
 
@@ -63,14 +64,16 @@ struct CaseAnswerSheetView: View {
                         .buttonStyle(.bordered)
                     }
                 } else if !isGraded {
-                    Button(canSubmit ? "Submit all" : "Answer every question to submit") {
+                    Button(submitTitle) {
                         submitTask = Task { await submitAll() }
                     }
                     .buttonStyle(PrimaryCTA())
                     .disabled(!canSubmit)
                     .accessibilityHint(canSubmit
-                        ? "Grades every question in this booklet"
-                        : "Answer every question before submitting")
+                        ? (unansweredCount == 0
+                           ? "Grades every question in this booklet"
+                           : "Grades answered questions and flags the rest")
+                        : "Answer at least one question, or skip the rest")
                 } else {
                     Text(scoreLine)
                         .font(.headline)
@@ -122,14 +125,25 @@ struct CaseAnswerSheetView: View {
         return total > 0 ? total : nil
     }
 
+    private var unansweredCount: Int {
+        questions.filter { !isAnswered($0) }.count
+    }
+
     private var canSubmit: Bool {
-        questions.allSatisfy { question in
-            switch question.type {
-            case .mc: return mcAnswers[question.id] != nil
-            case .essay:
-                return !(essayAnswers[question.id] ?? "")
-                    .trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-            }
+        questions.contains { isAnswered($0) }
+    }
+
+    private var submitTitle: String {
+        if unansweredCount == 0 { return "Submit all" }
+        return "Submit answered · skip \(unansweredCount)"
+    }
+
+    private func isAnswered(_ question: Question) -> Bool {
+        switch question.type {
+        case .mc: return mcAnswers[question.id] != nil
+        case .essay:
+            return !(essayAnswers[question.id] ?? "")
+                .trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         }
     }
 
@@ -156,6 +170,8 @@ struct CaseAnswerSheetView: View {
         var parts: [String] = []
         if !mc.isEmpty { parts.append("\(correct)/\(mc.count) MC") }
         if possible > 0 { parts.append("\(earned)/\(possible) essay points") }
+        let skipped = questions.count - results.count
+        if skipped > 0 { parts.append("\(skipped) skipped") }
         return parts.isEmpty ? "Submitted" : parts.joined(separator: " · ")
     }
 
@@ -227,11 +243,25 @@ struct CaseAnswerSheetView: View {
 
         var graded: [String: Attempt] = [:]
         let elapsed = clock.durationSeconds()
+        let answered = questions.filter { isAnswered($0) }
+        let skipped = questions.filter { !isAnswered($0) }
+        for question in skipped {
+            let existing = reviewCards.first { $0.questionId == question.id }
+            AttemptHost.flagForSkip(
+                questionId: question.id,
+                caseId: caseStudy.id,
+                topicId: caseStudy.topicID,
+                readingIds: question.primaryReadingIDs,
+                losIds: question.candidateLOS,
+                existing: existing,
+                context: modelContext
+            )
+        }
         let slices = ExamPacing.allocate(
             elapsedSeconds: elapsed,
-            weights: questions.map { ExamPacing.weight(for: $0) }
+            weights: answered.map { ExamPacing.weight(for: $0) }
         )
-        for (question, duration) in zip(questions, slices) {
+        for (question, duration) in zip(answered, slices) {
             if Task.isCancelled { return }
             let attempt = await grade(question, durationSeconds: duration)
             modelContext.insert(attempt)

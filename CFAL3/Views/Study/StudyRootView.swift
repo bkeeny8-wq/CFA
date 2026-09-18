@@ -107,6 +107,7 @@ struct StudyRootView: View {
 /// stacked on each other.
 struct StudySectionBar: View {
     @Binding var selection: String
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
         HStack(spacing: 8) {
@@ -114,7 +115,11 @@ struct StudySectionBar: View {
                 let isSelected = selection == section.rawValue
                 Button {
                     guard !isSelected else { return }
-                    withAnimation(.snappy(duration: 0.2)) { selection = section.rawValue }
+                    if reduceMotion {
+                        selection = section.rawValue
+                    } else {
+                        withAnimation(.snappy(duration: 0.2)) { selection = section.rawValue }
+                    }
                 } label: {
                     HStack(spacing: 6) {
                         Image(systemName: section.symbol)

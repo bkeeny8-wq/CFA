@@ -138,7 +138,7 @@ def clause_chunks(text: str, target_words: int = 45) -> list[str]:
     ]
 
 
-def merge_short(pieces: list[str], min_words: int = 8, max_words: int = 55) -> list[str]:
+def merge_short(pieces: list[str], min_words: int = 8, max_words: int = 49) -> list[str]:
     """Glue orphan labels ('2.', 'Weakness') onto a neighbor, but never
     rebuild a back longer than max_words."""
     if len(pieces) < 2:
@@ -209,7 +209,7 @@ def atomize(card: dict, used: set[str]) -> list[dict]:
             pieces = pipe_parts
         elif len(numbered) >= 2 and words > 50:
             pieces = numbered
-        elif words > 55:
+        elif words > 49:
             pieces = clause_chunks(card["back"])
         else:
             return [card]
@@ -219,7 +219,7 @@ def atomize(card: dict, used: set[str]) -> list[dict]:
     pieces = merge_short(pieces)
     exploded: list[str] = []
     for piece in pieces:
-        exploded.extend(word_windows(piece, 45) if len(piece.split()) > 55 else [piece])
+        exploded.extend(word_windows(piece, 45) if len(piece.split()) > 49 else [piece])
     pieces = merge_short(exploded)
     if len(pieces) < 2:
         return [card]

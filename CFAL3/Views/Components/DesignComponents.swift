@@ -109,7 +109,7 @@ struct MasteryBar: View {
             }
         }
         .frame(height: height)
-        .animation(.snappy, value: value)
+        .modifier(ReduceMotionAnimation(value: value))
         .accessibilityElement()
         .accessibilityLabel("Progress")
         .accessibilityValue("\(Int((fraction * 100).rounded())) percent")
@@ -155,5 +155,19 @@ struct PacingTimer: View {
 
     private func format(_ s: Int) -> String {
         String(format: "%d:%02d", s / 60, s % 60)
+    }
+}
+
+/// Honors Reduce Motion: mastery bars still move, they just don't animate.
+private struct ReduceMotionAnimation<V: Equatable>: ViewModifier {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    let value: V
+
+    func body(content: Content) -> some View {
+        if reduceMotion {
+            content
+        } else {
+            content.animation(.snappy, value: value)
+        }
     }
 }

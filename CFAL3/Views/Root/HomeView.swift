@@ -289,6 +289,23 @@ struct HomeView: View {
                 .cfaCard()
             }
             .buttonStyle(.plain)
+        } else {
+            Button {
+                router.selected = .study
+            } label: {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("Start a reading")
+                        .font(.headline)
+                        .foregroundStyle(.primary)
+                    Text("No in-progress reading yet. Open Study and pick the first module on the plan.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .cfaCard()
+            }
+            .buttonStyle(.plain)
+            .accessibilityIdentifier("home.continue.empty")
         }
     }
 

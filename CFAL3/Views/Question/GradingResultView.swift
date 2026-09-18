@@ -63,6 +63,7 @@ struct GradingResultView: View {
             if let icon = verdictIcon {
                 Image(systemName: icon)
                     .font(.title2)
+                    .accessibilityHidden(true)
             }
             Text(verdictHeadline)
                 .font(.title2.weight(.semibold))
@@ -79,6 +80,9 @@ struct GradingResultView: View {
                 .fill(tint.opacity(0.14))
         )
         .foregroundStyle(tint)
+        .accessibilityElement(children: .combine)
+        .accessibilityAddTraits(.isHeader)
+        .accessibilityLabel(verdictAccessibilityLabel)
     }
 
     @ViewBuilder
@@ -289,6 +293,10 @@ struct GradingResultView: View {
             return "The bundled key is shown below"
         }
         return nil
+    }
+
+    private var verdictAccessibilityLabel: String {
+        [verdictHeadline, verdictSubtitle].compactMap { $0 }.joined(separator: ". ")
     }
 
     private var nextButtonTitle: String {

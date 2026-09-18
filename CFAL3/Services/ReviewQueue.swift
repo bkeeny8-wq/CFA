@@ -11,7 +11,7 @@ import Foundation
 ///
 /// It also meters how much unseen material enters a session.
 /// `bootstrapReviewCards` seeds a card per question with `dueDate = .now`, so
-/// on a fresh install all 3,157 are "due" at once — a number that is true by
+/// on a fresh install all 3,162 are "due" at once — a number that is true by
 /// the letter and useless in practice. Cards the user has never answered are
 /// a separate lane, rationed per day.
 ///
@@ -28,7 +28,7 @@ enum ReviewQueue {
     static let sessionCap = 60
 
     /// Never-seen questions introduced per day. Roughly the pace that covers
-    /// 3,157 questions across a typical study period.
+    /// 3,162 questions across a typical study period.
     static let defaultDailyNewLimit = 20
 
     static let newLimitOptions = [0, 5, 10, 15, 20, 30, 40, 60]
@@ -208,7 +208,7 @@ enum ReviewQueue {
 
         // Select only the slots we need instead of sorting every card. This
         // runs on each body evaluation of two screens, so a full O(n log n)
-        // sort of 3,157 cards — with set operations inside the comparator —
+        // sort of 3,162 cards — with set operations inside the comparator —
         // was showing up as scroll hitching.
         let dueIDs = smallestK(due, k: dueSlots) { $0.dueDate.timeIntervalSinceReferenceDate }
             .map(\.questionId)

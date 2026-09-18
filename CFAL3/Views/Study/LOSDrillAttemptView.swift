@@ -90,7 +90,7 @@ struct LOSDrillAttemptView: View {
         // fires again whenever this view comes back — from the result screen,
         // or from another tab — and restarting the clock there restarted the
         // pacing display mid-question and made durationSeconds count only from
-        // the last reappearance. Drills are 2,667 of the 3,157 questions, so
+        // the last reappearance. Drills are 2,667 of the 3,162 questions, so
         // fixing this in the bank view alone fixed the smaller half.
         .onAppear {
             clock.appear()
