@@ -31,9 +31,14 @@ struct CaseDetailView: View {
         .background(Theme.paper)
         .navigationTitle(caseStudy?.title ?? "Case")
         .toolbar(.visible, for: .navigationBar)
-        .navigationDestination(isPresented: $showAnswerSheet) {
+        .fullScreenCover(isPresented: $showAnswerSheet) {
             if let caseStudy {
-                CaseAnswerSheetView(caseStudy: caseStudy)
+                NavigationStack {
+                    CaseAnswerSheetView(caseStudy: caseStudy)
+                }
+                .tint(Theme.pine)
+                .preferredColorScheme(.light)
+                .daybookPaper()
             }
         }
         .toolbar {
@@ -115,13 +120,19 @@ struct CaseDetailView: View {
 
     private var answerSheetButton: some View {
         Button {
+            guard let caseStudy else { return }
+            sessionCoordinator.start(
+                questionIDs: caseStudy.questions.map(\.id),
+                mode: .random,
+                filterDescription: caseStudy.title
+            )
             showAnswerSheet = true
         } label: {
-            Text("Full-case answer sheet")
+            Text("Sit this booklet")
         }
         .buttonStyle(.bordered)
         .frame(maxWidth: .infinity)
-        .accessibilityHint("Vignette pinned; every question on one page; submit all")
+        .accessibilityHint("Sitting cover: vignette pinned, Check answer, Skip & flag, named ratings")
     }
 
     private func vignetteCard(_ caseStudy: CaseStudy) -> some View {

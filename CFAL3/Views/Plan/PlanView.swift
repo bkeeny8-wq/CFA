@@ -167,9 +167,10 @@ struct PlanView: View {
     }
 
     private func shortBlockLabel(_ day: ScheduleDay?) -> String? {
-        guard let label = day?.blocks.first?.label else { return nil }
-        if label.count <= 8 { return label }
-        return String(label.prefix(6))
+        guard let block = day?.blocks.first else { return nil }
+        let title = StudyDisplay.scheduleBlockTitle(block, content: content)
+        if title.count <= 10 { return title }
+        return String(title.prefix(8))
     }
 
     private func dayAccessibility(_ date: Date, day: ScheduleDay?, isDone: Bool, isRest: Bool) -> String {
@@ -210,7 +211,7 @@ struct PlanView: View {
                         Text(block.start)
                             .font(.caption)
                             .foregroundStyle(Theme.dust)
-                        Text(block.label)
+                        Text(StudyDisplay.scheduleBlockTitle(block, content: content))
                             .font(.subheadline.weight(.medium))
                             .foregroundStyle(Theme.ink)
                     }

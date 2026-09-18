@@ -245,7 +245,7 @@ struct HomeView: View {
                             ForEach(Array(today.blocks.enumerated()), id: \.element.id) { index, block in
                                 HStack(spacing: 10) {
                                     timelineDot(index: index, count: today.blocks.count)
-                                    Text("\(block.start)  ·  \(blockKindLabel(block))  ·  \(block.label)")
+                                    Text("\(block.start)  ·  \(blockKindLabel(block))  ·  \(StudyDisplay.scheduleBlockTitle(block, content: content))")
                                         .font(.subheadline)
                                         .foregroundStyle(Theme.ink)
                                         .lineLimit(1)

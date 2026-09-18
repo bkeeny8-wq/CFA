@@ -118,4 +118,22 @@ enum StudyDisplay {
             card.totalAttempts > 0 && card.dueDate <= now && card.readingIds.contains(reading.id)
         }.count
     }
+
+    /// Plan JSON still carries MM codes (`D3: B1-M1 …`). Today and Plan show
+    /// the reading name; the code is a production leftover, not a study label.
+    static func scheduleBlockTitle(_ block: ScheduleBlock, content: ContentLoader) -> String {
+        if let id = block.readingID, let match = content.reading(id: id) {
+            return readingShortTitle(match.reading, content: content)
+        }
+        return stripPlanCode(block.label)
+    }
+
+    static func stripPlanCode(_ label: String) -> String {
+        let pattern = #"^(?:D\d+|MM Video|MM Q|MM):\s*(?:B\d+-M\d+\s+)?"#
+        guard let regex = try? NSRegularExpression(pattern: pattern) else { return label }
+        let range = NSRange(label.startIndex..., in: label)
+        let stripped = regex.stringByReplacingMatches(in: label, range: range, withTemplate: "")
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        return stripped.isEmpty ? label : stripped
+    }
 }

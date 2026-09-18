@@ -58,6 +58,29 @@ struct LOS: Codable, Identifiable, Hashable {
             return nil
         }
     }
+
+    /// Progress pip column uses the mock’s short Standard names, not the
+    /// full Code-and-Standards titles.
+    static func ethicsPipLabel(for readingID: String) -> String? {
+        switch readingID {
+        case "guidance_standard_i_professionalism":
+            return "I. Professionalism"
+        case "guidance_standard_ii_integrity_capital_markets":
+            return "II. Integrity of Capital Markets"
+        case "guidance_standard_iii_duties_to_clients":
+            return "III. Duties to Clients"
+        case "guidance_standard_iv_duties_to_employers":
+            return "IV. Duties to Employers"
+        case "guidance_standard_v_investment_analysis":
+            return "V. Investment Analysis"
+        case "guidance_standard_vi_conflicts_of_interest":
+            return "VI. Conflicts of Interest"
+        case "guidance_standard_vii_responsibilities":
+            return "VII. Responsibilities as a Member"
+        default:
+            return nil
+        }
+    }
 }
 
 struct Reading: Codable, Identifiable, Hashable {

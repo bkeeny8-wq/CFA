@@ -13,6 +13,7 @@ struct ProgressDashboardView: View {
     @Query private var dayCompletions: [DayCompletion]
 
     @State private var selectedReadingID: String?
+    @State private var selectedAreaID: String?
 
     var body: some View {
         let overall = ProgressStats.overallStats(
@@ -21,20 +22,21 @@ struct ProgressDashboardView: View {
         )
         let topicProgress = ProgressStats.topicProgress(content: content, attempts: attempts, cards: cards)
         let coverage = ProgressStats.losCoverage(content: content, attempts: attempts)
-        let selected = selectedReading(in: coverage)
+        let visibleArea = selectedArea(in: coverage)
+        let selected = selectedReading(in: visibleArea)
 
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 header
                 statTiles(overall: overall)
                 HStack(alignment: .top, spacing: 18) {
-                    losCoverageColumn(coverage, selected: selected)
+                    losCoverageColumn(visibleArea, selected: selected)
                     inspector(selected)
                         .frame(width: horizontalSizeClass == .regular ? 280 : nil)
                 }
                 HStack(alignment: .top, spacing: 16) {
                     emptyCaseCallout(coverage)
-                    bookGrid(topicProgress)
+                    bookGrid(topicProgress, coverage: coverage)
                 }
                 weeklySparkline
             }
@@ -44,9 +46,7 @@ struct ProgressDashboardView: View {
         .toolbar(.hidden, for: .navigationBar)
         .accessibilityIdentifier("progress.dashboard")
         .onAppear {
-            if selectedReadingID == nil {
-                selectedReadingID = coverage.first?.readings.first?.readingID
-            }
+            seedSelection(coverage)
         }
     }
 
@@ -123,23 +123,30 @@ struct ProgressDashboardView: View {
         )
     }
 
-    private func losCoverageColumn(_ coverage: [LOSAreaCoverage], selected: LOSReadingCoverage?) -> some View {
+    private func losCoverageColumn(_ area: LOSAreaCoverage?, selected: LOSReadingCoverage?) -> some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("LOS coverage")
-                .font(.headline)
-                .foregroundStyle(Theme.ink)
-                .accessibilityIdentifier("progress.losCoverage")
-                .accessibilityAddTraits(.isHeader)
-            ForEach(coverage, id: \.areaID) { area in
-                VStack(alignment: .leading, spacing: 4) {
-                    ForEach(area.readings, id: \.readingID) { reading in
-                        Button {
-                            selectedReadingID = reading.readingID
-                        } label: {
-                            pipRow(reading, selected: selected?.readingID == reading.readingID)
-                        }
-                        .buttonStyle(.plain)
+            HStack(alignment: .firstTextBaseline) {
+                Text("LOS coverage")
+                    .font(.headline)
+                    .foregroundStyle(Theme.ink)
+                    .accessibilityIdentifier("progress.losCoverage")
+                    .accessibilityAddTraits(.isHeader)
+                Spacer()
+                if let area {
+                    let started = area.readings.filter { $0.attempted > 0 }.count
+                    Text("\(started) of \(area.readings.count)")
+                        .font(.caption)
+                        .foregroundStyle(Theme.dust)
+                }
+            }
+            if let area {
+                ForEach(area.readings, id: \.readingID) { reading in
+                    Button {
+                        selectedReadingID = reading.readingID
+                    } label: {
+                        pipRow(reading, selected: selected?.readingID == reading.readingID)
                     }
+                    .buttonStyle(.plain)
                 }
             }
         }
@@ -149,7 +156,7 @@ struct ProgressDashboardView: View {
     private func pipRow(_ reading: LOSReadingCoverage, selected: Bool) -> some View {
         let filled = reading.items.filter { $0.attempted > 0 }.count
         let tier = pipTier(reading)
-        return HStack(spacing: 10) {
+        return HStack(alignment: .top, spacing: 10) {
             Text(shortReadingName(reading))
                 .font(.subheadline)
                 .foregroundStyle(Theme.ink)
@@ -158,15 +165,23 @@ struct ProgressDashboardView: View {
             Text(tier)
                 .font(.caption)
                 .foregroundStyle(Theme.dust)
-            HStack(spacing: 4) {
-                ForEach(reading.items) { item in
-                    Circle()
-                        .fill(item.attempted > 0 ? Theme.pine : Color.clear)
-                        .overlay(Circle().stroke(Theme.pine.opacity(0.35), lineWidth: 1.2))
-                        .frame(width: 9, height: 9)
-                        .accessibilityLabel(
-                            "LOS \(item.letter.uppercased()) \(item.attempted > 0 ? "attempted" : "not started")"
-                        )
+                .padding(.top, 2)
+            VStack(alignment: .trailing, spacing: 4) {
+                HStack(spacing: 4) {
+                    ForEach(reading.items) { item in
+                        Circle()
+                            .fill(item.attempted > 0 ? Theme.pine : Color.clear)
+                            .overlay(Circle().stroke(Theme.pine.opacity(0.35), lineWidth: 1.2))
+                            .frame(width: 9, height: 9)
+                            .accessibilityLabel(
+                                "LOS \(item.letter.uppercased()) \(item.attempted > 0 ? "attempted" : "not started")"
+                            )
+                    }
+                }
+                if selected {
+                    Text("\(filled) of \(reading.items.count) LOS")
+                        .font(.caption2)
+                        .foregroundStyle(Theme.dust)
                 }
             }
             .accessibilityElement(children: .ignore)
@@ -190,8 +205,16 @@ struct ProgressDashboardView: View {
     }
 
     private func shortReadingName(_ reading: LOSReadingCoverage) -> String {
-        if let prefix = LOS.ethicsStandardPrefix(for: reading.readingID) {
+        if let prefix = LOS.ethicsPipLabel(for: reading.readingID) {
             return prefix
+        }
+        if reading.readingID == "code_and_standards"
+            || reading.readingID.contains("code_of_ethics")
+            || reading.readingName.lowercased().contains("code of ethics") {
+            return "Code of Ethics"
+        }
+        if reading.readingID.contains("application_of_code") {
+            return "Application of the Code"
         }
         if reading.readingID.contains("asset_manager") {
             return "Asset Manager Code"
@@ -199,11 +222,21 @@ struct ProgressDashboardView: View {
         return reading.readingName
     }
 
+    private func inspectorTitle(_ reading: LOSReadingCoverage) -> String {
+        if let prefix = LOS.ethicsPipLabel(for: reading.readingID),
+           let dot = prefix.firstIndex(of: ".") {
+            let numeral = String(prefix[..<dot])
+            let rest = prefix[prefix.index(after: dot)...].trimmingCharacters(in: .whitespaces)
+            return "Standard \(numeral) — \(rest)"
+        }
+        return shortReadingName(reading)
+    }
+
     @ViewBuilder
     private func inspector(_ reading: LOSReadingCoverage?) -> some View {
         if let reading {
             VStack(alignment: .leading, spacing: 12) {
-                Text(shortReadingName(reading))
+                Text(inspectorTitle(reading))
                     .font(.headline)
                     .foregroundStyle(Theme.ink)
                 ForEach(reading.items) { item in
@@ -252,12 +285,28 @@ struct ProgressDashboardView: View {
 
     @ViewBuilder
     private func emptyCaseCallout(_ coverage: [LOSAreaCoverage]) -> some View {
-        let empty = coverage.flatMap(\.readings).filter {
-            $0.caseQuestionCount == 0 && ($0.readingID.contains("swf") || $0.readingID.contains("endowment"))
-        }
-        if let reading = empty.first {
+        let match: (area: LOSAreaCoverage, reading: LOSReadingCoverage)? = {
+            for area in coverage {
+                if let reading = area.readings.first(where: { reading in
+                    reading.caseQuestionCount == 0
+                        && (reading.readingID.contains("swf") || reading.readingID.contains("endowment"))
+                }) {
+                    return (area, reading)
+                }
+            }
+            return nil
+        }()
+        if let match {
+            let started = match.area.readings.filter { $0.attempted > 0 }.count
             VStack(alignment: .leading, spacing: 10) {
-                Label(reading.readingName, systemImage: "scalemass")
+                HStack {
+                    Text(ProgressDisplay.shortName(match.area.areaID, fallback: match.area.areaName))
+                    Spacer()
+                    Text("\(started) of \(match.area.readings.count)")
+                }
+                .font(.caption)
+                .foregroundStyle(Theme.dust)
+                Label(emptyReadingTitle(match.reading), systemImage: "scalemass")
                     .font(.headline)
                     .foregroundStyle(Theme.ink)
                 Text("Drills and cards only. No case items tagged.")
@@ -277,14 +326,29 @@ struct ProgressDashboardView: View {
         }
     }
 
-    private func bookGrid(_ topics: [TopicProgress]) -> some View {
+    private func emptyReadingTitle(_ reading: LOSReadingCoverage) -> String {
+        if reading.readingID.contains("swf") { return "Sovereign Wealth Funds" }
+        if reading.readingID.contains("endowment") { return "Endowment" }
+        return reading.readingName
+    }
+
+    private func bookGrid(_ topics: [TopicProgress], coverage: [LOSAreaCoverage]) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Books")
                 .font(.headline)
                 .foregroundStyle(Theme.ink)
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 8) {
                 ForEach(topics, id: \.topicID) { topic in
-                    TopicProgressCard(progress: topic)
+                    Button {
+                        selectedAreaID = topic.topicID
+                        selectedReadingID = coverage.first { $0.areaID == topic.topicID }?.readings.first?.readingID
+                    } label: {
+                        TopicProgressCard(
+                            progress: topic,
+                            selected: selectedAreaID == topic.topicID
+                        )
+                    }
+                    .buttonStyle(.plain)
                 }
             }
             Text("A shared reading counts in both books.")
@@ -335,17 +399,35 @@ struct ProgressDashboardView: View {
         .accessibilityLabel("This week, \(current) attempts, \(delta)")
     }
 
-    private func selectedReading(in coverage: [LOSAreaCoverage]) -> LOSReadingCoverage? {
-        let readings = coverage.flatMap(\.readings)
-        if let id = selectedReadingID, let match = readings.first(where: { $0.readingID == id }) {
+    private func seedSelection(_ coverage: [LOSAreaCoverage]) {
+        if selectedAreaID == nil {
+            selectedAreaID = coverage.first { $0.areaID == "ethical_and_professional_standards" }?.areaID
+                ?? coverage.first?.areaID
+        }
+        if selectedReadingID == nil, let area = selectedArea(in: coverage) {
+            selectedReadingID = area.readings.first?.readingID
+        }
+    }
+
+    private func selectedArea(in coverage: [LOSAreaCoverage]) -> LOSAreaCoverage? {
+        if let id = selectedAreaID, let match = coverage.first(where: { $0.areaID == id }) {
             return match
         }
-        return readings.first
+        return coverage.first { $0.areaID == "ethical_and_professional_standards" } ?? coverage.first
+    }
+
+    private func selectedReading(in area: LOSAreaCoverage?) -> LOSReadingCoverage? {
+        guard let area else { return nil }
+        if let id = selectedReadingID, let match = area.readings.first(where: { $0.readingID == id }) {
+            return match
+        }
+        return area.readings.first
     }
 }
 
 private struct TopicProgressCard: View {
     let progress: TopicProgress
+    var selected: Bool = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
@@ -362,8 +444,8 @@ private struct TopicProgressCard: View {
         .padding(12)
         .background(
             RoundedRectangle(cornerRadius: 14, style: .continuous)
-                .fill(Theme.cardFill)
-                .shadow(color: Color.black.opacity(0.04), radius: 8, y: 3)
+                .fill(selected ? Theme.sage : Theme.cardFill)
+                .shadow(color: Color.black.opacity(selected ? 0 : 0.04), radius: 8, y: 3)
         )
     }
 }

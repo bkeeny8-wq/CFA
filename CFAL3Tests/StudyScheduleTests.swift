@@ -136,4 +136,20 @@ final class StudyScheduleTests: XCTestCase {
         XCTAssertEqual(block.readingID, "asset_manager_code_of_professional_conduct")
         XCTAssertEqual(block.book, 5)
     }
+
+    func testScheduleBlockTitlesDropProductionCodes() {
+        XCTAssertEqual(
+            StudyDisplay.stripPlanCode("D3: B1-M1 Capital Market Expectations I"),
+            "Capital Market Expectations I"
+        )
+        XCTAssertEqual(
+            StudyDisplay.stripPlanCode("MM Video: B4-M2 Swaps, Forwards & Futures"),
+            "Swaps, Forwards & Futures"
+        )
+        XCTAssertEqual(
+            StudyDisplay.stripPlanCode("MM Q: B2-M1 Overview of Equity PM"),
+            "Overview of Equity PM"
+        )
+        XCTAssertEqual(StudyDisplay.stripPlanCode("Foster"), "Foster")
+    }
 }
