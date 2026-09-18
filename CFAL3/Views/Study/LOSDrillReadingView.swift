@@ -89,8 +89,7 @@ struct LOSDrillReadingView: View {
                     } label: {
                         Text(group.losLetter.uppercased())
                             .font(.subheadline.weight(.medium))
-                            .frame(minWidth: 34)
-                            .padding(.vertical, 6)
+                            .frame(minWidth: 44, minHeight: 44)
                             .padding(.horizontal, 4)
                             .background(
                                 Capsule()
@@ -99,6 +98,8 @@ struct LOSDrillReadingView: View {
                             .foregroundStyle(selected ? Theme.accent : .secondary)
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel("LOS \(group.losLetter.uppercased())")
+                    .accessibilityAddTraits(selected ? .isSelected : [])
                 }
             }
             .padding(.horizontal, 2)
@@ -149,6 +150,12 @@ struct LOSDrillReadingView: View {
                 } label: {
                     Label("Run matches", systemImage: "play.fill")
                 }
+            } else {
+                ContentUnavailableView(
+                    "No matching drills",
+                    systemImage: "magnifyingglass",
+                    description: Text("Try a different word from the stem or the LOS statement.")
+                )
             }
 
             ForEach(searchResults, id: \.drill.id) { result in
@@ -229,6 +236,11 @@ struct DrillSessionRunnerView: View {
                     )
                 )
                 .id(questionID)
+            } else if sessionCoordinator.currentQuestionID != nil {
+                MissingSittingItemView(
+                    title: "Drill missing",
+                    description: "This drill isn't in the current build. Skip & flag to keep the sitting going."
+                )
             } else {
                 ContentUnavailableView(
                     "Drill missing",
@@ -255,6 +267,9 @@ struct DrillSessionRunnerView: View {
         // Same as the question runner: record as you go, so abandoning a drill
         // session still leaves a row behind.
         .onChange(of: sessionCoordinator.completedAttemptIDs.count) { _, _ in
+            sessionCoordinator.persist(into: modelContext)
+        }
+        .onChange(of: sessionCoordinator.skippedQuestionIDs.count) { _, _ in
             sessionCoordinator.persist(into: modelContext)
         }
     }

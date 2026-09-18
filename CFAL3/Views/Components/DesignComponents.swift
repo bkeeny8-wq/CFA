@@ -148,13 +148,24 @@ struct PacingTimer: View {
             .foregroundStyle(over ? .orange : .secondary)
             .accessibilityElement(children: .ignore)
             .accessibilityLabel("Pacing")
-            .accessibilityValue("\(format(elapsed)) elapsed of \(format(targetSeconds)) target")
+            .accessibilityValue("\(spoken(elapsed)) elapsed of \(spoken(targetSeconds)) target")
             .accessibilityAddTraits(.updatesFrequently)
         }
     }
 
     private func format(_ s: Int) -> String {
         String(format: "%d:%02d", s / 60, s % 60)
+    }
+
+    private func spoken(_ s: Int) -> String {
+        let minutes = s / 60
+        let seconds = s % 60
+        if minutes == 0 { return "\(seconds) seconds" }
+        if seconds == 0 {
+            return minutes == 1 ? "1 minute" : "\(minutes) minutes"
+        }
+        let minuteWord = minutes == 1 ? "1 minute" : "\(minutes) minutes"
+        return "\(minuteWord) \(seconds) seconds"
     }
 }
 

@@ -115,38 +115,57 @@ struct HomeView: View {
     }
 
     private func reviewCTACard(_ plan: ReviewQueue.Plan) -> some View {
-        Button {
-            startReviewSession(plan)
-        } label: {
-            VStack(alignment: .leading, spacing: 2) {
-                if !plan.isEmpty {
-                    Text("Today's mix")
-                        .font(.caption2.weight(.semibold))
-                        .textCase(.uppercase)
-                        .accessibilityIdentifier("home.review.mix")
+        let inputs = ctaInputs(plan)
+        return VStack(alignment: .leading, spacing: 8) {
+            Button {
+                startReviewSession(plan)
+            } label: {
+                VStack(alignment: .leading, spacing: 2) {
+                    if !plan.isEmpty {
+                        Text("Today's mix")
+                            .font(.caption2.weight(.semibold))
+                            .textCase(.uppercase)
+                            .accessibilityIdentifier("home.review.mix")
+                    }
+                    Text(ReviewCTA.title(inputs))
+                        .font(.headline)
+                        .accessibilityIdentifier("home.review.title")
+                    Text(ReviewCTA.subtitle(inputs))
+                        .font(.caption)
+                    if plan.notStartedCount > 0 && plan.dueCount > 0 {
+                        Text("\(plan.notStartedCount.formatted()) not started")
+                            .font(.caption2)
+                            .opacity(0.8)
+                    }
                 }
-                Text(ReviewCTA.title(ctaInputs(plan)))
-                    .font(.headline)
-                    .accessibilityIdentifier("home.review.title")
-                Text(ReviewCTA.subtitle(ctaInputs(plan)))
-                    .font(.caption)
-                if plan.notStartedCount > 0 && plan.dueCount > 0 {
-                    Text("\(plan.notStartedCount.formatted()) not started")
-                        .font(.caption2)
-                        .opacity(0.8)
-                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(14)
+                .background(
+                    RoundedRectangle(cornerRadius: Theme.cardRadius)
+                        .fill(Theme.accent.opacity(0.14))
+                )
+                .foregroundStyle(Theme.accent)
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(14)
-            .background(
-                RoundedRectangle(cornerRadius: Theme.cardRadius)
-                    .fill(Theme.accent.opacity(0.14))
-            )
-            .foregroundStyle(Theme.accent)
+            .buttonStyle(.plain)
+            .disabled(plan.isEmpty)
+
+            if plan.isEmpty && plan.isNewOff {
+                NavigationLink {
+                    SettingsView()
+                } label: {
+                    Text("Turn on new questions in Settings")
+                        .font(.caption.weight(.medium))
+                }
+            } else if plan.isEmpty && !inputs.isPreparing && content.loadError == nil {
+                Button {
+                    router.selected = .practice
+                } label: {
+                    Text("Open Practice")
+                        .font(.caption.weight(.medium))
+                }
+                .accessibilityIdentifier("home.review.openPractice")
+            }
         }
-        .buttonStyle(.plain)
-        // The payload itself is the gate, so an enabled card always runs.
-        .disabled(plan.isEmpty)
     }
 
     /// Gathers what the copy depends on. The wording itself lives in

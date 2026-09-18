@@ -54,6 +54,9 @@ struct SessionRunnerView: View {
         .onChange(of: sessionCoordinator.completedAttemptIDs.count) { _, _ in
             sessionCoordinator.persist(into: modelContext)
         }
+        .onChange(of: sessionCoordinator.skippedQuestionIDs.count) { _, _ in
+            sessionCoordinator.persist(into: modelContext)
+        }
     }
 
     @ViewBuilder
@@ -82,10 +85,9 @@ struct SessionRunnerView: View {
                 sessionProgress: progress
             )
         } else {
-            ContentUnavailableView(
-                "Question missing",
-                systemImage: "questionmark.circle",
-                description: Text("This item isn't in the current build. Go back and continue the sitting from the next question.")
+            MissingSittingItemView(
+                title: "Question missing",
+                description: "This item isn't in the current build. Skip & flag to keep the sitting going."
             )
         }
     }
@@ -155,7 +157,6 @@ struct SessionDebriefList: View {
         List {
             Section {
                 Text(debrief.scoreLine)
-                    .accessibilityAddTraits(.isHeader)
                 if skippedCount > 0 {
                     Text("\(skippedCount) skipped & flagged")
                 }
@@ -163,6 +164,7 @@ struct SessionDebriefList: View {
                 Text("Mode: \(modeLine)")
             } header: {
                 Text("Session debrief")
+                    .accessibilityAddTraits(.isHeader)
             }
             if !debrief.missedLabels.isEmpty {
                 Section {
@@ -171,6 +173,7 @@ struct SessionDebriefList: View {
                     }
                 } header: {
                     Text("Missed")
+                        .accessibilityAddTraits(.isHeader)
                 }
             }
             if !skippedLabels.isEmpty {
@@ -180,16 +183,13 @@ struct SessionDebriefList: View {
                     }
                 } header: {
                     Text("Skipped & flagged")
+                        .accessibilityAddTraits(.isHeader)
                 }
             }
             Section {
                 if let onRetry, debrief.canRetry || skippedCount > 0 {
                     let retryCount = debrief.missedIDs.count + skippedCount
-                    Button(
-                        skippedCount > 0
-                            ? "Retry missed & skipped (\(retryCount))"
-                            : "Retry missed (\(debrief.missedIDs.count))"
-                    ) {
+                    Button(retryTitle(missed: debrief.missedIDs.count, skipped: skippedCount, total: retryCount)) {
                         onRetry()
                     }
                 }
@@ -198,5 +198,41 @@ struct SessionDebriefList: View {
                     .tint(Theme.accent)
             }
         }
+    }
+
+    private func retryTitle(missed: Int, skipped: Int, total: Int) -> String {
+        if skipped > 0 && missed == 0 {
+            return "Retry skipped (\(skipped))"
+        }
+        if skipped > 0 {
+            return "Retry missed & skipped (\(total))"
+        }
+        return "Retry missed (\(missed))"
+    }
+}
+
+/// An ID in the sitting that is not in this build. Skip keeps the session
+/// moving instead of trapping the candidate on a dead screen.
+struct MissingSittingItemView: View {
+    @Environment(StudySessionCoordinator.self) private var sessionCoordinator
+    let title: String
+    let description: String
+
+    var body: some View {
+        ContentUnavailableView {
+            Label(title, systemImage: "questionmark.circle")
+        } description: {
+            Text(description)
+        } actions: {
+            if sessionCoordinator.isActive {
+                Button(AttemptHost.skipTitle) {
+                    _ = sessionCoordinator.skipCurrent()
+                }
+                .buttonStyle(.borderedProminent)
+                .accessibilityIdentifier("attempt.skip")
+            }
+        }
+        .readableContentWidth()
+        .padding()
     }
 }

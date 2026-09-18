@@ -160,6 +160,7 @@ struct VignetteView: View {
                 .font(.subheadline.weight(.semibold))
                 .foregroundStyle(Theme.accent)
                 .padding(.top, 2)
+                .accessibilityAddTraits(.isHeader)
 
         case .bullets(let items):
             VStack(alignment: .leading, spacing: 6) {

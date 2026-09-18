@@ -115,10 +115,8 @@ struct StudySectionBar: View {
                 let isSelected = selection == section.rawValue
                 Button {
                     guard !isSelected else { return }
-                    if reduceMotion {
+                    withSittingAnimation(reduceMotion) {
                         selection = section.rawValue
-                    } else {
-                        withAnimation(.snappy(duration: 0.2)) { selection = section.rawValue }
                     }
                 } label: {
                     HStack(spacing: 6) {

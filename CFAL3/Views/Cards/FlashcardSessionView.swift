@@ -26,6 +26,7 @@ struct FlashcardSessionView: View {
     @State private var index = 0
     @State private var isRevealed = false
     @State private var ratedCount = 0
+    @State private var skippedCount = 0
 
     private var current: Flashcard? {
         guard index >= 0, index < cards.count else { return nil }
@@ -239,6 +240,8 @@ struct FlashcardSessionView: View {
             .foregroundStyle(tint)
         }
         .buttonStyle(.plain)
+        .frame(minHeight: 44)
+        .accessibilityLabel("\(label), \(intervalLabel(row: row, quality: quality))")
         .accessibilityIdentifier("flashcard.rate.\(label.lowercased())")
     }
 
@@ -270,6 +273,7 @@ struct FlashcardSessionView: View {
         let row = row(for: card)
         row.flaggedForReview = true
         try? modelContext.save()
+        skippedCount += 1
         advance()
     }
 
@@ -309,14 +313,22 @@ struct FlashcardSessionView: View {
                 .foregroundStyle(Theme.success)
             Text("Deck complete")
                 .font(.title3.weight(.semibold))
-            Text("\(ratedCount) card\(ratedCount == 1 ? "" : "s") reviewed and rescheduled.")
+                .accessibilityAddTraits(.isHeader)
+            Text(deckCompleteCopy)
                 .font(.callout)
                 .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
             Button("Done") { dismiss() }
                 .buttonStyle(PrimaryCTA())
                 .padding(.horizontal, 40)
                 .padding(.top, 6)
         }
         .padding()
+    }
+
+    private var deckCompleteCopy: String {
+        let reviewed = "\(ratedCount) card\(ratedCount == 1 ? "" : "s") reviewed and rescheduled"
+        if skippedCount == 0 { return "\(reviewed)." }
+        return "\(reviewed). \(skippedCount) skipped & flagged."
     }
 }

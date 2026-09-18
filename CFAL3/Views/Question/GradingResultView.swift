@@ -465,6 +465,7 @@ private struct NamedQualitySelector: View {
                     .foregroundStyle(rating.tint)
                 }
                 .buttonStyle(.plain)
+                .frame(minHeight: 44)
                 .accessibilityLabel("\(rating.label), \(intervalLabel(for: rating))")
                 .accessibilityIdentifier("result.rate.\(rating.label.lowercased())")
             }
@@ -474,36 +475,5 @@ private struct NamedQualitySelector: View {
     private func intervalLabel(for rating: ReviewRating) -> String {
         guard let card else { return "1d" }
         return "\(ReviewScheduler.previewInterval(item: card, quality: rating.rawValue))d"
-    }
-}
-
-struct QualitySelector: View {
-    @Binding var selected: Int
-
-    private let labels = [
-        "0 — blank",
-        "1 — wrong",
-        "2 — wrong, primed",
-        "3 — hesitant",
-        "4 — minor hesitation",
-        "5 — confident"
-    ]
-
-    var body: some View {
-        ForEach(0...5, id: \.self) { value in
-            Button {
-                selected = value
-            } label: {
-                HStack {
-                    Text(labels[value])
-                    Spacer()
-                    if selected == value {
-                        Image(systemName: "checkmark")
-                            .foregroundStyle(Theme.accent)
-                    }
-                }
-            }
-            .buttonStyle(.plain)
-        }
     }
 }

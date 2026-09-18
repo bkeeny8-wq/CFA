@@ -69,12 +69,18 @@ struct ProgressDashboardView: View {
         let weeks = ProgressStats.weeklyVolumes(attempts: attempts)
         let current = weeks.last?.count ?? 0
         let previous = weeks.dropLast().last?.count ?? 0
+        let delta: String
+        if current == 0 && previous == 0 {
+            delta = "no attempts yet"
+        } else {
+            delta = weeklyDelta(current: current, previous: previous)
+        }
 
         return HStack {
             VStack(alignment: .leading, spacing: 4) {
                 Text("This week")
                     .font(.subheadline.weight(.medium))
-                Text("\(current) attempts · \(weeklyDelta(current: current, previous: previous))")
+                Text("\(current) attempts · \(delta)")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
@@ -92,6 +98,8 @@ struct ProgressDashboardView: View {
         }
         .padding(12)
         .background(RoundedRectangle(cornerRadius: 12).fill(Color(.systemGray6)))
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("This week, \(current) attempts, \(delta)")
     }
 
     private func drillDownRows(
@@ -135,7 +143,8 @@ struct ProgressDashboardView: View {
         let readings = coverage.flatMap(\.readings)
         let attempted = readings.map(\.attempted).reduce(0, +)
         let total = readings.map(\.questionCount).reduce(0, +)
-        let fraction = total == 0 ? 0 : Double(attempted) / Double(total)
+        guard attempted > 0, total > 0 else { return "Not started" }
+        let fraction = Double(attempted) / Double(total)
         return "\(Formatting.percent(fraction)) attempted"
     }
 
@@ -189,7 +198,9 @@ private struct TopicProgressCard: View {
                         .foregroundStyle(.secondary)
                 }
             }
-            Text("\(progress.attempted)/\(progress.total) · \(Formatting.percent(progress.correctRate))")
+            Text(progress.attempted == 0
+                 ? "Not started · \(progress.total) questions"
+                 : "\(progress.attempted)/\(progress.total) · \(Formatting.percent(progress.correctRate))")
                 .font(.caption)
                 .foregroundStyle(.secondary)
             MasteryBar(value: progress.total == 0 ? 0 : Double(progress.attempted) / Double(progress.total))

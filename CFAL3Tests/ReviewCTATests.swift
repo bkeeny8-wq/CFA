@@ -288,6 +288,14 @@ final class SessionDebriefTests: XCTestCase {
         XCTAssertTrue(d.paceLine.contains("90s/point"))
     }
 
+    func testSkipOnlySittingDoesNotLookLikeZeroScore() {
+        let d = SessionDebrief.snapshot(rows: [])
+        XCTAssertEqual(d.scoreLine, "No answers recorded")
+        XCTAssertTrue(d.paceLine.contains("skipped"))
+        XCTAssertFalse(d.canRetry)
+        XCTAssertEqual(d.attempted, 0)
+    }
+
     func testGraderFailureIsUngradedNotMissed() {
         let d = SessionDebrief.snapshot(rows: [
             SessionDebrief.Row(

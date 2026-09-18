@@ -104,6 +104,7 @@ struct FlashcardsHomeView: View {
                 }
                 .disabled(plan.isEmpty)
                 .accessibilityIdentifier("cards.today")
+                .accessibilityHint(plan.isEmpty ? todayFooter(plan) : "\(plan.sessionIDs.count) cards in today's mix")
 
                 NavigationLink {
                     FlashcardSessionView(title: "Shuffle all", cards: allFiltered.shuffled())

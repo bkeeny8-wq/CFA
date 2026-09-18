@@ -85,7 +85,10 @@ final class StudySessionCoordinator {
     /// Idempotent: safe to call after every answer, and on the way out.
     @MainActor
     func persist(into context: ModelContext) {
-        guard !completedAttemptIDs.isEmpty else { return }
+        // Skip-only sittings never wrote a row: persist gated on attempts,
+        // and the runners only watched completedAttemptIDs, so flagging
+        // every item and leaving left no session in history.
+        guard !completedAttemptIDs.isEmpty || !skippedQuestionIDs.isEmpty else { return }
 
         let id = sessionID
         let descriptor = FetchDescriptor<Session>(predicate: #Predicate { $0.id == id })
@@ -183,12 +186,17 @@ struct SessionDebrief: Equatable {
             parts.append("\(unscoredCount) ungraded")
         }
         if parts.isEmpty {
-            return "\(attempted) attempt\(attempted == 1 ? "" : "s")"
+            return attempted == 0
+                ? "No answers recorded"
+                : "\(attempted) attempt\(attempted == 1 ? "" : "s")"
         }
         return parts.joined(separator: " · ")
     }
 
     var paceLine: String {
+        if elapsedSeconds == 0 && attempted == 0 {
+            return "No timed answers — skipped items don't count toward the 90s/point pace"
+        }
         let delta = elapsedSeconds - targetSeconds
         let vs: String
         if delta == 0 {
