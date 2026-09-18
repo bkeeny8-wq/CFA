@@ -28,6 +28,9 @@ struct LOSDrillAttemptView: View {
                     Text("\(sessionProgress.current) / \(sessionProgress.total)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
+                        .accessibilityLabel(
+                            "Question \(sessionProgress.current) of \(sessionProgress.total)"
+                        )
                 }
 
                 Label("LOS Drill", systemImage: "bolt.fill")
@@ -80,6 +83,7 @@ struct LOSDrillAttemptView: View {
                         ? "Remove review flag"
                         : "Flag for review"
                 )
+                .accessibilityIdentifier("attempt.flag")
             }
         }
         // First appearance only, exactly as in QuestionAttemptView. `onAppear`

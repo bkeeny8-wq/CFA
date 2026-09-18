@@ -120,7 +120,7 @@ struct SettingsView: View {
             }
 
             Section {
-                Text("Study keeps Notes and Cards both on screen so switching halves does not dump an in-progress sitting. With VoiceOver on, only the selected half is mounted so the other half is not readable.")
+                Text("Study shows Notes or Cards, not both. Switching halves starts that half fresh so a screen reader never finds two of everything. An in-progress sitting hides the Notes/Cards switcher so it cannot dump the sitting.")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             } header: {

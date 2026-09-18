@@ -59,6 +59,7 @@ struct FlashcardSessionView: View {
                         .font(.footnote.monospacedDigit())
                         .foregroundStyle(.secondary)
                         .accessibilityIdentifier("flashcard.progress")
+                        .accessibilityLabel("Card \(index + 1) of \(cards.count)")
                 }
             }
         }

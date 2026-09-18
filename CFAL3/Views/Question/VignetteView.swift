@@ -35,6 +35,7 @@ struct VignetteView: View {
                 withAnimation { isExpanded.toggle() }
             }
             .font(.subheadline)
+            .accessibilityHint(isExpanded ? "Hides the case vignette" : "Shows the case vignette")
 
             if isExpanded {
                 VStack(alignment: .leading, spacing: 14) {

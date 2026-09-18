@@ -68,6 +68,9 @@ struct CaseAnswerSheetView: View {
                     }
                     .buttonStyle(PrimaryCTA())
                     .disabled(!canSubmit)
+                    .accessibilityHint(canSubmit
+                        ? "Grades every question in this booklet"
+                        : "Answer every question before submitting")
                 } else {
                     Text(scoreLine)
                         .font(.headline)
@@ -161,6 +164,7 @@ struct CaseAnswerSheetView: View {
         VStack(alignment: .leading, spacing: 10) {
             Text("Q\(question.number)")
                 .font(.headline)
+                .accessibilityAddTraits(.isHeader)
             Text(question.stem)
                 .font(.body)
             if let points = question.pointValue {

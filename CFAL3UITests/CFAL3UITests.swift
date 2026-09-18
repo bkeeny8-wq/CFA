@@ -184,11 +184,9 @@ final class CFAL3UITests: XCTestCase {
     /// moment you do that, which is how the old Practice switcher stranded you
     /// inside a case.
     ///
-    /// Asserted on the SELECTED state of the two buttons, not on whether the
-    /// other half's contents exist. Both halves stay mounted so the inactive
-    /// one keeps its place, and a `List` publishes its rows to accessibility
-    /// regardless of the modifiers above it — so `cards.today` exists even
-    /// while Notes is showing, and an existence check here proves nothing.
+    /// Only the selected half is mounted. Dual-mounting left `cards.today`
+    /// readable from Notes because `List` publishes its rows regardless of a
+    /// parent `.accessibilityHidden`.
     func testStudySectionBarTogglesAndSurvivesOpeningAReading() {
         XCTAssertTrue(waitFor(tab("Study")), "the tabs never appeared")
         tab("Study").tap()
@@ -200,6 +198,8 @@ final class CFAL3UITests: XCTestCase {
 
         XCTAssertTrue(notes.isSelected, "Study should open on Notes")
         XCTAssertFalse(cards.isSelected)
+        XCTAssertFalse(app.buttons["cards.today"].firstMatch.exists,
+                       "Cards rows must not stay in the tree while Notes is showing")
 
         // Both halves must be equally easy to hit. The unselected one once
         // collapsed to a 60 × 16 pt target, because its clear background
@@ -226,6 +226,8 @@ final class CFAL3UITests: XCTestCase {
             .matching(NSPredicate(format: "label BEGINSWITH %@", "R1 ·"))
             .firstMatch
         XCTAssertTrue(reading.waitForExistence(timeout: 10), "no reading row to open")
+        XCTAssertFalse(app.buttons["cards.today"].firstMatch.exists,
+                       "switching back to Notes must unmount Cards")
         reading.tap()
 
         XCTAssertTrue(cards.waitForExistence(timeout: 10),

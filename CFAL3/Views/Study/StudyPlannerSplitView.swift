@@ -9,10 +9,8 @@ import SwiftData
 /// the tap itself, never by selection *change* detection. No reading is ever
 /// auto-selected, so the user always chooses when to enter full screen.
 struct StudyPlannerSplitView: View {
-    /// Applied per COLUMN, not to the split view as a whole. Study keeps this
-    /// view mounted while Cards is on screen, and each column is its own
-    /// hosting controller — a modifier on the container never reaches them, so
-    /// the whole planner stayed readable by VoiceOver from the Cards screen.
+    /// Kept so a caller can hide columns from VoiceOver. Study now mounts this
+    /// planner only while Notes is selected, so the default is visible.
     var accessibilityHidden = false
 
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass

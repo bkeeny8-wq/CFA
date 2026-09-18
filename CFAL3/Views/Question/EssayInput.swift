@@ -14,6 +14,7 @@ struct EssayInput: View {
             Text("\(Formatting.wordCount(text)) words")
                 .font(.caption)
                 .foregroundStyle(.secondary)
+                .accessibilityLabel("\(Formatting.wordCount(text)) words written")
         }
     }
 }

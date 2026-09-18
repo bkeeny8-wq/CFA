@@ -53,6 +53,9 @@ struct QuestionAttemptView: View {
                             Text("\(sessionProgress.current) / \(sessionProgress.total)")
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
+                                .accessibilityLabel(
+                                    "Question \(sessionProgress.current) of \(sessionProgress.total)"
+                                )
                         }
 
                         VignetteView(vignette: caseStudy.vignette, isExpanded: isVignetteExpanded)
@@ -153,6 +156,7 @@ struct QuestionAttemptView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     Toggle("Reasoning", isOn: $explainReasoning)
                         .toggleStyle(.button)
+                        .accessibilityLabel("Explain reasoning")
                 }
             }
             ToolbarItem(placement: .topBarTrailing) {
@@ -166,6 +170,7 @@ struct QuestionAttemptView: View {
                         ? "Remove review flag"
                         : "Flag for review"
                 )
+                .accessibilityIdentifier("attempt.flag")
             }
         }
         .onAppear {

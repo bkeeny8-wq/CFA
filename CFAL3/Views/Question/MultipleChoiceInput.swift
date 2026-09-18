@@ -24,6 +24,8 @@ struct MultipleChoiceInput: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel("Option \(key). \(options[key] ?? "")")
+                .accessibilityAddTraits(selected == key ? [.isButton, .isSelected] : .isButton)
             }
         }
     }

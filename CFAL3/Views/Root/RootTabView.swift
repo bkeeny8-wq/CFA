@@ -77,8 +77,8 @@ private struct RootTabContent: View {
     /// - Study: measured on an iPad, one re-tap during a card session at 2/20
     ///   threw the deck away and returned to the Cards root. Today's allowance
     ///   had already been spent on the rated card, so the same session could
-    ///   not even be restarted. This is precisely the loss `StudyRootView`
-    ///   mounts both halves to prevent — the token defeated it by another route.
+    ///   not even be restarted. The sitting hides the Notes/Cards switcher
+    ///   for the same reason: tearing the tree dumps the sitting.
     /// - Vignettes: one re-tap while reading an Ethics case reset the sidebar
     ///   to the FIRST book and the detail pane to "Select a case", silently
     ///   moving the user to a different book.
