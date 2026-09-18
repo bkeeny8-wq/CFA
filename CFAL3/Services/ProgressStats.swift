@@ -32,6 +32,8 @@ struct LOSReadingCoverage {
     let readingName: String
     let attempted: Int
     let questionCount: Int
+    let caseQuestionCount: Int
+    let drillQuestionCount: Int
     let correctRate: Double?
     let items: [LOSItemCoverage]
 }
@@ -197,12 +199,13 @@ enum ProgressStats {
         // LOS is that row. Reading totals are the union of those pools, so
         // Standard III and GIPS .k show their own attempted/size instead of
         // disappearing into a reading-level smear.
-        var questionsByLOS: [String: Set<String>] = [:]
+        var caseByLOS: [String: Set<String>] = [:]
+        var drillByLOS: [String: Set<String>] = [:]
         for topic in bank.topics {
             for caseStudy in topic.cases {
                 for question in caseStudy.questions {
                     for losID in question.candidateLOS {
-                        questionsByLOS[losID, default: []].insert(question.id)
+                        caseByLOS[losID, default: []].insert(question.id)
                     }
                 }
             }
@@ -210,10 +213,13 @@ enum ProgressStats {
         for bundle in content.losDrillBundles.values {
             for group in bundle.drills {
                 for drill in group.questions {
-                    questionsByLOS[drill.primaryLOS, default: []].insert(drill.id)
+                    drillByLOS[drill.primaryLOS, default: []].insert(drill.id)
                 }
             }
         }
+        var questionsByLOS: [String: Set<String>] = [:]
+        for (id, ids) in caseByLOS { questionsByLOS[id, default: []].formUnion(ids) }
+        for (id, ids) in drillByLOS { questionsByLOS[id, default: []].formUnion(ids) }
 
         let latestAttemptByQuestion: [String: Attempt] = {
             var map: [String: Attempt] = [:]
@@ -246,10 +252,14 @@ enum ProgressStats {
                     )
                 }
                 var readingIDs = Set<String>()
+                var caseIDs = Set<String>()
+                var drillIDs = Set<String>()
                 for los in reading.los {
                     if let ids = questionsByLOS[los.id] {
                         readingIDs.formUnion(ids)
                     }
+                    if let ids = caseByLOS[los.id] { caseIDs.formUnion(ids) }
+                    if let ids = drillByLOS[los.id] { drillIDs.formUnion(ids) }
                 }
                 let stats = coverage(for: readingIDs)
                 return LOSReadingCoverage(
@@ -257,6 +267,8 @@ enum ProgressStats {
                     readingName: reading.name,
                     attempted: stats.attempted,
                     questionCount: stats.total,
+                    caseQuestionCount: caseIDs.count,
+                    drillQuestionCount: drillIDs.count,
                     correctRate: stats.rate,
                     items: items
                 )

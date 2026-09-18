@@ -7,6 +7,7 @@ import SwiftData
 struct FlashcardsHomeView: View {
     @Environment(ContentLoader.self) private var content
     @Environment(\.modelContext) private var modelContext
+    @Environment(TabRouter.self) private var router
     @Query private var progress: [FlashcardProgress]
 
     @Environment(PracticeBuilderPreference.self) private var practicePref
@@ -67,6 +68,8 @@ struct FlashcardsHomeView: View {
             }
         }
         .navigationTitle("Cards")
+        .scrollContentBackground(.hidden)
+        .background(Theme.paper)
         .onAppear { content.bootstrapFlashcardProgress(context: modelContext) }
         .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in
             // No .id() here: mutating this @State already re-runs body, and
@@ -86,8 +89,8 @@ struct FlashcardsHomeView: View {
         )
         return List {
             Section {
-                NavigationLink {
-                    FlashcardSessionView(
+                Button {
+                    router.presentFlashcards(
                         title: plan.newInSession > 0 && plan.dueInSession == 0 ? "New cards" : "Today's cards",
                         cards: plan.sessionIDs.compactMap { byID[$0] }
                     )
@@ -106,8 +109,8 @@ struct FlashcardsHomeView: View {
                 .accessibilityIdentifier("cards.today")
                 .accessibilityHint(plan.isEmpty ? todayFooter(plan) : "\(plan.sessionIDs.count) cards in today's mix")
 
-                NavigationLink {
-                    FlashcardSessionView(title: "Shuffle all", cards: allFiltered.shuffled())
+                Button {
+                    router.presentFlashcards(title: "Shuffle all", cards: allFiltered.shuffled())
                 } label: {
                     HStack {
                         Label("Shuffle all", systemImage: "shuffle")
@@ -177,8 +180,8 @@ struct FlashcardsHomeView: View {
     private func deckRow(_ reading: Reading, rows: [String: FlashcardProgress]) -> some View {
         let deck = cards(for: reading)
         let due = deck.filter { isDue($0, rows: rows) }.count
-        return NavigationLink {
-            FlashcardSessionView(title: reading.name, cards: deck)
+        return Button {
+            router.presentFlashcards(title: reading.name, cards: deck)
         } label: {
             HStack(alignment: .firstTextBaseline) {
                 VStack(alignment: .leading, spacing: 3) {

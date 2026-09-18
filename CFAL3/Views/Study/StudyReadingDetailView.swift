@@ -9,6 +9,7 @@ import SwiftData
 struct StudyReadingDetailView: View {
     @Environment(ContentLoader.self) private var content
     @Environment(StudySessionCoordinator.self) private var sessionCoordinator
+    @Environment(TabRouter.self) private var router
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Query private var statuses: [LOSStudyStatus]
@@ -18,7 +19,6 @@ struct StudyReadingDetailView: View {
     let reading: Reading
     var splitColumnVisibility: Binding<NavigationSplitViewVisibility>?
 
-    @State private var showDrillSession = false
     @State private var showChecklist = false
 
     init(
@@ -57,9 +57,6 @@ struct StudyReadingDetailView: View {
         }
         .navigationTitle(reading.name)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationDestination(isPresented: $showDrillSession) {
-            SessionRunnerView()
-        }
         .navigationDestination(isPresented: $showChecklist) {
             LOSChecklistPanel(area: area, reading: reading)
         }
@@ -108,7 +105,7 @@ struct StudyReadingDetailView: View {
                     mode: .losDrill,
                     filterDescription: "This reading's drills — \(reading.name)"
                 )
-                showDrillSession = true
+                router.presentQuestionSitting()
             } label: {
                 Text("This reading's drills")
             }

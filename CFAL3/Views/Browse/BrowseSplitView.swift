@@ -71,7 +71,7 @@ struct BrowseSplitView: View {
                     .tag(topic.id as String?)
                 }
             }
-            .navigationTitle("Vignettes")
+            .navigationTitle("Cases")
         }
     }
 

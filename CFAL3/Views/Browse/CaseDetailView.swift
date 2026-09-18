@@ -4,6 +4,7 @@ import SwiftData
 struct CaseDetailView: View {
     @Environment(ContentLoader.self) private var content
     @Environment(StudySessionCoordinator.self) private var sessionCoordinator
+    @Environment(TabRouter.self) private var router
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Query private var attempts: [Attempt]
@@ -13,7 +14,6 @@ struct CaseDetailView: View {
     var splitColumnVisibility: Binding<NavigationSplitViewVisibility>?
 
     @State private var vignetteExpanded = true
-    @State private var showSession = false
     @State private var showAnswerSheet = false
 
     init(
@@ -29,9 +29,6 @@ struct CaseDetailView: View {
     var body: some View {
         verticalLayout
         .navigationTitle(caseStudy?.title ?? "Case")
-        .navigationDestination(isPresented: $showSession) {
-            SessionRunnerView()
-        }
         .navigationDestination(isPresented: $showAnswerSheet) {
             if let caseStudy {
                 CaseAnswerSheetView(caseStudy: caseStudy)
@@ -106,7 +103,7 @@ struct CaseDetailView: View {
                 mode: .random,
                 filterDescription: caseStudy.title
             )
-            showSession = true
+            router.presentQuestionSitting()
         } label: {
             Text("Sit this case as a mock")
         }

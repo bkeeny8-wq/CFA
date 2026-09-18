@@ -54,12 +54,23 @@ struct FlashcardSessionView: View {
         .navigationTitle(title)
         .hidesStudySelector()
         .navigationBarTitleDisplayMode(.inline)
+        .background(Theme.paper)
         .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button("End sitting") { dismiss() }
+                    .foregroundStyle(Theme.pine)
+                    .accessibilityIdentifier("sitting.end")
+            }
+            ToolbarItem(placement: .principal) {
+                Text("Cards · \(index + 1) of \(cards.count)")
+                    .font(.headline)
+                    .foregroundStyle(Theme.ink)
+            }
             ToolbarItem(placement: .topBarTrailing) {
                 if current != nil {
                     Text("\(index + 1) / \(cards.count)")
                         .font(.footnote.monospacedDigit())
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(Theme.dust)
                         .accessibilityIdentifier("flashcard.progress")
                         .accessibilityLabel("Card \(index + 1) of \(cards.count)")
                 }

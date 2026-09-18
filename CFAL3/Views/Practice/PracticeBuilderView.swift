@@ -6,9 +6,9 @@ struct PracticeBuilderView: View {
     @Environment(StudySessionCoordinator.self) private var sessionCoordinator
     @Environment(PracticeBuilderPreference.self) private var pref
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(TabRouter.self) private var router
     @Query(sort: \Attempt.timestamp, order: .reverse) private var attempts: [Attempt]
 
-    @State private var showSession = false
     @State private var showTopics = false
     @State private var showReadings = false
     @State private var showLOS = false
@@ -109,7 +109,7 @@ struct PracticeBuilderView: View {
         .scrollContentBackground(.hidden)
         .frame(maxWidth: horizontalSizeClass == .regular ? 640 : .infinity)
         .frame(maxWidth: .infinity)
-        .background(Color(.systemGroupedBackground))
+        .background(Theme.paper)
         .navigationTitle("Practice")
         .safeAreaInset(edge: .bottom) {
             VStack(spacing: 8) {
@@ -137,7 +137,7 @@ struct PracticeBuilderView: View {
             .frame(maxWidth: horizontalSizeClass == .regular ? 640 : .infinity)
             .frame(maxWidth: .infinity)
             .padding(.bottom, 6)
-            .background(.bar)
+            .background(Theme.paper)
         }
         .onAppear { refreshPreview() }
         .onChange(of: pref.typeFilter) { _, _ in refreshPreview() }
@@ -170,9 +170,6 @@ struct PracticeBuilderView: View {
                 readingScope: pref.selectedReadings,
                 topicScope: pref.selectedTopics
             )
-        }
-        .navigationDestination(isPresented: $showSession) {
-            SessionRunnerView()
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
@@ -277,7 +274,7 @@ struct PracticeBuilderView: View {
             mode: .random,
             filterDescription: filterLabel()
         )
-        showSession = true
+        router.presentQuestionSitting()
     }
 
     private func filterLabel() -> String {

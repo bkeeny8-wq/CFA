@@ -393,6 +393,16 @@ enum ReviewCTA {
         return "All caught up"
     }
 
+    /// Large Today headline. Due/new counts when both exist; otherwise the
+    /// honesty title (fresh install still reads "Start studying · N new").
+    static func heroHeadline(_ input: Inputs) -> String {
+        let plan = input.plan
+        if plan.dueCount > 0 && plan.newInSession > 0 {
+            return "\(plan.dueCount.formatted()) due · \(plan.newInSession) new"
+        }
+        return title(input)
+    }
+
     static func subtitle(_ input: Inputs) -> String {
         let plan = input.plan
         guard !plan.isEmpty else {

@@ -65,7 +65,7 @@ struct TopicListView: View {
                 .padding(.bottom, 12)
             }
         }
-        .navigationTitle("Vignettes")
+        .navigationTitle("Cases")
     }
 
 }

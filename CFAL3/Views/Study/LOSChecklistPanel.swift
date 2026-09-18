@@ -4,6 +4,7 @@ import SwiftData
 struct LOSChecklistPanel: View {
     @Environment(ContentLoader.self) private var content
     @Environment(StudySessionCoordinator.self) private var sessionCoordinator
+    @Environment(TabRouter.self) private var router
     @Environment(\.modelContext) private var modelContext
     @Query private var statuses: [LOSStudyStatus]
     @Query private var attempts: [Attempt]
@@ -11,8 +12,6 @@ struct LOSChecklistPanel: View {
     let area: CurriculumArea
     let reading: Reading
     var onOpenNotes: (() -> Void)?
-
-    @State private var showEssaySession = false
 
     private var statusByLOS: [String: LOSStudyStatus] {
         Dictionary(uniqueKeysWithValues: statuses.map { ($0.losId, $0) })
@@ -79,9 +78,6 @@ struct LOSChecklistPanel: View {
         }
         .navigationTitle("LOS checklist")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationDestination(isPresented: $showEssaySession) {
-            SessionRunnerView()
-        }
     }
 
     private func sitEssays(for los: LOS) {
@@ -92,7 +88,7 @@ struct LOSChecklistPanel: View {
             mode: .losDrill,
             filterDescription: "Essays · \(reading.name) · \(los.letter.uppercased())"
         )
-        showEssaySession = true
+        router.presentQuestionSitting()
     }
 
     private func cycleState(for los: LOS) {

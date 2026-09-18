@@ -7,6 +7,7 @@ struct QuestionAttemptView: View {
     @Environment(StudySessionCoordinator.self) private var sessionCoordinator
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Query private var cards: [ReviewCard]
 
     let questionID: String
@@ -47,100 +48,7 @@ struct QuestionAttemptView: View {
     var body: some View {
         Group {
             if let question, let caseStudy {
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 16) {
-                        if let sessionProgress {
-                            Text("\(sessionProgress.current) / \(sessionProgress.total)")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                                .accessibilityLabel(
-                                    "Question \(sessionProgress.current) of \(sessionProgress.total)"
-                                )
-                        }
-
-                        VignetteView(vignette: caseStudy.vignette, isExpanded: isVignetteExpanded)
-
-
-                        Text(question.stem)
-                            .font(.body)
-
-                        if let points = question.pointValue {
-                            Label("\(points) points", systemImage: "pencil.and.list.clipboard")
-                                .font(.subheadline)
-                                .foregroundStyle(.secondary)
-                        }
-                        PacingTimer(
-                            startedAt: clock.startedAt,
-                            targetSeconds: ExamPacing.targetSeconds(points: question.pointValue)
-                        )
-
-                        if question.type == .mc {
-                            if explainReasoning {
-                                VStack(alignment: .leading, spacing: 8) {
-                                    Text("Explain your reasoning")
-                                        .font(.headline)
-                                    TextField("Your reasoning…", text: $reasoningText, axis: .vertical)
-                                        .lineLimit(3...8)
-                                        .textFieldStyle(.roundedBorder)
-                                }
-                            }
-
-                            MultipleChoiceInput(
-                                options: question.options ?? [:],
-                                sortedKeys: question.sortedOptionKeys,
-                                selected: $selectedOption
-                            )
-                        } else {
-                            EssayInput(text: $essayText)
-                        }
-
-                        if let submitError {
-                            Text(submitError)
-                                .foregroundStyle(Theme.danger)
-                                .font(.footnote)
-                        }
-
-                        if isSubmitting {
-                            // Grading was a dead, disabled "Submitting…" with
-                            // no spinner and no way out, so a slow or stalled
-                            // request looked like a frozen screen.
-                            HStack(spacing: 12) {
-                                ProgressView()
-                                Text("Grading your answer…")
-                                    .font(.subheadline)
-                                    .foregroundStyle(.secondary)
-                                Spacer()
-                                Button("Cancel") { cancelSubmission() }
-                                    .buttonStyle(.bordered)
-                            }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .accessibilityElement(children: .contain)
-                            .accessibilityLabel("Grading your answer")
-                        } else {
-                            VStack(spacing: 10) {
-                                Button(submitTitle(for: question)) {
-                                    submitTask?.cancel()
-                                    submitTask = Task {
-                                        await submit(question: question, caseStudy: caseStudy)
-                                    }
-                                }
-                                .buttonStyle(.borderedProminent)
-                                .tint(Theme.accent)
-                                .disabled(!canSubmit(question: question) || (question.type == .mc && !question.canGradeMC && explainReasoning))
-
-                                if sessionProgress != nil {
-                                    Button(AttemptHost.skipTitle) {
-                                        skipAndFlag(question: question, caseStudy: caseStudy)
-                                    }
-                                    .buttonStyle(.bordered)
-                                    .accessibilityIdentifier("attempt.skip")
-                                }
-                            }
-                        }
-                    }
-                    .readableContentWidth()
-                    .padding()
-                }
+                sittingBody(question: question, caseStudy: caseStudy)
             } else {
                 ContentUnavailableView(
                     "Question missing",
@@ -152,25 +60,27 @@ struct QuestionAttemptView: View {
         .navigationTitle(question.map { "Q\($0.number)" } ?? "Question")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            if question?.type == .mc {
-                ToolbarItem(placement: .topBarLeading) {
-                    Toggle("Reasoning", isOn: $explainReasoning)
-                        .toggleStyle(.button)
-                        .accessibilityLabel("Explain reasoning")
+            if standalone {
+                if question?.type == .mc {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Toggle("Reasoning", isOn: $explainReasoning)
+                            .toggleStyle(.button)
+                            .accessibilityLabel("Explain reasoning")
+                    }
                 }
-            }
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    toggleFlag()
-                } label: {
-                    Image(systemName: reviewCard?.flaggedForReview == true ? "flag.fill" : "flag")
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        toggleFlag()
+                    } label: {
+                        Image(systemName: reviewCard?.flaggedForReview == true ? "flag.fill" : "flag")
+                    }
+                    .accessibilityLabel(
+                        reviewCard?.flaggedForReview == true
+                            ? "Remove review flag"
+                            : "Flag for review"
+                    )
+                    .accessibilityIdentifier("attempt.flag")
                 }
-                .accessibilityLabel(
-                    reviewCard?.flaggedForReview == true
-                        ? "Remove review flag"
-                        : "Flag for review"
-                )
-                .accessibilityIdentifier("attempt.flag")
             }
         }
         .onAppear {
@@ -205,6 +115,158 @@ struct QuestionAttemptView: View {
                     standalone: standalone
                 )
             }
+        }
+    }
+
+    @ViewBuilder
+    private func sittingBody(question: Question, caseStudy: CaseStudy) -> some View {
+        let split = horizontalSizeClass == .regular && sessionProgress != nil
+        if split {
+            HStack(alignment: .top, spacing: 16) {
+                vignetteColumn(caseStudy)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                questionColumn(question: question, caseStudy: caseStudy)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            }
+            .padding(16)
+            .background(Theme.paper)
+        } else {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    vignetteColumn(caseStudy)
+                    questionColumn(question: question, caseStudy: caseStudy)
+                }
+                .readableContentWidth()
+                .padding()
+            }
+            .background(Theme.paper)
+        }
+    }
+
+    private func vignetteColumn(_ caseStudy: CaseStudy) -> some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 12) {
+                HStack {
+                    Label("Item set", systemImage: "pin.fill")
+                        .font(Theme.serif(.title3, weight: .semibold))
+                        .foregroundStyle(Theme.ink)
+                    Spacer()
+                }
+                if isVignetteExpanded.wrappedValue {
+                    VignetteView(
+                        vignette: caseStudy.vignette,
+                        isExpanded: isVignetteExpanded,
+                        showsToggle: standalone
+                    )
+                }
+                if sessionProgress != nil {
+                    Label("Stay open for this case", systemImage: "pin")
+                        .font(.caption)
+                        .foregroundStyle(Theme.dust)
+                        .frame(maxWidth: .infinity)
+                }
+            }
+            .cfaCard(radius: Theme.sittingCardRadius, padding: 22)
+        }
+    }
+
+    private func questionColumn(question: Question, caseStudy: CaseStudy) -> some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 14) {
+                HStack(spacing: 8) {
+                    if let sessionProgress {
+                        Text("Q\(sessionProgress.current)")
+                            .font(.subheadline.weight(.bold))
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 6)
+                            .background(RoundedRectangle(cornerRadius: 8).fill(Theme.pine))
+                            .foregroundStyle(.white)
+                        Text("of \(sessionProgress.total)")
+                            .font(.subheadline)
+                            .foregroundStyle(Theme.dust)
+                    }
+                    Spacer()
+                    if let points = question.pointValue {
+                        Text("\(points) points · \(question.type == .essay ? "constructed response" : "item set")")
+                            .font(.caption.weight(.medium))
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 6)
+                            .background(Capsule().strokeBorder(Theme.pine.opacity(0.25)))
+                            .foregroundStyle(Theme.dust)
+                    }
+                }
+
+                Text(question.stem)
+                    .font(Theme.serif(.body, weight: .semibold))
+                    .foregroundStyle(Theme.ink)
+
+                PacingTimer(
+                    startedAt: clock.startedAt,
+                    targetSeconds: ExamPacing.targetSeconds(points: question.pointValue)
+                )
+
+                if question.type == .mc {
+                    if explainReasoning {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Explain your reasoning")
+                                .font(.headline)
+                            TextField("Your reasoning…", text: $reasoningText, axis: .vertical)
+                                .lineLimit(3...8)
+                                .textFieldStyle(.roundedBorder)
+                        }
+                    }
+                    MultipleChoiceInput(
+                        options: question.options ?? [:],
+                        sortedKeys: question.sortedOptionKeys,
+                        selected: $selectedOption
+                    )
+                } else {
+                    EssayInput(text: $essayText)
+                }
+
+                if let submitError {
+                    Text(submitError)
+                        .foregroundStyle(Theme.danger)
+                        .font(.footnote)
+                }
+
+                if isSubmitting {
+                    HStack(spacing: 12) {
+                        ProgressView()
+                        Text("Grading your answer…")
+                            .font(.subheadline)
+                            .foregroundStyle(Theme.dust)
+                        Spacer()
+                        Button("Cancel") { cancelSubmission() }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .accessibilityElement(children: .contain)
+                    .accessibilityLabel("Grading your answer")
+                } else {
+                    HStack(spacing: 12) {
+                        if sessionProgress != nil {
+                            Button {
+                                skipAndFlag(question: question, caseStudy: caseStudy)
+                            } label: {
+                                Label(AttemptHost.skipTitle, systemImage: "flag")
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .buttonStyle(.bordered)
+                            .tint(Theme.pine)
+                            .accessibilityIdentifier("attempt.skip")
+                        }
+                        Button(submitTitle(for: question)) {
+                            submitTask?.cancel()
+                            submitTask = Task {
+                                await submit(question: question, caseStudy: caseStudy)
+                            }
+                        }
+                        .buttonStyle(PrimaryCTA())
+                        .disabled(!canSubmit(question: question) || (question.type == .mc && !question.canGradeMC && explainReasoning))
+                    }
+                }
+            }
+            .cfaCard(radius: Theme.sittingCardRadius, padding: 22)
         }
     }
 

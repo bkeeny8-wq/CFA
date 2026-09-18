@@ -7,6 +7,7 @@ struct SessionRunnerView: View {
     @Environment(StudySessionCoordinator.self) private var sessionCoordinator
     @Environment(ContentLoader.self) private var content
     @Query private var attempts: [Attempt]
+    @Query private var cards: [ReviewCard]
 
     @State private var showSummary = false
     /// The session this runner was opened for. There is one coordinator for
@@ -30,8 +31,16 @@ struct SessionRunnerView: View {
                 )
             }
         }
-        .navigationTitle(sessionCoordinator.filterDescription)
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
+        .safeAreaInset(edge: .top, spacing: 0) {
+            if !showSummary && !sessionCoordinator.isPastLastQuestion {
+                sittingChrome
+            } else {
+                sittingChromeEnded
+            }
+        }
+        .background(Theme.paper)
         .hidesStudySelector()
         .onChange(of: sessionCoordinator.currentIndex) { _, newValue in
             if newValue >= sessionCoordinator.questionIDs.count {
@@ -141,6 +150,89 @@ struct SessionRunnerView: View {
 
     private func saveSession() {
         sessionCoordinator.persist(into: modelContext)
+    }
+
+    private var sittingChrome: some View {
+        let progressCurrent = min(sessionCoordinator.currentIndex + 1, max(sessionCoordinator.questionIDs.count, 1))
+        let progressTotal = sessionCoordinator.questionIDs.count
+        let questionID = sessionCoordinator.currentQuestionID
+        let caseID = questionID.flatMap { content.context(for: $0)?.caseId }
+        let isDrill = questionID.flatMap { content.drillQuestion(id: $0) } != nil
+        let flagged = cards.contains { $0.questionId == questionID && $0.flaggedForReview }
+        return SittingTopBar(
+            title: sittingTitle(isDrill: isDrill, caseID: caseID),
+            progressCurrent: progressCurrent,
+            progressTotal: progressTotal,
+            showDots: caseID != nil,
+            hideStem: caseID.map { id in
+                Binding(
+                    get: { !sessionCoordinator.vignetteExpanded(for: id) },
+                    set: { sessionCoordinator.setVignetteExpanded(!$0, for: id) }
+                )
+            },
+            flagged: flagged,
+            onFlag: { toggleFlag() },
+            onEnd: endSitting,
+            clock: nil
+        )
+    }
+
+    private var sittingChromeEnded: some View {
+        SittingTopBar(
+            title: "Debrief",
+            progressCurrent: sessionCoordinator.questionIDs.count,
+            progressTotal: max(sessionCoordinator.questionIDs.count, 1),
+            showDots: false,
+            hideStem: nil,
+            flagged: false,
+            onFlag: nil,
+            onEnd: endSitting,
+            clock: nil
+        )
+    }
+
+    private func sittingTitle(isDrill: Bool, caseID: String?) -> String {
+        if isDrill {
+            return "Drill · \(sessionCoordinator.currentIndex + 1) of \(sessionCoordinator.questionIDs.count)"
+        }
+        if let caseID, let study = content.caseStudy(id: caseID) {
+            return study.title
+        }
+        return sessionCoordinator.filterDescription
+    }
+
+    private func toggleFlag() {
+        guard let questionID = sessionCoordinator.currentQuestionID else { return }
+        if let question = content.question(id: questionID),
+           let ctx = content.context(for: questionID) {
+            AttemptHost.setFlagged(
+                !(cards.first { $0.questionId == questionID }?.flaggedForReview ?? false),
+                questionId: questionID,
+                caseId: ctx.caseId,
+                topicId: ctx.topicId,
+                readingIds: question.primaryReadingIDs,
+                losIds: question.candidateLOS,
+                existing: cards.first { $0.questionId == questionID },
+                context: modelContext
+            )
+        } else if let drill = content.drillQuestion(id: questionID) {
+            AttemptHost.setFlagged(
+                !(cards.first { $0.questionId == questionID }?.flaggedForReview ?? false),
+                questionId: questionID,
+                caseId: DrillAttemptContext.caseId(readingID: drill.readingID),
+                topicId: drill.areaID,
+                readingIds: [drill.readingID],
+                losIds: [drill.primaryLOS],
+                existing: cards.first { $0.questionId == questionID },
+                context: modelContext
+            )
+        }
+    }
+
+    private func endSitting() {
+        saveSession()
+        sessionCoordinator.finish()
+        dismiss()
     }
 }
 

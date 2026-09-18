@@ -3,13 +3,13 @@ import SwiftData
 
 struct LOSDrillReadingView: View {
     @Environment(StudySessionCoordinator.self) private var sessionCoordinator
+    @Environment(TabRouter.self) private var router
 
     let reading: Reading
     let bundle: LOSDrillBundle
 
     @State private var selectedLOS: String?
     @State private var query = ""
-    @State private var showSession = false
 
     private var selectedGroup: LOSDrillGroup? {
         let letter = selectedLOS ?? bundle.drills.first?.losLetter
@@ -52,9 +52,6 @@ struct LOSDrillReadingView: View {
             placement: .navigationBarDrawer(displayMode: .always),
             prompt: "Search this reading's drills"
         )
-        .navigationDestination(isPresented: $showSession) {
-            DrillSessionRunnerView()
-        }
     }
 
     private var headerSection: some View {
@@ -192,7 +189,7 @@ struct LOSDrillReadingView: View {
             mode: .losDrill,
             filterDescription: description
         )
-        showSession = true
+        router.presentQuestionSitting()
     }
 }
 

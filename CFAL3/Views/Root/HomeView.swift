@@ -13,15 +13,8 @@ struct HomeView: View {
     @Query private var dayCompletions: [DayCompletion]
     @Environment(\.modelContext) private var modelContext
 
-    @State private var showSession = false
-    /// Bumped when the calendar day changes. The daily allowance is derived
-    /// from "today", but nothing observed the boundary — iOS keeps an app
-    /// resident for days, so reopening it the next morning still showed
-    /// yesterday's "resume tomorrow".
     @State private var dayToken = 0
 
-    /// One computation feeds both the card's numbers and the session it
-    /// starts, so they cannot disagree.
     private var reviewPlan: ReviewQueue.Plan {
         ReviewQueue.plan(
             cards: reviewCards,
@@ -47,138 +40,178 @@ struct HomeView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 12) {
-                headerCaption
-                reviewCTACard(reviewPlan)
-                todaysPlanCard
-                statCardsRow
-                continueCard
-                weakestChips
+            VStack(alignment: .leading, spacing: 18) {
+                if let error = content.loadError {
+                    DaybookLoadErrorPanel(message: error) {
+                        Task { await content.loadOffMainActor() }
+                    }
+                } else {
+                    todayHeader
+                    heroCard(reviewPlan)
+                    oneTapRow
+                    todaysPlanCard
+                    continueCard
+                    weakestChips
+                    statsFooter
+                }
             }
-            .padding(.horizontal)
-            .padding(.vertical, 8)
+            .padding(.horizontal, 28)
+            .padding(.vertical, 20)
         }
         .frame(maxWidth: horizontalSizeClass == .regular ? 960 : .infinity)
         .frame(maxWidth: .infinity)
-        .navigationTitle("Home")
-        .navigationDestination(isPresented: $showSession) {
-            SessionRunnerView()
-        }
+        .background(Theme.paper)
+        .toolbar(.hidden, for: .navigationBar)
         .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in
-            // No .id() here: mutating this @State already re-runs body, and
-            // re-identifying the view would tear down the hierarchy — popping
-            // an in-progress session at midnight.
             dayToken &+= 1
         }
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                NavigationLink {
-                    ProgressDashboardView()
-                } label: {
-                    Image(systemName: "chart.bar")
-                }
-                .accessibilityLabel("Progress")
-                .accessibilityIdentifier("home.progress")
+    }
+
+    private var todayHeader: some View {
+        HStack(alignment: .top) {
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Today")
+                    .font(Theme.serif(.largeTitle, weight: .semibold))
+                    .foregroundStyle(Theme.ink)
+                Text("\(todayDate)  ·  \(Formatting.daysUntilExam()) days to exam")
+                    .font(.subheadline)
+                    .foregroundStyle(Theme.dust)
             }
-            ToolbarItem(placement: .topBarTrailing) {
-                NavigationLink {
-                    SettingsView()
-                } label: {
-                    Image(systemName: "gearshape")
-                }
-                .accessibilityLabel("Settings")
+            Spacer()
+            let streak = ProgressStats.streakDays(attempts: attempts)
+            if streak > 0 {
+                Label("\(streak)-day streak", systemImage: "flame")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(Theme.pine)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .background(Capsule().fill(Theme.cardFill))
+                    .shadow(color: Color.black.opacity(0.04), radius: 8, y: 2)
             }
         }
     }
 
-    private var headerCaption: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            HStack {
-                Label("\(Formatting.daysUntilExam()) days to exam", systemImage: "calendar")
-                Spacer()
-                Label("\(ProgressStats.streakDays(attempts: attempts))-day streak", systemImage: "flame")
-            }
-            if let finish = ReviewQueue.projectedFinishLine(
-                notStarted: reviewPlan.notStartedCount,
-                dailyNewLimit: practicePref.dailyNewLimit
-            ) {
-                Text(finish)
-                    .accessibilityIdentifier("home.projectedFinish")
-            }
-            if reviewPlan.flaggedCount > 0 {
-                Text("\(reviewPlan.flaggedCount.formatted()) flagged for review")
-                    .accessibilityIdentifier("home.flagged")
-            }
-        }
-        .font(.caption)
-        .foregroundStyle(.secondary)
+    private var todayDate: String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale.current
+        formatter.setLocalizedDateFormatFromTemplate("EEEE d MMMM")
+        return formatter.string(from: .now)
     }
 
-    private func reviewCTACard(_ plan: ReviewQueue.Plan) -> some View {
+    private func heroCard(_ plan: ReviewQueue.Plan) -> some View {
         let inputs = ctaInputs(plan)
-        return VStack(alignment: .leading, spacing: 8) {
+        return VStack(alignment: .leading, spacing: 14) {
+            Text(ReviewCTA.heroHeadline(inputs))
+                .font(Theme.serif(.title, weight: .semibold))
+                .foregroundStyle(Theme.ink)
+                .accessibilityIdentifier("home.review.title")
+            Text(heroSubtitle(inputs))
+                .font(.subheadline)
+                .foregroundStyle(Theme.dust)
             Button {
                 startReviewSession(plan)
             } label: {
-                VStack(alignment: .leading, spacing: 2) {
-                    if !plan.isEmpty {
-                        Text("Today's mix")
-                            .font(.caption2.weight(.semibold))
-                            .textCase(.uppercase)
-                            .accessibilityIdentifier("home.review.mix")
-                    }
-                    Text(ReviewCTA.title(inputs))
-                        .font(.headline)
-                        .accessibilityIdentifier("home.review.title")
-                    Text(ReviewCTA.subtitle(inputs))
-                        .font(.caption)
-                    if plan.notStartedCount > 0 && plan.dueCount > 0 {
-                        Text("\(plan.notStartedCount.formatted()) not started")
-                            .font(.caption2)
-                            .opacity(0.8)
-                    }
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(14)
-                .background(
-                    RoundedRectangle(cornerRadius: Theme.cardRadius)
-                        .fill(Theme.accent.opacity(0.14))
-                )
-                .foregroundStyle(Theme.accent)
+                Text("Start sitting")
             }
-            .buttonStyle(.plain)
+            .buttonStyle(CompactCTA())
             .disabled(plan.isEmpty)
-
+            .accessibilityIdentifier("home.startSitting")
+            if !plan.isEmpty {
+                Text("Choose types")
+                    .font(.caption)
+                    .foregroundStyle(Theme.dust)
+                    .accessibilityIdentifier("home.review.mix")
+            }
             if plan.isEmpty && plan.isNewOff {
-                NavigationLink {
-                    SettingsView()
-                } label: {
-                    Text("Turn on new questions in Settings")
-                        .font(.caption.weight(.medium))
+                Button("Turn on new questions in Settings") {
+                    router.showSettings = true
                 }
+                .font(.caption.weight(.medium))
+                .foregroundStyle(Theme.pine)
             } else if plan.isEmpty && !inputs.isPreparing && content.loadError == nil {
-                Button {
+                Button("Open Practice") {
                     router.selected = .practice
-                } label: {
-                    Text("Open Practice")
-                        .font(.caption.weight(.medium))
                 }
+                .font(.caption.weight(.medium))
+                .foregroundStyle(Theme.pine)
                 .accessibilityIdentifier("home.review.openPractice")
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(22)
+        .background(
+            RoundedRectangle(cornerRadius: 22, style: .continuous)
+                .fill(Theme.sage)
+        )
+    }
+
+    private func heroSubtitle(_ inputs: ReviewCTA.Inputs) -> String {
+        let plan = inputs.plan
+        guard !plan.isEmpty else { return ReviewCTA.subtitle(inputs) }
+        let minutes = max(5, Formatting.estimatedMinutes(
+            mc: plan.sessionIDs.count - inputs.essaysInSession,
+            essays: inputs.essaysInSession
+        ))
+        var parts = ["About \(minutes) minutes"]
+        if inputs.essaysInSession > 0 {
+            parts.append("includes \(inputs.essaysInSession) essay\(inputs.essaysInSession == 1 ? "" : "s")")
+        }
+        return parts.joined(separator: "  ·  ")
+    }
+
+    private var oneTapRow: some View {
+        HStack(spacing: 10) {
+            oneTapPill(
+                title: "Today's mix · \(reviewPlan.sessionIDs.count)",
+                systemImage: "square.stack.3d.up",
+                enabled: !reviewPlan.isEmpty,
+                identifier: "home.mix"
+            ) {
+                startReviewSession(reviewPlan)
+            }
+            oneTapPill(
+                title: "This reading's drills",
+                systemImage: "pencil.and.outline",
+                enabled: readingDrillIDs != nil,
+                identifier: "home.drills"
+            ) {
+                startReadingDrills()
+            }
+            oneTapPill(
+                title: "Sit a case",
+                systemImage: "briefcase",
+                enabled: caseToSit != nil,
+                identifier: "home.case"
+            ) {
+                startCaseSitting()
             }
         }
     }
 
-    /// Gathers what the copy depends on. The wording itself lives in
-    /// ReviewCTA so it can be tested without building a view.
-    private func ctaInputs(_ plan: ReviewQueue.Plan) -> ReviewCTA.Inputs {
-        ReviewCTA.Inputs(
-            plan: plan,
-            contentIsLoaded: content.isLoaded,
-            contentFailed: content.loadError != nil,
-            hasSeededCards: !reviewCards.isEmpty,
-            typeFilter: practicePref.typeFilter,
-            essaysInSession: plan.sessionIDs.filter { questionType(for: $0) == .essay }.count
-        )
+    private func oneTapPill(
+        title: String,
+        systemImage: String,
+        enabled: Bool,
+        identifier: String,
+        action: @escaping () -> Void
+    ) -> some View {
+        Button(action: action) {
+            Label(title, systemImage: systemImage)
+                .font(.subheadline.weight(.medium))
+                .foregroundStyle(Theme.ink)
+                .padding(.horizontal, 14)
+                .padding(.vertical, 12)
+                .frame(maxWidth: .infinity)
+                .background(
+                    Capsule().fill(Theme.cardFill)
+                        .shadow(color: Color.black.opacity(0.05), radius: 10, y: 3)
+                )
+                .contentShape(Capsule())
+        }
+        .buttonStyle(.plain)
+        .disabled(!enabled)
+        .opacity(enabled ? 1 : 0.45)
+        .accessibilityIdentifier(identifier)
     }
 
     @ViewBuilder
@@ -188,66 +221,94 @@ struct HomeView: View {
             let delta = ScheduleProgress.delta(schedule: schedule, completions: dayCompletions)
             let isDone = dayCompletions.contains { $0.dateKey == today.date }
 
-            // Switches tabs rather than pushing a second PlanView — two live
-            // copies of one screen kept separate scroll positions.
-            Button {
-                router.selected = .plan
-            } label: {
-                VStack(alignment: .leading, spacing: 4) {
-                    HStack {
-                        Text("Today's plan")
-                            .font(.subheadline.weight(.medium))
-                            .foregroundStyle(.primary)
-                        Spacer()
-                        Text(Formatting.hours(today.hours))
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                            // The done-toggle is overlaid on this corner (a
-                            // Button inside a NavigationLink label would never
-                            // get the tap), so the hours have to yield its room.
-                            .padding(.trailing, today.isRestDay ? 0 : 26)
-                    }
+            VStack(alignment: .leading, spacing: 12) {
+                Button {
+                    router.selected = .plan
+                } label: {
+                    VStack(alignment: .leading, spacing: 12) {
+                        HStack {
+                            Text("Today's plan")
+                                .font(.headline)
+                                .foregroundStyle(Theme.ink)
+                            Spacer()
+                            Text(Formatting.hours(today.hours))
+                                .font(.subheadline)
+                                .foregroundStyle(Theme.dust)
+                                .padding(.trailing, today.isRestDay ? 0 : 28)
+                        }
 
-                    if today.isRestDay {
-                        Text(today.note ?? "Rest day")
+                        if today.isRestDay {
+                            Text(today.note ?? "Rest day")
+                                .font(.subheadline)
+                                .foregroundStyle(Theme.dust)
+                        } else {
+                            ForEach(Array(today.blocks.enumerated()), id: \.element.id) { index, block in
+                                HStack(spacing: 10) {
+                                    timelineDot(index: index, count: today.blocks.count)
+                                    Text("\(block.start)  ·  \(blockKindLabel(block))  ·  \(block.label)")
+                                        .font(.subheadline)
+                                        .foregroundStyle(Theme.ink)
+                                        .lineLimit(1)
+                                }
+                            }
+                        }
+
+                        if delta < -2 {
+                            Label(
+                                "\(Formatting.hours(abs(delta), precise: true)) to make up — schedule never slips.",
+                                systemImage: "exclamationmark.triangle.fill"
+                            )
                             .font(.caption)
-                            .foregroundStyle(.secondary)
-                    } else {
-                        ForEach(today.blocks) { block in
-                            Text("\(block.start) · \(block.label)")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                                .lineLimit(1)
+                            .foregroundStyle(Theme.copper)
+                            .padding(.top, 2)
                         }
                     }
-
-                    if delta < -2 {
-                        Text("\(Formatting.hours(abs(delta), precise: true)) to make up — schedule adds time, it never slips.")
-                            .font(.caption2)
-                            .foregroundStyle(Theme.warning)
-                            .padding(.top, 2)
-                    }
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-            }
-            .buttonStyle(.plain)
-            .cfaCard()
-            // Rest days get no check-off, matching PlanView. They used to be
-            // checkable here only, which wrote a DayCompletion row that the
-            // Plan screen had no control to clear.
-            .overlay(alignment: .topTrailing) {
-                if !today.isRestDay {
-                Button {
-                    toggleTodayCompletion(today, isDone: isDone)
-                } label: {
-                    Image(systemName: isDone ? "checkmark.circle.fill" : "circle")
-                        .foregroundStyle(isDone ? Theme.success : .secondary)
-                        .padding(12)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .buttonStyle(.plain)
-                .accessibilityLabel(isDone ? "Mark incomplete" : "Mark done")
+            }
+            .cfaCard()
+            .overlay(alignment: .topTrailing) {
+                if !today.isRestDay {
+                    Button {
+                        toggleTodayCompletion(today, isDone: isDone)
+                    } label: {
+                        Image(systemName: isDone ? "checkmark.circle.fill" : "circle")
+                            .font(.title3)
+                            .foregroundStyle(isDone ? Theme.pine : Theme.dust)
+                            .padding(18)
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel(isDone ? "Mark incomplete" : "Mark done")
                 }
             }
+        }
+    }
+
+    private func timelineDot(index: Int, count: Int) -> some View {
+        VStack(spacing: 0) {
+            Circle()
+                .stroke(Theme.pine.opacity(0.45), lineWidth: 1.5)
+                .frame(width: 10, height: 10)
+            if index < count - 1 {
+                Rectangle()
+                    .fill(Theme.pine.opacity(0.2))
+                    .frame(width: 1, height: 14)
+            }
+        }
+        .frame(width: 10)
+    }
+
+    private func blockKindLabel(_ block: ScheduleBlock) -> String {
+        switch block.kind {
+        case .questions: return "Drills"
+        case .review: return "Case"
+        case .deep3, .study, .video: return "Notes"
+        default:
+            let lower = block.label.lowercased()
+            if lower.contains("case") { return "Case" }
+            if lower.contains("drill") || lower.contains("question") { return "Drills" }
+            return "Notes"
         }
     }
 
@@ -260,70 +321,56 @@ struct HomeView: View {
         try? modelContext.save()
     }
 
-    /// Progress lost its tab, so the stats row and the toolbar chart are the
-    /// doors to it — they are the same numbers its header used to repeat.
-    private var statCardsRow: some View {
-        NavigationLink {
-            ProgressDashboardView()
-        } label: {
-            statCards
-        }
-        .buttonStyle(.plain)
-        .accessibilityIdentifier("home.progressLink")
-    }
-
-    private var statCards: some View {
-        HStack(spacing: 10) {
-            StatCard(
-                value: ProgressStats.accuracyDisplay(attempts: attempts),
-                label: "Accuracy"
-            )
-            StatCard(
-                value: "\(overallStats.unique.formatted())/\(overallStats.total.formatted())",
-                label: "Attempted"
-            )
-        }
+    private func ctaInputs(_ plan: ReviewQueue.Plan) -> ReviewCTA.Inputs {
+        ReviewCTA.Inputs(
+            plan: plan,
+            contentIsLoaded: content.isLoaded,
+            contentFailed: content.loadError != nil,
+            hasSeededCards: !reviewCards.isEmpty,
+            typeFilter: practicePref.typeFilter,
+            essaysInSession: plan.sessionIDs.filter { questionType(for: $0) == .essay }.count
+        )
     }
 
     @ViewBuilder
     private var continueCard: some View {
         if let item = continueStudyItem {
-            NavigationLink {
-                StudyReadingDetailView(area: item.area, reading: item.reading)
+            Button {
+                router.selected = .notes
             } label: {
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("Continue \(item.shortTitle)")
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Continue  ·  \(item.shortTitle)")
                         .font(.headline)
-                        .foregroundStyle(.primary)
+                        .foregroundStyle(Theme.ink)
                     Text("\(item.done)/\(item.total) LOS · \(item.area.name)")
                         .font(.caption)
-                        .foregroundStyle(.secondary)
-                    if let losCaption = losStudiedCaption {
-                        Text(losCaption)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
+                        .foregroundStyle(Theme.dust)
+                    if !weakestTopics.isEmpty {
+                        Text("Weak spots")
+                            .font(.caption.weight(.semibold))
+                            .foregroundStyle(Theme.copper)
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .cfaCard()
             }
             .buttonStyle(.plain)
+            .cfaCard()
         } else {
             Button {
-                router.selected = .study
+                router.selected = .notes
             } label: {
                 VStack(alignment: .leading, spacing: 6) {
                     Text("Start a reading")
                         .font(.headline)
-                        .foregroundStyle(.primary)
-                    Text("No in-progress reading yet. Open Study and pick the first module on the plan.")
+                        .foregroundStyle(Theme.ink)
+                    Text("No in-progress reading yet. Open Notes and pick the first module on the plan.")
                         .font(.caption)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(Theme.dust)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .cfaCard()
             }
             .buttonStyle(.plain)
+            .cfaCard()
             .accessibilityIdentifier("home.continue.empty")
         }
     }
@@ -331,43 +378,61 @@ struct HomeView: View {
     @ViewBuilder
     private var weakestChips: some View {
         if !weakestTopics.isEmpty {
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Weakest topics")
-                    .font(.subheadline.weight(.medium))
-                    .foregroundStyle(.secondary)
-                FlowLayout(spacing: 8) {
-                    ForEach(weakestTopics.prefix(3), id: \.topicID) { topic in
-                        Button {
-                            // Scope first, navigate second — mutating the
-                            // preference from the destination's onAppear was
-                            // fragile (re-fires can stomp in-progress edits).
-                            practicePref.selectedTopics = [topic.topicID]
-                            practicePref.selectedReadings = []
-                            practicePref.selectedLOS = []
-                            router.selected = .practice
-                        } label: {
-                            Text("\(ProgressDisplay.shortName(topic.topicID, fallback: topic.name)) \(Int((topic.correctRate * 100).rounded()))%")
-                                .font(.caption2.weight(.medium))
-                                .padding(.horizontal, 10)
-                                .padding(.vertical, 6)
-                                .background(
-                                    Capsule()
-                                        .fill(Theme.warning.opacity(0.15))
-                                )
-                                .foregroundStyle(Theme.warning.opacity(0.9))
-                        }
-                        .buttonStyle(.plain)
+            FlowLayout(spacing: 8) {
+                ForEach(weakestTopics.prefix(3), id: \.topicID) { topic in
+                    Button {
+                        practicePref.selectedTopics = [topic.topicID]
+                        practicePref.selectedReadings = []
+                        practicePref.selectedLOS = []
+                        router.selected = .practice
+                    } label: {
+                        Label(
+                            ProgressDisplay.shortName(topic.topicID, fallback: topic.name),
+                            systemImage: "arrow.left.arrow.right"
+                        )
+                        .font(.caption.weight(.medium))
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 8)
+                        .background(
+                            Capsule().strokeBorder(Theme.copper.opacity(0.55), lineWidth: 1)
+                        )
+                        .foregroundStyle(Theme.copper)
                     }
+                    .buttonStyle(.plain)
                 }
             }
         }
     }
 
-    private var losStudiedCaption: String? {
-        guard let master = content.losMaster else { return nil }
-        let overall = StudyPlannerStats.overall(master: master, statuses: losStatuses)
-        let studied = overall.mastered + overall.reviewing
-        return "\(studied)/\(overall.total) LOS studied"
+    private var statsFooter: some View {
+        Button {
+            router.selected = .progress
+        } label: {
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Accuracy")
+                        .font(.caption)
+                        .foregroundStyle(Theme.dust)
+                    Text(ProgressStats.accuracyDisplay(attempts: attempts))
+                        .font(Theme.serif(.title3, weight: .semibold))
+                        .foregroundStyle(Theme.ink)
+                }
+                Spacer()
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Attempted")
+                        .font(.caption)
+                        .foregroundStyle(Theme.dust)
+                    Text("\(overallStats.unique.formatted()) of \(overallStats.total.formatted())")
+                        .font(Theme.serif(.title3, weight: .semibold))
+                        .foregroundStyle(Theme.ink)
+                }
+                Spacer()
+            }
+        }
+        .buttonStyle(.plain)
+        .padding(.top, 8)
+        .accessibilityIdentifier("home.progressLink")
+        .accessibilityLabel("Progress")
     }
 
     private struct ContinueStudyItem {
@@ -413,6 +478,38 @@ struct HomeView: View {
         return nil
     }
 
+    private var focusReading: Reading? {
+        if let item = continueStudyItem { return item.reading }
+        if let schedule = content.schedule, let today = schedule.day(for: .now) {
+            for block in today.blocks {
+                if let id = block.readingID, let match = content.reading(id: id) {
+                    return match.reading
+                }
+            }
+        }
+        return content.losMaster?.areas.first?.readings.first
+    }
+
+    private var readingDrillIDs: [String]? {
+        guard let reading = focusReading,
+              let bundle = content.drillBundle(forReading: reading.id) else { return nil }
+        let ids = bundle.drills.flatMap { $0.questions.map(\.id) }
+        return ids.isEmpty ? nil : ids
+    }
+
+    private var caseToSit: CaseStudy? {
+        let attempted = Set(attempts.map(\.questionId))
+        let topics = content.questionBank?.topics ?? []
+        for topic in topics {
+            if let fresh = topic.cases.first(where: { study in
+                study.questions.contains { !attempted.contains($0.id) }
+            }) {
+                return fresh
+            }
+        }
+        return topics.first?.cases.first
+    }
+
     private func readingMatch(
         readingID: String,
         areaID: String?,
@@ -430,7 +527,6 @@ struct HomeView: View {
         content.readingNotes(id: reading.id)?.title ?? reading.name
     }
 
-
     private func questionType(for id: String) -> QuestionType {
         if let q = content.question(id: id) { return q.type }
         if let d = content.drillQuestion(id: id) { return d.type }
@@ -438,17 +534,36 @@ struct HomeView: View {
     }
 
     private func startReviewSession(_ plan: ReviewQueue.Plan) {
-        guard !plan.isEmpty else { return }
-        sessionCoordinator.start(
-            questionIDs: plan.sessionIDs,
+        router.startQuestions(
+            sessionCoordinator,
+            ids: plan.sessionIDs,
             mode: .reviewDue,
-            filterDescription: ReviewQueue.sessionLabel(for: plan)
+            description: ReviewQueue.sessionLabel(for: plan)
         )
-        showSession = true
+    }
+
+    private func startReadingDrills() {
+        guard let ids = readingDrillIDs, let reading = focusReading else { return }
+        let session = Array(ids.shuffled().prefix(20))
+        router.startQuestions(
+            sessionCoordinator,
+            ids: session,
+            mode: .losDrill,
+            description: "This reading's drills — \(reading.name)"
+        )
+    }
+
+    private func startCaseSitting() {
+        guard let study = caseToSit else { return }
+        router.startQuestions(
+            sessionCoordinator,
+            ids: study.questions.map(\.id),
+            mode: .random,
+            description: "\(study.title)"
+        )
     }
 }
 
-/// Simple horizontal wrapping layout for topic chips.
 private struct FlowLayout: Layout {
     var spacing: CGFloat = 8
 
