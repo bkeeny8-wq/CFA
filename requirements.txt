@@ -1,0 +1,9 @@
+# Python dependencies for the CFAL3 content pipeline (scripts/).
+# The core pipeline (apply_content_batch, triage_report, sync_drills,
+# validate_drill_bundle, convert_reading_notes, ingest_archive) runs on the
+# standard library alone. These two packages are only needed by the auxiliary
+# asset/schedule generators:
+#   - Pillow   -> scripts/fix_launch_assets.py   (icon/launch image resizing)
+#   - openpyxl -> scripts/export_study_schedule.py (xlsx -> study_schedule.json)
+Pillow>=10.0
+openpyxl>=3.1
