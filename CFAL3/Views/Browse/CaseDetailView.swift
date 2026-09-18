@@ -28,7 +28,9 @@ struct CaseDetailView: View {
 
     var body: some View {
         verticalLayout
+        .background(Theme.paper)
         .navigationTitle(caseStudy?.title ?? "Case")
+        .toolbar(.visible, for: .navigationBar)
         .navigationDestination(isPresented: $showAnswerSheet) {
             if let caseStudy {
                 CaseAnswerSheetView(caseStudy: caseStudy)
@@ -85,13 +87,14 @@ struct CaseDetailView: View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(alignment: .top) {
                 Text(caseStudy.title)
-                    .font(.headline)
+                    .font(Theme.serif(.title3, weight: .semibold))
+                    .foregroundStyle(Theme.ink)
                 Spacer(minLength: 8)
                 CapsuleBadge(text: bookName)
             }
             Text("\(meta.questionCount) questions · \(meta.essayCount) essays · ~\(meta.minutes) min")
                 .font(.caption)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Theme.dust)
         }
         .cfaCard()
     }
@@ -132,7 +135,7 @@ struct CaseDetailView: View {
         VStack(alignment: .leading, spacing: 6) {
             Text("Questions")
                 .font(.caption)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Theme.dust)
 
             ForEach(caseStudy.questions) { question in
                 NavigationLink {
@@ -183,7 +186,7 @@ private struct QuestionRowLabel: View {
             }
             Text(Formatting.truncatedStem(question.stem))
                 .font(.subheadline)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Theme.dust)
         }
     }
 

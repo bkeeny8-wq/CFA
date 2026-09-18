@@ -42,6 +42,7 @@ struct ProgressDashboardView: View {
         }
         .background(Theme.paper)
         .toolbar(.hidden, for: .navigationBar)
+        .accessibilityIdentifier("progress.dashboard")
         .onAppear {
             if selectedReadingID == nil {
                 selectedReadingID = coverage.first?.readings.first?.readingID
@@ -127,6 +128,8 @@ struct ProgressDashboardView: View {
             Text("LOS coverage")
                 .font(.headline)
                 .foregroundStyle(Theme.ink)
+                .accessibilityIdentifier("progress.losCoverage")
+                .accessibilityAddTraits(.isHeader)
             ForEach(coverage, id: \.areaID) { area in
                 VStack(alignment: .leading, spacing: 4) {
                     ForEach(area.readings, id: \.readingID) { reading in

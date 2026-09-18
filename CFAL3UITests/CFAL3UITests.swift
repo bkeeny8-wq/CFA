@@ -58,6 +58,16 @@ final class CFAL3UITests: XCTestCase {
         app.staticTexts["flashcard.progress"].firstMatch.label
     }
 
+    /// Book names live on `cases.book.*`. Nested split chrome used to hide
+    /// them as StaticText, so tests address the identifier, not the glyph.
+    private func casesBook(_ name: String) -> XCUIElement {
+        app.descendants(matching: .any)["cases.book.\(name)"].firstMatch
+    }
+
+    private func progressCoverage() -> XCUIElement {
+        app.descendants(matching: .any)["progress.losCoverage"].firstMatch
+    }
+
     /// Visible chrome is "1 / 20"; VoiceOver (and therefore XCTest `.label`)
     /// is "Card 1 of 20".
     private func progressParts(_ label: String) -> (position: String, total: String)? {
@@ -155,7 +165,7 @@ final class CFAL3UITests: XCTestCase {
     func testVignettesAreTheirOwnTabAndListTheBooks() {
         XCTAssertTrue(waitFor(tab("Cases")), "the sidebar never appeared")
         tab("Cases").tap()
-        XCTAssertTrue(app.staticTexts["Ethics"].firstMatch.waitForExistence(timeout: 10),
+        XCTAssertTrue(casesBook("Ethics").waitForExistence(timeout: 10),
                       "the Cases destination should list the books")
     }
 
@@ -165,7 +175,7 @@ final class CFAL3UITests: XCTestCase {
         XCTAssertTrue(waitFor(tab("Cases")), "the sidebar never appeared")
         tab("Cases").tap()
 
-        let ethics = app.staticTexts["Ethics"].firstMatch
+        let ethics = casesBook("Ethics")
         XCTAssertTrue(ethics.waitForExistence(timeout: 10))
         ethics.tap()
 
@@ -222,13 +232,13 @@ final class CFAL3UITests: XCTestCase {
         let link = app.buttons["home.progressLink"].firstMatch
         XCTAssertTrue(waitFor(link), "the stats row should open Progress")
         link.tap()
-        XCTAssertTrue(app.staticTexts["LOS coverage"].firstMatch.waitForExistence(timeout: 10),
+        XCTAssertTrue(progressCoverage().waitForExistence(timeout: 10),
                       "Progress did not open")
 
         tab("Today").tap()
         XCTAssertTrue(waitFor(tab("Progress")), "Progress should be a sidebar row")
         tab("Progress").tap()
-        XCTAssertTrue(app.staticTexts["LOS coverage"].firstMatch.waitForExistence(timeout: 10),
+        XCTAssertTrue(progressCoverage().waitForExistence(timeout: 10),
                       "Progress sidebar did not open the dashboard")
     }
 

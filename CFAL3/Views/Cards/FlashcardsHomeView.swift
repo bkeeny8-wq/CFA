@@ -68,6 +68,7 @@ struct FlashcardsHomeView: View {
             }
         }
         .navigationTitle("Cards")
+        .toolbar(.hidden, for: .navigationBar)
         .scrollContentBackground(.hidden)
         .background(Theme.paper)
         .onAppear { content.bootstrapFlashcardProgress(context: modelContext) }
@@ -89,6 +90,18 @@ struct FlashcardsHomeView: View {
         )
         return List {
             Section {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("Cards")
+                        .font(Theme.serif(.largeTitle, weight: .semibold))
+                        .foregroundStyle(Theme.ink)
+                    Text("One idea per back. Same Again / Hard / Good / Easy as questions.")
+                        .font(.subheadline)
+                        .foregroundStyle(Theme.dust)
+                }
+                .listRowInsets(EdgeInsets(top: 12, leading: 4, bottom: 8, trailing: 4))
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
+
                 Button {
                     router.presentFlashcards(
                         title: plan.newInSession > 0 && plan.dueInSession == 0 ? "New cards" : "Today's cards",

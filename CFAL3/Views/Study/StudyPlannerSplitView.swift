@@ -52,6 +52,7 @@ struct StudyPlannerSplitView: View {
                 .accessibilityHidden(accessibilityHidden)
         }
         .navigationSplitViewStyle(.balanced)
+        .background(Theme.paper)
         .onAppear {
             seedAreaIfNeeded()
         }
@@ -99,7 +100,7 @@ struct StudyPlannerSplitView: View {
                 }
                 .padding()
             }
-            .navigationTitle("Study")
+            .navigationTitle("Notes")
         } else if let error = content.loadError {
             ContentUnavailableView(
                 "Content failed to load",

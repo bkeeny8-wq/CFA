@@ -7,6 +7,9 @@ struct CaseListView: View {
 
     let topicID: String
     var initialLOSFilter: Set<String> = []
+    /// Daybook’s two-pane library hides the stack’s nav bar, so the LOS
+    /// filter has to live in the pane itself.
+    var hidesNavigationChrome: Bool = false
     var selectionMode: Bool = false
     var selectedCaseID: Binding<String?>? = nil
     /// Fired on EVERY tap of a case row in selection mode — including taps on
@@ -29,19 +32,27 @@ struct CaseListView: View {
     }
 
     var body: some View {
-        List {
-            caseRows
+        VStack(alignment: .leading, spacing: 0) {
+            if hidesNavigationChrome {
+                inlineHeader
+            }
+            List {
+                caseRows
+            }
+            .listStyle(.plain)
+            .scrollContentBackground(.hidden)
         }
+        .background(Theme.paper)
         .navigationTitle(topic?.shortName ?? "Cases")
         .toolbar {
-            Button {
-                showLOSFilter = true
-            } label: {
-                Image(systemName: selectedLOS.isEmpty
-                      ? "line.3.horizontal.decrease.circle"
-                      : "line.3.horizontal.decrease.circle.fill")
+            if !hidesNavigationChrome {
+                Button {
+                    showLOSFilter = true
+                } label: {
+                    Image(systemName: filterSymbol)
+                }
+                .accessibilityLabel("Filter by LOS")
             }
-            .accessibilityLabel("Filter by LOS")
         }
         .sheet(isPresented: $showLOSFilter) {
             // topic IDs == curriculum area IDs since the six-book
@@ -66,13 +77,40 @@ struct CaseListView: View {
         }
     }
 
+    private var filterSymbol: String {
+        selectedLOS.isEmpty
+            ? "line.3.horizontal.decrease.circle"
+            : "line.3.horizontal.decrease.circle.fill"
+    }
+
+    private var inlineHeader: some View {
+        HStack {
+            Text(topic.map { ProgressDisplay.shortName($0.id, fallback: $0.shortName) } ?? "Cases")
+                .font(Theme.serif(.title2, weight: .semibold))
+                .foregroundStyle(Theme.ink)
+            Spacer()
+            Button {
+                showLOSFilter = true
+            } label: {
+                Image(systemName: filterSymbol)
+                    .font(.title3)
+                    .foregroundStyle(Theme.pine)
+                    .frame(minWidth: 44, minHeight: 44)
+            }
+            .accessibilityLabel("Filter by LOS")
+        }
+        .padding(.horizontal, 20)
+        .padding(.top, 20)
+        .padding(.bottom, 8)
+    }
+
     @ViewBuilder
     private var caseRows: some View {
         if !selectedLOS.isEmpty {
             Section {
                 Text("Filtered by \(selectedLOS.count) LOS")
                     .font(.footnote)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(Theme.dust)
             }
         }
 
@@ -119,12 +157,13 @@ struct CaseListView: View {
         let meta = caseMetadata(caseStudy)
         return VStack(alignment: .leading, spacing: 3) {
             Text(caseStudy.title)
-                .font(.body)
+                .font(.body.weight(.medium))
+                .foregroundStyle(Theme.ink)
             Text("\(caseStudy.questions.count) questions · \(meta.essays) essays"
                  + " · \(meta.attempted)/\(meta.total) tried"
                  + (meta.accuracy.map { " · \(Formatting.percent($0))" } ?? ""))
                 .font(.caption)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Theme.dust)
         }
         .padding(.vertical, 4)
     }

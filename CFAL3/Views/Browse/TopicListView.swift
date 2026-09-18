@@ -19,9 +19,22 @@ struct TopicListView: View {
                     description: Text(error)
                 )
             } else {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("Cases")
+                        .font(Theme.serif(.largeTitle, weight: .semibold))
+                        .foregroundStyle(Theme.ink)
+                        .accessibilityIdentifier("cases.library")
+                    Text("Open a case to read its vignette, then sit its questions as one timed set.")
+                        .font(.subheadline)
+                        .foregroundStyle(Theme.dust)
+                }
+                .padding(.horizontal)
+                .padding(.top, 8)
+
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(content.questionBank?.topics ?? []) { topic in
                         let progress = ProgressStats.caseProgress(topic: topic, attempts: attempts)
+                        let name = ProgressDisplay.shortName(topic.id, fallback: topic.shortName)
                         NavigationLink {
                             CaseListView(topicID: topic.id)
                         } label: {
@@ -37,34 +50,28 @@ struct TopicListView: View {
                                         CapsuleBadge(text: w)
                                     }
                                 }
-                                Text(ProgressDisplay.shortName(topic.id, fallback: topic.shortName))
-                                    .font(.subheadline.weight(.medium))
+                                Text(name)
+                                    .font(Theme.serif(.headline, weight: .semibold))
                                     .lineLimit(1)
-                                    .foregroundStyle(.primary)
+                                    .foregroundStyle(Theme.ink)
                                 // "case questions", not "questions": the Progress
                                 // tab counts this book's drills too, and the two
                                 // numbers must not read as the same measure.
                                 Text("\(progress.total) case questions · \(Formatting.percent(progress.correctRate)) correct")
                                     .font(.caption)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(Theme.dust)
                             }
                             .cfaCard()
                         }
                         .buttonStyle(.plain)
+                        .accessibilityIdentifier("cases.book.\(name)")
+                        .accessibilityLabel(name)
                     }
                 }
                 .padding()
-
-                Label(
-                    "Open a case to read its vignette, then work all of its questions as one timed item set.",
-                    systemImage: "info.circle"
-                )
-                .font(.caption)
-                .foregroundStyle(.secondary)
-                .padding(.horizontal)
-                .padding(.bottom, 12)
             }
         }
+        .background(Theme.paper)
         .navigationTitle("Cases")
     }
 

@@ -38,6 +38,6 @@ struct StudyPlannerView: View {
                 ProgressView("Loading curriculum…")
             }
         }
-        .navigationTitle("Study")
+        .navigationTitle("Notes")
     }
 }

@@ -428,11 +428,14 @@ struct HomeView: View {
                 }
                 Spacer()
             }
+            .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+            .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
         .padding(.top, 8)
         .accessibilityIdentifier("home.progressLink")
-        .accessibilityLabel("Progress")
+        .accessibilityLabel("Open Progress")
+        .accessibilityHint("Shows LOS coverage and pace")
     }
 
     private struct ContinueStudyItem {
