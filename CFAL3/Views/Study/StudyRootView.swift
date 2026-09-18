@@ -56,6 +56,7 @@ struct StudyRootView: View {
     @AppStorage("study.section", store: UITestMode.defaults)
     private var storedSection = StudySection.notes.rawValue
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.accessibilityVoiceOverEnabled) private var voiceOverEnabled
 
     /// Tracked per branch, because both are mounted: a single flag would let
     /// the hidden half's preference hide the bar for the visible one.
@@ -71,16 +72,34 @@ struct StudyRootView: View {
     }
 
     var body: some View {
-        ZStack {
-            branch(.notes) { notesRoot(active: section == .notes) }
-                .onPreferenceChange(StudySelectorHiddenKey.self) { notesWantsHidden = $0 }
-            branch(.cards) {
-                NavigationStack {
-                    FlashcardsHomeView()
-                        .accessibilityHidden(section != .cards)
+        Group {
+            if voiceOverEnabled {
+                // List rows ignore a parent .accessibilityHidden, so both
+                // halves stay readable unless only one is mounted. Switching
+                // dumps in-progress Notes or Cards navigation; VoiceOver on
+                // is the case where that tradeoff is the right one.
+                if section == .notes {
+                    notesRoot(active: true)
+                        .onPreferenceChange(StudySelectorHiddenKey.self) { notesWantsHidden = $0 }
+                } else {
+                    NavigationStack {
+                        FlashcardsHomeView()
+                    }
+                    .onPreferenceChange(StudySelectorHiddenKey.self) { cardsWantsHidden = $0 }
+                }
+            } else {
+                ZStack {
+                    branch(.notes) { notesRoot(active: section == .notes) }
+                        .onPreferenceChange(StudySelectorHiddenKey.self) { notesWantsHidden = $0 }
+                    branch(.cards) {
+                        NavigationStack {
+                            FlashcardsHomeView()
+                                .accessibilityHidden(section != .cards)
+                        }
+                    }
+                    .onPreferenceChange(StudySelectorHiddenKey.self) { cardsWantsHidden = $0 }
                 }
             }
-            .onPreferenceChange(StudySelectorHiddenKey.self) { cardsWantsHidden = $0 }
         }
         .safeAreaInset(edge: .bottom, spacing: 0) {
             if !selectorHidden {

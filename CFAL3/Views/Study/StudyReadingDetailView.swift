@@ -50,7 +50,7 @@ struct StudyReadingDetailView: View {
                 ContentUnavailableView(
                     "Notes coming soon",
                     systemImage: "doc.text",
-                    description: Text("This reading doesn't have bundled notes yet.")
+                    description: Text("This reading doesn't have bundled notes yet. Use the drills and LOS checklist below until notes ship.")
                 )
             }
         }
@@ -148,7 +148,7 @@ struct StudyPracticeTopicPicker: View {
                 ContentUnavailableView(
                     "No matching cases",
                     systemImage: "tray",
-                    description: Text("No bundled questions are tagged with these LOS yet.")
+                    description: Text("No bundled case questions are tagged with these LOS yet. Sit the reading's drills instead.")
                 )
             } else {
                 ForEach(matchingTopics, id: \.id) { topic in

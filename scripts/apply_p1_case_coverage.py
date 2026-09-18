@@ -117,6 +117,136 @@ RETAGS: dict[str, list[str]] = {
     "gambier_advisory_lucas_thompson_essay_q8": [
         "asset_allocation_to_alternative_investments.h"
     ],
+    # Vitting — which AA approach Black suggested is the three-way compare.
+    "vitting_teddy_brealer_q2": ["overview_of_asset_allocation.c"],
+    # Roy's safety-first / shortfall vs a 5% target, not MVO recommend.
+    "vitting_teddy_brealer_q5": ["principles_of_asset_allocation.h"],
+    "vitting_teddy_brealer_essay_q10": ["principles_of_asset_allocation.h"],
+    # Additional allocation issues → Monte Carlo / scenario robustness.
+    "vitting_teddy_brealer_q6": ["principles_of_asset_allocation.e"],
+    # Underfunded amount is an economic-balance-sheet calculation.
+    "vitting_teddy_brealer_essay_q7": ["overview_of_asset_allocation.b"],
+    # Heavy FI is implementation; 5% TAA bands are rebalancing.
+    "vitting_teddy_brealer_essay_q9": [
+        "overview_of_asset_allocation.i",
+        "overview_of_asset_allocation.j",
+    ],
+    # Ptolemy — cycle phase for equities; Taylor's rule is monetary policy.
+    "ptolemy_foundation_the_ptolemy_foundation_q3": [
+        "capital_market_expectations_part_1_framework_and_macro_considerations.f"
+    ],
+    "ptolemy_foundation_the_ptolemy_foundation_essay_q6": [
+        "capital_market_expectations_part_1_framework_and_macro_considerations.h"
+    ],
+    # Data-quality / forecast-challenge stems, not the CME framework row.
+    "minglu_li_redd_partners_essay_q5": [
+        "capital_market_expectations_part_1_framework_and_macro_considerations.b"
+    ],
+    "ted_rogers_ted_rogers_q2": [
+        "capital_market_expectations_part_1_framework_and_macro_considerations.b"
+    ],
+    "ted_rogers_ted_rogers_essay_q5": [
+        "capital_market_expectations_part_1_framework_and_macro_considerations.b"
+    ],
+    "ted_rogers_ted_rogers_essay_q6": [
+        "capital_market_expectations_part_1_framework_and_macro_considerations.b"
+    ],
+    "ted_rogers_ted_rogers_essay_q7": [
+        "capital_market_expectations_part_1_framework_and_macro_considerations.b",
+        "capital_market_expectations_part_1_framework_and_macro_considerations.e",
+    ],
+    # Heights — equity overlay vs IR hedge vs variance-swap tail hedge.
+    "swaps_heights_case_ford_tyron_q2": [
+        "swaps_forwards_and_futures_strategies.c"
+    ],
+    "swaps_heights_case_ford_tyron_q3": [
+        "swaps_forwards_and_futures_strategies.d"
+    ],
+    "swaps_heights_case_ford_tyron_q4": [
+        "swaps_forwards_and_futures_strategies.c"
+    ],
+    "swaps_heights_case_ford_tyron_essay_q5": [
+        "swaps_forwards_and_futures_strategies.a"
+    ],
+    "swaps_heights_case_ford_tyron_essay_q7": [
+        "swaps_forwards_and_futures_strategies.d"
+    ],
+    "swaps_heights_case_ford_tyron_essay_q8": ["options_strategies.i"],
+    # Silverline — recommend a strategy / best-execution policy, not VWAP.
+    "silverline_trading_pathway_essay_q1": [
+        "trade_strategy_and_execution.d",
+        "trading_costs_and_electronic_markets.a",
+    ],
+    "silverline_trading_pathway_essay_q4": [
+        "trade_strategy_and_execution.i"
+    ],
+    # Moynahan liquidity statements are the Overview-of-FI liquidity LOS.
+    "overview_of_fi_danny_moynahan_danny_q3": [
+        "overview_of_fixed_income_portfolio_management.c"
+    ],
+    "overview_of_fi_danny_moynahan_danny_essay_q9": [
+        "overview_of_fixed_income_portfolio_management.c"
+    ],
+    # Liability-based vs total-return is describe-LDI, not cash-flow matching.
+    "overview_of_fi_danny_moynahan_danny_essay_q10": [
+        "overview_of_fixed_income_portfolio_management.g",
+        "liability_driven_and_index_based_strategies.d",
+    ],
+    # Elbe PE impact is alts roles; drop the SWF risk tag on a society case.
+    "elbe_society_the_elbe_society_q1": [
+        "asset_allocation_to_alternative_investments.a"
+    ],
+    "elbe_society_the_elbe_society_essay_q8": [
+        "asset_allocation_to_alternative_investments.e",
+        "asset_allocation_to_alternative_investments.a",
+    ],
+    # Gambier FI→RE is roles + risk-mitigator, not monitoring.
+    "gambier_advisory_lucas_thompson_q1": [
+        "asset_allocation_to_alternative_investments.a",
+        "asset_allocation_to_alternative_investments.b",
+    ],
+    "gambier_advisory_lucas_thompson_essay_q5": [
+        "asset_allocation_to_alternative_investments.a",
+        "asset_allocation_to_alternative_investments.b",
+    ],
+    # Nonventure PE / direct lending — type-specific considerations, not SWF.
+    "gambier_advisory_lucas_thompson_essay_q7": [
+        "asset_allocation_to_alternative_investments.d"
+    ],
+    # Characterize the model, don't also recommend it.
+    "remington_preston_remington_q3": ["principles_of_asset_allocation.a"],
+    # TAA value-added, not GMP / economic balance sheet.
+    "olivinia_oliviniacase_q5": [
+        "asset_allocation_with_real_world_constraints.d"
+    ],
+    "olivinia_oliviniacase_essay_q7": [
+        "asset_allocation_with_real_world_constraints.d"
+    ],
+    "olivinia_oliviniacase_essay_q8": ["overview_of_asset_allocation.a"],
+    # Teamwork style return / benchmark type.
+    "teamwork_advisory_teamwork_advisory_q1": [
+        "portfolio_performance_evaluation.j"
+    ],
+    "teamwork_advisory_teamwork_advisory_q2": [
+        "portfolio_performance_evaluation.h"
+    ],
+    # Duane spreads: structure/breakeven is .f; skew-and-objective is .h+.i.
+    "options_duane_armitage_duane_essay_q5": [
+        "options_strategies.f",
+        "options_strategies.i",
+    ],
+    "options_duane_armitage_duane_essay_q7": ["options_strategies.f"],
+    "options_duane_armitage_duane_essay_q8": [
+        "options_strategies.h",
+        "options_strategies.i",
+    ],
+    # Lisette diversified multi-factor is Active Share vs active risk.
+    "active_equity_investing_construction_lisette_langham_lisette_q4": [
+        "active_equity_investing_portfolio_construction.c"
+    ],
+    "active_equity_investing_construction_lisette_langham_lisette_essay_q8": [
+        "active_equity_investing_portfolio_construction.b"
+    ],
 }
 
 

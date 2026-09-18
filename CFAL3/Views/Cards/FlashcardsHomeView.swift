@@ -58,9 +58,9 @@ struct FlashcardsHomeView: View {
         Group {
             if content.allFlashcards.isEmpty {
                 ContentUnavailableView(
-                    "No cards bundled",
+                    "No flashcards in this copy",
                     systemImage: "rectangle.on.rectangle.angled",
-                    description: Text("flashcards.json isn't in this build.")
+                    description: Text("The card deck didn't ship with this build. Reinstall the app from the project.")
                 )
             } else {
                 list

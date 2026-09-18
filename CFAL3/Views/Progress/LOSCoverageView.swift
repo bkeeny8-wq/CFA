@@ -73,7 +73,7 @@ struct LOSCoverageView: View {
         total: Int,
         rate: Double?
     ) -> (name: String, symbol: String) {
-        guard total > 0 else { return ("no questions", "minus.circle") }
+        guard total > 0 else { return ("no items", "minus.circle") }
         let attemptRatio = Double(attempted) / Double(total)
         let score = attemptRatio * (rate ?? 0.5)
         if score >= 0.75 { return ("strong", "checkmark.circle.fill") }

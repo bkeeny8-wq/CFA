@@ -92,10 +92,23 @@ struct HomeView: View {
     }
 
     private var headerCaption: some View {
-        HStack {
-            Label("\(Formatting.daysUntilExam()) days to exam", systemImage: "calendar")
-            Spacer()
-            Label("\(ProgressStats.streakDays(attempts: attempts))-day streak", systemImage: "flame")
+        VStack(alignment: .leading, spacing: 4) {
+            HStack {
+                Label("\(Formatting.daysUntilExam()) days to exam", systemImage: "calendar")
+                Spacer()
+                Label("\(ProgressStats.streakDays(attempts: attempts))-day streak", systemImage: "flame")
+            }
+            if let finish = ReviewQueue.projectedFinishLine(
+                notStarted: reviewPlan.notStartedCount,
+                dailyNewLimit: practicePref.dailyNewLimit
+            ) {
+                Text(finish)
+                    .accessibilityIdentifier("home.projectedFinish")
+            }
+            if reviewPlan.flaggedCount > 0 {
+                Text("\(reviewPlan.flaggedCount.formatted()) flagged for review")
+                    .accessibilityIdentifier("home.flagged")
+            }
         }
         .font(.caption)
         .foregroundStyle(.secondary)

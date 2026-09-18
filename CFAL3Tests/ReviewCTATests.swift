@@ -34,7 +34,9 @@ final class ReviewCTATests: XCTestCase {
             sessionIDs: (0..<count).map { "q\($0)" },
             dueInSession: dIn,
             newInSession: nIn,
-            overflowDue: overflow
+            overflowDue: overflow,
+            flaggedCount: 0,
+            flaggedInSession: 0
         )
     }
 
@@ -317,6 +319,21 @@ final class SessionDebriefTests: XCTestCase {
         XCTAssertTrue(coordinator.filterDescription.hasPrefix("Retry missed"))
         XCTAssertEqual(coordinator.currentIndex, 0)
         XCTAssertTrue(coordinator.completedAttemptIDs.isEmpty)
+    }
+
+    func testFlaggedOnlyQueueIsNotCaughtUp() {
+        let p = ReviewQueue.Plan(
+            dueCount: 0, notStartedCount: 4, introducedToday: 0,
+            dailyNewLimit: 0, newRemainingToday: 0,
+            sessionIDs: ["a", "b"], dueInSession: 0, newInSession: 0,
+            overflowDue: 0, flaggedCount: 2, flaggedInSession: 2
+        )
+        XCTAssertEqual(
+            ReviewCTA.title(ReviewCTA.Inputs(plan: p)),
+            "Review flagged · 2 flagged"
+        )
+        XCTAssertTrue(ReviewCTA.subtitle(ReviewCTA.Inputs(plan: p)).contains("flagged"))
+        XCTAssertEqual(ReviewCTA.tile(for: p).label, "Flagged")
     }
 
     func testSkipCurrentFlagsWithoutRecordingAnAttemptAndClearsOnStart() {

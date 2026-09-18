@@ -84,7 +84,7 @@ struct CaseListView: View {
                 systemImage: "line.3.horizontal.decrease.circle",
                 description: Text(selectedLOS.isEmpty
                     ? "This book has no case studies yet."
-                    : "No case in this book covers the selected LOS. Its questions may be drills, which you can reach from Practice.")
+                    : "No case in this book covers the selected LOS. Sit that letter's drills from Study instead.")
             )
         }
 

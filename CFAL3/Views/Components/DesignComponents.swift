@@ -146,6 +146,10 @@ struct PacingTimer: View {
             )
             .font(.subheadline.monospacedDigit())
             .foregroundStyle(over ? .orange : .secondary)
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel("Pacing")
+            .accessibilityValue("\(format(elapsed)) elapsed of \(format(targetSeconds)) target")
+            .accessibilityAddTraits(.updatesFrequently)
         }
     }
 

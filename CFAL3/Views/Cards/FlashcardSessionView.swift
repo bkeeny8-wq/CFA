@@ -41,7 +41,7 @@ struct FlashcardSessionView: View {
                 ContentUnavailableView(
                     "Nothing to review",
                     systemImage: "checkmark.circle",
-                    description: Text("This deck has no cards due right now.")
+                    description: Text("This session has no cards. Go back and pick a deck, or start today's mix when cards are due.")
                 )
             } else if let card = current {
                 cardScreen(card)

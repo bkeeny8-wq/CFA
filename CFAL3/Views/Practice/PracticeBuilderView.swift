@@ -115,7 +115,7 @@ struct PracticeBuilderView: View {
             Button {
                 startQuiz()
             } label: {
-                Text(matching == 0 ? "No questions match" : "Start session")
+                Text(matching == 0 ? "Nothing matches this scope" : "Start session")
             }
             .buttonStyle(PrimaryCTA())
             .disabled(matching == 0)

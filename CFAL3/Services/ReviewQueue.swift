@@ -54,6 +54,11 @@ enum ReviewQueue {
         let newInSession: Int
         /// Due questions that did not fit under the cap.
         let overflowDue: Int
+        /// Flagged items that would not otherwise appear (skipped-unseen or
+        /// flagged-but-not-yet-due). Skip-and-flag used to write the flag and
+        /// then wait on the daily new ration or the SM-2 due date.
+        let flaggedCount: Int
+        let flaggedInSession: Int
 
         /// The gate for every button that starts this session. It is the
         /// payload itself, so an enabled button always has something to run.
@@ -72,7 +77,8 @@ enum ReviewQueue {
         static let empty = Plan(
             dueCount: 0, notStartedCount: 0, introducedToday: 0,
             dailyNewLimit: 0, newRemainingToday: 0,
-            sessionIDs: [], dueInSession: 0, newInSession: 0, overflowDue: 0
+            sessionIDs: [], dueInSession: 0, newInSession: 0, overflowDue: 0,
+            flaggedCount: 0, flaggedInSession: 0
         )
     }
 
@@ -158,15 +164,26 @@ enum ReviewQueue {
 
         var due: [ReviewCard] = []
         var notStarted: [ReviewCard] = []
+        var flaggedExtra: [ReviewCard] = []
         for card in eligible {
-            if isSeen(card) {
-                if card.dueDate <= now { due.append(card) }
+            let seen = isSeen(card)
+            let isDueReview = seen && card.dueDate <= now
+            if card.flaggedForReview && !isDueReview {
+                // Already-due flagged items ride the due lane. Everything
+                // else that was flagged — a skip that never wrote an
+                // Attempt, or a future-due card the candidate marked —
+                // comes back now, without spending the new-question ration.
+                flaggedExtra.append(card)
+            }
+            if seen {
+                if isDueReview { due.append(card) }
             } else {
                 // dueDate is ignored for unseen cards: bootstrap sets it to
                 // .now for every one of them, so it carries no information.
                 notStarted.append(card)
             }
         }
+        let newPool = notStarted.filter { !$0.flaggedForReview }
 
         // Deterministic orders. Thousands of cards share a bootstrap dueDate
         // and the dictionary they came from has no stable iteration order, so
@@ -177,9 +194,17 @@ enum ReviewQueue {
         // Reserve a floor for new material so a backlog cannot starve it, but
         // never at the cost of reviews: when due.count <= cap - floor, the
         // second line still admits every due card.
-        let newWanted = min(remaining, notStarted.count)
-        let newSlots = min(newWanted, max(minNewSlotsPerSession, sessionCap - due.count))
-        let dueSlots = min(due.count, sessionCap - newSlots)
+        let flaggedSlots = min(flaggedExtra.count, sessionCap)
+        let flaggedIDs = smallestK(flaggedExtra, k: flaggedSlots) { _ in 0 }
+            .map(\.questionId)
+        let remainingCap = sessionCap - flaggedSlots
+
+        let newWanted = min(remaining, newPool.count)
+        let newFloor = min(minNewSlotsPerSession, remainingCap)
+        let newSlots = remainingCap == 0
+            ? 0
+            : min(newWanted, max(newFloor, remainingCap - due.count))
+        let dueSlots = min(due.count, max(0, remainingCap - newSlots))
 
         // Select only the slots we need instead of sorting every card. This
         // runs on each body evaluation of two screens, so a full O(n log n)
@@ -187,11 +212,11 @@ enum ReviewQueue {
         // was showing up as scroll hitching.
         let dueIDs = smallestK(due, k: dueSlots) { $0.dueDate.timeIntervalSinceReferenceDate }
             .map(\.questionId)
-        let newIDs = smallestK(notStarted, k: newSlots) {
+        let newIDs = smallestK(newPool, k: newSlots) {
             startedReadings.isDisjoint(with: $0.readingIds) ? 1.0 : 0.0
         }.map(\.questionId)
 
-        let sessionIDs = interleave(reviews: dueIDs, new: newIDs)
+        let sessionIDs = flaggedIDs + interleave(reviews: dueIDs, new: newIDs)
 
         return Plan(
             dueCount: due.count,
@@ -202,7 +227,9 @@ enum ReviewQueue {
             sessionIDs: sessionIDs,
             dueInSession: dueSlots,
             newInSession: newSlots,
-            overflowDue: max(0, due.count - dueSlots)
+            overflowDue: max(0, due.count - dueSlots),
+            flaggedCount: flaggedExtra.count,
+            flaggedInSession: flaggedSlots
         )
     }
 
@@ -267,9 +294,39 @@ enum ReviewQueue {
     /// What to call the session in history, so an all-new session is not
     /// filed as "Due review".
     static func sessionLabel(for plan: Plan) -> String {
+        if plan.flaggedInSession > 0 && plan.dueInSession == 0 && plan.newInSession == 0 {
+            return "Flagged review"
+        }
         if plan.dueInSession > 0 && plan.newInSession > 0 { return "Review + new" }
         if plan.newInSession > 0 { return "New questions" }
         return "Due review"
+    }
+
+    /// Home caption: when unseen material will finish at the current new-per-day
+    /// pace, or that it will not finish before exam day.
+    static func projectedFinishLine(
+        notStarted: Int,
+        dailyNewLimit: Int,
+        from: Date = .now
+    ) -> String? {
+        guard notStarted > 0 else { return nil }
+        let days = Formatting.daysUntilExam(from: from)
+        if dailyNewLimit <= 0 {
+            return "New questions are off — unseen won't finish before the exam"
+        }
+        let neededDays = Int((Double(notStarted) / Double(dailyNewLimit)).rounded(.up))
+        if days > 0, neededDays > days {
+            return "At \(dailyNewLimit)/day, unseen won't finish before the exam"
+        }
+        guard let finish = Calendar.current.date(
+            byAdding: .day,
+            value: neededDays,
+            to: Calendar.current.startOfDay(for: from)
+        ) else { return nil }
+        let formatter = DateFormatter()
+        formatter.locale = Locale.current
+        formatter.setLocalizedDateFormatFromTemplate("MMMd")
+        return "Unseen finish ~\(formatter.string(from: finish))"
     }
 }
 
@@ -319,6 +376,9 @@ enum ReviewCTA {
 
     static func title(_ input: Inputs) -> String {
         let plan = input.plan
+        if plan.flaggedCount > 0 && plan.dueCount == 0 && plan.newInSession == 0 {
+            return "Review flagged · \(plan.flaggedCount.formatted()) flagged"
+        }
         if plan.dueCount > 0 && plan.newInSession > 0 {
             return "Start review · \(plan.dueCount.formatted()) due · \(plan.newInSession) new"
         }
@@ -356,6 +416,7 @@ enum ReviewCTA {
             parts.append("\(plan.sessionIDs.count) questions")
         }
         if plan.overflowDue > 0 { parts.append("\(plan.overflowDue.formatted()) more after this") }
+        if plan.flaggedInSession > 0 { parts.append("\(plan.flaggedInSession.formatted()) flagged") }
         if input.typeFilter != .mixed { parts.append(input.typeFilter.displayName) }
         return parts.joined(separator: " · ")
     }
@@ -366,7 +427,9 @@ enum ReviewCTA {
     static func tile(for plan: ReviewQueue.Plan) -> (value: String, label: String) {
         guard !plan.isEmpty else { return ("0", "Nothing due") }
         let label: String
-        if plan.dueInSession > 0 && plan.newInSession > 0 {
+        if plan.flaggedInSession > 0 && plan.dueInSession == 0 && plan.newInSession == 0 {
+            label = "Flagged"
+        } else if plan.dueInSession > 0 && plan.newInSession > 0 {
             label = "Review + new"
         } else if plan.newInSession > 0 {
             label = "New today"

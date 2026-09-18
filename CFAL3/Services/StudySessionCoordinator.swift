@@ -298,4 +298,16 @@ struct SessionDebrief: Equatable {
             isEssay: attempt.essayText != nil
         )
     }
+
+    static func skippedLabels(ids: [String], content: ContentLoader) -> [String] {
+        ids.map { id in
+            if let question = content.question(id: id) {
+                return "Q\(question.number) · \(Formatting.truncatedStem(question.stem, limit: 48))"
+            }
+            if let drill = content.drillQuestion(id: id) {
+                return "Drill Q\(drill.number) · \(Formatting.truncatedStem(drill.stem, limit: 48))"
+            }
+            return id
+        }
+    }
 }

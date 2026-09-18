@@ -205,6 +205,10 @@ struct DrillSessionRunnerView: View {
                 SessionDebriefList(
                     debrief: debrief,
                     skippedCount: sessionCoordinator.skippedQuestionIDs.count,
+                    skippedLabels: SessionDebrief.skippedLabels(
+                        ids: sessionCoordinator.skippedQuestionIDs,
+                        content: content
+                    ),
                     modeLine: sessionCoordinator.filterDescription,
                     onRetry: (debrief.canRetry || !sessionCoordinator.skippedQuestionIDs.isEmpty) ? retryMissed : nil,
                     doneTitle: "Done",
@@ -226,7 +230,11 @@ struct DrillSessionRunnerView: View {
                 )
                 .id(questionID)
             } else {
-                ContentUnavailableView("Drill not found", systemImage: "questionmark")
+                ContentUnavailableView(
+                    "Drill missing",
+                    systemImage: "questionmark",
+                    description: Text("This drill isn't in the current build. Go back and continue from the next question.")
+                )
             }
         }
         .navigationTitle(sessionCoordinator.filterDescription)

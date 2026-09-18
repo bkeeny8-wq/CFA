@@ -21,9 +21,9 @@ struct PlanView: View {
                 planContent(schedule)
             } else {
                 ContentUnavailableView(
-                    "No study schedule",
+                    "No study calendar",
                     systemImage: "calendar.badge.exclamationmark",
-                    description: Text("The bundled schedule could not be loaded.")
+                    description: Text("The study calendar isn't in this copy. Reinstall the app from the project.")
                 )
             }
         }

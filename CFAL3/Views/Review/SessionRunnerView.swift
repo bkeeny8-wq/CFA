@@ -23,7 +23,11 @@ struct SessionRunnerView: View {
                 attemptView(for: questionID)
                     .id(questionID)
             } else {
-                ContentUnavailableView("No questions", systemImage: "tray")
+                ContentUnavailableView(
+                    "This sitting is empty",
+                    systemImage: "tray",
+                    description: Text("Go back and start a review, practice, or drill session.")
+                )
             }
         }
         .navigationTitle(sessionCoordinator.filterDescription)
@@ -77,7 +81,11 @@ struct SessionRunnerView: View {
                 sessionProgress: progress
             )
         } else {
-            ContentUnavailableView("Question not found", systemImage: "questionmark.circle")
+            ContentUnavailableView(
+                "Question missing",
+                systemImage: "questionmark.circle",
+                description: Text("This item isn't in the current build. Go back and continue the sitting from the next question.")
+            )
         }
     }
 
@@ -85,6 +93,7 @@ struct SessionRunnerView: View {
         SessionDebriefList(
             debrief: debrief,
             skippedCount: sessionCoordinator.skippedQuestionIDs.count,
+            skippedLabels: skippedLabels,
             modeLine: sessionCoordinator.filterDescription,
             onRetry: (debrief.canRetry || !sessionCoordinator.skippedQuestionIDs.isEmpty) ? retryMissed : nil,
             doneTitle: "Save & exit",
@@ -105,6 +114,13 @@ struct SessionRunnerView: View {
         return sessionCoordinator.completedAttemptIDs.compactMap { id in
             byID[id].map { SessionDebrief.row(attempt: $0, content: content) }
         }
+    }
+
+    private var skippedLabels: [String] {
+        SessionDebrief.skippedLabels(
+            ids: sessionCoordinator.skippedQuestionIDs,
+            content: content
+        )
     }
 
     private func retryMissed() {
@@ -128,6 +144,7 @@ struct SessionRunnerView: View {
 struct SessionDebriefList: View {
     let debrief: SessionDebrief
     var skippedCount: Int = 0
+    var skippedLabels: [String] = []
     let modeLine: String
     var onRetry: (() -> Void)?
     var doneTitle: String
@@ -150,9 +167,21 @@ struct SessionDebriefList: View {
                     }
                 }
             }
+            if !skippedLabels.isEmpty {
+                Section("Skipped & flagged") {
+                    ForEach(Array(skippedLabels.enumerated()), id: \.offset) { _, label in
+                        Text(label)
+                    }
+                }
+            }
             Section {
                 if let onRetry, debrief.canRetry || skippedCount > 0 {
-                    Button("Retry missed (\(debrief.missedIDs.count + skippedCount))") {
+                    let retryCount = debrief.missedIDs.count + skippedCount
+                    Button(
+                        skippedCount > 0
+                            ? "Retry missed & skipped (\(retryCount))"
+                            : "Retry missed (\(debrief.missedIDs.count))"
+                    ) {
                         onRetry()
                     }
                 }

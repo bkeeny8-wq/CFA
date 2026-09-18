@@ -139,7 +139,11 @@ struct QuestionAttemptView: View {
                     .padding()
                 }
             } else {
-                ContentUnavailableView("Question not found", systemImage: "questionmark.circle")
+                ContentUnavailableView(
+                    "Question missing",
+                    systemImage: "questionmark.circle",
+                    description: Text("This item isn't in the current build. Go back to continue.")
+                )
             }
         }
         .navigationTitle(question.map { "Q\($0.number)" } ?? "Question")

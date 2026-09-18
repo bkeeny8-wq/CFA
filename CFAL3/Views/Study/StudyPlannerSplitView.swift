@@ -195,7 +195,7 @@ struct StudyPlannerSplitView: View {
             ContentUnavailableView(
                 "Select a reading",
                 systemImage: "doc.text",
-                description: Text("Pick a reading to open its notes.")
+                description: Text("Pick a reading to open its notes, drills, and LOS checklist.")
             )
         }
     }

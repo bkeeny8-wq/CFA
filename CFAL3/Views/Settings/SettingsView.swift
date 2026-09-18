@@ -118,6 +118,14 @@ struct SettingsView: View {
                     Label("Content stats", systemImage: "books.vertical")
                 }
             }
+
+            Section {
+                Text("Study keeps Notes and Cards both on screen so switching halves does not dump an in-progress sitting. With VoiceOver on, only the selected half is mounted so the other half is not readable.")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            } header: {
+                Text("Accessibility")
+            }
         }
         .navigationTitle("Settings")
         .onAppear {
