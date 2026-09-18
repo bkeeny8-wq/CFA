@@ -593,7 +593,6 @@ final class QuestionBankIntegrityTests: XCTestCase {
         XCTAssertEqual(
             try los("elbe_society_the_elbe_society_essay_q7"),
             [
-                "case_study_in_portfolio_management_institutional_endowment.a",
                 "case_study_in_portfolio_management_institutional_endowment.c",
                 "asset_allocation_to_alternative_investments.g",
             ]
@@ -603,17 +602,35 @@ final class QuestionBankIntegrityTests: XCTestCase {
             [
                 "asset_allocation_to_alternative_investments.e",
                 "asset_allocation_to_alternative_investments.a",
-                "case_study_in_portfolio_management_institutional_swf.c",
             ]
         )
         XCTAssertEqual(
             try los("gambier_advisory_lucas_thompson_essay_q7"),
             [
-                "asset_allocation_to_alternative_investments.a",
-                "asset_allocation_to_alternative_investments.f",
-                "case_study_in_portfolio_management_institutional_swf.d",
+                "asset_allocation_to_alternative_investments.d",
             ]
         )
+        XCTAssertEqual(try los("karelia_heritage_fund_swf_q1"), [
+            "case_study_in_portfolio_management_institutional_swf.a",
+        ])
+        XCTAssertEqual(try los("karelia_heritage_fund_swf_q2"), [
+            "case_study_in_portfolio_management_institutional_swf.b",
+        ])
+        XCTAssertEqual(try los("karelia_heritage_fund_swf_essay_q3"), [
+            "case_study_in_portfolio_management_institutional_swf.e",
+        ])
+        XCTAssertEqual(try los("karelia_heritage_fund_swf_essay_q4"), [
+            "case_study_in_portfolio_management_institutional_swf.c",
+        ])
+        XCTAssertEqual(try los("karelia_heritage_fund_swf_essay_q5"), [
+            "case_study_in_portfolio_management_institutional_swf.d",
+        ])
+        XCTAssertEqual(try los("ridgewood_college_endowment_essay_q1"), [
+            "case_study_in_portfolio_management_institutional_endowment.d",
+        ])
+        XCTAssertEqual(try los("ridgewood_college_endowment_q2"), [
+            "case_study_in_portfolio_management_institutional_endowment.e",
+        ])
         XCTAssertEqual(
             try los("rothhaven_foundation_alt_pathway_essay_q4"),
             [

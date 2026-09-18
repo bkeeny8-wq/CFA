@@ -235,7 +235,6 @@ def atomize(card: dict, used: set[str]) -> list[dict]:
             atom["id"] = card["id"]
         else:
             atom["id"] = next_atom_id(card["id"], claimed)
-            atom["formula"] = None
             claimed.add(atom["id"])
         head = label(piece) if piece.startswith("•") else f"part {i + 1} of {n}"
         atom["front"] = f"{front}\n\n{head}"

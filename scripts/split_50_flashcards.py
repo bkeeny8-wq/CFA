@@ -222,7 +222,6 @@ def main() -> int:
                 atom["id"] = card["id"]
             else:
                 atom["id"] = next_atom_id(card["id"], used)
-                atom["formula"] = None
                 used.add(atom["id"])
                 new_atoms += 1
             out.append(atom)

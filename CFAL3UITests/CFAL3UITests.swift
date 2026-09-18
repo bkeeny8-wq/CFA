@@ -64,6 +64,17 @@ final class CFAL3UITests: XCTestCase {
         app.staticTexts["flashcard.progress"].firstMatch.label
     }
 
+    /// Visible chrome is "1 / 20"; VoiceOver (and therefore XCTest `.label`)
+    /// is "Card 1 of 20".
+    private func progressParts(_ label: String) -> (position: String, total: String)? {
+        let spoken = label
+            .replacingOccurrences(of: "Card ", with: "")
+            .replacingOccurrences(of: " of ", with: " / ")
+        let parts = spoken.components(separatedBy: " / ")
+        guard parts.count == 2 else { return nil }
+        return (parts[0], parts[1])
+    }
+
     // MARK: - The regression this target exists for
 
     /// Rating a card must advance the position WITHOUT changing the total.
@@ -85,9 +96,13 @@ final class CFAL3UITests: XCTestCase {
         XCTAssertTrue(waitFor(app.staticTexts["flashcard.progress"].firstMatch),
                       "no session opened")
         let first = progressCounter()
-        XCTAssertEqual(first, "1 / 20", "a fresh install should meter the deck to the daily limit")
+        let firstParts = progressParts(first)
+        XCTAssertEqual(firstParts?.position, "1",
+                       "a fresh install should start at card 1 — got \(first)")
+        XCTAssertEqual(firstParts?.total, "20",
+                       "a fresh install should meter the deck to the daily limit — got \(first)")
 
-        let total = first.components(separatedBy: " / ").last
+        let total = firstParts?.total
 
         // Three ratings: enough for the old bug's drift to be unmistakable.
         for step in 1...3 {
@@ -100,9 +115,10 @@ final class CFAL3UITests: XCTestCase {
             good.tap()
 
             let now = progressCounter()
-            XCTAssertEqual(now.components(separatedBy: " / ").last, total,
+            let parts = progressParts(now)
+            XCTAssertEqual(parts?.total, total,
                            "the deck total changed mid-session at step \(step) — got \(now)")
-            XCTAssertEqual(now.components(separatedBy: " / ").first, "\(step + 1)",
+            XCTAssertEqual(parts?.position, "\(step + 1)",
                            "position did not advance by exactly one at step \(step) — got \(now)")
         }
     }
