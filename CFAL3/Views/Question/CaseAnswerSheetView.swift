@@ -178,9 +178,25 @@ struct CaseAnswerSheetView: View {
     @ViewBuilder
     private func questionBlock(_ question: Question) -> some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("Q\(question.number)")
-                .font(.headline)
-                .accessibilityAddTraits(.isHeader)
+            HStack {
+                Text("Q\(question.number)")
+                    .font(.headline)
+                    .accessibilityAddTraits(.isHeader)
+                Spacer()
+                Button {
+                    toggleFlag(for: question)
+                } label: {
+                    Image(systemName: reviewCard(for: question.id)?.flaggedForReview == true
+                          ? "flag.fill" : "flag")
+                        .frame(minWidth: 44, minHeight: 44)
+                }
+                .accessibilityLabel(
+                    reviewCard(for: question.id)?.flaggedForReview == true
+                        ? "Remove review flag"
+                        : "Flag for review"
+                )
+                .accessibilityIdentifier("answersheet.flag.\(question.number)")
+            }
             Text(question.stem)
                 .font(.body)
             if let points = question.pointValue {
@@ -219,6 +235,23 @@ struct CaseAnswerSheetView: View {
             }
         }
         .cfaCard()
+    }
+
+    private func reviewCard(for questionID: String) -> ReviewCard? {
+        reviewCards.first { $0.questionId == questionID }
+    }
+
+    private func toggleFlag(for question: Question) {
+        AttemptHost.setFlagged(
+            !(reviewCard(for: question.id)?.flaggedForReview ?? false),
+            questionId: question.id,
+            caseId: caseStudy.id,
+            topicId: caseStudy.topicID,
+            readingIds: question.primaryReadingIDs,
+            losIds: question.candidateLOS,
+            existing: reviewCard(for: question.id),
+            context: modelContext
+        )
     }
 
     private func resultCaption(_ question: Question, _ attempt: Attempt) -> String {

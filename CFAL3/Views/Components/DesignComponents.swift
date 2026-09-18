@@ -158,6 +158,15 @@ struct PacingTimer: View {
     }
 }
 
+/// Sitting/study motion: skip the snappy animation when Reduce Motion is on.
+func withSittingAnimation(_ reduceMotion: Bool, _ body: () -> Void) {
+    if reduceMotion {
+        body()
+    } else {
+        withAnimation(.snappy, body)
+    }
+}
+
 /// Honors Reduce Motion: mastery bars still move, they just don't animate.
 private struct ReduceMotionAnimation<V: Equatable>: ViewModifier {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion

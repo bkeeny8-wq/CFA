@@ -335,6 +335,355 @@ RETAGS: dict[str, list[str]] = {
         "currency_management_an_introduction.b"
     ],
     "sabonete_sabonete_sa_q1": ["overview_of_asset_allocation.g"],
+    # Relative value / excess-spread ranking is bottom-up credit; the
+    # constant-spread ranking is the excess-spread *measure*.
+    "credit_strategies_pm_pathway_central_county_central_county_q3": [
+        "fixed_income_active_management_credit_strategies.c"
+    ],
+    "credit_strategies_pm_pathway_central_county_central_county_q7": [
+        "fixed_income_active_management_credit_strategies.b"
+    ],
+    # Positioning vs the benchmark, then a structured-credit view.
+    "credit_strategies_pm_pathway_harlow_choate_harlow_choate_q5": [
+        "fixed_income_active_management_credit_strategies.h"
+    ],
+    "credit_strategies_pm_pathway_harlow_choate_harlow_choate_q6": [
+        "fixed_income_active_management_credit_strategies.j"
+    ],
+    "credit_strategies_pm_pathway_harlow_choate_harlow_choate_essay_q7": [
+        "fixed_income_active_management_credit_strategies.a"
+    ],
+    "credit_strategies_pm_pathway_mt_pleasant_advisers_ashley_wes_q1": [
+        "fixed_income_active_management_credit_strategies.a"
+    ],
+    "credit_strategies_pm_pathway_mt_pleasant_advisers_ashley_wes_q3": [
+        "fixed_income_active_management_credit_strategies.c"
+    ],
+    "credit_strategies_pm_pathway_mt_pleasant_advisers_ashley_wes_essay_q7": [
+        "fixed_income_active_management_credit_strategies.a"
+    ],
+    # Covered-call mechanics, not protective-put or short-underlying.
+    "options_wendy_manetti_wendy_manetti_q2": ["options_strategies.b"],
+    "options_wendy_manetti_wendy_manetti_essay_q6": ["options_strategies.b"],
+    "options_wendy_manetti_wendy_manetti_essay_q8": ["options_strategies.b"],
+    "options_wendy_manetti_wendy_manetti_q4": ["options_strategies.c"],
+    "options_wendy_manetti_wendy_manetti_essay_q7": ["options_strategies.c"],
+    # Collar vs objectives; put vs call for downside; collar payoff table.
+    "bristol_advisors_options_pathway_essay_q1": [
+        "options_strategies.i",
+        "options_strategies.f",
+    ],
+    "bristol_advisors_options_pathway_essay_q2": [
+        "options_strategies.c",
+        "options_strategies.b",
+    ],
+    "bristol_advisors_options_pathway_essay_q3": ["options_strategies.f"],
+    # Long/short delta puts+calls is a straddle/strangle, not skew or delta-vs-forward.
+    "currency_sabanai_marina_campos_q4": ["options_strategies.f"],
+    # Deferred-comp plan-design / funded-status items are the DB-risk LOS.
+    "pure_case_lorelie_chan_q5": [
+        "portfolio_management_for_institutional_investors.e"
+    ],
+    "pure_case_lorelie_chan_q6": [
+        "portfolio_management_for_institutional_investors.e"
+    ],
+    # Meridian is a life insurer, not a private DB plan.
+    "meridian_life_insurance_pathway_essay_q1": [
+        "portfolio_management_for_institutional_investors.h"
+    ],
+    "meridian_life_insurance_pathway_essay_q2": [
+        "portfolio_management_for_institutional_investors.h",
+        "portfolio_management_for_institutional_investors.d",
+    ],
+    "meridian_life_insurance_pathway_essay_q3": [
+        "portfolio_management_for_institutional_investors.h"
+    ],
+    "meridian_life_insurance_pathway_essay_q4": [
+        "portfolio_management_for_institutional_investors.d",
+        "portfolio_management_for_institutional_investors.h",
+    ],
+    "currency_hnw_worldwide_hnw_worldwide_q6": [
+        "currency_management_an_introduction.h"
+    ],
+    "currency_hnw_worldwide_hnw_worldwide_essay_q7": [
+        "currency_management_an_introduction.d"
+    ],
+    "currency_hnw_worldwide_hnw_worldwide_q1": [
+        "currency_management_an_introduction.b"
+    ],
+    "currency_hnw_worldwide_hnw_worldwide_q2": [
+        "currency_management_an_introduction.d"
+    ],
+    "currency_hnw_worldwide_hnw_worldwide_q3": [
+        "currency_management_an_introduction.f"
+    ],
+    "currency_hnw_worldwide_hnw_worldwide_essay_q8": [
+        "currency_management_an_introduction.c"
+    ],
+    "currency_sabanai_marina_campos_q1": [
+        "currency_management_an_introduction.a"
+    ],
+    "currency_sabanai_marina_campos_q3": [
+        "currency_management_an_introduction.d"
+    ],
+    "currency_sabanai_marina_campos_essay_q8": [
+        "currency_management_an_introduction.a"
+    ],
+    "currency_sabanai_marina_campos_essay_q9": [
+        "currency_management_an_introduction.d"
+    ],
+    "currency_sabanai_marina_campos_essay_q10": [
+        "currency_management_an_introduction.g"
+    ],
+    "maravella_global_currency_pathway_essay_q4": [
+        "currency_management_an_introduction.a",
+        "currency_management_an_introduction.h",
+    ],
+    "marchetti_family_wealth_pathway_essay_q1": [
+        "an_overview_of_private_wealth_management.e"
+    ],
+    "marchetti_family_wealth_pathway_essay_q2": [
+        "an_overview_of_private_wealth_management.e"
+    ],
+    "marchetti_family_wealth_pathway_essay_q3": [
+        "an_overview_of_private_wealth_management.d"
+    ],
+    "marchetti_family_wealth_pathway_essay_q4": [
+        "an_overview_of_private_wealth_management.e"
+    ],
+    "cascade_capital_gips_pathway_essay_q1": [
+        "overview_of_the_global_investment_performance_standards.h"
+    ],
+    "ldi_pm_pathway_beatriz_maestre_beatriz_maestre_essay_q7": [
+        "liability_driven_and_index_based_strategies.b"
+    ],
+    "ldi_pm_pathway_abiquia_chosovi_puhuyesva_q1": [
+        "liability_driven_and_index_based_strategies.c"
+    ],
+    "inflection_capital_case_scenario_derek_mulaney_essay_q7": [
+        "trade_strategy_and_execution.c",
+        "trade_strategy_and_execution.h",
+    ],
+    "inflection_capital_case_scenario_derek_mulaney_essay_q8": [
+        "trade_strategy_and_execution.g",
+        "trade_strategy_and_execution.h",
+    ],
+    "rothhaven_foundation_alt_pathway_essay_q3": [
+        "asset_allocation_to_alternative_investments.d"
+    ],
+    "autland_quantitative_autland_quantitative_q4": [
+        "portfolio_performance_evaluation.g"
+    ],
+    "sabonete_sabonete_sa_q2": ["overview_of_asset_allocation.c"],
+    "windsong_eunice_fox_scenario_q3": ["overview_of_asset_allocation.c"],
+    "windsong_eunice_fox_scenario_essay_q8": ["overview_of_asset_allocation.c"],
+    "remington_preston_remington_essay_q7": ["principles_of_asset_allocation.h"],
+    "tina_swan_tina_swan_scenario_essay_q7": ["principles_of_asset_allocation.b"],
+    "olivinia_oliviniacase_q1": ["asset_allocation_with_real_world_constraints.a"],
+    "chattahoochee_demarcus_miller_q2": [
+        "portfolio_management_for_institutional_investors.b"
+    ],
+    "chattahoochee_demarcus_miller_essay_q7": [
+        "portfolio_management_for_institutional_investors.b"
+    ],
+    "chattahoochee_demarcus_miller_essay_q10": [
+        "portfolio_management_for_institutional_investors.e"
+    ],
+    "active_equity_investing_strategies_grasmere_asset_morgon_abe_q4": [
+        "active_equity_investing_strategies.e"
+    ],
+    # --- this pass: drop extra tags the stem does not test ---
+    "sabonete_sabonete_sa_q3": ["principles_of_asset_allocation.j"],
+    "sabonete_sabonete_sa_q6": ["overview_of_asset_allocation.c"],
+    "sabonete_sabonete_sa_essay_q7": [
+        "overview_of_asset_allocation.g",
+        "overview_of_asset_allocation.c",
+    ],
+    "sabonete_sabonete_sa_essay_q9": [
+        "overview_of_asset_allocation.b",
+        "principles_of_asset_allocation.c",
+    ],
+    "windsong_eunice_fox_scenario_q2": ["principles_of_asset_allocation.m"],
+    "windsong_eunice_fox_scenario_q5": ["overview_of_asset_allocation.e"],
+    "remington_preston_remington_q1": [
+        "principles_of_asset_allocation.m",
+        "overview_of_asset_allocation.d",
+    ],
+    "olivinia_oliviniacase_q3": [
+        "overview_of_asset_allocation.a",
+        "asset_allocation_with_real_world_constraints.a",
+    ],
+    "olivinia_oliviniacase_q4": [
+        "asset_allocation_with_real_world_constraints.c",
+        "asset_allocation_with_real_world_constraints.a",
+    ],
+    "olivinia_oliviniacase_q6": [
+        "asset_allocation_with_real_world_constraints.d",
+        "principles_of_asset_allocation.a",
+    ],
+    "olivinia_oliviniacase_essay_q9": [
+        "asset_allocation_with_real_world_constraints.e"
+    ],
+    "olivinia_oliviniacase_essay_q10": [
+        "asset_allocation_with_real_world_constraints.c",
+        "asset_allocation_with_real_world_constraints.d",
+    ],
+    "overview_of_fi_danny_moynahan_danny_q4": [
+        "overview_of_fixed_income_portfolio_management.d"
+    ],
+    "overview_of_fi_danny_moynahan_danny_q5": [
+        "overview_of_fixed_income_portfolio_management.e"
+    ],
+    "elbe_society_the_elbe_society_essay_q7": [
+        "case_study_in_portfolio_management_institutional_endowment.c",
+        "asset_allocation_to_alternative_investments.g",
+    ],
+    "rothhaven_foundation_alt_pathway_essay_q2": [
+        "case_study_in_portfolio_management_institutional_endowment.a",
+        "asset_allocation_to_alternative_investments.g",
+    ],
+    "pure_case_lorelie_chan_essay_q8": [
+        "portfolio_management_for_institutional_investors.h",
+        "portfolio_management_for_institutional_investors.b",
+    ],
+    "swaps_tribeca_case_chelsea_stuyvesant_essay_q5": [
+        "currency_management_an_introduction.f"
+    ],
+    "currency_sabanai_marina_campos_q6": [
+        "currency_management_an_introduction.g"
+    ],
+    "aventine_pension_swaps_pathway_essay_q4": [
+        "swaps_forwards_and_futures_strategies.b"
+    ],
+    "ldi_pm_pathway_abiquia_chosovi_puhuyesva_q2": [
+        "liability_driven_and_index_based_strategies.e"
+    ],
+    "ldi_pm_pathway_abiquia_chosovi_puhuyesva_q4": [
+        "liability_driven_and_index_based_strategies.f"
+    ],
+    "ldi_pm_pathway_abiquia_chosovi_puhuyesva_essay_q7": [
+        "liability_driven_and_index_based_strategies.c"
+    ],
+    "ldi_pm_pathway_abiquia_chosovi_puhuyesva_essay_q8": [
+        "liability_driven_and_index_based_strategies.e"
+    ],
+    "ldi_pm_pathway_abiquia_chosovi_puhuyesva_essay_q9": [
+        "liability_driven_and_index_based_strategies.e"
+    ],
+    "ldi_pm_pathway_abiquia_chosovi_puhuyesva_essay_q10": [
+        "fixed_income_active_management_credit_strategies.k"
+    ],
+    "ldi_pm_pathway_beatriz_maestre_beatriz_maestre_q1": [
+        "liability_driven_and_index_based_strategies.c"
+    ],
+    "ldi_pm_pathway_beatriz_maestre_beatriz_maestre_q2": [
+        "liability_driven_and_index_based_strategies.d"
+    ],
+    "ldi_pm_pathway_beatriz_maestre_beatriz_maestre_q4": [
+        "liability_driven_and_index_based_strategies.a"
+    ],
+    "ldi_pm_pathway_beatriz_maestre_beatriz_maestre_q5": [
+        "liability_driven_and_index_based_strategies.b"
+    ],
+    "ldi_pm_pathway_beatriz_maestre_beatriz_maestre_essay_q9": [
+        "liability_driven_and_index_based_strategies.a"
+    ],
+    "ldi_pm_pathway_shrewsbury_rumen_shrewsbury_q1": [
+        "liability_driven_and_index_based_strategies.b"
+    ],
+    "ldi_pm_pathway_shrewsbury_rumen_shrewsbury_q4": [
+        "liability_driven_and_index_based_strategies.f"
+    ],
+    "ldi_pm_pathway_shrewsbury_rumen_shrewsbury_essay_q7": [
+        "liability_driven_and_index_based_strategies.a",
+        "yield_curve_strategies.e",
+    ],
+    "ldi_pm_pathway_shrewsbury_rumen_shrewsbury_essay_q8": [
+        "liability_driven_and_index_based_strategies.d"
+    ],
+    "ldi_pm_pathway_shrewsbury_rumen_shrewsbury_essay_q10": [
+        "liability_driven_and_index_based_strategies.f"
+    ],
+    "credit_strategies_pm_pathway_central_county_central_county_q4": [
+        "fixed_income_active_management_credit_strategies.d"
+    ],
+    "credit_strategies_pm_pathway_central_county_central_county_essay_q9": [
+        "fixed_income_active_management_credit_strategies.b"
+    ],
+    "credit_strategies_pm_pathway_central_county_central_county_essay_q10": [
+        "fixed_income_active_management_credit_strategies.a"
+    ],
+    "credit_strategies_pm_pathway_central_county_central_county_essay_q11": [
+        "fixed_income_active_management_credit_strategies.d",
+        "yield_curve_strategies.e",
+    ],
+    "credit_strategies_pm_pathway_harlow_choate_harlow_choate_q3": [
+        "fixed_income_active_management_credit_strategies.b"
+    ],
+    "credit_strategies_pm_pathway_harlow_choate_harlow_choate_q4": [
+        "fixed_income_active_management_credit_strategies.f"
+    ],
+    "credit_strategies_pm_pathway_harlow_choate_harlow_choate_essay_q8": [
+        "fixed_income_active_management_credit_strategies.b"
+    ],
+    "credit_strategies_pm_pathway_harlow_choate_harlow_choate_essay_q9": [
+        "fixed_income_active_management_credit_strategies.e"
+    ],
+    "credit_strategies_pm_pathway_harlow_choate_harlow_choate_essay_q10": [
+        "overview_of_fixed_income_portfolio_management.a"
+    ],
+    "credit_strategies_pm_pathway_mt_pleasant_advisers_ashley_wes_q4": [
+        "fixed_income_active_management_credit_strategies.d"
+    ],
+    "credit_strategies_pm_pathway_mt_pleasant_advisers_ashley_wes_q5": [
+        "fixed_income_active_management_credit_strategies.e"
+    ],
+    "credit_strategies_pm_pathway_mt_pleasant_advisers_ashley_wes_q6": [
+        "fixed_income_active_management_credit_strategies.i"
+    ],
+    "credit_strategies_pm_pathway_mt_pleasant_advisers_ashley_wes_essay_q9": [
+        "fixed_income_active_management_credit_strategies.d"
+    ],
+    "credit_strategies_pm_pathway_mt_pleasant_advisers_ashley_wes_essay_q10": [
+        "fixed_income_active_management_credit_strategies.e"
+    ],
+    "index_based_equity_strategies_sapphire_bay_edward_cullen_q6": [
+        "index_based_equity_strategies.e"
+    ],
+    "index_based_equity_strategies_sapphire_bay_edward_cullen_essay_q10": [
+        "index_based_equity_strategies.b",
+        "index_based_equity_strategies.c",
+    ],
+    "index_based_equity_strategies_arthur_camme_arthur_camme_essay_q7": [
+        "index_based_equity_strategies.a"
+    ],
+    "index_based_equity_strategies_arthur_camme_arthur_camme_essay_q10": [
+        "overview_of_equity_portfolio_management.e"
+    ],
+    "active_equity_investing_strategies_allfunz_consulting_allfun_q6": [
+        "active_equity_investing_strategies.i"
+    ],
+    "active_equity_investing_strategies_allfunz_consulting_allfun_essay_q8": [
+        "active_equity_investing_strategies.h"
+    ],
+    "active_equity_investing_strategies_grasmere_asset_morgon_abe_essay_q10": [
+        "active_equity_investing_strategies.c"
+    ],
+    "active_equity_investing_strategies_monica_popkirk_monica_pop_essay_q8": [
+        "active_equity_investing_strategies.i"
+    ],
+    "active_equity_investing_construction_lisette_langham_lisette_q3": [
+        "active_equity_investing_portfolio_construction.c"
+    ],
+    "active_equity_investing_construction_lisette_langham_lisette_essay_q10": [
+        "active_equity_investing_portfolio_construction.a"
+    ],
+    "active_equity_investing_construction_the_epsilon_institute_t_q2": [
+        "active_equity_investing_portfolio_construction.d"
+    ],
+    "active_equity_investing_construction_the_epsilon_institute_t_essay_q7": [
+        "active_equity_investing_portfolio_construction.d"
+    ],
 }
 
 

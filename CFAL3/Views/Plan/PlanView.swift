@@ -5,6 +5,7 @@ struct PlanView: View {
     @Environment(ContentLoader.self) private var content
     @Environment(\.modelContext) private var modelContext
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Query private var completions: [DayCompletion]
 
     private var schedule: StudySchedule? { content.schedule }
@@ -75,7 +76,7 @@ struct PlanView: View {
                 .scrollContentBackground(.hidden)
                 .onAppear {
                     DispatchQueue.main.async {
-                        withAnimation {
+                        withSittingAnimation(reduceMotion) {
                             proxy.scrollTo(todayKey, anchor: .center)
                         }
                     }

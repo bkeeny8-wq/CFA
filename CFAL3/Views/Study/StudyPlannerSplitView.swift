@@ -14,6 +14,7 @@ struct StudyPlannerSplitView: View {
     var accessibilityHidden = false
 
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(ContentLoader.self) private var content
     @Query private var statuses: [LOSStudyStatus]
     @Query(sort: \Attempt.timestamp, order: .reverse) private var attempts: [Attempt]
@@ -205,7 +206,7 @@ struct StudyPlannerSplitView: View {
     private func open(_ reading: Reading) {
         selectedReadingID = reading.id
         guard horizontalSizeClass == .regular else { return }
-        withAnimation(.snappy) {
+        withSittingAnimation(reduceMotion) {
             columnVisibility = .detailOnly
         }
     }

@@ -28,11 +28,12 @@ enum VignetteExpansionStore {
 struct VignetteView: View {
     let vignette: String
     @Binding var isExpanded: Bool
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Button(isExpanded ? "Hide vignette" : "Show vignette") {
-                withAnimation { isExpanded.toggle() }
+                withSittingAnimation(reduceMotion) { isExpanded.toggle() }
             }
             .font(.subheadline)
             .accessibilityHint(isExpanded ? "Hides the case vignette" : "Shows the case vignette")

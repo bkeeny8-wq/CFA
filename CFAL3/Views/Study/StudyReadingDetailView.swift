@@ -10,6 +10,7 @@ struct StudyReadingDetailView: View {
     @Environment(ContentLoader.self) private var content
     @Environment(StudySessionCoordinator.self) private var sessionCoordinator
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Query private var statuses: [LOSStudyStatus]
     @Query private var reviewCards: [ReviewCard]
 
@@ -66,7 +67,7 @@ struct StudyReadingDetailView: View {
             if let splitColumnVisibility, horizontalSizeClass == .regular {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        withAnimation(.snappy) {
+                        withSittingAnimation(reduceMotion) {
                             splitColumnVisibility.wrappedValue =
                                 splitColumnVisibility.wrappedValue == .detailOnly ? .all : .detailOnly
                         }

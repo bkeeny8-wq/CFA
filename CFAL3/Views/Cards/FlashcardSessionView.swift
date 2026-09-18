@@ -290,11 +290,7 @@ struct FlashcardSessionView: View {
     }
 
     private func sitAnimation(_ body: () -> Void) {
-        if reduceMotion {
-            body()
-        } else {
-            withAnimation(.snappy, body)
-        }
+        withSittingAnimation(reduceMotion, body)
     }
 
     private func advance() {

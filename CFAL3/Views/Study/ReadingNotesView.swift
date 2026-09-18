@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct ReadingNotesView: View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
     let notes: ReadingNotesEntry
     var showsTopicArea: Bool = true
 
@@ -59,7 +61,7 @@ struct ReadingNotesView: View {
             HStack(spacing: 8) {
                 ForEach(losSections, id: \.number) { section in
                     Button {
-                        withAnimation {
+                        withSittingAnimation(reduceMotion) {
                             proxy.scrollTo(losScrollID(section.number, section.title), anchor: .top)
                         }
                     } label: {

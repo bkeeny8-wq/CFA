@@ -35,12 +35,12 @@ final class QuestionBankIntegrityTests: XCTestCase {
     }
 
     func testPinnedBankCounts() throws {
-        // v3 bank plus original SWF/Endowment cases: 495 (270 MC + 225 essay).
+        // v3 bank plus original SWF/Endowment cases: 497 (270 MC + 227 essay).
         // If the content pipeline changes these, update the pins deliberately.
         let qs = allQuestions(try loadBank())
-        XCTAssertEqual(qs.count, 495)
+        XCTAssertEqual(qs.count, 497)
         XCTAssertEqual(qs.filter { $0.type == .mc }.count, 270)
-        XCTAssertEqual(qs.filter { $0.type == .essay }.count, 225)
+        XCTAssertEqual(qs.filter { $0.type == .essay }.count, 227)
     }
 
     /// LOS-scoped essays come from the existing bank. Do not invent items.
@@ -64,7 +64,7 @@ final class QuestionBankIntegrityTests: XCTestCase {
                 }
             }
         }
-        XCTAssertEqual(tagged.count, 166)
+        XCTAssertEqual(tagged.count, 149)
         XCTAssertGreaterThan(total, 225, "essays can tag more than one LOS")
         XCTAssertEqual(content.essays(forLOS: "no.such.los").count, 0)
     }
@@ -121,13 +121,13 @@ final class QuestionBankIntegrityTests: XCTestCase {
         content.load()
         XCTAssertNil(content.loadError, content.loadError ?? "")
 
-        XCTAssertEqual(content.totalQuestions, 495)
+        XCTAssertEqual(content.totalQuestions, 497)
         XCTAssertEqual(content.totalDrillQuestions, 2_667)
         XCTAssertEqual(
             content.totalBankAndDrillQuestions,
             content.totalQuestions + content.totalDrillQuestions
         )
-        XCTAssertEqual(content.totalBankAndDrillQuestions, 3_162)
+        XCTAssertEqual(content.totalBankAndDrillQuestions, 3_164)
     }
 
     /// Every attemptable question is seeded a ReviewCard, so the due-count

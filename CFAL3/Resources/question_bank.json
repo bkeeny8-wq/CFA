@@ -1169,12 +1169,9 @@
                 "C": "Based on the objectives described, the integrated asset–liability approach is the most appropriate asset allocation approach for the SPP, which is currently under-funded and seeks to achieve fully funded status in five years. Mean–variance optimization is an asset-only approach to asset allocation and fails to consider Sabonete's goal of fully funding the liabilities. The basic two-portfolio approach assumes the pension plan has a surplus that can be allocated to a return-seeking portfolio."
               },
               "candidate_los": [
-                "principles_of_asset_allocation.k",
-                "principles_of_asset_allocation.l",
-                "overview_of_asset_allocation.d"
+                "overview_of_asset_allocation.c"
               ],
               "primary_reading_ids": [
-                "principles_of_asset_allocation",
                 "overview_of_asset_allocation"
               ],
               "data_quality": "complete",
@@ -1197,14 +1194,10 @@
                 "C": "Average participant age affects the date and timing of future benefit payments. If the average participant age increases, withdrawals from the plan will occur sooner, causing the present value of future withdrawals from the SPP to increase, resulting in a negative impact on its funded status."
               },
               "candidate_los": [
-                "asset_allocation_with_real_world_constraints.c",
-                "principles_of_asset_allocation.j",
-                "overview_of_asset_allocation.d"
+                "principles_of_asset_allocation.j"
               ],
               "primary_reading_ids": [
-                "asset_allocation_with_real_world_constraints",
-                "principles_of_asset_allocation",
-                "overview_of_asset_allocation"
+                "principles_of_asset_allocation"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -1280,13 +1273,9 @@
                 "C": "The endowment model can be expected to generate higher returns because of the illiquidity premium, which would more than offset the higher costs. However, Sabonete's investment horizon is too short to capture the illiquidity premium inherent in the model. Further, the higher costs of the model are inconsistent with Sabonete's desire to minimize the investment and administrative costs associated with the plan."
               },
               "candidate_los": [
-                "principles_of_asset_allocation.j",
-                "asset_allocation_with_real_world_constraints.c",
                 "overview_of_asset_allocation.c"
               ],
               "primary_reading_ids": [
-                "principles_of_asset_allocation",
-                "asset_allocation_with_real_world_constraints",
                 "overview_of_asset_allocation"
               ],
               "data_quality": "complete",
@@ -1304,12 +1293,10 @@
               },
               "candidate_los": [
                 "overview_of_asset_allocation.g",
-                "overview_of_asset_allocation.c",
-                "principles_of_asset_allocation.g"
+                "overview_of_asset_allocation.c"
               ],
               "primary_reading_ids": [
-                "overview_of_asset_allocation",
-                "principles_of_asset_allocation"
+                "overview_of_asset_allocation"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -1348,13 +1335,12 @@
                 "model_answer": "VERDICT = CORRECT.\nAccepted justifications (any ONE):\n• 60% of Sabonete's revenues are from emerging markets; this is significant sponsor exposure to EM economic conditions.\n• Economic balance sheet perspective: SPP's EM equity concentration correlates with sponsor cash flows, reducing diversification.\n• EM contribution to global market portfolio is only ~10%; overweight is unjustified given already-high operational EM exposure.\n• Correlation between contributions capacity and SPP returns is worsened.\n\nPARTIAL: 5=verdict + reasoning; 3=verdict, weak reasoning; 0=wrong."
               },
               "candidate_los": [
-                "principles_of_asset_allocation.l",
                 "overview_of_asset_allocation.b",
                 "principles_of_asset_allocation.c"
               ],
               "primary_reading_ids": [
-                "principles_of_asset_allocation",
-                "overview_of_asset_allocation"
+                "overview_of_asset_allocation",
+                "principles_of_asset_allocation"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -1671,13 +1657,10 @@
                 "C": "Funding of the university endowment involves a short-term time horizon (within two years) so it should bear little risk."
               },
               "candidate_los": [
-                "overview_of_asset_allocation.g",
-                "asset_allocation_with_real_world_constraints.c",
-                "overview_of_asset_allocation.b"
+                "principles_of_asset_allocation.m"
               ],
               "primary_reading_ids": [
-                "overview_of_asset_allocation",
-                "asset_allocation_with_real_world_constraints"
+                "principles_of_asset_allocation"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -1699,13 +1682,10 @@
                 "C": "Kelly's first comment about the Sharpe ratio and the law of large numbers is incorrect. Institutions that maximize their Sharpe ratio for an acceptable level of volatility would be following an asset-only asset allocation approach, and, as such, they would not be concerned with modeling their liabilities."
               },
               "candidate_los": [
-                "overview_of_asset_allocation.c",
-                "principles_of_asset_allocation.k",
-                "overview_of_asset_allocation.d"
+                "overview_of_asset_allocation.c"
               ],
               "primary_reading_ids": [
-                "overview_of_asset_allocation",
-                "principles_of_asset_allocation"
+                "overview_of_asset_allocation"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -1752,13 +1732,10 @@
                 "C": "Asset classes should have a return premium based on an underlying market risk factor (e.g., beta) and not any underlying skill of the investor. Strategies, on the other hand, involve combinations of asset classes with the objective of earning a return based on investment skill."
               },
               "candidate_los": [
-                "overview_of_asset_allocation.e",
-                "principles_of_asset_allocation.f",
-                "principles_of_asset_allocation.n"
+                "overview_of_asset_allocation.e"
               ],
               "primary_reading_ids": [
-                "overview_of_asset_allocation",
-                "principles_of_asset_allocation"
+                "overview_of_asset_allocation"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -1819,13 +1796,10 @@
                 "model_answer": "===\nTRAINOR: 'Goals-based is for individuals; institutions need to focus either on the asset or the liability side of the balance sheet, depending on the nature of their business.' — INCORRECT.\nAccepted support:\n- Institutions can also use goals-based approaches: some (e.g., insurance companies) segment general account assets into sub-portfolios associated with specific lines of business or blocks of liabilities, each with its own return objective.\n- Liability-relative allocation does not focus on one side of the balance sheet alone — it chooses assets in relation to the liabilities, considering both sides together.\n\n===\nKELLY: two parts, graded separately.\n- Sharpe ratio / law of large numbers sentence — INCORRECT. Institutions that maximize the Sharpe ratio for an acceptable level of volatility follow an asset-only approach and therefore do not model their liabilities; the law of large numbers is used by liability-relative investors such as insurers. The sentence mixes an asset-only objective with liability-relative modeling.\n- General account segmentation sentence — CORRECT. Insurers segment general account assets into sub-portfolios associated with specific lines of business, each with its own return objective — a goals-based approach analogous to individuals' sub-portfolios.\n\nPARTIAL: 4 = Trainor graded incorrect AND both parts of Kelly correctly assessed, with support; 3 = Trainor graded incorrect and one part of Kelly correctly assessed; 2 = one speaker fully and correctly assessed; 1 = reasonable framework but verdicts unsupported; 0 = grades Trainor correct and Kelly's Sharpe/LLN sentence correct."
               },
               "candidate_los": [
-                "overview_of_asset_allocation.c",
-                "principles_of_asset_allocation.l",
-                "principles_of_asset_allocation.k"
+                "overview_of_asset_allocation.c"
               ],
               "primary_reading_ids": [
-                "overview_of_asset_allocation",
-                "principles_of_asset_allocation"
+                "overview_of_asset_allocation"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -1898,13 +1872,12 @@
                 "C": "Portfolio 3 was chosen because it has the lowest projected standard deviation."
               },
               "candidate_los": [
-                "overview_of_asset_allocation.d",
                 "principles_of_asset_allocation.m",
-                "overview_of_asset_allocation.g"
+                "overview_of_asset_allocation.d"
               ],
               "primary_reading_ids": [
-                "overview_of_asset_allocation",
-                "principles_of_asset_allocation"
+                "principles_of_asset_allocation",
+                "overview_of_asset_allocation"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -2047,13 +2020,10 @@
                 "model_answer": "VERDICT: PORTFOLIO 2.\n\nCalculation of Roy's ratio (E[R] - MAR)/σ where MAR = $54,000/$900,000 = 6.0%:\n  Portfolio 1: (10.5 - 6.0)/20.0 = 0.225\n  Portfolio 2: (9.0 - 6.0)/13.0 = 0.231 ← highest\n  Portfolio 3: (7.75 - 6.0)/10.0 = 0.175\n\nAccepted reasoning (any ONE):\n• Highest Roy's ratio minimizes shortfall probability below the required 6% withdrawal rate.\n• Portfolio 2 has the best trade-off of excess return over MAR per unit of risk.\n\nPARTIAL: 5=Portfolio 2 + Roy's ratio work; 4=Portfolio 2, incomplete work; 3=Portfolio 2 with different justification; 2=Portfolio 3 with 'safest' logic (recognizes goal but wrong metric); 0=Portfolio 1."
               },
               "candidate_los": [
-                "principles_of_asset_allocation.b",
-                "principles_of_asset_allocation.h",
-                "overview_of_asset_allocation.d"
+                "principles_of_asset_allocation.h"
               ],
               "primary_reading_ids": [
-                "principles_of_asset_allocation",
-                "overview_of_asset_allocation"
+                "principles_of_asset_allocation"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -2295,13 +2265,10 @@
                 "model_answer": "VERDICT: PORTFOLIO B.\n\nCalculation of Sharpe ratio (E[R] - Rf)/σ, Rf = 1.8%:\n  Portfolio A: (9.5 - 1.8)/18.69 = 0.412\n  Portfolio B: (8.2 - 1.8)/14.95 = 0.428 ← highest\n  Portfolio C: (7.8 - 1.8)/14.18 = 0.423\n\nAccepted reasoning (any ONE):\n• On a two-fund efficient frontier with a risk-free asset, the highest-Sharpe risky portfolio dominates as the tangency portfolio.\n• Combining tangency portfolio (highest Sharpe = Portfolio B) with risk-free asset gives the lowest volatility for the 5.7% target return.\n• Any portfolio on the efficient frontier can achieve 5.7%, but the tangency portfolio does so with minimum vol.\n\nPARTIAL: 5=Portfolio B + Sharpe ratio calculations; 4=Portfolio B, calculations incomplete; 3=Portfolio B without formal Sharpe; 0=A or C."
               },
               "candidate_los": [
-                "principles_of_asset_allocation.g",
-                "overview_of_asset_allocation.g",
-                "principles_of_asset_allocation.d"
+                "principles_of_asset_allocation.b"
               ],
               "primary_reading_ids": [
-                "principles_of_asset_allocation",
-                "overview_of_asset_allocation"
+                "principles_of_asset_allocation"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -2395,12 +2362,9 @@
                 "C": "During Phase 1, OHF had no liquidity constraints. No outflows were expected for 20 years, all income was to be reinvested, and the nature of the portfolio was quite liquid by regulation, consisting of cash and high-grade bonds."
               },
               "candidate_los": [
-                "overview_of_asset_allocation.h",
-                "asset_allocation_with_real_world_constraints.a",
-                "overview_of_asset_allocation.i"
+                "asset_allocation_with_real_world_constraints.a"
               ],
               "primary_reading_ids": [
-                "overview_of_asset_allocation",
                 "asset_allocation_with_real_world_constraints"
               ],
               "data_quality": "complete",
@@ -2448,13 +2412,12 @@
                 "C": "In Phase 3, 40% of assets were to be invested in high-yield bonds, real estate, private equity, and hedge funds, which were to be managed externally. Each external manager was limited to approximately $75 million of the fund's assets. As indicated in the table below, the number of external managers required grew from about 30 to almost 150 by the end of the period. This would have placed substantial demands on the governance resources of the fund to allow for identification of suitable managers and to monitor their performance.    ------------------------------------------------------------------------ Start of Phase   End of Phase 3 3 ---------------------------------- ------------------ ------------------ Portfolio value                    $6b               $28b  Externally managed funds @ 40%     $2.4b             $11.2b  Managers needed with $75m limit   32                 149 ------------------------------------------------------------------------"
               },
               "candidate_los": [
-                "asset_allocation_with_real_world_constraints.a",
-                "overview_of_asset_allocation.h",
-                "overview_of_asset_allocation.a"
+                "overview_of_asset_allocation.a",
+                "asset_allocation_with_real_world_constraints.a"
               ],
               "primary_reading_ids": [
-                "asset_allocation_with_real_world_constraints",
-                "overview_of_asset_allocation"
+                "overview_of_asset_allocation",
+                "asset_allocation_with_real_world_constraints"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -2477,12 +2440,10 @@
               },
               "candidate_los": [
                 "asset_allocation_with_real_world_constraints.c",
-                "asset_allocation_with_real_world_constraints.a",
-                "principles_of_asset_allocation.m"
+                "asset_allocation_with_real_world_constraints.a"
               ],
               "primary_reading_ids": [
-                "asset_allocation_with_real_world_constraints",
-                "principles_of_asset_allocation"
+                "asset_allocation_with_real_world_constraints"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -2529,12 +2490,10 @@
                 "C": "The Sharpe ratio is the slope of the line drawn from the risk-free rate to a particular portfolio. The two portfolios of interest are the policy portfolio and the TAA portfolio because both plot on the efficient frontier in Exhibit 3. Exhibit 3 indicates that the line from the risk-free rate to the policy portfolio is steeper than the line from the risk-free rate to the TAA portfolio. Even though the TAA portfolio has a higher return than the policy portfolio, the additional return requires too much additional risk. In addition, the TAA portfolio may exceed management's risk tolerance."
               },
               "candidate_los": [
-                "overview_of_asset_allocation.g",
                 "asset_allocation_with_real_world_constraints.d",
                 "principles_of_asset_allocation.a"
               ],
               "primary_reading_ids": [
-                "overview_of_asset_allocation",
                 "asset_allocation_with_real_world_constraints",
                 "principles_of_asset_allocation"
               ],
@@ -2592,13 +2551,10 @@
                 "model_answer": "VERDICT: WEAK PRACTICE — subject to well-known selection biases.\n\nAccepted critiques (any ONE for pass, TWO for full credit):\n• Recent-performance bias / hot-hand fallacy — 2 years is insufficient to distinguish skill from luck.\n• Return-chasing systematically buys managers near cyclical peaks; likely to experience subsequent mean reversion (underperformance).\n• Does not adjust for risk — a high-return, high-risk manager may look better than a lower-risk, better-risk-adjusted manager.\n• Ignores style drift, capacity, fees, and consistency.\n• Ignores fundamental process assessment — outperformance criterion is purely retrospective.\n• 'Correspondingly lower the incidence of negative performance' is dubious — past winners do not systematically avoid future losses.\n\nPARTIAL: 5=identifies practice as weak + two accepted critiques; 3=weak + one critique; 1=recognizes issue without articulation; 0=defends the practice."
               },
               "candidate_los": [
-                "asset_allocation_with_real_world_constraints.e",
-                "overview_of_asset_allocation.j",
-                "overview_of_asset_allocation.e"
+                "asset_allocation_with_real_world_constraints.e"
               ],
               "primary_reading_ids": [
-                "asset_allocation_with_real_world_constraints",
-                "overview_of_asset_allocation"
+                "asset_allocation_with_real_world_constraints"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -2615,13 +2571,11 @@
                 "model_answer": "GRADING KEY — one accepted rationale per change earns full credit.\n\n===\nLOWER WITHDRAWALS:\n• Reduces drawdown pressure during periods of low oil-related contributions.\n• Preserves capital for future generations given reduced revenue inflow.\n\n===\nHIGHER EQUITY EXPOSURE (up to 65%):\n• Raises long-term expected return to compensate for lower oil-revenue inflow.\n• Long-horizon capital can absorb equity volatility to achieve higher expected returns.\n\n===\n±5% WEIGHT FLEXIBILITY:\n• Enables tactical asset allocation to exploit short-term dislocations.\n• Provides operational flexibility to manage through market volatility while staying within strategic bounds.\n\nPARTIAL: 5=one accepted rationale per change; 4=covers 2 of 3; 3=covers 1 well; 0=general/off-topic."
               },
               "candidate_los": [
-                "asset_allocation_with_real_world_constraints.d",
-                "overview_of_asset_allocation.i",
-                "asset_allocation_with_real_world_constraints.c"
+                "asset_allocation_with_real_world_constraints.c",
+                "asset_allocation_with_real_world_constraints.d"
               ],
               "primary_reading_ids": [
-                "asset_allocation_with_real_world_constraints",
-                "overview_of_asset_allocation"
+                "asset_allocation_with_real_world_constraints"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -2733,13 +2687,10 @@
                 "C": "The footnote Moynahan includes on page 4 is incorrect with respect to roll down return. The roll down return is equal to the bond's percentage price change assuming an unchanged yield curve over the strategy horizon, not regardless of yield curve changes as stated in the footnote. The roll down return results from the bond \"rolling down\" the yield curve as the time to maturity decreases. As time passes, a bond's price typically moves closer to par."
               },
               "candidate_los": [
-                "overview_of_fixed_income_portfolio_management.d",
-                "fixed_income_active_management_credit_strategies.h",
-                "overview_of_fixed_income_portfolio_management.b"
+                "overview_of_fixed_income_portfolio_management.d"
               ],
               "primary_reading_ids": [
-                "overview_of_fixed_income_portfolio_management",
-                "fixed_income_active_management_credit_strategies"
+                "overview_of_fixed_income_portfolio_management"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -2761,14 +2712,10 @@
                 "C": "Incorrect. A repurchase agreement is a financing trade: the seller delivers collateral and borrows cash, but this by itself adds no bond-market exposure — the cash raised would still need to be deployed — and the overnight term carries daily rollover risk. Buying bond futures directly adds the desired leveraged exposure."
               },
               "candidate_los": [
-                "overview_of_fixed_income_portfolio_management.e",
-                "yield_curve_strategies.b",
-                "liability_driven_and_index_based_strategies.c"
+                "overview_of_fixed_income_portfolio_management.e"
               ],
               "primary_reading_ids": [
-                "overview_of_fixed_income_portfolio_management",
-                "yield_curve_strategies",
-                "liability_driven_and_index_based_strategies"
+                "overview_of_fixed_income_portfolio_management"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -3046,7 +2993,6 @@
                 "model_answer": "GRADING KEY — any TWO of the following.\n\nAccepted considerations:\n• CAPITAL CALL RISK: PE commitments require unpredictable capital calls (over 3-5 years); IG FI is fully invested — PE creates liquidity uncertainty.\n• DENOMINATOR EFFECT: in market downturns, public assets decline faster than PE (due to stale pricing) → PE % of portfolio INCREASES unintentionally.\n• INCREASED SPENDING (5% vs 4%) requires MORE liquid distributions; 25% PE (less liquid) is problematic.\n• REBALANCING CHALLENGE: cannot easily rebalance illiquid PE positions to target.\n• DISTRIBUTIONS TIMING: PE cash flows lumpy and unpredictable.\n• SECONDARY MARKET DISCOUNTS: if forced to sell PE for liquidity, typical 15-30% discount from NAV.\n• ANNUAL REBALANCING requirement conflicts with PE illiquidity.\n• ENDOWMENT MODEL success requires perpetual horizon and low withdrawal — not guaranteed with 5% spend.\n\nPARTIAL: 5=two clear considerations + reasoning; 3=one; 0=vague."
               },
               "candidate_los": [
-                "case_study_in_portfolio_management_institutional_endowment.a",
                 "case_study_in_portfolio_management_institutional_endowment.c",
                 "asset_allocation_to_alternative_investments.g"
               ],
@@ -3501,8 +3447,7 @@
               },
               "candidate_los": [
                 "case_study_in_portfolio_management_institutional_endowment.a",
-                "asset_allocation_to_alternative_investments.g",
-                "asset_allocation_to_alternative_investments.d"
+                "asset_allocation_to_alternative_investments.g"
               ],
               "primary_reading_ids": [
                 "case_study_in_portfolio_management_institutional_endowment",
@@ -3523,8 +3468,6 @@
                 "model_answer": "===\nPME for PRIVATE EQUITY: APPROPRIATE.\n• Public Market Equivalent (PME) properly compares PE returns to what would have been earned in an equivalent public market investment.\n• Kaplan-Schoar PME and Direct Alpha are widely accepted PE benchmarks.\n• Accounts for timing of capital calls and distributions — critical for irregular cash flows.\n• Superior to IRR-only or time-weighted return comparisons.\n\n===\nHEDGE FUND COMPOSITE BENCHMARKS: PARTIALLY APPROPRIATE.\n• Hedge fund indices (HFRI, Credit Suisse) have well-known issues:\n  - SURVIVORSHIP BIAS: failed funds drop out.\n  - BACKFILL BIAS: successful funds added retroactively.\n  - SELF-SELECTION: only funds choosing to report are included.\n• Composite benchmarks overstate the true universe average return (survivorship and backfill biases inflate reported index returns), making them an inflated comparison hurdle.\n• Better: strategy-specific benchmarks (e.g., HFRX equity long-short for long-short equity component) with awareness of biases.\n\nPARTIAL: 5=both correctly assessed + reasoning; 3=one correctly; 0=vague."
               },
               "candidate_los": [
-                "asset_allocation_to_alternative_investments.e",
-                "asset_allocation_to_alternative_investments.a",
                 "asset_allocation_to_alternative_investments.d"
               ],
               "primary_reading_ids": [
@@ -3606,13 +3549,10 @@
                 "C": "She is correct that defined benefit pension plans and insurance companies, which focus on generating returns sufficient to pay liabilities, are well suited to using the liability-driven investing model."
               },
               "candidate_los": [
-                "portfolio_management_for_institutional_investors.a",
-                "portfolio_management_for_institutional_investors.b",
-                "an_overview_of_private_wealth_management.a"
+                "portfolio_management_for_institutional_investors.b"
               ],
               "primary_reading_ids": [
-                "portfolio_management_for_institutional_investors",
-                "an_overview_of_private_wealth_management"
+                "portfolio_management_for_institutional_investors"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -3731,13 +3671,10 @@
                 "model_answer": "===\nSTMT 1 (Canadian model for long-horizon, low-liquidity clients — high alt exposure): INCORRECT for Chattahoochee's clients.\n• The Canadian model entails not only a large allocation to alternatives but also IN-HOUSE management of those alternatives.\n• Chattahoochee's clients are small institutions (USD20M–USD100M) that lack the scale/expertise to develop or hire in-house alternatives management.\n• As an OUTSOURCED manager, Chattahoochee would not recommend an approach that leads clients to manage assets in house.\n• Therefore recommending the Canadian model to these clients is inappropriate.\n\n===\nSTMT 2 (pension funds AND insurance companies both suited to LDI): CORRECT.\n• Both have well-defined liability streams and focus on generating returns sufficient to pay liabilities.\n• The liability-driven investing model (matching assets/duration to liabilities) is well suited to both.\n\nPARTIAL: 5=both correctly assessed with reasoning (STMT 1 incorrect, STMT 2 correct); 3=one correctly assessed; 0=fewer."
               },
               "candidate_los": [
-                "portfolio_management_for_institutional_investors.b",
-                "portfolio_management_for_institutional_investors.a",
-                "an_overview_of_private_wealth_management.c"
+                "portfolio_management_for_institutional_investors.b"
               ],
               "primary_reading_ids": [
-                "portfolio_management_for_institutional_investors",
-                "an_overview_of_private_wealth_management"
+                "portfolio_management_for_institutional_investors"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -3794,13 +3731,10 @@
                 "model_answer": "GRADING KEY — any TWO of the following.\n\nAccepted implications:\n• LIQUIDITY DEMAND: lump-sum elections require large cash payments — plan needs sufficient liquid assets. Current 63% illiquid allocation is problematic.\n• ANTI-SELECTION: employees with lower life expectancy or specific spending needs are more likely to elect lump sums, altering the mortality profile of remaining retirees.\n• INTEREST RATE SENSITIVITY: lump-sum values often calculated at CURRENT rates; low rates increase lump-sum amounts and drain funds.\n• ADVERSE SELECTION on health: employees with negative health outlook elect lump sum → increased benefit payments.\n• REDUCED DURATION of remaining liabilities as lump-sum takers reduce long-term obligations.\n• Investment management complexity: need to hold liquidity buffers.\n• Tucker's PE and vacant land holdings are ILLIQUID and cannot fund lump sums.\n\nPARTIAL: 5=two clear implications + reasoning; 3=one; 0=vague."
               },
               "candidate_los": [
-                "portfolio_management_for_institutional_investors.e",
-                "an_overview_of_private_wealth_management.d",
-                "portfolio_management_for_institutional_investors.c"
+                "portfolio_management_for_institutional_investors.e"
               ],
               "primary_reading_ids": [
-                "portfolio_management_for_institutional_investors",
-                "an_overview_of_private_wealth_management"
+                "portfolio_management_for_institutional_investors"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -3933,9 +3867,7 @@
                 "C": "There is no apparent correlation between the sponsor's business (banking) and the plan investments (fixed-income securities), and Li has not expressed a concern for them in her description of the plan."
               },
               "candidate_los": [
-                "portfolio_management_for_institutional_investors.e",
-                "portfolio_management_for_institutional_investors.c",
-                "portfolio_management_for_institutional_investors.d"
+                "portfolio_management_for_institutional_investors.e"
               ],
               "primary_reading_ids": [
                 "portfolio_management_for_institutional_investors"
@@ -3960,9 +3892,7 @@
                 "C": "The portfolio's assets exceed the present value of the deferred compensation plan's vested benefits, so the plan currently has a surplus. Contributions are made for the 20% of employees who leave before their benefits have vested, providing a source of excess funding for the plan as the benefits are forfeited."
               },
               "candidate_los": [
-                "portfolio_management_for_institutional_investors.e",
-                "portfolio_management_for_institutional_investors.c",
-                "portfolio_management_for_institutional_investors.d"
+                "portfolio_management_for_institutional_investors.e"
               ],
               "primary_reading_ids": [
                 "portfolio_management_for_institutional_investors"
@@ -4002,12 +3932,10 @@
               },
               "candidate_los": [
                 "portfolio_management_for_institutional_investors.h",
-                "an_overview_of_private_wealth_management.c",
                 "portfolio_management_for_institutional_investors.b"
               ],
               "primary_reading_ids": [
-                "portfolio_management_for_institutional_investors",
-                "an_overview_of_private_wealth_management"
+                "portfolio_management_for_institutional_investors"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -4073,9 +4001,7 @@
                 "model_answer": "APPROACH: Required real return = withdrawal rate + inflation adjustment (if nominal terms) or just withdrawal rate for real terms.\n\nRequired WITHDRAWAL RATE (real): €2M / €340M = 0.588% real.\n\nFor perpetuity assumption (per the stem): Required real return = 2/340 = 0.59% real annually.\nThis is EXTREMELY LOW — easily achievable, leaving substantial capacity for growth, legacies, and philanthropy.\n\nOBSERVATIONS:\n• Lifestyle needs are only ~15% of the annual real return capacity of a moderately invested portfolio (4% real × €340M = €13.6M; €2M / €13.6M ≈ 15%).\n• Approximately €11.6M/year of real return available for legacies, philanthropy, and growth after lifestyle spending (€13.6M gross real return at 4% minus €2M).\n\nPARTIAL: 5=required return + implications; 4=return only; 0=wrong."
               },
               "candidate_los": [
-                "an_overview_of_private_wealth_management.d",
-                "an_overview_of_private_wealth_management.e",
-                "an_overview_of_private_wealth_management.a"
+                "an_overview_of_private_wealth_management.e"
               ],
               "primary_reading_ids": [
                 "an_overview_of_private_wealth_management"
@@ -4095,8 +4021,6 @@
                 "model_answer": "===\nSTRUCTURE A (single FLP with all assets): PROS + CONS.\nPROS: Centralized management, potential valuation discounts for gifting.\nCONS: Single-jurisdiction (Italian) — no cross-border benefit for Elena; less flexibility for different beneficiary needs; discretionary control creates family-conflict risk.\n\n===\nSTRUCTURE B (separate trusts + foundation): STRONGEST OPTION.\nPROS:\n• Separation of purposes aligns each vehicle with its specific goal.\n• Foundation optimizes tax treatment for philanthropy.\n• Discretionary trust for Giovanni/Sofia preserves flexibility.\n• Separate family trust can be structured with distribution rules addressing generational objectives.\nCONS: Higher setup cost; more administrative complexity.\n\n===\nSTRUCTURE C (Italian holdco + Luxembourg SPV, preferred/common): POTENTIAL.\nPROS: Cross-border tax efficiency via Luxembourg; preferred equity for parents provides income + control.\nCONS: OECD BEPS rules limit substance-less holding structures; ongoing scrutiny of Luxembourg SPV structures.\n\n===\nRECOMMENDATION: STRUCTURE B (separate trusts + foundation) most appropriate.\n• Best aligns with distinct objectives.\n• Provides flexibility across the family branches.\n• Foundation is optimal for philanthropic goals.\n\nPARTIAL: 5=all three evaluated + Structure B chosen; 3=Structure B without full analysis; 0=Structure A or C without rationale."
               },
               "candidate_los": [
-                "an_overview_of_private_wealth_management.a",
-                "an_overview_of_private_wealth_management.b",
                 "an_overview_of_private_wealth_management.e"
               ],
               "primary_reading_ids": [
@@ -4117,9 +4041,7 @@
                 "model_answer": "GRADING KEY - any TWO of the following.\n\nAccepted considerations:\n• WITHHOLDING TAX on DIVIDENDS: Italy-Switzerland treaty provides a reduced withholding rate (typically 15% for portfolio holdings vs. 26% domestic Italian).\n• INHERITANCE TAX: Situs rules matter - Italian real estate remains subject to Italian inheritance tax regardless of beneficiary residency. Swiss residency for Elena affects worldwide reporting.\n• INCOME ATTRIBUTION: distributions to Elena from an Italian trust may be treated as Swiss taxable income (Switzerland taxes global income).\n• DOUBLE TAX RELIEF: coordination between Italian and Swiss tax authorities essential to avoid double taxation.\n• SWISS WEALTH TAX: annual wealth tax on Elena's inheritance stake (assessed at cantonal level).\n• EFFECTIVE MANAGEMENT RISK: if Elena effectively manages Italian/foreign structures from Switzerland, Swiss authorities may treat the entity as Swiss tax-resident (Switzerland has no formal CFC regime).\n• SUCCESSION PLANNING: Swiss estate rules differ significantly from Italian forced-heirship rules - matters for how legacies are structured.\n\nNOTE (do NOT award credit): Swiss lump-sum (expenditure-based / forfait) taxation is NOT available to Elena. It applies only to foreign nationals who are not gainfully employed in Switzerland, and Elena is a physician working (and tax-resident) in Zurich earning EUR 280k, so she is gainfully employed and cannot use the lump-sum regime.\n\nPARTIAL: 5=two clear considerations + reasoning; 3=one; 0=vague."
               },
               "candidate_los": [
-                "an_overview_of_private_wealth_management.b",
-                "an_overview_of_private_wealth_management.a",
-                "an_overview_of_private_wealth_management.e"
+                "an_overview_of_private_wealth_management.d"
               ],
               "primary_reading_ids": [
                 "an_overview_of_private_wealth_management"
@@ -4139,9 +4061,7 @@
                 "model_answer": "GRADING KEY — any TWO of the following.\n\nAccepted considerations:\n• BOARD COMPOSITION: Independent trustees + family members; balance between family control and independent oversight.\n• MISSION DRIFT: written charter clearly defining 'Italian cultural heritage preservation' scope to prevent future family debates.\n• GRANT-MAKING POLICY: formal criteria for grant selection, due diligence processes, and impact measurement.\n• SUCCESSION: how board seats transfer to next generation; role for grandchildren.\n• CONFLICTS OF INTEREST policy: family members should not benefit personally from grants; recusal procedures.\n• REGULATORY COMPLIANCE: Italian foundation law (fondazione) requires specific registration and reporting; minimum grant distribution rules.\n• INVESTMENT POLICY for the foundation's endowment separate from operational.\n• TRANSPARENCY: annual reports, publicly-available financials.\n• PROFESSIONALIZATION: hire professional grants director rather than family member managing directly.\n\nPARTIAL: 5=two clear considerations + reasoning; 3=one; 0=vague."
               },
               "candidate_los": [
-                "an_overview_of_private_wealth_management.a",
-                "an_overview_of_private_wealth_management.b",
-                "an_overview_of_private_wealth_management.d"
+                "an_overview_of_private_wealth_management.e"
               ],
               "primary_reading_ids": [
                 "an_overview_of_private_wealth_management"
@@ -4169,9 +4089,7 @@
                 "model_answer": "AGGREGATE LIABILITY DURATION:\nTotal PV = $2.9 + $1.4 + $2.6 + $1.2 = $8.1B.\n\nWeighted duration = ($2.9 × 9.2 + $1.4 × 4.5 + $2.6 × 8.7 + $1.2 × 12.0) / $8.1\n= (26.68 + 6.30 + 22.62 + 14.40) / 8.1\n= 70.00 / 8.1\n= 8.64 years.\n\n===\nASSET DURATION (estimated):\nFixed income holdings: 88% of portfolio (55% IG corp + 15% Treasury + 12% CML + 6% HY).\nAssuming IG corp duration ~7 years, Treasury ~6 years, CML ~5 years, HY ~4 years:\nFixed income weighted duration ≈ (55×7 + 15×6 + 12×5 + 6×4) / 88 = 559/88 ≈ 6.4 years.\nEquity/PE/RE have effectively no interest rate duration for LDI purposes.\nTotal asset duration ≈ 88% × 6.4 ≈ 5.6 years.\n\n===\nMATCH ASSESSMENT: MISMATCHED.\n• Liability duration 8.64 vs asset duration ~5.6 years — DURATION GAP of ~3 years.\n• Asset portfolio is UNDER-DURATIONED relative to liabilities (negative duration gap).\n• Vulnerable to FALLING rates — when rates decline, the PV of the longer-duration liabilities rises faster than the PV of assets, eroding surplus/funded status.\n• Consistent with Meridian's ORSA identification of interest rate risk as material.\n\nPARTIAL: 5=liability duration calc + mismatch identified; 4=liability duration correct; 3=directional analysis; 0=wrong."
               },
               "candidate_los": [
-                "portfolio_management_for_institutional_investors.b",
-                "portfolio_management_for_institutional_investors.e",
-                "portfolio_management_for_institutional_investors.c"
+                "portfolio_management_for_institutional_investors.h"
               ],
               "primary_reading_ids": [
                 "portfolio_management_for_institutional_investors"
@@ -4192,8 +4110,7 @@
               },
               "candidate_los": [
                 "portfolio_management_for_institutional_investors.h",
-                "portfolio_management_for_institutional_investors.b",
-                "portfolio_management_for_institutional_investors.c"
+                "portfolio_management_for_institutional_investors.d"
               ],
               "primary_reading_ids": [
                 "portfolio_management_for_institutional_investors"
@@ -4213,9 +4130,7 @@
                 "model_answer": "===\nPRIMARY BENCHMARK (change in liability value / LDI): APPROPRIATE.\n• For an insurance general account, the primary risk is asset-liability mismatch.\n• Measuring performance against liability changes correctly focuses management on funded-status volatility rather than asset return alone.\n• Standard practice for life insurers.\n• Consistent with Meridian's ORSA identifying interest rate risk as material.\n\n===\nSECONDARY BENCHMARK (total-return fixed-income composite): APPROPRIATE.\n• Provides return attribution vs. broad market.\n• Distinguishes 'good' vs 'bad' active decisions given the LDI constraint.\n• Complements primary benchmark by measuring investment skill relative to market.\n• Should be weighted to reflect Meridian's target asset allocation.\n\n===\nOVERALL: DUAL-BENCHMARK APPROACH IS BEST PRACTICE.\n• Primary captures the true economic objective.\n• Secondary provides market-relative context.\n• Consistent with insurance industry LDI practice.\n\nPARTIAL: 5=both correctly evaluated + reasoning; 3=one; 0=critical of appropriate approach."
               },
               "candidate_los": [
-                "portfolio_management_for_institutional_investors.b",
-                "portfolio_management_for_institutional_investors.h",
-                "portfolio_management_for_institutional_investors.e"
+                "portfolio_management_for_institutional_investors.h"
               ],
               "primary_reading_ids": [
                 "portfolio_management_for_institutional_investors"
@@ -4235,9 +4150,8 @@
                 "model_answer": "GRADING KEY — any TWO of the following.\n\nAccepted implications:\n• MORE PRECISE CAPITAL CHARGES: bonds are now assigned to one of 20 credit categories rather than 6, meaning capital charges more accurately reflect actual credit risk.\n• PORTFOLIO OPTIMIZATION: Meridian can now build portfolios that optimize capital efficiency by understanding the specific charge for each holding.\n• LOWER-QUALITY IG BONDS: Baa- and BBB-tier holdings may face higher charges than under the 6-category system, incentivizing shift toward higher IG quality.\n• BEST-IN-CATEGORY: within a credit rating (e.g., BBB+), higher-quality issuers may face lower capital charges — favors bottom-up credit selection.\n• BUY-AND-HOLD BEHAVIOR: capital charges apply at position level, reducing incentive for turnover.\n• PRIVATE PLACEMENTS and RATED PRIVATE DEBT: differential treatment relative to public bonds may create arbitrage opportunities.\n• MODEL VALIDATION: NAIC-approved rating models needed for private/rare securities.\n• RISK REPORTING: enhanced systems required for granular categorization.\n• INCENTIVE for INTERNAL CREDIT RESEARCH.\n\nPARTIAL: 5=two clear implications + reasoning; 3=one; 0=vague."
               },
               "candidate_los": [
-                "portfolio_management_for_institutional_investors.h",
-                "portfolio_management_for_institutional_investors.a",
-                "portfolio_management_for_institutional_investors.g"
+                "portfolio_management_for_institutional_investors.d",
+                "portfolio_management_for_institutional_investors.h"
               ],
               "primary_reading_ids": [
                 "portfolio_management_for_institutional_investors"
@@ -4415,6 +4329,46 @@
               ],
               "data_quality": "complete",
               "data_quality_flags": []
+            },
+            {
+              "number": 4,
+              "id": "karelia_heritage_fund_swf_essay_q4",
+              "stem": "ANALYZE one financial risk exposure and one non-financial risk exposure in Karelia's portfolio strategy, including the proposed LNG terminal. EVALUATE whether each is material given the dual stabilization/savings mandate.",
+              "type": "essay",
+              "options": null,
+              "correct": null,
+              "points": 6,
+              "rationales": {
+                "model_answer": "FINANCIAL (any ONE, with materiality):\n• Commodity-cycle correlation: listed equity, EM local-currency debt in other exporters, and timber/energy infrastructure all fall in the same global-demand shock that cuts Karelia's royalties — just when the stabilization sleeve is drawn. MATERIAL: the dual mandate makes this worse than a pure savings SWF, because drawdowns and MTM losses arrive together.\n• Liquidity gap on unlisted timber/infrastructure when a stabilization draw is needed. MATERIAL for the stabilization sleeve; less so for the long-horizon savings sleeve.\n\nNON-FINANCIAL (any ONE, with materiality):\n• LNG terminal: methane-rule transition risk, habitat loss, protest/permit delay, and stranded-asset risk on a 25-year direct offtake. MATERIAL: a US$1.4bn concentrated real-asset exposure that the listed VaR never sees, and that is the opposite of diversification away from hydrocarbons.\n• Social-license / political risk around a coastal project in a protected estuary. MATERIAL for a public SWF whose board is already framing the loan as industrial policy.\n\nA complete answer names one of each and ties materiality to the draw-when-royalties-fall mandate, not generic 'SWFs take long-term risk.'"
+              },
+              "candidate_los": [
+                "case_study_in_portfolio_management_institutional_swf.c"
+              ],
+              "primary_reading_ids": [
+                "case_study_in_portfolio_management_institutional_swf"
+              ],
+              "data_quality": "complete",
+              "data_quality_flags": []
+            },
+            {
+              "number": 5,
+              "id": "karelia_heritage_fund_swf_essay_q5",
+              "stem": "DISCUSS two methods Karelia could use to manage the risks of the long-term LNG terminal direct investment, other than simply declining the loan.",
+              "type": "essay",
+              "options": null,
+              "correct": null,
+              "points": 6,
+              "rationales": {
+                "model_answer": "Any TWO distinct methods, each tied to this project:\n• STAGED CAPITAL / MILESTONES: fund construction in tranches released only after environmental permits and offtake conditions are met, so a protest or methane-rule change can stop further cash without a full US$1.4bn loss.\n• CONTRACTUAL PROTECTIONS: offtake, methane/ESG covenants, and step-in rights so transition and operating risk sit with the sponsor, not only with the SWF as lender.\n• RISK TRANSFER: political-risk insurance or a multilateral guarantee on expropriation/permit revocation; syndicate or co-invest the loan so Karelia does not hold the whole ticket.\n• GOVERNANCE: independent board/risk-committee approval, climate/biodiversity scenarios before commitment, and a hard limit on hydrocarbon real assets as a share of the savings sleeve.\n• STRUCTURAL DIVERSIFICATION: pair any residual exposure with unrelated long-term directs (e.g., non-energy infrastructure outside the commodity cycle) rather than adding more timber/energy.\nDo not credit 'sell listed equity' or 'raise cash' — those manage listed-book risk, not the long-term direct."
+              },
+              "candidate_los": [
+                "case_study_in_portfolio_management_institutional_swf.d"
+              ],
+              "primary_reading_ids": [
+                "case_study_in_portfolio_management_institutional_swf"
+              ],
+              "data_quality": "complete",
+              "data_quality_flags": []
             }
           ]
         }
@@ -4523,9 +4477,7 @@
                 "C": "Incorrect. AQI's process explicitly allocates risk to sector allocation AND within-sector selection — restricting the description to security selection risk alone misstates the process."
               },
               "candidate_los": [
-                "portfolio_performance_evaluation.g",
-                "portfolio_performance_evaluation.b",
-                "portfolio_performance_evaluation.c"
+                "portfolio_performance_evaluation.g"
               ],
               "primary_reading_ids": [
                 "portfolio_performance_evaluation"
@@ -4981,9 +4933,7 @@
                 "model_answer": "===\nQUESTION 1 (Fund of hedge funds — 1 account, $50M): MUST BE INCLUDED.\n• GIPS requires ALL DISCRETIONARY FEE-PAYING portfolios be included in composites.\n• Single-portfolio composite is permitted (and required if this is the only portfolio in that strategy).\n• Firm-wide compliance requires no exclusions based on portfolio count.\n\n===\nQUESTION 2 (Personnel change): DISCLOSURE RECOMMENDED but not required.\n• GIPS does not require disclosure of personnel changes UNLESS they materially affect performance results.\n• BEST PRACTICE: disclose material changes to composite strategy management, including key-person changes, to give context.\n• Firms may include voluntary disclosures for transparency.\n\n===\nQUESTION 3 (Client-imposed sector constraint on $180M portfolio): EXCLUDE from Domestic Equity Growth composite.\n• The constraint (no tech) SUBSTANTIALLY DEVIATES from the composite's investment objective.\n• Cascade should create a SEPARATE COMPOSITE for constrained portfolios or classify this portfolio as NON-DISCRETIONARY (limited by client directive).\n• Including it in the standard composite would distort the composite's returns and misrepresent the strategy.\n\nPARTIAL: 6=all three correct + reasoning; 4=two correct; 2=one correct; 0=none."
               },
               "candidate_los": [
-                "overview_of_the_global_investment_performance_standards.i",
-                "overview_of_the_global_investment_performance_standards.h",
-                "overview_of_the_global_investment_performance_standards.e"
+                "overview_of_the_global_investment_performance_standards.h"
               ],
               "primary_reading_ids": [
                 "overview_of_the_global_investment_performance_standards"
@@ -5776,9 +5726,7 @@
                 "C": "Fillizola is correct about the effective sale price if the stock is above $140. The stock gets called away at $140, and the effective sale price is $140 + $5.40 = $145.40."
               },
               "candidate_los": [
-                "options_strategies.b",
-                "options_strategies.i",
-                "options_strategies.c"
+                "options_strategies.b"
               ],
               "primary_reading_ids": [
                 "options_strategies"
@@ -5829,13 +5777,10 @@
                 "C": "Manetti is correct that the February put option with a strike price lower than $140 is cheaper and is correct that it exposes her to a greater risk of loss in the position."
               },
               "candidate_los": [
-                "options_strategies.c",
-                "options_strategies.e",
-                "currency_management_an_introduction.g"
+                "options_strategies.c"
               ],
               "primary_reading_ids": [
-                "options_strategies",
-                "currency_management_an_introduction"
+                "options_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -5871,9 +5816,7 @@
                 "model_answer": "===\nEFFECTIVE SALE PRICES (checking Fillizola's math):\nClient owns 2,000 shares at $139.81. Writes 20 contracts (2,000 shares) of Feb $140 call at $5.40 premium.\n\nIF stock rises to $140 and called: effective sale = $140 + $5.40 = $145.40. ✓\nIF stock falls to $130: option expires worthless. Effective 'sale' or position = $130 (stock value) + $5.40 (premium retained) = $135.40. ✓\n\nBoth effective sale price claims are CORRECT.\n\n===\nIV CLAIM (strategy appropriate if stock's expected vol > IV of 21.05%): INCORRECT.\n• Writing options is BETTER when EXPECTED vol < IMPLIED vol (options overpriced).\n• Selling calls generates premium; if actual vol turns out LOWER than IV, premium earned is greater than realized cost.\n• Fillizola has the direction REVERSED.\n\nPARTIAL: 5=math verified + IV claim identified as wrong direction; 3=math verified; 1=wrong; 0=confused."
               },
               "candidate_los": [
-                "options_strategies.b",
-                "options_strategies.i",
-                "options_strategies.e"
+                "options_strategies.b"
               ],
               "primary_reading_ids": [
                 "options_strategies"
@@ -5893,13 +5836,10 @@
                 "model_answer": "===\nFEBRUARY vs JULY put (Manetti prefers February):\n• February put: $6.15 premium, theta -0.034.\n• July put: $10.55 premium, theta -0.019.\n\nMANETTI'S CLAIM: February is cheaper AND has LOWEST time decay.\n• PARTIAL: February IS cheaper ($6.15 < $10.55). ✓\n• INCORRECT: February has HIGHER theta magnitude (-0.034 vs -0.019). Feb has MORE time decay per day, not lower.\n• Short-dated options decay faster in absolute daily terms.\n\n===\nLOWER STRIKE = CHEAPER + GREATER RISK: CORRECT.\n• A put with strike below $140 has more OTM → lower premium ✓.\n• BUT: kicks in only if stock falls significantly further → larger unhedged loss before payoff starts. ✓ CORRECT logic.\n\nPARTIAL: 5=identifies theta error + confirms strike claim; 3=one aspect; 0=fully agrees."
               },
               "candidate_los": [
-                "options_strategies.c",
-                "options_strategies.e",
-                "currency_management_an_introduction.g"
+                "options_strategies.c"
               ],
               "primary_reading_ids": [
-                "options_strategies",
-                "currency_management_an_introduction"
+                "options_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -5916,13 +5856,10 @@
                 "model_answer": "GRADING KEY — any TWO advantages AND any TWO disadvantages.\n\nADVANTAGES:\n• PREMIUM INCOME: immediate cash flow enhances yield.\n• EFFECTIVE HIGHER SELL PRICE if called: sell at strike + premium.\n• Premium reduces effective cost basis to $139.81 − $5.40 = $134.41 (equivalently, cushions a decline — e.g., effective sale price of $135.40 if the stock falls to $130).\n• Well-suited when investor believes stock will remain stable to slightly rising.\n• Tax efficiency in some jurisdictions (premium may be short-term income).\n\nDISADVANTAGES:\n• CAPPED UPSIDE: gains beyond strike + premium are forfeited.\n• Called away in appreciation — may not want to sell.\n• Downside NOT PROTECTED: only cushioned by premium.\n• If stock rallies strongly and gets called: OPPORTUNITY COST.\n• Requires ongoing management (rolls) if premium decays too fast.\n• Transaction costs on option trades.\n\nPARTIAL: 5=two adv + two disadv; 3=three total; 0=fewer."
               },
               "candidate_los": [
-                "options_strategies.b",
-                "options_strategies.c",
-                "currency_management_an_introduction.g"
+                "options_strategies.b"
               ],
               "primary_reading_ids": [
-                "options_strategies",
-                "currency_management_an_introduction"
+                "options_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -6213,13 +6150,10 @@
                 "model_answer": "APPROACH: Compute the fully currency-hedged JGB return and compare with the 1.75% Treasury yield.\n\nHEDGED JGB RETURN (invest USD in JGB, hedge yen back to USD via the 1-yr forward):\n• Convert $10,000 at spot 106.85 → ¥1,068,500.\n• Grow at JGB yield −0.40%: ¥1,068,500 × (1 − 0.0040) = ¥1,064,226.\n• Convert back at forward 104.15: ¥1,064,226 / 104.15 = $10,218.20.\n• Hedged return = 10,218.20 / 10,000 − 1 = 2.18%.\nEquivalently: (1 − 0.0040) × (106.85 / 104.15) − 1 ≈ 2.18%.\n\nCOMPARISON:\n• Hedged JGB yield ≈ 2.18% vs Treasury 1.75% → pickup ≈ +0.43% (43 bps).\n\nVERDICT: Trade ADDS VALUE. The pickup arises because the forward yen (104.15) is stronger than covered interest parity alone implies — reflecting the negative cross-currency basis (−0.63) — and a USD lender via the FX swap EARNS that basis. Do NOT subtract the basis separately: it is already embedded in the 104.15 forward rate.\n\nPARTIAL: 5=hedged yield ≈2.18% + trade accepted (adds ≈43 bps); 3=correct method/direction; 0=concludes the trade loses value or double-counts the basis."
               },
               "candidate_los": [
-                "currency_management_an_introduction.h",
-                "swaps_forwards_and_futures_strategies.b",
                 "currency_management_an_introduction.f"
               ],
               "primary_reading_ids": [
-                "currency_management_an_introduction",
-                "swaps_forwards_and_futures_strategies"
+                "currency_management_an_introduction"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -6313,13 +6247,10 @@
                 "C": "Testa's investment program did not impose any liquidity or income needs on the position."
               },
               "candidate_los": [
-                "currency_management_an_introduction.b",
-                "currency_management_an_introduction.c",
-                "swaps_forwards_and_futures_strategies.a"
+                "currency_management_an_introduction.b"
               ],
               "primary_reading_ids": [
-                "currency_management_an_introduction",
-                "swaps_forwards_and_futures_strategies"
+                "currency_management_an_introduction"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -6341,13 +6272,10 @@
                 "C": "Incorrect. A DECLINING US trade deficit with euro-based countries means improving US external balances — a US-dollar-supportive fundamental that argues for euro depreciation, the opposite of HNW's view."
               },
               "candidate_los": [
-                "currency_management_an_introduction.d",
-                "swaps_forwards_and_futures_strategies.a",
-                "currency_management_an_introduction.f"
+                "currency_management_an_introduction.d"
               ],
               "primary_reading_ids": [
-                "currency_management_an_introduction",
-                "swaps_forwards_and_futures_strategies"
+                "currency_management_an_introduction"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -6369,12 +6297,9 @@
                 "C": "It uses the settlement cash flow, ignoring any discounting: USD491,400."
               },
               "candidate_los": [
-                "swaps_forwards_and_futures_strategies.b",
-                "currency_management_an_introduction.f",
-                "swaps_forwards_and_futures_strategies.a"
+                "currency_management_an_introduction.f"
               ],
               "primary_reading_ids": [
-                "swaps_forwards_and_futures_strategies",
                 "currency_management_an_introduction"
               ],
               "data_quality": "complete",
@@ -6447,9 +6372,7 @@
                 "C": "The high correlation between the currencies could have been exploited with a cross-hedge or a minimum-variance hedge if one of the foreign assets was held long and the other short. Although a minimum hedge portfolio can be constructed without simultaneous long and short positions, the greatest risk reduction (which Testa desires) would arise if that were to occur."
               },
               "candidate_los": [
-                "currency_management_an_introduction.h",
-                "currency_management_an_introduction.b",
-                "currency_management_an_introduction.f"
+                "currency_management_an_introduction.h"
               ],
               "primary_reading_ids": [
                 "currency_management_an_introduction"
@@ -6468,9 +6391,7 @@
                 "model_answer": "===\nREASON 1 (higher real interest rates in euro-based countries): CORRECT.\n• Higher real rates attract capital inflows → currency appreciation.\n• Standard real interest rate differential theory.\n\n===\nREASON 2 (potential defaults leading to IMF/ECB support): PARTIALLY CORRECT / AMBIGUOUS.\n• Strong central bank support can stabilize but does not necessarily strengthen the currency.\n• If the underlying debt problems remain, monetary support may be viewed as debasement.\n• Ambiguous impact on currency value — does not clearly support appreciation.\n\n===\nREASON 3 (declining US trade deficit with euro-based countries): INCORRECT.\n• Testa's causality is REVERSED. A DECLINING US trade deficit reflects improving US external balances and less USD flowing to foreign exchange markets — a USD-supportive fundamental.\n• That argues for euro DEPRECIATION, not appreciation.\n• Reason 3 therefore does NOT support HNW's euro-appreciation view. (Consistent with MC Q2, answer A: only Reason 1 supports appreciation.)\n\nPARTIAL: 5=all three assessed correctly (R1 correct, R2 ambiguous, R3 incorrect/reversed); 3=two correct; 0=fewer."
               },
               "candidate_los": [
-                "currency_management_an_introduction.e",
-                "currency_management_an_introduction.d",
-                "currency_management_an_introduction.b"
+                "currency_management_an_introduction.d"
               ],
               "primary_reading_ids": [
                 "currency_management_an_introduction"
@@ -6490,13 +6411,10 @@
                 "model_answer": "APPROPRIATE for the given constraints.\n\nAccepted reasoning (any ONE):\n• IPS constraint: 'currency exposure would usually not extend beyond a six-month period' → 6-month forward matches.\n• IPS constraint: 'cost of hedging should be minimized' → forward has minimal cost (only the forward premium/discount).\n\nCOUNTERPOINT: Given HNW's positive EUR view, the FORWARD HEDGE is SUBOPTIMAL — a full hedge eliminates both upside and downside, so it forfeits the expected EUR appreciation and locks in only the forward rate (EUR at a forward discount per Exhibit 1's negative forward points).\n• A better choice given positive currency view: PARTIAL hedge or NO hedge.\n• Options (call on EUR) would preserve upside — but IPS restricts options use.\n\nVERDICT: Forward is appropriate for IPS compliance but SUBOPTIMAL for capturing positive view.\n\nPARTIAL: 5=identifies tension between IPS + view; 3=addresses only one aspect; 0=fully approves."
               },
               "candidate_los": [
-                "currency_management_an_introduction.f",
-                "currency_management_an_introduction.c",
-                "options_strategies.a"
+                "currency_management_an_introduction.c"
               ],
               "primary_reading_ids": [
-                "currency_management_an_introduction",
-                "options_strategies"
+                "currency_management_an_introduction"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -6567,9 +6485,7 @@
                 "C": "The domestic currency value of the portfolio increased because of increases in the domestic currency value of UK and German investments. It is the foreign currency value of German equity investments that declined."
               },
               "candidate_los": [
-                "currency_management_an_introduction.a",
-                "currency_management_an_introduction.h",
-                "currency_management_an_introduction.i"
+                "currency_management_an_introduction.a"
               ],
               "primary_reading_ids": [
                 "currency_management_an_introduction"
@@ -6620,8 +6536,6 @@
                 "C": "The Eurozone one-year yield (0.11%) exceeds the US yield (0.05%), so EUR is not the lowest-cost funding currency. Furthermore, the GBP/EUR pair this trade uses has a one-year implied volatility of 7.50%, higher than the 5.50% of USD/GBP, making this carry pair riskier per unit of yield spread."
               },
               "candidate_los": [
-                "currency_management_an_introduction.e",
-                "currency_management_an_introduction.f",
                 "currency_management_an_introduction.d"
               ],
               "primary_reading_ids": [
@@ -6647,9 +6561,7 @@
                 "C": "A short strangle (short an equal number of 15-delta calls and puts) would only be appropriate if volatility is expected to be low. The expectation is for increased volatility, so the long strangles would be more appropriate. A strategy of taking long positions on an equal number of 50-delta calls and 50-delta puts (i.e., a 50-delta straddle) is an appropriate way to take advantage of expected increased volatility in the USD/EUR currency pair. However, 50-delta calls and puts are at-the-money options and are more expensive than out-of-the-money options, such as 25-delta calls and puts (a 25-delta strangle)."
               },
               "candidate_los": [
-                "options_strategies.h",
-                "options_strategies.f",
-                "options_strategies.d"
+                "options_strategies.f"
               ],
               "primary_reading_ids": [
                 "options_strategies"
@@ -6700,13 +6612,10 @@
                 "C": "Campos suggests that both strategies help reduce hedging costs and allow the manager to exploit a market view. While it is true that both strategies help reduce hedging costs through premiums collected on short calls and puts, they both do not exploit the market view on the currencies, specifically, Strategy 1 does not. Exhibit 3 indicates that the expectation is for the AUD to depreciate to BRL/AUD 2.0355 and for the CHF to appreciate to BRL/CHF 2.5642. Strategy 1, the short seagull on the AUD, only provides downside protection to BRL/AUD 2.1006 (when the short put kicks in and neutralizes the hedge), not BRL/AUD 2.0355. Under Strategy 2, the expectation is for an appreciation to BRL/CHF 2.5642; here the option premium is pocketed and because the option is written with a strike of BRL/CHF 2.5669, it will expire worthless if the rate never gets to BRL/CHF 2.5669."
               },
               "candidate_los": [
-                "currency_management_an_introduction.g",
-                "options_strategies.f",
-                "options_strategies.b"
+                "currency_management_an_introduction.g"
               ],
               "primary_reading_ids": [
-                "currency_management_an_introduction",
-                "options_strategies"
+                "currency_management_an_introduction"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -6742,13 +6651,10 @@
                 "model_answer": "===\nUK POSITION:\nValue: GBP 83,400,000 → 86,000,000 (Return in GBP = +3.12%).\nExchange rate BRL/GBP: 3.8729 → 4.1025 (BRL/GBP rising = more BRL per GBP = GBP STRENGTHENED vs BRL).\n% change in BRL/GBP = (4.1025 − 3.8729) / 3.8729 = 5.93%.\n\nTotal BRL return = (1 + 0.0312)(1 + 0.0593) − 1 = 9.24%.\nCurrency contribution (R_FX) = 5.93%.\n\n===\nGERMAN POSITION:\nValue: EUR 55,000,000 → 51,000,000 (Return in EUR = −7.27%).\nExchange rate BRL/EUR: 3.0359 → 3.5142 (EUR strengthened vs BRL).\n% change in BRL/EUR = (3.5142 − 3.0359) / 3.0359 = 15.76%.\n\nTotal BRL return = (1 − 0.0727)(1 + 0.1576) − 1 = 0.9273 × 1.1576 − 1 = 7.34%.\nCurrency contribution (R_FX) = 15.76%.\n\n===\nSUMMARY:\n• UK: 5.93% currency contribution.\n• Germany: 15.76% currency contribution.\n• Both currencies strengthened significantly against BRL, benefiting Dias.\n• Also give full credit for answers that include the interaction (cross) term, applied consistently: UK 5.93% × 1.0312 = 6.11%; Germany 15.76% × 0.9273 = 14.62%.\n\nPARTIAL: 5=both currency contributions + method; 4=method + arithmetic minor; 3=one currency; 0=wrong."
               },
               "candidate_los": [
-                "currency_management_an_introduction.h",
-                "currency_management_an_introduction.a",
-                "swaps_forwards_and_futures_strategies.b"
+                "currency_management_an_introduction.a"
               ],
               "primary_reading_ids": [
-                "currency_management_an_introduction",
-                "swaps_forwards_and_futures_strategies"
+                "currency_management_an_introduction"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -6765,13 +6671,10 @@
                 "model_answer": "APPROPRIATE STRATEGY: LONG STRADDLE or LONG STRANGLE on USD/EUR.\n\nAccepted reasoning:\n• Peixaria expects VOLATILITY (not direction) to increase → volatility trade.\n• LONG STRADDLE: Buy ATM call + ATM put on USD/EUR — profits from any large move or IV increase.\n• LONG STRANGLE: Similar but cheaper — buy OTM call + OTM put.\n\nIMPLICIT CHECK — is EUR/USD IV overpriced or underpriced?\n• Exhibit 2 shows USD/EUR IV = 9.50%, higher than USD/GBP 5.50% and GBP/EUR 7.50%.\n• Somewhat elevated already — a further rise is Peixaria's forecast.\n\nREJECTED ALTERNATIVES:\n• Long forward: takes directional bet, not vol.\n• Short strangle: WRONG DIRECTION — profits from LOWER vol.\n• Straddle better than strangle if strong directional break is likely.\n\nPARTIAL: 5=long straddle/strangle + reasoning; 3=identifies long vol; 0=wrong direction."
               },
               "candidate_los": [
-                "currency_management_an_introduction.e",
-                "options_strategies.h",
                 "currency_management_an_introduction.d"
               ],
               "primary_reading_ids": [
-                "currency_management_an_introduction",
-                "options_strategies"
+                "currency_management_an_introduction"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -6788,13 +6691,10 @@
                 "model_answer": "STRATEGIES ARE SEAGULL SPREADS (three-legged option strategies).\n\n===\nSTRATEGY 1 for AUD (long put 2.1046, short put 2.1006, short call 2.1456):\nSTRUCTURE: LONG PUT SPREAD (down to 2.1006) + SHORT CALL (above 2.1456).\n• Protects against BRL/AUD falling below 2.1046 (AUD weakening) only DOWN to 2.1006 — a protection band of about 0.19% of spot.\n• Financed by selling upside above 2.1456 (giving up gains if AUD strengthens).\n• Reduces cost of pure long put via TWO short legs.\n\n===\nSTRATEGY 2 for CHF (long put 2.5309, short put 2.5049, short call 2.5669):\nSTRUCTURE: SAME SEAGULL SPREAD structure.\n• Protects BRL/CHF between 2.5049 and 2.5309.\n• Cost financed by short call above 2.5669.\n\n===\nAPPROPRIATENESS (vs Exhibit 3 forecasts):\n• STRATEGY 1 is NOT consistent with the forecast: BRL/AUD is expected to fall to 2.0355 (−3.28%), far below the short-put strike of 2.1006 where protection stops — the seagull leaves most of the expected AUD depreciation unhedged.\n• STRATEGY 2 IS appropriate: with BRL/CHF forecast at 2.5642, the short call at 2.5669 stays out of the money, and the two short legs' premiums reduce hedge cost against only modest expected CHF appreciation.\n• Trade-off of any seagull: LIMITED downside protection (only to lower put strike) AND GIVEN-UP UPSIDE (short call) — suited to MODERATE expected moves, which matches the CHF forecast but not the AUD forecast.\n\nPARTIAL: 5=identifies seagull structure + Strategy 2 appropriate + Strategy 1 inadequate vs forecast; 3=structure identified but forecast comparison missing or partial; 0=misunderstands."
               },
               "candidate_los": [
-                "currency_management_an_introduction.g",
-                "options_strategies.f",
-                "options_strategies.b"
+                "currency_management_an_introduction.g"
               ],
               "primary_reading_ids": [
-                "currency_management_an_introduction",
-                "options_strategies"
+                "currency_management_an_introduction"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -6819,9 +6719,8 @@
                 "model_answer": "===\nOBJECTIVE 1 (reduce concentration risk without immediate sale): MET.\n• Collar limits downside without triggering an actual sale.\n• Effective downside protection below $50 (10% loss from $56).\n\n===\nOBJECTIVE 2 (maintain upside participation): PARTIALLY MET.\n• Upside capped at $60 (7% gain from $56).\n• Reasonable participation for 12-month horizon.\n\n===\nOBJECTIVE 3 (generate income): MET.\n• Net credit of $0.70/share = $350k income.\n• Meaningful income for lifestyle needs.\n\n===\nOBJECTIVE 4 (max loss ~15% or $8.40/share): NEARLY MET.\n• Downside limited to $50 (-$6/share = -10.7% loss).\n• Better than Ashcroft's tolerance.\n\n===\nCONSTRUCTIVE SALE CONCERN:\n• Put at $50 and call at $60: strike range of $10 vs current $56 = 17.9% band.\n• Not overly narrow — likely SAFE from constructive sale (typically triggered at ~5-10% bands with strikes close to current price).\n• Reasonable protection, income, participation, and tax-safety balance.\n\n===\nVERDICT: Strategy 3 IS APPROPRIATE.\n\nPARTIAL: 5=all four objectives + constructive sale evaluated; 3=three items; 0=one-sided."
               },
               "candidate_los": [
-                "options_strategies.f",
-                "options_strategies.b",
-                "options_strategies.c"
+                "options_strategies.i",
+                "options_strategies.f"
               ],
               "primary_reading_ids": [
                 "options_strategies"
@@ -6841,9 +6740,8 @@
                 "model_answer": "===\nPROTECTIVE PUT (Strategy 2):\n• BOUGHT 5000 put contracts at $50, cost $1.10M.\n• Below $50: put payoff offsets stock decline (near dollar-for-dollar).\n• Above $50: full upside participation (unlimited).\n• Downside: floor is (stock loss to $50) + premium = 10.7% + 3.9% = 14.6% max loss.\n• Upside: no cap, but reduced by premium paid.\n\n===\nCOVERED CALL (Strategy 1):\n• SOLD 5000 call contracts at $60, receive $1.45M premium.\n• Above $60: called away at $60 (max profit = $4 + $2.90 = $6.90/share).\n• Below $60: keep stock + premium.\n• Downside: no protection — stock can go to $0.\n• Upside: capped at $60 + $2.90 premium.\n\n===\nKEY DIFFERENCES:\n• PROTECTIVE PUT provides DOWNSIDE PROTECTION but costs money.\n• COVERED CALL provides INCOME but no downside protection.\n• For DOWNSIDE FOCUS: Protective Put clearly better.\n• For INCOME FOCUS: Covered Call better.\n• For BOTH: Collar (Strategy 3) combines features.\n\nPARTIAL: 5=full comparison + protective put chosen for downside focus; 3=direction; 0=confused."
               },
               "candidate_los": [
-                "options_strategies.b",
-                "options_strategies.d",
-                "options_strategies.e"
+                "options_strategies.c",
+                "options_strategies.b"
               ],
               "primary_reading_ids": [
                 "options_strategies"
@@ -6863,9 +6761,7 @@
                 "model_answer": "GRADING KEY — full payoff table:\n\nCOLLAR: LONG 5000 puts @ $50 + SHORT 5000 calls @ $60 + LONG 500,000 shares.\nNet premium received: $0.70/share × 500,000 = $350,000.\n\n===\nAT $40 (unhedged stock loss $8M):\n• Stock: 500k × ($40-$56) = -$8,000,000.\n• Put payoff: 500k × ($50-$40) = +$5,000,000.\n• Call payoff: 0 (out-of-the-money).\n• Net premium: +$350,000.\n• TOTAL COLLAR P&L: -$2,650,000 (-9.5% on $28M position).\n\n===\nAT $50 (breakeven of put):\n• Stock: -$3,000,000.\n• Options: 0 payoff both sides.\n• Net premium: +$350,000.\n• TOTAL: -$2,650,000 (-9.5%).\n\n===\nAT $56 (current):\n• Stock: 0.\n• Options: 0 payoff both sides.\n• Net premium: +$350,000.\n• TOTAL: +$350,000 (+1.25%).\n\n===\nAT $60 (call strike):\n• Stock: +$2,000,000.\n• Options: 0 payoff both sides.\n• Net premium: +$350,000.\n• TOTAL: +$2,350,000 (+8.4%).\n\n===\nAT $70:\n• Stock: +$7,000,000.\n• Call cost: -500k × ($70-$60) = -$5,000,000.\n• Net premium: +$350,000.\n• TOTAL: +$2,350,000 (+8.4% — capped).\n\n===\nUNHEDGED COMPARISON:\n• Downside unlimited; upside unlimited.\n• Collar: floor -9.5%, cap +8.4%.\n\nPARTIAL: 5=all 5 prices + comparison; 4=four correct; 3=three; 0=fewer."
               },
               "candidate_los": [
-                "options_strategies.f",
-                "options_strategies.b",
-                "options_strategies.c"
+                "options_strategies.f"
               ],
               "primary_reading_ids": [
                 "options_strategies"
@@ -6978,9 +6874,7 @@
                 "model_answer": "===\nAPPROACH: STRATEGIC CURRENCY HEDGE via ROLLING FORWARDS.\n• Estimate underlying currency exposure from ETF holdings (typically weighted average of EM basket currencies).\n• Sell forward each currency against USD to hedge exposure.\n• Roll forwards quarterly (typical) as they approach maturity.\n• Rebalance as ETF composition changes and currency movements alter exposures.\n\n===\nSIZING:\n• Full hedge (100%) or partial hedge (typically 50-75%) depending on plan's views on EM currency premium.\n• EM currencies have historical positive expected returns from carry — full hedging forfeits this.\n\n===\nDRAWBACKS/CHALLENGES:\n• MULTIPLE EM CURRENCIES: not all hedgeable via liquid forwards (INR, CNY often require NDFs).\n• BASKET CHANGES: ETF composition changes force hedge adjustments.\n• TRANSACTION COSTS: rolling multiple forward positions has meaningful cost drag.\n• REBALANCING: hedge ratio drifts as currency and asset returns move.\n• BASIS RISK: proxy hedging using G10 currencies (e.g., AUD proxy for EM Asia).\n• CURRENCY CARRY LOSS: EM currencies typically have positive carry (higher rates); hedging forfeits this premium.\n• EMERGING MARKET EQUITY RETURNS: often POSITIVELY correlated with EM currency returns — this amplifies unhedged volatility (minimum-variance hedge ratio can exceed 1) and strengthens, not weakens, the case for hedging.\n\nPARTIAL: 5=hedging approach + drawbacks; 3=one aspect; 0=vague."
               },
               "candidate_los": [
-                "swaps_forwards_and_futures_strategies.a",
-                "swaps_forwards_and_futures_strategies.b",
-                "swaps_forwards_and_futures_strategies.d"
+                "swaps_forwards_and_futures_strategies.b"
               ],
               "primary_reading_ids": [
                 "swaps_forwards_and_futures_strategies"
@@ -7070,8 +6964,7 @@
               },
               "candidate_los": [
                 "currency_management_an_introduction.a",
-                "currency_management_an_introduction.h",
-                "currency_management_an_introduction.b"
+                "currency_management_an_introduction.h"
               ],
               "primary_reading_ids": [
                 "currency_management_an_introduction"
@@ -8745,8 +8638,6 @@
                 "C": "Correct. The number of futures needed to fully close the duration gap is N = (BPV_liability − BPV_asset) / BPV_futures = (299,860 − 243,376) / 102.30 = 56,484 / 102.30 ≈ 552 contracts (long/buy, indicated by the positive sign). However, because the surplus exceeds the 4%-of-assets threshold (surplus of 10.5/217.3 = 4.8% of assets) and Puhuyesva expects rates to fall, she wants asset duration to exceed liability duration so the surplus rises when rates fall; she should therefore buy MORE than 552 contracts, making 614 the appropriate choice."
               },
               "candidate_los": [
-                "liability_driven_and_index_based_strategies.b",
-                "liability_driven_and_index_based_strategies.d",
                 "liability_driven_and_index_based_strategies.c"
               ],
               "primary_reading_ids": [
@@ -8772,13 +8663,9 @@
                 "C": "Compared with other weighting schemes, such as equally weighted, value-weighted indexes are tilted toward issuers with higher levels of debt. The more an issuer or sector borrows, the greater the tilt toward that issuer in the index. Leverage and creditworthiness are negatively correlated, so a value-weighted index will be more susceptible to credit quality deterioration than an equally weighted index will be. BSCA is an equally weighted index, whereas the others are value weighted."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.g",
-                "overview_of_fixed_income_portfolio_management.c",
                 "liability_driven_and_index_based_strategies.e"
               ],
               "primary_reading_ids": [
-                "fixed_income_active_management_credit_strategies",
-                "overview_of_fixed_income_portfolio_management",
                 "liability_driven_and_index_based_strategies"
               ],
               "data_quality": "complete",
@@ -8828,13 +8715,10 @@
                 "C": "Honanie is incorrect regarding synthetic strategies because an active futures market is not required. A total return swap could be entered into in the over-the-counter market to achieve exposure to the desired index."
               },
               "candidate_los": [
-                "liability_driven_and_index_based_strategies.f",
-                "fixed_income_active_management_credit_strategies.g",
-                "liability_driven_and_index_based_strategies.c"
+                "liability_driven_and_index_based_strategies.f"
               ],
               "primary_reading_ids": [
-                "liability_driven_and_index_based_strategies",
-                "fixed_income_active_management_credit_strategies"
+                "liability_driven_and_index_based_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8850,13 +8734,10 @@
                 "model_answer": "ANSWER: approximately 552 contracts LONG (552.14; accept 552 or 553).\n\nCALCULATION:\nBPV asset = $243,376; BPV liability = $299,860.\nBPV gap = liability BPV − asset BPV = $299,860 − $243,376 = $56,484.\nContracts needed = BPV gap / futures BPV per contract = $56,484 / $102.30 = 552.14\n≈ 552 LONG contracts (accept 552 or 553), to add duration matching the underhedged liability.\n\nAccepted reasoning (any ONE):\n• If rates fall, liability rises more than assets (liab. BPV > asset BPV) — need more duration on asset side.\n• Long futures adds duration; closes the BPV gap.\n• Full hedge requires matching BPV of the gap.\n\nPARTIAL: 5=~552 (or 553) LONG + shown work; 4=correct method, arithmetic off; 3=long direction identified without full calc; 0=short or wrong sign."
               },
               "candidate_los": [
-                "liability_driven_and_index_based_strategies.b",
-                "liability_driven_and_index_based_strategies.c",
-                "yield_curve_strategies.b"
+                "liability_driven_and_index_based_strategies.c"
               ],
               "primary_reading_ids": [
-                "liability_driven_and_index_based_strategies",
-                "yield_curve_strategies"
+                "liability_driven_and_index_based_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -8873,14 +8754,10 @@
                 "model_answer": "VERDICT: DS (Deuda Sudamericana).\n\nAccepted reasoning (any ONE):\n• DS has largest number of securities (312) — best diversification and tracking.\n• DS is value-weighted (like most benchmark indexes) — appropriate for asset management practice.\n• DS duration (9.2 years) provides balance versus 10.8 (RFS) or 8.7 (BSCA).\n• Equally-weighted (BSCA) requires more frequent rebalancing — higher tx costs.\n• Value-weighting matches the natural liquidity structure of the market.\n\nREJECTED reasoning:\n• RFS: fewer securities (187), harder to fully replicate.\n• BSCA: equally-weighted → costly rebalancing + rebalancing risk.\n\nPARTIAL: 5=DS + reasoning; 3=DS without specifics; 0=RFS/BSCA."
               },
               "candidate_los": [
-                "overview_of_fixed_income_portfolio_management.h",
-                "liability_driven_and_index_based_strategies.e",
-                "fixed_income_active_management_credit_strategies.g"
+                "liability_driven_and_index_based_strategies.e"
               ],
               "primary_reading_ids": [
-                "overview_of_fixed_income_portfolio_management",
-                "liability_driven_and_index_based_strategies",
-                "fixed_income_active_management_credit_strategies"
+                "liability_driven_and_index_based_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -8897,13 +8774,10 @@
                 "model_answer": "GRADING KEY — any TWO of the following.\n\nAccepted challenges:\n• Illiquidity of many emerging-market bonds makes full replication impractical.\n• Wide bid-ask spreads increase transaction costs significantly.\n• Some index components may not be readily available or may trade infrequently.\n• Fixed-income index composition changes as bonds mature; requires periodic rebalancing (unlike equity indexes).\n• Value-weighted indexes may concentrate exposure in largest/most-indebted issuers (higher credit risk).\n• Currency exposures may need separate management.\n• Cash flow reinvestment risk from coupons.\n\nPARTIAL: 5=two + reasoning; 3=one; 0=vague."
               },
               "candidate_los": [
-                "liability_driven_and_index_based_strategies.f",
-                "liability_driven_and_index_based_strategies.e",
-                "overview_of_fixed_income_portfolio_management.c"
+                "liability_driven_and_index_based_strategies.e"
               ],
               "primary_reading_ids": [
-                "liability_driven_and_index_based_strategies",
-                "overview_of_fixed_income_portfolio_management"
+                "liability_driven_and_index_based_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -8920,13 +8794,10 @@
                 "model_answer": "VERDICT: INCORRECT / OVERSTATED.\n\nAccepted reasoning (any ONE):\n• FI valuation depends on assumptions about default probability, recovery, credit spreads, and prepayment — all uncertain.\n• Model-based valuations for illiquid or embedded-option bonds carry material model risk.\n• Emerging-market bonds specifically have limited price transparency.\n• Structured products and MBS/ABS carry substantial model risk from cash flow assumptions.\n• 'Reliable' overstates precision; FI models produce ranges, not point estimates.\n\nACCEPTABLE PARTIAL CREDIT:\n• For plain-vanilla bonds with observable discount curves, FI valuation IS more mechanical than DCF for equities — recognize this nuance for partial credit.\n\nPARTIAL: 5=identifies overstated + one nuance; 3=identifies as wrong; 0=agrees."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.c",
-                "fixed_income_active_management_credit_strategies.k",
-                "overview_of_fixed_income_portfolio_management.c"
+                "fixed_income_active_management_credit_strategies.k"
               ],
               "primary_reading_ids": [
-                "fixed_income_active_management_credit_strategies",
-                "overview_of_fixed_income_portfolio_management"
+                "fixed_income_active_management_credit_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -8957,13 +8828,10 @@
                 "C": "because if Ruelas believed rates would rise, he would over-hedge, leaving a net position that would benefit from rising rates."
               },
               "candidate_los": [
-                "liability_driven_and_index_based_strategies.c",
-                "liability_driven_and_index_based_strategies.b",
-                "yield_curve_strategies.b"
+                "liability_driven_and_index_based_strategies.c"
               ],
               "primary_reading_ids": [
-                "liability_driven_and_index_based_strategies",
-                "yield_curve_strategies"
+                "liability_driven_and_index_based_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -8985,14 +8853,10 @@
                 "C": "Counterparty credit risk is essentially absent from exchange-traded derivatives, such as futures contracts, and can be essentially eliminated from over-the-counter derivatives, such as swaps, through inclusion of a Credit Support Annex. In contrast, model risk is implicit in the management of a defined-benefit pension plan, which is made up of Type IV liabilities (uncertain amount and uncertain timing). Further, most fixed-income derivatives contracts trade on credit risk–free government securities, and the pension plan's assets consist of both investment-grade and speculative-grade corporate securities, making spread risk difficult to eliminate from the management of the portfolio."
               },
               "candidate_los": [
-                "liability_driven_and_index_based_strategies.d",
-                "overview_of_fixed_income_portfolio_management.g",
-                "fixed_income_active_management_credit_strategies.g"
+                "liability_driven_and_index_based_strategies.d"
               ],
               "primary_reading_ids": [
-                "liability_driven_and_index_based_strategies",
-                "overview_of_fixed_income_portfolio_management",
-                "fixed_income_active_management_credit_strategies"
+                "liability_driven_and_index_based_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -9039,13 +8903,10 @@
                 "C": "Incorrect. Portfolio C has the HIGHEST convexity (129.43) — the greatest cash flow dispersion around the horizon — and a slightly short duration (6.47). Among duration-comparable candidates, the immunization rule selects the minimum-convexity portfolio, and C is the opposite."
               },
               "candidate_los": [
-                "liability_driven_and_index_based_strategies.a",
-                "liability_driven_and_index_based_strategies.b",
-                "overview_of_fixed_income_portfolio_management.b"
+                "liability_driven_and_index_based_strategies.a"
               ],
               "primary_reading_ids": [
-                "liability_driven_and_index_based_strategies",
-                "overview_of_fixed_income_portfolio_management"
+                "liability_driven_and_index_based_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -9067,14 +8928,10 @@
                 "C": "because there is no need to engage in the more complicated process when the outstanding bond issue can be purchased at little premium."
               },
               "candidate_los": [
-                "liability_driven_and_index_based_strategies.b",
-                "overview_of_fixed_income_portfolio_management.h",
-                "yield_curve_strategies.d"
+                "liability_driven_and_index_based_strategies.b"
               ],
               "primary_reading_ids": [
-                "liability_driven_and_index_based_strategies",
-                "overview_of_fixed_income_portfolio_management",
-                "yield_curve_strategies"
+                "liability_driven_and_index_based_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -9090,9 +8947,7 @@
                 "model_answer": "ANSWER: approximately 329 SHORT contracts (round up).\n\nCALCULATION:\nBPV liability = €59,598; BPV asset = €91,632.\nBPV gap (asset excess) = €91,632 − €59,598 = €32,034 excess duration on asset side.\nContracts needed = €32,034 / €97.40 = 328.9 → 329 SHORT contracts.\n\nAccepted reasoning:\n• Assets have MORE duration than liabilities — need to REDUCE asset duration.\n• Short futures reduces duration.\n• Current 254 short contracts is INSUFFICIENT — needs additional 75 to fully hedge.\n\nPARTIAL: 5=~329 SHORT + work; 4=correct direction, arithmetic off; 3=recognizes need for more short; 0=wrong direction."
               },
               "candidate_los": [
-                "liability_driven_and_index_based_strategies.b",
-                "liability_driven_and_index_based_strategies.c",
-                "liability_driven_and_index_based_strategies.d"
+                "liability_driven_and_index_based_strategies.b"
               ],
               "primary_reading_ids": [
                 "liability_driven_and_index_based_strategies"
@@ -9134,13 +8989,10 @@
                 "model_answer": "GRADING KEY — full credit for identifying ALL THREE conditions.\n\nRequired conditions:\n1. DURATION of asset portfolio equals DURATION of liability (~6.5 years).\n2. Market value of assets EQUALS or EXCEEDS present value of liability (€2.3M).\n3. CONVEXITY of assets is close to but slightly HIGHER than convexity of the single liability (minimize dispersion / structural risk).\nOR EQUIVALENTLY:\n3-alt. Distribution of asset cash flows is CONCENTRATED around the liability date (minimize dispersion for a single liability).\n\nAccepted reasoning:\n• Duration match hedges parallel interest rate shifts.\n• Convexity (or narrow cash flow dispersion) protects against non-parallel shifts.\n• MV matching ensures sufficient funding.\n\nPARTIAL: 5=all 3 conditions; 4=two; 3=one; 0=none."
               },
               "candidate_los": [
-                "liability_driven_and_index_based_strategies.a",
-                "liability_driven_and_index_based_strategies.b",
-                "overview_of_fixed_income_portfolio_management.h"
+                "liability_driven_and_index_based_strategies.a"
               ],
               "primary_reading_ids": [
-                "liability_driven_and_index_based_strategies",
-                "overview_of_fixed_income_portfolio_management"
+                "liability_driven_and_index_based_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -9193,14 +9045,10 @@
                 "C": "The money durations of the assets and liabilities are approximately equal: 517,342,000 × 12.66 ≈ 6.55 billion and 500,000,000 × 13.10 = 6.55 billion, consistent with the nearly identical PV01s (654,281 vs 654,276). For parallel changes, the nearly equal money durations and PV01s imply that assets and liabilities would move in tandem. Silver expects a bear steepener; that is, long rates will rise faster than short rates. In a bear steepener, long rates rise faster than short rates in a non-parallel fashion. Given that the assets have lower convexity and dispersion than the liabilities, they will underperform; that is, the liabilities would change by a greater amount than the assets."
               },
               "candidate_los": [
-                "yield_curve_strategies.c",
-                "liability_driven_and_index_based_strategies.a",
-                "overview_of_fixed_income_portfolio_management.b"
+                "liability_driven_and_index_based_strategies.b"
               ],
               "primary_reading_ids": [
-                "yield_curve_strategies",
-                "liability_driven_and_index_based_strategies",
-                "overview_of_fixed_income_portfolio_management"
+                "liability_driven_and_index_based_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -9274,13 +9122,10 @@
                 "C": "because the DB plan needs to establish passive interest rate and credit exposure."
               },
               "candidate_los": [
-                "liability_driven_and_index_based_strategies.f",
-                "fixed_income_active_management_credit_strategies.e",
-                "liability_driven_and_index_based_strategies.c"
+                "liability_driven_and_index_based_strategies.f"
               ],
               "primary_reading_ids": [
-                "liability_driven_and_index_based_strategies",
-                "fixed_income_active_management_credit_strategies"
+                "liability_driven_and_index_based_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -9296,14 +9141,12 @@
                 "model_answer": "===\nPV01 alignment: PV01 assets $654,281 ≈ PV01 liabilities $654,276 — YES, properly PV01-hedged (parallel shifts covered).\n\n===\nHOWEVER, PV01 alone is INSUFFICIENT for non-parallel shifts:\nAccepted additional metrics (any ONE):\n• CONVEXITY: assets 21.40 vs liabilities 22.51 — mismatch means non-parallel curve moves not fully hedged.\n• DISPERSION: assets 6.48 vs liabilities 6.70 — cash flow timing mismatch.\n• KEY RATE DURATIONS: alignment across yield curve segments needed for bear steepening (Silver's forecast).\n\nGiven Silver's BEAR STEEPENING forecast, key rate duration alignment matters most.\n\nPARTIAL: 5=identifies PV01 OK + convexity/KRD issue for non-parallel; 3=one aspect; 0=neither."
               },
               "candidate_los": [
-                "overview_of_fixed_income_portfolio_management.b",
-                "yield_curve_strategies.e",
-                "liability_driven_and_index_based_strategies.a"
+                "liability_driven_and_index_based_strategies.a",
+                "yield_curve_strategies.e"
               ],
               "primary_reading_ids": [
-                "overview_of_fixed_income_portfolio_management",
-                "yield_curve_strategies",
-                "liability_driven_and_index_based_strategies"
+                "liability_driven_and_index_based_strategies",
+                "yield_curve_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -9320,14 +9163,10 @@
                 "model_answer": "===\nPART 1 (using high-quality corporate bond yields for discounting; investing in lower-quality corporate portfolio):\n• DISCOUNT RATE for liabilities uses high-grade (AA) corporate yields.\n• Hedging INSTRUMENTS use lower-grade or diversified corporate bonds → SPREAD RISK: if lower-grade spreads widen but AA spreads don't move, hedge fails.\n\n===\nPART 2 (using Treasury futures or interest rate swaps):\n• Treasury futures / swaps price off risk-free curve; liability discount uses corporate curve.\n• If Treasury yields move but corporate spreads move differently → CREDIT SPREAD RISK: hedge does not align with liability sensitivity.\n• Sometimes called SPREAD-DURATION MISMATCH.\n\nPARTIAL: 5=both parts + spread risk concept; 3=one part; 0=neither."
               },
               "candidate_los": [
-                "liability_driven_and_index_based_strategies.d",
-                "fixed_income_active_management_credit_strategies.b",
-                "overview_of_fixed_income_portfolio_management.a"
+                "liability_driven_and_index_based_strategies.d"
               ],
               "primary_reading_ids": [
-                "liability_driven_and_index_based_strategies",
-                "fixed_income_active_management_credit_strategies",
-                "overview_of_fixed_income_portfolio_management"
+                "liability_driven_and_index_based_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -9366,14 +9205,10 @@
                 "model_answer": "ANSWER: TOTAL RETURN SWAP (TRS) referencing a corporate bond index.\n\nAccepted reasoning:\n• The instrument must reference a corporate bond index AND be structured as a synthetic secured financing transaction — that is a TRS: the plan (total return receiver) receives the index total return in exchange for a funding payment, economically a synthetic secured financing.\n• A TRS on a corporate bond index passes through BOTH the interest rate component AND the credit spread component of the liability's discount rate.\n• Passive, low-cost index exposure in a single contract — no active management fees and no need to buy the underlying bonds. Consistent with MC Q4 (Total return swap).\n\nREJECTED:\n• Treasury futures or interest rate swaps — hedge only the rate component; no credit component.\n• Active corporate bond fund — not passive.\n\nPARTIAL: 4=TRS + rate-and-credit + synthetic-financing rationale; 3=TRS with partial rationale; 2=corporate bond ETF/index fund with rate-and-credit rationale (funded cash instrument — misses the synthetic secured financing requirement); 0=Treasury futures or swaps alone."
               },
               "candidate_los": [
-                "liability_driven_and_index_based_strategies.c",
-                "yield_curve_strategies.b",
-                "fixed_income_active_management_credit_strategies.b"
+                "liability_driven_and_index_based_strategies.f"
               ],
               "primary_reading_ids": [
-                "liability_driven_and_index_based_strategies",
-                "yield_curve_strategies",
-                "fixed_income_active_management_credit_strategies"
+                "liability_driven_and_index_based_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -9457,9 +9292,7 @@
                 "C": "because Bond D has the best expected excess return."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.a",
-                "fixed_income_active_management_credit_strategies.c",
-                "fixed_income_active_management_credit_strategies.d"
+                "fixed_income_active_management_credit_strategies.c"
               ],
               "primary_reading_ids": [
                 "fixed_income_active_management_credit_strategies"
@@ -9484,14 +9317,10 @@
                 "C": "Larent's comment about credit portfolios that are overweight lower-quality bonds likely outperforming a global benchmark whenever global economic conditions improve is correct."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.h",
-                "overview_of_fixed_income_portfolio_management.b",
-                "yield_curve_strategies.a"
+                "fixed_income_active_management_credit_strategies.d"
               ],
               "primary_reading_ids": [
-                "fixed_income_active_management_credit_strategies",
-                "overview_of_fixed_income_portfolio_management",
-                "yield_curve_strategies"
+                "fixed_income_active_management_credit_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -9564,8 +9393,6 @@
                 "C": "Correct. With spreads constant over the one-year holding period, the spread-change term drops out and expected excess spread = spread − (POD × loss severity). Bond F: 1.25% − (0.75% × 60%) = 1.25% − 0.45% = 0.80%, the highest expected excess spread (vs 0.65% for Bond D and 0.75% for Bond E)."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.a",
-                "fixed_income_active_management_credit_strategies.c",
                 "fixed_income_active_management_credit_strategies.b"
               ],
               "primary_reading_ids": [
@@ -9605,14 +9432,10 @@
                 "model_answer": "VERDICT: BOND B.\n\nAnalysis:\n• Bond A: OAS 112 bps = Z-spread 112 bps → option cost 0 — no embedded option.\n• Bond B: OAS 152 bps < Z-spread 163 bps → option cost = 163 − 152 = 11 bps — embedded CALL.\n• Bond C: OAS 213 bps = Z-spread 213 bps → option cost 0 — no embedded option.\n\nAccepted reasoning:\n• Z-spread − OAS = embedded option cost; a positive difference means the investor has sold an option to the issuer (a call).\n• The OAS strips the option value out of the spread; only Bond B shows an OAS below its Z-spread.\n\nPARTIAL: 4=Bond B + option cost (Z − OAS = 11 bps) with the OAS/Z-spread relationship explained; 2=Bond B without the spread relationship; 0=Bond A or C."
               },
               "candidate_los": [
-                "yield_curve_strategies.d",
-                "fixed_income_active_management_credit_strategies.b",
-                "liability_driven_and_index_based_strategies.d"
+                "fixed_income_active_management_credit_strategies.b"
               ],
               "primary_reading_ids": [
-                "yield_curve_strategies",
-                "fixed_income_active_management_credit_strategies",
-                "liability_driven_and_index_based_strategies"
+                "fixed_income_active_management_credit_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -9629,13 +9452,10 @@
                 "model_answer": "ANSWER: Requires computing expected excess return for each.\n\nExpected Excess Return = Spread × Yr − (Spread Duration × ΔSpread) − (Prob Default × LGD)\n\nBond D: 0.75% − (3.0 × 0.25%) − (0.25% × 40%) = 0.75 − 0.75 − 0.10 = -0.10%\nBond E: 1.00% − (3.5 × 0.25%) − (0.50% × 50%) = 1.00 − 0.875 − 0.25 = -0.125%\nBond F: 1.25% − (4.0 × 0.25%) − (0.75% × 60%) = 1.25 − 1.00 − 0.45 = -0.20%\n\nVERDICT: BOND D has the HIGHEST (least negative) expected excess return.\n\nAccepted reasoning:\n• Better formula: EER = Yield spread − ΔSpread × Duration − Expected credit loss.\n• Bond D compensates best for its expected losses given spread duration.\n\nPARTIAL: 5=Bond D + correct method + arithmetic; 4=Bond D + method with error; 3=Bond D without full work; 0=E or F."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.a",
-                "fixed_income_active_management_credit_strategies.d",
-                "overview_of_fixed_income_portfolio_management.b"
+                "fixed_income_active_management_credit_strategies.a"
               ],
               "primary_reading_ids": [
-                "fixed_income_active_management_credit_strategies",
-                "overview_of_fixed_income_portfolio_management"
+                "fixed_income_active_management_credit_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -9652,14 +9472,12 @@
                 "model_answer": "===\nOverweight lower-quality industrial-metals bonds if global economy improves: REASONABLE STRATEGY.\n• Cyclical sectors (industrial metals) benefit from economic expansion.\n• Lower-quality (HY) credit tightens spreads in expansions → outperformance.\n• Sound top-down logic.\n\n===\nUsing EFFECTIVE DURATION to assess yield curve steepening: INCORRECT.\n• Effective duration measures parallel yield shifts, not non-parallel moves.\n• KEY RATE DURATIONS (or empirical duration) should be used to assess steepening/flattening exposure.\n• Effective duration collapses the yield curve into a single number.\n\nPARTIAL: 5=both correctly evaluated; 3=one correct; 0=neither."
               },
               "candidate_los": [
-                "yield_curve_strategies.e",
-                "overview_of_fixed_income_portfolio_management.b",
-                "fixed_income_active_management_credit_strategies.h"
+                "fixed_income_active_management_credit_strategies.d",
+                "yield_curve_strategies.e"
               ],
               "primary_reading_ids": [
-                "yield_curve_strategies",
-                "overview_of_fixed_income_portfolio_management",
-                "fixed_income_active_management_credit_strategies"
+                "fixed_income_active_management_credit_strategies",
+                "yield_curve_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -9741,13 +9559,10 @@
                 "C": "Incorrect. The security-level measure Choate describes — a spread over a linear interpolation of the yields of two on-the-run government bonds — is the G-spread, not the I-spread (the I-spread is benchmarked to swap rates, not government bonds). At the portfolio level, the Z-spread is inappropriate because, like the G- and I-spreads, it does not reflect the optionality in bonds with embedded options; the OAS is the measure suited to a diversified portfolio of credit securities."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.b",
-                "yield_curve_strategies.a",
-                "fixed_income_active_management_credit_strategies.h"
+                "fixed_income_active_management_credit_strategies.b"
               ],
               "primary_reading_ids": [
-                "fixed_income_active_management_credit_strategies",
-                "yield_curve_strategies"
+                "fixed_income_active_management_credit_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -9769,13 +9584,10 @@
                 "C": "Consideration 3 is incorrect. Hedging tail risks through portfolio diversification is not difficult to implement and only has modest incremental cost. Hedging with derivatives, such as credit default swaps, is effective but costly."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.f",
-                "liability_driven_and_index_based_strategies.d",
-                "fixed_income_active_management_credit_strategies.c"
+                "fixed_income_active_management_credit_strategies.f"
               ],
               "primary_reading_ids": [
-                "fixed_income_active_management_credit_strategies",
-                "liability_driven_and_index_based_strategies"
+                "fixed_income_active_management_credit_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -9797,9 +9609,7 @@
                 "C": "because there are some differences across regions in the credit cycle providing diversification."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.h",
-                "fixed_income_active_management_credit_strategies.i",
-                "fixed_income_active_management_credit_strategies.a"
+                "fixed_income_active_management_credit_strategies.h"
               ],
               "primary_reading_ids": [
                 "fixed_income_active_management_credit_strategies"
@@ -9824,9 +9634,7 @@
                 "C": "because an investor that expects higher correlations would short Class A and go long Class B."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.j",
-                "fixed_income_active_management_credit_strategies.a",
-                "fixed_income_active_management_credit_strategies.c"
+                "fixed_income_active_management_credit_strategies.j"
               ],
               "primary_reading_ids": [
                 "fixed_income_active_management_credit_strategies"
@@ -9845,9 +9653,7 @@
                 "model_answer": "GRADING KEY — three claims to evaluate.\n\n===\nCLAIM 1 (IG more sensitive to interest rate changes than HY): CORRECT.\n• IG bonds have longer duration and their prices are dominated by rate risk.\n• HY bonds trade more like equity — dominated by credit risk, less by rates.\n\n===\nCLAIM 2 (IG more sensitive to credit migration risk — spread volatility): CORRECT.\n• IG bonds are more affected by rating changes since downgrades from IG to HY trigger forced selling.\n• HY is already low-rated; further downgrades within HY have smaller price impact.\n\n===\nCLAIM 3 (HY: monitoring outright market value is more critical due to default risk): CORRECT.\n• HY carries meaningful default risk → losses on principal — MV monitoring essential.\n• Position sizing and MV-based risk metrics dominant for HY.\n\nPARTIAL: 5=all three assessed correctly; 3=two; 0=fewer."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.a",
-                "fixed_income_active_management_credit_strategies.d",
-                "fixed_income_active_management_credit_strategies.c"
+                "fixed_income_active_management_credit_strategies.a"
               ],
               "primary_reading_ids": [
                 "fixed_income_active_management_credit_strategies"
@@ -9867,14 +9673,10 @@
                 "model_answer": "SECURITY LEVEL: G-SPREAD (interpolated spread over two on-the-run government bonds).\n• Choate specifically describes: 'spread over a linear interpolation of the yields of two on-the-run government bonds' → this is exactly G-Spread.\n\nPORTFOLIO LEVEL: OAS (Option-Adjusted Spread).\n• Choate's description: 'applies to a diversified group of securities, whether they have embedded options or not' → OAS handles callables/putables/MBS and can be aggregated to portfolio level.\n• OAS strips option value, allowing comparison across bonds with different embedded options.\n\nPARTIAL: 5=G-Spread + OAS both correct; 3=one correct; 0=neither."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.b",
-                "liability_driven_and_index_based_strategies.d",
-                "overview_of_fixed_income_portfolio_management.b"
+                "fixed_income_active_management_credit_strategies.b"
               ],
               "primary_reading_ids": [
-                "fixed_income_active_management_credit_strategies",
-                "liability_driven_and_index_based_strategies",
-                "overview_of_fixed_income_portfolio_management"
+                "fixed_income_active_management_credit_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -9891,13 +9693,10 @@
                 "model_answer": "GRADING KEY — his approach is largely SOUND.\n\nPositive aspects (any ONE for credit):\n• Uses multiple liquidity measures (bid-ask, volumes, funds flows) — comprehensive.\n• Managing liquidity through POSITION SIZING is prudent.\n• Using Treasuries, ETFs, and derivatives as liquidity buffers is standard practice.\n• Recognizes post-GFC deterioration in corporate bond liquidity.\n\nConsiderations (any ONE for credit):\n• Should also consider average trade size in the security.\n• Days-to-liquidate is another important measure.\n• Wider bid-ask spreads themselves can be opportunities in stress.\n\nPARTIAL: 5=identifies approach as sound + explains reasoning; 3=partial critique; 0=irrelevant."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.e",
-                "liability_driven_and_index_based_strategies.d",
-                "fixed_income_active_management_credit_strategies.f"
+                "fixed_income_active_management_credit_strategies.e"
               ],
               "primary_reading_ids": [
-                "fixed_income_active_management_credit_strategies",
-                "liability_driven_and_index_based_strategies"
+                "fixed_income_active_management_credit_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -9914,14 +9713,10 @@
                 "model_answer": "INFORMATION RATIO = Excess Return / Tracking Error Volatility = 100/200 = 0.50\n\nAccepted reasoning:\n• IR of 0.50 is a REASONABLE but not outstanding target (top-quartile managers typically achieve IRs of 0.5-1.0 net of fees).\n• 200 bps TEV indicates moderate active risk — enhanced indexing to modest active management, not aggressive.\n• Implies about 68% probability of positive excess return in any given year (assuming normal distribution).\n• With 100 bps target vs 200 bps TEV, the fund needs consistent alpha rather than large bets to hit the target.\n\nPARTIAL: 5=IR = 0.50 + interpretation; 3=IR = 0.50 only; 0=wrong calc."
               },
               "candidate_los": [
-                "liability_driven_and_index_based_strategies.e",
-                "overview_of_fixed_income_portfolio_management.a",
-                "fixed_income_active_management_credit_strategies.c"
+                "overview_of_fixed_income_portfolio_management.a"
               ],
               "primary_reading_ids": [
-                "liability_driven_and_index_based_strategies",
-                "overview_of_fixed_income_portfolio_management",
-                "fixed_income_active_management_credit_strategies"
+                "overview_of_fixed_income_portfolio_management"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -9952,9 +9747,7 @@
                 "C": "West is incorrect in Comment 3. Spread duration is a useful measure for determining a portfolio's sensitivity to changes in credit spreads. Because credit spread volatility–as opposed to outright credit default loss–is more relevant for investment-grade bonds than for high-yield bonds, the risk in a portfolio of investment-grade bonds is typically measured in terms of spread duration."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.a",
-                "fixed_income_active_management_credit_strategies.g",
-                "fixed_income_active_management_credit_strategies.d"
+                "fixed_income_active_management_credit_strategies.a"
               ],
               "primary_reading_ids": [
                 "fixed_income_active_management_credit_strategies"
@@ -10004,9 +9797,7 @@
                 "C": "In the case of unchanged spreads, credit relative value analysis is essentially about weighing the unknown prospect of default losses or credit rating migration against the known compensation provided by credit spreads. Excess return can be calculated as EXR ≈ (s)(t) — (Δs)(SD) — (t)(p)(L), where EXR = Excess return, s = Spread, t = Holding period, Δs = Change in spread, SD = Spread duration, p = Expected probability of default, and L = Expected loss severity. The data item most useful for relative value analysis is the expected probability of default."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.a",
-                "fixed_income_active_management_credit_strategies.c",
-                "fixed_income_active_management_credit_strategies.d"
+                "fixed_income_active_management_credit_strategies.c"
               ],
               "primary_reading_ids": [
                 "fixed_income_active_management_credit_strategies"
@@ -10031,12 +9822,9 @@
                 "C": "Incorrect. Section 2's contents — average credit rating, average spread duration, duration times spread, average OAS, duration, and effective convexity — are all legitimate credit portfolio risk measurements, so West is correct with respect to the risk measurements."
               },
               "candidate_los": [
-                "overview_of_fixed_income_portfolio_management.b",
-                "fixed_income_active_management_credit_strategies.d",
-                "fixed_income_active_management_credit_strategies.c"
+                "fixed_income_active_management_credit_strategies.d"
               ],
               "primary_reading_ids": [
-                "overview_of_fixed_income_portfolio_management",
                 "fixed_income_active_management_credit_strategies"
               ],
               "data_quality": "complete",
@@ -10059,13 +9847,10 @@
                 "C": "Incorrect. Stone's third point about bid–ask spreads is wrong in direction: more volatile market conditions WIDEN bid–ask spreads as dealers protect themselves against inventory risk, which raises trading costs. Bid–ask spreads do not narrow, and trading costs do not fall, when volatility rises."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.e",
-                "overview_of_fixed_income_portfolio_management.c",
-                "fixed_income_active_management_credit_strategies.h"
+                "fixed_income_active_management_credit_strategies.e"
               ],
               "primary_reading_ids": [
-                "fixed_income_active_management_credit_strategies",
-                "overview_of_fixed_income_portfolio_management"
+                "fixed_income_active_management_credit_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -10087,14 +9872,10 @@
                 "C": "because investments in countries where the currency is pegged may not require FX hedging, given more stability in the exchange rate."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.i",
-                "yield_curve_strategies.f",
-                "overview_of_fixed_income_portfolio_management.d"
+                "fixed_income_active_management_credit_strategies.i"
               ],
               "primary_reading_ids": [
-                "fixed_income_active_management_credit_strategies",
-                "yield_curve_strategies",
-                "overview_of_fixed_income_portfolio_management"
+                "fixed_income_active_management_credit_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -10110,9 +9891,7 @@
                 "model_answer": "===\nCOMMENT 1 (IG bonds more sensitive to rates than HY of same duration): CORRECT.\n• Rate risk dominates IG returns; HY dominated by credit risk. IG bonds are quoted as a spread to Treasuries and move in near-lockstep with rates, whereas HY is more price/yield-driven and less rate-sensitive.\n\n===\nCOMMENT 2 (four Cs of credit for both PD AND LGD): CORRECT.\n• The four Cs (Capacity, Collateral, Covenants, Character) assess overall creditworthiness and therefore inform BOTH the probability of default and the estimated loss given default.\n• Collateral in particular (recovery value, seniority, security) speaks directly to loss severity/LGD, while Capacity, Covenants, and Character bear on default likelihood.\n• The framework legitimately supports both analyses; the comment is not conflating them.\n\n===\nCOMMENT 3 (spread duration more useful for HY than IG): INCORRECT — this is the least-likely-correct comment.\n• The relationship is reversed: spread duration is MORE relevant for investment-grade than for high-yield bonds.\n• For IG bonds, credit-spread VOLATILITY (rather than outright default loss) is the dominant driver of risk, so IG portfolio risk is typically measured in terms of spread duration.\n• For HY bonds, outright default/credit-loss risk dominates, making spread duration comparatively less central.\n\nPARTIAL: 5=all three assessed correctly (Comment 3 identified as the incorrect one); 3=two correct; 0=fewer, or marks Comment 2 as incorrect."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.a",
-                "fixed_income_active_management_credit_strategies.d",
-                "fixed_income_active_management_credit_strategies.c"
+                "fixed_income_active_management_credit_strategies.a"
               ],
               "primary_reading_ids": [
                 "fixed_income_active_management_credit_strategies"
@@ -10154,14 +9933,10 @@
                 "model_answer": "MISCATEGORIZED METRICS:\n\nSECTION 1 (macro factors) contains:\n• KEY RATE DURATIONS — this is a PORTFOLIO RISK METRIC, belongs in Section 2.\n• DEFAULT RATES — this is DEBATABLE: macro factor for overall economy is reasonable, but rating-agency default rate as a metric for a specific portfolio would be Section 2. Accept either interpretation.\n\nSECTION 2 (portfolio risk metrics) contains:\n• EFFECTIVE CONVEXITY — correctly placed as portfolio risk metric.\n• AVERAGE OAS — correctly placed.\n• All others correctly placed.\n\nCorrect classification:\n• MACRO FACTORS: corporate profitability, GDP/growth, currency, expected market volatility, default rates (economy-wide).\n• PORTFOLIO METRICS: KRDs, average rating, spread duration, DTS, OAS, duration, effective convexity.\n\nPARTIAL: 5=identifies KRD miscategorization + reasoning; 3=identifies KRD without full logic; 0=all classifications accepted as correct."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.d",
-                "yield_curve_strategies.e",
-                "overview_of_fixed_income_portfolio_management.b"
+                "fixed_income_active_management_credit_strategies.d"
               ],
               "primary_reading_ids": [
-                "fixed_income_active_management_credit_strategies",
-                "yield_curve_strategies",
-                "overview_of_fixed_income_portfolio_management"
+                "fixed_income_active_management_credit_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -10178,13 +9953,10 @@
                 "model_answer": "===\nCLAIM 1 (trading volume declined; liquidity management LESS relevant for adding alpha): INCORRECT.\n• Trading volume decline is factual (post-GFC).\n• BUT: reduced liquidity makes liquidity management MORE important for alpha, not less. Skilled managers extract value from liquidity dislocations.\n\n===\nCLAIM 2 (spread changes more pronounced during outflows in HY vs IG, particularly in stress): CORRECT.\n• HY is more sensitive to fund flows and market sentiment.\n• IG has broader institutional demand base providing more stability.\n\n===\nCLAIM 3 (bid-ask spreads narrow in a market downturn, reducing trading costs and creating opportunities to add value): INCORRECT.\n• Direction is wrong: bid-ask spreads WIDEN in downturns as dealers protect against inventory risk, so trading costs RISE.\n• Bid-ask spreads are a valid liquidity indicator, but the narrowing claim reverses how they behave under stress.\n\nPARTIAL: 5=all three assessed; 3=two correct; 0=fewer."
               },
               "candidate_los": [
-                "fixed_income_active_management_credit_strategies.e",
-                "fixed_income_active_management_credit_strategies.d",
-                "overview_of_fixed_income_portfolio_management.c"
+                "fixed_income_active_management_credit_strategies.e"
               ],
               "primary_reading_ids": [
-                "fixed_income_active_management_credit_strategies",
-                "overview_of_fixed_income_portfolio_management"
+                "fixed_income_active_management_credit_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -10345,13 +10117,10 @@
                 "C": "Incorrect. Manager C combines the largest sampling gap (475 of 500 names), next-day dividend reinvestment, and only SEMI-ANNUAL reconstitution — allowing membership drift between index updates. These are the practices most likely to WIDEN tracking error, not minimize it."
               },
               "candidate_los": [
-                "index_based_equity_strategies.e",
-                "index_based_equity_strategies.d",
-                "overview_of_equity_portfolio_management.f"
+                "index_based_equity_strategies.e"
               ],
               "primary_reading_ids": [
-                "index_based_equity_strategies",
-                "overview_of_equity_portfolio_management"
+                "index_based_equity_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -10431,12 +10200,10 @@
               },
               "candidate_los": [
                 "index_based_equity_strategies.b",
-                "index_based_equity_strategies.c",
-                "active_equity_investing_strategies.c"
+                "index_based_equity_strategies.c"
               ],
               "primary_reading_ids": [
-                "index_based_equity_strategies",
-                "active_equity_investing_strategies"
+                "index_based_equity_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -10622,14 +10389,10 @@
                 "model_answer": "===\nSTMT 1 (fundamental weighting has disadvantages of overweighting overpriced stocks and underweighting underpriced stocks vs intrinsic values): INCORRECT.\n• Fundamental weighting is designed to CORRECT for market cap weighting's tendency to overweight expensive stocks.\n• Fundamentally-weighted indexes have LESS tendency to overweight overpriced stocks than cap-weighted indexes.\n\n===\nSTMT 2 (value factor funds seek to lower downside risk): PARTIALLY CORRECT / MISLEADING.\n• Value factor is intended to capture the value premium.\n• Downside risk reduction is not the primary goal; some value strategies have even HIGHER downside risk during growth-driven markets.\n\n===\nSTMT 3 (single-factor funds concentrate risk exposure relative to cap weighting): CORRECT.\n• Single-factor exposure is concentrated in one style; less diversified across sources of return than cap-weighted.\n\nPARTIAL: 5=all three assessed; 3=two correct; 0=fewer."
               },
               "candidate_los": [
-                "index_based_equity_strategies.a",
-                "active_equity_investing_portfolio_construction.c",
-                "overview_of_equity_portfolio_management.f"
+                "index_based_equity_strategies.a"
               ],
               "primary_reading_ids": [
-                "index_based_equity_strategies",
-                "active_equity_investing_portfolio_construction",
-                "overview_of_equity_portfolio_management"
+                "index_based_equity_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -10688,13 +10451,10 @@
                 "model_answer": "GRADING KEY — any TWO of the following.\n\nAccepted considerations:\n• Persistence of active outperformance is empirically weak; most funds underperform over 10+ year periods.\n• Cost matters enormously in compounding — active funds carry higher expenses that compound negatively over time.\n• Passive/indexing gives predictable benchmark-tracking outcomes; active introduces manager risk.\n• Committee governance considerations: passive simplifies oversight and reporting.\n• Even if active outperformance exists, it may not be sustainable after fees.\n• Style consistency in passive strategies aids strategic asset allocation.\n• Active management may be more valuable in less-efficient markets (small cap, emerging markets, distressed).\n\nPARTIAL: 5=two distinct considerations + reasoning; 3=one; 0=vague."
               },
               "candidate_los": [
-                "overview_of_equity_portfolio_management.e",
-                "index_based_equity_strategies.a",
-                "overview_of_equity_portfolio_management.a"
+                "overview_of_equity_portfolio_management.e"
               ],
               "primary_reading_ids": [
-                "overview_of_equity_portfolio_management",
-                "index_based_equity_strategies"
+                "overview_of_equity_portfolio_management"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -10857,13 +10617,10 @@
                 "C": "Leeter's reply is incorrect in regard to the comparison of depth analysis between the two methods. Holdings-based analysis allows for a deeper level of analysis when compared with returns-based analysis because holdings-based analysis uses the actual portfolio holdings. The analysis is more accurate and generates more information for making style allocation decisions."
               },
               "candidate_los": [
-                "active_equity_investing_strategies.i",
-                "active_equity_investing_strategies.a",
-                "active_equity_investing_portfolio_construction.b"
+                "active_equity_investing_strategies.i"
               ],
               "primary_reading_ids": [
-                "active_equity_investing_strategies",
-                "active_equity_investing_portfolio_construction"
+                "active_equity_investing_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -10900,13 +10657,10 @@
                 "model_answer": "STRATEGY: XTZZ uses ORIGINALLY-REPORTED (pre-revision) data as a LAGGED FACTOR until revised data becomes available. This is a form of 'point-in-time' or 'as-reported' data usage.\n\nEVALUATION — approach ADDS VALUE:\nAccepted reasoning (any ONE):\n• Realistic backtesting: what an investor would have KNOWN at the time.\n• Avoids look-ahead bias where 'clean' revised data attributes returns to information that wasn't actually available.\n• Better replicates real-time investment decision-making.\n• 'Clean' data (with retroactive revisions) creates biased backtests that overstate expected performance.\n• Reduces the risk of overfitting to statistical patterns that only appear in hindsight.\n\nPARTIAL: 5=identifies approach + explains it adds value with rationale; 3=identifies value-add without rationale; 0=misunderstands."
               },
               "candidate_los": [
-                "active_equity_investing_strategies.h",
-                "active_equity_investing_strategies.i",
-                "overview_of_equity_portfolio_management.e"
+                "active_equity_investing_strategies.h"
               ],
               "primary_reading_ids": [
-                "active_equity_investing_strategies",
-                "overview_of_equity_portfolio_management"
+                "active_equity_investing_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -11056,9 +10810,7 @@
                 "C": "Fund B fund seeks to profit from the market inefficiencies that may arise as a result of corporate events. It can hold either long or short positions in the acquiring and target companies as appropriate to produce a profitable position. This would be true even in consolidating industries as long as it believed that a market inefficiency existed."
               },
               "candidate_los": [
-                "active_equity_investing_strategies.e",
-                "active_equity_investing_strategies.a",
-                "active_equity_investing_strategies.c"
+                "active_equity_investing_strategies.e"
               ],
               "primary_reading_ids": [
                 "active_equity_investing_strategies"
@@ -11190,14 +10942,10 @@
                 "model_answer": "GRADING KEY — any TWO advantages AND any TWO disadvantages.\n\nAccepted ADVANTAGES:\n• Systematically captures macro trends and sector rotations.\n• Reduces stock-specific risk through country/sector diversification.\n• Efficient for large portfolios where individual security analysis is impractical.\n• Aligns strategy with macro views and business cycles.\n\nAccepted DISADVANTAGES:\n• Macro forecasts are historically hard to time correctly.\n• Misses stock-specific alpha within countries/sectors.\n• Concentration in favored countries/sectors creates event risk.\n• Turnover from macro shifts can be costly.\n• Country and sector allocation adds active risk without necessarily improving risk-adjusted returns.\n\nPARTIAL: 5=two advantages + two disadvantages; 3=three items total; 0=fewer than two."
               },
               "candidate_los": [
-                "active_equity_investing_strategies.c",
-                "overview_of_equity_portfolio_management.b",
-                "active_equity_investing_portfolio_construction.b"
+                "active_equity_investing_strategies.c"
               ],
               "primary_reading_ids": [
-                "active_equity_investing_strategies",
-                "overview_of_equity_portfolio_management",
-                "active_equity_investing_portfolio_construction"
+                "active_equity_investing_strategies"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -11396,13 +11144,9 @@
                 "model_answer": "VERDICT: LUNNAR B.\n\nAnalysis of value/growth mix vs benchmark:\n• LUNNAR A: 68%/32% holdings, 68%/32% returns-based vs 75%/25% index → material growth tilt vs benchmark.\n• LUNNAR B: 67%/33% holdings, 68%/32% returns-based vs 65%/35% index → very close match.\n• LUNNAR C: 39%/61% holdings, 34%/66% returns-based vs 35%/65% index → close match too.\n\nBoth B and C are close. LUNNAR B has NEAR-EXACT match on both holdings and returns-based analysis (67/68 vs 65).\nLUNNAR C is also very close on returns-based (34/35) but shows slight holdings drift.\n\nACCEPTED: EITHER B or C with correct comparative reasoning.\n\nPARTIAL: 5=B or C + comparison of both holdings and returns basis; 3=identifies close-fit fund without full analysis; 0=A."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.f",
-                "index_based_equity_strategies.a",
-                "active_equity_investing_strategies.a"
+                "active_equity_investing_strategies.i"
               ],
               "primary_reading_ids": [
-                "active_equity_investing_portfolio_construction",
-                "index_based_equity_strategies",
                 "active_equity_investing_strategies"
               ],
               "data_quality": "complete",
@@ -11532,13 +11276,10 @@
                 "C": "Sector bets are likely to affect active risk; therefore, it is Fund A that is more likely to be using sector bets, not Fund B."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.c",
-                "active_equity_investing_portfolio_construction.f",
-                "active_equity_investing_strategies.d"
+                "active_equity_investing_portfolio_construction.c"
               ],
               "primary_reading_ids": [
-                "active_equity_investing_portfolio_construction",
-                "active_equity_investing_strategies"
+                "active_equity_investing_portfolio_construction"
               ],
               "data_quality": "complete",
               "data_quality_flags": []
@@ -11696,13 +11437,10 @@
                 "model_answer": "GRADING KEY — any TWO of the following.\n\nAccepted implications:\n• The fund's manager is NOT generating skill-based alpha; performance is fully explained by factor exposures.\n• INVESTORS should consider whether the fund's fees are justified given the lack of factor-neutral alpha.\n• CHEAPER PASSIVE FACTOR PRODUCTS could replicate the fund's returns.\n• The fund does not offer a compelling case for its active management fee.\n• Factor-based benchmarking is a fair standard — the fund's excess is not from skill.\n• Even the benchmark index has slightly negative non-factor alpha, suggesting factor-mimicking indexes can have implementation costs.\n\nPARTIAL: 5=two clear implications; 3=one; 0=vague."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.f",
-                "overview_of_equity_portfolio_management.e",
                 "active_equity_investing_portfolio_construction.a"
               ],
               "primary_reading_ids": [
-                "active_equity_investing_portfolio_construction",
-                "overview_of_equity_portfolio_management"
+                "active_equity_investing_portfolio_construction"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -11758,8 +11496,6 @@
                 "C": "Incorrect. 0.13% results from adding the 0.33% monthly risk-free rate back to the −0.20% unexplained return (−0.20% + 0.33% = 0.13%). The computation must be done consistently in excess-of-risk-free terms; the risk-free rate does not belong in the alpha."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.a",
-                "active_equity_investing_portfolio_construction.f",
                 "active_equity_investing_portfolio_construction.d"
               ],
               "primary_reading_ids": [
@@ -11879,13 +11615,10 @@
                 "model_answer": "APPROACH:\nAlpha = Fund excess return − Σ(Fund β × Factor performance)\n\nFund excess return over risk-free = 0.55%\n\nFactor-attributed returns:\n• Market: 0.91 × 0.61% = 0.5551%\n• Size: 0.15 × 0.17% = 0.0255%\n• Value: 0.60 × 0.18% = 0.108%\n• Momentum: 0.08 × 0.72% = 0.0576%\nSum of factor returns = 0.5551 + 0.0255 + 0.108 + 0.0576 = 0.7462%\n\nAlpha = 0.55% − 0.7462% = -0.196% (approximately -0.20%)\n\nINTERPRETATION: Fraser Fund's non-factor alpha is NEGATIVE (~-20 bps monthly) — fund is underperforming what its factor exposures would predict.\n\nPARTIAL: 5=~-0.20% + work; 4=method correct, arithmetic off; 3=negative alpha identified without full work; 0=positive alpha."
               },
               "candidate_los": [
-                "active_equity_investing_portfolio_construction.a",
-                "active_equity_investing_portfolio_construction.f",
-                "active_equity_investing_strategies.d"
+                "active_equity_investing_portfolio_construction.d"
               ],
               "primary_reading_ids": [
-                "active_equity_investing_portfolio_construction",
-                "active_equity_investing_strategies"
+                "active_equity_investing_portfolio_construction"
               ],
               "data_quality": "complete",
               "data_quality_flags": [],
@@ -12089,8 +11822,7 @@
               },
               "candidate_los": [
                 "trade_strategy_and_execution.c",
-                "trade_strategy_and_execution.h",
-                "trade_strategy_and_execution.e"
+                "trade_strategy_and_execution.h"
               ],
               "primary_reading_ids": [
                 "trade_strategy_and_execution"
@@ -12110,9 +11842,8 @@
                 "model_answer": "GRADING KEY — any TWO of the following.\n\nAccepted approaches:\n• Systematically track IMPLEMENTATION SHORTFALL across trades and analyze the components (delay, execution, missed opportunity, commission).\n• Benchmark performance vs multiple standards (arrival price, VWAP, TWAP, market-adjusted) to identify strengths and weaknesses.\n• Analyze performance by algorithm type — identify which algorithms work best for what market conditions.\n• Track BROKER performance separately and rotate work to best performers.\n• Post-trade analysis / TCA (Transaction Cost Analysis) reports.\n• Real-time monitoring of active orders vs benchmarks.\n• Alpha decay analysis — measure how quickly information advantages disappear.\n• Review venue analysis (which exchanges/dark pools provided best fills).\n\nPARTIAL: 5=two clear approaches + implementation notes; 3=one; 0=vague."
               },
               "candidate_los": [
-                "trade_strategy_and_execution.e",
-                "trade_strategy_and_execution.h",
-                "trade_strategy_and_execution.g"
+                "trade_strategy_and_execution.g",
+                "trade_strategy_and_execution.h"
               ],
               "primary_reading_ids": [
                 "trade_strategy_and_execution"

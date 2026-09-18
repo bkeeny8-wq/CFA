@@ -153,26 +153,33 @@ struct SessionDebriefList: View {
 
     var body: some View {
         List {
-            Section("Session debrief") {
+            Section {
                 Text(debrief.scoreLine)
+                    .accessibilityAddTraits(.isHeader)
                 if skippedCount > 0 {
                     Text("\(skippedCount) skipped & flagged")
                 }
                 Text(debrief.paceLine)
                 Text("Mode: \(modeLine)")
+            } header: {
+                Text("Session debrief")
             }
             if !debrief.missedLabels.isEmpty {
-                Section("Missed") {
+                Section {
                     ForEach(Array(debrief.missedLabels.enumerated()), id: \.offset) { _, label in
                         Text(label)
                     }
+                } header: {
+                    Text("Missed")
                 }
             }
             if !skippedLabels.isEmpty {
-                Section("Skipped & flagged") {
+                Section {
                     ForEach(Array(skippedLabels.enumerated()), id: \.offset) { _, label in
                         Text(label)
                     }
+                } header: {
+                    Text("Skipped & flagged")
                 }
             }
             Section {

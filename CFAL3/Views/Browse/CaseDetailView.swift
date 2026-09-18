@@ -5,6 +5,7 @@ struct CaseDetailView: View {
     @Environment(ContentLoader.self) private var content
     @Environment(StudySessionCoordinator.self) private var sessionCoordinator
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Query private var attempts: [Attempt]
     @Query private var cards: [ReviewCard]
 
@@ -40,7 +41,7 @@ struct CaseDetailView: View {
             if let splitColumnVisibility, horizontalSizeClass == .regular {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        withAnimation {
+                        withSittingAnimation(reduceMotion) {
                             splitColumnVisibility.wrappedValue =
                                 splitColumnVisibility.wrappedValue == .detailOnly ? .all : .detailOnly
                         }
@@ -164,7 +165,7 @@ struct CaseDetailView: View {
         guard horizontalSizeClass == .regular,
               let splitColumnVisibility,
               splitColumnVisibility.wrappedValue != .detailOnly else { return }
-        withAnimation {
+        withSittingAnimation(reduceMotion) {
             splitColumnVisibility.wrappedValue = .detailOnly
         }
     }

@@ -112,13 +112,24 @@ struct PracticeBuilderView: View {
         .background(Color(.systemGroupedBackground))
         .navigationTitle("Practice")
         .safeAreaInset(edge: .bottom) {
-            Button {
-                startQuiz()
-            } label: {
-                Text(matching == 0 ? "Nothing matches this scope" : "Start session")
+            VStack(spacing: 8) {
+                if matching == 0 {
+                    Text("Widen the book, reading, or LOS filters to find matching items.")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                        .accessibilityLabel(
+                            "Nothing matches this scope. Widen the book, reading, or LOS filters."
+                        )
+                }
+                Button {
+                    startQuiz()
+                } label: {
+                    Text(matching == 0 ? "Nothing matches this scope" : "Start session")
+                }
+                .buttonStyle(PrimaryCTA())
+                .disabled(matching == 0)
             }
-            .buttonStyle(PrimaryCTA())
-            .disabled(matching == 0)
             .padding(.horizontal)
             // Match the form above it. The bar stays full width — it is a bar
             // — but a 1000pt-wide button under a 640pt-wide list looked like

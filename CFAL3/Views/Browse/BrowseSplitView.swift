@@ -9,6 +9,7 @@ import SwiftData
 /// already-selected case also collapses. No case is ever auto-selected.
 struct BrowseSplitView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(ContentLoader.self) private var content
     @Query private var attempts: [Attempt]
 
@@ -141,7 +142,7 @@ struct BrowseSplitView: View {
     /// Tap = work the case. Collapse unconditionally at regular width.
     private func collapseToCase() {
         guard horizontalSizeClass == .regular else { return }
-        withAnimation(.snappy) {
+        withSittingAnimation(reduceMotion) {
             columnVisibility = .detailOnly
         }
     }
