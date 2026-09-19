@@ -399,6 +399,286 @@ struct NamedQualitySelector: View {
     }
 }
 
+extension Binding where Value == Set<String> {
+    /// Treat a set of expanded book IDs as a per-book `isExpanded` flag.
+    subscript(_ id: String) -> Binding<Bool> {
+        Binding<Bool>(
+            get: { wrappedValue.contains(id) },
+            set: { isOn in
+                var next = wrappedValue
+                if isOn {
+                    next.insert(id)
+                } else {
+                    next.remove(id)
+                }
+                wrappedValue = next
+            }
+        )
+    }
+}
+
+/// Practice’s grouped card: 18-pt padding, 22-pt radius, soft parchment fill.
+struct ParchmentGroup<Content: View>: View {
+    var title: String? = nil
+    @ViewBuilder var content: () -> Content
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            if let title {
+                Text(title)
+                    .font(.headline)
+                    .foregroundStyle(Theme.ink)
+            }
+            content()
+        }
+        .padding(18)
+        .background(
+            RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous)
+                .fill(Theme.cardFill)
+                .shadow(color: Color.black.opacity(0.04), radius: 10, y: 3)
+        )
+    }
+}
+
+/// Chevron + title row used by Practice’s Scope / Readings picker and the
+/// Notes, Cases, and Cards book lists. Type, padding, and chevron match
+/// Practice’s Books / Readings / LOS rows.
+struct BookDisclosureHeader: View {
+    let title: String
+    var subtitle: String? = nil
+    var trailing: String? = nil
+    var badge: Int = 0
+    var accessibilityID: String? = nil
+    @Binding var isExpanded: Bool
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    var body: some View {
+        Button {
+            withSittingAnimation(reduceMotion) { isExpanded.toggle() }
+        } label: {
+            HStack(alignment: .firstTextBaseline, spacing: 6) {
+                Image(systemName: "chevron.right")
+                    .font(.caption2.weight(.semibold))
+                    .foregroundStyle(Theme.dust)
+                    .frame(width: 12, alignment: .center)
+                    .rotationEffect(.degrees(isExpanded ? 90 : 0))
+                VStack(alignment: .leading, spacing: 2) {
+                    HStack(spacing: 8) {
+                        Text(title)
+                            .font(.body)
+                            .foregroundStyle(Theme.ink)
+                            .lineLimit(2)
+                            .multilineTextAlignment(.leading)
+                        if badge > 0 {
+                            Text("\(badge)")
+                                .font(.caption2.weight(.semibold))
+                                .padding(.horizontal, 6)
+                                .padding(.vertical, 1)
+                                .background(Capsule().fill(Theme.accent.opacity(0.15)))
+                                .foregroundStyle(Theme.accent)
+                        }
+                    }
+                    if let subtitle, !subtitle.isEmpty {
+                        Text(subtitle)
+                            .font(.caption)
+                            .foregroundStyle(Theme.dust)
+                    }
+                }
+                Spacer(minLength: 0)
+                if let trailing, !trailing.isEmpty {
+                    Text(trailing)
+                        .font(.body)
+                        .foregroundStyle(Theme.dust)
+                }
+            }
+            .padding(.vertical, 8)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier(accessibilityID ?? "book.\(title)")
+        .accessibilityLabel(title)
+        .accessibilityHint(isExpanded ? "Collapses this book" : "Shows items in this book")
+        .accessibilityValue(isExpanded ? "Expanded" : "Collapsed")
+        .accessibilityAddTraits(.isButton)
+    }
+}
+
+/// Book header plus, when expanded, the readings or cases that belong to it.
+/// Books start collapsed; expanding one reveals its items.
+struct BookDisclosureSection<Content: View>: View {
+    let title: String
+    var subtitle: String? = nil
+    var trailing: String? = nil
+    var badge: Int = 0
+    var accessibilityID: String? = nil
+    @Binding var isExpanded: Bool
+    @ViewBuilder var content: () -> Content
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            BookDisclosureHeader(
+                title: title,
+                subtitle: subtitle,
+                trailing: trailing,
+                badge: badge,
+                accessibilityID: accessibilityID,
+                isExpanded: $isExpanded
+            )
+            if isExpanded {
+                content()
+                    .padding(.leading, 18)
+                    .transition(.opacity)
+            }
+        }
+    }
+}
+
+/// A tappable child row under an expanded book. Same 8-pt vertical padding
+/// as Practice’s Books / Readings / LOS rows.
+struct BookChildRow<Trailing: View>: View {
+    let title: String
+    var subtitle: String? = nil
+    var trailing: String? = nil
+    @ViewBuilder var trailingContent: () -> Trailing
+
+    init(
+        title: String,
+        subtitle: String? = nil,
+        trailing: String? = nil,
+        @ViewBuilder trailingContent: @escaping () -> Trailing
+    ) {
+        self.title = title
+        self.subtitle = subtitle
+        self.trailing = trailing
+        self.trailingContent = trailingContent
+    }
+
+    var body: some View {
+        HStack(alignment: .firstTextBaseline) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title)
+                    .font(.body)
+                    .foregroundStyle(Theme.ink)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.leading)
+                if let subtitle, !subtitle.isEmpty {
+                    Text(subtitle)
+                        .font(.caption)
+                        .foregroundStyle(Theme.dust)
+                }
+            }
+            Spacer(minLength: 0)
+            if let trailing, !trailing.isEmpty {
+                Text(trailing)
+                    .font(.caption)
+                    .foregroundStyle(Theme.dust)
+            }
+            trailingContent()
+        }
+        .padding(.vertical, 8)
+        .contentShape(Rectangle())
+    }
+}
+
+extension BookChildRow where Trailing == EmptyView {
+    init(title: String, subtitle: String? = nil, trailing: String? = nil) {
+        self.init(title: title, subtitle: subtitle, trailing: trailing) { EmptyView() }
+    }
+}
+
+/// Practice’s Readings picker: Select all / Clear, then a Books parchment
+/// group whose books start collapsed. Same control on Cards.
+struct BookReadingPicker: View {
+    let areas: [CurriculumArea]
+    @Binding var selection: Set<String>
+    var bookAccessibilityPrefix: String
+    var readingAccessibilityPrefix: String
+    @State private var expandedBookIDs: Set<String> = []
+
+    private var visibleReadingIDs: [String] {
+        areas.flatMap { $0.readings.map(\.id) }
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 18) {
+            ParchmentGroup {
+                ParchmentActionRow(title: "Select all", titleColor: Theme.pine) {
+                    selection.formUnion(visibleReadingIDs)
+                }
+                ParchmentActionRow(title: "Clear", titleColor: Theme.pine) {
+                    selection.subtract(visibleReadingIDs)
+                }
+                .disabled(selection.isDisjoint(with: visibleReadingIDs))
+            }
+
+            ParchmentGroup(title: "Books") {
+                ForEach(areas) { area in
+                    let name = ProgressDisplay.shortName(area.id, fallback: area.name)
+                    let selectedCount = area.readings.filter { selection.contains($0.id) }.count
+                    BookDisclosureSection(
+                        title: name,
+                        subtitle: "\(area.readings.count) readings",
+                        badge: selectedCount,
+                        accessibilityID: "\(bookAccessibilityPrefix).\(name)",
+                        isExpanded: $expandedBookIDs[area.id]
+                    ) {
+                        VStack(spacing: 0) {
+                            ForEach(area.readings) { reading in
+                                toggleRow(reading)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private func toggleRow(_ reading: Reading) -> some View {
+        Button {
+            if selection.contains(reading.id) {
+                selection.remove(reading.id)
+            } else {
+                selection.insert(reading.id)
+            }
+        } label: {
+            BookChildRow(title: reading.name) {
+                if selection.contains(reading.id) {
+                    Image(systemName: "checkmark").foregroundStyle(Theme.accent)
+                }
+            }
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier("\(readingAccessibilityPrefix).\(reading.id)")
+    }
+}
+
+/// Practice Scope row: body type, 8-pt vertical padding, trailing dust value.
+struct ParchmentActionRow: View {
+    let title: String
+    var trailing: String? = nil
+    var titleColor: Color = Theme.ink
+    var action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            HStack {
+                Text(title)
+                    .font(.body)
+                    .foregroundStyle(titleColor)
+                Spacer()
+                if let trailing, !trailing.isEmpty {
+                    Text(trailing)
+                        .font(.body)
+                        .foregroundStyle(Theme.dust)
+                }
+            }
+            .padding(.vertical, 8)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+    }
+}
+
 struct DaybookLoadErrorPanel: View {
     let message: String
     var retry: () -> Void

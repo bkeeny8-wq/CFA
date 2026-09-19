@@ -157,33 +157,15 @@ private struct RootTabContent: View {
         case .plan:
             NavigationStack { PlanView() }
         case .notes:
-            notesRoot
+            NavigationStack { StudyPlannerView() }
         case .cards:
             NavigationStack { FlashcardsHomeView() }
         case .practice:
             NavigationStack { PracticeBuilderView() }
         case .cases:
-            casesRoot
+            NavigationStack { TopicListView() }
         case .progress:
             NavigationStack { ProgressDashboardView() }
-        }
-    }
-
-    @ViewBuilder
-    private var notesRoot: some View {
-        if horizontalSizeClass == .regular {
-            StudyPlannerSplitView()
-        } else {
-            NavigationStack { StudyPlannerView() }
-        }
-    }
-
-    @ViewBuilder
-    private var casesRoot: some View {
-        if horizontalSizeClass == .regular {
-            BrowseSplitView()
-        } else {
-            NavigationStack { TopicListView() }
         }
     }
 

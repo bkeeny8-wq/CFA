@@ -78,52 +78,19 @@ struct PracticeBuilderView: View {
                         .shadow(color: Color.black.opacity(0.04), radius: 10, y: 3)
                 )
 
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Scope")
-                        .font(.headline)
-                        .foregroundStyle(Theme.ink)
-                    Button {
+                ParchmentGroup(title: "Scope") {
+                    ParchmentActionRow(title: "Books", trailing: topicsSummary) {
                         showTopics = true
-                    } label: {
-                        HStack {
-                            Text("Books")
-                                .foregroundStyle(Theme.ink)
-                            Spacer()
-                            Text(topicsSummary)
-                                .foregroundStyle(Theme.dust)
-                        }
-                        .padding(.vertical, 8)
-                        .contentShape(Rectangle())
                     }
-                    .buttonStyle(.plain)
-                    Button {
+                    .accessibilityIdentifier("practice.scope.books")
+                    ParchmentActionRow(title: "Readings", trailing: readingsSummary) {
                         showReadings = true
-                    } label: {
-                        HStack {
-                            Text("Readings")
-                                .foregroundStyle(Theme.ink)
-                            Spacer()
-                            Text(readingsSummary)
-                                .foregroundStyle(Theme.dust)
-                        }
-                        .padding(.vertical, 8)
-                        .contentShape(Rectangle())
                     }
-                    .buttonStyle(.plain)
-                    Button {
+                    .accessibilityIdentifier("practice.scope.readings")
+                    ParchmentActionRow(title: "LOS", trailing: losSummary) {
                         showLOS = true
-                    } label: {
-                        HStack {
-                            Text("LOS")
-                                .foregroundStyle(Theme.ink)
-                            Spacer()
-                            Text(losSummary)
-                                .foregroundStyle(Theme.dust)
-                        }
-                        .padding(.vertical, 8)
-                        .contentShape(Rectangle())
                     }
-                    .buttonStyle(.plain)
+                    .accessibilityIdentifier("practice.scope.los")
 
                     Label(
                         scopeSummary,
@@ -138,12 +105,6 @@ struct PracticeBuilderView: View {
                     .accessibilityLabel(scopeSummary)
                     .accessibilityIdentifier("practice.scopeSummary")
                 }
-                .padding(18)
-                .background(
-                    RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous)
-                        .fill(Theme.cardFill)
-                        .shadow(color: Color.black.opacity(0.04), radius: 10, y: 3)
-                )
             }
             .padding(24)
         }
@@ -329,20 +290,29 @@ private struct TopicMultiSelectSheet: View {
 
     var body: some View {
         NavigationStack {
-            List {
-                Section {
-                    Button("Select all") {
-                        selection = Set(content.questionBank?.topics.map(\.id) ?? [])
+            ScrollView {
+                VStack(alignment: .leading, spacing: 18) {
+                    ParchmentGroup {
+                        ParchmentActionRow(title: "Select all", titleColor: Theme.pine) {
+                            selection = Set(content.questionBank?.topics.map(\.id) ?? [])
+                        }
+                        ParchmentActionRow(title: "Clear", titleColor: Theme.pine) {
+                            selection.removeAll()
+                        }
+                        .disabled(selection.isEmpty)
                     }
-                    Button("Clear") { selection.removeAll() }
-                }
-                Section {
-                    ForEach(content.questionBank?.topics ?? [], id: \.id) { topic in
-                        toggleRow(id: topic.id, label: topic.shortName)
+
+                    ParchmentGroup(title: "Books") {
+                        ForEach(content.questionBank?.topics ?? [], id: \.id) { topic in
+                            toggleRow(id: topic.id, label: topic.shortName)
+                        }
                     }
                 }
+                .padding(24)
             }
+            .background(Theme.paper)
             .navigationTitle("Books")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }
@@ -351,23 +321,21 @@ private struct TopicMultiSelectSheet: View {
         }
     }
 
-    @ViewBuilder
     private func toggleRow(id: String, label: String) -> some View {
-        HStack {
-            Text(label)
-            Spacer()
-            if selection.contains(id) {
-                Image(systemName: "checkmark").foregroundStyle(Theme.accent)
-            }
-        }
-        .contentShape(Rectangle())
-        .onTapGesture {
+        Button {
             if selection.contains(id) {
                 selection.remove(id)
             } else {
                 selection.insert(id)
             }
+        } label: {
+            BookChildRow(title: label) {
+                if selection.contains(id) {
+                    Image(systemName: "checkmark").foregroundStyle(Theme.accent)
+                }
+            }
         }
+        .buttonStyle(.plain)
     }
 }
 
@@ -388,51 +356,24 @@ private struct ReadingMultiSelectSheet: View {
         return scopeTopics.isEmpty ? all : all.filter { scopeTopics.contains($0.id) }
     }
 
-    private var visibleReadingIDs: [String] {
-        areas.flatMap { $0.readings.map(\.id) }
-    }
-
     var body: some View {
         NavigationStack {
-            List {
-                Section {
-                    Button("Select all") { selection.formUnion(visibleReadingIDs) }
-                    Button("Clear") { selection.subtract(visibleReadingIDs) }
-                        .disabled(selection.isDisjoint(with: visibleReadingIDs))
-                }
-                ForEach(areas) { area in
-                    Section(area.name) {
-                        ForEach(area.readings) { reading in
-                            toggleRow(id: reading.id, label: reading.name)
-                        }
-                    }
-                }
+            ScrollView {
+                BookReadingPicker(
+                    areas: areas,
+                    selection: $selection,
+                    bookAccessibilityPrefix: "practice.book",
+                    readingAccessibilityPrefix: "practice.reading"
+                )
+                .padding(24)
             }
+            .background(Theme.paper)
             .navigationTitle("Readings")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }
                 }
-            }
-        }
-    }
-
-    @ViewBuilder
-    private func toggleRow(id: String, label: String) -> some View {
-        HStack {
-            Text(label).lineLimit(2)
-            Spacer()
-            if selection.contains(id) {
-                Image(systemName: "checkmark").foregroundStyle(Theme.accent)
-            }
-        }
-        .contentShape(Rectangle())
-        .onTapGesture {
-            if selection.contains(id) {
-                selection.remove(id)
-            } else {
-                selection.insert(id)
             }
         }
     }

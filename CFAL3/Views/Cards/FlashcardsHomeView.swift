@@ -1,55 +1,39 @@
 import SwiftUI
 import SwiftData
 
-/// Deck browser for the Cards half of the Study tab: what's due now, then
-/// every book and its readings with per-deck counts. It shares Study's
-/// book → reading shape, which is why the two fold together behind one menu.
+/// Deck browser for Cards: today's mix, then Practice’s reading selector
+/// (Select all / Clear, books collapsed until expanded).
 struct FlashcardsHomeView: View {
     @Environment(ContentLoader.self) private var content
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(TabRouter.self) private var router
     @Query private var progress: [FlashcardProgress]
 
     @Environment(PracticeBuilderPreference.self) private var practicePref
     @State private var typeFilter: FlashcardType?
+    @State private var selectedReadings: Set<String> = []
     /// See HomeView: the daily new-card allowance is a function of "today".
     @State private var dayToken = 0
 
     private var areas: [CurriculumArea] { content.losMaster?.areas ?? [] }
 
-    /// Built ONCE per body evaluation and threaded through the rows. As a
-    /// computed property it was rebuilt on every `isDue` call — every card
-    /// reconstructing a dictionary of the whole deck, on the main thread.
-    private func makeRows() -> [String: FlashcardProgress] {
-        Dictionary(progress.map { ($0.cardId, $0) }, uniquingKeysWith: { a, _ in a })
-    }
-
     private func matchesFilter(_ card: Flashcard) -> Bool {
         typeFilter == nil || card.type == typeFilter
     }
 
-    /// Only a card that has actually been rated can come back as due. A card
-    /// with no row, or a row with no ratings, has never been seen — counting
-    /// those as due made a fresh install announce the entire deck.
-    private func isDue(
-        _ card: Flashcard,
-        rows: [String: FlashcardProgress],
-        now: Date = .now
-    ) -> Bool {
-        guard let row = rows[card.id], row.totalAttempts > 0 else { return false }
-        return row.dueDate <= now
-    }
-
-    private func cards(for reading: Reading) -> [Flashcard] {
-        content.flashcards(forReading: reading.id).filter(matchesFilter)
-    }
-
     private var allFiltered: [Flashcard] { content.allFlashcards.filter(matchesFilter) }
+
+    /// Empty selection means every reading, matching Practice’s “All”.
+    private var scopedCards: [Flashcard] {
+        guard !selectedReadings.isEmpty else { return allFiltered }
+        return allFiltered.filter { selectedReadings.contains($0.readingID) }
+    }
 
     /// The count shown and the deck handed to the session are the same value.
     private var plan: FlashcardQueue.Plan {
         FlashcardQueue.plan(
-            cards: allFiltered,
+            cards: scopedCards,
             progress: progress,
             dailyNewLimit: practicePref.dailyNewFlashcardLimit
         )
@@ -69,7 +53,6 @@ struct FlashcardsHomeView: View {
         }
         .navigationTitle("Cards")
         .toolbar(.hidden, for: .navigationBar)
-        .scrollContentBackground(.hidden)
         .background(Theme.paper)
         .onAppear { content.bootstrapFlashcardProgress(context: modelContext) }
         .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in
@@ -81,15 +64,12 @@ struct FlashcardsHomeView: View {
     }
 
     private var list: some View {
-        // Both maps built once here and threaded down, rather than rebuilt
-        // inside every row.
-        let rows = makeRows()
         let plan = plan
         let byID = Dictionary(
             content.allFlashcards.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a }
         )
-        return List {
-            Section {
+        return ScrollView {
+            VStack(alignment: .leading, spacing: 18) {
                 VStack(alignment: .leading, spacing: 6) {
                     Text("Cards")
                         .font(Theme.serif(.largeTitle, weight: .semibold))
@@ -98,66 +78,73 @@ struct FlashcardsHomeView: View {
                         .font(.subheadline)
                         .foregroundStyle(Theme.dust)
                 }
-                .listRowInsets(EdgeInsets(top: 12, leading: 4, bottom: 8, trailing: 4))
-                .listRowBackground(Color.clear)
-                .listRowSeparator(.hidden)
 
-                Button {
-                    router.presentFlashcards(
-                        title: plan.newInSession > 0 && plan.dueInSession == 0 ? "New cards" : "Today's cards",
-                        cards: plan.sessionIDs.compactMap { byID[$0] }
-                    )
-                } label: {
-                    HStack {
-                        Label(todayLabel(plan), systemImage: "bolt.fill")
-                            .font(.body.weight(.semibold))
-                            .foregroundStyle(Theme.accent)
-                        Spacer()
-                        Text("\(plan.sessionIDs.count)")
-                            .font(.headline.monospacedDigit())
-                            .foregroundStyle(plan.isEmpty ? .secondary : Theme.accent)
+                ParchmentGroup {
+                    Button {
+                        router.presentFlashcards(
+                            title: plan.newInSession > 0 && plan.dueInSession == 0 ? "New cards" : "Today's cards",
+                            cards: plan.sessionIDs.compactMap { byID[$0] }
+                        )
+                    } label: {
+                        HStack {
+                            Label(todayLabel(plan), systemImage: "bolt.fill")
+                                .font(.body.weight(.semibold))
+                                .foregroundStyle(Theme.accent)
+                            Spacer()
+                            Text("\(plan.sessionIDs.count)")
+                                .font(.headline.monospacedDigit())
+                                .foregroundStyle(plan.isEmpty ? Theme.dust : Theme.accent)
+                        }
+                        .padding(.vertical, 8)
+                        .contentShape(Rectangle())
                     }
-                }
-                .disabled(plan.isEmpty)
-                .accessibilityIdentifier("cards.today")
-                .accessibilityHint(plan.isEmpty ? todayFooter(plan) : "\(plan.sessionIDs.count) cards in today's mix")
+                    .buttonStyle(.plain)
+                    .disabled(plan.isEmpty)
+                    .accessibilityIdentifier("cards.today")
+                    .accessibilityHint(plan.isEmpty ? todayFooter(plan) : "\(plan.sessionIDs.count) cards in today's mix")
 
-                Button {
-                    router.presentFlashcards(title: "Shuffle all", cards: allFiltered.shuffled())
-                } label: {
-                    HStack {
-                        Label("Shuffle all", systemImage: "shuffle")
-                        Spacer()
-                        Text("\(allFiltered.count)")
-                            .font(.subheadline.monospacedDigit())
-                            .foregroundStyle(.secondary)
+                    Button {
+                        router.presentFlashcards(title: "Shuffle all", cards: scopedCards.shuffled())
+                    } label: {
+                        HStack {
+                            Label("Shuffle all", systemImage: "shuffle")
+                                .font(.body)
+                                .foregroundStyle(Theme.ink)
+                            Spacer()
+                            Text("\(scopedCards.count)")
+                                .font(.body.monospacedDigit())
+                                .foregroundStyle(Theme.dust)
+                        }
+                        .padding(.vertical, 8)
+                        .contentShape(Rectangle())
                     }
-                }
-            } footer: {
-                Text(todayFooter(plan))
-            }
+                    .buttonStyle(.plain)
 
-            Section("Card type") {
-                Picker("Card type", selection: $typeFilter) {
-                    Text("All").tag(FlashcardType?.none)
-                    ForEach(FlashcardType.allCases) { t in
-                        Text(t.displayName).tag(FlashcardType?.some(t))
-                    }
-                }
-                .pickerStyle(.segmented)
-            }
-
-            ForEach(areas) { area in
-                let readings = area.readings.filter { !cards(for: $0).isEmpty }
-                if !readings.isEmpty {
-                    Section(area.name) {
-                        ForEach(readings) { reading in
-                            deckRow(reading, rows: rows)
+                    Picker("Card type", selection: $typeFilter) {
+                        Text("All").tag(FlashcardType?.none)
+                        ForEach(FlashcardType.allCases) { t in
+                            Text(t.displayName).tag(FlashcardType?.some(t))
                         }
                     }
+                    .pickerStyle(.segmented)
+                    .padding(.vertical, 8)
+
+                    Text(todayFooter(plan))
+                        .font(.caption)
+                        .foregroundStyle(Theme.dust)
                 }
+
+                BookReadingPicker(
+                    areas: areas,
+                    selection: $selectedReadings,
+                    bookAccessibilityPrefix: "cards.book",
+                    readingAccessibilityPrefix: "cards.reading"
+                )
             }
+            .padding(24)
         }
+        .frame(maxWidth: horizontalSizeClass == .regular ? 640 : .infinity)
+        .frame(maxWidth: .infinity)
     }
 
     private func todayLabel(_ plan: FlashcardQueue.Plan) -> String {
@@ -188,33 +175,5 @@ struct FlashcardsHomeView: View {
             parts.append("\(plan.dailyNewLimit) new resume tomorrow")
         }
         return parts.isEmpty ? base : parts.joined(separator: " · ") + ". " + base
-    }
-
-    private func deckRow(_ reading: Reading, rows: [String: FlashcardProgress]) -> some View {
-        let deck = cards(for: reading)
-        let due = deck.filter { isDue($0, rows: rows) }.count
-        return Button {
-            router.presentFlashcards(title: reading.name, cards: deck)
-        } label: {
-            HStack(alignment: .firstTextBaseline) {
-                VStack(alignment: .leading, spacing: 3) {
-                    Text(reading.name)
-                        .font(.subheadline)
-                        .lineLimit(2)
-                    Text("\(deck.count) card\(deck.count == 1 ? "" : "s")")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
-                Spacer()
-                if due > 0 {
-                    Text("\(due) due")
-                        .font(.caption.weight(.semibold))
-                        .padding(.horizontal, 7)
-                        .padding(.vertical, 3)
-                        .background(Capsule().fill(Theme.accent.opacity(0.15)))
-                        .foregroundStyle(Theme.accent)
-                }
-            }
-        }
     }
 }
