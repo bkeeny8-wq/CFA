@@ -5,7 +5,6 @@ struct TopicListView: View {
     @Environment(ContentLoader.self) private var content
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Query private var attempts: [Attempt]
-    @State private var expandedBookIDs: Set<String> = []
 
     var body: some View {
         Group {
@@ -38,25 +37,37 @@ struct TopicListView: View {
                 }
 
                 ParchmentGroup(title: "Books") {
-                    ForEach(content.questionBank?.topics ?? []) { topic in
-                        let name = ProgressDisplay.shortName(topic.id, fallback: topic.shortName)
-                        let progress = ProgressStats.caseProgress(topic: topic, attempts: attempts)
-                        BookDisclosureSection(
-                            title: name,
-                            subtitle: "\(progress.total) case questions · \(Formatting.percent(progress.correctRate)) correct",
-                            trailing: ProgressDisplay.examWeights[topic.id],
-                            accessibilityID: "cases.book.\(name)",
-                            isExpanded: $expandedBookIDs[topic.id]
-                        ) {
-                            CaseBookItems(topicID: topic.id)
-                        }
-                    }
+                    CasesBookList(topics: content.questionBank?.topics ?? [], attempts: attempts)
                 }
             }
             .padding(24)
         }
         .frame(maxWidth: horizontalSizeClass == .regular ? 640 : .infinity)
         .frame(maxWidth: .infinity)
+    }
+}
+
+/// Owns expand state so toggling a book does not recompute every topic’s
+/// case progress.
+private struct CasesBookList: View {
+    let topics: [BankTopic]
+    let attempts: [Attempt]
+    @State private var expandedBookIDs: Set<String> = []
+
+    var body: some View {
+        ForEach(topics) { topic in
+            let name = ProgressDisplay.shortName(topic.id, fallback: topic.shortName)
+            let progress = ProgressStats.caseProgress(topic: topic, attempts: attempts)
+            BookDisclosureSection(
+                title: name,
+                subtitle: "\(progress.total) case questions · \(Formatting.percent(progress.correctRate)) correct",
+                trailing: ProgressDisplay.examWeights[topic.id],
+                accessibilityID: "cases.book.\(name)",
+                isExpanded: $expandedBookIDs[topic.id]
+            ) {
+                CaseBookItems(topicID: topic.id)
+            }
+        }
     }
 }
 

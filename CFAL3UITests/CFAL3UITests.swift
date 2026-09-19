@@ -245,6 +245,35 @@ final class CFAL3UITests: XCTestCase {
         XCTAssertTrue(tab("Notes").isHittable, "Notes must remain reachable from Cards")
     }
 
+    /// Expanding a second book must collapse the first so switching sections
+    /// does not stack two open lists.
+    func testExpandingABookCollapsesThePreviousOne() {
+        XCTAssertTrue(waitFor(tab("Notes")), "the sidebar never appeared")
+        tab("Notes").tap()
+
+        let first = notesBook("Asset allocation")
+        XCTAssertTrue(first.waitForExistence(timeout: 10))
+        first.tap()
+        let reading = app.descendants(matching: .any)
+            .matching(NSPredicate(format: "identifier BEGINSWITH %@", "notes.reading."))
+            .firstMatch
+        XCTAssertTrue(reading.waitForExistence(timeout: 10))
+        let firstReadingID = reading.identifier
+
+        notesBook("Ethics").tap()
+        let ethicsGone = NSPredicate(format: "identifier != %@", firstReadingID)
+        let next = app.descendants(matching: .any)
+            .matching(NSPredicate(format: "identifier BEGINSWITH %@", "notes.reading."))
+            .matching(ethicsGone)
+            .firstMatch
+        XCTAssertTrue(next.waitForExistence(timeout: 10),
+                      "Ethics should reveal its own readings")
+        XCTAssertFalse(
+            app.descendants(matching: .any)[firstReadingID].firstMatch.exists,
+            "Asset allocation should collapse when Ethics opens"
+        )
+    }
+
     /// Notes, Cases, and Cards book lists share Practice’s parchment grouping.
     /// When `DAYBOOK_SCREENSHOT_DIR` is set, writes the comparison shots.
     func testBookListsSharePracticeChrome() {

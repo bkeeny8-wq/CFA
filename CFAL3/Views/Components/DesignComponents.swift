@@ -189,6 +189,16 @@ func withSittingAnimation(_ reduceMotion: Bool, _ body: () -> Void) {
     }
 }
 
+/// Short ease-out for book disclosure. `.snappy` is a spring, and wrapping
+/// the whole tree in it made switching books feel sticky.
+func withDisclosureAnimation(_ reduceMotion: Bool, _ body: () -> Void) {
+    if reduceMotion {
+        body()
+    } else {
+        withAnimation(.easeOut(duration: 0.15), body)
+    }
+}
+
 private struct ReduceMotionAnimation<V: Equatable>: ViewModifier {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     let value: V
@@ -400,18 +410,17 @@ struct NamedQualitySelector: View {
 }
 
 extension Binding where Value == Set<String> {
-    /// Treat a set of expanded book IDs as a per-book `isExpanded` flag.
+    /// One book open at a time. Inserting without clearing left several
+    /// sections expanded, so tapping between books animated a growing pile.
     subscript(_ id: String) -> Binding<Bool> {
         Binding<Bool>(
             get: { wrappedValue.contains(id) },
             set: { isOn in
-                var next = wrappedValue
                 if isOn {
-                    next.insert(id)
+                    wrappedValue = [id]
                 } else {
-                    next.remove(id)
+                    wrappedValue.remove(id)
                 }
-                wrappedValue = next
             }
         )
     }
@@ -454,7 +463,7 @@ struct BookDisclosureHeader: View {
 
     var body: some View {
         Button {
-            withSittingAnimation(reduceMotion) { isExpanded.toggle() }
+            withDisclosureAnimation(reduceMotion) { isExpanded.toggle() }
         } label: {
             HStack(alignment: .firstTextBaseline, spacing: 6) {
                 Image(systemName: "chevron.right")
@@ -527,7 +536,6 @@ struct BookDisclosureSection<Content: View>: View {
             if isExpanded {
                 content()
                     .padding(.leading, 18)
-                    .transition(.opacity)
             }
         }
     }

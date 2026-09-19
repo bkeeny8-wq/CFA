@@ -6,7 +6,6 @@ struct StudyPlannerView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Query private var statuses: [LOSStudyStatus]
     @Query(sort: \Attempt.timestamp, order: .reverse) private var attempts: [Attempt]
-    @State private var expandedBookIDs: Set<String> = []
 
     var body: some View {
         Group {
@@ -43,29 +42,45 @@ struct StudyPlannerView: View {
 
                 StudyMasteryHeaderCard(master: master, statuses: statuses)
 
-                ParchmentGroup(title: "Books") {
-                    ForEach(areas) { areaProgress in
-                        if let curriculumArea = master.areas.first(where: { $0.id == areaProgress.areaID }) {
-                            let name = ProgressDisplay.shortName(
-                                areaProgress.areaID,
-                                fallback: areaProgress.name
-                            )
-                            BookDisclosureSection(
-                                title: name,
-                                subtitle: "\(areaProgress.mastered)/\(areaProgress.total) LOS · \(curriculumArea.readings.count) readings",
-                                accessibilityID: "notes.book.\(name)",
-                                isExpanded: $expandedBookIDs[curriculumArea.id]
-                            ) {
-                                notesReadings(area: curriculumArea)
-                            }
-                        }
-                    }
-                }
+                NotesBookList(master: master, areas: areas, statuses: statuses, attempts: attempts)
             }
             .padding(24)
         }
         .frame(maxWidth: horizontalSizeClass == .regular ? 640 : .infinity)
         .frame(maxWidth: .infinity)
+    }
+}
+
+/// Owns expand state so toggling a book does not rebuild the mastery card
+/// or recompute every area’s progress.
+private struct NotesBookList: View {
+    @Environment(ContentLoader.self) private var content
+
+    let master: LOSMaster
+    let areas: [AreaStudyProgress]
+    let statuses: [LOSStudyStatus]
+    let attempts: [Attempt]
+    @State private var expandedBookIDs: Set<String> = []
+
+    var body: some View {
+        ParchmentGroup(title: "Books") {
+            ForEach(areas) { areaProgress in
+                if let curriculumArea = master.areas.first(where: { $0.id == areaProgress.areaID }) {
+                    let name = ProgressDisplay.shortName(
+                        areaProgress.areaID,
+                        fallback: areaProgress.name
+                    )
+                    BookDisclosureSection(
+                        title: name,
+                        subtitle: "\(areaProgress.mastered)/\(areaProgress.total) LOS · \(curriculumArea.readings.count) readings",
+                        accessibilityID: "notes.book.\(name)",
+                        isExpanded: $expandedBookIDs[curriculumArea.id]
+                    ) {
+                        notesReadings(area: curriculumArea)
+                    }
+                }
+            }
+        }
     }
 
     private func notesReadings(area: CurriculumArea) -> some View {
