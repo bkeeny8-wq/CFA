@@ -586,6 +586,72 @@ extension BookChildRow where Trailing == EmptyView {
     }
 }
 
+/// Practice’s Readings picker: Select all / Clear, then a Books parchment
+/// group whose books start collapsed. Same control on Cards.
+struct BookReadingPicker: View {
+    let areas: [CurriculumArea]
+    @Binding var selection: Set<String>
+    var bookAccessibilityPrefix: String
+    var readingAccessibilityPrefix: String
+    @State private var expandedBookIDs: Set<String> = []
+
+    private var visibleReadingIDs: [String] {
+        areas.flatMap { $0.readings.map(\.id) }
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 18) {
+            ParchmentGroup {
+                ParchmentActionRow(title: "Select all", titleColor: Theme.pine) {
+                    selection.formUnion(visibleReadingIDs)
+                }
+                ParchmentActionRow(title: "Clear", titleColor: Theme.pine) {
+                    selection.subtract(visibleReadingIDs)
+                }
+                .disabled(selection.isDisjoint(with: visibleReadingIDs))
+            }
+
+            ParchmentGroup(title: "Books") {
+                ForEach(areas) { area in
+                    let name = ProgressDisplay.shortName(area.id, fallback: area.name)
+                    let selectedCount = area.readings.filter { selection.contains($0.id) }.count
+                    BookDisclosureSection(
+                        title: name,
+                        subtitle: "\(area.readings.count) readings",
+                        badge: selectedCount,
+                        accessibilityID: "\(bookAccessibilityPrefix).\(name)",
+                        isExpanded: $expandedBookIDs[area.id]
+                    ) {
+                        VStack(spacing: 0) {
+                            ForEach(area.readings) { reading in
+                                toggleRow(reading)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private func toggleRow(_ reading: Reading) -> some View {
+        Button {
+            if selection.contains(reading.id) {
+                selection.remove(reading.id)
+            } else {
+                selection.insert(reading.id)
+            }
+        } label: {
+            BookChildRow(title: reading.name) {
+                if selection.contains(reading.id) {
+                    Image(systemName: "checkmark").foregroundStyle(Theme.accent)
+                }
+            }
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier("\(readingAccessibilityPrefix).\(reading.id)")
+    }
+}
+
 /// Practice Scope row: body type, 8-pt vertical padding, trailing dust value.
 struct ParchmentActionRow: View {
     let title: String

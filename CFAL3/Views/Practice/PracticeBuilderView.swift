@@ -348,8 +348,6 @@ private struct ReadingMultiSelectSheet: View {
     /// When non-empty, only readings from these books are offered.
     var scopeTopics: Set<String> = []
 
-    @State private var expandedBookIDs: Set<String> = []
-
     /// Books (and their readings) in curriculum order, filtered to the chosen
     /// books. Sourced from los_master so every reading has a real title and
     /// sits under the book it belongs to — no raw IDs, no drill/case mixing.
@@ -358,44 +356,15 @@ private struct ReadingMultiSelectSheet: View {
         return scopeTopics.isEmpty ? all : all.filter { scopeTopics.contains($0.id) }
     }
 
-    private var visibleReadingIDs: [String] {
-        areas.flatMap { $0.readings.map(\.id) }
-    }
-
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading, spacing: 18) {
-                    ParchmentGroup {
-                        ParchmentActionRow(title: "Select all", titleColor: Theme.pine) {
-                            selection.formUnion(visibleReadingIDs)
-                        }
-                        ParchmentActionRow(title: "Clear", titleColor: Theme.pine) {
-                            selection.subtract(visibleReadingIDs)
-                        }
-                        .disabled(selection.isDisjoint(with: visibleReadingIDs))
-                    }
-
-                    ParchmentGroup(title: "Books") {
-                        ForEach(areas) { area in
-                            let name = ProgressDisplay.shortName(area.id, fallback: area.name)
-                            let selectedCount = area.readings.filter { selection.contains($0.id) }.count
-                            BookDisclosureSection(
-                                title: name,
-                                subtitle: "\(area.readings.count) readings",
-                                badge: selectedCount,
-                                accessibilityID: "practice.book.\(name)",
-                                isExpanded: $expandedBookIDs[area.id]
-                            ) {
-                                VStack(spacing: 0) {
-                                    ForEach(area.readings) { reading in
-                                        toggleRow(id: reading.id, label: reading.name)
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                BookReadingPicker(
+                    areas: areas,
+                    selection: $selection,
+                    bookAccessibilityPrefix: "practice.book",
+                    readingAccessibilityPrefix: "practice.reading"
+                )
                 .padding(24)
             }
             .background(Theme.paper)
@@ -407,23 +376,5 @@ private struct ReadingMultiSelectSheet: View {
                 }
             }
         }
-    }
-
-    private func toggleRow(id: String, label: String) -> some View {
-        Button {
-            if selection.contains(id) {
-                selection.remove(id)
-            } else {
-                selection.insert(id)
-            }
-        } label: {
-            BookChildRow(title: label) {
-                if selection.contains(id) {
-                    Image(systemName: "checkmark").foregroundStyle(Theme.accent)
-                }
-            }
-        }
-        .buttonStyle(.plain)
-        .accessibilityIdentifier("practice.reading.\(id)")
     }
 }
