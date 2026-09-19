@@ -300,18 +300,27 @@ final class CFAL3UITests: XCTestCase {
         XCTAssertTrue(firstCaseItem().waitForExistence(timeout: 10))
         saveScreenshot("cases-expanded")
 
+        // Cards picks its scope the way Practice does — Books / Readings / LOS
+        // rows that open the same sheets — so the steps below mirror the
+        // Practice ones further down, deliberately.
         tab("Cards").tap()
         XCTAssertTrue(app.buttons["cards.today"].firstMatch.waitForExistence(timeout: 10))
-        XCTAssertTrue(cardsBook("Ethics").waitForExistence(timeout: 10),
-                      "Cards should keep a book list and stay in the sidebar")
+        XCTAssertTrue(app.descendants(matching: .any)["cards.scopeSummary"]
+                        .firstMatch.waitForExistence(timeout: 10),
+                      "Cards should show a scope summary like Practice")
         saveScreenshot("cards-collapsed")
+
+        app.buttons["cards.scope.readings"].firstMatch.tap()
+        XCTAssertTrue(cardsBook("Ethics").waitForExistence(timeout: 10),
+                      "the Cards readings sheet should list books collapsed")
         cardsBook("Asset allocation").tap()
         let cardReading = app.descendants(matching: .any)
             .matching(NSPredicate(format: "identifier BEGINSWITH %@", "cards.reading."))
             .firstMatch
         XCTAssertTrue(cardReading.waitForExistence(timeout: 10),
-                      "expanding a Cards book should reveal its decks")
+                      "expanding a Cards book should reveal its readings")
         saveScreenshot("cards-expanded")
+        app.buttons["Done"].firstMatch.tap()
 
         tab("Practice").tap()
         XCTAssertTrue(app.descendants(matching: .any)["practice.scopeSummary"]

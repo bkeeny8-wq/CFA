@@ -283,10 +283,13 @@ struct PracticeBuilderView: View {
 
 // MARK: - Topic multi-select
 
-private struct TopicMultiSelectSheet: View {
+/// Internal, not private: Cards builds its scope the same way, so the two
+/// screens select books through one sheet rather than two that drift.
+struct TopicMultiSelectSheet: View {
     @Environment(ContentLoader.self) private var content
     @Environment(\.dismiss) private var dismiss
     @Binding var selection: Set<String>
+    var bookAccessibilityPrefix: String = "practice.topic"
 
     var body: some View {
         NavigationStack {
@@ -336,17 +339,23 @@ private struct TopicMultiSelectSheet: View {
             }
         }
         .buttonStyle(.plain)
+        .accessibilityIdentifier("\(bookAccessibilityPrefix).\(label)")
     }
 }
 
 // MARK: - Reading multi-select
 
-private struct ReadingMultiSelectSheet: View {
+/// Internal, not private: Cards uses the same sheet, so "pick your readings"
+/// looks and behaves identically on both screens.
+struct ReadingMultiSelectSheet: View {
     @Environment(ContentLoader.self) private var content
     @Environment(\.dismiss) private var dismiss
     @Binding var selection: Set<String>
     /// When non-empty, only readings from these books are offered.
     var scopeTopics: Set<String> = []
+    /// Identifiers are per-screen so a test can tell which one it is driving.
+    var bookAccessibilityPrefix: String = "practice.book"
+    var readingAccessibilityPrefix: String = "practice.reading"
 
     /// Books (and their readings) in curriculum order, filtered to the chosen
     /// books. Sourced from los_master so every reading has a real title and
@@ -362,8 +371,8 @@ private struct ReadingMultiSelectSheet: View {
                 BookReadingPicker(
                     areas: areas,
                     selection: $selection,
-                    bookAccessibilityPrefix: "practice.book",
-                    readingAccessibilityPrefix: "practice.reading"
+                    bookAccessibilityPrefix: bookAccessibilityPrefix,
+                    readingAccessibilityPrefix: readingAccessibilityPrefix
                 )
                 .padding(24)
             }

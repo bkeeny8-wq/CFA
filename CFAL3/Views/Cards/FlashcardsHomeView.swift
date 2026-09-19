@@ -12,7 +12,21 @@ struct FlashcardsHomeView: View {
 
     @Environment(PracticeBuilderPreference.self) private var practicePref
     @State private var typeFilter: FlashcardType?
+
+    /// Scope is chosen exactly as Practice chooses it: three rows that open
+    /// the same sheets, narrowing book → reading → LOS. Cards used to hang the
+    /// whole book list inline down the page, which is a different interaction
+    /// for the same job on two screens that sit next to each other.
+    ///
+    /// The selections are this screen's own, not Practice's: they scope
+    /// different corpora (2,997 cards vs 3,164 questions) and narrowing one
+    /// has no business narrowing the other.
+    @State private var selectedTopics: Set<String> = []
     @State private var selectedReadings: Set<String> = []
+    @State private var selectedLOS: Set<String> = []
+    @State private var showTopics = false
+    @State private var showReadings = false
+    @State private var showLOS = false
     /// See HomeView: the daily new-card allowance is a function of "today".
     @State private var dayToken = 0
 
@@ -24,10 +38,50 @@ struct FlashcardsHomeView: View {
 
     private var allFiltered: [Flashcard] { content.allFlashcards.filter(matchesFilter) }
 
-    /// Empty selection means every reading, matching Practice’s “All”.
+    /// Empty selection means everything, at every level — Practice's "All".
+    /// Narrowest wins, same precedence the Practice filter uses.
     private var scopedCards: [Flashcard] {
-        guard !selectedReadings.isEmpty else { return allFiltered }
-        return allFiltered.filter { selectedReadings.contains($0.readingID) }
+        allFiltered.filter { card in
+            if !selectedTopics.isEmpty, !selectedTopics.contains(card.areaID) { return false }
+            if !selectedReadings.isEmpty, !selectedReadings.contains(card.readingID) { return false }
+            if !selectedLOS.isEmpty, !selectedLOS.contains(card.losID) { return false }
+            return true
+        }
+    }
+
+    private var topicsSummary: String {
+        selectedTopics.isEmpty ? "All" : "\(selectedTopics.count)"
+    }
+
+    private var readingsSummary: String {
+        selectedReadings.isEmpty ? "All" : "\(selectedReadings.count)"
+    }
+
+    private var losSummary: String {
+        selectedLOS.isEmpty ? "All" : "\(selectedLOS.count)"
+    }
+
+    /// Narrowing the books narrows what a reading or LOS can mean, so drop the
+    /// picks that just fell out of scope. `PracticeScope` is the same cascade
+    /// the Practice builder runs.
+    private func pruneScope() {
+        let kept = PracticeScope.pruned(
+            areas: areas,
+            topics: selectedTopics,
+            readings: selectedReadings,
+            los: selectedLOS
+        )
+        if kept.readings != selectedReadings { selectedReadings = kept.readings }
+        if kept.los != selectedLOS { selectedLOS = kept.los }
+    }
+
+    private func pruneLOS() {
+        guard !selectedReadings.isEmpty || !selectedTopics.isEmpty else { return }
+        let allowed = PracticeScope.los(
+            in: areas, readings: selectedReadings, topics: selectedTopics
+        )
+        let kept = selectedLOS.intersection(allowed)
+        if kept != selectedLOS { selectedLOS = kept }
     }
 
     /// The count shown and the deck handed to the session are the same value.
@@ -107,22 +161,30 @@ struct FlashcardsHomeView: View {
                         .shadow(color: Color.black.opacity(0.04), radius: 10, y: 3)
                 )
 
-                BookReadingPicker(
-                    areas: areas,
-                    selection: $selectedReadings,
-                    bookAccessibilityPrefix: "cards.book",
-                    readingAccessibilityPrefix: "cards.reading"
-                )
+                ParchmentGroup(title: "Scope") {
+                    ParchmentActionRow(title: "Books", trailing: topicsSummary) {
+                        showTopics = true
+                    }
+                    .accessibilityIdentifier("cards.scope.books")
+                    ParchmentActionRow(title: "Readings", trailing: readingsSummary) {
+                        showReadings = true
+                    }
+                    .accessibilityIdentifier("cards.scope.readings")
+                    ParchmentActionRow(title: "LOS", trailing: losSummary) {
+                        showLOS = true
+                    }
+                    .accessibilityIdentifier("cards.scope.los")
 
-                Label(scopeSummary(plan), systemImage: "line.3.horizontal.decrease")
-                    .font(.caption)
-                    .foregroundStyle(Theme.dust)
-                    // Combined, or a screen reader announces the symbol's own
-                    // name ("Filter") instead of the summary — same reason as
-                    // Practice's.
-                    .accessibilityElement(children: .combine)
-                    .accessibilityLabel(scopeSummary(plan))
-                    .accessibilityIdentifier("cards.scopeSummary")
+                    Label(scopeSummary(plan), systemImage: "line.3.horizontal.decrease")
+                        .font(.caption)
+                        .foregroundStyle(Theme.dust)
+                        // Combined, or a screen reader announces the symbol's
+                        // own name ("Filter") instead of the summary — same
+                        // reason as Practice's.
+                        .accessibilityElement(children: .combine)
+                        .accessibilityLabel(scopeSummary(plan))
+                        .accessibilityIdentifier("cards.scopeSummary")
+                }
 
                 Text(todayFooter(plan))
                     .font(.caption)
@@ -133,6 +195,29 @@ struct FlashcardsHomeView: View {
         .frame(maxWidth: horizontalSizeClass == .regular ? 640 : .infinity)
         .frame(maxWidth: .infinity)
         .safeAreaInset(edge: .bottom) { startBar(plan) }
+        .onChange(of: selectedTopics) { _, _ in pruneScope() }
+        .onChange(of: selectedReadings) { _, _ in pruneLOS() }
+        .sheet(isPresented: $showTopics) {
+            TopicMultiSelectSheet(
+                selection: $selectedTopics,
+                bookAccessibilityPrefix: "cards.topic"
+            )
+        }
+        .sheet(isPresented: $showReadings) {
+            ReadingMultiSelectSheet(
+                selection: $selectedReadings,
+                scopeTopics: selectedTopics,
+                bookAccessibilityPrefix: "cards.book",
+                readingAccessibilityPrefix: "cards.reading"
+            )
+        }
+        .sheet(isPresented: $showLOS) {
+            LOSFilterSheet(
+                selectedLOS: $selectedLOS,
+                readingScope: selectedReadings,
+                topicScope: selectedTopics
+            )
+        }
     }
 
     private var header: some View {
@@ -148,10 +233,15 @@ struct FlashcardsHomeView: View {
             Spacer()
             Button("Reset", role: .destructive) {
                 typeFilter = nil
+                selectedTopics = []
                 selectedReadings = []
+                selectedLOS = []
             }
             .font(.subheadline.weight(.medium))
-            .disabled(typeFilter == nil && selectedReadings.isEmpty)
+            .disabled(
+                typeFilter == nil && selectedTopics.isEmpty
+                    && selectedReadings.isEmpty && selectedLOS.isEmpty
+            )
             .accessibilityIdentifier("cards.reset")
         }
     }
@@ -191,10 +281,18 @@ struct FlashcardsHomeView: View {
     }
 
     /// One line, like Practice's "5 per book in scope → 30 questions".
+    /// Names the narrowest active level, since that is what is really deciding.
     private func scopeSummary(_ plan: FlashcardQueue.Plan) -> String {
-        let scope = selectedReadings.isEmpty
-            ? "All readings"
-            : "\(selectedReadings.count) reading\(selectedReadings.count == 1 ? "" : "s")"
+        let scope: String
+        if !selectedLOS.isEmpty {
+            scope = "\(selectedLOS.count) LOS"
+        } else if !selectedReadings.isEmpty {
+            scope = "\(selectedReadings.count) reading\(selectedReadings.count == 1 ? "" : "s")"
+        } else if !selectedTopics.isEmpty {
+            scope = "\(selectedTopics.count) book\(selectedTopics.count == 1 ? "" : "s")"
+        } else {
+            scope = "Whole curriculum"
+        }
         var parts = ["\(scope) → \(scopedCards.count.formatted()) cards"]
         if plan.dueCount > 0 { parts.append("\(plan.dueCount.formatted()) due") }
         if plan.notStartedCount > 0 { parts.append("\(plan.notStartedCount.formatted()) not started") }
@@ -204,7 +302,7 @@ struct FlashcardsHomeView: View {
     /// Why the button is off, in the same place Practice explains it.
     private func emptyHint(_ plan: FlashcardQueue.Plan) -> String {
         if scopedCards.isEmpty {
-            return "Widen the card type or book selection to find matching cards."
+            return "Widen the card type, book, reading, or LOS filters to find matching cards."
         }
         if plan.isNewOff {
             return "New cards are switched off. Turn them back on above, or in Settings."
