@@ -233,5 +233,6 @@ struct FlashcardsHomeView: View {
             }
         }
         .buttonStyle(.plain)
+        .accessibilityIdentifier("cards.reading.\(reading.id)")
     }
 }

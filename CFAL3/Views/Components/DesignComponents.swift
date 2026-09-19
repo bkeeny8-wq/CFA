@@ -513,7 +513,6 @@ struct BookDisclosureSection<Content: View>: View {
     var accessibilityID: String? = nil
     @Binding var isExpanded: Bool
     @ViewBuilder var content: () -> Content
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
@@ -531,7 +530,6 @@ struct BookDisclosureSection<Content: View>: View {
                     .transition(.opacity)
             }
         }
-        .animation(reduceMotion ? nil : .snappy, value: isExpanded)
     }
 }
 

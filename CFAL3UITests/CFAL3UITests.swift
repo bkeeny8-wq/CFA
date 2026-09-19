@@ -277,6 +277,11 @@ final class CFAL3UITests: XCTestCase {
                       "Cards should keep a book list and stay in the sidebar")
         saveScreenshot("cards-collapsed")
         cardsBook("Asset allocation").tap()
+        let cardReading = app.descendants(matching: .any)
+            .matching(NSPredicate(format: "identifier BEGINSWITH %@", "cards.reading."))
+            .firstMatch
+        XCTAssertTrue(cardReading.waitForExistence(timeout: 10),
+                      "expanding a Cards book should reveal its decks")
         saveScreenshot("cards-expanded")
 
         tab("Practice").tap()
@@ -298,6 +303,9 @@ final class CFAL3UITests: XCTestCase {
     }
 
     private func saveScreenshot(_ name: String) {
+        // Snappy disclosure / sheet presentation can still be in flight when
+        // the first child appears in the tree.
+        Thread.sleep(forTimeInterval: 0.5)
         let shot = XCUIScreen.main.screenshot()
         let attachment = XCTAttachment(screenshot: shot)
         attachment.name = name
