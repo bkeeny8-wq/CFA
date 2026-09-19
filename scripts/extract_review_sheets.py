@@ -66,6 +66,13 @@ def boxed_lines(tbl):
     return cell_lines(tcs[0])
 
 
+def is_repeated_header(text):
+    """Per-reading front matter carried over from the source documents."""
+    if text.startswith(("Topic Area:", "Reading:", "Generated ")):
+        return True
+    return "Level III" in text and "Study Notes" in text
+
+
 def slug(text):
     s = re.sub(r"[^a-z0-9]+", "_", text.lower()).strip("_")
     return s[:80]
@@ -151,6 +158,13 @@ def main():
 
         if not seen_first_heading:
             continue        # the "Generated July 1" preamble
+
+        # The combined document repeats each source file's own header between
+        # readings — 48 stray "CFA® Level III — Study Notes" and "Topic Area:"
+        # lines. Skipping only the front matter before the first heading left
+        # them all in the body as paragraphs.
+        if is_repeated_header(text):
+            continue
 
         if current is None or not text:
             if not text:
