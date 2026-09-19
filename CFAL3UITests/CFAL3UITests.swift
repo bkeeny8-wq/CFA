@@ -23,7 +23,7 @@ final class CFAL3UITests: XCTestCase {
 
     private var app: XCUIApplication!
 
-    private static let tabNames = ["Today", "Plan", "Notes", "Cards", "Practice", "Cases", "Progress"]
+    private static let tabNames = ["Today", "Plan", "Notes", "Practice", "Cases", "Progress"]
 
     override func setUpWithError() throws {
         continueAfterFailure = false
@@ -85,11 +85,10 @@ final class CFAL3UITests: XCTestCase {
     /// When the deck was a plain `let`, the parent rebuilt it on every rating —
     /// the total shrank as the index grew, and cards in between were skipped.
     func testRatingACardAdvancesPositionWithoutShrinkingTheDeck() {
-        XCTAssertTrue(waitFor(tab("Cards")), "the sidebar never appeared")
-        tab("Cards").tap()
+        XCTAssertTrue(waitFor(tab("Today")), "the sidebar never appeared")
 
         let today = app.buttons["cards.today"].firstMatch
-        XCTAssertTrue(waitFor(today), "the Cards session row never appeared")
+        XCTAssertTrue(waitFor(today), "Today's card mix never appeared")
         today.tap()
 
         XCTAssertTrue(waitFor(app.staticTexts["flashcard.progress"].firstMatch),
@@ -136,7 +135,7 @@ final class CFAL3UITests: XCTestCase {
 
     func testEveryTabOpensWithoutCrashing() {
         XCTAssertTrue(waitFor(tab("Today")), "the sidebar never appeared")
-        for name in ["Plan", "Notes", "Cards", "Practice", "Cases", "Progress", "Today"] {
+        for name in ["Plan", "Notes", "Practice", "Cases", "Progress", "Today"] {
             tab(name).tap()
             XCTAssertTrue(tab(name).waitForExistence(timeout: 10), "\(name) did not settle")
             XCTAssertEqual(app.state, .runningForeground, "app left the foreground on \(name)")
@@ -186,15 +185,20 @@ final class CFAL3UITests: XCTestCase {
                       "could not get back to the quiz builder")
     }
 
-    /// Notes and Cards are separate sidebar rows. Only the selected destination
-    /// is mounted, so Cards rows must not leak into Notes.
-    func testNotesAndCardsAreSeparateDestinations() {
-        XCTAssertTrue(waitFor(tab("Notes")), "the sidebar never appeared")
-        tab("Notes").tap()
+    /// Cards is not a sidebar row. Daily mix lives on Today; a reading's deck
+    /// lives on Notes. The old Notes|Cards section bar must stay gone.
+    func testCardsLiveOnTodayAndNotesNotTheSidebar() {
+        XCTAssertTrue(waitFor(tab("Today")), "the sidebar never appeared")
+        XCTAssertFalse(tab("Cards").exists, "Cards must not take a sidebar slot")
+        XCTAssertTrue(app.buttons["cards.today"].firstMatch.waitForExistence(timeout: 10),
+                      "Today should offer the daily card mix")
+        XCTAssertTrue(app.buttons["cards.browse"].firstMatch.exists,
+                      "decks stay reachable from Today")
 
+        tab("Notes").tap()
         XCTAssertTrue(tab("Notes").isSelected || tab("Notes").isHittable)
         XCTAssertFalse(app.buttons["cards.today"].firstMatch.exists,
-                       "Cards rows must not stay in the tree while Notes is showing")
+                       "Today's mix must not stay in the tree while Notes is showing")
         XCTAssertFalse(app.buttons["study.section.notes"].firstMatch.exists,
                        "the old Study section bar should be gone")
         XCTAssertFalse(app.buttons["study.section.cards"].firstMatch.exists,
@@ -203,18 +207,15 @@ final class CFAL3UITests: XCTestCase {
         let reading = app.buttons
             .matching(NSPredicate(format: "label BEGINSWITH %@", "R1 ·"))
             .firstMatch
-        if reading.waitForExistence(timeout: 10) {
-            reading.tap()
-        }
+        XCTAssertTrue(reading.waitForExistence(timeout: 10), "Notes should list readings")
+        reading.tap()
+        XCTAssertTrue(app.buttons["cards.reading"].firstMatch.waitForExistence(timeout: 10),
+                      "a reading should offer its card deck")
 
-        XCTAssertTrue(tab("Cards").waitForExistence(timeout: 10),
-                      "Cards vanished after opening a reading")
-        XCTAssertTrue(tab("Cards").isHittable, "Cards is present but unreachable")
-
-        tab("Cards").tap()
-        XCTAssertTrue(app.buttons["cards.today"].firstMatch.waitForExistence(timeout: 10),
-                      "the Cards destination did not show its today row")
-        XCTAssertTrue(tab("Notes").isHittable, "Notes must remain reachable from Cards")
+        XCTAssertTrue(tab("Today").waitForExistence(timeout: 10),
+                      "Today vanished after opening a reading")
+        XCTAssertTrue(tab("Today").isHittable, "Today is present but unreachable")
+        XCTAssertFalse(tab("Cards").exists, "opening a reading must not restore a Cards tab")
     }
 
     /// A freshly erased app has no accuracy, and "0%" reads as a score.

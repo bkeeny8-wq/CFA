@@ -14,6 +14,9 @@ struct StudyReadingDetailView: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Query private var statuses: [LOSStudyStatus]
     @Query private var reviewCards: [ReviewCard]
+    @Query private var flashcardProgress: [FlashcardProgress]
+    @Environment(PracticeBuilderPreference.self) private var practicePref
+    @Environment(\.modelContext) private var modelContext
 
     let area: CurriculumArea
     let reading: Reading
@@ -43,6 +46,7 @@ struct StudyReadingDetailView: View {
         VStack(spacing: 0) {
             pillHeader
             readingDrillsCTA
+            readingCardsCTA
             checklistCTA
 
             if let notes {
@@ -79,6 +83,7 @@ struct StudyReadingDetailView: View {
                 }
             }
         }
+        .onAppear { content.bootstrapFlashcardProgress(context: modelContext) }
     }
 
     // MARK: - Pieces
@@ -116,6 +121,49 @@ struct StudyReadingDetailView: View {
             .frame(maxWidth: .infinity)
             .accessibilityHint("\(bundle.totalQuestions) questions, shuffled")
         }
+    }
+
+    @ViewBuilder
+    private var readingCardsCTA: some View {
+        let deck = content.flashcards(forReading: reading.id)
+        if !deck.isEmpty {
+            let plan = FlashcardQueue.plan(
+                cards: deck,
+                progress: flashcardProgress,
+                dailyNewLimit: practicePref.dailyNewFlashcardLimit
+            )
+            let session = plan.isEmpty ? deck : plan.sessionIDs.compactMap { id in
+                deck.first { $0.id == id }
+            }
+            Button {
+                router.presentFlashcards(
+                    title: StudyDisplay.readingShortTitle(reading, content: content),
+                    cards: session,
+                    dueCount: plan.dueInSession
+                )
+            } label: {
+                Text(readingCardsLabel(plan, deckCount: deck.count))
+            }
+            .buttonStyle(.bordered)
+            .tint(Theme.pine)
+            .padding(.horizontal, 12)
+            .padding(.top, 8)
+            .frame(maxWidth: LayoutMetrics.studyReadingMaxWidth)
+            .frame(maxWidth: .infinity)
+            .accessibilityIdentifier("cards.reading")
+            .accessibilityHint(plan.isEmpty
+                ? "\(deck.count) cards for this reading"
+                : "\(session.count) due or new cards for this reading")
+        }
+    }
+
+    private func readingCardsLabel(_ plan: FlashcardQueue.Plan, deckCount: Int) -> String {
+        if plan.dueInSession > 0 && plan.newInSession > 0 {
+            return "Review cards · \(plan.dueInSession) due · \(plan.newInSession) new"
+        }
+        if plan.dueInSession > 0 { return "Review cards · \(plan.dueInSession) due" }
+        if plan.newInSession > 0 { return "New cards · \(plan.newInSession)" }
+        return "Review this reading’s cards · \(deckCount)"
     }
 
     private var checklistCTA: some View {

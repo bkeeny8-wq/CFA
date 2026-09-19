@@ -312,9 +312,16 @@ struct ProgressDashboardView: View {
                 Text("Drills and cards only. No case items tagged.")
                     .font(.caption)
                     .foregroundStyle(Theme.dust)
-                Button("Review cards") { router.selected = .cards }
-                    .buttonStyle(.bordered)
-                    .tint(Theme.pine)
+                Button("Review cards") {
+                    let cards = content.flashcards(forReading: match.reading.readingID)
+                    router.presentFlashcards(
+                        title: emptyReadingTitle(match.reading),
+                        cards: cards
+                    )
+                }
+                .buttonStyle(.bordered)
+                .tint(Theme.pine)
+                .disabled(content.flashcards(forReading: match.reading.readingID).isEmpty)
             }
             .padding(16)
             .overlay(

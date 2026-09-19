@@ -236,6 +236,13 @@ struct SittingTopBar: View {
     var onFlag: (() -> Void)?
     var onEnd: () -> Void
     var clock: (startedAt: Date, targetSeconds: Int)?
+    var status: String? = nil
+    var showsMeter: Bool = true
+    var progressAccessibilityIdentifier: String? = nil
+    var progressAccessibilityLabel: String? = nil
+    var flagIdentifier: String = "attempt.flag"
+    var onSkip: (() -> Void)? = nil
+    var skipIdentifier: String = "attempt.skip"
 
     var body: some View {
         VStack(spacing: 10) {
@@ -254,7 +261,9 @@ struct SittingTopBar: View {
                         .font(.headline)
                         .foregroundStyle(Theme.ink)
                         .lineLimit(1)
-                    if !showDots {
+                        .accessibilityIdentifier(progressAccessibilityIdentifier ?? "sitting.title")
+                        .accessibilityLabel(progressAccessibilityLabel ?? title)
+                    if !showDots && showsMeter {
                         Text("\(progressCurrent) of \(progressTotal)")
                             .font(.caption)
                             .foregroundStyle(Theme.dust)
@@ -265,6 +274,12 @@ struct SittingTopBar: View {
                 Spacer(minLength: 8)
 
                 HStack(spacing: 12) {
+                    if let status {
+                        Text(status)
+                            .font(.subheadline.weight(.medium))
+                            .foregroundStyle(Theme.dust)
+                            .lineLimit(1)
+                    }
                     if let clock {
                         PacingTimer(
                             startedAt: clock.startedAt,
@@ -272,36 +287,44 @@ struct SittingTopBar: View {
                             compact: true
                         )
                     }
+                    if let onSkip {
+                        Button(AttemptHost.skipTitle, action: onSkip)
+                            .font(.subheadline.weight(.medium))
+                            .foregroundStyle(Theme.copper)
+                            .accessibilityIdentifier(skipIdentifier)
+                    }
                     if let onFlag {
                         Button(action: onFlag) {
                             Image(systemName: flagged ? "flag.fill" : "flag")
                                 .foregroundStyle(Theme.pine)
                         }
                         .accessibilityLabel(flagged ? "Remove review flag" : "Flag for review")
-                        .accessibilityIdentifier("attempt.flag")
+                        .accessibilityIdentifier(flagIdentifier)
                     }
                 }
             }
 
-            HStack {
-                if showDots {
-                    SittingDots(current: progressCurrent, total: progressTotal)
-                    Spacer()
-                } else {
-                    MasteryBar(
-                        value: progressTotal == 0 ? 0 : Double(progressCurrent) / Double(progressTotal)
-                    )
-                    .frame(maxWidth: 280)
-                    Spacer()
-                }
-                if let hideStem {
-                    Toggle("Hide stem", isOn: hideStem)
-                        .labelsHidden()
-                        .tint(Theme.pine)
-                        .accessibilityLabel("Hide stem")
-                    Text("Hide stem")
-                        .font(.caption)
-                        .foregroundStyle(Theme.dust)
+            if showsMeter {
+                HStack {
+                    if showDots {
+                        SittingDots(current: progressCurrent, total: progressTotal)
+                        Spacer()
+                    } else {
+                        MasteryBar(
+                            value: progressTotal == 0 ? 0 : Double(progressCurrent) / Double(progressTotal)
+                        )
+                        .frame(maxWidth: 280)
+                        Spacer()
+                    }
+                    if let hideStem {
+                        Toggle("Hide stem", isOn: hideStem)
+                            .labelsHidden()
+                            .tint(Theme.pine)
+                            .accessibilityLabel("Hide stem")
+                        Text("Hide stem")
+                            .font(.caption)
+                            .foregroundStyle(Theme.dust)
+                    }
                 }
             }
         }

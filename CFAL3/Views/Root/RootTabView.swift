@@ -6,7 +6,6 @@ enum AppTab: Hashable, CaseIterable, Identifiable {
     case today
     case plan
     case notes
-    case cards
     case practice
     case cases
     case progress
@@ -18,7 +17,6 @@ enum AppTab: Hashable, CaseIterable, Identifiable {
         case .today: return "Today"
         case .plan: return "Plan"
         case .notes: return "Notes"
-        case .cards: return "Cards"
         case .practice: return "Practice"
         case .cases: return "Cases"
         case .progress: return "Progress"
@@ -30,7 +28,6 @@ enum AppTab: Hashable, CaseIterable, Identifiable {
         case .today: return "calendar"
         case .plan: return "calendar.badge.clock"
         case .notes: return "checklist"
-        case .cards: return "rectangle.on.rectangle.angled"
         case .practice: return "target"
         case .cases: return "briefcase"
         case .progress: return "chart.bar"
@@ -46,6 +43,7 @@ struct FlashcardSittingPayload: Identifiable {
     let id = UUID()
     let title: String
     let cards: [Flashcard]
+    var dueCount: Int = 0
 }
 
 @Observable
@@ -70,9 +68,9 @@ final class TabRouter {
         presentQuestionSitting()
     }
 
-    func presentFlashcards(title: String, cards: [Flashcard]) {
+    func presentFlashcards(title: String, cards: [Flashcard], dueCount: Int = 0) {
         guard !cards.isEmpty else { return }
-        flashcardSitting = FlashcardSittingPayload(title: title, cards: cards)
+        flashcardSitting = FlashcardSittingPayload(title: title, cards: cards, dueCount: dueCount)
     }
 }
 
@@ -130,7 +128,7 @@ private struct RootTabContent: View {
         }
         .fullScreenCover(item: $router.flashcardSitting) { payload in
             NavigationStack {
-                FlashcardSessionView(title: payload.title, cards: payload.cards)
+                FlashcardSessionView(title: payload.title, cards: payload.cards, dueCount: payload.dueCount)
             }
             .tint(Theme.pine)
             .preferredColorScheme(.light)
@@ -158,8 +156,6 @@ private struct RootTabContent: View {
             NavigationStack { PlanView() }
         case .notes:
             notesRoot
-        case .cards:
-            NavigationStack { FlashcardsHomeView() }
         case .practice:
             NavigationStack { PracticeBuilderView() }
         case .cases:
