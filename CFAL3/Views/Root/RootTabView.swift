@@ -6,7 +6,6 @@ enum AppTab: Hashable, CaseIterable, Identifiable {
     case today
     case plan
     case notes
-    case review
     case cards
     case practice
     case cases
@@ -19,7 +18,6 @@ enum AppTab: Hashable, CaseIterable, Identifiable {
         case .today: return "Today"
         case .plan: return "Plan"
         case .notes: return "Notes"
-        case .review: return "Review"
         case .cards: return "Cards"
         case .practice: return "Practice"
         case .cases: return "Cases"
@@ -32,7 +30,6 @@ enum AppTab: Hashable, CaseIterable, Identifiable {
         case .today: return "calendar"
         case .plan: return "calendar.badge.clock"
         case .notes: return "checklist"
-        case .review: return "doc.text.magnifyingglass"
         case .cards: return "rectangle.on.rectangle.angled"
         case .practice: return "target"
         case .cases: return "briefcase"
@@ -161,8 +158,6 @@ private struct RootTabContent: View {
             NavigationStack { PlanView() }
         case .notes:
             NavigationStack { StudyPlannerView() }
-        case .review:
-            NavigationStack { ReviewSheetsView() }
         case .cards:
             NavigationStack { FlashcardsHomeView() }
         case .practice:
