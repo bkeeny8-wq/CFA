@@ -63,63 +63,22 @@ struct FlashcardsHomeView: View {
         }
     }
 
+    /// Laid out like Practice, deliberately: header with a Reset, one settings
+    /// card, the scope picker, a one-line scope summary, and the action pinned
+    /// to the bottom.
+    ///
+    /// The starting actions used to be rows at the TOP, above the book list.
+    /// That reads fine on a phone, but this is an iPad app: choosing books
+    /// scrolls the thing you are choosing them FOR off the top of the screen.
+    /// Practice already solved that with a pinned CTA, so Cards uses the same
+    /// shape.
     private var list: some View {
         let plan = plan
-        let byID = Dictionary(
-            content.allFlashcards.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a }
-        )
         return ScrollView {
             VStack(alignment: .leading, spacing: 18) {
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("Cards")
-                        .font(Theme.serif(.largeTitle, weight: .semibold))
-                        .foregroundStyle(Theme.ink)
-                    Text("One idea per back. Same Again / Hard / Good / Easy as questions.")
-                        .font(.subheadline)
-                        .foregroundStyle(Theme.dust)
-                }
+                header
 
-                ParchmentGroup {
-                    Button {
-                        router.presentFlashcards(
-                            title: plan.newInSession > 0 && plan.dueInSession == 0 ? "New cards" : "Today's cards",
-                            cards: plan.sessionIDs.compactMap { byID[$0] }
-                        )
-                    } label: {
-                        HStack {
-                            Label(todayLabel(plan), systemImage: "bolt.fill")
-                                .font(.body.weight(.semibold))
-                                .foregroundStyle(Theme.accent)
-                            Spacer()
-                            Text("\(plan.sessionIDs.count)")
-                                .font(.headline.monospacedDigit())
-                                .foregroundStyle(plan.isEmpty ? Theme.dust : Theme.accent)
-                        }
-                        .padding(.vertical, 8)
-                        .contentShape(Rectangle())
-                    }
-                    .buttonStyle(.plain)
-                    .disabled(plan.isEmpty)
-                    .accessibilityIdentifier("cards.today")
-                    .accessibilityHint(plan.isEmpty ? todayFooter(plan) : "\(plan.sessionIDs.count) cards in today's mix")
-
-                    Button {
-                        router.presentFlashcards(title: "Shuffle all", cards: scopedCards.shuffled())
-                    } label: {
-                        HStack {
-                            Label("Shuffle all", systemImage: "shuffle")
-                                .font(.body)
-                                .foregroundStyle(Theme.ink)
-                            Spacer()
-                            Text("\(scopedCards.count)")
-                                .font(.body.monospacedDigit())
-                                .foregroundStyle(Theme.dust)
-                        }
-                        .padding(.vertical, 8)
-                        .contentShape(Rectangle())
-                    }
-                    .buttonStyle(.plain)
-
+                VStack(alignment: .leading, spacing: 16) {
                     Picker("Card type", selection: $typeFilter) {
                         Text("All").tag(FlashcardType?.none)
                         ForEach(FlashcardType.allCases) { t in
@@ -127,12 +86,26 @@ struct FlashcardsHomeView: View {
                         }
                     }
                     .pickerStyle(.segmented)
-                    .padding(.vertical, 8)
 
-                    Text(todayFooter(plan))
-                        .font(.caption)
-                        .foregroundStyle(Theme.dust)
+                    Picker("New cards per day", selection: Bindable(practicePref).dailyNewFlashcardLimit) {
+                        ForEach(FlashcardQueue.newLimitOptions, id: \.self) { limit in
+                            Text(limit == 0 ? "Off" : "\(limit)").tag(limit)
+                        }
+                    }
+                    .pickerStyle(.menu)
+
+                    ParchmentActionRow(title: "Shuffle all", trailing: scopedCards.count.formatted()) {
+                        router.presentFlashcards(title: "Shuffle all", cards: scopedCards.shuffled())
+                    }
+                    .disabled(scopedCards.isEmpty)
+                    .accessibilityIdentifier("cards.shuffleAll")
                 }
+                .padding(18)
+                .background(
+                    RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous)
+                        .fill(Theme.cardFill)
+                        .shadow(color: Color.black.opacity(0.04), radius: 10, y: 3)
+                )
 
                 BookReadingPicker(
                     areas: areas,
@@ -140,11 +113,106 @@ struct FlashcardsHomeView: View {
                     bookAccessibilityPrefix: "cards.book",
                     readingAccessibilityPrefix: "cards.reading"
                 )
+
+                Label(scopeSummary(plan), systemImage: "line.3.horizontal.decrease")
+                    .font(.caption)
+                    .foregroundStyle(Theme.dust)
+                    // Combined, or a screen reader announces the symbol's own
+                    // name ("Filter") instead of the summary — same reason as
+                    // Practice's.
+                    .accessibilityElement(children: .combine)
+                    .accessibilityLabel(scopeSummary(plan))
+                    .accessibilityIdentifier("cards.scopeSummary")
+
+                Text(todayFooter(plan))
+                    .font(.caption)
+                    .foregroundStyle(Theme.dust)
             }
             .padding(24)
         }
         .frame(maxWidth: horizontalSizeClass == .regular ? 640 : .infinity)
         .frame(maxWidth: .infinity)
+        .safeAreaInset(edge: .bottom) { startBar(plan) }
+    }
+
+    private var header: some View {
+        HStack(alignment: .top) {
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Cards")
+                    .font(Theme.serif(.largeTitle, weight: .semibold))
+                    .foregroundStyle(Theme.ink)
+                Text("One idea per back. Same Again / Hard / Good / Easy as questions.")
+                    .font(.subheadline)
+                    .foregroundStyle(Theme.dust)
+            }
+            Spacer()
+            Button("Reset", role: .destructive) {
+                typeFilter = nil
+                selectedReadings = []
+            }
+            .font(.subheadline.weight(.medium))
+            .disabled(typeFilter == nil && selectedReadings.isEmpty)
+            .accessibilityIdentifier("cards.reset")
+        }
+    }
+
+    /// The same bottom bar as Practice: one primary action, the hint above it
+    /// when there is nothing to start, and the whole thing capped to the width
+    /// of the form it belongs to.
+    private func startBar(_ plan: FlashcardQueue.Plan) -> some View {
+        let byID = Dictionary(
+            content.allFlashcards.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a }
+        )
+        return VStack(spacing: 8) {
+            if plan.isEmpty {
+                Text(emptyHint(plan))
+                    .font(.footnote)
+                    .foregroundStyle(Theme.dust)
+                    .multilineTextAlignment(.center)
+            }
+            Button {
+                router.presentFlashcards(
+                    title: plan.newInSession > 0 && plan.dueInSession == 0 ? "New cards" : "Today's cards",
+                    cards: plan.sessionIDs.compactMap { byID[$0] }
+                )
+            } label: {
+                Text(plan.isEmpty ? todayLabel(plan) : "\(todayLabel(plan)) · \(plan.sessionIDs.count)")
+            }
+            .buttonStyle(PrimaryCTA())
+            .disabled(plan.isEmpty)
+            .accessibilityIdentifier("cards.today")
+            .accessibilityHint(plan.isEmpty ? emptyHint(plan) : "\(plan.sessionIDs.count) cards in today's mix")
+        }
+        .padding(.horizontal)
+        .frame(maxWidth: horizontalSizeClass == .regular ? 640 : .infinity)
+        .frame(maxWidth: .infinity)
+        .padding(.bottom, 6)
+        .background(Theme.paper)
+    }
+
+    /// One line, like Practice's "5 per book in scope → 30 questions".
+    private func scopeSummary(_ plan: FlashcardQueue.Plan) -> String {
+        let scope = selectedReadings.isEmpty
+            ? "All readings"
+            : "\(selectedReadings.count) reading\(selectedReadings.count == 1 ? "" : "s")"
+        var parts = ["\(scope) → \(scopedCards.count.formatted()) cards"]
+        if plan.dueCount > 0 { parts.append("\(plan.dueCount.formatted()) due") }
+        if plan.notStartedCount > 0 { parts.append("\(plan.notStartedCount.formatted()) not started") }
+        return parts.joined(separator: " · ")
+    }
+
+    /// Why the button is off, in the same place Practice explains it.
+    private func emptyHint(_ plan: FlashcardQueue.Plan) -> String {
+        if scopedCards.isEmpty {
+            return "Widen the card type or book selection to find matching cards."
+        }
+        if plan.isNewOff {
+            return "New cards are switched off. Turn them back on above, or in Settings."
+        }
+        if plan.isNewExhausted {
+            return "Today's new cards are done. \(plan.dailyNewLimit) more resume tomorrow."
+        }
+        return "Nothing is due in this scope yet."
     }
 
     private func todayLabel(_ plan: FlashcardQueue.Plan) -> String {
