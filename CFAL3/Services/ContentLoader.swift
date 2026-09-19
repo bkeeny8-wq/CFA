@@ -53,16 +53,33 @@ final class ContentLoader {
         }
     }
 
-    /// Decode the ~9 MB bundle off the main actor, then publish on it.
+    /// Decode the ~9 MB bundle off the main actor, then publish ON it.
+    ///
+    /// The hop back is explicit and load-bearing. `ContentLoader` carries no
+    /// actor isolation, so this `async` method resumes on the cooperative
+    /// pool, not on the main actor — which meant `apply` rebuilt all seven
+    /// lookup dictionaries on a background thread while SwiftUI was reading
+    /// them on the main one. `rebuildIndexes` empties each dictionary before
+    /// refilling it, so a view reading `drillQuestionsByID` during that window
+    /// saw a half-built table and crashed inside `Dictionary._Variant.lookup`
+    /// with `doesNotRecognizeSelector`. Eleven crash reports over two days,
+    /// all with the same stack: HomeView.body -> ReviewQueue.plan ->
+    /// ContentLoader.drillQuestion(id:).
+    ///
+    /// Verified rather than assumed: logging `Thread.isMainThread` from
+    /// `apply` printed NO before this change and YES after.
     func loadOffMainActor() async {
         do {
             let snapshot = try await Task.detached(priority: .userInitiated) {
                 try ContentLoader.decodeSnapshot()
             }.value
-            apply(snapshot)
-            loadError = nil
+            await MainActor.run {
+                apply(snapshot)
+                loadError = nil
+            }
         } catch {
-            loadError = error.localizedDescription
+            let message = error.localizedDescription
+            await MainActor.run { loadError = message }
         }
     }
 
@@ -166,6 +183,10 @@ final class ContentLoader {
     }
 
     private func apply(_ snapshot: ContentSnapshot) {
+        // Everything below replaces the lookup dictionaries wholesale, and
+        // every reader of them is a SwiftUI view on the main thread. Publishing
+        // from anywhere else is the race that produced eleven launch crashes.
+        assert(Thread.isMainThread, "ContentLoader.apply must publish on the main thread")
         questionBank = snapshot.bank
         losMaster = snapshot.los
         topicSummaries = snapshot.summaries
