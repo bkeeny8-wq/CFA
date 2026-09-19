@@ -7,6 +7,7 @@ import SwiftData
 struct FlashcardsHomeView: View {
     @Environment(ContentLoader.self) private var content
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(TabRouter.self) private var router
     @Query private var progress: [FlashcardProgress]
 
@@ -70,7 +71,6 @@ struct FlashcardsHomeView: View {
         }
         .navigationTitle("Cards")
         .toolbar(.hidden, for: .navigationBar)
-        .scrollContentBackground(.hidden)
         .background(Theme.paper)
         .onAppear { content.bootstrapFlashcardProgress(context: modelContext) }
         .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in
@@ -89,8 +89,8 @@ struct FlashcardsHomeView: View {
         let byID = Dictionary(
             content.allFlashcards.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a }
         )
-        return List {
-            Section {
+        return ScrollView {
+            VStack(alignment: .leading, spacing: 18) {
                 VStack(alignment: .leading, spacing: 6) {
                     Text("Cards")
                         .font(Theme.serif(.largeTitle, weight: .semibold))
@@ -99,78 +99,87 @@ struct FlashcardsHomeView: View {
                         .font(.subheadline)
                         .foregroundStyle(Theme.dust)
                 }
-                .listRowInsets(EdgeInsets(top: 12, leading: 4, bottom: 8, trailing: 4))
-                .listRowBackground(Color.clear)
-                .listRowSeparator(.hidden)
 
-                Button {
-                    router.presentFlashcards(
-                        title: plan.newInSession > 0 && plan.dueInSession == 0 ? "New cards" : "Today's cards",
-                        cards: plan.sessionIDs.compactMap { byID[$0] }
-                    )
-                } label: {
-                    HStack {
-                        Label(todayLabel(plan), systemImage: "bolt.fill")
-                            .font(.body.weight(.semibold))
-                            .foregroundStyle(Theme.accent)
-                        Spacer()
-                        Text("\(plan.sessionIDs.count)")
-                            .font(.headline.monospacedDigit())
-                            .foregroundStyle(plan.isEmpty ? .secondary : Theme.accent)
+                ParchmentGroup {
+                    Button {
+                        router.presentFlashcards(
+                            title: plan.newInSession > 0 && plan.dueInSession == 0 ? "New cards" : "Today's cards",
+                            cards: plan.sessionIDs.compactMap { byID[$0] }
+                        )
+                    } label: {
+                        HStack {
+                            Label(todayLabel(plan), systemImage: "bolt.fill")
+                                .font(.body.weight(.semibold))
+                                .foregroundStyle(Theme.accent)
+                            Spacer()
+                            Text("\(plan.sessionIDs.count)")
+                                .font(.headline.monospacedDigit())
+                                .foregroundStyle(plan.isEmpty ? Theme.dust : Theme.accent)
+                        }
+                        .padding(.vertical, 8)
+                        .contentShape(Rectangle())
                     }
-                }
-                .disabled(plan.isEmpty)
-                .accessibilityIdentifier("cards.today")
-                .accessibilityHint(plan.isEmpty ? todayFooter(plan) : "\(plan.sessionIDs.count) cards in today's mix")
+                    .buttonStyle(.plain)
+                    .disabled(plan.isEmpty)
+                    .accessibilityIdentifier("cards.today")
+                    .accessibilityHint(plan.isEmpty ? todayFooter(plan) : "\(plan.sessionIDs.count) cards in today's mix")
 
-                Button {
-                    router.presentFlashcards(title: "Shuffle all", cards: allFiltered.shuffled())
-                } label: {
-                    HStack {
-                        Label("Shuffle all", systemImage: "shuffle")
-                        Spacer()
-                        Text("\(allFiltered.count)")
-                            .font(.subheadline.monospacedDigit())
-                            .foregroundStyle(.secondary)
+                    Button {
+                        router.presentFlashcards(title: "Shuffle all", cards: allFiltered.shuffled())
+                    } label: {
+                        HStack {
+                            Label("Shuffle all", systemImage: "shuffle")
+                                .font(.body)
+                                .foregroundStyle(Theme.ink)
+                            Spacer()
+                            Text("\(allFiltered.count)")
+                                .font(.body.monospacedDigit())
+                                .foregroundStyle(Theme.dust)
+                        }
+                        .padding(.vertical, 8)
+                        .contentShape(Rectangle())
                     }
-                }
-            } footer: {
-                Text(todayFooter(plan))
-            }
+                    .buttonStyle(.plain)
 
-            Section("Card type") {
-                Picker("Card type", selection: $typeFilter) {
-                    Text("All").tag(FlashcardType?.none)
-                    ForEach(FlashcardType.allCases) { t in
-                        Text(t.displayName).tag(FlashcardType?.some(t))
+                    Picker("Card type", selection: $typeFilter) {
+                        Text("All").tag(FlashcardType?.none)
+                        ForEach(FlashcardType.allCases) { t in
+                            Text(t.displayName).tag(FlashcardType?.some(t))
+                        }
                     }
-                }
-                .pickerStyle(.segmented)
-            }
+                    .pickerStyle(.segmented)
+                    .padding(.vertical, 8)
 
-            ForEach(areas) { area in
-                let readings = area.readings.filter { !cards(for: $0).isEmpty }
-                if !readings.isEmpty {
-                    let name = ProgressDisplay.shortName(area.id, fallback: area.name)
-                    BookDisclosureSection(
-                        title: name,
-                        subtitle: "\(readings.count) reading\(readings.count == 1 ? "" : "s")",
-                        accessibilityID: "cards.book.\(name)",
-                        isExpanded: $expandedBookIDs[area.id]
-                    ) {
-                        VStack(spacing: 0) {
-                            ForEach(readings) { reading in
-                                deckRow(reading, rows: rows)
-                                    .padding(.vertical, 8)
+                    Text(todayFooter(plan))
+                        .font(.caption)
+                        .foregroundStyle(Theme.dust)
+                }
+
+                ParchmentGroup(title: "Books") {
+                    ForEach(areas) { area in
+                        let readings = area.readings.filter { !cards(for: $0).isEmpty }
+                        if !readings.isEmpty {
+                            let name = ProgressDisplay.shortName(area.id, fallback: area.name)
+                            BookDisclosureSection(
+                                title: name,
+                                subtitle: "\(readings.count) reading\(readings.count == 1 ? "" : "s")",
+                                accessibilityID: "cards.book.\(name)",
+                                isExpanded: $expandedBookIDs[area.id]
+                            ) {
+                                VStack(spacing: 0) {
+                                    ForEach(readings) { reading in
+                                        deckRow(reading, rows: rows)
+                                    }
+                                }
                             }
                         }
                     }
-                    .listRowInsets(EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16))
-                    .listRowSeparator(.hidden)
-                    .listRowBackground(Color.clear)
                 }
             }
+            .padding(24)
         }
+        .frame(maxWidth: horizontalSizeClass == .regular ? 640 : .infinity)
+        .frame(maxWidth: .infinity)
     }
 
     private func todayLabel(_ plan: FlashcardQueue.Plan) -> String {
@@ -209,16 +218,10 @@ struct FlashcardsHomeView: View {
         return Button {
             router.presentFlashcards(title: reading.name, cards: deck)
         } label: {
-            HStack(alignment: .firstTextBaseline) {
-                VStack(alignment: .leading, spacing: 3) {
-                    Text(reading.name)
-                        .font(.subheadline)
-                        .lineLimit(2)
-                    Text("\(deck.count) card\(deck.count == 1 ? "" : "s")")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
-                Spacer()
+            BookChildRow(
+                title: reading.name,
+                subtitle: "\(deck.count) card\(deck.count == 1 ? "" : "s")"
+            ) {
                 if due > 0 {
                     Text("\(due) due")
                         .font(.caption.weight(.semibold))
@@ -229,5 +232,6 @@ struct FlashcardsHomeView: View {
                 }
             }
         }
+        .buttonStyle(.plain)
     }
 }

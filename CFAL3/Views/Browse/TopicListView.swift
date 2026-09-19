@@ -26,7 +26,7 @@ struct TopicListView: View {
 
     private var library: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .leading, spacing: 18) {
                 VStack(alignment: .leading, spacing: 6) {
                     Text("Cases")
                         .font(Theme.serif(.largeTitle, weight: .semibold))
@@ -37,20 +37,19 @@ struct TopicListView: View {
                         .foregroundStyle(Theme.dust)
                 }
 
-                ForEach(content.questionBank?.topics ?? []) { topic in
-                    let name = ProgressDisplay.shortName(topic.id, fallback: topic.shortName)
-                    let progress = ProgressStats.caseProgress(topic: topic, attempts: attempts)
-                    let weight = ProgressDisplay.examWeights[topic.id]
-                    BookDisclosureSection(
-                        title: name,
-                        subtitle: [
-                            weight,
-                            "\(progress.total) case questions · \(Formatting.percent(progress.correctRate)) correct"
-                        ].compactMap { $0 }.joined(separator: " · "),
-                        accessibilityID: "cases.book.\(name)",
-                        isExpanded: $expandedBookIDs[topic.id]
-                    ) {
-                        CaseBookItems(topicID: topic.id)
+                ParchmentGroup(title: "Books") {
+                    ForEach(content.questionBank?.topics ?? []) { topic in
+                        let name = ProgressDisplay.shortName(topic.id, fallback: topic.shortName)
+                        let progress = ProgressStats.caseProgress(topic: topic, attempts: attempts)
+                        BookDisclosureSection(
+                            title: name,
+                            subtitle: "\(progress.total) case questions · \(Formatting.percent(progress.correctRate)) correct",
+                            trailing: ProgressDisplay.examWeights[topic.id],
+                            accessibilityID: "cases.book.\(name)",
+                            isExpanded: $expandedBookIDs[topic.id]
+                        ) {
+                            CaseBookItems(topicID: topic.id)
+                        }
                     }
                 }
             }
@@ -75,48 +74,40 @@ private struct CaseBookItems: View {
         content.cases(forTopic: topicID, losFilter: selectedLOS)
     }
 
-    private var filterSymbol: String {
-        selectedLOS.isEmpty
-            ? "line.3.horizontal.decrease.circle"
-            : "line.3.horizontal.decrease.circle.fill"
-    }
-
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 0) {
             HStack {
                 if !selectedLOS.isEmpty {
                     Text("Filtered by \(selectedLOS.count) LOS")
-                        .font(.footnote)
+                        .font(.caption)
                         .foregroundStyle(Theme.dust)
                 }
                 Spacer()
-                Button {
+                Button("Filter by LOS") {
                     showLOSFilter = true
-                } label: {
-                    Image(systemName: filterSymbol)
-                        .font(.body)
-                        .foregroundStyle(Theme.pine)
-                        .frame(minWidth: 44, minHeight: 44)
                 }
+                .font(.caption)
+                .foregroundStyle(Theme.pine)
                 .accessibilityLabel("Filter by LOS")
             }
+            .padding(.vertical, 8)
 
             if cases.isEmpty {
-                ContentUnavailableView(
-                    "No cases match",
-                    systemImage: "line.3.horizontal.decrease.circle",
-                    description: Text(selectedLOS.isEmpty
-                        ? "This book has no case studies yet."
-                        : "No case in this book covers the selected LOS. Sit that letter's drills from Study instead.")
-                )
-                .padding(.vertical, 12)
+                Text(selectedLOS.isEmpty
+                     ? "This book has no case studies yet."
+                     : "No case in this book covers the selected LOS.")
+                    .font(.caption)
+                    .foregroundStyle(Theme.dust)
+                    .padding(.vertical, 8)
             } else {
                 ForEach(cases) { caseStudy in
                     NavigationLink {
                         CaseDetailView(caseID: caseStudy.id)
                     } label: {
-                        CaseStudyRowLabel(caseStudy: caseStudy, attempts: attempts)
-                            .cfaCard(padding: 16)
+                        BookChildRow(
+                            title: caseStudy.title,
+                            subtitle: CaseStudyRowLabel.caption(for: caseStudy, attempts: attempts)
+                        )
                     }
                     .buttonStyle(.plain)
                     .accessibilityIdentifier("cases.item.\(caseStudy.id)")

@@ -160,21 +160,18 @@ struct CaseStudyRowLabel: View {
     let attempts: [Attempt]
 
     var body: some View {
-        let meta = metadata
         VStack(alignment: .leading, spacing: 6) {
             Text(caseStudy.title)
                 .font(Theme.serif(.headline, weight: .semibold))
                 .foregroundStyle(Theme.ink)
-            Text("\(caseStudy.questions.count) questions · \(meta.essays) essays"
-                 + " · \(meta.attempted)/\(meta.total) tried"
-                 + (meta.accuracy.map { " · \(Formatting.percent($0))" } ?? ""))
+            Text(Self.caption(for: caseStudy, attempts: attempts))
                 .font(.caption)
                 .foregroundStyle(Theme.dust)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 
-    private var metadata: (essays: Int, attempted: Int, total: Int, accuracy: Double?) {
+    static func caption(for caseStudy: CaseStudy, attempts: [Attempt]) -> String {
         let qIDs = Set(caseStudy.questions.map(\.id))
         let essays = caseStudy.questions.filter { $0.type == .essay }.count
         let mine = attempts.filter { qIDs.contains($0.questionId) }
@@ -182,6 +179,8 @@ struct CaseStudyRowLabel: View {
         let gradable = mine.filter { $0.wasCorrect != nil }
         let accuracy = gradable.isEmpty ? nil :
             Double(gradable.filter { $0.wasCorrect == true }.count) / Double(gradable.count)
-        return (essays, attempted, qIDs.count, accuracy)
+        return "\(caseStudy.questions.count) questions · \(essays) essays"
+            + " · \(attempted)/\(qIDs.count) tried"
+            + (accuracy.map { " · \(Formatting.percent($0))" } ?? "")
     }
 }

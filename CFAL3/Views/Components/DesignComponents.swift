@@ -417,12 +417,36 @@ extension Binding where Value == Set<String> {
     }
 }
 
-/// Chevron + title row used by Practice’s reading picker and the Notes / Cases /
-/// Cards book lists. Vertical padding matches Practice’s Books / Readings / LOS
-/// rows so the control reads as the same affordance everywhere.
+/// Practice’s grouped card: 18-pt padding, 22-pt radius, soft parchment fill.
+struct ParchmentGroup<Content: View>: View {
+    var title: String? = nil
+    @ViewBuilder var content: () -> Content
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            if let title {
+                Text(title)
+                    .font(.headline)
+                    .foregroundStyle(Theme.ink)
+            }
+            content()
+        }
+        .padding(18)
+        .background(
+            RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous)
+                .fill(Theme.cardFill)
+                .shadow(color: Color.black.opacity(0.04), radius: 10, y: 3)
+        )
+    }
+}
+
+/// Chevron + title row used by Practice’s Scope / Readings picker and the
+/// Notes, Cases, and Cards book lists. Type, padding, and chevron match
+/// Practice’s Books / Readings / LOS rows.
 struct BookDisclosureHeader: View {
     let title: String
     var subtitle: String? = nil
+    var trailing: String? = nil
     var badge: Int = 0
     var accessibilityID: String? = nil
     @Binding var isExpanded: Bool
@@ -432,15 +456,16 @@ struct BookDisclosureHeader: View {
         Button {
             withSittingAnimation(reduceMotion) { isExpanded.toggle() }
         } label: {
-            HStack(spacing: 6) {
-                Image(systemName: isExpanded ? "chevron.down" : "chevron.right")
+            HStack(alignment: .firstTextBaseline, spacing: 6) {
+                Image(systemName: "chevron.right")
                     .font(.caption2.weight(.semibold))
                     .foregroundStyle(Theme.dust)
                     .frame(width: 12, alignment: .center)
+                    .rotationEffect(.degrees(isExpanded ? 90 : 0))
                 VStack(alignment: .leading, spacing: 2) {
                     HStack(spacing: 8) {
                         Text(title)
-                            .font(Theme.serif(.headline, weight: .semibold))
+                            .font(.body)
                             .foregroundStyle(Theme.ink)
                             .lineLimit(2)
                             .multilineTextAlignment(.leading)
@@ -460,6 +485,11 @@ struct BookDisclosureHeader: View {
                     }
                 }
                 Spacer(minLength: 0)
+                if let trailing, !trailing.isEmpty {
+                    Text(trailing)
+                        .font(.body)
+                        .foregroundStyle(Theme.dust)
+                }
             }
             .padding(.vertical, 8)
             .contentShape(Rectangle())
@@ -478,24 +508,110 @@ struct BookDisclosureHeader: View {
 struct BookDisclosureSection<Content: View>: View {
     let title: String
     var subtitle: String? = nil
+    var trailing: String? = nil
     var badge: Int = 0
     var accessibilityID: String? = nil
     @Binding var isExpanded: Bool
     @ViewBuilder var content: () -> Content
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 4) {
             BookDisclosureHeader(
                 title: title,
                 subtitle: subtitle,
+                trailing: trailing,
                 badge: badge,
                 accessibilityID: accessibilityID,
                 isExpanded: $isExpanded
             )
             if isExpanded {
                 content()
+                    .padding(.leading, 18)
+                    .transition(.opacity)
             }
         }
+        .animation(reduceMotion ? nil : .snappy, value: isExpanded)
+    }
+}
+
+/// A tappable child row under an expanded book. Same 8-pt vertical padding
+/// as Practice’s Books / Readings / LOS rows.
+struct BookChildRow<Trailing: View>: View {
+    let title: String
+    var subtitle: String? = nil
+    var trailing: String? = nil
+    @ViewBuilder var trailingContent: () -> Trailing
+
+    init(
+        title: String,
+        subtitle: String? = nil,
+        trailing: String? = nil,
+        @ViewBuilder trailingContent: @escaping () -> Trailing
+    ) {
+        self.title = title
+        self.subtitle = subtitle
+        self.trailing = trailing
+        self.trailingContent = trailingContent
+    }
+
+    var body: some View {
+        HStack(alignment: .firstTextBaseline) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title)
+                    .font(.body)
+                    .foregroundStyle(Theme.ink)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.leading)
+                if let subtitle, !subtitle.isEmpty {
+                    Text(subtitle)
+                        .font(.caption)
+                        .foregroundStyle(Theme.dust)
+                }
+            }
+            Spacer(minLength: 0)
+            if let trailing, !trailing.isEmpty {
+                Text(trailing)
+                    .font(.caption)
+                    .foregroundStyle(Theme.dust)
+            }
+            trailingContent()
+        }
+        .padding(.vertical, 8)
+        .contentShape(Rectangle())
+    }
+}
+
+extension BookChildRow where Trailing == EmptyView {
+    init(title: String, subtitle: String? = nil, trailing: String? = nil) {
+        self.init(title: title, subtitle: subtitle, trailing: trailing) { EmptyView() }
+    }
+}
+
+/// Practice Scope row: body type, 8-pt vertical padding, trailing dust value.
+struct ParchmentActionRow: View {
+    let title: String
+    var trailing: String? = nil
+    var titleColor: Color = Theme.ink
+    var action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            HStack {
+                Text(title)
+                    .font(.body)
+                    .foregroundStyle(titleColor)
+                Spacer()
+                if let trailing, !trailing.isEmpty {
+                    Text(trailing)
+                        .font(.body)
+                        .foregroundStyle(Theme.dust)
+                }
+            }
+            .padding(.vertical, 8)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
     }
 }
 

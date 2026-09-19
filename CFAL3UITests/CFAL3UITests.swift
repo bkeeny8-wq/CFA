@@ -68,6 +68,10 @@ final class CFAL3UITests: XCTestCase {
         app.descendants(matching: .any)["notes.book.\(name)"].firstMatch
     }
 
+    private func cardsBook(_ name: String) -> XCUIElement {
+        app.descendants(matching: .any)["cards.book.\(name)"].firstMatch
+    }
+
     private func firstCaseItem() -> XCUIElement {
         app.descendants(matching: .any)
             .matching(NSPredicate(format: "identifier BEGINSWITH %@", "cases.item."))
@@ -239,6 +243,75 @@ final class CFAL3UITests: XCTestCase {
         XCTAssertTrue(app.buttons["cards.today"].firstMatch.waitForExistence(timeout: 10),
                       "the Cards destination did not show its today row")
         XCTAssertTrue(tab("Notes").isHittable, "Notes must remain reachable from Cards")
+    }
+
+    /// Notes, Cases, and Cards book lists share Practice’s parchment grouping.
+    /// When `DAYBOOK_SCREENSHOT_DIR` is set, writes the comparison shots.
+    func testBookListsSharePracticeChrome() {
+        XCTAssertTrue(waitFor(tab("Notes")), "the sidebar never appeared")
+
+        tab("Notes").tap()
+        XCTAssertTrue(notesBook("Ethics").waitForExistence(timeout: 10),
+                      "Notes should list the books in a parchment group")
+        saveScreenshot("notes-collapsed")
+        notesBook("Asset allocation").tap()
+        let noteReading = app.descendants(matching: .any)
+            .matching(NSPredicate(format: "identifier BEGINSWITH %@", "notes.reading."))
+            .firstMatch
+        XCTAssertTrue(noteReading.waitForExistence(timeout: 10),
+                      "expanding a Notes book should reveal readings")
+        saveScreenshot("notes-expanded")
+
+        tab("Cases").tap()
+        XCTAssertTrue(casesBook("Ethics").waitForExistence(timeout: 10))
+        XCTAssertFalse(firstCaseItem().exists,
+                       "case rows stay hidden until a book is expanded")
+        saveScreenshot("cases-collapsed")
+        casesBook("Ethics").tap()
+        XCTAssertTrue(firstCaseItem().waitForExistence(timeout: 10))
+        saveScreenshot("cases-expanded")
+
+        tab("Cards").tap()
+        XCTAssertTrue(app.buttons["cards.today"].firstMatch.waitForExistence(timeout: 10))
+        XCTAssertTrue(cardsBook("Ethics").waitForExistence(timeout: 10),
+                      "Cards should keep a book list and stay in the sidebar")
+        saveScreenshot("cards-collapsed")
+        cardsBook("Asset allocation").tap()
+        saveScreenshot("cards-expanded")
+
+        tab("Practice").tap()
+        XCTAssertTrue(app.descendants(matching: .any)["practice.scopeSummary"]
+                        .firstMatch.waitForExistence(timeout: 10))
+        saveScreenshot("practice")
+        app.buttons["practice.scope.readings"].firstMatch.tap()
+        let practiceBook = app.descendants(matching: .any)["practice.book.Ethics"].firstMatch
+        XCTAssertTrue(practiceBook.waitForExistence(timeout: 10),
+                      "Practice readings should list books collapsed")
+        saveScreenshot("practice-readings-collapsed")
+        practiceBook.tap()
+        let practiceReading = app.descendants(matching: .any)
+            .matching(NSPredicate(format: "identifier BEGINSWITH %@", "practice.reading."))
+            .firstMatch
+        XCTAssertTrue(practiceReading.waitForExistence(timeout: 10),
+                      "expanding a Practice book should reveal readings without overlap")
+        saveScreenshot("practice-readings-expanded")
+    }
+
+    private func saveScreenshot(_ name: String) {
+        let shot = XCUIScreen.main.screenshot()
+        let attachment = XCTAttachment(screenshot: shot)
+        attachment.name = name
+        attachment.lifetime = .keepAlways
+        add(attachment)
+
+        guard let dir = ProcessInfo.processInfo.environment["DAYBOOK_SCREENSHOT_DIR"],
+              !dir.isEmpty else { return }
+        let url = URL(fileURLWithPath: dir).appendingPathComponent("\(name).png")
+        try? FileManager.default.createDirectory(
+            at: url.deletingLastPathComponent(),
+            withIntermediateDirectories: true
+        )
+        try? shot.pngRepresentation.write(to: url)
     }
 
     /// A freshly erased app has no accuracy, and "0%" reads as a score.

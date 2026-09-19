@@ -30,7 +30,7 @@ struct StudyPlannerView: View {
     private func library(master: LOSMaster) -> some View {
         let areas = StudyPlannerStats.areaProgress(master: master, statuses: statuses)
         return ScrollView {
-            VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .leading, spacing: 18) {
                 VStack(alignment: .leading, spacing: 6) {
                     Text("Notes")
                         .font(Theme.serif(.largeTitle, weight: .semibold))
@@ -43,19 +43,21 @@ struct StudyPlannerView: View {
 
                 StudyMasteryHeaderCard(master: master, statuses: statuses)
 
-                ForEach(areas) { areaProgress in
-                    if let curriculumArea = master.areas.first(where: { $0.id == areaProgress.areaID }) {
-                        let name = ProgressDisplay.shortName(
-                            areaProgress.areaID,
-                            fallback: areaProgress.name
-                        )
-                        BookDisclosureSection(
-                            title: name,
-                            subtitle: "\(areaProgress.mastered)/\(areaProgress.total) LOS · \(curriculumArea.readings.count) readings",
-                            accessibilityID: "notes.book.\(name)",
-                            isExpanded: $expandedBookIDs[curriculumArea.id]
-                        ) {
-                            notesReadings(area: curriculumArea)
+                ParchmentGroup(title: "Books") {
+                    ForEach(areas) { areaProgress in
+                        if let curriculumArea = master.areas.first(where: { $0.id == areaProgress.areaID }) {
+                            let name = ProgressDisplay.shortName(
+                                areaProgress.areaID,
+                                fallback: areaProgress.name
+                            )
+                            BookDisclosureSection(
+                                title: name,
+                                subtitle: "\(areaProgress.mastered)/\(areaProgress.total) LOS · \(curriculumArea.readings.count) readings",
+                                accessibilityID: "notes.book.\(name)",
+                                isExpanded: $expandedBookIDs[curriculumArea.id]
+                            ) {
+                                notesReadings(area: curriculumArea)
+                            }
                         }
                     }
                 }
@@ -67,28 +69,35 @@ struct StudyPlannerView: View {
     }
 
     private func notesReadings(area: CurriculumArea) -> some View {
-        let highlightedReadingID = StudyDisplay.firstInProgressReadingID(
-            in: area,
-            statuses: statuses,
-            attempts: attempts,
-            content: content
-        )
-        return VStack(spacing: 10) {
+        VStack(spacing: 0) {
             ForEach(area.readings) { reading in
+                let progress = StudyPlannerStats.readingProgress(reading: reading, statuses: statuses)
+                let state = StudyDisplay.readingState(
+                    reading: reading,
+                    statuses: statuses,
+                    attempts: attempts,
+                    content: content
+                )
                 NavigationLink {
                     StudyReadingDetailView(area: area, reading: reading)
                 } label: {
-                    StudyReadingRowCard(
-                        area: area,
-                        reading: reading,
-                        statuses: statuses,
-                        attempts: attempts,
-                        highlightInProgress: reading.id == highlightedReadingID
+                    BookChildRow(
+                        title: "R\(StudyDisplay.readingNumber(reading, content: content)) · \(StudyDisplay.readingShortTitle(reading, content: content))",
+                        subtitle: "\(progress.mastered)/\(progress.total) LOS",
+                        trailing: notesStateLabel(state)
                     )
                 }
                 .buttonStyle(.plain)
                 .accessibilityIdentifier("notes.reading.\(reading.id)")
             }
+        }
+    }
+
+    private func notesStateLabel(_ state: ReadingStudyState) -> String {
+        switch state {
+        case .done: return "Done"
+        case .inProgress: return "In progress"
+        case .notStarted: return "Not started"
         }
     }
 }
