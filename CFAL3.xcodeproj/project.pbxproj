@@ -24,6 +24,7 @@
 		15BC0053332642829D36BB50 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D24C9BD3CE24077BC4B51B8 /* Theme.swift */; };
 		1734ECEB45BC49BF90D20649 /* StudySessionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B2388CE940E9AD778803 /* StudySessionCoordinator.swift */; };
 		1C5C86CC7FBD42F5AFC8336F /* QuestionAttemptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D75174F099481C90E0545D /* QuestionAttemptView.swift */; };
+		BB01OUTL0001000100010001 /* NotesOutline.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01OUTL0002000200020002 /* NotesOutline.swift */; };
 		1D61F3E2C6EE47BFA81389D5 /* NotesContentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4703EEBE28948DD9CBB6BD2 /* NotesContentParser.swift */; };
 		1D7562E5223E40509DA8D2C1 /* LOSStudyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FECB28C521A446CB948F083 /* LOSStudyStatus.swift */; };
 		1E0BAAB66D4D445A822C105E /* los_drills_r34.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F87E270A6DE4A528EF435F7 /* los_drills_r34.json */; };
@@ -141,6 +142,7 @@
 		F6BAC4E260F943E2B7174BBF /* ContentTargets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF249A5C261414FBFAB63F9 /* ContentTargets.swift */; };
 		F6DF3A9B5F784E15B344F99E /* MultipleChoiceInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BC1505535F4A68992F72E5 /* MultipleChoiceInput.swift */; };
 		F8EADDB27D404E1DB0370DE4 /* FlashcardsHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8C5D1B2964494D853FC285 /* FlashcardsHomeView.swift */; };
+		BB02TEST0001000100010001 /* NotesOutlineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB02TEST0002000200020002 /* NotesOutlineTests.swift */; };
 		FAF0FB28A4074A6E8CA13738 /* NotesContentParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CAADDFEE34FF7ACA5F995 /* NotesContentParserTests.swift */; };
 		FE2B69D3DF5C400E87678B71 /* FlashcardProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97678F60837047BB877E3886 /* FlashcardProgress.swift */; };
 /* End PBXBuildFile section */
@@ -226,6 +228,7 @@
 		7936F6EF2C5446FCA41DBF61 /* los_drills_r29.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r29.json; sourceTree = "<group>"; };
 		7C638C69E9FA49E485FBDC64 /* los_drills_r16.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r16.json; sourceTree = "<group>"; };
 		7FE3603862AE45B39D37FA8A /* StudyPlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPlannerView.swift; sourceTree = "<group>"; };
+		BB02TEST0002000200020002 /* NotesOutlineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesOutlineTests.swift; sourceTree = "<group>"; };
 		849CAADDFEE34FF7ACA5F995 /* NotesContentParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesContentParserTests.swift; sourceTree = "<group>"; };
 		8522D72A30624A7DB90C00EA /* reading_notes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = reading_notes.json; sourceTree = "<group>"; };
 		85EC6CF17C714A989CE377AA /* los_drills_r15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r15.json; sourceTree = "<group>"; };
@@ -248,6 +251,7 @@
 		A110E5710000000000000001 /* AttemptHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttemptHost.swift; sourceTree = "<group>"; };
 		A1C0FF0200000000000000A2 /* StudyRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StudyRootView.swift; path = CFAL3/Views/Study/StudyRootView.swift; sourceTree = SOURCE_ROOT; };
 		A37A7F81751C442382E848B8 /* ContentDensitySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDensitySection.swift; sourceTree = "<group>"; };
+		BB01OUTL0002000200020002 /* NotesOutline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesOutline.swift; sourceTree = "<group>"; };
 		A4703EEBE28948DD9CBB6BD2 /* NotesContentParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesContentParser.swift; sourceTree = "<group>"; };
 		A47F557D6A7E458189CDA91E /* los_drills_r23.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r23.json; sourceTree = "<group>"; };
 		A4D513B3FFA3404C8AD32BD8 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
@@ -440,6 +444,7 @@
 				1B54E8CC64E04C318A838EC4 /* AdaptiveLayout.swift */,
 				292F523D997F4F16A51E1622 /* Formatting.swift */,
 				A4703EEBE28948DD9CBB6BD2 /* NotesContentParser.swift */,
+				BB01OUTL0002000200020002 /* NotesOutline.swift */,
 				B475B31D12DD403F880470CD /* ProgressDisplay.swift */,
 				684C7349EB174F60BF66AC33 /* StudyDisplay.swift */,
 				8D24C9BD3CE24077BC4B51B8 /* Theme.swift */,
@@ -647,6 +652,7 @@
 				DF27571BE6C440D7BD11BEC6 /* ClaudeGraderErrorTests.swift */,
 				929CD068491F4FA29B4E9EDA /* GradingResponseParserTests.swift */,
 				849CAADDFEE34FF7ACA5F995 /* NotesContentParserTests.swift */,
+				BB02TEST0002000200020002 /* NotesOutlineTests.swift */,
 				0C2824EF5E224FEB9BD908C6 /* QuestionBankIntegrityTests.swift */,
 				CDDEB7F0A6D742F291EF103C /* ReviewSchedulerTests.swift */,
 				D4A1BB0400000000000000D4 /* PersistenceIntegrationTests.swift */,
@@ -825,6 +831,7 @@
 				C142D518BA5A472AA97DD4D0 /* ClaudeGraderErrorTests.swift in Sources */,
 				F3F572AD8E65408E9B33CE60 /* GradingResponseParserTests.swift in Sources */,
 				FAF0FB28A4074A6E8CA13738 /* NotesContentParserTests.swift in Sources */,
+				BB02TEST0001000100010001 /* NotesOutlineTests.swift in Sources */,
 				4345E5D4137D456187976AB6 /* QuestionBankIntegrityTests.swift in Sources */,
 				243C8ED5E40141FFA8C9BDC7 /* ReviewSchedulerTests.swift in Sources */,
 				D4A1BB0300000000000000D3 /* PersistenceIntegrationTests.swift in Sources */,
@@ -864,6 +871,7 @@
 				CE31020A549C4387BB55E079 /* AdaptiveLayout.swift in Sources */,
 				4F480E013FFA4741A00FFC66 /* Formatting.swift in Sources */,
 				1D61F3E2C6EE47BFA81389D5 /* NotesContentParser.swift in Sources */,
+				BB01OUTL0001000100010001 /* NotesOutline.swift in Sources */,
 				D78A124325A34A7B9D6D6E95 /* ProgressDisplay.swift in Sources */,
 				87568CEDECC144EA841F2452 /* StudyDisplay.swift in Sources */,
 				15BC0053332642829D36BB50 /* Theme.swift in Sources */,

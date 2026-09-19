@@ -2,16 +2,39 @@ import SwiftUI
 
 struct ReadingNotesBlocksView: View {
     let blocks: [NotesBlock]
+    /// Which slice to render. nil means the whole array.
+    var range: Range<Int>?
+
+    init(blocks: [NotesBlock], range: Range<Int>? = nil) {
+        self.blocks = blocks
+        self.range = range
+    }
+
+    private var indices: Range<Int> {
+        let r = range ?? 0..<blocks.count
+        return r.clamped(to: 0..<blocks.count)
+    }
 
     var body: some View {
-        LazyVStack(alignment: .leading, spacing: 20) {
-            // By position, not by `NotesBlock.id`. A reading's blocks are a
-            // fixed list that only changes when you open a different reading,
-            // so the index IS the identity — and two genuinely identical
-            // blocks (the same one-line bullet list under two LOS, say) would
-            // otherwise collide and make ForEach drop one of them.
-            ForEach(Array(blocks.enumerated()), id: \.offset) { _, block in
-                blockView(block)
+        // A plain VStack, NOT a LazyVStack. Two reasons, both measured.
+        //
+        // Correctness first: sections render as sibling ForEach bodies, and a
+        // lazy container reuses a row whose id it has already materialised. A
+        // probe reproduced one LOS's study material appearing UNDER another
+        // LOS's heading — silently, with no missing-row symptom. Absolute
+        // block indices below make the ids globally unique, which fixes it,
+        // but the lazy path also refuses to report offsets for sections it has
+        // not laid out, and the rail needs every section's offset.
+        //
+        // Cost second: the largest reading in the bundle is ~103 blocks
+        // (277 source lines is the loose upper bound). Laziness buys nothing
+        // at that size.
+        VStack(alignment: .leading, spacing: 20) {
+            // Keyed by ABSOLUTE index into `blocks`, so two identical blocks
+            // in one reading — and the same offset in two different sections —
+            // stay distinct.
+            ForEach(indices, id: \.self) { index in
+                blockView(blocks[index])
             }
         }
     }
@@ -20,8 +43,10 @@ struct ReadingNotesBlocksView: View {
     private func blockView(_ block: NotesBlock) -> some View {
         switch block {
         case .losSection(let number, let title):
+            // Reached only when a caller renders the whole array without an
+            // outline. The sectioned page draws its own headers.
             LOSSectionHeader(number: number, title: title)
-                .id("los-\(number)-\(title.prefix(24))")
+                .id(NotesOutline.anchorID(number: number, title: title))
         case .losStatement(let text):
             Text(text)
                 .font(.subheadline)
@@ -70,13 +95,20 @@ struct ReadingNotesBlocksView: View {
     }
 }
 
-private struct LOSSectionHeader: View {
+/// The badge + title that opens a LOS section, and the tap target that
+/// collapses it.
+struct LOSSectionHeader: View {
     let number: Int
     let title: String
+    var position: String?
+    var isCollapsed: Bool = false
+    var onToggle: (() -> Void)?
+
+    private var letter: String { losLetter(for: number).uppercased() }
 
     var body: some View {
-        HStack(alignment: .top, spacing: 12) {
-            Text(losLetter(for: number).uppercased())
+        let row = HStack(alignment: .top, spacing: 12) {
+            Text(letter)
                 .font(.headline)
                 .foregroundStyle(.white)
                 // minWidth, not a fixed frame: a hard 32x32 box clipped the
@@ -87,14 +119,47 @@ private struct LOSSectionHeader: View {
                 .frame(minWidth: 32, minHeight: 32)
                 .background(Theme.accent)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
-                .accessibilityLabel("LOS \(losLetter(for: number).uppercased())")
 
-            Text(title)
-                .font(.title3.weight(.semibold))
-                .fixedSize(horizontal: false, vertical: true)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title)
+                    .font(.title3.weight(.semibold))
+                    .multilineTextAlignment(.leading)
+                    .fixedSize(horizontal: false, vertical: true)
+                if let position {
+                    Text(position)
+                        .font(.caption)
+                        .foregroundStyle(Theme.dust)
+                }
+            }
+
+            Spacer(minLength: 8)
+
+            if onToggle != nil {
+                Image(systemName: "chevron.down")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(Theme.dust)
+                    .rotationEffect(.degrees(isCollapsed ? -90 : 0))
+                    .padding(.top, 8)
+            }
         }
         .padding(.top, 8)
         .padding(.bottom, 4)
+        // A .clear background contributes no hit region, so the row's gaps
+        // would not be tappable without this.
+        .contentShape(Rectangle())
+
+        Group {
+            if let onToggle {
+                Button(action: onToggle) { row }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel("LOS \(letter), \(title)")
+                    .accessibilityValue(isCollapsed ? "Collapsed" : "Expanded")
+                    .accessibilityHint("Double-tap to \(isCollapsed ? "expand" : "collapse") this section")
+            } else {
+                row.accessibilityElement(children: .combine)
+                    .accessibilityLabel("LOS \(letter), \(title)")
+            }
+        }
     }
 }
 
