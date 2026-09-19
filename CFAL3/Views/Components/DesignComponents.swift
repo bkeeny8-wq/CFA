@@ -399,6 +399,104 @@ struct NamedQualitySelector: View {
     }
 }
 
+extension Binding where Value == Set<String> {
+    /// Treat a set of expanded book IDs as a per-book `isExpanded` flag.
+    subscript(_ id: String) -> Binding<Bool> {
+        Binding<Bool>(
+            get: { wrappedValue.contains(id) },
+            set: { isOn in
+                if isOn {
+                    wrappedValue.insert(id)
+                } else {
+                    wrappedValue.remove(id)
+                }
+            }
+        )
+    }
+}
+
+/// Chevron + title row used by Practice’s reading picker and the Notes / Cases /
+/// Cards book lists. Vertical padding matches Practice’s Books / Readings / LOS
+/// rows so the control reads as the same affordance everywhere.
+struct BookDisclosureHeader: View {
+    let title: String
+    var subtitle: String? = nil
+    var badge: Int = 0
+    var accessibilityID: String? = nil
+    @Binding var isExpanded: Bool
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    var body: some View {
+        Button {
+            withSittingAnimation(reduceMotion) { isExpanded.toggle() }
+        } label: {
+            HStack(spacing: 6) {
+                Image(systemName: isExpanded ? "chevron.down" : "chevron.right")
+                    .font(.caption2.weight(.semibold))
+                    .foregroundStyle(Theme.dust)
+                    .frame(width: 12, alignment: .center)
+                VStack(alignment: .leading, spacing: 2) {
+                    HStack(spacing: 8) {
+                        Text(title)
+                            .font(Theme.serif(.headline, weight: .semibold))
+                            .foregroundStyle(Theme.ink)
+                            .lineLimit(2)
+                            .multilineTextAlignment(.leading)
+                        if badge > 0 {
+                            Text("\(badge)")
+                                .font(.caption2.weight(.semibold))
+                                .padding(.horizontal, 6)
+                                .padding(.vertical, 1)
+                                .background(Capsule().fill(Theme.accent.opacity(0.15)))
+                                .foregroundStyle(Theme.accent)
+                        }
+                    }
+                    if let subtitle, !subtitle.isEmpty {
+                        Text(subtitle)
+                            .font(.caption)
+                            .foregroundStyle(Theme.dust)
+                    }
+                }
+                Spacer(minLength: 0)
+            }
+            .padding(.vertical, 8)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier(accessibilityID ?? "book.\(title)")
+        .accessibilityLabel(title)
+        .accessibilityHint(isExpanded ? "Collapses this book" : "Shows items in this book")
+        .accessibilityValue(isExpanded ? "Expanded" : "Collapsed")
+        .accessibilityAddTraits(.isButton)
+    }
+}
+
+/// Book header plus, when expanded, the readings or cases that belong to it.
+/// Books start collapsed; expanding one reveals its items.
+struct BookDisclosureSection<Content: View>: View {
+    let title: String
+    var subtitle: String? = nil
+    var badge: Int = 0
+    var accessibilityID: String? = nil
+    @Binding var isExpanded: Bool
+    @ViewBuilder var content: () -> Content
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            BookDisclosureHeader(
+                title: title,
+                subtitle: subtitle,
+                badge: badge,
+                accessibilityID: accessibilityID,
+                isExpanded: $isExpanded
+            )
+            if isExpanded {
+                content()
+            }
+        }
+    }
+}
+
 struct DaybookLoadErrorPanel: View {
     let message: String
     var retry: () -> Void

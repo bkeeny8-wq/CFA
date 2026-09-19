@@ -133,7 +133,7 @@ struct CaseListView: View {
                 activeCaseSelection?.wrappedValue = caseStudy.id
                 onCaseSelected?(caseStudy.id)
             } label: {
-                caseRowLabel(caseStudy)
+                CaseStudyRowLabel(caseStudy: caseStudy, attempts: attempts)
                     .cfaCard(padding: 16)
                     .overlay {
                         if selected {
@@ -147,16 +147,21 @@ struct CaseListView: View {
             NavigationLink {
                 CaseDetailView(caseID: caseStudy.id)
             } label: {
-                caseRowLabel(caseStudy)
+                CaseStudyRowLabel(caseStudy: caseStudy, attempts: attempts)
                     .cfaCard(padding: 16)
             }
             .buttonStyle(.plain)
         }
     }
+}
 
-    private func caseRowLabel(_ caseStudy: CaseStudy) -> some View {
-        let meta = caseMetadata(caseStudy)
-        return VStack(alignment: .leading, spacing: 6) {
+struct CaseStudyRowLabel: View {
+    let caseStudy: CaseStudy
+    let attempts: [Attempt]
+
+    var body: some View {
+        let meta = metadata
+        VStack(alignment: .leading, spacing: 6) {
             Text(caseStudy.title)
                 .font(Theme.serif(.headline, weight: .semibold))
                 .foregroundStyle(Theme.ink)
@@ -169,7 +174,7 @@ struct CaseListView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 
-    private func caseMetadata(_ caseStudy: CaseStudy) -> (essays: Int, attempted: Int, total: Int, accuracy: Double?) {
+    private var metadata: (essays: Int, attempted: Int, total: Int, accuracy: Double?) {
         let qIDs = Set(caseStudy.questions.map(\.id))
         let essays = caseStudy.questions.filter { $0.type == .essay }.count
         let mine = attempts.filter { qIDs.contains($0.questionId) }

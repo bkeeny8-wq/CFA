@@ -12,6 +12,7 @@ struct FlashcardsHomeView: View {
 
     @Environment(PracticeBuilderPreference.self) private var practicePref
     @State private var typeFilter: FlashcardType?
+    @State private var expandedBookIDs: Set<String> = []
     /// See HomeView: the daily new-card allowance is a function of "today".
     @State private var dayToken = 0
 
@@ -150,11 +151,23 @@ struct FlashcardsHomeView: View {
             ForEach(areas) { area in
                 let readings = area.readings.filter { !cards(for: $0).isEmpty }
                 if !readings.isEmpty {
-                    Section(area.name) {
-                        ForEach(readings) { reading in
-                            deckRow(reading, rows: rows)
+                    let name = ProgressDisplay.shortName(area.id, fallback: area.name)
+                    BookDisclosureSection(
+                        title: name,
+                        subtitle: "\(readings.count) reading\(readings.count == 1 ? "" : "s")",
+                        accessibilityID: "cards.book.\(name)",
+                        isExpanded: $expandedBookIDs[area.id]
+                    ) {
+                        VStack(spacing: 0) {
+                            ForEach(readings) { reading in
+                                deckRow(reading, rows: rows)
+                                    .padding(.vertical, 8)
+                            }
                         }
                     }
+                    .listRowInsets(EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16))
+                    .listRowSeparator(.hidden)
+                    .listRowBackground(Color.clear)
                 }
             }
         }

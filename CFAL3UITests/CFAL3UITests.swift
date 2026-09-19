@@ -64,6 +64,16 @@ final class CFAL3UITests: XCTestCase {
         app.descendants(matching: .any)["cases.book.\(name)"].firstMatch
     }
 
+    private func notesBook(_ name: String) -> XCUIElement {
+        app.descendants(matching: .any)["notes.book.\(name)"].firstMatch
+    }
+
+    private func firstCaseItem() -> XCUIElement {
+        app.descendants(matching: .any)
+            .matching(NSPredicate(format: "identifier BEGINSWITH %@", "cases.item."))
+            .firstMatch
+    }
+
     private func progressCoverage() -> XCUIElement {
         app.descendants(matching: .any)["progress.losCoverage"].firstMatch
     }
@@ -167,6 +177,8 @@ final class CFAL3UITests: XCTestCase {
         tab("Cases").tap()
         XCTAssertTrue(casesBook("Ethics").waitForExistence(timeout: 10),
                       "the Cases destination should list the books")
+        XCTAssertFalse(firstCaseItem().exists,
+                       "case rows stay hidden until a book is expanded")
     }
 
     /// Browsing a vignette must not hide Practice — sittings are a cover;
@@ -178,6 +190,11 @@ final class CFAL3UITests: XCTestCase {
         let ethics = casesBook("Ethics")
         XCTAssertTrue(ethics.waitForExistence(timeout: 10))
         ethics.tap()
+
+        let caseRow = firstCaseItem()
+        XCTAssertTrue(caseRow.waitForExistence(timeout: 10),
+                      "expanding Ethics should reveal its cases")
+        caseRow.tap()
 
         XCTAssertTrue(waitFor(tab("Practice"), 10), "the sidebar vanished inside a vignette browse")
         tab("Practice").tap()
@@ -200,12 +217,19 @@ final class CFAL3UITests: XCTestCase {
         XCTAssertFalse(app.buttons["study.section.cards"].firstMatch.exists,
                        "the old Study section bar should be gone")
 
+        let ethics = notesBook("Ethics")
+        XCTAssertTrue(ethics.waitForExistence(timeout: 10),
+                      "Notes should list the books")
+
         let reading = app.buttons
             .matching(NSPredicate(format: "label BEGINSWITH %@", "R1 ·"))
             .firstMatch
-        if reading.waitForExistence(timeout: 10) {
-            reading.tap()
-        }
+        XCTAssertFalse(reading.exists,
+                       "readings stay hidden until a book is expanded")
+        ethics.tap()
+        XCTAssertTrue(reading.waitForExistence(timeout: 10),
+                      "expanding Ethics should reveal its readings")
+        reading.tap()
 
         XCTAssertTrue(tab("Cards").waitForExistence(timeout: 10),
                       "Cards vanished after opening a reading")
