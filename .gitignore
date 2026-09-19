@@ -14,3 +14,16 @@ Secrets/
 *.xcconfig
 # ...but the tracked template must ship, or a clone cannot build.
 !Config/Secrets.xcconfig
+
+# Third-party course material — never commit. This repo is public.
+# The MM Review PDFs are purchased MarkMeldrum.com coursework: encrypted,
+# copyright-noticed, and stamped with a per-purchaser watermark. Committing
+# them would republish someone else's paid product under this account's name.
+# Drop them in CFAL3/Resources/MMReview/ locally; Xcode copies whatever is
+# there into the bundle, and mm_review.json (which is tracked) is only
+# module names and page numbers.
+#
+# The FOLDER stays tracked (via its README) because the Xcode project holds a
+# folder reference to it — ignoring the directory itself would leave a clone
+# with a dangling reference. Only the PDFs are ignored.
+CFAL3/Resources/MMReview/*.pdf

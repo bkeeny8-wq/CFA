@@ -6,6 +6,7 @@ enum AppTab: Hashable, CaseIterable, Identifiable {
     case today
     case plan
     case notes
+    case mmReview
     case cards
     case practice
     case cases
@@ -18,6 +19,7 @@ enum AppTab: Hashable, CaseIterable, Identifiable {
         case .today: return "Today"
         case .plan: return "Plan"
         case .notes: return "Notes"
+        case .mmReview: return "MM Review"
         case .cards: return "Cards"
         case .practice: return "Practice"
         case .cases: return "Cases"
@@ -30,6 +32,7 @@ enum AppTab: Hashable, CaseIterable, Identifiable {
         case .today: return "calendar"
         case .plan: return "calendar.badge.clock"
         case .notes: return "checklist"
+        case .mmReview: return "doc.richtext"
         case .cards: return "rectangle.on.rectangle.angled"
         case .practice: return "target"
         case .cases: return "briefcase"
@@ -39,7 +42,13 @@ enum AppTab: Hashable, CaseIterable, Identifiable {
 
     /// Sidebar rows are addressed by identifier. UITests used to hunt a
     /// floating iPad tab pill; the chrome changed, the contract did not.
-    var identifier: String { "tab.\(title.lowercased())" }
+    ///
+    /// Derived from the title, but a title with a space in it would produce
+    /// "tab.mm review" — an identifier no sane test wants to type. Spaces
+    /// collapse, so MM Review is addressed as "tab.mmreview".
+    var identifier: String {
+        "tab.\(title.lowercased().replacingOccurrences(of: " ", with: ""))"
+    }
 }
 
 struct FlashcardSittingPayload: Identifiable {
@@ -158,6 +167,8 @@ private struct RootTabContent: View {
             NavigationStack { PlanView() }
         case .notes:
             NavigationStack { StudyPlannerView() }
+        case .mmReview:
+            NavigationStack { MMReviewView() }
         case .cards:
             NavigationStack { FlashcardsHomeView() }
         case .practice:

@@ -13,6 +13,7 @@ final class ContentLoader {
     private(set) var losDrillBundles: [String: LOSDrillBundle] = [:]
     private(set) var flashcardBundle: FlashcardBundle?
     private(set) var schedule: StudySchedule?
+    private(set) var mmReview: MMReviewBundle?
     private(set) var loadError: String?
 
     private var flashcardsByID: [String: Flashcard] = [:]
@@ -127,6 +128,7 @@ final class ContentLoader {
         let drillBundles: [String: LOSDrillBundle]
         let flashcardBundle: FlashcardBundle?
         let schedule: StudySchedule?
+        let mmReview: MMReviewBundle?
     }
 
     private static func decodeSnapshot() throws -> ContentSnapshot {
@@ -138,6 +140,10 @@ final class ContentLoader {
         let drillBundles = try decodeDrillBundles()
         let flashcardBundle: FlashcardBundle? = try? decodeJSON("flashcards")
         let schedule: StudySchedule? = try? decodeJSON("study_schedule")
+        // Optional in the same sense as flashcards: the manifest is tracked,
+        // but the PDFs it indexes are not, so a clone decodes this fine and
+        // simply has nothing to open.
+        let mmReview: MMReviewBundle? = try? decodeJSON("mm_review")
         #if DEBUG
         if schedule == nil {
             print("CFAL3: study_schedule.json failed to decode")
@@ -151,7 +157,8 @@ final class ContentLoader {
             targets: targets,
             drillBundles: drillBundles,
             flashcardBundle: flashcardBundle,
-            schedule: schedule
+            schedule: schedule,
+            mmReview: mmReview
         )
     }
 
@@ -187,6 +194,7 @@ final class ContentLoader {
         contentTargets = snapshot.targets
         losDrillBundles = snapshot.drillBundles
         schedule = snapshot.schedule
+        mmReview = snapshot.mmReview
         applyFlashcards(snapshot.flashcardBundle)
         rebuildIndexes(from: snapshot.bank, los: snapshot.los, notes: snapshot.notes)
     }
