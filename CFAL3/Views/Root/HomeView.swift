@@ -11,9 +11,11 @@ struct HomeView: View {
     @Query(sort: \Attempt.timestamp, order: .reverse) private var attempts: [Attempt]
     @Query private var losStatuses: [LOSStudyStatus]
     @Query private var dayCompletions: [DayCompletion]
+    @Query private var flashcardProgress: [FlashcardProgress]
     @Environment(\.modelContext) private var modelContext
 
     @State private var dayToken = 0
+    @State private var showDecks = false
 
     private var reviewPlan: ReviewQueue.Plan {
         ReviewQueue.plan(
@@ -49,6 +51,7 @@ struct HomeView: View {
                     todayHeader
                     heroCard(reviewPlan)
                     oneTapRow
+                    cardsStrip
                     todaysPlanCard
                     continueCard
                     weakestChips
@@ -62,6 +65,19 @@ struct HomeView: View {
         .frame(maxWidth: .infinity)
         .background(Theme.paper)
         .toolbar(.hidden, for: .navigationBar)
+        .onAppear { content.bootstrapFlashcardProgress(context: modelContext) }
+        .sheet(isPresented: $showDecks) {
+            NavigationStack {
+                FlashcardsHomeView()
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button("Close") { showDecks = false }
+                        }
+                    }
+            }
+            .tint(Theme.pine)
+            .daybookPaper()
+        }
         .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in
             dayToken &+= 1
         }
@@ -212,6 +228,79 @@ struct HomeView: View {
         .disabled(!enabled)
         .opacity(enabled ? 1 : 0.45)
         .accessibilityIdentifier(identifier)
+    }
+
+    private var flashcardPlan: FlashcardQueue.Plan {
+        FlashcardQueue.plan(
+            cards: content.allFlashcards,
+            progress: flashcardProgress,
+            dailyNewLimit: practicePref.dailyNewFlashcardLimit
+        )
+    }
+
+    private var cardsStrip: some View {
+        let plan = flashcardPlan
+        return HStack(alignment: .center, spacing: 12) {
+            Button {
+                startCardSession(plan)
+            } label: {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(cardHeadline(plan))
+                        .font(.headline)
+                        .foregroundStyle(Theme.ink)
+                    Text(cardSubtitle(plan))
+                        .font(.caption)
+                        .foregroundStyle(Theme.dust)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .buttonStyle(.plain)
+            .disabled(plan.isEmpty)
+            .opacity(plan.isEmpty ? 0.55 : 1)
+            .accessibilityIdentifier("cards.today")
+            .accessibilityLabel(cardHeadline(plan))
+            .accessibilityHint(plan.isEmpty ? cardSubtitle(plan) : "\(plan.sessionIDs.count) cards in today's mix")
+
+            Button("Browse decks") { showDecks = true }
+                .font(.subheadline.weight(.medium))
+                .foregroundStyle(Theme.pine)
+                .frame(minHeight: 44)
+                .accessibilityIdentifier("cards.browse")
+        }
+        .padding(16)
+        .background(
+            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                .fill(Theme.cardFill)
+                .shadow(color: Color.black.opacity(0.04), radius: 10, y: 3)
+        )
+    }
+
+    private func cardHeadline(_ plan: FlashcardQueue.Plan) -> String {
+        if plan.dueInSession > 0 && plan.newInSession > 0 {
+            return "Review cards · \(plan.dueInSession) due · \(plan.newInSession) new"
+        }
+        if plan.dueInSession > 0 { return "Review cards · \(plan.dueInSession) due" }
+        if plan.newInSession > 0 { return "New cards · \(plan.newInSession)" }
+        if plan.flaggedInSession > 0 { return "Review flagged cards" }
+        if plan.isNewOff { return "New cards are off" }
+        if plan.isNewExhausted { return "Today's new cards are done" }
+        return "Cards caught up"
+    }
+
+    private func cardSubtitle(_ plan: FlashcardQueue.Plan) -> String {
+        if plan.isEmpty {
+            return "Open a reading in Notes, or browse decks."
+        }
+        return "One tap. Same Again / Hard / Good / Easy as questions."
+    }
+
+    private func startCardSession(_ plan: FlashcardQueue.Plan) {
+        let byID = Dictionary(content.allFlashcards.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a })
+        router.presentFlashcards(
+            title: plan.newInSession > 0 && plan.dueInSession == 0 ? "New cards" : "Today's cards",
+            cards: plan.sessionIDs.compactMap { byID[$0] },
+            dueCount: plan.dueInSession
+        )
     }
 
     @ViewBuilder

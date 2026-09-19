@@ -10,7 +10,7 @@ struct FlashcardSessionView: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Query private var progress: [FlashcardProgress]
 
-    let title: String
+    var dueCount: Int = 0
 
     /// A SNAPSHOT, taken once. The deck arrives from an expression the parent
     /// recomputes on every body evaluation, and rating a card invalidates the
@@ -18,9 +18,10 @@ struct FlashcardSessionView: View {
     /// underneath the index walking it, skipping cards and shuffling the rest.
     @State private var cards: [Flashcard]
 
-    init(title: String, cards: [Flashcard]) {
-        self.title = title
+    init(title: String, cards: [Flashcard], dueCount: Int = 0) {
+        self.dueCount = dueCount
         _cards = State(initialValue: cards)
+        _ = title
     }
 
     @State private var index = 0
@@ -37,6 +38,10 @@ struct FlashcardSessionView: View {
         Dictionary(progress.map { ($0.cardId, $0) }, uniquingKeysWith: { a, _ in a })
     }
 
+    private var remainingDue: Int {
+        max(0, dueCount - ratedCount)
+    }
+
     var body: some View {
         Group {
             if cards.isEmpty {
@@ -51,54 +56,37 @@ struct FlashcardSessionView: View {
                 summary
             }
         }
-        .navigationTitle(title)
+        .navigationBarBackButtonHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
         .hidesStudySelector()
-        .navigationBarTitleDisplayMode(.inline)
         .background(Theme.paper)
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button("End sitting") { dismiss() }
-                    .foregroundStyle(Theme.pine)
-                    .accessibilityIdentifier("sitting.end")
-            }
-            ToolbarItem(placement: .principal) {
-                Text("Cards · \(index + 1) of \(cards.count)")
-                    .font(.headline)
-                    .foregroundStyle(Theme.ink)
-            }
-            ToolbarItem(placement: .topBarTrailing) {
-                if current != nil {
-                    Text("\(index + 1) / \(cards.count)")
-                        .font(.footnote.monospacedDigit())
-                        .foregroundStyle(Theme.dust)
-                        .accessibilityIdentifier("flashcard.progress")
-                        .accessibilityLabel("Card \(index + 1) of \(cards.count)")
-                }
-            }
-            ToolbarItem(placement: .topBarTrailing) {
-                if let card = current {
-                    Button {
-                        toggleFlag(card)
-                    } label: {
-                        Image(systemName: progressByCard[card.id]?.flaggedForReview == true
-                              ? "flag.fill" : "flag")
-                    }
-                    .accessibilityLabel(
-                        progressByCard[card.id]?.flaggedForReview == true
-                        ? "Remove flag" : "Flag for review"
-                    )
-                    .accessibilityIdentifier("flashcard.flag")
-                }
-            }
-            ToolbarItem(placement: .topBarTrailing) {
-                if current != nil {
-                    Button(AttemptHost.skipTitle) {
-                        if let card = current { skipAndFlag(card) }
-                    }
-                    .accessibilityIdentifier("flashcard.skip")
-                }
+        .safeAreaInset(edge: .top, spacing: 0) {
+            if current != nil {
+                sittingChrome
             }
         }
+    }
+
+    private var sittingChrome: some View {
+        let currentIndex = min(index + 1, max(cards.count, 1))
+        return SittingTopBar(
+            title: "Cards · \(currentIndex) of \(cards.count)",
+            progressCurrent: currentIndex,
+            progressTotal: cards.count,
+            showDots: false,
+            hideStem: nil,
+            flagged: current.map { progressByCard[$0.id]?.flaggedForReview == true } ?? false,
+            onFlag: { if let card = current { toggleFlag(card) } },
+            onEnd: { dismiss() },
+            clock: nil,
+            status: remainingDue > 0 ? "\(remainingDue) due" : nil,
+            showsMeter: false,
+            progressAccessibilityIdentifier: "flashcard.progress",
+            progressAccessibilityLabel: "Card \(currentIndex) of \(cards.count)",
+            flagIdentifier: "flashcard.flag",
+            onSkip: { if let card = current { skipAndFlag(card) } },
+            skipIdentifier: "flashcard.skip"
+        )
     }
 
     // MARK: - Card
@@ -122,12 +110,11 @@ struct FlashcardSessionView: View {
                     .accessibilityIdentifier("flashcard.reveal")
                     .accessibilityLabel("Reveal answer")
                     .accessibilityHint(card.front)
+                    .keyboardShortcut(.space, modifiers: [])
                 }
             }
 
-            if isRevealed {
-                ratingBar(card)
-            }
+            ratingBar(card)
         }
     }
 
@@ -138,7 +125,8 @@ struct FlashcardSessionView: View {
             typeBadge(card)
 
             Text(card.front)
-                .font(.title3.weight(.semibold))
+                .font(Theme.serif(.title, weight: .semibold))
+                .foregroundStyle(Theme.ink)
                 .fixedSize(horizontal: false, vertical: true)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
@@ -151,60 +139,59 @@ struct FlashcardSessionView: View {
                         .padding(12)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .background(Theme.subtleFill)
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                         .textSelection(.enabled)
                 }
 
                 Text(card.back)
-                    .font(.body)
-                    .lineSpacing(3)
+                    .font(Theme.serif(.title3))
+                    .foregroundStyle(Theme.ink)
+                    .lineSpacing(4)
                     .fixedSize(horizontal: false, vertical: true)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .textSelection(.enabled)
 
                 if let m = card.mnemonic, !m.trimmingCharacters(in: .whitespaces).isEmpty {
-                    Label(m, systemImage: "brain")
+                    Text(m)
                         .font(.callout)
-                        .foregroundStyle(Theme.accent)
+                        .foregroundStyle(Theme.dust)
                         .padding(.top, 2)
                         .fixedSize(horizontal: false, vertical: true)
                 }
             } else {
                 Text("Tap to reveal")
                     .font(.footnote)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(Theme.dust)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding(.top, 24)
             }
         }
-        .padding(16)
+        .padding(22)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Theme.cardFill)
-        .clipShape(RoundedRectangle(cornerRadius: Theme.cardRadius))
-        .padding(.horizontal)
-        // A card answer set across the full 1032pt runs to about 968pt of text
-        // per line, which is roughly twice a comfortable measure and makes the
-        // eye lose its place between lines.
+        .clipShape(RoundedRectangle(cornerRadius: Theme.sittingCardRadius, style: .continuous))
+        .shadow(color: Color.black.opacity(0.06), radius: 18, y: 6)
+        .padding(.horizontal, 20)
         .readableContentWidth()
-        .padding(.top, 12)
+        .padding(.top, 8)
     }
 
     private func typeBadge(_ card: Flashcard) -> some View {
         HStack(spacing: 8) {
-            Label(card.type.displayName, systemImage: card.type.symbolName)
+            Text(card.type.displayName)
                 .font(.caption.weight(.semibold))
                 .padding(.horizontal, 8)
                 .padding(.vertical, 4)
-                .background(Capsule().fill(Theme.accent.opacity(0.15)))
-                .foregroundStyle(Theme.accent)
+                .background(Capsule().strokeBorder(Theme.pine.opacity(0.45), lineWidth: 1))
+                .foregroundStyle(Theme.pine)
 
             if card.difficulty == .stretch {
                 Text("Stretch")
                     .font(.caption2.weight(.semibold))
                     .padding(.horizontal, 7)
                     .padding(.vertical, 3)
-                    .background(Capsule().fill(Theme.warning.opacity(0.18)))
-                    .foregroundStyle(Theme.warning)
+                    .background(Capsule().fill(Theme.copper.opacity(0.18)))
+                    .foregroundStyle(Theme.copper)
             }
             Spacer()
         }
@@ -214,54 +201,57 @@ struct FlashcardSessionView: View {
 
     private func ratingBar(_ card: Flashcard) -> some View {
         let row = progressByCard[card.id]
-        return VStack(spacing: 8) {
-            HStack(spacing: 8) {
-                ratingButton("Again", quality: 1, tint: Theme.danger, row: row, card: card)
-                ratingButton("Hard", quality: 3, tint: Theme.warning, row: row, card: card)
-                ratingButton("Good", quality: 4, tint: Theme.accent, row: row, card: card)
-                ratingButton("Easy", quality: 5, tint: Theme.success, row: row, card: card)
-            }
-            Button(AttemptHost.skipTitle) {
-                skipAndFlag(card)
-            }
-            .font(.footnote.weight(.medium))
-            .accessibilityIdentifier("flashcard.skip.rate")
+        return HStack(spacing: 10) {
+            ratingButton("Again", quality: 1, tint: Theme.copper, shortcut: "1", row: row, card: card)
+            ratingButton("Hard", quality: 3, tint: Theme.ink, shortcut: "2", row: row, card: card)
+            ratingButton("Good", quality: 4, tint: Theme.pine, shortcut: "3", row: row, card: card)
+            ratingButton("Easy", quality: 5, tint: Theme.pine, shortcut: "4", row: row, card: card)
         }
-        .padding(.horizontal)
-        .padding(.vertical, 10)
-        .background(.bar)
+        .padding(.horizontal, 20)
+        .padding(.vertical, 14)
+        .opacity(isRevealed ? 1 : 0.38)
+        .allowsHitTesting(isRevealed)
+        .accessibilityElement(children: .contain)
+        .accessibilityLabel(isRevealed ? "Rate this card" : "Rate after you reveal")
     }
 
     private func ratingButton(
-        _ label: String, quality: Int, tint: Color,
+        _ label: String, quality: Int, tint: Color, shortcut: KeyEquivalent,
         row: FlashcardProgress?, card: Flashcard
     ) -> some View {
         Button {
             rate(card, quality: quality)
         } label: {
-            VStack(spacing: 2) {
-                Text(label).font(.footnote.weight(.semibold))
+            VStack(spacing: 4) {
+                Text(label)
+                    .font(Theme.serif(.title3, weight: .semibold))
                 Text(intervalLabel(row: row, quality: quality))
-                    .font(.caption2.monospacedDigit())
-                    .foregroundStyle(.secondary)
+                    .font(.caption.monospacedDigit())
+                    .foregroundStyle(Theme.dust)
             }
             .frame(maxWidth: .infinity)
-            .padding(.vertical, 8)
-            .background(RoundedRectangle(cornerRadius: 9).fill(tint.opacity(0.14)))
+            .padding(.vertical, 14)
+            .background(
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .strokeBorder(tint.opacity(0.55), lineWidth: 1.5)
+            )
             .foregroundStyle(tint)
         }
         .buttonStyle(.plain)
-        .frame(minHeight: 44)
+        .keyboardShortcut(shortcut, modifiers: [])
+        .frame(minHeight: 64)
         .accessibilityLabel("\(label), \(intervalLabel(row: row, quality: quality))")
         .accessibilityIdentifier("flashcard.rate.\(label.lowercased())")
     }
 
     private func intervalLabel(row: FlashcardProgress?, quality: Int) -> String {
-        guard let row else { return quality < 3 ? "1d" : "1d" }
+        if quality < 3 { return "10m" }
+        guard let row else { return "1d" }
         return "\(ReviewScheduler.previewInterval(item: row, quality: quality))d"
     }
 
     private func rate(_ card: Flashcard, quality: Int) {
+        guard isRevealed else { return }
         let row = progressByCard[card.id] ?? {
             let new = FlashcardProgress(
                 cardId: card.id, readingId: card.readingID, areaId: card.areaID

@@ -120,7 +120,7 @@ struct SettingsView: View {
             }
 
             Section {
-                Text("Study shows Notes or Cards, not both. Switching halves starts that half fresh so a screen reader never finds two of everything. An in-progress sitting hides the Notes/Cards switcher so it cannot dump the sitting.")
+                Text("Cards are not a sidebar row. Review the daily mix from Today, or open a reading in Notes to sit that deck. An in-progress sitting hides the sidebar so it cannot dump the sitting.")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             } header: {

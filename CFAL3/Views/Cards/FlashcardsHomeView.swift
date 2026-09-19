@@ -1,9 +1,8 @@
 import SwiftUI
 import SwiftData
 
-/// Deck browser for the Cards half of the Study tab: what's due now, then
-/// every book and its readings with per-deck counts. It shares Study's
-/// book → reading shape, which is why the two fold together behind one menu.
+/// Deck browser reached from Today ("Browse decks"), not a sidebar row.
+/// What's due now, then every book and its readings with per-deck counts.
 struct FlashcardsHomeView: View {
     @Environment(ContentLoader.self) private var content
     @Environment(\.modelContext) private var modelContext
@@ -105,7 +104,8 @@ struct FlashcardsHomeView: View {
                 Button {
                     router.presentFlashcards(
                         title: plan.newInSession > 0 && plan.dueInSession == 0 ? "New cards" : "Today's cards",
-                        cards: plan.sessionIDs.compactMap { byID[$0] }
+                        cards: plan.sessionIDs.compactMap { byID[$0] },
+                        dueCount: plan.dueInSession
                     )
                 } label: {
                     HStack {
