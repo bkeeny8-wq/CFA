@@ -139,3 +139,97 @@ final class PracticeScopeTests: XCTestCase {
                        "Practice book filter breaks if topic IDs drift from area IDs")
     }
 }
+
+// MARK: - Per-LOS stats behind the checklist
+
+/// The LOS checklist shows an "attempted / correct" figure beside each
+/// statement. It counted the case bank only, so the 2,625 LOS drills — the
+/// most precisely LOS-tagged content in the app — moved none of it.
+final class LOSQuestionStatsTests: XCTestCase {
+
+    private func loadedContent() throws -> ContentLoader {
+        let content = ContentLoader()
+        content.load()
+        try XCTSkipIf(content.loadError != nil, content.loadError ?? "")
+        return content
+    }
+
+    private func attempt(_ questionID: String, correct: Bool) -> Attempt {
+        Attempt(
+            questionId: questionID, caseId: "c", topicId: "t",
+            durationSeconds: 30, wasCorrect: correct
+        )
+    }
+
+    /// Answering a drill must register against the LOS it drills.
+    func testADrillAttemptCountsTowardItsLOS() throws {
+        let content = try loadedContent()
+
+        // A LOS that actually has drills behind it.
+        let losWithDrills = (content.losMaster?.areas ?? [])
+            .flatMap(\.readings)
+            .flatMap(\.los)
+            .first { !content.drills(forLOS: $0.id).isEmpty }
+        let los = try XCTUnwrap(losWithDrills, "fixture has no LOS with drills")
+        let drill = try XCTUnwrap(content.drills(forLOS: los.id).first)
+
+        let before = StudyPlannerStats.questionStats(losID: los.id, content: content, attempts: [])
+        XCTAssertEqual(before.attempted, 0)
+
+        let after = StudyPlannerStats.questionStats(
+            losID: los.id, content: content, attempts: [attempt(drill.id, correct: true)]
+        )
+        XCTAssertEqual(after.attempted, 1, "the drill did not count toward its own LOS")
+        XCTAssertEqual(after.correctRate, 1.0)
+    }
+
+    /// Bank questions still count — the fix adds drills, it does not swap them.
+    func testABankAttemptStillCountsTowardItsLOS() throws {
+        let content = try loadedContent()
+
+        let pair = (content.losMaster?.areas ?? [])
+            .flatMap(\.readings)
+            .flatMap(\.los)
+            .lazy
+            .compactMap { los -> (String, String)? in
+                guard let q = content.questions(matchingLOS: [los.id]).first else { return nil }
+                return (los.id, q)
+            }
+            .first
+        let (losID, questionID) = try XCTUnwrap(pair, "fixture has no LOS with bank questions")
+
+        let after = StudyPlannerStats.questionStats(
+            losID: losID, content: content, attempts: [attempt(questionID, correct: false)]
+        )
+        XCTAssertEqual(after.attempted, 1)
+        XCTAssertEqual(after.correctRate, 0.0)
+    }
+
+    /// The two banks are counted together, not one or the other.
+    func testBankAndDrillAttemptsAreBothCounted() throws {
+        let content = try loadedContent()
+
+        let combined = (content.losMaster?.areas ?? [])
+            .flatMap(\.readings)
+            .flatMap(\.los)
+            .lazy
+            .compactMap { los -> (String, String, String)? in
+                guard let q = content.questions(matchingLOS: [los.id]).first,
+                      let d = content.drills(forLOS: los.id).first
+                else { return nil }
+                return (los.id, q, d.id)
+            }
+            .first
+        let (losID, questionID, drillID) = try XCTUnwrap(
+            combined, "fixture has no LOS carrying both a bank question and a drill"
+        )
+
+        let stats = StudyPlannerStats.questionStats(
+            losID: losID,
+            content: content,
+            attempts: [attempt(questionID, correct: true), attempt(drillID, correct: false)]
+        )
+        XCTAssertEqual(stats.attempted, 2, "one bank question and one drill is two attempts")
+        XCTAssertEqual(stats.correctRate, 0.5)
+    }
+}

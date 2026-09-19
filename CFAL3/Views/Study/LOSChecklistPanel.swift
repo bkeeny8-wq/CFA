@@ -50,19 +50,21 @@ struct LOSChecklistPanel: View {
             Section("Learning outcome statements") {
                 ForEach(reading.los) { los in
                     let essayCount = content.essays(forLOS: los.id).count
+                    // Once per row, not twice. This was called separately for
+                    // `attempted` and for `correctRate`, and each call scans
+                    // the whole bank AND all 2,625 drills — so a ten-LOS
+                    // reading swept the corpus twenty times per body
+                    // evaluation to render one list.
+                    let stats = StudyPlannerStats.questionStats(
+                        losID: los.id,
+                        content: content,
+                        attempts: attempts
+                    )
                     LOSChecklistRow(
                         los: los,
                         state: statusByLOS[los.id]?.studyState ?? .notStarted,
-                        questionAttempted: StudyPlannerStats.questionStats(
-                            losID: los.id,
-                            content: content,
-                            attempts: attempts
-                        ).attempted,
-                        correctRate: StudyPlannerStats.questionStats(
-                            losID: los.id,
-                            content: content,
-                            attempts: attempts
-                        ).correctRate,
+                        questionAttempted: stats.attempted,
+                        correctRate: stats.correctRate,
                         essayCount: essayCount,
                         onCycleState: { cycleState(for: los) },
                         onSitEssays: essayCount > 0 ? { sitEssays(for: los) } : nil

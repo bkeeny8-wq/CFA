@@ -76,12 +76,25 @@ enum StudyPlannerStats {
         return (mastered, reviewing, total)
     }
 
+    /// Attempts against a LOS, counting BOTH banks.
+    ///
+    /// `questions(matchingLOS:)` walks the case bank only, so this used to
+    /// ignore every drill — and drills are 2,625 of the 3,164 questions, each
+    /// carrying exactly one `primaryLOS`. They are the most precisely
+    /// LOS-tagged content in the app, which made them the worst possible thing
+    /// to leave out of a per-LOS figure: for reading 1 the checklist counted
+    /// 46 bank questions and ignored 75 drills, so sitting "This reading's
+    /// drills" and answering all of them moved none of these numbers.
+    ///
+    /// The bank lookup is left alone — `ProgressDashboardView` uses it to
+    /// start a bank-only sitting, which is a different question.
     static func questionStats(
         losID: String,
         content: ContentLoader,
         attempts: [Attempt]
     ) -> (attempted: Int, correctRate: Double?) {
-        let questionIDs = content.questions(matchingLOS: [losID])
+        var questionIDs = Set(content.questions(matchingLOS: [losID]))
+        questionIDs.formUnion(content.drills(forLOS: losID).map(\.id))
         guard !questionIDs.isEmpty else { return (0, nil) }
         let relevant = attempts.filter { questionIDs.contains($0.questionId) }
         let unique = Set(relevant.map(\.questionId)).count
