@@ -217,18 +217,18 @@ final class CFAL3UITests: XCTestCase {
         XCTAssertFalse(app.buttons["study.section.cards"].firstMatch.exists,
                        "the old Study section bar should be gone")
 
-        let ethics = notesBook("Ethics")
-        XCTAssertTrue(ethics.waitForExistence(timeout: 10),
+        let book = notesBook("Asset allocation")
+        XCTAssertTrue(book.waitForExistence(timeout: 10),
                       "Notes should list the books")
 
-        let reading = app.buttons
-            .matching(NSPredicate(format: "label BEGINSWITH %@", "R1 ·"))
+        let reading = app.descendants(matching: .any)
+            .matching(NSPredicate(format: "identifier BEGINSWITH %@", "notes.reading."))
             .firstMatch
         XCTAssertFalse(reading.exists,
                        "readings stay hidden until a book is expanded")
-        ethics.tap()
+        book.tap()
         XCTAssertTrue(reading.waitForExistence(timeout: 10),
-                      "expanding Ethics should reveal its readings")
+                      "expanding a book should reveal its readings")
         reading.tap()
 
         XCTAssertTrue(tab("Cards").waitForExistence(timeout: 10),

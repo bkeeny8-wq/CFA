@@ -87,6 +87,7 @@ struct StudyPlannerView: View {
                     )
                 }
                 .buttonStyle(.plain)
+                .accessibilityIdentifier("notes.reading.\(reading.id)")
             }
         }
     }

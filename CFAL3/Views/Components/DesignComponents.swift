@@ -405,11 +405,13 @@ extension Binding where Value == Set<String> {
         Binding<Bool>(
             get: { wrappedValue.contains(id) },
             set: { isOn in
+                var next = wrappedValue
                 if isOn {
-                    wrappedValue.insert(id)
+                    next.insert(id)
                 } else {
-                    wrappedValue.remove(id)
+                    next.remove(id)
                 }
+                wrappedValue = next
             }
         )
     }
