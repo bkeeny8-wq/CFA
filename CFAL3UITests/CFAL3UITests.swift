@@ -23,7 +23,7 @@ final class CFAL3UITests: XCTestCase {
 
     private var app: XCUIApplication!
 
-    private static let tabNames = ["Today", "Plan", "Notes", "Cards", "Practice", "Cases", "Progress"]
+    private static let tabNames = ["Today", "Plan", "Notes", "Review", "Cards", "Practice", "Cases", "Progress"]
 
     override func setUpWithError() throws {
         continueAfterFailure = false
@@ -150,7 +150,7 @@ final class CFAL3UITests: XCTestCase {
 
     func testEveryTabOpensWithoutCrashing() {
         XCTAssertTrue(waitFor(tab("Today")), "the sidebar never appeared")
-        for name in ["Plan", "Notes", "Cards", "Practice", "Cases", "Progress", "Today"] {
+        for name in ["Plan", "Notes", "Review", "Cards", "Practice", "Cases", "Progress", "Today"] {
             tab(name).tap()
             XCTAssertTrue(tab(name).waitForExistence(timeout: 10), "\(name) did not settle")
             XCTAssertEqual(app.state, .runningForeground, "app left the foreground on \(name)")

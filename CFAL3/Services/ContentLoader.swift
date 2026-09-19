@@ -9,6 +9,10 @@ final class ContentLoader {
     private(set) var losMaster: LOSMaster?
     private(set) var topicSummaries: [TopicSummary] = []
     private(set) var readingNotesBundle: ReadingNotesBundle?
+    /// Review sheets, from the combined study-notes DOCX. Kept separate from
+    /// `readingNotesBundle` on purpose: same material, different cut, and the
+    /// owner asked for it as its own section.
+    private(set) var reviewSheets: [ReviewSheet] = []
     private(set) var contentTargets: ContentTargets?
     private(set) var losDrillBundles: [String: LOSDrillBundle] = [:]
     private(set) var flashcardBundle: FlashcardBundle?
@@ -110,6 +114,7 @@ final class ContentLoader {
         let drillBundles: [String: LOSDrillBundle]
         let flashcardBundle: FlashcardBundle?
         let schedule: StudySchedule?
+        let reviewSheets: ReviewSheetBundle?
     }
 
     private static func decodeSnapshot() throws -> ContentSnapshot {
@@ -121,6 +126,7 @@ final class ContentLoader {
         let drillBundles = try decodeDrillBundles()
         let flashcardBundle: FlashcardBundle? = try? decodeJSON("flashcards")
         let schedule: StudySchedule? = try? decodeJSON("study_schedule")
+        let reviewSheets: ReviewSheetBundle? = try? decodeJSON("review_sheets")
         #if DEBUG
         if schedule == nil {
             print("CFAL3: study_schedule.json failed to decode")
@@ -134,7 +140,8 @@ final class ContentLoader {
             targets: targets,
             drillBundles: drillBundles,
             flashcardBundle: flashcardBundle,
-            schedule: schedule
+            schedule: schedule,
+            reviewSheets: reviewSheets
         )
     }
 
@@ -166,6 +173,7 @@ final class ContentLoader {
         contentTargets = snapshot.targets
         losDrillBundles = snapshot.drillBundles
         schedule = snapshot.schedule
+        reviewSheets = snapshot.reviewSheets?.readings ?? []
         applyFlashcards(snapshot.flashcardBundle)
         rebuildIndexes(from: snapshot.bank, los: snapshot.los, notes: snapshot.notes)
     }
