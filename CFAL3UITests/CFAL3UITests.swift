@@ -23,7 +23,9 @@ final class CFAL3UITests: XCTestCase {
 
     private var app: XCUIApplication!
 
-    private static let tabNames = ["Today", "Plan", "Notes", "Cards", "Practice", "Cases", "Progress"]
+    private static let tabNames = [
+        "Today", "Plan", "Notes", "MM Review", "Cards", "Practice", "Cases", "Progress"
+    ]
 
     override func setUpWithError() throws {
         continueAfterFailure = false
@@ -45,7 +47,12 @@ final class CFAL3UITests: XCTestCase {
     /// `app.tabBars`. Daybook uses a custom sidebar; identifiers stay the
     /// contract so chrome can change without rewriting every test.
     private func tab(_ name: String, in app: XCUIApplication? = nil) -> XCUIElement {
-        (app ?? self.app).buttons["tab.\(name.lowercased())"].firstMatch
+        // Mirrors AppTab.identifier: spaces collapse, so "MM Review" is
+        // addressed as "tab.mmreview". If the two ever drift, every lookup
+        // here silently returns a non-existent element and the tests pass by
+        // asserting nothing — hence tabNames is checked against the sidebar.
+        let id = name.lowercased().replacingOccurrences(of: " ", with: "")
+        return (app ?? self.app).buttons["tab.\(id)"].firstMatch
     }
 
     /// The bundle decodes ~9 MB on launch, so the first screen can take a
@@ -150,7 +157,7 @@ final class CFAL3UITests: XCTestCase {
 
     func testEveryTabOpensWithoutCrashing() {
         XCTAssertTrue(waitFor(tab("Today")), "the sidebar never appeared")
-        for name in ["Plan", "Notes", "Cards", "Practice", "Cases", "Progress", "Today"] {
+        for name in ["Plan", "Notes", "MM Review", "Cards", "Practice", "Cases", "Progress", "Today"] {
             tab(name).tap()
             XCTAssertTrue(tab(name).waitForExistence(timeout: 10), "\(name) did not settle")
             XCTAssertEqual(app.state, .runningForeground, "app left the foreground on \(name)")
@@ -205,6 +212,45 @@ final class CFAL3UITests: XCTestCase {
         XCTAssertTrue(app.descendants(matching: .any)["practice.scopeSummary"]
                         .firstMatch.waitForExistence(timeout: 10),
                       "could not get back to the quiz builder")
+    }
+
+    // MARK: - MM Review
+
+    /// MM Review indexes PDFs that are deliberately NOT in the repository, so
+    /// this asserts the index is present and navigable without asserting any
+    /// PDF loaded — on a clean checkout there is nothing to load, and that is
+    /// a supported state rather than a failure.
+    func testMMReviewListsBooksAndDrillsIntoModules() {
+        XCTAssertTrue(waitFor(tab("MM Review")), "the sidebar never appeared")
+        tab("MM Review").tap()
+
+        XCTAssertTrue(
+            app.otherElements["mmreview.library"].waitForExistence(timeout: 10)
+                || app.staticTexts["mmreview.library"].waitForExistence(timeout: 10),
+            "MM Review did not open"
+        )
+
+        // The PM pathway book, addressed by area id so a display-name change
+        // does not silently turn this into a test of nothing.
+        let book = app.buttons["mmreview.book.portfolio_management_pathway"].firstMatch
+        XCTAssertTrue(book.waitForExistence(timeout: 10), "MM Review should list the books")
+        book.tap()
+
+        // Yield Curve Strategies starts on page 43 of that PDF — the identifier
+        // carries the page, so a manifest that loses its page numbers fails
+        // here rather than opening the wrong page silently.
+        let module = app.buttons["mmreview.module.portfolio_management_pathway.43"].firstMatch
+        XCTAssertTrue(
+            module.waitForExistence(timeout: 10),
+            "expanding a book should reveal its learning modules"
+        )
+        module.tap()
+
+        XCTAssertTrue(
+            app.navigationBars["Yield Curve Strategies"].waitForExistence(timeout: 15),
+            "tapping a module should open it"
+        )
+        XCTAssertEqual(app.state, .runningForeground, "the PDF reader took the app down")
     }
 
     /// Notes and Cards are separate sidebar rows. Only the selected destination
