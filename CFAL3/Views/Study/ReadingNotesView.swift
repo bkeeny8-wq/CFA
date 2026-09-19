@@ -65,7 +65,7 @@ struct ReadingNotesView: View {
                             proxy.scrollTo(losScrollID(section.number, section.title), anchor: .top)
                         }
                     } label: {
-                        Text("LOS \(section.number)")
+                        Text("LOS \(losLetter(for: section.number).uppercased())")
                             .font(.caption.weight(.semibold))
                             .padding(.horizontal, 12)
                             .padding(.vertical, 6)
@@ -78,7 +78,7 @@ struct ReadingNotesView: View {
                             .clipShape(Capsule())
                     }
                     .buttonStyle(.plain)
-                    .accessibilityLabel("Jump to LOS \(section.number)")
+                    .accessibilityLabel("Jump to LOS \(losLetter(for: section.number).uppercased())")
                 }
             }
         }

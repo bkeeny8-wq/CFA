@@ -76,18 +76,18 @@ private struct LOSSectionHeader: View {
 
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
-            Text("\(number)")
-                .font(.headline.monospacedDigit())
+            Text(losLetter(for: number).uppercased())
+                .font(.headline)
                 .foregroundStyle(.white)
                 // minWidth, not a fixed frame: a hard 32x32 box clipped the
-                // digits to a sliver at accessibility text sizes, and this is
+                // label to a sliver at accessibility text sizes, and this is
                 // the primary wayfinding on a notes page.
                 .padding(.horizontal, 8)
                 .padding(.vertical, 6)
                 .frame(minWidth: 32, minHeight: 32)
                 .background(Theme.accent)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
-                .accessibilityLabel("LOS \(number)")
+                .accessibilityLabel("LOS \(losLetter(for: number).uppercased())")
 
             Text(title)
                 .font(.title3.weight(.semibold))

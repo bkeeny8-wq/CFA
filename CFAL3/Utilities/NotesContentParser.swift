@@ -18,6 +18,27 @@ enum NotesCalloutKind: String, CaseIterable {
     }
 }
 
+/// The curriculum letters a LOS number maps to.
+///
+/// The notes export writes "LOS 7 — …", but the curriculum — and every other
+/// screen in this app, including the LOS checklist and the essay filter — names
+/// that statement "g". The two agree because the export's number is the LOS's
+/// **index within its reading**, not its position in the notes: the notes for
+/// `overview_of_asset_allocation` cover 1, 2, 5, 6, 7, 8, 9, 10 of that
+/// reading's ten LOS, and skip 3 and 4 entirely. Numbering the headings
+/// sequentially would have labelled the third heading "3" when it is LOS e.
+///
+/// Derived arithmetically rather than by indexing `los_master`, because two
+/// readings' notes carry a number past the end of their master list
+/// (`active_equity_investing_portfolio_construction` has a 9 against 8 LOS,
+/// and the endowment case study an 8 against 7). Indexing would render those
+/// headings blank; this still labels them, and for the other 34 readings it is
+/// the same letter the master list holds.
+func losLetter(for number: Int) -> String {
+    guard number >= 1, number <= 26 else { return String(number) }
+    return String(UnicodeScalar(UInt8(96 + number)))
+}
+
 enum NotesBlock: Identifiable, Equatable {
     case losSection(number: Int, title: String)
     case losStatement(String)

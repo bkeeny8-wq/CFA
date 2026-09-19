@@ -146,3 +146,94 @@ final class NotesContentParserTests: XCTestCase {
         }
     }
 }
+
+// MARK: - LOS lettering
+
+/// The notes headings are labelled with curriculum letters, and the mapping
+/// from the export's number is only valid because that number is the LOS's
+/// index within its reading rather than the heading's position in the notes.
+/// These lock both halves of that claim.
+final class NotesLOSLetteringTests: XCTestCase {
+
+    func testNumbersMapToCurriculumLetters() {
+        XCTAssertEqual(losLetter(for: 1), "a")
+        XCTAssertEqual(losLetter(for: 7), "g")
+        XCTAssertEqual(losLetter(for: 16), "p")
+        XCTAssertEqual(losLetter(for: 26), "z")
+    }
+
+    /// Out of range falls back to the number rather than to a wrong letter or
+    /// an empty label — a blank badge is the one outcome worse than a digit,
+    /// since the badge is the page's only wayfinding.
+    func testOutOfRangeFallsBackToTheNumber() {
+        XCTAssertEqual(losLetter(for: 27), "27")
+        XCTAssertEqual(losLetter(for: 0), "0")
+        XCTAssertEqual(losLetter(for: -3), "-3")
+    }
+
+    /// The number is a LOS index, so a reading's notes may SKIP numbers — and
+    /// where they do, sequential labelling would name the wrong statement.
+    /// `overview_of_asset_allocation` covers 1, 2, 5, 6, 7, 8, 9, 10 of ten
+    /// LOS: its third heading is LOS e, not LOS c.
+    func testNotesHeadingsSkipNumbersRatherThanRenumbering() throws {
+        let content = ContentLoader()
+        content.load()
+        try XCTSkipIf(content.loadError != nil, content.loadError ?? "")
+
+        let notes = try XCTUnwrap(content.readingNotes(id: "overview_of_asset_allocation"))
+        let numbers = NotesContentParser.parse(notes.content).compactMap { block -> Int? in
+            if case .losSection(let number, _) = block { return number }
+            return nil
+        }
+
+        XCTAssertEqual(numbers, [1, 2, 5, 6, 7, 8, 9, 10])
+        XCTAssertEqual(numbers.map { losLetter(for: $0) }, ["a", "b", "e", "f", "g", "h", "i", "j"])
+    }
+
+    /// Every letter a notes heading shows must name a LOS the curriculum
+    /// actually has under that reading — otherwise the notes and the LOS
+    /// checklist disagree about what "g" means. Two readings are known to
+    /// overflow their master list; they are named here so the exception stays
+    /// visible instead of being absorbed by a loose assertion.
+    func testLettersNameRealLOSInTheirReading() throws {
+        let content = ContentLoader()
+        content.load()
+        try XCTSkipIf(content.loadError != nil, content.loadError ?? "")
+        let master = try XCTUnwrap(content.losMaster)
+
+        let knownOverflow: Set<String> = [
+            "active_equity_investing_portfolio_construction",
+            "case_study_in_portfolio_management_institutional_endowment"
+        ]
+        var checked = 0
+
+        for reading in master.areas.flatMap(\.readings) {
+            guard let notes = content.readingNotes(id: reading.id) else { continue }
+            let letters = Set(reading.los.map { $0.letter.lowercased() })
+            let headings = NotesContentParser.parse(notes.content).compactMap { block -> Int? in
+                if case .losSection(let number, _) = block { return number }
+                return nil
+            }
+            guard !headings.isEmpty else { continue }
+
+            if knownOverflow.contains(reading.id) {
+                XCTAssertGreaterThan(headings.count, 0)
+                continue
+            }
+
+            for number in headings {
+                XCTAssertTrue(
+                    letters.contains(losLetter(for: number)),
+                    "\(reading.id): notes label LOS \(losLetter(for: number)) but the reading has none"
+                )
+            }
+            checked += 1
+        }
+
+        // Exactly 25: 36 readings carry notes, nine of them are ethics
+        // readings whose notes have no LOS headings at all, and two overflow
+        // and are skipped above. A floor rather than an equality would let the
+        // scan quietly shrink to one reading and still pass.
+        XCTAssertEqual(checked, 25, "the set of readings being scanned moved")
+    }
+}
