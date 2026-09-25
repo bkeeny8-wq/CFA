@@ -14,7 +14,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PATH = os.path.join(ROOT, "CFAL3/Resources/flashcards.json")
 
 # id -> ordered atoms after the first (which keeps the original id).
-# Each entry is (front_head, back).
+# Each entry is (authoring_note, back). The note labels the atom for whoever
+# edits this table; fronts are numbered positionally instead.
 SPLITS: dict[str, list[tuple[str, str]]] = {
     "fc_trade_strategy_and_execution_014_p4": [
         (
@@ -214,10 +215,12 @@ def main() -> int:
                 return 1
         split += 1
         front = stem_front(card["front"])
-        for i, (head, back) in enumerate(pieces):
+        for i, (_head, back) in enumerate(pieces):
             atom = dict(card)
             atom["back"] = back
-            atom["front"] = f"{front}\n\n{head}"
+            # The authoring head names the atom for review here; it must not
+            # reach the front, where it would spoil the card's own answer.
+            atom["front"] = f"{front}\n\npart {i + 1} of {len(pieces)}"
             if i == 0:
                 atom["id"] = card["id"]
             else:
