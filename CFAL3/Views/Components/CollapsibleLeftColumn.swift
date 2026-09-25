@@ -96,15 +96,21 @@ struct LeftColumnToggle: View {
             Image(systemName: "sidebar.leading")
                 .font(.body.weight(.medium))
                 .foregroundStyle(shown ? Theme.pine : Theme.dust)
-                .frame(width: 44, height: 34)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(
                     RoundedRectangle(cornerRadius: 11, style: .continuous)
                         .fill(shown ? Theme.sage : Color.clear)
                 )
-                .contentShape(RoundedRectangle(cornerRadius: 11, style: .continuous))
         }
         .buttonStyle(.plain)
         .modifier(OptionalKeyboardShortcut(key: column.shortcut))
+        // The frame and hit shape belong to the BUTTON, not to the label
+        // inside it. Sized from within, the drawn control and the region that
+        // actually takes a touch came apart: the reported frame was right, the
+        // tappable area was not, and with two controls in the row the first
+        // one simply did not respond.
+        .frame(width: 44, height: 40)
+        .contentShape(Rectangle())
         .accessibilityIdentifier(column.toggleIdentifier)
         .accessibilityLabel(shown ? "Hide the \(column.name)" : "Show the \(column.name)")
         .accessibilityValue(shown ? "Shown" : "Hidden")
@@ -130,6 +136,7 @@ struct LeftColumnBar: View {
             }
             Spacer(minLength: 0)
         }
+        .frame(height: 40)
         .padding(.horizontal, 10)
         .padding(.top, 6)
         .accessibilityElement(children: .contain)
