@@ -31,6 +31,43 @@ final class FlashcardContentTests: XCTestCase {
         XCTAssertLessThanOrEqual(words.last ?? 0, 49, "no remaining booklet-length backs")
     }
 
+    /// The reported bug: splitting a long back into atoms labelled each atom
+    /// by summarising its own back, so most fronts opened with the answer's
+    /// first words and the card arrived already revealed. A front may carry
+    /// only the prompt and a positional "part n of m".
+    func testFrontsDoNotGiveAwayTheirOwnAnswer() {
+        let part = /^part \d+ of \d+$/
+        for card in loadedContent().allFlashcards {
+            let blocks = card.front.components(separatedBy: "\n\n")
+            for block in blocks.dropFirst() {
+                XCTAssertNotNil(
+                    try? part.wholeMatch(in: block.trimmingCharacters(in: .whitespacesAndNewlines)),
+                    "front of \(card.id) carries answer text after the prompt: \(block)"
+                )
+            }
+        }
+    }
+
+    /// Atoms of one source card share a base id, so their part numbers must
+    /// run 1...n over exactly that group. Re-splitting an already-split card
+    /// used to leave stale counts like "part 2 of 3" in a group of six.
+    func testPartLabelsNumberTheirOwnGroup() {
+        let cards = loadedContent().allFlashcards
+        let base = { (id: String) in id.replacing(/(_p\d+)+$/, with: "") }
+        var totals: [String: Int] = [:]
+        for card in cards { totals[base(card.id), default: 0] += 1 }
+
+        var seen: [String: Int] = [:]
+        for card in cards {
+            let group = base(card.id)
+            seen[group, default: 0] += 1
+            let expected = totals[group] == 1
+                ? nil : "part \(seen[group]!) of \(totals[group]!)"
+            let suffix = card.front.components(separatedBy: "\n\n").dropFirst().first
+            XCTAssertEqual(suffix, expected, "wrong part label on \(card.id)")
+        }
+    }
+
     func testIDsAreUniqueAndResolvable() {
         let content = loadedContent()
         let cards = content.allFlashcards

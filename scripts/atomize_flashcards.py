@@ -39,16 +39,6 @@ def bullets(text: str) -> tuple[str, list[str]]:
     return "\n\n".join(preamble).strip(), items
 
 
-def label(bullet: str) -> str:
-    body = re.sub(r"^•\s*", "", bullet).strip()
-    if ":" in body:
-        head = body.split(":", 1)[0].strip()
-        if 2 <= len(head.split()) <= 12:
-            return head
-    words = body.split()
-    return " ".join(words[:8]).rstrip(".,;")
-
-
 def sentence_chunks(text: str, target: int = 280) -> list[str]:
     parts = re.split(r"(?<=[.!?])\s+", text.strip())
     out: list[str] = []
@@ -236,8 +226,10 @@ def atomize(card: dict, used: set[str]) -> list[dict]:
         else:
             atom["id"] = next_atom_id(card["id"], claimed)
             claimed.add(atom["id"])
-        head = label(piece) if piece.startswith("•") else f"part {i + 1} of {n}"
-        atom["front"] = f"{front}\n\n{head}"
+        # Positional only. Labelling an atom by summarising its own back put
+        # the answer's opening words on the front, so the card arrived already
+        # revealed.
+        atom["front"] = f"{front}\n\npart {i + 1} of {n}"
         atom["back"] = piece
         atoms.append(atom)
     return atoms

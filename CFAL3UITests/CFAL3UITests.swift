@@ -142,6 +142,45 @@ final class CFAL3UITests: XCTestCase {
         }
     }
 
+    /// The reported bug: cards looked as though they arrived already revealed.
+    /// The cause was in the deck — split atoms carried their own answer on the
+    /// front — but the sitting has to hold up its end too: a card must show
+    /// only its prompt until it is tapped, and rating one must not carry the
+    /// revealed state onto the next.
+    /// When `DAYBOOK_SCREENSHOT_DIR` is set, writes the before/after shots.
+    func testACardShowsOnlyItsPromptUntilRevealed() {
+        XCTAssertTrue(waitFor(tab("Cards")), "the sidebar never appeared")
+        tab("Cards").tap()
+
+        let today = app.buttons["cards.today"].firstMatch
+        XCTAssertTrue(waitFor(today), "the Cards session row never appeared")
+        today.tap()
+
+        let reveal = app.buttons["flashcard.reveal"].firstMatch
+        XCTAssertTrue(waitFor(reveal), "no session opened")
+        XCTAssertTrue(app.staticTexts["Tap to reveal"].firstMatch.exists,
+                      "a fresh card must prompt for the tap")
+        XCTAssertFalse(app.buttons["flashcard.rate.good"].firstMatch.exists,
+                       "the rating bar belongs to a revealed card")
+        saveScreenshot("card-before-reveal")
+
+        reveal.tap()
+        let good = app.buttons["flashcard.rate.good"].firstMatch
+        XCTAssertTrue(waitFor(good, 5), "tapping the card did not reveal it")
+        XCTAssertFalse(app.staticTexts["Tap to reveal"].firstMatch.exists,
+                       "a revealed card should stop asking to be tapped")
+        saveScreenshot("card-after-reveal")
+
+        good.tap()
+        XCTAssertTrue(waitFor(app.buttons["flashcard.reveal"].firstMatch, 5),
+                      "the next card never arrived")
+        XCTAssertTrue(app.staticTexts["Tap to reveal"].firstMatch.exists,
+                      "the next card inherited the previous card's revealed state")
+        XCTAssertFalse(app.buttons["flashcard.rate.good"].firstMatch.exists,
+                       "the rating bar stayed up over an unrevealed card")
+        saveScreenshot("next-card-before-reveal")
+    }
+
     // MARK: - The sidebar
 
     func testEveryTabIsReachableWithoutAnOverflowMenu() {
