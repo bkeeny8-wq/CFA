@@ -30,6 +30,7 @@ struct NotesScrollProbeKey: PreferenceKey {
 }
 
 struct ReadingNotesView: View {
+    @Environment(LeftColumnPreference.self) private var leftColumns
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
@@ -56,23 +57,32 @@ struct ReadingNotesView: View {
 
     private var outline: NotesOutline { page.outline }
 
+    /// Only on regular width: on a narrow column the rail would eat the
+    /// readable text width, and nine Ethics readings have no LOS headings to
+    /// put in it.
+    private var railApplies: Bool {
+        outline.showsRail && horizontalSizeClass == .regular
+    }
+
     var body: some View {
         ScrollViewReader { proxy in
             HStack(alignment: .top, spacing: 0) {
                 // Outside the ScrollView, so it stays put without any pinning
-                // machinery. Only on regular width: on a narrow column the
-                // rail would eat the readable text width.
-                if outline.showsRail, horizontalSizeClass == .regular {
+                // machinery. Unmounted rather than hidden when folded away, so
+                // VoiceOver does not keep reading a rail that is not there.
+                if railApplies, !leftColumns.isHidden(.notesLOSRail) {
                     LOSLetterRail(
                         outline: outline,
                         currentIndex: currentIndex,
                         expansion: expansion,
                         onJump: { jump(to: $0, proxy: proxy) }
                     )
+                    .transition(.move(edge: .leading).combined(with: .opacity))
                 }
                 notesScroll(proxy: proxy)
             }
         }
+        .leftColumnControl(.notesLOSRail, active: railApplies)
     }
 
     private func notesScroll(proxy: ScrollViewProxy) -> some View {

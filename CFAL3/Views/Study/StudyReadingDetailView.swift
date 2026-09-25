@@ -10,26 +10,13 @@ struct StudyReadingDetailView: View {
     @Environment(ContentLoader.self) private var content
     @Environment(StudySessionCoordinator.self) private var sessionCoordinator
     @Environment(TabRouter.self) private var router
-    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Query private var statuses: [LOSStudyStatus]
     @Query private var reviewCards: [ReviewCard]
 
     let area: CurriculumArea
     let reading: Reading
-    var splitColumnVisibility: Binding<NavigationSplitViewVisibility>?
 
     @State private var showChecklist = false
-
-    init(
-        area: CurriculumArea,
-        reading: Reading,
-        splitColumnVisibility: Binding<NavigationSplitViewVisibility>? = nil
-    ) {
-        self.area = area
-        self.reading = reading
-        self.splitColumnVisibility = splitColumnVisibility
-    }
 
     private var notes: ReadingNotesEntry? {
         content.readingNotes(id: reading.id)
@@ -59,25 +46,6 @@ struct StudyReadingDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(isPresented: $showChecklist) {
             LOSChecklistPanel(area: area, reading: reading)
-        }
-        .toolbar {
-            if let splitColumnVisibility, horizontalSizeClass == .regular {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        withSittingAnimation(reduceMotion) {
-                            splitColumnVisibility.wrappedValue =
-                                splitColumnVisibility.wrappedValue == .detailOnly ? .all : .detailOnly
-                        }
-                    } label: {
-                        Label(
-                            splitColumnVisibility.wrappedValue == .detailOnly
-                                ? "Show sidebar" : "Focus reading",
-                            systemImage: splitColumnVisibility.wrappedValue == .detailOnly
-                                ? "sidebar.left" : "arrow.up.left.and.arrow.down.right"
-                        )
-                    }
-                }
-            }
         }
     }
 
