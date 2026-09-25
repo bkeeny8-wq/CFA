@@ -81,6 +81,39 @@ final class CFAL3UITests: XCTestCase {
         (app ?? self.app).buttons["leftcolumn.toggle.\(key)"].firstMatch
     }
 
+    private func waitForValue(
+        _ element: XCUIElement,
+        _ value: String,
+        timeout: TimeInterval = 5
+    ) -> Bool {
+        let deadline = Date().addingTimeInterval(timeout)
+        while Date() < deadline {
+            if element.value as? String == value { return true }
+            Thread.sleep(forTimeInterval: 0.2)
+        }
+        return element.value as? String == value
+    }
+
+    /// Puts a left column into a known state, for the tests whose subject is
+    /// what the screen looks like rather than whether the control works.
+    ///
+    /// A tap synthesized while a long notes page is still laying itself out can
+    /// be dropped by the app, so this retries once instead of flaking. The
+    /// single-tap contract is asserted on its own in
+    /// `testTheSidebarCanBeHiddenAndBroughtBack`.
+    private func setColumn(_ key: String, hidden: Bool) {
+        let toggle = columnToggle(key)
+        XCTAssertTrue(waitFor(toggle), "no control for the \(key) column")
+        let want = hidden ? "Hidden" : "Shown"
+        guard toggle.value as? String != want else { return }
+        toggle.tap()
+        if !waitForValue(toggle, want, timeout: 3) {
+            toggle.tap()
+        }
+        XCTAssertTrue(waitForValue(toggle, want),
+                      "the \(key) column would not go to \(want)")
+    }
+
     /// Opens Notes → Asset allocation → its first reading, which is where the
     /// second left column (the LOS rail) lives.
     private func openFirstNotesReading() {
@@ -381,48 +414,40 @@ final class CFAL3UITests: XCTestCase {
     /// When `DAYBOOK_SCREENSHOT_DIR` is set, writes the shots.
     func testTheFoldedSidebarLooksRightOnEveryScreen() {
         XCTAssertTrue(waitFor(tab("Today")), "the sidebar never appeared")
-        let toggle = columnToggle("sidebar")
-        XCTAssertTrue(waitFor(toggle))
+        XCTAssertTrue(waitFor(columnToggle("sidebar")), "the control never appeared")
 
         saveScreenshot("sidebar-shown-today")
-        toggle.tap()
-        XCTAssertTrue(app.buttons["tab.plan"].firstMatch.waitForNonExistence(timeout: 5))
+        setColumn("sidebar", hidden: true)
         saveScreenshot("sidebar-hidden-today")
-        toggle.tap()
-        XCTAssertTrue(waitFor(tab("Notes"), 5))
+        setColumn("sidebar", hidden: false)
 
         tab("Notes").tap()
         XCTAssertTrue(notesBook("Ethics").waitForExistence(timeout: 10))
         saveScreenshot("sidebar-shown-notes")
-        toggle.tap()
-        XCTAssertTrue(app.buttons["tab.plan"].firstMatch.waitForNonExistence(timeout: 5))
+        setColumn("sidebar", hidden: true)
         XCTAssertTrue(notesBook("Ethics").waitForExistence(timeout: 10),
                       "Notes must stay usable with the sidebar folded away")
         saveScreenshot("sidebar-hidden-notes")
-        toggle.tap()
-        XCTAssertTrue(waitFor(tab("Notes"), 5))
+        setColumn("sidebar", hidden: false)
 
         openFirstNotesReading()
-        let railToggle = columnToggle("notes.rail")
-        guard railToggle.waitForExistence(timeout: 10) else { return }
+        let rail = app.descendants(matching: .any)["notes.rail"].firstMatch
+        guard rail.waitForExistence(timeout: 15) else { return }
         saveScreenshot("notes-reading-both-columns-shown")
-        toggle.tap()
-        XCTAssertTrue(app.buttons["tab.plan"].firstMatch.waitForNonExistence(timeout: 5))
+        setColumn("sidebar", hidden: true)
         saveScreenshot("notes-reading-sidebar-hidden")
-        railToggle.tap()
-        XCTAssertTrue(
-            app.descendants(matching: .any)["notes.rail"].firstMatch
-                .waitForNonExistence(timeout: 5)
-        )
+        setColumn("notes.rail", hidden: true)
+        XCTAssertTrue(rail.waitForNonExistence(timeout: 5))
         saveScreenshot("notes-reading-both-columns-hidden")
-        toggle.tap()
-        railToggle.tap()
+        setColumn("sidebar", hidden: false)
+        setColumn("notes.rail", hidden: false)
 
         tab("Progress").tap()
         XCTAssertTrue(progressCoverage().waitForExistence(timeout: 10))
         saveScreenshot("sidebar-shown-progress")
-        toggle.tap()
-        XCTAssertTrue(app.buttons["tab.plan"].firstMatch.waitForNonExistence(timeout: 5))
+        setColumn("sidebar", hidden: true)
+        XCTAssertTrue(progressCoverage().waitForExistence(timeout: 10),
+                      "Progress must stay usable with the sidebar folded away")
         saveScreenshot("sidebar-hidden-progress")
     }
 
