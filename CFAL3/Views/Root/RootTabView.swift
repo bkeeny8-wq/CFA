@@ -99,19 +99,36 @@ struct RootTabView: View {
 private struct RootTabContent: View {
     @Environment(TabRouter.self) private var router
     @Environment(StudySessionCoordinator.self) private var sessionCoordinator
+    @Environment(LeftColumnPreference.self) private var leftColumns
     @Environment(\.modelContext) private var modelContext
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.storeUnavailable) private var storeUnavailable
 
+    /// The sidebar only exists at regular width, so at compact width there is
+    /// nothing to offer a control for.
+    private var sidebarApplies: Bool { horizontalSizeClass == .regular }
+
+    /// Outermost column first: the sidebar, then whatever inner column the
+    /// destination on screen registered.
+    private var barColumns: [LeftColumnSpec] {
+        (sidebarApplies ? [.sidebar] : []) + leftColumns.innerColumns
+    }
+
     var body: some View {
         @Bindable var router = router
 
-        return HStack(spacing: 0) {
-            if horizontalSizeClass == .regular {
-                DaybookSidebar()
-                    .frame(width: 228)
+        return VStack(spacing: 0) {
+            if !barColumns.isEmpty {
+                LeftColumnBar(columns: barColumns)
             }
-            destination
+            HStack(spacing: 0) {
+                if sidebarApplies, !leftColumns.isHidden(.sidebar) {
+                    DaybookSidebar()
+                        .frame(width: 228)
+                        .transition(.move(edge: .leading).combined(with: .opacity))
+                }
+                destination
+            }
         }
         .daybookPaper()
         .safeAreaInset(edge: .top, spacing: 0) {
@@ -202,7 +219,9 @@ private struct DaybookSidebar: View {
                     .foregroundStyle(Theme.dust)
             }
             .padding(.horizontal, 20)
-            .padding(.top, 28)
+            // The column-control row sits above this now, so the wordmark
+            // keeps roughly the height off the top edge that it had before.
+            .padding(.top, 8)
             .padding(.bottom, 22)
 
             VStack(spacing: 4) {

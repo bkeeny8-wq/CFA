@@ -75,6 +75,60 @@ final class CFAL3UITests: XCTestCase {
         app.descendants(matching: .any)["notes.book.\(name)"].firstMatch
     }
 
+    /// Every left column is folded away by the same control, addressed by the
+    /// column's key. Mirrors `LeftColumnSpec.toggleIdentifier`.
+    private func columnToggle(_ key: String, in app: XCUIApplication? = nil) -> XCUIElement {
+        (app ?? self.app).buttons["leftcolumn.toggle.\(key)"].firstMatch
+    }
+
+    private func waitForValue(
+        _ element: XCUIElement,
+        _ value: String,
+        timeout: TimeInterval = 5
+    ) -> Bool {
+        let deadline = Date().addingTimeInterval(timeout)
+        while Date() < deadline {
+            if element.value as? String == value { return true }
+            Thread.sleep(forTimeInterval: 0.2)
+        }
+        return element.value as? String == value
+    }
+
+    /// Puts a left column into a known state, for the tests whose subject is
+    /// what the screen looks like rather than whether the control works.
+    ///
+    /// A tap synthesized while a long notes page is still laying itself out can
+    /// be dropped by the app, so this retries once instead of flaking. The
+    /// single-tap contract is asserted on its own in
+    /// `testTheSidebarCanBeHiddenAndBroughtBack`.
+    private func setColumn(_ key: String, hidden: Bool) {
+        let toggle = columnToggle(key)
+        XCTAssertTrue(waitFor(toggle), "no control for the \(key) column")
+        let want = hidden ? "Hidden" : "Shown"
+        guard toggle.value as? String != want else { return }
+        toggle.tap()
+        if !waitForValue(toggle, want, timeout: 3) {
+            toggle.tap()
+        }
+        XCTAssertTrue(waitForValue(toggle, want),
+                      "the \(key) column would not go to \(want)")
+    }
+
+    /// Opens Notes → Asset allocation → its first reading, which is where the
+    /// second left column (the LOS rail) lives.
+    private func openFirstNotesReading() {
+        tab("Notes").tap()
+        let book = notesBook("Asset allocation")
+        XCTAssertTrue(book.waitForExistence(timeout: 10), "Notes should list the books")
+        book.tap()
+        let reading = app.descendants(matching: .any)
+            .matching(NSPredicate(format: "identifier BEGINSWITH %@", "notes.reading."))
+            .firstMatch
+        XCTAssertTrue(reading.waitForExistence(timeout: 10),
+                      "expanding a book should reveal its readings")
+        reading.tap()
+    }
+
     private func cardsBook(_ name: String) -> XCUIElement {
         app.descendants(matching: .any)["cards.book.\(name)"].firstMatch
     }
@@ -201,6 +255,200 @@ final class CFAL3UITests: XCTestCase {
             XCTAssertTrue(tab(name).waitForExistence(timeout: 10), "\(name) did not settle")
             XCTAssertEqual(app.state, .runningForeground, "app left the foreground on \(name)")
         }
+    }
+
+    // MARK: - Folding the left column away
+
+    /// The reported gap: there was no way to get the left column off the
+    /// screen. One control, and hiding it must actually unmount the sidebar
+    /// rather than leave it in the tree for VoiceOver to walk.
+    func testTheSidebarCanBeHiddenAndBroughtBack() {
+        XCTAssertTrue(waitFor(tab("Today")), "the sidebar never appeared")
+
+        let toggle = columnToggle("sidebar")
+        XCTAssertTrue(waitFor(toggle), "no control to fold the sidebar away")
+        XCTAssertEqual(toggle.label, "Hide the sidebar",
+                       "an icon-only control has to say what it does")
+
+        toggle.tap()
+        XCTAssertTrue(
+            app.buttons["tab.plan"].firstMatch.waitForNonExistence(timeout: 5),
+            "hiding the sidebar must remove its rows, not just move them offscreen"
+        )
+        XCTAssertFalse(app.buttons["tab.settings"].firstMatch.exists,
+                       "the sidebar footer went with it")
+
+        XCTAssertTrue(toggle.exists, "the control must survive hiding the column it controls")
+        XCTAssertTrue(toggle.isHittable, "the only way back must stay reachable")
+        XCTAssertEqual(toggle.label, "Show the sidebar",
+                       "the label has to follow the state")
+
+        toggle.tap()
+        XCTAssertTrue(waitFor(tab("Plan"), 5), "the sidebar did not come back")
+        XCTAssertEqual(toggle.label, "Hide the sidebar")
+    }
+
+    /// Whatever the destination, the control is the same button in the same
+    /// place — the point of the shared bar rather than eight toolbar glyphs.
+    func testTheLeftColumnControlSitsInTheSamePlaceOnEveryScreen() {
+        XCTAssertTrue(waitFor(tab("Today")), "the sidebar never appeared")
+        XCTAssertTrue(waitFor(columnToggle("sidebar")))
+
+        var frames: [String: CGRect] = [:]
+        for name in Self.tabNames {
+            tab(name).tap()
+            let toggle = columnToggle("sidebar")
+            XCTAssertTrue(toggle.waitForExistence(timeout: 10),
+                          "\(name) has a left column but no control to fold it away")
+            XCTAssertTrue(toggle.isHittable, "the control is unreachable on \(name)")
+            frames[name] = toggle.frame
+        }
+
+        let distinct = Set(frames.values.map { "\($0.origin.x),\($0.origin.y)" })
+        XCTAssertEqual(distinct.count, 1,
+                       "the control moves between screens: \(frames)")
+    }
+
+    /// Hiding the column has to hand the width to the page, not leave a gap.
+    func testHidingTheSidebarGivesNotesTheFullWidth() {
+        XCTAssertTrue(waitFor(tab("Notes")), "the sidebar never appeared")
+        tab("Notes").tap()
+
+        let title = app.descendants(matching: .any)["notes.library"].firstMatch
+        XCTAssertTrue(waitFor(title), "Notes never opened")
+        let before = title.frame
+
+        columnToggle("sidebar").tap()
+        XCTAssertTrue(
+            app.buttons["tab.plan"].firstMatch.waitForNonExistence(timeout: 5),
+            "the sidebar did not hide"
+        )
+
+        let after = title.frame
+        XCTAssertLessThan(after.minX, before.minX - 50,
+                          "Notes did not reclaim the space: \(before) → \(after)")
+        XCTAssertTrue(notesBook("Ethics").waitForExistence(timeout: 10),
+                      "the book list must stay usable with the sidebar folded away")
+        XCTAssertTrue(notesBook("Ethics").isHittable,
+                      "the book list must stay tappable with the sidebar folded away")
+    }
+
+    /// A reading has a second left column — the LOS rail — and it folds with
+    /// the same control, offered next to the sidebar's rather than as a
+    /// one-off glyph in that screen's toolbar.
+    func testTheNotesReadingRailFoldsWithTheSameControl() throws {
+        XCTAssertTrue(waitFor(tab("Notes")), "the sidebar never appeared")
+        XCTAssertFalse(columnToggle("notes.rail").exists,
+                       "the Notes library has no rail, so it must not offer a rail control")
+
+        openFirstNotesReading()
+
+        let railToggle = columnToggle("notes.rail")
+        guard railToggle.waitForExistence(timeout: 10) else {
+            throw XCTSkip("the first Asset allocation reading has no LOS sections to rail")
+        }
+        XCTAssertEqual(railToggle.label, "Hide the LOS rail",
+                       "the second column names itself too")
+        XCTAssertTrue(columnToggle("sidebar").exists,
+                      "both left columns are controlled from the same row")
+
+        let rail = app.descendants(matching: .any)["notes.rail"].firstMatch
+        XCTAssertTrue(rail.waitForExistence(timeout: 10), "the reading should show its LOS rail")
+
+        railToggle.tap()
+        XCTAssertTrue(rail.waitForNonExistence(timeout: 5),
+                      "hiding the rail must unmount it")
+        XCTAssertEqual(railToggle.label, "Show the LOS rail")
+
+        railToggle.tap()
+        XCTAssertTrue(rail.waitForExistence(timeout: 5), "the rail did not come back")
+    }
+
+    /// Leaving the reading takes its control with it: the bar offers a column
+    /// only while the screen that has it is on screen.
+    func testTheRailControlLeavesWithTheReading() throws {
+        XCTAssertTrue(waitFor(tab("Notes")), "the sidebar never appeared")
+        openFirstNotesReading()
+
+        let railToggle = columnToggle("notes.rail")
+        guard railToggle.waitForExistence(timeout: 10) else {
+            throw XCTSkip("the first Asset allocation reading has no LOS sections to rail")
+        }
+
+        tab("Today").tap()
+        XCTAssertTrue(railToggle.waitForNonExistence(timeout: 5),
+                      "Today has no LOS rail, so it must not offer a control for one")
+        XCTAssertTrue(columnToggle("sidebar").exists, "the sidebar control stays")
+    }
+
+    /// The state is remembered, so folding the sidebar away is a decision you
+    /// make once rather than on every launch.
+    func testAHiddenSidebarIsStillHiddenAfterRelaunch() {
+        XCTAssertTrue(waitFor(tab("Today")), "the sidebar never appeared")
+        columnToggle("sidebar").tap()
+        XCTAssertTrue(app.buttons["tab.plan"].firstMatch.waitForNonExistence(timeout: 5),
+                      "the sidebar did not hide")
+        app.terminate()
+
+        // The only launch in this suite that keeps the throwaway preference
+        // suite: every other one wipes it, so nothing leaks out of this test.
+        let relaunched = XCUIApplication()
+        relaunched.launchArguments = ["-uitesting", "-uitesting-preserve-defaults"]
+        relaunched.launch()
+        defer { relaunched.terminate() }
+
+        let toggle = columnToggle("sidebar", in: relaunched)
+        XCTAssertTrue(toggle.waitForExistence(timeout: 20),
+                      "the control must be there on a launch that starts folded")
+        XCTAssertEqual(toggle.label, "Show the sidebar",
+                       "the app forgot that the sidebar was folded away")
+        XCTAssertFalse(relaunched.buttons["tab.plan"].firstMatch.exists,
+                       "the sidebar came back on its own")
+
+        toggle.tap()
+        XCTAssertTrue(relaunched.buttons["tab.plan"].firstMatch.waitForExistence(timeout: 10),
+                      "the sidebar did not come back after relaunch")
+    }
+
+    /// Both states, on the browse library and inside a reading.
+    /// When `DAYBOOK_SCREENSHOT_DIR` is set, writes the shots.
+    func testTheFoldedSidebarLooksRightOnEveryScreen() {
+        XCTAssertTrue(waitFor(tab("Today")), "the sidebar never appeared")
+        XCTAssertTrue(waitFor(columnToggle("sidebar")), "the control never appeared")
+
+        saveScreenshot("sidebar-shown-today")
+        setColumn("sidebar", hidden: true)
+        saveScreenshot("sidebar-hidden-today")
+        setColumn("sidebar", hidden: false)
+
+        tab("Notes").tap()
+        XCTAssertTrue(notesBook("Ethics").waitForExistence(timeout: 10))
+        saveScreenshot("sidebar-shown-notes")
+        setColumn("sidebar", hidden: true)
+        XCTAssertTrue(notesBook("Ethics").waitForExistence(timeout: 10),
+                      "Notes must stay usable with the sidebar folded away")
+        saveScreenshot("sidebar-hidden-notes")
+        setColumn("sidebar", hidden: false)
+
+        openFirstNotesReading()
+        let rail = app.descendants(matching: .any)["notes.rail"].firstMatch
+        guard rail.waitForExistence(timeout: 15) else { return }
+        saveScreenshot("notes-reading-both-columns-shown")
+        setColumn("sidebar", hidden: true)
+        saveScreenshot("notes-reading-sidebar-hidden")
+        setColumn("notes.rail", hidden: true)
+        XCTAssertTrue(rail.waitForNonExistence(timeout: 5))
+        saveScreenshot("notes-reading-both-columns-hidden")
+        setColumn("sidebar", hidden: false)
+        setColumn("notes.rail", hidden: false)
+
+        tab("Progress").tap()
+        XCTAssertTrue(progressCoverage().waitForExistence(timeout: 10))
+        saveScreenshot("sidebar-shown-progress")
+        setColumn("sidebar", hidden: true)
+        XCTAssertTrue(progressCoverage().waitForExistence(timeout: 10),
+                      "Progress must stay usable with the sidebar folded away")
+        saveScreenshot("sidebar-hidden-progress")
     }
 
     // MARK: - A fresh install is not a wall of work
@@ -514,6 +762,15 @@ final class CFAL3UITests: XCTestCase {
                       "the settings button needs a label")
         XCTAssertTrue(tab("Progress").exists,
                       "Progress is a named sidebar destination")
+
+        let toggle = columnToggle("sidebar")
+        XCTAssertTrue(waitFor(toggle), "the column control never appeared")
+        XCTAssertEqual(toggle.label, "Hide the sidebar",
+                       "the column control is icon-only and must name its column")
+        XCTAssertEqual(toggle.value as? String, "Shown",
+                       "the control has to speak the state it is in")
+        XCTAssertTrue(toggle.isHittable,
+                      "the column control must be reachable, not decorative")
     }
 
     func testHomeRemainsUsableAtAnAccessibilityTextSize() {

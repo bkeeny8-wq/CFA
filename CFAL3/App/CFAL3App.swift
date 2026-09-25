@@ -8,8 +8,18 @@ import SwiftData
 enum UITestMode {
     static let launchArgument = "-uitesting"
 
+    /// Keeps the throwaway suite from being wiped on launch, so a test can
+    /// relaunch the app and check that something was actually remembered.
+    /// Without it there is no way to tell a preference that persisted from one
+    /// that was simply re-derived, because every launch starts empty.
+    static let preserveDefaultsArgument = "-uitesting-preserve-defaults"
+
     static var isActive: Bool {
         ProcessInfo.processInfo.arguments.contains(launchArgument)
+    }
+
+    private static var preservesDefaults: Bool {
+        ProcessInfo.processInfo.arguments.contains(preserveDefaultsArgument)
     }
 
     private static let suiteName = "com.brandonkeeny.CFAL3.uitests"
@@ -29,7 +39,9 @@ enum UITestMode {
     /// left the next test opening on Cards too.
     static let defaults: UserDefaults = {
         guard isActive, let suite = UserDefaults(suiteName: suiteName) else { return .standard }
-        suite.removePersistentDomain(forName: suiteName)
+        if !preservesDefaults {
+            suite.removePersistentDomain(forName: suiteName)
+        }
         return suite
     }()
 }
@@ -40,6 +52,7 @@ struct CFAL3App: App {
     @State private var grader = ClaudeGrader()
     @State private var sessionCoordinator = StudySessionCoordinator()
     @State private var practicePref = PracticeBuilderPreference(defaults: UITestMode.defaults)
+    @State private var leftColumns = LeftColumnPreference(defaults: UITestMode.defaults)
 
     /// True when the on-disk store could not be opened and the app is running
     /// against a temporary one, so the UI can say so instead of looking as if
@@ -80,6 +93,7 @@ struct CFAL3App: App {
                 .environment(grader)
                 .environment(sessionCoordinator)
                 .environment(practicePref)
+                .environment(leftColumns)
                 .environment(\.storeUnavailable, storeFailure != nil)
                 .task {
                     GraderConfig.purgeLegacyAPIKey()
