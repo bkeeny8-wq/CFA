@@ -83,8 +83,15 @@ def check(los_flat):
         elif example["id"] not in essays:
             failures.append(f"{word}: workedExample.id {example['id']} is not a bank essay")
         for other in entry["confusedWith"]:
-            if other["word"] not in words:
+            if other["word"] == word:
+                failures.append(f"{word}: confusedWith points at itself")
+            elif other["word"] not in words:
                 failures.append(f"{word}: confusedWith {other['word']} has no entry")
+    # ContentLoader.allCommandWords hands the file's order straight to the UI
+    # and documents it as busiest verb first, so the order is an invariant.
+    shipped = [entry["losCount"] for entry in entries]
+    if shipped != sorted(shipped, reverse=True):
+        failures.append(f"words are not ordered by descending losCount: {shipped}")
     for failure in failures:
         print(f"FAIL {failure}")
     if not failures:
