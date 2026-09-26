@@ -14,7 +14,10 @@ final class ContentLoader {
     private(set) var flashcardBundle: FlashcardBundle?
     private(set) var schedule: StudySchedule?
     private(set) var mmReview: MMReviewBundle?
+    private(set) var commandWordBundle: CommandWordBundle?
     private(set) var loadError: String?
+
+    private var commandWordsByWord: [String: CommandWord] = [:]
 
     private var flashcardsByID: [String: Flashcard] = [:]
     private var flashcardsByReading: [String: [Flashcard]] = [:]
@@ -129,6 +132,7 @@ final class ContentLoader {
         let flashcardBundle: FlashcardBundle?
         let schedule: StudySchedule?
         let mmReview: MMReviewBundle?
+        let commandWords: CommandWordBundle?
     }
 
     private static func decodeSnapshot() throws -> ContentSnapshot {
@@ -144,9 +148,16 @@ final class ContentLoader {
         // but the PDFs it indexes are not, so a clone decodes this fine and
         // simply has nothing to open.
         let mmReview: MMReviewBundle? = try? decodeJSON("mm_review")
+        // Optional so a malformed edit to the command-word content degrades to
+        // an empty guide instead of failing the whole bundle, the way a bad
+        // schedule does.
+        let commandWords: CommandWordBundle? = try? decodeJSON("command_words")
         #if DEBUG
         if schedule == nil {
             print("CFAL3: study_schedule.json failed to decode")
+        }
+        if commandWords == nil {
+            print("CFAL3: command_words.json failed to decode")
         }
         #endif
         return ContentSnapshot(
@@ -158,7 +169,8 @@ final class ContentLoader {
             drillBundles: drillBundles,
             flashcardBundle: flashcardBundle,
             schedule: schedule,
-            mmReview: mmReview
+            mmReview: mmReview,
+            commandWords: commandWords
         )
     }
 
@@ -196,6 +208,7 @@ final class ContentLoader {
         schedule = snapshot.schedule
         mmReview = snapshot.mmReview
         applyFlashcards(snapshot.flashcardBundle)
+        applyCommandWords(snapshot.commandWords)
         rebuildIndexes(from: snapshot.bank, los: snapshot.los, notes: snapshot.notes)
     }
 
@@ -210,6 +223,25 @@ final class ContentLoader {
             flashcardsByID[card.id] = card
             flashcardsByReading[card.readingID, default: []].append(card)
         }
+    }
+
+    private func applyCommandWords(_ bundle: CommandWordBundle?) {
+        commandWordBundle = bundle
+        commandWordsByWord = [:]
+        guard let bundle else { return }
+        for entry in bundle.words {
+            commandWordsByWord[entry.word.lowercased()] = entry
+        }
+    }
+
+    /// In bundle order, which the content file keeps sorted by how many LOS
+    /// each verb leads.
+    var allCommandWords: [CommandWord] { commandWordBundle?.words ?? [] }
+
+    /// Looks up by the verb as a stem writes it, so callers can pass a word
+    /// lifted straight out of question text.
+    func commandWord(_ word: String) -> CommandWord? {
+        commandWordsByWord[word.lowercased()]
     }
 
     var allFlashcards: [Flashcard] { flashcardBundle?.cards ?? [] }
