@@ -14,7 +14,11 @@ final class ContentLoader {
     private(set) var flashcardBundle: FlashcardBundle?
     private(set) var schedule: StudySchedule?
     private(set) var mmReview: MMReviewBundle?
+    private(set) var commandWordBundle: CommandWordBundle?
     private(set) var loadError: String?
+
+    private var commandWordsByWord: [String: CommandWord] = [:]
+    private var commandWordEssayIDs: [String: [String]] = [:]
 
     private var flashcardsByID: [String: Flashcard] = [:]
     private var flashcardsByReading: [String: [Flashcard]] = [:]
@@ -129,6 +133,7 @@ final class ContentLoader {
         let flashcardBundle: FlashcardBundle?
         let schedule: StudySchedule?
         let mmReview: MMReviewBundle?
+        let commandWords: CommandWordBundle?
     }
 
     private static func decodeSnapshot() throws -> ContentSnapshot {
@@ -144,9 +149,16 @@ final class ContentLoader {
         // but the PDFs it indexes are not, so a clone decodes this fine and
         // simply has nothing to open.
         let mmReview: MMReviewBundle? = try? decodeJSON("mm_review")
+        // Optional so a malformed edit to the command-word content degrades to
+        // an empty guide instead of failing the whole bundle, the way a bad
+        // schedule does.
+        let commandWords: CommandWordBundle? = try? decodeJSON("command_words")
         #if DEBUG
         if schedule == nil {
             print("CFAL3: study_schedule.json failed to decode")
+        }
+        if commandWords == nil {
+            print("CFAL3: command_words.json failed to decode")
         }
         #endif
         return ContentSnapshot(
@@ -158,7 +170,8 @@ final class ContentLoader {
             drillBundles: drillBundles,
             flashcardBundle: flashcardBundle,
             schedule: schedule,
-            mmReview: mmReview
+            mmReview: mmReview,
+            commandWords: commandWords
         )
     }
 
@@ -196,6 +209,7 @@ final class ContentLoader {
         schedule = snapshot.schedule
         mmReview = snapshot.mmReview
         applyFlashcards(snapshot.flashcardBundle)
+        applyCommandWords(snapshot.commandWords)
         rebuildIndexes(from: snapshot.bank, los: snapshot.los, notes: snapshot.notes)
     }
 
@@ -210,6 +224,35 @@ final class ContentLoader {
             flashcardsByID[card.id] = card
             flashcardsByReading[card.readingID, default: []].append(card)
         }
+    }
+
+    private func applyCommandWords(_ bundle: CommandWordBundle?) {
+        commandWordBundle = bundle
+        commandWordsByWord = [:]
+        guard let bundle else { return }
+        for entry in bundle.words {
+            commandWordsByWord[entry.word.lowercased()] = entry
+        }
+    }
+
+    /// In bundle order, which the content file keeps sorted by how many LOS
+    /// each verb leads.
+    var allCommandWords: [CommandWord] { commandWordBundle?.words ?? [] }
+
+    /// Looks up by the verb as a stem writes it, so callers can pass a word
+    /// lifted straight out of question text.
+    func commandWord(_ word: String) -> CommandWord? {
+        commandWordsByWord[word.lowercased()]
+    }
+
+    /// Bank essays whose stem actually uses this verb, in sitting order.
+    ///
+    /// Empty is a real answer, not a lookup failure: five of the seventeen
+    /// words appear in no essay stem at all, which is why the content file
+    /// gives those words a closest-shaped example instead. Callers must say
+    /// so rather than presenting the example as a genuine item for the word.
+    func essays(forCommandWord word: String) -> [Question] {
+        (commandWordEssayIDs[word.lowercased()] ?? []).compactMap { questionsByID[$0] }
     }
 
     var allFlashcards: [Flashcard] { flashcardBundle?.cards ?? [] }
@@ -331,6 +374,8 @@ final class ContentLoader {
             }
         }
 
+        rebuildCommandWordEssays()
+
         for item in los.losFlat {
             losByID[item.id] = item
         }
@@ -346,6 +391,44 @@ final class ContentLoader {
                 }
             }
         }
+    }
+
+    /// Built once per load rather than scanned per body pass: the guide's page
+    /// asks for this every time it redraws, and the alternative is walking 227
+    /// essay stems on each one.
+    ///
+    /// Matching is whole-word and case-insensitive. The bank writes command
+    /// words in capitals, but a substring match would count "calculating" as
+    /// calculate and "distinguishing" as distinguish.
+    private func rebuildCommandWordEssays() {
+        commandWordEssayIDs = [:]
+        let words = Set(commandWordsByWord.keys)
+        guard !words.isEmpty else { return }
+
+        for question in questionsByID.values where question.type == .essay {
+            for token in Set(Self.lowercasedWords(in: question.stem)) where words.contains(token) {
+                commandWordEssayIDs[token, default: []].append(question.id)
+            }
+        }
+        for (word, ids) in commandWordEssayIDs {
+            commandWordEssayIDs[word] = ids.sorted { sittingOrder($0, $1) }
+        }
+    }
+
+    /// Same ordering as `essays(forLOS:)`, so a word's sitting reads case by
+    /// case in question order instead of by hash order.
+    private func sittingOrder(_ lhs: String, _ rhs: String) -> Bool {
+        let lhsCase = questionContext[lhs]?.caseId ?? ""
+        let rhsCase = questionContext[rhs]?.caseId ?? ""
+        if lhsCase != rhsCase { return lhsCase < rhsCase }
+        let lhsNumber = questionsByID[lhs]?.number ?? 0
+        let rhsNumber = questionsByID[rhs]?.number ?? 0
+        if lhsNumber != rhsNumber { return lhsNumber < rhsNumber }
+        return lhs < rhs
+    }
+
+    private static func lowercasedWords(in text: String) -> [String] {
+        text.lowercased().split { !$0.isLetter }.map(String.init)
     }
 
 }

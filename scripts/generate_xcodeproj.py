@@ -26,6 +26,11 @@ resources = [
     "CFAL3/Resources/content_targets.json",
     "CFAL3/Resources/los_drills_index.json",
     "CFAL3/Resources/study_schedule.json",
+    "CFAL3/Resources/command_words.json",
+    # These two only ever reached the committed project by hand. The generator
+    # has to list them too, or regenerating unbundles shipped content.
+    "CFAL3/Resources/flashcards.json",
+    "CFAL3/Resources/mm_review.json",
     "CFAL3/Assets.xcassets",
 ]
 resources.extend(

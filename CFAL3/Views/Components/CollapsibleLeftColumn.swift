@@ -21,6 +21,7 @@ struct LeftColumnSpec: Identifiable, Equatable, Sendable {
 
     static let sidebar = LeftColumnSpec(key: "sidebar", name: "sidebar", shortcut: "s")
     static let notesLOSRail = LeftColumnSpec(key: "notes.rail", name: "LOS rail", shortcut: "l")
+    static let commandWordList = LeftColumnSpec(key: "commandwords.list", name: "word list", shortcut: "w")
 }
 
 /// Which left columns the reader has folded away, remembered across launches,
