@@ -18,6 +18,7 @@ final class ContentLoader {
     private(set) var loadError: String?
 
     private var commandWordsByWord: [String: CommandWord] = [:]
+    private var commandWordEssayIDs: [String: [String]] = [:]
 
     private var flashcardsByID: [String: Flashcard] = [:]
     private var flashcardsByReading: [String: [Flashcard]] = [:]
@@ -244,6 +245,16 @@ final class ContentLoader {
         commandWordsByWord[word.lowercased()]
     }
 
+    /// Bank essays whose stem actually uses this verb, in sitting order.
+    ///
+    /// Empty is a real answer, not a lookup failure: five of the seventeen
+    /// words appear in no essay stem at all, which is why the content file
+    /// gives those words a closest-shaped example instead. Callers must say
+    /// so rather than presenting the example as a genuine item for the word.
+    func essays(forCommandWord word: String) -> [Question] {
+        (commandWordEssayIDs[word.lowercased()] ?? []).compactMap { questionsByID[$0] }
+    }
+
     var allFlashcards: [Flashcard] { flashcardBundle?.cards ?? [] }
     var totalFlashcards: Int { flashcardsByID.count }
 
@@ -363,6 +374,8 @@ final class ContentLoader {
             }
         }
 
+        rebuildCommandWordEssays()
+
         for item in los.losFlat {
             losByID[item.id] = item
         }
@@ -378,6 +391,44 @@ final class ContentLoader {
                 }
             }
         }
+    }
+
+    /// Built once per load rather than scanned per body pass: the guide's page
+    /// asks for this every time it redraws, and the alternative is walking 227
+    /// essay stems on each one.
+    ///
+    /// Matching is whole-word and case-insensitive. The bank writes command
+    /// words in capitals, but a substring match would count "calculating" as
+    /// calculate and "distinguishing" as distinguish.
+    private func rebuildCommandWordEssays() {
+        commandWordEssayIDs = [:]
+        let words = Set(commandWordsByWord.keys)
+        guard !words.isEmpty else { return }
+
+        for question in questionsByID.values where question.type == .essay {
+            for token in Set(Self.lowercasedWords(in: question.stem)) where words.contains(token) {
+                commandWordEssayIDs[token, default: []].append(question.id)
+            }
+        }
+        for (word, ids) in commandWordEssayIDs {
+            commandWordEssayIDs[word] = ids.sorted { sittingOrder($0, $1) }
+        }
+    }
+
+    /// Same ordering as `essays(forLOS:)`, so a word's sitting reads case by
+    /// case in question order instead of by hash order.
+    private func sittingOrder(_ lhs: String, _ rhs: String) -> Bool {
+        let lhsCase = questionContext[lhs]?.caseId ?? ""
+        let rhsCase = questionContext[rhs]?.caseId ?? ""
+        if lhsCase != rhsCase { return lhsCase < rhsCase }
+        let lhsNumber = questionsByID[lhs]?.number ?? 0
+        let rhsNumber = questionsByID[rhs]?.number ?? 0
+        if lhsNumber != rhsNumber { return lhsNumber < rhsNumber }
+        return lhs < rhs
+    }
+
+    private static func lowercasedWords(in text: String) -> [String] {
+        text.lowercased().split { !$0.isLetter }.map(String.init)
     }
 
 }
