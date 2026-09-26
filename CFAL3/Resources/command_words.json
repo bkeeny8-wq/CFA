@@ -1,0 +1,210 @@
+{
+  "version": 1,
+  "words": [
+    {
+      "word": "discuss",
+      "losCount": 76,
+      "asking": "Discuss asks for several distinct considerations, each named and then carried one step further to its consequence for the people in the vignette. It is the outline's most common verb and it nearly always arrives with a number attached — two liquidity considerations, two governance concerns — so the marks sit on how many separate points you raise, not on how deeply you develop any one of them. A discuss answer is a short list of independent claims, each with a because.",
+      "highlight": [
+        "Name the consideration in the first few words of each point, then spend one sentence on its consequence here; a bank grading key accepts a point only when the reasoning is attached.",
+        "Use the vignette's own facts as the because — the 25% private equity allocation, the move from 4% to 5% spending. The same point stated in the abstract is what keys call vague.",
+        "Write exactly the number of points asked for, as separate blocks, since credit is awarded per point and a merged paragraph makes the second point hard to find."
+      ],
+      "leaveOut": [
+        "Extra points beyond the number requested. Graders take the first two, so a weak point placed first costs a mark that a later strong one cannot win back.",
+        "Background definitions of the instruments involved. Discuss assumes you already know what private equity or an LDI hedge is.",
+        "A recommendation, unless the stem asked for one. 'I would therefore cut PE to 10%' earns nothing on a discuss item and costs you minutes."
+      ],
+      "shape": {
+        "length": "Two to four sentences per requested point. Four-point items almost always want two points and six-point items three, so budget roughly half the marks to each block.",
+        "structure": "One labelled block per point: the consideration, then its consequence for this portfolio.",
+        "requiresCalculation": false,
+        "requiresJustification": true
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "elbe_society_the_elbe_society_essay_q7",
+        "note": "Its key lists eight acceptable liquidity considerations and pays full credit for any two that carry reasoning. Capital-call risk earns the point because it is paired with 'investment-grade fixed income is fully invested, so private equity introduces timing uncertainty'; the bare claim that private equity is illiquid does not."
+      },
+      "pointLosers": [
+        "Restating the stem as the first point — answering 'what liquidity considerations arise' with 'the portfolio becomes less liquid'.",
+        "Two versions of one idea. Unpredictable capital calls and lumpy distributions are usually read as a single liquidity-timing point, so the second block scores nothing.",
+        "Burying the consideration at the end of a paragraph of setup, where a grader scanning for the named point will not find it."
+      ],
+      "confusedWith": [
+        {
+          "word": "describe",
+          "difference": "Describe wants the mechanics of one thing in order; discuss wants several independent considerations, each only one step deep."
+        },
+        {
+          "word": "explain",
+          "difference": "Explain wants one causal chain followed to its implication; discuss wants breadth across separate reasons, and depth on any single one is unpaid."
+        }
+      ]
+    },
+    {
+      "word": "describe",
+      "losCount": 54,
+      "asking": "Describe asks you to lay out the features or the mechanics of one specific thing — a strategy, a structure, a process — in enough operational detail that someone could act on it. The marks are in the moving parts: which instrument, which direction, which maturity, in what order, sized by what rule. No opinion is wanted here and none is scored.",
+      "highlight": [
+        "The concrete mechanics: instrument, direction (long or short, pay-fixed or receive-fixed), tenor, and the sizing rule.",
+        "The order of the steps, when the thing being described is a process. A good describe answer reads like instructions.",
+        "Any constraint the stem bolted on — 'without compromising the hedge' — because keys usually reserve a mark for honouring it."
+      ],
+      "leaveOut": [
+        "Why the strategy is a good idea. That is justify, and on a describe item it is unpaid writing.",
+        "The alternatives you considered and rejected.",
+        "Definitions of the instrument class. Nobody scores 'a futures contract is an agreement to buy at a future date'."
+      ],
+      "shape": {
+        "length": "Four to six sentences or bullets on a four-point item — enough to name every moving part once, with no sentence spent on merit.",
+        "structure": "Name the thing, then its components in the order they are put on, then the constraint that shapes the sizing.",
+        "requiresCalculation": false,
+        "requiresJustification": false
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "aventine_pension_swaps_pathway_essay_q3",
+        "note": "The key pays for naming the steepener and sizing it so the LDI hedge survives: long two-year futures, short ten-year, DV01-neutral, run as an overlay at a modest share of total PV01. Its partial-credit line drops the answer that merely identifies the strategy, because the identified label is not the description."
+      },
+      "pointLosers": [
+        "Naming the trade and stopping. 'Put on a curve steepener' is the heading, not the answer.",
+        "Describing the market view instead of the position that expresses it.",
+        "Leaving direction ambiguous. 'Use two-year and ten-year futures' never says which leg is long, so the grader cannot award the mechanics mark."
+      ],
+      "confusedWith": [
+        {
+          "word": "explain",
+          "difference": "Describe stops at how the thing is built; explain has to reach why it produces the result, so it needs a causal sentence describe does not."
+        },
+        {
+          "word": "discuss",
+          "difference": "Describe goes deep on one item's mechanics; discuss spreads across several considerations and would lose marks for that much detail on one."
+        }
+      ]
+    },
+    {
+      "word": "explain",
+      "losCount": 25,
+      "asking": "Explain asks for the causal chain behind something: why this leads to that. One mechanism, followed through to what it means for the portfolio, is the whole answer. The scored words are the connectives — because, therefore, which means — and the grading keys generally want the chain to arrive at a consequence for the manager rather than stopping at a definition.",
+      "highlight": [
+        "The mechanism in one sentence and its consequence in the next: this happens, therefore the manager must do that.",
+        "The distinction the question rests on, stated outright before you use it, such as market sensitivity versus sensitivity to rewarded factors.",
+        "The portfolio implication. An explain answer that ends where the definition ends is the one that takes partial credit."
+      ],
+      "leaveOut": [
+        "A second, alternative mechanism. Explain pays depth in one chain, not a list of candidate causes.",
+        "Numbers, unless the stem asked you to calculate. Working the arithmetic is not the explanation.",
+        "Hedged phrasing like 'this may or may not matter', which reads to a grader as not knowing the mechanism."
+      ],
+      "shape": {
+        "length": "Three to five sentences on a four-point item: the distinction, the mechanism, the implication. Roughly half the marks hang on the last of those.",
+        "structure": "Cause, then effect, then what the effect obliges the portfolio to do.",
+        "requiresCalculation": false,
+        "requiresJustification": true
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "active_equity_investing_construction_lisette_langham_lisette_essay_q8",
+        "note": "Full credit needs the definition, the mechanism, and the attribution logic; the key's partial-credit line pays only part for the two definitions on their own. The last mark comes from following the chain out — returns attributable to factor exposure have to be stripped out before anything left over is called alpha."
+      },
+      "pointLosers": [
+        "Stopping at the definition. This is the single most common way an explain answer leaves its final mark unclaimed.",
+        "Explaining the concept in general when the stem pointed at one fund, one client, or one balance sheet.",
+        "Offering three shallow reasons where one developed chain was wanted; none of the three reaches the implication."
+      ],
+      "confusedWith": [
+        {
+          "word": "describe",
+          "difference": "Describe lists the parts; explain has to connect them, so an explain answer must contain a because that a describe answer does not need."
+        },
+        {
+          "word": "discuss",
+          "difference": "Discuss is graded on how many separate considerations you raise; explain is graded on whether one chain reaches its consequence."
+        }
+      ]
+    },
+    {
+      "word": "compare",
+      "losCount": 16,
+      "asking": "Compare sets two or more items against each other on the same dimensions, with both the common ground and the divergence visible. The keys reward taking each item through the same short list of properties and then stating the difference outright. An answer that describes the first item fully, then the second fully, and never puts them side by side leaves the comparison marks unclaimed even when every fact in it is right.",
+      "highlight": [
+        "Choose the two or three dimensions before you start writing — cost, downside, upside cap — and take every item through all of them.",
+        "State the difference in its own sentence: the put costs premium and creates a floor, the call collects premium and creates a ceiling.",
+        "Where the stem names a client objective, finish by saying which item fits it. On these items a mark usually rides on that sentence."
+      ],
+      "leaveOut": [
+        "A third strategy the stem did not name, however relevant it feels.",
+        "Full pricing mechanics of each instrument; compare is about relative behaviour, not valuation.",
+        "Any dimension you can only fill in for one of the items, since a one-sided row proves nothing about either."
+      ],
+      "shape": {
+        "length": "Two short blocks, one per item, then a differences block — around eight lines for a four-point item.",
+        "structure": "Item A on the chosen dimensions, item B on exactly those dimensions, then the explicit contrast and the fit to the stated objective.",
+        "requiresCalculation": false,
+        "requiresJustification": true
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "bristol_advisors_options_pathway_essay_q2",
+        "note": "The key runs the protective put and the covered call through identical dimensions — premium direction, maximum loss, upside treatment — and only then adds a key-differences block: one protects and costs, the other pays and does not protect. The closing mark goes to picking the put for a client whose stated focus is downside."
+      },
+      "pointLosers": [
+        "Two sequential descriptions with no shared dimension, leaving the grader to do the comparing.",
+        "Comparing on a dimension the vignette gives no data for, which reads as padding.",
+        "Skipping the recommendation when the stem handed you a client objective to decide against."
+      ],
+      "confusedWith": [
+        {
+          "word": "contrast",
+          "difference": "Compare keeps the similarities in; under contrast they earn nothing, so the same material written for compare wastes half its lines."
+        },
+        {
+          "word": "discuss",
+          "difference": "Discuss lets each point stand alone; compare requires every point to be a shared dimension that both items are measured on."
+        }
+      ]
+    },
+    {
+      "word": "contrast",
+      "losCount": 5,
+      "asking": "Contrast is compare with the similarities cut out. Only differences score, and each one has to be a real axis of divergence — a property on which the two items behave in opposite ways — not two unrelated facts placed next to each other. It is rare in the outline and usually paired with identify, and the bank's differences items are graded on how many distinct axes you name with both sides filled in.",
+      "highlight": [
+        "One axis per point, both sides stated: one method reads actual positions, the other regresses returns on style indexes.",
+        "Differences that change what the analyst can do — whether position transparency is required, how fast style drift shows up.",
+        "The requested number of differences and no more, each written so it stands alone without the one above it."
+      ],
+      "leaveOut": [
+        "Similarities, however true. Under contrast they are unpaid.",
+        "A verdict on which item is better, unless the stem asked for one.",
+        "A second difference that is the first one renamed. Accuracy and precision on the same axis count once."
+      ],
+      "shape": {
+        "length": "One or two sentences per difference with both sides named; two differences on a four-point item, three on a six-point one.",
+        "structure": "Parallel pairs — on this axis A does one thing and B does the other — repeated for each axis.",
+        "requiresCalculation": false,
+        "requiresJustification": true
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "active_equity_investing_strategies_monica_popkirk_monica_pop_essay_q9",
+        "note": "Every line of its key is a two-sided pair: actual positions against a regression on style indexes, a point-in-time snapshot against an average over the estimation window, drift visible at once against drift that lags. Any two of those pairs earn full credit, while the one-sided version — that holdings-based analysis is more accurate — is what the key scores as vague."
+      },
+      "pointLosers": [
+        "One-sided statements that give a property of A and never say what B does instead.",
+        "Opening with what the two approaches have in common, which spends a line that cannot be paid.",
+        "Listing five differences when two were asked for, so the strongest one may sit outside the two that get read."
+      ],
+      "confusedWith": [
+        {
+          "word": "compare",
+          "difference": "Compare wants similarities and differences on shared dimensions; contrast wants the differences only, so shared ground is a line you do not write."
+        },
+        {
+          "word": "describe",
+          "difference": "Describe develops one item's mechanics in depth; contrast needs both items on every point, so depth on one side is half an answer."
+        }
+      ]
+    }
+  ]
+}
