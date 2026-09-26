@@ -134,6 +134,8 @@
 		E48A36A1C00000000000B036 /* los_drills_r36.json in Resources */ = {isa = PBXBuildFile; fileRef = 193A36A1C00000000000F036 /* los_drills_r36.json */; };
 		E5UI000000000000000B0001 /* CFAL3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5UI000000000000000F0001 /* CFAL3UITests.swift */; };
 		E809EE2E045E42E9813DD101 /* BrowseSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE3B2D08104DC6AC6CE541 /* BrowseSplitView.swift */; };
+		AA4D150B27CB4228B7D349BB /* CommandWordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5031815BE68E4D2CA5B0BA2B /* CommandWordsView.swift */; };
+		B24B89483BE8434DAB05E11E /* CommandWordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEEE28FA8854C8F94C592B0 /* CommandWordDetailView.swift */; };
 		EA104E48307E4173A2389D71 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EC49596EF463ABA13A820 /* Session.swift */; };
 		EC07A1060DD6429484BF6CC8 /* los_drills_r19.json in Resources */ = {isa = PBXBuildFile; fileRef = D6E556BBB4E048D7A6A1F019 /* los_drills_r19.json */; };
 		EE1E62F20D9A479E8E518EF8 /* los_drills_r18.json in Resources */ = {isa = PBXBuildFile; fileRef = AAD9630101AB46F1B26FDB0D /* los_drills_r18.json */; };
@@ -208,6 +210,8 @@
 		479EB4F438A2484786E6010D /* los_drills_r1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r1.json; sourceTree = "<group>"; };
 		4BA5FB6F4A7043D8BDFBB1EA /* LOSChecklistPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSChecklistPanel.swift; sourceTree = "<group>"; };
 		4DEE3B2D08104DC6AC6CE541 /* BrowseSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseSplitView.swift; sourceTree = "<group>"; };
+		5031815BE68E4D2CA5B0BA2B /* CommandWordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandWordsView.swift; sourceTree = "<group>"; };
+		9BEEE28FA8854C8F94C592B0 /* CommandWordDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandWordDetailView.swift; sourceTree = "<group>"; };
 		4EA614611467451C93082870 /* StudyPlannerSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPlannerSplitView.swift; sourceTree = "<group>"; };
 		4F6DDCFA99884B51ADC4FD45 /* los_master.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_master.json; sourceTree = "<group>"; };
 		4FE18A76635745B6BCAE1D7A /* PracticeScopeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeScopeTests.swift; sourceTree = "<group>"; };
@@ -464,6 +468,7 @@
 			children = (
 				D035C338D3A74118829E51F1 /* Browse */,
 				16C1FB312A6344FF853A503D /* Cards */,
+				71CC3ADD919343CBA8DB66CD /* CommandWords */,
 				13218F19B3D84A0390AD6D8F /* Components */,
 				453DEB9C5231475A96FEA7D2 /* Plan */,
 				E88024B4AE3C4CBF963137FD /* Practice */,
@@ -600,6 +605,15 @@
 				59971326BB734A9DA1D869CB /* StudyReadingDetailView.swift */,
 			);
 			path = Study;
+			sourceTree = "<group>";
+		};
+		71CC3ADD919343CBA8DB66CD /* CommandWords */ = {
+			isa = PBXGroup;
+			children = (
+				9BEEE28FA8854C8F94C592B0 /* CommandWordDetailView.swift */,
+				5031815BE68E4D2CA5B0BA2B /* CommandWordsView.swift */,
+			);
+			path = CommandWords;
 			sourceTree = "<group>";
 		};
 		D035C338D3A74118829E51F1 /* Browse */ = {
@@ -918,6 +932,8 @@
 				275ADD3E5FC84A09822F8857 /* HomeView.swift in Sources */,
 				A55600316463473185D99CD8 /* RootTabView.swift in Sources */,
 				E809EE2E045E42E9813DD101 /* BrowseSplitView.swift in Sources */,
+				AA4D150B27CB4228B7D349BB /* CommandWordsView.swift in Sources */,
+				B24B89483BE8434DAB05E11E /* CommandWordDetailView.swift in Sources */,
 				F5CB2015A5764D80B1E58C22 /* CaseDetailView.swift in Sources */,
 				D868A1912E7949028AAB51B3 /* CaseListView.swift in Sources */,
 				CDDC11A6A4974DE98F5FC562 /* LOSFilterSheet.swift in Sources */,
