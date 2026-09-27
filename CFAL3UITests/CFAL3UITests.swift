@@ -24,7 +24,7 @@ final class CFAL3UITests: XCTestCase {
     private var app: XCUIApplication!
 
     private static let tabNames = [
-        "Today", "Plan", "Notes", "MM Review", "Cards", "Practice", "Cases", "Progress"
+        "Today", "Plan", "Notes", "MM Review", "Cards", "Practice", "Command words", "Cases", "Progress"
     ]
 
     override func setUpWithError() throws {
@@ -250,7 +250,7 @@ final class CFAL3UITests: XCTestCase {
 
     func testEveryTabOpensWithoutCrashing() {
         XCTAssertTrue(waitFor(tab("Today")), "the sidebar never appeared")
-        for name in ["Plan", "Notes", "MM Review", "Cards", "Practice", "Cases", "Progress", "Today"] {
+        for name in ["Plan", "Notes", "MM Review", "Cards", "Practice", "Command words", "Cases", "Progress", "Today"] {
             tab(name).tap()
             XCTAssertTrue(tab(name).waitForExistence(timeout: 10), "\(name) did not settle")
             XCTAssertEqual(app.state, .runningForeground, "app left the foreground on \(name)")
@@ -499,6 +499,47 @@ final class CFAL3UITests: XCTestCase {
         XCTAssertTrue(app.descendants(matching: .any)["practice.scopeSummary"]
                         .firstMatch.waitForExistence(timeout: 10),
                       "could not get back to the quiz builder")
+    }
+
+    // MARK: - Command words
+
+    /// The command-word section is 17 pages of authored guidance reached from
+    /// the sidebar. This walks the path the reader actually takes: open the
+    /// destination, pick a word, and follow a contrast link to another word —
+    /// the cross-links are ids in a JSON file, so a typo in one renders a dead
+    /// row rather than failing anything at build time.
+    func testCommandWordsOpensAWordAndFollowsAContrastLink() {
+        XCTAssertTrue(waitFor(tab("Command words")), "the sidebar never appeared")
+        tab("Command words").tap()
+
+        XCTAssertTrue(
+            app.buttons["commandwords.word.discuss"].waitForExistence(timeout: 15),
+            "the command-word list did not appear"
+        )
+        XCTAssertFalse(
+            app.otherElements["commandwords.unavailable"].exists,
+            "command_words.json did not make it into the bundle"
+        )
+
+        app.buttons["commandwords.word.discuss"].firstMatch.tap()
+        XCTAssertTrue(
+            app.otherElements["commandwords.page.discuss"].waitForExistence(timeout: 10)
+                || app.staticTexts["commandwords.page.discuss"].waitForExistence(timeout: 10),
+            "picking a word did not open its page"
+        )
+
+        // Discuss contrasts against describe. Following it must land on
+        // describe's own page, not scroll within discuss.
+        let link = app.buttons["commandwords.confused.describe"].firstMatch
+        XCTAssertTrue(link.waitForExistence(timeout: 10), "the contrast link is missing")
+        link.tap()
+
+        XCTAssertTrue(
+            app.otherElements["commandwords.page.describe"].waitForExistence(timeout: 10)
+                || app.staticTexts["commandwords.page.describe"].waitForExistence(timeout: 10),
+            "the contrast link did not open the other word"
+        )
+        XCTAssertEqual(app.state, .runningForeground)
     }
 
     // MARK: - MM Review

@@ -1,7 +1,41 @@
 #!/usr/bin/env python3
+"""Regenerate CFAL3.xcodeproj/project.pbxproj from what is on disk.
+
+DO NOT RUN THIS WITHOUT READING THE NEXT PARAGRAPH. It is incomplete, and
+what it leaves out it deletes silently — the project still BUILDS afterwards,
+so nothing tells you.
+
+Measured 2026-09-27 by regenerating and diffing the file references, it drops:
+
+  * the whole CFAL3UITests target — CFAL3UITests.swift and CFAL3UITests.xctest.
+    It only walks CFAL3Tests, so every iPad UI test stops existing. `xcodebuild
+    build` still succeeds, and `test` just runs the unit suite, green.
+  * Config/Secrets.xcconfig, the base configuration that substitutes
+    GRADER_PROXY_TOKEN into Info.plist. Without it the app builds and runs, and
+    essay grading is quietly unconfigured.
+  * the CFAL3UITests entry in the SHARED SCHEME, which it also rewrites. After
+    a run, `xcodebuild test` reports success having run no UI test at all —
+    which is how this was caught, not by anything failing.
+
+Until those are emitted, regenerating LOSES work that the committed project
+holds by hand. The guard below makes that a deliberate choice rather than an
+accident; the resources list and the folder-reference branch are kept current
+so the script is ready when someone finishes it.
+
+Run with --i-know-this-drops-the-ui-target to proceed anyway.
+"""
 import os
+import sys
 import uuid
 from pathlib import Path
+
+if "--i-know-this-drops-the-ui-target" not in sys.argv:
+    sys.exit(
+        "refusing to run: this generator drops the CFAL3UITests target and\n"
+        "Config/Secrets.xcconfig, and the result still builds so the loss is\n"
+        "silent. Read the docstring at the top of this file. To override:\n"
+        "  scripts/generate_xcodeproj.py --i-know-this-drops-the-ui-target"
+    )
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APP = os.path.join(ROOT, "CFAL3")
@@ -26,6 +60,17 @@ resources = [
     "CFAL3/Resources/content_targets.json",
     "CFAL3/Resources/los_drills_index.json",
     "CFAL3/Resources/study_schedule.json",
+    "CFAL3/Resources/command_words.json",
+    # These two only ever reached the committed project by hand. The generator
+    # has to list them too, or regenerating unbundles shipped content.
+    "CFAL3/Resources/flashcards.json",
+    "CFAL3/Resources/mm_review.json",
+    # A FOLDER reference, not a file: whatever PDFs are present get copied into
+    # the bundle under MMReview/. The PDFs themselves are gitignored purchased
+    # coursework, so this is usually an empty directory on a clone — that is
+    # fine, and the app treats missing PDFs as a normal state. Leaving it out
+    # here unbundles all six books with no build error.
+    "CFAL3/Resources/MMReview",
     "CFAL3/Assets.xcassets",
 ]
 resources.extend(
@@ -128,9 +173,13 @@ for path in sources + resources + tests:
         out.append(
             f"\t\t{file_refs[path]} /* {name} */ = {{isa = PBXFileReference; lastKnownFileType = text.json; path = {name}; sourceTree = \"<group>\"; }};"
         )
-    else:
+    elif path.endswith(".xcassets"):
         out.append(
             f"\t\t{file_refs[path]} /* Assets.xcassets */ = {{isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = \"<group>\"; }};"
+        )
+    else:
+        out.append(
+            f"\t\t{file_refs[path]} /* {name} */ = {{isa = PBXFileReference; lastKnownFileType = folder; path = {name}; sourceTree = \"<group>\"; }};"
         )
 out.append("/* End PBXFileReference section */")
 out.append("")

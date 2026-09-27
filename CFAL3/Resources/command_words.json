@@ -1,0 +1,718 @@
+{
+  "version": 1,
+  "words": [
+    {
+      "word": "discuss",
+      "losCount": 76,
+      "asking": "Discuss asks for several distinct considerations, each named and then carried one step further to its consequence for the people in the vignette. It is the outline's most common verb and it nearly always arrives with a number attached — two liquidity considerations, two governance concerns — so the marks sit on how many separate points you raise, not on how deeply you develop any one of them. A discuss answer is a short list of independent claims, each with a because.",
+      "highlight": [
+        "Name the consideration in the first few words of each point, then spend one sentence on its consequence here; a bank grading key accepts a point only when the reasoning is attached.",
+        "Use the vignette's own facts as the because — the 25% private equity allocation, the move from 4% to 5% spending. The same point stated in the abstract is what keys call vague.",
+        "Write exactly the number of points asked for, as separate blocks, since credit is awarded per point and a merged paragraph makes the second point hard to find."
+      ],
+      "leaveOut": [
+        "Extra points beyond the number requested. Graders take the first two, so a weak point placed first costs a mark that a later strong one cannot win back.",
+        "Background definitions of the instruments involved. Discuss assumes you already know what private equity or an LDI hedge is.",
+        "A recommendation, unless the stem asked for one. 'I would therefore cut PE to 10%' earns nothing on a discuss item and costs you minutes."
+      ],
+      "shape": {
+        "length": "Two to four sentences per requested point. Four-point items almost always want two points and six-point items three, so budget roughly half the marks to each block.",
+        "structure": "One labelled block per point: the consideration, then its consequence for this portfolio.",
+        "requiresCalculation": false,
+        "requiresJustification": true
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "elbe_society_the_elbe_society_essay_q7",
+        "note": "Its key lists eight acceptable liquidity considerations and pays full credit for any two that carry reasoning. Capital-call risk earns the point because it is paired with 'investment-grade fixed income is fully invested, so private equity introduces timing uncertainty'; the bare claim that private equity is illiquid does not."
+      },
+      "pointLosers": [
+        "Restating the stem as the first point — answering 'what liquidity considerations arise' with 'the portfolio becomes less liquid'.",
+        "Two versions of one idea. Unpredictable capital calls and lumpy distributions are usually read as a single liquidity-timing point, so the second block scores nothing.",
+        "Burying the consideration at the end of a paragraph of setup, where a grader scanning for the named point will not find it."
+      ],
+      "confusedWith": [
+        {
+          "word": "describe",
+          "difference": "Describe wants the mechanics of one thing in order; discuss wants several independent considerations, each only one step deep."
+        },
+        {
+          "word": "explain",
+          "difference": "Explain wants one causal chain followed to its implication; discuss wants breadth across separate reasons, and depth on any single one is unpaid."
+        }
+      ]
+    },
+    {
+      "word": "describe",
+      "losCount": 54,
+      "asking": "Describe asks you to lay out the features or the mechanics of one specific thing — a strategy, a structure, a process — in enough operational detail that someone could act on it. The marks are in the moving parts: which instrument, which direction, which maturity, in what order, sized by what rule. No opinion is wanted here and none is scored.",
+      "highlight": [
+        "The concrete mechanics: instrument, direction (long or short, pay-fixed or receive-fixed), tenor, and the sizing rule.",
+        "The order of the steps, when the thing being described is a process. A good describe answer reads like instructions.",
+        "Any constraint the stem bolted on — 'without compromising the hedge' — because keys usually reserve a mark for honouring it."
+      ],
+      "leaveOut": [
+        "Why the strategy is a good idea. That is justify, and on a describe item it is unpaid writing.",
+        "The alternatives you considered and rejected.",
+        "Definitions of the instrument class. Nobody scores 'a futures contract is an agreement to buy at a future date'."
+      ],
+      "shape": {
+        "length": "Four to six sentences or bullets on a four-point item — enough to name every moving part once, with no sentence spent on merit.",
+        "structure": "Name the thing, then its components in the order they are put on, then the constraint that shapes the sizing.",
+        "requiresCalculation": false,
+        "requiresJustification": false
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "aventine_pension_swaps_pathway_essay_q3",
+        "note": "The key pays for naming the steepener and sizing it so the LDI hedge survives: long two-year futures, short ten-year, DV01-neutral, run as an overlay at a modest share of total PV01. Its partial-credit line drops the answer that merely identifies the strategy, because the identified label is not the description."
+      },
+      "pointLosers": [
+        "Naming the trade and stopping. 'Put on a curve steepener' is the heading, not the answer.",
+        "Describing the market view instead of the position that expresses it.",
+        "Leaving direction ambiguous. 'Use two-year and ten-year futures' never says which leg is long, so the grader cannot award the mechanics mark."
+      ],
+      "confusedWith": [
+        {
+          "word": "explain",
+          "difference": "Describe stops at how the thing is built; explain has to reach why it produces the result, so it needs a causal sentence describe does not."
+        },
+        {
+          "word": "discuss",
+          "difference": "Describe goes deep on one item's mechanics; discuss spreads across several considerations and would lose marks for that much detail on one."
+        }
+      ]
+    },
+    {
+      "word": "explain",
+      "losCount": 25,
+      "asking": "Explain asks for the causal chain behind something: why this leads to that. One mechanism, followed through to what it means for the portfolio, is the whole answer. The scored words are the connectives — because, therefore, which means — and the grading keys generally want the chain to arrive at a consequence for the manager rather than stopping at a definition.",
+      "highlight": [
+        "The mechanism in one sentence and its consequence in the next: this happens, therefore the manager must do that.",
+        "The distinction the question rests on, stated outright before you use it, such as market sensitivity versus sensitivity to rewarded factors.",
+        "The portfolio implication. An explain answer that ends where the definition ends is the one that takes partial credit."
+      ],
+      "leaveOut": [
+        "A second, alternative mechanism. Explain pays depth in one chain, not a list of candidate causes.",
+        "Numbers, unless the stem asked you to calculate. Working the arithmetic is not the explanation.",
+        "Hedged phrasing like 'this may or may not matter', which reads to a grader as not knowing the mechanism."
+      ],
+      "shape": {
+        "length": "Three to five sentences on a four-point item: the distinction, the mechanism, the implication. Roughly half the marks hang on the last of those.",
+        "structure": "Cause, then effect, then what the effect obliges the portfolio to do.",
+        "requiresCalculation": false,
+        "requiresJustification": true
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "active_equity_investing_construction_lisette_langham_lisette_essay_q8",
+        "note": "Full credit needs the definition, the mechanism, and the attribution logic; the key's partial-credit line pays only part for the two definitions on their own. The last mark comes from following the chain out — returns attributable to factor exposure have to be stripped out before anything left over is called alpha."
+      },
+      "pointLosers": [
+        "Stopping at the definition. This is the single most common way an explain answer leaves its final mark unclaimed.",
+        "Explaining the concept in general when the stem pointed at one fund, one client, or one balance sheet.",
+        "Offering three shallow reasons where one developed chain was wanted; none of the three reaches the implication."
+      ],
+      "confusedWith": [
+        {
+          "word": "describe",
+          "difference": "Describe lists the parts; explain has to connect them, so an explain answer must contain a because that a describe answer does not need."
+        },
+        {
+          "word": "discuss",
+          "difference": "Discuss is graded on how many separate considerations you raise; explain is graded on whether one chain reaches its consequence."
+        }
+      ]
+    },
+    {
+      "word": "evaluate",
+      "losCount": 23,
+      "asking": "Evaluate hands you somebody else's claim, recommendation, or system and asks you to judge it. Every item named in the stem gets a verdict — correct, incorrect, does not comply, a strength, a weakness — and one reason that makes the verdict stick. The verdict is what gets marked and the reason is what protects it. Where the stem says three claims, the grader is counting three verdicts, and a claim you never assess scores nothing however good the prose around it is.",
+      "highlight": [
+        "A one-word verdict on each item before any reasoning, so a grader can find all of them without reading for them.",
+        "The single reason that decides each verdict, stated in the vignette's terms: factor strategies concentrate exposure rather than diversify it.",
+        "Verdicts on the items that are right as well as the ones that are wrong. Keys pay for correctly leaving a sound claim alone."
+      ],
+      "leaveOut": [
+        "A general essay on the topic the claim touches. Evaluate is about the claim, not the subject.",
+        "A fix for whatever you judged wrong, unless the stem also said recommend.",
+        "Unresolved hedging. 'Partially correct' with nothing after it reads as no verdict at all."
+      ],
+      "shape": {
+        "length": "One short block per item: verdict, then a sentence of reasoning. Three claims in a six-point item means three blocks of roughly equal weight.",
+        "structure": "Item, verdict, reason — repeated in the order the vignette introduced them.",
+        "requiresCalculation": false,
+        "requiresJustification": true
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "index_based_equity_strategies_sapphire_bay_edward_cullen_essay_q8",
+        "note": "The key marks each of the three claims separately and says full credit requires spotting the first as the only incorrect one. The two correct claims still need a verdict and a supporting line, so an answer that only attacks the wrong claim has answered a third of the item."
+      },
+      "pointLosers": [
+        "Assessing the claims you find interesting and skipping one, which caps the item at partial credit no matter how strong the rest is.",
+        "Calling a claim wrong without naming the specific error, which the keys treat as an unsupported verdict.",
+        "Judging every claim the same way. These items usually mix correct and incorrect on purpose, so a clean sweep in either direction is a warning sign."
+      ],
+      "confusedWith": [
+        {
+          "word": "discuss",
+          "difference": "Discuss raises considerations and never has to land on a verdict; evaluate is unmarkable without one."
+        },
+        {
+          "word": "justify",
+          "difference": "Evaluate judges a position someone else took; justify defends the position you took, so the reasoning points the other way."
+        }
+      ]
+    },
+    {
+      "word": "recommend",
+      "losCount": 20,
+      "asking": "Recommend asks for an action specific enough to hand to someone to carry out, plus the line that ties it to this client's situation. It almost never travels alone: the outline bolts it to a second verb (recommend and justify an asset allocation, identify the biases and recommend methods to overcome them), and no stem in the bank opens with it. So the action is one half of the marks and the setup verb is the other, and the half you skip is simply lost.",
+      "highlight": [
+        "Enough specificity to act on — which instrument, how much, over what horizon, at what participation rate.",
+        "The sentence linking the action to the client's stated constraint. That link is what turns a plausible action into the recommended one.",
+        "The other verb in the stem, answered first and in its own block, since the challenges you identify and the strategy you recommend are marked in different places."
+      ],
+      "leaveOut": [
+        "A menu of options. A recommendation is one course of action; naming three and leaving the choice open answers nothing.",
+        "Best practice that never touches this portfolio's numbers.",
+        "A re-derivation of the diagnosis you already wrote under the first verb."
+      ],
+      "shape": {
+        "length": "Two blocks on a four-point item: the setup verb's answer, then the action with its rationale in three or four lines.",
+        "structure": "Diagnosis, then the action in the imperative, then one line on why it fits the constraint.",
+        "requiresCalculation": false,
+        "requiresJustification": true
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "silverline_trading_pathway_essay_q1",
+        "note": "The key wants the challenges first — the order is two-thirds of average daily volume in a small cap with a wide spread — and only then the action, specified down to spreading it over three to five days at a capped participation rate across both lit and dark venues. Its partial line rejects naming a single algorithm, which is the recommendation with the sizing left out."
+      },
+      "pointLosers": [
+        "Recommending the category. 'Use an algorithm' or 'diversify' skips the parameters, which is where the marks are.",
+        "Answering the recommend half and skipping the identify or evaluate half that came first.",
+        "Proposing something the vignette's own constraints rule out, such as completing in one day an order that is most of a day's volume."
+      ],
+      "confusedWith": [
+        {
+          "word": "determine",
+          "difference": "A determine answer is forced by the facts and can be marked right or wrong; a recommend answer is a course of action you propose and have to sell."
+        },
+        {
+          "word": "select",
+          "difference": "Select picks from the closed list the vignette supplies; recommend may propose an action that appears nowhere in the stem."
+        },
+        {
+          "word": "justify",
+          "difference": "Recommend earns marks for the action, justify for the because. An item asking for both scores them in separate places, so neither covers for the other."
+        }
+      ]
+    },
+    {
+      "word": "demonstrate",
+      "losCount": 17,
+      "asking": "Demonstrate asks you to show a tool doing its job rather than talk about the tool. Nine of the seventeen statements that use it point at derivatives and options and ask you to move a portfolio to a targeted exposure; seven are the ethics template repeated across the Standards, where demonstrating means applying the rules to conduct instead of reciting them. Either way the answer is a worked application: the positions and directions and the exposure they produce, or the rule run against the facts in front of you.",
+      "highlight": [
+        "The mechanism actually operating — the position, its size, and the exposure you end at, such as a beta brought down to the target from 1.15.",
+        "Direction, every time. A demonstration that never says long or short, pay or receive, has not shown anything.",
+        "The arithmetic or the rule applied to this vignette's numbers, because that application is the demonstration."
+      ],
+      "leaveOut": [
+        "What the instrument is. That is describe, and it is unpaid here.",
+        "Whether using derivatives is wise at all.",
+        "A statement of the rule with no facts attached to it."
+      ],
+      "shape": {
+        "length": "About half a page: the starting exposure, the position with its sizing, then the exposure achieved.",
+        "structure": "Where the portfolio starts, the instrument and direction, the sizing step, where it ends up.",
+        "requiresCalculation": true,
+        "requiresJustification": false
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "swaps_heights_case_ford_tyron_essay_q6",
+        "note": "The stem says calculate, but what the key rewards is the demonstration: converting the dollar target into the futures' own currency, dividing by the index beta to translate the exposure, and landing long about 350 contracts. Its ladder gives nothing for the wrong direction however clean the arithmetic, because an instrument pointed the wrong way has not been shown doing its job."
+      },
+      "pointLosers": [
+        "Writing the formula and never substituting the vignette's numbers into it.",
+        "Getting the size right and the sign wrong, which these keys treat as a failed demonstration rather than a slip.",
+        "Skipping a conversion the exhibit put there on purpose — a currency rate, a contract multiplier, a conversion factor."
+      ],
+      "confusedWith": [
+        {
+          "word": "describe",
+          "difference": "Describe names the parts of the strategy; demonstrate has to run them on this portfolio's numbers and land on an exposure."
+        },
+        {
+          "word": "explain",
+          "difference": "Explain argues why the mechanism works; demonstrate shows it working, and the working itself is what gets marked."
+        },
+        {
+          "word": "calculate",
+          "difference": "Calculate is marked on the figure and its working; demonstrate needs the figure plus the position and direction that produce the targeted exposure."
+        }
+      ]
+    },
+    {
+      "word": "compare",
+      "losCount": 16,
+      "asking": "Compare sets two or more items against each other on the same dimensions, with both the common ground and the divergence visible. The keys reward taking each item through the same short list of properties and then stating the difference outright. An answer that describes the first item fully, then the second fully, and never puts them side by side leaves the comparison marks unclaimed even when every fact in it is right.",
+      "highlight": [
+        "Choose the two or three dimensions before you start writing — cost, downside, upside cap — and take every item through all of them.",
+        "State the difference in its own sentence: the put costs premium and creates a floor, the call collects premium and creates a ceiling.",
+        "Where the stem names a client objective, finish by saying which item fits it. On these items a mark usually rides on that sentence."
+      ],
+      "leaveOut": [
+        "A third strategy the stem did not name, however relevant it feels.",
+        "Full pricing mechanics of each instrument; compare is about relative behaviour, not valuation.",
+        "Any dimension you can only fill in for one of the items, since a one-sided row proves nothing about either."
+      ],
+      "shape": {
+        "length": "Two short blocks, one per item, then a differences block — around eight lines for a four-point item.",
+        "structure": "Item A on the chosen dimensions, item B on exactly those dimensions, then the explicit contrast and the fit to the stated objective.",
+        "requiresCalculation": false,
+        "requiresJustification": true
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "bristol_advisors_options_pathway_essay_q2",
+        "note": "The key runs the protective put and the covered call through identical dimensions — premium direction, maximum loss, upside treatment — and only then adds a key-differences block: one protects and costs, the other pays and does not protect. The closing mark goes to picking the put for a client whose stated focus is downside."
+      },
+      "pointLosers": [
+        "Two sequential descriptions with no shared dimension, leaving the grader to do the comparing.",
+        "Comparing on a dimension the vignette gives no data for, which reads as padding.",
+        "Skipping the recommendation when the stem handed you a client objective to decide against."
+      ],
+      "confusedWith": [
+        {
+          "word": "contrast",
+          "difference": "Compare keeps the similarities in; under contrast they earn nothing, so the same material written for compare wastes half its lines."
+        },
+        {
+          "word": "discuss",
+          "difference": "Discuss lets each point stand alone; compare requires every point to be a shared dimension that both items are measured on."
+        }
+      ]
+    },
+    {
+      "word": "interpret",
+      "losCount": 11,
+      "asking": "Interpret asks what a number or a shape means. Nine of the eleven statements that use it pair it with another verb, and in seven of those the other verb comes first — compute or identify something, then say what it tells you — with the interpretation marked separately from the figure. A capture ratio of 117% is not an answer. That the fund keeps about a sixth more of the upside than it gives back on the downside, which is favourable, is.",
+      "highlight": [
+        "The direction and rough size of the effect in plain words, before any terminology.",
+        "The reference point that makes the number mean something: above 100%, longer than the liability, wider than the peer group.",
+        "The consequence for the decision at hand, which is what separates an interpretation from a restatement."
+      ],
+      "leaveOut": [
+        "The formula you already used. Interpret starts after the arithmetic.",
+        "A recalculation of a figure the stem handed you.",
+        "Every possible reading of the number. Give the one this vignette's facts support."
+      ],
+      "shape": {
+        "length": "Two to four sentences: what the measure says, against what reference, and what follows from it.",
+        "structure": "Restate the measure in words, give the reading, then the implication.",
+        "requiresCalculation": false,
+        "requiresJustification": true
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "teamwork_advisory_teamwork_advisory_essay_q12",
+        "note": "Marks split between assessing the preference and interpreting the ratio, and the interpretation half is only earned by unpacking it: upside capture over downside capture, 117% meaning roughly a sixth more upside than downside, and anything above 100% read as favourable. Naming the ratio without that reading takes the partial mark."
+      },
+      "pointLosers": [
+        "Saying the number again in words: 'the capture ratio is 117%, which is high'.",
+        "Interpreting a different measure than the one quoted, which is easy when an exhibit carries several ratios.",
+        "Stopping before the implication, so the grader gets a definition where a meaning was wanted."
+      ],
+      "confusedWith": [
+        {
+          "word": "calculate",
+          "difference": "Calculate produces the figure and interpret says what it means. A stem carrying both marks them in separate places, and the outline pairs them every time it uses calculate."
+        },
+        {
+          "word": "explain",
+          "difference": "Explain traces why a mechanism produces an outcome; interpret reads an outcome that is already sitting in front of you."
+        }
+      ]
+    },
+    {
+      "word": "justify",
+      "losCount": 10,
+      "asking": "Justify is the because half of an answer. It is rarely alone — eight of the ten statements in the outline that use it read 'recommend and justify' — and it asks you to defend one specific choice against the alternatives on the table, using the criterion the vignette named. Wording like 'support your answer' or 'explain your choice' is asking for exactly this and is marked in the same place: the choice on its own usually earns partial credit, and the rest arrives with a reason tied to the client's criterion.",
+      "highlight": [
+        "The client's own criterion as the hinge — cost minimisation, a shortfall constraint, a near-term liquidity need.",
+        "Why the alternative loses, in one clause. A defence that never mentions the rejected option is half an argument.",
+        "Numbers you already computed, reused as the evidence: a net credit of $2.70 against a $2.37 outlay is the justification, not the preamble to one."
+      ],
+      "leaveOut": [
+        "A second independent reason. Keys accept any one sound reason, so the spare is unpaid.",
+        "The mechanics of the option you chose, which is describe wearing a justify label.",
+        "Generic merit — 'it is well diversified' — with no tie to the stated objective."
+      ],
+      "shape": {
+        "length": "One or two sentences per justification, attached to the choice it defends. Where the stem pairs justify with another verb, expect roughly half the marks on each.",
+        "structure": "The choice, then the criterion, then how the choice meets it and the alternative does not.",
+        "requiresCalculation": false,
+        "requiresJustification": true
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "options_duane_armitage_duane_essay_q5",
+        "note": "The pick is the bear call spread, and the key's ladder gives only part credit for naming it. The rest comes from the reason: that spread is entered for a net credit while the alternative needs cash up front, and the client asked to minimise cost. Both payoff tables exist only to produce that one comparison."
+      },
+      "pointLosers": [
+        "Choosing correctly and stopping. This is the most common way to leave half of a justify item unclaimed.",
+        "Justifying against a criterion you introduced rather than the one the vignette stated.",
+        "Writing the defence of an option you did not pick, so the verdict and the reasoning point in different directions."
+      ],
+      "confusedWith": [
+        {
+          "word": "recommend",
+          "difference": "Recommend supplies the action; justify supplies the argument for it. A stem carrying both needs both blocks written."
+        },
+        {
+          "word": "evaluate",
+          "difference": "Evaluate delivers a verdict on somebody else's claim; justify defends your own choice against the alternative you rejected."
+        },
+        {
+          "word": "explain",
+          "difference": "Explain traces a mechanism that holds whatever you choose; justify argues that this option beats the named alternative for this client."
+        }
+      ]
+    },
+    {
+      "word": "analyze",
+      "losCount": 9,
+      "asking": "Analyze asks you to take something apart and carry each piece through to what it implies. The outline's uses are consistent about this: break a strategy, an exposure, or a fee schedule into components, then follow each component to a consequence. It sits a level above discuss, because the components have to be the right ones for this portfolio and each one has to end somewhere that matters — usually with the size or the materiality of the effect stated.",
+      "highlight": [
+        "The decomposition first: which exposures, which components, which drivers, named rather than implied.",
+        "One consequence per component, sized or judged. An analysis that stops at the list is a taxonomy.",
+        "The interaction the vignette planted. Two exposures that bite at the same moment is usually the whole point of the item."
+      ],
+      "leaveOut": [
+        "Components the vignette gives you nothing to say about.",
+        "Recommendations, unless the stem adds that verb.",
+        "Statements about the asset class that would be true of any portfolio holding it."
+      ],
+      "shape": {
+        "length": "One block per component, each ending in its consequence. A six-point item usually wants two components taken apart and judged.",
+        "structure": "Name the component, trace its effect, then say how much it matters here.",
+        "requiresCalculation": false,
+        "requiresJustification": true
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "karelia_heritage_fund_swf_essay_q4",
+        "note": "The key takes one financial and one non-financial exposure and demands materiality tied to this mandate: correlated holdings matter because a demand shock cuts the royalties at the same moment the stabilisation sleeve is drawn, and the terminal matters because a concentrated unlisted position is invisible to a listed-only risk measure. It says outright that generic long-horizon reasoning earns nothing."
+      },
+      "pointLosers": [
+        "Listing exposures without sizing or judging a single one.",
+        "Analysing two risks of the same kind when the stem asked for one of each.",
+        "Reaching for a standard risk taxonomy instead of the two or three risks this vignette was built around."
+      ],
+      "confusedWith": [
+        {
+          "word": "discuss",
+          "difference": "Discuss wants several independent considerations; analyze wants the components of one thing and the consequence of each, which is a deeper cut on a narrower subject."
+        },
+        {
+          "word": "evaluate",
+          "difference": "Evaluate judges a claim someone in the vignette made; analyze judges the thing itself, and half the mark is in the decomposition rather than the verdict."
+        }
+      ]
+    },
+    {
+      "word": "formulate",
+      "losCount": 6,
+      "asking": "Formulate asks you to build something out of the client's own facts: a policy statement, a currency program, a positioning strategy. You are not picking from a list — you are constructing the answer and then showing that it fits the objectives and constraints you were handed. What you write should read like a proposal someone could implement, and the marks divide between the construction and the demonstration that it fits.",
+      "highlight": [
+        "The construction stated concretely: which instruments, which direction, sized against which positions.",
+        "The client's objective and constraint restated in a clause, so the fit is visible rather than assumed.",
+        "Why the tempting alternative construction fails here. That step is what shows you built the answer instead of reaching for a default."
+      ],
+      "leaveOut": [
+        "A survey of available approaches with no build at the end of it.",
+        "Any component the client's stated constraints rule out.",
+        "The theory behind the tool you are using."
+      ],
+      "shape": {
+        "length": "The structure in a line or two, then three or four lines tying it to the objective and dismissing the alternative.",
+        "structure": "The build, then its fit to the objective, then the construction it beats.",
+        "requiresCalculation": false,
+        "requiresJustification": true
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "currency_hnw_worldwide_hnw_worldwide_essay_q10",
+        "note": "No stem in the bank uses formulate, so this is the closest shape: construct the hedging program the client's objective requires. Full credit needs the build — sell each currency forward separately — and the reason the appealing alternative fails, which is that a proxy hedge exploits a high correlation only when the two positions point in opposite directions and both of these are long. The key downgrades the right build offered without that reasoning."
+      },
+      "pointLosers": [
+        "Naming a tool without direction or sizing, leaving nothing anyone could implement.",
+        "Building against a constraint the client does not have while the stated one goes unaddressed.",
+        "Letting a striking exhibit number drive the structure when the client's objective points the other way."
+      ],
+      "confusedWith": [
+        {
+          "word": "select",
+          "difference": "Select picks from the options the vignette lists; formulate has to produce a structure that appears on no list."
+        },
+        {
+          "word": "recommend",
+          "difference": "Recommend proposes one action and defends it; formulate assembles a whole program and has to show it satisfies every constraint given."
+        },
+        {
+          "word": "describe",
+          "difference": "Describe lays out a structure that already exists in the vignette; formulate has to build it from the client's facts before there is anything to lay out."
+        }
+      ]
+    },
+    {
+      "word": "contrast",
+      "losCount": 5,
+      "asking": "Contrast is compare with the similarities cut out. Only differences score, and each one has to be a real axis of divergence — a property on which the two items behave in opposite ways — not two unrelated facts placed next to each other. It is rare in the outline and usually paired with identify, and the bank's differences items are graded on how many distinct axes you name with both sides filled in.",
+      "highlight": [
+        "One axis per point, both sides stated: one method reads actual positions, the other regresses returns on style indexes.",
+        "Differences that change what the analyst can do — whether position transparency is required, how fast style drift shows up.",
+        "The requested number of differences and no more, each written so it stands alone without the one above it."
+      ],
+      "leaveOut": [
+        "Similarities, however true. Under contrast they are unpaid.",
+        "A verdict on which item is better, unless the stem asked for one.",
+        "A second difference that is the first one renamed. Accuracy and precision on the same axis count once."
+      ],
+      "shape": {
+        "length": "One or two sentences per difference with both sides named; two differences on a four-point item, three on a six-point one.",
+        "structure": "Parallel pairs — on this axis A does one thing and B does the other — repeated for each axis.",
+        "requiresCalculation": false,
+        "requiresJustification": true
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "active_equity_investing_strategies_monica_popkirk_monica_pop_essay_q9",
+        "note": "Every line of its key is a two-sided pair: actual positions against a regression on style indexes, a point-in-time snapshot against an average over the estimation window, drift visible at once against drift that lags. Any two of those pairs earn full credit, while the one-sided version — that holdings-based analysis is more accurate — is what the key scores as vague."
+      },
+      "pointLosers": [
+        "One-sided statements that give a property of A and never say what B does instead.",
+        "Opening with what the two approaches have in common, which spends a line that cannot be paid.",
+        "Listing five differences when two were asked for, so the strongest one may sit outside the two that get read."
+      ],
+      "confusedWith": [
+        {
+          "word": "compare",
+          "difference": "Compare wants similarities and differences on shared dimensions; contrast wants the differences only, so shared ground is a line you do not write."
+        },
+        {
+          "word": "describe",
+          "difference": "Describe develops one item's mechanics in depth; contrast needs both items on every point, so depth on one side is half an answer."
+        }
+      ]
+    },
+    {
+      "word": "identify",
+      "losCount": 5,
+      "asking": "Identify asks for the name of the thing — the bias, the violation, the measure, the risk — in as few words as it takes to be unambiguous. It is a cheap verb that rarely stands alone: every statement in the outline that uses it pairs it with a second verb, and 25 of the 35 essays in the bank that use it do the same, so most of the marks sit downstream in the interpreting, contrasting, or evaluating. Even a pure identify item, though, wants a clause saying why the thing qualifies here.",
+      "highlight": [
+        "The name first, in terms a grader can match against the key: survivorship bias, Standard VII(B), the rebalancing cost of equal weighting.",
+        "One clause grounding it in the vignette, because keys score a bare label as vague.",
+        "Exactly the number asked for, each genuinely distinct — two facets of one issue are marked once."
+      ],
+      "leaveOut": [
+        "Development past that clause, unless a second verb asked for it. The time belongs to the paired verb.",
+        "Fixes and implications, which are recommend and explain.",
+        "A hedged list. 'Possibly survivorship bias, or perhaps the short history' names nothing."
+      ],
+      "shape": {
+        "length": "One or two lines per item: two items for four points, three for six.",
+        "structure": "A short labelled line per item — the name, then the clause that grounds it.",
+        "requiresCalculation": false,
+        "requiresJustification": true
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "minglu_li_redd_partners_essay_q5",
+        "note": "Eight issues are acceptable and any two earn full credit, but the key pays nothing for vague ones. 'Survivorship bias' works because the expected clause is there — failed firms leave the index and inflate its history. Note that the five-year sample and the equal weighting are separate issues, while a short history and too few business cycles are one issue twice."
+      },
+      "pointLosers": [
+        "Naming the category instead of the item: 'a data problem' where the key expects survivorship bias.",
+        "Listing four when two were asked for, so a wrong first entry displaces a right one.",
+        "Writing a paragraph per item, which earns nothing extra here and starves the paired verb where the marks actually are."
+      ],
+      "confusedWith": [
+        {
+          "word": "describe",
+          "difference": "Identify names the thing and stops; describe has to lay out how it works, which is several sentences more."
+        },
+        {
+          "word": "discuss",
+          "difference": "Discuss carries every point one step to its consequence; identify leaves it at the name plus a grounding clause."
+        }
+      ]
+    },
+    {
+      "word": "determine",
+      "losCount": 3,
+      "asking": "Determine asks for the answer the facts force: a value, a named portfolio, a yes or no on compliance. There is one right answer and the grader checks it first, so the verdict carries a large share of the marks and the working or decisive fact carries the rest. Only about a quarter of the bank's determine items involve arithmetic; the others turn on one fact in the vignette. Either way nothing here is a matter of opinion.",
+      "highlight": [
+        "The verdict on its own line, first: the portfolio number, the cost, does not comply.",
+        "The working laid out so that a slip still shows the right method, since keys award for correct method with an incomplete answer.",
+        "The one fact that settles a yes-or-no determination — two large near-term withdrawals shorten the horizon, so a more aggressive stance fails suitability."
+      ],
+      "leaveOut": [
+        "The alternatives you ruled out, beyond a clause each. A determine item is not a comparison.",
+        "What should be done about the finding, unless the stem asked.",
+        "Qualified verdicts. 'Arguably complies' cannot be marked either way."
+      ],
+      "shape": {
+        "length": "Verdict then support, inside half a page. Four-point items typically split the marks between the answer and the work behind it.",
+        "structure": "Answer first, then the calculation or the decisive fact, then one line of interpretation.",
+        "requiresCalculation": false,
+        "requiresJustification": true
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "remington_preston_remington_essay_q7",
+        "note": "The key opens with the verdict and then computes the safety-first ratio for all three portfolios, because the ranking is the justification. Its ladder is the lesson: the right portfolio with thin work still scores well, the right portfolio for the wrong reason scores less, and the wrong portfolio picked on a 'safest' argument still earns something for reading the goal correctly. Compliance-style determine items read the same way with the decisive fact in place of the arithmetic."
+      },
+      "pointLosers": [
+        "Showing the working and never stating the conclusion in a sentence a grader can circle.",
+        "Computing the metric only for the candidate you favour, which leaves the ranking unproven.",
+        "Answering a compliance determination with a description of the standard instead of a verdict on the conduct."
+      ],
+      "confusedWith": [
+        {
+          "word": "recommend",
+          "difference": "Determine has one defensible answer that the facts decide; recommend has a course of action you choose and then have to sell."
+        },
+        {
+          "word": "select",
+          "difference": "Both end in one named answer, but determine's is compelled by a metric or a rule, while select's is the best fit among options offered."
+        }
+      ]
+    },
+    {
+      "word": "calculate",
+      "losCount": 2,
+      "asking": "Calculate asks for a number together with the work that produced it. It is rare in the outline — two statements, and both pair it with interpreting the result — but common in the bank, where 28 essays use it and 16 of those tell you in as many words to show your work. That instruction is not decoration: the keys award partial credit for a sound method with a slipped digit, and that credit only exists if the method is on the page. Give units, give direction, and label the final figure so nobody mistakes it for an intermediate one.",
+      "highlight": [
+        "Each step on its own line with what it represents, so a wrong final figure still displays a right method.",
+        "Units and sign on the answer: long or short, added or removed, dollars or basis points per contract.",
+        "Every conversion the exhibit forces — a conversion factor, a contract multiplier, an exchange rate — shown as its own step."
+      ],
+      "leaveOut": [
+        "Prose deriving the formula.",
+        "Intermediate figures carried to more precision than the exhibit supports.",
+        "An interpretation of the result, unless the stem asks — though both outline statements do ask, so check."
+      ],
+      "shape": {
+        "length": "Five to ten lines of working ending in a labelled result. Four points is the standard value in the bank.",
+        "structure": "The relationship being used, the substitution, the arithmetic, then the answer with units and direction.",
+        "requiresCalculation": true,
+        "requiresJustification": false
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "aventine_pension_swaps_pathway_essay_q1",
+        "note": "The stem says show work and the key shows why: the full gap, the 60% of it being closed, the value per contract, then the division and a long position of roughly 22,700 contracts. It accepts a band around that figure for reasonable rounding, gives all but one mark for a sound method with an arithmetic slip, and gives nothing at all for the opposite direction. The answer is the number, its units, and its sign."
+      },
+      "pointLosers": [
+        "Presenting the answer alone, so one slipped digit costs the whole item instead of a single mark.",
+        "Losing the direction, which several keys score as zero regardless of the arithmetic.",
+        "Skipping a conversion and producing a technically correct number for the wrong contract."
+      ],
+      "confusedWith": [
+        {
+          "word": "determine",
+          "difference": "Arithmetic is always the point under calculate and only sometimes under determine, where the marks sit on the verdict the number supports. 'Show your work' does not tell you which verb you are answering — five determine stems and one evaluate stem in the bank ask for work too."
+        },
+        {
+          "word": "interpret",
+          "difference": "Calculate stops at the figure; interpret has to say what the figure means. Both outline statements that use calculate demand the second step as well, so a bare number can be a half answer."
+        }
+      ]
+    },
+    {
+      "word": "select",
+      "losCount": 1,
+      "asking": "Select asks you to pick one option from a list the vignette has already laid out, and to make the pick unmistakable. It is the rarest verb in the outline — one statement, which asks you to evaluate liability-based strategies across rate scenarios and then choose one that meets the portfolio's objective — and that is how it behaves in general: the evaluation is groundwork, the choice is the answer. Discussing all the candidates without landing on one scores nothing at all.",
+      "highlight": [
+        "The chosen option named exactly as the vignette names it, on its own line.",
+        "The property that made it fit the objective: the largest security count for replication, the duration closest to the liability.",
+        "One clause on each rejected candidate, which is what shows the pick was reasoned rather than guessed."
+      ],
+      "leaveOut": [
+        "Any candidate the stem did not put on the list.",
+        "A hedged pick. 'Either the second or the third would work' is not a selection.",
+        "A full description of every option. The evaluation serves the choice; it is not the product."
+      ],
+      "shape": {
+        "length": "The choice in one line, then two to four lines of support drawn from the exhibit.",
+        "structure": "Named choice, the deciding property, then the brief reason each alternative loses.",
+        "requiresCalculation": false,
+        "requiresJustification": true
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "ldi_pm_pathway_abiquia_chosovi_puhuyesva_essay_q8",
+        "note": "No stem in the bank uses select, so this is the closest-shaped item: choose one of three debt indexes to track and defend it. The key names the winner, accepts any one supporting property (most securities, value weighting, a middle duration), and then lists separately the reasoning it rejects — which shows the pick is graded before the argument for it."
+      },
+      "pointLosers": [
+        "Evaluating all the candidates thoroughly and never naming one.",
+        "Picking on a property the exhibit gives no data for.",
+        "Changing the pick partway through the answer, which reads as no answer."
+      ],
+      "confusedWith": [
+        {
+          "word": "recommend",
+          "difference": "Select is bounded by the options given; recommend can propose an action nobody in the vignette mentioned."
+        },
+        {
+          "word": "determine",
+          "difference": "Determine's answer is the one the metric or rule compels; select's is the best fit for the objective among the options on offer."
+        }
+      ]
+    },
+    {
+      "word": "distinguish",
+      "losCount": 1,
+      "asking": "Distinguish asks you to draw the boundary between two things that get conflated. It appears once in the outline, on a pair of measures that look interchangeable and are not, and that is the flavour of the verb: define both precisely, then produce the case where they come apart. The separating case is the answer. Two correct definitions with nothing between them is the classic half-credit response.",
+      "highlight": [
+        "Both definitions, precise enough to actually differ — what each measures, and on what scale.",
+        "The divergent case described concretely: holdings that differ from the benchmark while the risk exposures match.",
+        "Why the divergence happens, in a clause, since that is what proves the boundary is real rather than verbal."
+      ],
+      "leaveOut": [
+        "A feature-by-feature run through both items, which is compare's job.",
+        "A verdict on which of the two is the better measure.",
+        "Similarities beyond whatever the two definitions genuinely share."
+      ],
+      "shape": {
+        "length": "A short definition each, then two or three lines on the case that separates them.",
+        "structure": "Define the first, define the second, then the case where they diverge and why.",
+        "requiresCalculation": false,
+        "requiresJustification": true
+      },
+      "workedExample": {
+        "kind": "essay",
+        "id": "active_equity_investing_construction_lisette_langham_lisette_essay_q9",
+        "note": "This is the subject of the outline's only distinguish statement, and the key is built the way the verb wants: precise definitions of both measures, then the case that pulls them apart — a portfolio holding different names from the benchmark while carrying the same risk exposures, whose idiosyncratic differences cancel across many positions. The ladder gives the definitions partial credit and the divergence earns the rest."
+      },
+      "pointLosers": [
+        "Defining both terms and never producing the case where they separate.",
+        "Blurring the definitions until the two measures sound like one idea in different units.",
+        "Describing the divergent case without saying why the two measures respond to it differently."
+      ],
+      "confusedWith": [
+        {
+          "word": "compare",
+          "difference": "Compare runs both items across shared dimensions and keeps the similarities; distinguish only needs the boundary and the one case that reveals it."
+        },
+        {
+          "word": "contrast",
+          "difference": "Contrast names several axes of difference between two things; distinguish takes one pair and proves they are not the same thing at all, definitions first."
+        }
+      ]
+    }
+  ]
+}
