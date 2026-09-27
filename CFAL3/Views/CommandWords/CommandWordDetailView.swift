@@ -23,10 +23,19 @@ struct CommandWordDetailView: View {
             .flatMap { content.caseStudy(id: $0.caseId) }
     }
 
-    /// Bank essays that actually use this verb. Empty is a real answer for
-    /// five of the seventeen words, and the page says so.
+    /// Bank essays whose STEM uses this verb — practice for the command
+    /// format. Empty for five of the seventeen words, because the bank's
+    /// stems only ever command with eight verbs.
     private var essaysUsingWord: [Question] {
         content.essays(forCommandWord: word.word)
+    }
+
+    /// Bank essays on the STATEMENTS this verb leads — practice for the
+    /// material, whatever command their own stem happens to use. Never empty:
+    /// this is what gives contrast, demonstrate, distinguish, formulate and
+    /// select something to sit at all.
+    private var essaysOnItsStatements: [Question] {
+        content.essays(leadingLOSFor: word.word)
     }
 
     private var bankHasNoEssay: Bool { essaysUsingWord.isEmpty }
@@ -187,6 +196,32 @@ struct CommandWordDetailView: View {
                 .accessibilityHint("Shows the vignette this essay belongs to")
             }
 
+            // Practice on the statements this verb leads. Offered first
+            // because it is the one that always has something behind it, and
+            // for five of the words it is the only one that does.
+            if !essaysOnItsStatements.isEmpty {
+                Button {
+                    sit(
+                        essaysOnItsStatements.map(\.id),
+                        describedAs: "Essays on statements that say \(word.word)"
+                    )
+                } label: {
+                    Text("Practice the \(essaysOnItsStatements.count) essays on statements that say “\(word.word)”")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(Theme.pine)
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: .infinity)
+                        .frame(minHeight: 44)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityIdentifier("commandwords.practice.los")
+                .accessibilityLabel(
+                    "Practice the \(essaysOnItsStatements.count) essays on statements that say \(word.word)"
+                )
+                .accessibilityHint("Opens a sitting of every bank essay tagged to a statement this verb leads")
+            }
+
             // Only when there is more than the one essay already offered
             // above, so the page never shows two buttons for the same sitting.
             if essaysUsingWord.count > 1 {
@@ -213,10 +248,10 @@ struct CommandWordDetailView: View {
     /// the example pass for a real item.
     private var bankGapNotice: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text("No essay in the bank uses this word")
+            Text("No essay stem uses this word")
                 .font(.subheadline.weight(.semibold))
                 .foregroundStyle(Theme.ink)
-            Text("Nothing in the question bank sets “\(word.word)” as its command word, so the example below is the closest match in shape rather than a real \(word.word) question. The note says which substitution was made.")
+            Text("The bank's essay stems only ever command with eight verbs — evaluate, discuss, justify, identify, determine, calculate, explain, recommend — and “\(word.word)” is not one of them, so the worked example below is the closest match in shape rather than a real \(word.word) stem. The statements this verb leads are still examined: practise them below.")
                 .font(.footnote)
                 .foregroundStyle(Theme.dust)
                 .fixedSize(horizontal: false, vertical: true)

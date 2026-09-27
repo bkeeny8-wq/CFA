@@ -19,6 +19,7 @@ final class ContentLoader {
 
     private var commandWordsByWord: [String: CommandWord] = [:]
     private var commandWordEssayIDs: [String: [String]] = [:]
+    private var commandWordLOSEssayIDs: [String: [String]] = [:]
 
     private var flashcardsByID: [String: Flashcard] = [:]
     private var flashcardsByReading: [String: [Flashcard]] = [:]
@@ -255,6 +256,26 @@ final class ContentLoader {
         (commandWordEssayIDs[word.lowercased()] ?? []).compactMap { questionsByID[$0] }
     }
 
+    /// Bank essays that test the LOS this verb LEADS, whichever command word
+    /// their own stem happens to use.
+    ///
+    /// This is the practice hand-off that actually works, and it exists
+    /// because matching on the stem does not. The outline commands with
+    /// seventeen verbs; the bank's essay stems only ever command with eight
+    /// (EVALUATE, DISCUSS, JUSTIFY, IDENTIFY, DETERMINE, CALCULATE, EXPLAIN,
+    /// RECOMMEND). So five verbs — contrast, demonstrate, distinguish,
+    /// formulate, select — matched no essay at all by stem, while the
+    /// statements they lead are covered perfectly well by essays that ask
+    /// about them using a different command. Routing through the LOS finds
+    /// those: demonstrate goes from 0 essays to 14, formulate 0 to 11.
+    ///
+    /// Both hand-offs are kept. Stem matching practises the command FORMAT;
+    /// this practises the MATERIAL. They are different exercises, so the page
+    /// offers them separately rather than silently picking one.
+    func essays(leadingLOSFor word: String) -> [Question] {
+        (commandWordLOSEssayIDs[word.lowercased()] ?? []).compactMap { questionsByID[$0] }
+    }
+
     var allFlashcards: [Flashcard] { flashcardBundle?.cards ?? [] }
     var totalFlashcards: Int { flashcardsByID.count }
 
@@ -413,6 +434,63 @@ final class ContentLoader {
         for (word, ids) in commandWordEssayIDs {
             commandWordEssayIDs[word] = ids.sorted { sittingOrder($0, $1) }
         }
+
+        rebuildCommandWordLOSEssays(words: words)
+    }
+
+    /// Indexes essays by the command words of the LOS they are TAGGED to,
+    /// rather than the command word their own stem uses.
+    ///
+    /// Uses the same clause-initial rule as the LOS counts: a verb counts when
+    /// it opens the statement, or opens a clause after a comma, semicolon,
+    /// "and", "or" or "then". Half the outline's statements carry two verbs
+    /// ("recommend and justify", "identify and contrast"), and both of them
+    /// genuinely command part of the answer, so an essay on such a statement
+    /// belongs to both words.
+    private func rebuildCommandWordLOSEssays(words: Set<String>) {
+        commandWordLOSEssayIDs = [:]
+        guard let master = losMaster else { return }
+
+        var verbsByLOS: [String: Set<String>] = [:]
+        for los in master.areas.flatMap(\.readings).flatMap(\.los) {
+            let verbs = Self.clauseInitialWords(in: los.text).intersection(words)
+            if !verbs.isEmpty { verbsByLOS[los.id] = verbs }
+        }
+
+        for question in questionsByID.values where question.type == .essay {
+            var matched: Set<String> = []
+            for losID in question.candidateLOS {
+                if let verbs = verbsByLOS[losID] { matched.formUnion(verbs) }
+            }
+            for verb in matched {
+                commandWordLOSEssayIDs[verb, default: []].append(question.id)
+            }
+        }
+        for (word, ids) in commandWordLOSEssayIDs {
+            commandWordLOSEssayIDs[word] = ids.sorted { sittingOrder($0, $1) }
+        }
+    }
+
+    /// The words that open a clause in `text`, lowercased.
+    ///
+    /// Mirrors `scripts/derive_command_word_counts.py`. Keeping the rule in
+    /// one place matters: the LOS counts on every row and the practice
+    /// hand-off under every worked example both depend on it, and if they
+    /// drifted a page could claim a verb leads 17 statements while offering
+    /// practice drawn from a different set.
+    static func clauseInitialWords(in text: String) -> Set<String> {
+        let breakWords: Set<String> = ["and", "or", "then"]
+        var result: Set<String> = []
+        var expectingClauseStart = true
+
+        for raw in text.lowercased().split(separator: " ") {
+            let endedClause = raw.hasSuffix(",") || raw.hasSuffix(";")
+            let token = raw.filter { $0.isLetter || $0 == "-" }
+            guard !token.isEmpty else { continue }
+            if expectingClauseStart { result.insert(String(token)) }
+            expectingClauseStart = endedClause || breakWords.contains(String(token))
+        }
+        return result
     }
 
     /// Same ordering as `essays(forLOS:)`, so a word's sitting reads case by

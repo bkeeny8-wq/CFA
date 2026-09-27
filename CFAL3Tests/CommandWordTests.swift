@@ -176,31 +176,105 @@ final class CommandWordContentTests: XCTestCase {
         return verbs
     }
 
-    /// Words with no essay in the bank must SAY so rather than cite an item
-    /// that does not use the verb. The section renders a gap notice for these,
-    /// and the count is pinned so a later content drop is noticed.
-    func testTheEssayGapIsKnownAndDeclared() throws {
+    /// Five verbs match no essay STEM — the bank commands with eight verbs
+    /// and these are not among them. That set is pinned so a later content
+    /// drop is noticed rather than quietly closing it.
+    func testTheStemGapIsKnownAndDeclared() throws {
         let content = try loadedContent()
         let words = try words(content)
 
-        let withoutEssays = words
+        let withoutStemEssays = words
             .filter { content.essays(forCommandWord: $0.word).isEmpty }
             .map(\.word)
             .sorted()
 
         XCTAssertEqual(
-            withoutEssays,
+            withoutStemEssays,
             ["contrast", "demonstrate", "distinguish", "formulate", "select"],
-            "the set of command words with no practice essay changed"
+            "the set of command words with no essay stem changed"
         )
+    }
 
-        // And every other word can actually hand off to practice.
-        for word in words where !withoutEssays.contains(word.word) {
+    /// ...but every word must still have something to PRACTISE, via the
+    /// statements it leads. This is the assertion that makes the second
+    /// hand-off load-bearing: without it, five pages offer nothing at all.
+    ///
+    /// Mutation: have `essays(leadingLOSFor:)` return [] — this fails for
+    /// every word, and the five stem-gap words have no practice route left.
+    func testEveryWordHasPracticeThroughTheStatementsItLeads() throws {
+        let content = try loadedContent()
+
+        for word in try words(content) {
+            let essays = content.essays(leadingLOSFor: word.word)
             XCTAssertFalse(
-                content.essays(forCommandWord: word.word).isEmpty,
-                "\(word.word): practice hand-off would open an empty sitting"
+                essays.isEmpty,
+                "\(word.word): no essay tests any statement this verb leads"
+            )
+            for essay in essays {
+                XCTAssertEqual(essay.type, .essay, "\(word.word): a non-essay leaked in")
+            }
+            XCTAssertEqual(
+                Set(essays.map(\.id)).count, essays.count,
+                "\(word.word): the index repeats an essay"
             )
         }
+    }
+
+    /// The LOS route must actually route through the LOS: every essay it
+    /// returns has to be tagged to a statement whose clause-initial verbs
+    /// include this word. Mutation: index by stem instead — `evaluate` picks
+    /// up essays on statements that never say evaluate, and this fails.
+    func testTheStatementRouteOnlyReturnsEssaysTaggedToThatVerbsStatements() throws {
+        let content = try loadedContent()
+        let master = try XCTUnwrap(content.losMaster)
+        var verbsByLOS: [String: Set<String>] = [:]
+        for los in master.areas.flatMap(\.readings).flatMap(\.los) {
+            verbsByLOS[los.id] = ContentLoader.clauseInitialWords(in: los.text)
+        }
+
+        for word in try words(content) {
+            for essay in content.essays(leadingLOSFor: word.word) {
+                let leads = essay.candidateLOS.contains { verbsByLOS[$0]?.contains(word.word) == true }
+                XCTAssertTrue(
+                    leads,
+                    "\(word.word): essay \(essay.id) is not tagged to any statement this verb leads"
+                )
+            }
+        }
+    }
+
+    /// The five stem-gap words are exactly the ones this route rescues, and
+    /// the counts are pinned because they are the argument for the feature.
+    func testTheStatementRouteRescuesTheStemGapWords() throws {
+        let content = try loadedContent()
+        let rescued = ["contrast": 2, "demonstrate": 14, "distinguish": 3, "formulate": 11, "select": 2]
+
+        for (word, expected) in rescued {
+            XCTAssertTrue(
+                content.essays(forCommandWord: word).isEmpty,
+                "\(word) now matches a stem — update the gap set"
+            )
+            XCTAssertEqual(
+                content.essays(leadingLOSFor: word).count, expected,
+                "\(word): statement-route practice count moved"
+            )
+        }
+    }
+
+    /// The two routes are different exercises, not one with a fallback. If
+    /// they ever returned the same set for a busy verb, one of them is broken.
+    func testTheTwoRoutesAreGenuinelyDifferentSets() throws {
+        let content = try loadedContent()
+        let byStem = Set(content.essays(forCommandWord: "discuss").map(\.id))
+        let byLOS = Set(content.essays(leadingLOSFor: "discuss").map(\.id))
+
+        XCTAssertFalse(byStem.isEmpty)
+        XCTAssertFalse(byLOS.isEmpty)
+        XCTAssertNotEqual(byStem, byLOS, "the two hand-offs collapsed into one")
+        XCTAssertFalse(
+            byLOS.subtracting(byStem).isEmpty,
+            "the statement route found nothing the stem route missed"
+        )
     }
 
     /// The essay index must only return essays, and only ones whose stem
