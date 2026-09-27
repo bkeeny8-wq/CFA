@@ -24,6 +24,14 @@ struct NotesOutline: Equatable {
         /// Half-open range of block indices this section owns, header first.
         let range: Range<Int>
 
+        /// NOTE: this equals `anchorID`, and the scroll anchor lives on the
+        /// section HEADER. So never key a `ForEach` inside the notes
+        /// `ScrollViewReader` by `\.element.id` — the rail, the compact strip
+        /// and the sectioned body all did, which put four views under one
+        /// reader claiming the same identity. `proxy.scrollTo(anchorID)` then
+        /// resolved against the rail's own ScrollView (a 52pt column with
+        /// nothing to scroll) and the notes column never moved: every jump was
+        /// silently inert. Key those by `position` instead.
         var id: String { anchorID }
         var anchorID: String { NotesOutline.anchorID(number: number, title: title) }
         var letter: String { losLetter(for: number).uppercased() }

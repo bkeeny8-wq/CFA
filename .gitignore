@@ -27,3 +27,7 @@ Secrets/
 # folder reference to it — ignoring the directory itself would leave a clone
 # with a dangling reference. Only the PDFs are ignored.
 CFAL3/Resources/MMReview/*.pdf
+
+# Python bytecode from the content scripts
+__pycache__/
+*.pyc

@@ -501,6 +501,51 @@ final class CFAL3UITests: XCTestCase {
                       "could not get back to the quiz builder")
     }
 
+    // MARK: - Notes LOS rail
+
+    /// The rail's whole job is to jump. It shipped completely inert and no
+    /// test noticed, because the rail RENDERED correctly and the sticky header
+    /// tracked manual scrolling — only the jump was dead.
+    ///
+    /// Cause: `NotesOutline.Section.id` is the scroll anchor, and three
+    /// ForEach bodies keyed on it while the section header also carried
+    /// `.id(anchorID)`, so `scrollTo` resolved inside the rail's own column.
+    /// This asserts the OUTCOME — that the page actually moved — rather than
+    /// that a button exists, which is what let the regression through.
+    func testNotesRailJumpActuallyMovesThePage() {
+        XCTAssertTrue(waitFor(tab("Notes")), "the sidebar never appeared")
+        tab("Notes").tap()
+
+        let book = app.buttons["notes.book.Asset allocation"].firstMatch
+        XCTAssertTrue(book.waitForExistence(timeout: 15), "Notes should list the books")
+        book.tap()
+
+        let reading = app.buttons["notes.reading.overview_of_asset_allocation"].firstMatch
+        XCTAssertTrue(reading.waitForExistence(timeout: 10))
+        reading.tap()
+
+        // This reading's sections are A, B, E, F, G, H, I, J — the numbers skip,
+        // so J is the eighth heading and the furthest from the top.
+        let lastLetter = app.buttons["notes.rail.J"].firstMatch
+        XCTAssertTrue(lastLetter.waitForExistence(timeout: 15), "the LOS rail never appeared")
+
+        // The last section's body is far below the fold, so before the jump it
+        // must not be on screen. If this is already hittable the reading is too
+        // short to prove anything and the test is worthless.
+        let target = app.staticTexts["Strategic considerations in rebalancing"].firstMatch
+        XCTAssertFalse(
+            target.exists && target.isHittable,
+            "LOS J is visible before jumping — this reading can no longer prove a jump happened"
+        )
+
+        lastLetter.tap()
+
+        XCTAssertTrue(
+            target.waitForExistence(timeout: 10) && target.isHittable,
+            "tapping the rail did not bring LOS J into view — the jump is inert again"
+        )
+    }
+
     // MARK: - Command words
 
     /// The command-word section is 17 pages of authored guidance reached from

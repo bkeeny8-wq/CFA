@@ -210,7 +210,7 @@ struct ReadingNotesView: View {
     private func compactStrip(proxy: ScrollViewProxy) -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                ForEach(Array(outline.sections.enumerated()), id: \.element.id) { index, section in
+                ForEach(Array(outline.sections.enumerated()), id: \.element.position) { index, section in
                     Button {
                         jump(to: index, proxy: proxy)
                     } label: {
@@ -263,7 +263,7 @@ private struct ReadingNotesSectionedBody: View {
                 ReadingNotesBlocksView(blocks: page.blocks, range: page.outline.preamble)
             }
 
-            ForEach(Array(page.outline.sections.enumerated()), id: \.element.id) { index, section in
+            ForEach(Array(page.outline.sections.enumerated()), id: \.element.position) { index, section in
                 // The rule is what makes a new LOS stop looking like another
                 // paragraph: every block on this page is 20pt from the next,
                 // so a heading had no more separation than a bullet did.
@@ -328,7 +328,7 @@ private struct LOSLetterRail: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 6) {
-                ForEach(Array(outline.sections.enumerated()), id: \.element.id) { index, section in
+                ForEach(Array(outline.sections.enumerated()), id: \.element.position) { index, section in
                     Button {
                         onJump(index)
                     } label: {
@@ -352,6 +352,7 @@ private struct LOSLetterRail: View {
                             .contentShape(Rectangle())
                     }
                     .buttonStyle(.plain)
+                    .accessibilityIdentifier("notes.rail.\(section.letter)")
                     .accessibilityLabel("LOS \(section.letter), \(section.title)")
                     .accessibilityHint("Double-tap to jump to this section")
                     .accessibilityAddTraits(index == currentIndex ? [.isSelected] : [])
