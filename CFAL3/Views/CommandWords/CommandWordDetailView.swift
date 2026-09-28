@@ -25,7 +25,7 @@ struct CommandWordDetailView: View {
 
     /// Bank essays whose STEM uses this verb — practice for the command
     /// format. Empty for five of the seventeen words, because the bank's
-    /// stems only ever command with eight verbs.
+    /// stems command with only twelve of the seventeen verbs.
     private var essaysUsingWord: [Question] {
         content.essays(forCommandWord: word.word)
     }
@@ -251,7 +251,13 @@ struct CommandWordDetailView: View {
             Text("No essay stem uses this word")
                 .font(.subheadline.weight(.semibold))
                 .foregroundStyle(Theme.ink)
-            Text("The bank's essay stems only ever command with eight verbs — evaluate, discuss, justify, identify, determine, calculate, explain, recommend — and “\(word.word)” is not one of them, so the worked example below is the closest match in shape rather than a real \(word.word) stem. The statements this verb leads are still examined: practise them below.")
+            // Deliberately does NOT enumerate the verbs that DO command a
+            // stem. An earlier version claimed there were eight; there are
+            // twelve — describe, compare, interpret and analyze each command
+            // exactly one stem, which a top-N frequency count silently drops.
+            // A hardcoded list is both wrong today and staler tomorrow, so
+            // say only what is true of THIS word, which the empty index proves.
+            Text("No essay in the bank sets “\(word.word)” as its command word, so the worked example below is the closest match in shape rather than a real \(word.word) stem. The statements this verb leads are still examined — practise them below.")
                 .font(.footnote)
                 .foregroundStyle(Theme.dust)
                 .fixedSize(horizontal: false, vertical: true)

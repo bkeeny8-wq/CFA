@@ -146,8 +146,14 @@ struct PlanView: View {
                 } else if let label = shortBlockLabel(day) {
                     Text(label)
                         .font(.caption2)
-                        .foregroundStyle(Theme.dust)
+                        // White on the selected-today circle, like the day
+                        // number above it. Theme.dust on Theme.pine measures
+                        // 1.34:1 against WCAG AA's 4.5 floor — the label was
+                        // there but unreadable on exactly the day you look at
+                        // most.
+                        .foregroundStyle(isSelected && isToday ? .white : Theme.dust)
                         .lineLimit(1)
+                        .truncationMode(.tail)
                 }
             }
             .frame(maxWidth: .infinity, minHeight: 54)
@@ -166,11 +172,18 @@ struct PlanView: View {
         return completionByDate[key] == nil
     }
 
+    /// The first block's title, left whole.
+    ///
+    /// This used to cut to `prefix(8)` with no ellipsis, which is not a
+    /// shortening — it is a mid-word amputation. "Active Equity Port
+    /// Construction" rendered as "Active E", and the neighbouring cells'
+    /// "Overview" was really "Overview of Asset Allocation" cut at the same
+    /// eight characters; it only looked deliberate because the cut happened to
+    /// land on a word boundary. The Text already has `lineLimit(1)`, so
+    /// SwiftUI truncates to the cell's real width and adds the ellipsis.
     private func shortBlockLabel(_ day: ScheduleDay?) -> String? {
         guard let block = day?.blocks.first else { return nil }
-        let title = StudyDisplay.scheduleBlockTitle(block, content: content)
-        if title.count <= 10 { return title }
-        return String(title.prefix(8))
+        return StudyDisplay.scheduleBlockTitle(block, content: content)
     }
 
     private func dayAccessibility(_ date: Date, day: ScheduleDay?, isDone: Bool, isRest: Bool) -> String {

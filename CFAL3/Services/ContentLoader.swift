@@ -261,9 +261,10 @@ final class ContentLoader {
     ///
     /// This is the practice hand-off that actually works, and it exists
     /// because matching on the stem does not. The outline commands with
-    /// seventeen verbs; the bank's essay stems only ever command with eight
-    /// (EVALUATE, DISCUSS, JUSTIFY, IDENTIFY, DETERMINE, CALCULATE, EXPLAIN,
-    /// RECOMMEND). So five verbs — contrast, demonstrate, distinguish,
+    /// seventeen verbs; only twelve of them ever command a bank essay stem —
+    /// and four of those twelve (DESCRIBE, COMPARE, INTERPRET, ANALYZE) do it
+    /// exactly once, which is why a top-N frequency count makes it look like
+    /// eight. So five verbs — contrast, demonstrate, distinguish,
     /// formulate, select — matched no essay at all by stem, while the
     /// statements they lead are covered perfectly well by essays that ask
     /// about them using a different command. Routing through the LOS finds

@@ -127,6 +127,69 @@ final class NotesContentParserTests: XCTestCase {
         }
     }
 
+    /// Three bundled tables shipped with a wrong `tableColumnCounts` entry.
+    /// A wrong count does not fail — it SHIFTS every row by the difference and
+    /// drops the remainder into the next paragraph, so the table still renders
+    /// as a table while stating something untrue. The GIPS composite
+    /// presentation was declared 6 columns against a real 8: every year's
+    /// figures were offset by two and its last two cells ("520M", "3,400M")
+    /// fell out as a stray line of prose.
+    ///
+    /// Pins the shape of the three, by header row and row count. A corpus-wide
+    /// "cells divide evenly" rule cannot work here: the parser deliberately
+    /// over-gathers and lets a trailing non-cell line fall back to the
+    /// document, which `testParsesTable` pins.
+    ///
+    /// Mutation: set any of the three counts back and its assertion fails.
+    func testTheThreeMiscountedTablesKeepTheirRealShape() {
+        let content = loadedContent()
+
+        func table(_ readingID: String, titled title: String) -> (headers: [String], rows: [[String]])? {
+            guard let entry = allReadingNotes(content).first(where: { $0.readingID == readingID })
+            else { return nil }
+            for block in NotesContentParser.parse(entry.content) {
+                if case .table(let t, let headers, let rows) = block, t == title {
+                    return (headers, rows)
+                }
+            }
+            return nil
+        }
+
+        // 8 columns, 3 years of data — not 6.
+        let gips = table(
+            "overview_of_the_global_investment_performance_standards",
+            titled: "Illustrative GIPS composite presentation (extract)"
+        )
+        XCTAssertEqual(gips?.headers.count, 8, "the GIPS table is 8 columns wide")
+        XCTAssertEqual(gips?.headers.last, "Firm assets")
+        XCTAssertEqual(gips?.rows.count, 3, "one row per year: 2022, 2023, 2024")
+        XCTAssertEqual(gips?.rows.first?.first, "2022", "row 1 must START on the year")
+        XCTAssertEqual(gips?.rows.last?.last, "3,400M", "the last cell must not be dropped")
+
+        // 2 columns, 3 approaches — not 3.
+        let seg = table(
+            "overview_of_equity_portfolio_management",
+            titled: "The three primary segmentation approaches"
+        )
+        XCTAssertEqual(seg?.headers, ["Approach", "Segments"])
+        XCTAssertEqual(seg?.rows.count, 3, "the table names three approaches")
+        XCTAssertEqual(seg?.rows.last?.first, "Economic activity (sector / industry)",
+                       "the third approach was being dropped entirely")
+
+        // A labelled 2x2: the export lost the empty corner, so no column count
+        // could make it whole until the corner was restored in the content.
+        let matrix = table(
+            "active_equity_investing_portfolio_construction",
+            titled: "Active Share vs active risk"
+        )
+        XCTAssertEqual(matrix?.headers,
+                       ["Active Share / active risk", "Low active risk", "High active risk"])
+        XCTAssertEqual(matrix?.rows.count, 2)
+        XCTAssertEqual(matrix?.rows.first?.first, "Low Active Share")
+        XCTAssertEqual(matrix?.rows.last?.first, "High Active Share",
+                       "the high-Active-Share quadrants were being dropped")
+    }
+
     /// `ForEach` needs distinct ids. These were built from `text.prefix(32)`,
     /// so two blocks opening the same way claimed the same identity.
     func testBlockIDsAreDistinctWithinAReading() {
