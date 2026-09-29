@@ -290,9 +290,10 @@ struct SettingsView: View {
             let cardsByQuestion = Dictionary(uniqueKeysWithValues: cards.map { ($0.questionId, $0) })
             for item in payload.reviewCards {
                 if let local = cardsByQuestion[item.questionId] {
-                    let importedLater = (item.lastAttemptedAt ?? .distantPast)
-                        >= (local.lastAttemptedAt ?? .distantPast)
-                    if importedLater {
+                    if ProgressMerge.importWins(
+                        imported: item.lastAttemptedAt,
+                        local: local.lastAttemptedAt
+                    ) {
                         local.easeFactor = item.easeFactor
                         local.interval = item.interval
                         local.repetitions = item.repetitions
@@ -347,9 +348,10 @@ struct SettingsView: View {
                     inserted += 1
                     return row
                 }()
-                let importedLater = (item.lastAttemptedAt ?? .distantPast)
-                    >= (local.lastAttemptedAt ?? .distantPast)
-                guard importedLater else {
+                guard ProgressMerge.importWins(
+                    imported: item.lastAttemptedAt,
+                    local: local.lastAttemptedAt
+                ) else {
                     skipped += 1
                     continue
                 }

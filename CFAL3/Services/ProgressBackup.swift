@@ -35,7 +35,14 @@ enum ProgressBackup {
                     pointsPossible: $0.pointsPossible
                 )
             },
-            reviewCards: cards.map {
+            // Only cards the user has actually touched, matching the
+            // flashcard branch below. Every question is seeded with a
+            // ReviewCard at first launch, so exporting all of them shipped
+            // thousands of untouched rows in every backup and made an import
+            // that changed nothing report thousands "updated".
+            reviewCards: cards
+                .filter { $0.totalAttempts > 0 || $0.flaggedForReview || $0.lastAttemptedAt != nil }
+                .map {
                 ReviewCardExport(
                     questionId: $0.questionId,
                     caseId: $0.caseId,

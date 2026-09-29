@@ -128,6 +128,34 @@ final class PracticeScopeTests: XCTestCase {
         XCTAssertLessThan(pruned.los.count, selectedLOS.count)
     }
 
+    /// Progress used to carry a footnote reading "A shared reading counts in
+    /// both books." No reading belongs to two books, so it warned of a
+    /// double-count that cannot happen and quietly undermined every number on
+    /// that screen. The footnote is gone; this is what makes its removal safe.
+    ///
+    /// Mutation: add a reading to a second area in los_master and this fails —
+    /// at which point the totals really would double-count and the caveat (or
+    /// a de-duplicating fix) would be needed again.
+    func testNoReadingBelongsToTwoBooks() {
+        let content = loadedContent()
+        let areas = content.losMaster?.areas ?? []
+        XCTAssertFalse(areas.isEmpty)
+
+        var owner: [String: String] = [:]
+        for area in areas {
+            for reading in area.readings {
+                if let already = owner[reading.id] {
+                    XCTFail("\(reading.id) is in both \(already) and \(area.id)")
+                }
+                owner[reading.id] = area.id
+            }
+        }
+
+        let slots = areas.reduce(0) { $0 + $1.readings.count }
+        XCTAssertEqual(owner.count, slots, "a reading is listed under more than one book")
+        XCTAssertEqual(slots, 36, "the curriculum's reading count moved")
+    }
+
     func testBookIDsMatchTopicIDs() {
         // The cascade relies on questionBank topic IDs equaling los_master area
         // IDs (the values stored in pref.selectedTopics). Guard that alignment.

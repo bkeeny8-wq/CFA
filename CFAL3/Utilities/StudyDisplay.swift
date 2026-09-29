@@ -137,3 +137,35 @@ enum StudyDisplay {
         return stripped.isEmpty ? label : stripped
     }
 }
+
+/// The Progress pace tile's caption and value.
+///
+/// These shipped contradicting each other: the caption was
+/// `delta < -0.5 ? "On pace" : "On pace"` — both branches the same string, a
+/// half-finished edit — while the value beside it read "−12h" and the tile
+/// tinted copper on the very same condition. Someone twelve hours behind the
+/// plan was told "On pace".
+///
+/// Kept out of the view so the three states can be tested. The 0.5h deadband
+/// is deliberate: the plan is in hours and a few minutes either way is noise,
+/// not a status change.
+enum SchedulePace {
+    static let deadbandHours = 0.5
+
+    /// What the tile is reporting: the state, not the number.
+    static func caption(_ delta: Double) -> String {
+        if abs(delta) < deadbandHours { return "On pace" }
+        return delta > 0 ? "Ahead" : "Behind"
+    }
+
+    /// The number under it. An em dash when on pace — repeating "On pace" as
+    /// both caption and value is what the old pairing did in the other
+    /// direction, and it reads as a glitch.
+    static func value(_ delta: Double) -> String {
+        if abs(delta) < deadbandHours { return "—" }
+        let magnitude = Formatting.hours(abs(delta), precise: true)
+        return delta > 0 ? "+\(magnitude)" : "−\(magnitude)"
+    }
+
+    static func isBehind(_ delta: Double) -> Bool { delta <= -deadbandHours }
+}

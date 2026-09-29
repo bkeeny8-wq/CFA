@@ -89,18 +89,12 @@ struct ProgressDashboardView: View {
                 systemImage: "tray"
             )
             progressTile(
-                delta < -0.5 ? "On pace" : "On pace",
-                paceLabel(delta),
+                SchedulePace.caption(delta),
+                SchedulePace.value(delta),
                 systemImage: "clock",
-                tint: delta < -0.5 ? Theme.copper : Theme.ink
+                tint: SchedulePace.isBehind(delta) ? Theme.copper : Theme.ink
             )
         }
-    }
-
-    private func paceLabel(_ delta: Double) -> String {
-        if abs(delta) < 0.5 { return "On pace" }
-        if delta > 0 { return "+\(Formatting.hours(delta, precise: true))" }
-        return "−\(Formatting.hours(abs(delta), precise: true))"
     }
 
     private func progressTile(_ label: String, _ value: String, systemImage: String, tint: Color = Theme.ink) -> some View {
@@ -351,9 +345,6 @@ struct ProgressDashboardView: View {
                     .buttonStyle(.plain)
                 }
             }
-            Text("A shared reading counts in both books.")
-                .font(.caption2)
-                .foregroundStyle(Theme.dust)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }

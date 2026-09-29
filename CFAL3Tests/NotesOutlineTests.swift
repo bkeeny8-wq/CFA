@@ -159,6 +159,54 @@ final class NotesOutlineTests: XCTestCase {
         XCTAssertEqual(page.outline.preamble.lowerBound, 0)
     }
 
+    /// The nine Ethics readings rendered TWO consecutive paragraphs both
+    /// opening "Orientation." — different text, same label, stacked.
+    ///
+    /// A reading with "LOS N —" headers has everything before the first header
+    /// dropped by the parser, which takes its own orientation with it, so the
+    /// entry's `orientation` field must be inserted. The Ethics readings have
+    /// no such header and keep theirs through parsing, so inserting the field
+    /// on top duplicated it.
+    ///
+    /// Mutation: drop the `opensWithOrientation` guard in NotesPage.init and
+    /// the duplicate assertion below fails for all nine.
+    func testOrientationIsNeverShownTwice() throws {
+        let content = try loadedContent()
+        var withHeadings = 0, withoutHeadings = 0
+
+        for entry in content.readingNotesBundle?.readings ?? [] {
+            let page = NotesPage(entry)
+            let leading = page.blocks.prefix(3).compactMap { block -> String? in
+                if case .paragraph(let t) = block { return t }
+                return nil
+            }
+            let orientations = leading.filter {
+                $0.trimmingCharacters(in: .whitespaces).hasPrefix("Orientation.")
+            }
+            XCTAssertLessThanOrEqual(
+                orientations.count, 1,
+                "\(entry.readingID): \(orientations.count) orientation paragraphs in a row"
+            )
+            if page.outline.sections.isEmpty { withoutHeadings += 1 } else { withHeadings += 1 }
+        }
+        XCTAssertEqual(withoutHeadings, 9, "the set of heading-less readings moved")
+        XCTAssertEqual(withHeadings, 27)
+    }
+
+    /// ...and the orientation is still THERE. Removing the duplicate must not
+    /// remove the content, which is the obvious way to over-correct.
+    func testEveryReadingStillOpensWithItsOrientation() throws {
+        let content = try loadedContent()
+        for entry in content.readingNotesBundle?.readings ?? [] {
+            guard !entry.orientation.isEmpty else { continue }
+            let page = NotesPage(entry)
+            XCTAssertTrue(
+                NotesPage.opensWithOrientation(page.blocks),
+                "\(entry.readingID) lost its orientation entirely"
+            )
+        }
+    }
+
     func testCounterIsNilWhenThereIsNothingToCount() {
         let outline = NotesOutline.build(from: [.paragraph("only prose")])
         XCTAssertTrue(outline.sections.isEmpty)

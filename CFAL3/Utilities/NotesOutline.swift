@@ -145,13 +145,32 @@ struct NotesPage: Equatable {
 
     init(_ notes: ReadingNotesEntry) {
         var parsed = NotesContentParser.parse(notes.content)
-        if !notes.orientation.isEmpty {
+
+        // Only when the content does not already open with one.
+        //
+        // For a reading with "LOS N —" headers the parser drops everything
+        // before the first header, which takes the content's own orientation
+        // with it — so inserting the entry's field is the only way to keep it.
+        // The nine Ethics readings have no such header and take a fallback
+        // that strips just the export preamble, so THEIR orientation survives
+        // parsing, and inserting the field on top produced two consecutive
+        // paragraphs both opening "Orientation." — different text, same label,
+        // stacked. The content's version is the fuller of the two, so it wins.
+        if !notes.orientation.isEmpty, !Self.opensWithOrientation(parsed) {
             parsed.insert(.paragraph(notes.orientation), at: 0)
         }
         // Outline AFTER the insert, so every range indexes the array that is
         // actually rendered. Building it first would shift every index by one.
         self.blocks = parsed
         self.outline = NotesOutline.build(from: parsed)
+    }
+
+    /// Whether the parsed content already leads with its own orientation
+    /// paragraph. Checked on the first block only: further down, "Orientation."
+    /// would be ordinary prose rather than the lede.
+    static func opensWithOrientation(_ blocks: [NotesBlock]) -> Bool {
+        guard case .paragraph(let text)? = blocks.first else { return false }
+        return text.trimmingCharacters(in: .whitespaces).hasPrefix("Orientation.")
     }
 }
 
