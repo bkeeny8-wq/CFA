@@ -42,6 +42,8 @@ struct StudyPlannerView: View {
 
                 StudyMasteryHeaderCard(master: master, statuses: statuses)
 
+                CycleMapEntryCard()
+
                 NotesBookList(master: master, areas: areas, statuses: statuses, attempts: attempts)
             }
             .padding(24)
@@ -113,6 +115,47 @@ private struct NotesBookList: View {
         case .done: return "Done"
         case .inProgress: return "In progress"
         case .notStarted: return "Not started"
+        }
+    }
+}
+
+/// The Cycle Map entry, between the mastery card and the book grid.
+///
+/// Hidden entirely when `cycle_map.json` is absent or fails to decode, rather
+/// than pushing a screen that can only apologise.
+struct CycleMapEntryCard: View {
+    @Environment(ContentLoader.self) private var content
+
+    var body: some View {
+        if content.cycleMap != nil {
+            NavigationLink {
+                CycleMapView()
+            } label: {
+                HStack(spacing: 12) {
+                    Image(systemName: "chart.line.uptrend.xyaxis")
+                        .font(.title3)
+                        .foregroundStyle(Theme.accent)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Cycle Map")
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(Theme.ink)
+                        Text("Business cycle to CME to assets to portfolio, one phase at a time.")
+                            .font(.caption)
+                            .foregroundStyle(Theme.dust)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .multilineTextAlignment(.leading)
+                    }
+                    Spacer(minLength: 4)
+                    Image(systemName: "chevron.right")
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(Theme.dust)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .cfaCard()
+            .accessibilityIdentifier("study.cyclemap.entry")
         }
     }
 }

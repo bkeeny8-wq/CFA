@@ -14,6 +14,7 @@ final class ContentLoader {
     private(set) var flashcardBundle: FlashcardBundle?
     private(set) var schedule: StudySchedule?
     private(set) var mmReview: MMReviewBundle?
+    private(set) var cycleMap: CycleMap?
     private(set) var commandWordBundle: CommandWordBundle?
     private(set) var loadError: String?
 
@@ -135,6 +136,7 @@ final class ContentLoader {
         let schedule: StudySchedule?
         let mmReview: MMReviewBundle?
         let commandWords: CommandWordBundle?
+        let cycleMap: CycleMap?
     }
 
     private static func decodeSnapshot() throws -> ContentSnapshot {
@@ -150,6 +152,14 @@ final class ContentLoader {
         // but the PDFs it indexes are not, so a clone decodes this fine and
         // simply has nothing to open.
         let mmReview: MMReviewBundle? = try? decodeJSON("mm_review")
+        // Optional like the others: a decode failure hides the Cycle Map
+        // entry card rather than taking the whole content load down.
+        let cycleMap: CycleMap? = try? decodeJSON("cycle_map")
+        #if DEBUG
+        if cycleMap == nil {
+            print("CFAL3: cycle_map.json failed to decode")
+        }
+        #endif
         // Optional so a malformed edit to the command-word content degrades to
         // an empty guide instead of failing the whole bundle, the way a bad
         // schedule does.
@@ -172,7 +182,8 @@ final class ContentLoader {
             flashcardBundle: flashcardBundle,
             schedule: schedule,
             mmReview: mmReview,
-            commandWords: commandWords
+            commandWords: commandWords,
+            cycleMap: cycleMap
         )
     }
 
@@ -209,6 +220,7 @@ final class ContentLoader {
         losDrillBundles = snapshot.drillBundles
         schedule = snapshot.schedule
         mmReview = snapshot.mmReview
+        cycleMap = snapshot.cycleMap
         applyFlashcards(snapshot.flashcardBundle)
         applyCommandWords(snapshot.commandWords)
         rebuildIndexes(from: snapshot.bank, los: snapshot.los, notes: snapshot.notes)

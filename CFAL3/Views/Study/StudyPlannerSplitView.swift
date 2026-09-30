@@ -81,6 +81,8 @@ struct StudyPlannerSplitView: View {
                 ScrollView {
                     VStack(spacing: 12) {
                         StudyMasteryHeaderCard(master: master, statuses: statuses)
+
+                        CycleMapEntryCard()
                         ForEach(areas) { areaProgress in
                             if let curriculumArea = master.areas.first(where: { $0.id == areaProgress.areaID }) {
                                 Button {

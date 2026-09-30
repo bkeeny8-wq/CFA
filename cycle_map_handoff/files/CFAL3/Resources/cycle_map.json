@@ -1,0 +1,1159 @@
+{
+ "version": 1,
+ "source": "cycle_map mockup v2, approved by Brandon",
+ "assets": [
+  "Cash",
+  "Govt bonds",
+  "IG credit",
+  "High yield",
+  "Eq: cyclical",
+  "Eq: defensive",
+  "REITs",
+  "Commodities",
+  "FX carry"
+ ],
+ "asset_chains": [
+  "Policy rate → deposit and bill yields → reinvestment path",
+  "Policy path + term premium → yield changes → duration return",
+  "Rates + default outlook → spread level → carry vs spread-duration loss",
+  "Growth and defaults → spread and equity beta → excess return",
+  "Growth surprises → earnings revisions → operating leverage → price",
+  "Earnings stability → relative revisions → drawdown defense",
+  "Rates → cap rates and financing; growth → occupancy and rents",
+  "Demand vs supply → spot; inventories → term structure → roll yield",
+  "Rate differentials → forward discount → carry until vol repricing"
+ ],
+ "asset_traps": [
+  "The current cash rate is not the expected cash return over the horizon; use the expected path of short rates.",
+  "Positioning is about expected yield changes versus what the forwards already price, not about yield levels.",
+  "Excess return ≈ spread carry − spread duration × Δspread − default losses. Total return alone misgrades credit.",
+  "High yield has low empirical duration: it trades on the equity and default cycle more than on rates.",
+  "Markets lead the economy by a phase; positioning off current-phase macro data arrives late.",
+  "Defensive is about earnings stability, not just low beta; sector composition drives the label.",
+  "Short run REITs trade like rate product; the real-asset inflation pass-through is a long-run property.",
+  "Commodity return = collateral + spot + roll. Backwardation earns positive roll; contango pays it away.",
+  "UIP says carry should not work; empirically it does until volatility spikes, then losses concentrate."
+ ],
+ "frameworks_static": [
+  {
+   "id": "cash",
+   "label": "Cash",
+   "formula": "E(R) = average expected short rate over the horizon",
+   "glossary": [
+    [
+     "Policy now",
+     "The spot policy rate; what cash pays today."
+    ],
+    [
+     "Expected average",
+     "Mean of the projected rate path; the number that actually accrues."
+    ]
+   ]
+  },
+  {
+   "id": "govt_bonds",
+   "label": "Govt bonds",
+   "formula": "E(R) ≈ real rate + inflation prem + term prem",
+   "glossary": [
+    [
+     "Real rate",
+     "Compensation for deferring consumption; anchored by trend growth."
+    ],
+    [
+     "Inflation prem",
+     "Expected inflation plus a premium for inflation uncertainty."
+    ],
+    [
+     "Term prem",
+     "Extra yield for bearing duration risk; compresses late cycle and can go negative."
+    ]
+   ]
+  },
+  {
+   "id": "credit",
+   "label": "Credit",
+   "formula": "spread ≈ credit prem (+ liquidity prem for HY)",
+   "glossary": [
+    [
+     "IG credit prem",
+     "Spread for expected default loss plus risk aversion in quality names."
+    ],
+    [
+     "HY credit prem",
+     "Larger default and downgrade compensation lower in the stack."
+    ],
+    [
+     "HY liquidity prem",
+     "Payment for exit cost in stress; explodes exactly when you want out."
+    ]
+   ]
+  },
+  {
+   "id": "dm_equity",
+   "label": "DM equity",
+   "formula": "E(R) ≈ D/P − ΔS + i + g + ΔP/E",
+   "glossary": [
+    [
+     "D/P",
+     "Income return from dividends."
+    ],
+    [
+     "−ΔS",
+     "Net buybacks raise per-share claims; net issuance dilutes them."
+    ],
+    [
+     "i + g",
+     "Nominal earnings growth: inflation plus real growth."
+    ],
+    [
+     "ΔP/E",
+     "Repricing: multiple expansion or compression; the cycle's swing term."
+    ]
+   ]
+  },
+  {
+   "id": "em_equity",
+   "label": "EM equity",
+   "formula": "E(R) = RF + φ(ρσSR) + (1−φ)(σSR)",
+   "glossary": [
+    [
+     "RF",
+     "Risk-free anchor for the market being priced."
+    ],
+    [
+     "φ × RP integrated",
+     "The premium if the market were fully priced in the global portfolio."
+    ],
+    [
+     "(1−φ) × RP seg.",
+     "The extra premium for imperfect integration; grows in stress."
+    ]
+   ]
+  },
+  {
+   "id": "real_estate",
+   "label": "Real estate",
+   "formula": "E(R) ≈ cap rate + NOI growth − %Δcap rate",
+   "glossary": [
+    [
+     "Cap rate",
+     "NOI yield on price; the income engine."
+    ],
+    [
+     "NOI growth",
+     "Rents and occupancy; follows the growth cycle with a lag."
+    ],
+    [
+     "−%Δcap rate",
+     "Price effect of cap-rate moves; rising cap rates are a capital loss."
+    ]
+   ]
+  },
+  {
+   "id": "commodities",
+   "label": "Commodities",
+   "formula": "E(R) ≈ collateral yield + spot change + roll yield",
+   "glossary": [
+    [
+     "Collateral yield",
+     "Return on the cash margin backing the futures."
+    ],
+    [
+     "Spot change",
+     "Supply and demand moving the physical price."
+    ],
+    [
+     "Roll yield",
+     "Futures curve shape: backwardation earns it, contango pays it away."
+    ]
+   ]
+  },
+  {
+   "id": "fx_carry",
+   "label": "FX carry",
+   "formula": "E(R) ≈ rate differential + E(Δspot)",
+   "glossary": [
+    [
+     "Rate differential",
+     "Carry earned from the rate gap; the forward discount."
+    ],
+    [
+     "E(Δspot)",
+     "Expected currency move. UIP says it offsets the carry; empirically it does not, until stress."
+    ]
+   ]
+  }
+ ],
+ "singer_terhaar_inputs": {
+  "sigma": 26,
+  "sharpe_gim": 0.3,
+  "rho": 0.75
+ },
+ "moves_static": [
+  {
+   "plain": "Duration is how much the portfolio moves when rates move. Extending it positions you to gain more when yields fall; shortening gives up that sensitivity when yields are set to rise. Futures and swaps change the exposure overnight without selling a single bond.",
+   "worked": "Portfolio BPV $50,000 per bp. Target BPV $80,000. 10y futures BPV $85 per contract.\nBuy (80,000 − 50,000) / 85 ≈ 353 contracts.\nTo shorten instead: sell contracts, or pay fixed on a swap.",
+   "terms": [
+    [
+     "BPV (DV01)",
+     "Dollar P&L for a 1bp yield move; the sizing unit for every rates trade."
+    ],
+    [
+     "Receive-fixed swap",
+     "You receive the fixed leg and pay floating: gains when rates fall, so it ADDS duration."
+    ],
+    [
+     "Pay-fixed swap",
+     "The mirror image: cuts duration without selling bonds."
+    ],
+    [
+     "CTD / conversion factor",
+     "Futures track the cheapest-to-deliver bond; its BPV over the conversion factor gives the futures BPV."
+    ]
+   ],
+   "trap": "Futures BPV runs through the CTD and its conversion factor; do not use the notional alone.",
+   "exam": "Determine the number of futures contracts, or the swap position, required. Show BPV work."
+  },
+  {
+   "plain": "Curve trades bet on the SHAPE of the curve, not the level. A bullet concentrates in one maturity; a barbell splits between short and long. Steepener or flattener names the position you hold; bull or bear names which way yields move to get there.",
+   "worked": "2s10s spread at 20bp; you expect a bull steepener to 80bp (front end rallies).\nLong 2y futures, short 10y futures, BPV-matched so parallel moves cancel.\nP&L ≈ curve change × position BPV: the level is hedged, the shape is the bet.",
+   "terms": [
+    [
+     "Bullet",
+     "One maturity bucket; maximum rolldown at the belly of a steep curve."
+    ],
+    [
+     "Barbell",
+     "Short and long wings; more convexity; outperforms when the curve flattens."
+    ],
+    [
+     "Rolldown",
+     "Price gain from a bond aging down a steep curve as time passes."
+    ],
+    [
+     "Bull steepener",
+     "Yields fall, short end fastest: the cutting-cycle move."
+    ],
+    [
+     "Bear flattener",
+     "Yields rise, short end fastest: the hiking-cycle move."
+    ]
+   ],
+   "trap": "Bull and bear name the yield direction; steepener and flattener name the position. A bear flattener is short-end-led.",
+   "exam": "Recommend bullet or barbell given the curve forecast. Justify with rolldown and the expected reshaping."
+  },
+  {
+   "plain": "Credit return is the spread you collect minus what spread widening and defaults take back. Quality decisions are really about how much spread duration you are carrying into the next widening.",
+   "worked": "HY: spread 400bp, spread duration 4. Carry over one year ≈ 4.0%.\nSpreads widen 150bp: price loss ≈ 4 × 1.5% = 6.0%. Default loss ≈ 1.2%.\nExcess return ≈ 4.0 − 6.0 − 1.2 = −3.2%. Same widening at IG (100bp, SD 6, 20bp move): 1.0 − 1.2 − 0.1 ≈ −0.3%. That gap is the up-in-quality argument.",
+   "terms": [
+    [
+     "Spread duration (SD)",
+     "Percent price change per 1% move in the spread."
+    ],
+    [
+     "DTS",
+     "Spread duration × spread: the practical risk unit; equal DTS means similar spread risk."
+    ],
+    [
+     "POD × LGD",
+     "Probability of default times loss given default: the expected default loss."
+    ],
+    [
+     "Up-in-quality",
+     "Swap toward higher ratings: a little less carry, much less widening damage."
+    ]
+   ],
+   "trap": "Spread duration is not effective duration: floaters have near-zero rate duration but full spread duration.",
+   "exam": "Determine whether to move up or down in quality. Justify with spread level, expected Δspread, and DTS."
+  },
+  {
+   "plain": "Factors are the axes equity returns rotate on. The phase decides which earnings stream the market pays up for: operating leverage in recoveries, stability in downturns.",
+   "worked": "Rotate 10% of equity from a cyclical value sleeve (revision beta ≈ 1.3) to quality and low vol (beta ≈ 0.6).\nIf forward EPS revisions fall 10%, the drag on that slice drops from ≈13% to ≈6%.\nThe difference is the defense you bought, paid for in upside if the cycle extends.",
+   "terms": [
+    [
+     "Value",
+     "Cheap on fundamentals; pays early cycle as multiples normalize."
+    ],
+    [
+     "Momentum",
+     "Recent winners; rides established mid-cycle trends."
+    ],
+    [
+     "Quality",
+     "Stable margins and low leverage; the late-cycle defense."
+    ],
+    [
+     "Low volatility",
+     "Smallest drawdown beta; slowdown armor."
+    ],
+    [
+     "Cyclical vs defensive",
+     "Sector earnings sensitivity to GDP: a different axis from value vs growth."
+    ]
+   ],
+   "trap": "Value versus growth is not the same axis as defensive versus cyclical; the exam mixes them deliberately.",
+   "exam": "Recommend the factor tilt most consistent with the phase. Justify with the earnings mechanism."
+  },
+  {
+   "plain": "Hedging locks in the forward rate: you keep the asset return and drop the currency return. The carry IS the forward differential, so the decision is simply whether you expect spot to do better or worse than the forward already implies.",
+   "worked": "Foreign deposit rate 1%, domestic 4%: hedging the foreign exposure EARNS ≈ 3% in forward points.\nStaying unhedged wins only if the foreign currency appreciates by more than 3%.\nIn slowdown, with E(Δspot) ≈ −4%, the decision is not close: hedge.",
+   "terms": [
+    [
+     "Forward points",
+     "The interest differential expressed in the forward price; what a hedger earns or pays."
+    ],
+    [
+     "Hedge ratio",
+     "Share of the exposure hedged; the IPS sets the neutral point."
+    ],
+    [
+     "Carry trade",
+     "Long the high-yielder funded in the low-yielder: earns the differential until spot bites."
+    ],
+    [
+     "Collar",
+     "Buy a put, sell a call: brackets the currency cheaply when you hold a volatility view."
+    ]
+   ],
+   "trap": "A full hedge removes the currency return and its diversification; the IPS decides how much you may keep.",
+   "exam": "Determine whether to hedge the currency exposure. Justify with forward points versus expected spot."
+  }
+ ],
+ "reading_links": {
+  "R1": "Capital Market Expectations, Part 1: Framework and Macro Considerations",
+  "R2": "Capital Market Expectations, Part 2: Forecasting Asset Class Returns",
+  "R13": "Swaps, Forwards, and Futures Strategies",
+  "R14": "Currency Management: An Introduction",
+  "R15": "Active Equity Investing: Strategies",
+  "R16": "Active Equity Investing: Strategies",
+  "R19": "Yield Curve Strategies",
+  "R20": "Fixed-Income Active Management: Credit Strategies"
+ },
+ "phases": [
+  {
+   "name": "Initial recovery",
+   "description": "Output gap wide and negative, inflation low and still falling, policy strongly stimulative, confidence just turning up.",
+   "curve_kind": "steep",
+   "curve_label": "Steep",
+   "taylor": "πe 1.0, gap −3.0 → target ≈ 1 + 1.0 − 0.5 − 1.5 = 0.0%. Policy pinned below neutral: stimulus.",
+   "frameworks": {
+    "cash": {
+     "now": 0.3,
+     "avg": 0.5,
+     "note": "Policy pinned near the floor; the path stays flat until the gap closes."
+    },
+    "govt": [
+     [
+      "Real rate",
+      0.5
+     ],
+     [
+      "Inflation prem",
+      1
+     ],
+     [
+      "Term prem",
+      1.5
+     ]
+    ],
+    "credit": [
+     [
+      "IG credit prem",
+      1.8
+     ],
+     [
+      "HY credit prem",
+      4.5
+     ],
+     [
+      "HY liquidity prem",
+      1
+     ]
+    ],
+    "gk": [
+     [
+      "D/P",
+      2.5
+     ],
+     [
+      "−ΔS (buybacks)",
+      0.5
+     ],
+     [
+      "i (inflation)",
+      1
+     ],
+     [
+      "g (real growth)",
+      2.5
+     ],
+     [
+      "ΔP/E (repricing)",
+      2
+     ]
+    ],
+    "singer_terhaar": {
+     "rf": 1,
+     "phi": 0.75
+    },
+    "real_estate": [
+     [
+      "Cap rate",
+      6.5
+     ],
+     [
+      "NOI growth",
+      1.5
+     ],
+     [
+      "−%Δcap rate",
+      1
+     ]
+    ],
+    "commodities": [
+     [
+      "Collateral yield",
+      0.5
+     ],
+     [
+      "Spot change",
+      2
+     ],
+     [
+      "Roll yield",
+      -1
+     ]
+    ],
+    "fx": [
+     [
+      "Rate differential",
+      2
+     ],
+     [
+      "E(Δspot)",
+      0.5
+     ]
+    ]
+   },
+   "stances": [
+    "UW",
+    "N",
+    "OW",
+    "OW",
+    "OW",
+    "UW",
+    "OW",
+    "N",
+    "OW"
+   ],
+   "mechanisms": [
+    "Cuts are already delivered, so the reinvestment path lags every risk asset as the rebound starts.",
+    "Yields sit near the lows: little left from duration, but no hiking pressure yet either.",
+    "Spreads compress hard off recession wides; carry plus tightening is the best credit phase.",
+    "Maximum beta to the spread-tightening leg; defaults peak and then roll over.",
+    "Operating leverage turns positive as volumes recover; small caps and value lead off the trough.",
+    "Stable earners lag when risk appetite floods back in.",
+    "Financing cost relief arrives while occupancy starts recovering: both levers improve.",
+    "Slack still caps pricing power; spot firms late in the phase, not at the start.",
+    "Falling volatility and risk-on flows let carry positions rebuild profitably."
+   ],
+   "moves": [
+    {
+     "name": "Duration",
+     "what": "Neutral to short as yields base and the recovery builds",
+     "reading_tag": "R13",
+     "how": "Yields have bottomed with policy on hold; run benchmark-to-short duration and let credit, not rates, do the work. If underweight beta, pay-fixed swaps or short futures trim BPV cheaply.",
+     "why": "Layer 1 has policy floored and Layer 2 shows a modest term premium at the lows: rates give little; the return is in credit."
+    },
+    {
+     "name": "Curve",
+     "what": "Steep curve: the bullet at the belly earns rolldown and carry",
+     "reading_tag": "R19",
+     "how": "A steep, stable curve maximizes rolldown at the belly; the bullet harvests it. Save the barbell for when flattening becomes the forecast.",
+     "why": "Layer 1 curve is steep and stable, so the belly's rolldown is the free carry on the page."
+    },
+    {
+     "name": "Credit",
+     "what": "Down-in-quality tilt to capture the compression",
+     "reading_tag": "R20",
+     "how": "Spreads at wides plus falling default expectations: extend spread duration and reach down the quality ladder while the compression runs.",
+     "why": "Layer 2 shows the widest credit and liquidity premia of the cycle starting to compress."
+    },
+    {
+     "name": "Equity style",
+     "what": "Cyclicals, small caps, and value lead off the trough",
+     "reading_tag": "R15",
+     "how": "Earnings revisions inflect first in cyclical sectors; the value factor pays as distressed multiples normalize.",
+     "why": "Layer 3: cyclical earnings inflect first off the trough; operating leverage flips positive."
+    },
+    {
+     "name": "Currency",
+     "what": "Re-establish carry; risk currencies recover first",
+     "reading_tag": "R14",
+     "how": "Vol compresses and rate differentials reopen; run carry unhedged where the IPS allows discretionary exposure.",
+     "why": "Layer 2 FX: positive differential with a stable expected spot: carry conditions restored."
+    }
+   ]
+  },
+  {
+   "name": "Early expansion",
+   "description": "Growth above trend, the gap closing, inflation bottoming, policy beginning to normalize from the front end.",
+   "curve_kind": "flatten",
+   "curve_label": "Steep, bear-flattening",
+   "taylor": "πe 2.0, gap −1.0 → target ≈ 1 + 2.0 + 0 − 0.5 = 2.5% and rising: normalization begins.",
+   "frameworks": {
+    "cash": {
+     "now": 2.5,
+     "avg": 3,
+     "note": "Hiking path underway; the average sits above the current rate."
+    },
+    "govt": [
+     [
+      "Real rate",
+      1
+     ],
+     [
+      "Inflation prem",
+      2
+     ],
+     [
+      "Term prem",
+      1.2
+     ]
+    ],
+    "credit": [
+     [
+      "IG credit prem",
+      1
+     ],
+     [
+      "HY credit prem",
+      3
+     ],
+     [
+      "HY liquidity prem",
+      0.6
+     ]
+    ],
+    "gk": [
+     [
+      "D/P",
+      2
+     ],
+     [
+      "−ΔS (buybacks)",
+      0.5
+     ],
+     [
+      "i (inflation)",
+      2
+     ],
+     [
+      "g (real growth)",
+      3
+     ],
+     [
+      "ΔP/E (repricing)",
+      0.5
+     ]
+    ],
+    "singer_terhaar": {
+     "rf": 2.5,
+     "phi": 0.8
+    },
+    "real_estate": [
+     [
+      "Cap rate",
+      5.5
+     ],
+     [
+      "NOI growth",
+      3
+     ],
+     [
+      "−%Δcap rate",
+      0
+     ]
+    ],
+    "commodities": [
+     [
+      "Collateral yield",
+      2.5
+     ],
+     [
+      "Spot change",
+      4
+     ],
+     [
+      "Roll yield",
+      0.5
+     ]
+    ],
+    "fx": [
+     [
+      "Rate differential",
+      3
+     ],
+     [
+      "E(Δspot)",
+      0
+     ]
+    ]
+   },
+   "stances": [
+    "N",
+    "UW",
+    "N",
+    "N",
+    "OW",
+    "N",
+    "N",
+    "OW",
+    "OW"
+   ],
+   "mechanisms": [
+    "Rising short rates lift the reinvestment path back toward neutral.",
+    "The front end reprices for hikes: a bear flattener, and short maturities take the losses.",
+    "Compression is largely done; the position clips spread carry and nothing more.",
+    "Carry is fine, but the asymmetric gain from tightening is behind you.",
+    "Earnings momentum is the return driver; growth and cyclicals compound it.",
+    "Neutral: leadership stays with the cycle while margins expand.",
+    "Improving fundamentals and rate pressure roughly offset.",
+    "Demand-pull firms industrial metals and energy as utilization climbs.",
+    "Differentials widen while volatility stays suppressed: peak carry conditions."
+   ],
+   "moves": [
+    {
+     "name": "Duration",
+     "what": "Short versus benchmark into the hiking path",
+     "reading_tag": "R13",
+     "how": "Forwards underprice the hiking path in an above-trend economy; stay short with futures or pay-fixed swaps and reassess as the gap closes.",
+     "why": "Layer 1 Taylor sits above the policy rate: the priced hiking path is still too shallow."
+    },
+    {
+     "name": "Curve",
+     "what": "Bear flattener: the barbell outperforms the bullet",
+     "reading_tag": "R19",
+     "how": "Short-end-led flattening hurts the belly most; the barbell's long wing rallies relatively as the curve compresses.",
+     "why": "Layer 1 shows a bear flattener: front-end led, which is the barbell's regime."
+    },
+    {
+     "name": "Credit",
+     "what": "Hold the carry; start trimming the lowest quality",
+     "reading_tag": "R20",
+     "how": "Spread income still clears default costs, but begin rotating out of the weakest names before the crowd needs to.",
+     "why": "Layer 2 credit premium is down to carry-only; the compression trade is finished."
+    },
+    {
+     "name": "Equity style",
+     "what": "Growth and cyclicals ride earnings momentum",
+     "reading_tag": "R16",
+     "how": "Momentum and growth factors capture the revision cycle; quality lags while nothing is going wrong.",
+     "why": "Layer 2 Grinold-Kroner: the g term dominates E(R): own the earnings cycle."
+    },
+    {
+     "name": "Currency",
+     "what": "Carry intact while volatility stays suppressed",
+     "reading_tag": "R14",
+     "how": "Keep carry sized to the vol regime; forward points understate expected spot moves in the funding currencies.",
+     "why": "Layer 2 FX shows the widest differential with flat expected spot: peak carry."
+    }
+   ]
+  },
+  {
+   "name": "Late expansion",
+   "description": "Economy beyond potential, inflation rising, policy restrictive, the curve moving from flat toward inversion.",
+   "curve_kind": "flat",
+   "curve_label": "Flat, inverting",
+   "taylor": "πe 3.0, gap +1.5 → target ≈ 1 + 3.0 + 0.5 + 0.75 = 5.25%: restrictive territory.",
+   "frameworks": {
+    "cash": {
+     "now": 5.2,
+     "avg": 5,
+     "note": "Peak rates: cash finally pays, which is exactly the warning."
+    },
+    "govt": [
+     [
+      "Real rate",
+      1.5
+     ],
+     [
+      "Inflation prem",
+      3
+     ],
+     [
+      "Term prem",
+      0.2
+     ]
+    ],
+    "credit": [
+     [
+      "IG credit prem",
+      0.8
+     ],
+     [
+      "HY credit prem",
+      2.6
+     ],
+     [
+      "HY liquidity prem",
+      0.5
+     ]
+    ],
+    "gk": [
+     [
+      "D/P",
+      1.8
+     ],
+     [
+      "−ΔS (buybacks)",
+      0.5
+     ],
+     [
+      "i (inflation)",
+      3
+     ],
+     [
+      "g (real growth)",
+      2
+     ],
+     [
+      "ΔP/E (repricing)",
+      -1.5
+     ]
+    ],
+    "singer_terhaar": {
+     "rf": 4.5,
+     "phi": 0.8
+    },
+    "real_estate": [
+     [
+      "Cap rate",
+      4.5
+     ],
+     [
+      "NOI growth",
+      3
+     ],
+     [
+      "−%Δcap rate",
+      -2
+     ]
+    ],
+    "commodities": [
+     [
+      "Collateral yield",
+      5
+     ],
+     [
+      "Spot change",
+      3
+     ],
+     [
+      "Roll yield",
+      2
+     ]
+    ],
+    "fx": [
+     [
+      "Rate differential",
+      3.5
+     ],
+     [
+      "E(Δspot)",
+      -1
+     ]
+    ]
+   },
+   "stances": [
+    "OW",
+    "N",
+    "N",
+    "UW",
+    "UW",
+    "OW",
+    "UW",
+    "OW",
+    "N"
+   ],
+   "mechanisms": [
+    "Peak policy rates make cash the cheap option on rising volatility.",
+    "Start extending: from here the distribution of yield changes skews down.",
+    "Tights compensate the carry but not the tail; hold quality, cut beta.",
+    "Spreads at the tights have far more room to widen than tighten: pure asymmetry.",
+    "Cost pressure and multiple compression hit operating-leverage names first.",
+    "Earnings stability commands a premium as growth strains.",
+    "Peak financing costs pressure cap rates and refinancing schedules.",
+    "The late-cycle inflation pulse is the classic commodity phase.",
+    "Carry still accrues, but the volatility regime that funds it is turning."
+   ],
+   "moves": [
+    {
+     "name": "Duration",
+     "what": "Begin extending as the hiking cycle crests",
+     "reading_tag": "R13",
+     "how": "Scale in with receive-fixed swaps as data softens; the trade is early by design because the top in yields never announces itself.",
+     "why": "Layer 1: Taylor is peaking, so the distribution of the next rate moves skews to cuts."
+    },
+    {
+     "name": "Curve",
+     "what": "Flat to inverted: set up for the eventual bull steepener",
+     "reading_tag": "R19",
+     "how": "Own the front-to-belly where the cuts will land; the inversion is the entry price of the steepener, not a reason to wait.",
+     "why": "Layer 1 curve is flat to inverted: that inversion is the entry price of the coming steepener."
+    },
+    {
+     "name": "Credit",
+     "what": "Up-in-quality; cut high-yield beta at the tights",
+     "reading_tag": "R20",
+     "how": "Give up a little carry to shed spread duration in the names that gap first; DTS down, quality up.",
+     "why": "Layer 2: IG 0.8 and HY 2.6 premia at cycle tights: no cushion left for the tail."
+    },
+    {
+     "name": "Equity style",
+     "what": "Rotate to quality and defensive factors",
+     "reading_tag": "R16",
+     "how": "Low vol and quality defend the revision downturn that cyclical multiples are not yet pricing.",
+     "why": "Layer 2 Grinold-Kroner: the ΔP/E term has turned negative: compression risk is live."
+    },
+    {
+     "name": "Currency",
+     "what": "Reduce carry before the volatility regime breaks",
+     "reading_tag": "R14",
+     "how": "Carry losses concentrate in the regime shift; take exposure down while the exit is still liquid.",
+     "why": "Layer 2 FX: expected spot has flipped negative against the differential: the trade is aging."
+    }
+   ]
+  },
+  {
+   "name": "Slowdown",
+   "description": "Growth decelerating below trend, inflation peaking then easing, markets pricing the policy pivot.",
+   "curve_kind": "inverted",
+   "curve_label": "Inverted",
+   "taylor": "πe 3.0, gap −0.5 → target ≈ 1 + 3.0 + 0.5 − 0.25 = 4.25% and falling: cuts enter the forecast.",
+   "frameworks": {
+    "cash": {
+     "now": 4.2,
+     "avg": 3.8,
+     "note": "Cuts move into the forecast; the average path is below spot."
+    },
+    "govt": [
+     [
+      "Real rate",
+      1
+     ],
+     [
+      "Inflation prem",
+      2.5
+     ],
+     [
+      "Term prem",
+      0.4
+     ]
+    ],
+    "credit": [
+     [
+      "IG credit prem",
+      1.5
+     ],
+     [
+      "HY credit prem",
+      5
+     ],
+     [
+      "HY liquidity prem",
+      1.2
+     ]
+    ],
+    "gk": [
+     [
+      "D/P",
+      2
+     ],
+     [
+      "−ΔS (buybacks)",
+      0
+     ],
+     [
+      "i (inflation)",
+      2.5
+     ],
+     [
+      "g (real growth)",
+      0.5
+     ],
+     [
+      "ΔP/E (repricing)",
+      -1
+     ]
+    ],
+    "singer_terhaar": {
+     "rf": 4,
+     "phi": 0.65
+    },
+    "real_estate": [
+     [
+      "Cap rate",
+      5
+     ],
+     [
+      "NOI growth",
+      0.5
+     ],
+     [
+      "−%Δcap rate",
+      -1
+     ]
+    ],
+    "commodities": [
+     [
+      "Collateral yield",
+      4
+     ],
+     [
+      "Spot change",
+      -3
+     ],
+     [
+      "Roll yield",
+      0.5
+     ]
+    ],
+    "fx": [
+     [
+      "Rate differential",
+      3
+     ],
+     [
+      "E(Δspot)",
+      -4
+     ]
+    ]
+   },
+   "stances": [
+    "N",
+    "OW",
+    "N",
+    "UW",
+    "UW",
+    "OW",
+    "N",
+    "UW",
+    "UW"
+   ],
+   "mechanisms": [
+    "Still earns the peak rate, but from here duration beats reinvestment.",
+    "The long-duration trade of the cycle: yields fall from the top as cuts get priced.",
+    "Quality spread product holds; the better entry in beta comes lower.",
+    "Widening spreads meet rising defaults: the worst phase for high yield.",
+    "Downgrades concentrate in cyclical earnings; operating leverage cuts both ways.",
+    "Low vol, staples, and dividend quality defend the drawdown.",
+    "Falling rates help financing while weakening tenants hurt income: net neutral.",
+    "Demand destruction rolls the complex over; contango returns.",
+    "The classic carry unwind: vol spikes and funding currencies squeeze."
+   ],
+   "moves": [
+    {
+     "name": "Duration",
+     "what": "Long duration; receive-fixed swaps add exposure fast",
+     "reading_tag": "R13",
+     "how": "Receive fixed at the belly and long end; swaps move BPV without selling assets, and the pivot pricing does the rest.",
+     "why": "Layer 1 prices the pivot and Layer 2 shows the term premium rebuilding: duration is the trade."
+    },
+    {
+     "name": "Curve",
+     "what": "Position for the bull steepener: bullet beats barbell",
+     "reading_tag": "R19",
+     "how": "Front-end-led rallies steepen the curve; the bullet at the point of maximum expected yield decline outruns the wings.",
+     "why": "Layer 1: the next curve move is a bull steepener, front-end led: bullet territory."
+    },
+    {
+     "name": "Credit",
+     "what": "Quality bias; let spreads widen before adding risk",
+     "reading_tag": "R20",
+     "how": "Hold IG carry, keep DTS low, and stage the shopping list for when spreads overshoot.",
+     "why": "Layer 2: HY credit and liquidity premia are widening: let the spreads come to you."
+    },
+    {
+     "name": "Equity style",
+     "what": "Defensives, low volatility, and dividend quality",
+     "reading_tag": "R16",
+     "how": "The factor set with the shallowest revision beta owns the drawdown phase.",
+     "why": "Layer 2 Grinold-Kroner: g collapses toward zero: earnings stability is the scarce asset."
+    },
+    {
+     "name": "Currency",
+     "what": "Unwind carry; hedge the risk-currency exposure",
+     "reading_tag": "R14",
+     "how": "Move toward full hedges on risk currencies; forward points are cheap insurance against the squeeze.",
+     "why": "Layer 2 FX: E(Δspot) at −4 swamps the differential: the carry math is broken."
+    }
+   ]
+  },
+  {
+   "name": "Contraction",
+   "description": "Output falling, inflation declining, policy easing aggressively, risk premia out at the wides.",
+   "curve_kind": "resteep",
+   "curve_label": "Bull steepening",
+   "taylor": "πe 1.5, gap −2.5 → target ≈ 1 + 1.5 − 0.25 − 1.25 = 1.0%: rapid cuts toward accommodation.",
+   "frameworks": {
+    "cash": {
+     "now": 1.2,
+     "avg": 1,
+     "note": "Cut sequence underway; reinvestment yield melts through the phase."
+    },
+    "govt": [
+     [
+      "Real rate",
+      0.5
+     ],
+     [
+      "Inflation prem",
+      1.5
+     ],
+     [
+      "Term prem",
+      1
+     ]
+    ],
+    "credit": [
+     [
+      "IG credit prem",
+      2.5
+     ],
+     [
+      "HY credit prem",
+      7.5
+     ],
+     [
+      "HY liquidity prem",
+      2
+     ]
+    ],
+    "gk": [
+     [
+      "D/P",
+      2.8
+     ],
+     [
+      "−ΔS (issuance)",
+      -0.5
+     ],
+     [
+      "i (inflation)",
+      1.5
+     ],
+     [
+      "g (real growth)",
+      -1
+     ],
+     [
+      "ΔP/E (repricing)",
+      1.5
+     ]
+    ],
+    "singer_terhaar": {
+     "rf": 2,
+     "phi": 0.55
+    },
+    "real_estate": [
+     [
+      "Cap rate",
+      6
+     ],
+     [
+      "NOI growth",
+      -1
+     ],
+     [
+      "−%Δcap rate",
+      0.5
+     ]
+    ],
+    "commodities": [
+     [
+      "Collateral yield",
+      1.5
+     ],
+     [
+      "Spot change",
+      -4
+     ],
+     [
+      "Roll yield",
+      -1.5
+     ]
+    ],
+    "fx": [
+     [
+      "Rate differential",
+      2
+     ],
+     [
+      "E(Δspot)",
+      -3
+     ]
+    ]
+   },
+   "stances": [
+    "UW",
+    "OW",
+    "OW",
+    "N",
+    "N",
+    "OW",
+    "N",
+    "UW",
+    "UW"
+   ],
+   "mechanisms": [
+    "Cuts erode the cash yield exactly when duration is paying.",
+    "The front-end rally completes the round trip; take the gains as the curve re-steepens.",
+    "Wide spreads on names that will survive: the credit entry point of the cycle.",
+    "Stage in late: prices trough before defaults peak, and dispersion is extreme.",
+    "Add cyclicality before the macro trough; equities lead the economy by a phase.",
+    "Defensives still hold, but leadership hands over near the low.",
+    "Financing relief arrives first; occupancy and rents lag it by quarters.",
+    "Weak demand keeps the complex heavy until the recovery is visible.",
+    "Funding currencies stay bid until risk appetite genuinely returns."
+   ],
+   "moves": [
+    {
+     "name": "Duration",
+     "what": "Maximum quality duration early in the contraction",
+     "reading_tag": "R13",
+     "how": "Own the government curve in size early; this is where the building-block term premium gets paid back.",
+     "why": "Layer 1: the cut sequence is live: this is the phase where the term premium pays back."
+    },
+    {
+     "name": "Curve",
+     "what": "Bull steepening realized: take profit, roll toward the bullet",
+     "reading_tag": "R19",
+     "how": "As the front end collapses, monetize the steepener and reset carry positioning for the recovery curve.",
+     "why": "Layer 1: the bull steepening is realizing: monetize the position you built for it."
+    },
+    {
+     "name": "Credit",
+     "what": "Stage back in as spreads peak; quality first",
+     "reading_tag": "R20",
+     "how": "Buy the survivors at the wides: IG first, then crossover; the compression pays through initial recovery.",
+     "why": "Layer 2: credit plus liquidity premia at maximum width: the entry point of the cycle."
+    },
+    {
+     "name": "Equity style",
+     "what": "Add cyclicals before the trough: markets lead by phases",
+     "reading_tag": "R15",
+     "how": "Rebuild cyclical and small-cap exposure while headlines are worst; waiting for confirmation forfeits the first leg.",
+     "why": "Layer 3: equity prices trough a phase before the economy: waiting forfeits the first leg."
+    },
+    {
+     "name": "Currency",
+     "what": "Funding currencies strong; re-risk late in the phase",
+     "reading_tag": "R14",
+     "how": "Stay hedged until vol breaks lower, then rebuild carry into initial recovery.",
+     "why": "Layer 2 FX: the expected spot term is still negative: carry stays broken until vol breaks."
+    }
+   ]
+  }
+ ]
+}

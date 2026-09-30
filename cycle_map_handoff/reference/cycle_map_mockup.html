@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cycle Map v2: bottom-up study tool (mockup)</title>
+<style>
+:root { box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+  --bg:#F5F6F8; --card:#FFFFFF; --line:#D9DCE1; --text:#1C1E21; --muted:#6B7076;
+  --accent:#4A8FE3; --accent-soft:#E3EDFB;
+  --ow:#1D8A5F; --ow-soft:#DFF2E9; --uw:#C24A3A; --uw-soft:#F9E5E1; --nt:#6B7076; --nt-soft:#ECEDEF; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg:#141517; --card:#1E2023; --line:#33363B; --text:#E8E9EB; --muted:#9BA0A6;
+  --accent:#6FA8EC; --accent-soft:#223349; --ow:#4CC08F; --ow-soft:#1E3A2E;
+  --uw:#E0705E; --uw-soft:#422320; --nt:#9BA0A6; --nt-soft:#2A2D31; } }
+:root[data-theme="dark"] {
+  --bg:#141517; --card:#1E2023; --line:#33363B; --text:#E8E9EB; --muted:#9BA0A6;
+  --accent:#6FA8EC; --accent-soft:#223349; --ow:#4CC08F; --ow-soft:#1E3A2E;
+  --uw:#E0705E; --uw-soft:#422320; --nt:#9BA0A6; --nt-soft:#2A2D31; }
+* { box-sizing: inherit; }
+body { margin:0; background:var(--bg); color:var(--text);
+  font:15px/1.5 -apple-system,"SF Pro Text","Helvetica Neue",Arial,sans-serif; }
+.wrap { max-width:780px; margin:0 auto; padding:16px 14px 44px; }
+h1 { font-size:21px; margin:6px 0 2px; }
+.sub { color:var(--muted); font-size:13px; margin:0 0 14px; }
+.mock { display:inline-block; font-size:11px; color:var(--accent); background:var(--accent-soft);
+  border-radius:10px; padding:2px 8px; margin-bottom:8px; }
+.phases { display:flex; gap:6px; overflow-x:auto; padding-bottom:6px; -webkit-overflow-scrolling:touch;
+  position:sticky; top:env(safe-area-inset-top,0px); background:var(--bg); z-index:5; padding-top:6px; }
+.phase { flex:0 0 auto; border:0.5px solid var(--line); background:var(--card); color:var(--muted);
+  border-radius:18px; padding:7px 12px; font-size:13px; font-weight:500; cursor:pointer; }
+.phase.on { background:var(--accent); border-color:var(--accent); color:#fff; }
+.layer { background:var(--card); border:0.5px solid var(--line); border-radius:14px;
+  padding:13px 14px; margin-top:14px; position:relative; }
+.layer + .layer::before { content:""; position:absolute; top:-14px; left:26px; width:2px; height:14px;
+  background:var(--accent); opacity:0.5; }
+.ltag { font-size:11px; font-weight:600; letter-spacing:0.04em; color:var(--accent);
+  text-transform:uppercase; margin-bottom:4px; }
+.ltitle { font-size:16px; font-weight:600; margin:0 0 6px; }
+.desc { font-size:14px; margin:0; }
+.muted { color:var(--muted); font-size:12px; }
+.curveRow { display:flex; align-items:center; gap:14px; margin-top:10px; flex-wrap:wrap; }
+.curveBox { background:var(--bg); border-radius:10px; padding:8px; }
+svg .axis { stroke:var(--line); stroke-width:1.5; }
+svg .crv { stroke:var(--accent); stroke-width:2.5; fill:none; transition:d 0.45s ease; }
+.wk { background:var(--bg); border-radius:10px; padding:10px 12px; margin-top:10px; font-size:13px; }
+.wk .frm { font-family:"SF Mono",ui-monospace,Menlo,monospace; font-size:12px; color:var(--muted);
+  margin-bottom:6px; }
+.wk b { font-weight:600; }
+.bars { margin-top:10px; }
+.brow { display:flex; align-items:center; gap:8px; padding:2.5px 0; font-size:12.5px; }
+.blbl { width:118px; color:var(--muted); }
+.btrack { flex:1; display:flex; align-items:center; }
+.bneg,.bpos { height:9px; border-radius:4px; }
+.bpos { background:var(--accent); }
+.bneg { background:var(--uw); margin-left:auto; }
+.bval { width:52px; text-align:right; font-variant-numeric:tabular-nums; }
+.bsum { border-top:0.5px solid var(--line); margin-top:4px; padding-top:5px; font-weight:600; }
+.fgrid { display:grid; grid-template-columns:1fr; gap:8px; margin-top:10px; }
+@media (min-width:600px){ .fgrid { grid-template-columns:1fr 1fr; } }
+.fgrid .wk { margin-top:0; }
+.chips { display:flex; flex-wrap:wrap; gap:7px; margin-top:10px; }
+.chip { border-radius:16px; padding:6px 11px; font-size:12.5px; font-weight:500; cursor:pointer;
+  border:0.5px solid transparent; }
+.chip.OW { background:var(--ow-soft); color:var(--ow); }
+.chip.UW { background:var(--uw-soft); color:var(--uw); }
+.chip.N { background:var(--nt-soft); color:var(--nt); }
+.chip.sel { border-color:currentColor; }
+.panel { margin-top:10px; background:var(--bg); border-radius:10px; padding:11px 12px; font-size:13px; }
+.chain { font-size:12.5px; color:var(--accent); font-weight:500; margin-bottom:6px; }
+.trap { margin-top:7px; padding-top:7px; border-top:0.5px dashed var(--line); font-size:12.5px; }
+.trap b { color:var(--uw); }
+.exam { margin-top:7px; font-size:12.5px; color:var(--muted); font-style:italic; }
+.legend { display:flex; gap:12px; margin-top:9px; font-size:11px; color:var(--muted); }
+.dot { display:inline-block; width:8px; height:8px; border-radius:4px; margin-right:4px; }
+.moves { display:grid; grid-template-columns:1fr; gap:8px; margin-top:10px; }
+@media (min-width:600px){ .moves { grid-template-columns:1fr 1fr; } }
+.move { border:0.5px solid var(--line); border-radius:10px; padding:9px 11px; cursor:pointer; }
+.move.open { grid-column:1 / -1; }
+.mhead { display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+.mname { font-size:13px; font-weight:600; }
+.rtag { font-size:10.5px; color:var(--accent); background:var(--accent-soft); border-radius:8px;
+  padding:1px 7px; white-space:nowrap; }
+.mtext { font-size:13px; margin-top:3px; }
+.mdet { margin-top:8px; border-top:0.5px solid var(--line); padding-top:8px; font-size:12.5px; }
+.mdet .frm { font-size:12.5px; line-height:1.6;
+  background:var(--card); border:0.5px solid var(--line); border-radius:8px; padding:7px 9px;
+  margin:6px 0; overflow-x:auto; }
+.gls { display:flex; gap:8px; padding:3px 0; font-size:12px; border-top:0.5px solid var(--line); }
+.gls:first-child { border-top:0; }
+.gls b { flex:0 0 128px; font-weight:600; color:var(--muted); }
+.hint { font-size:11px; color:var(--muted); margin-top:6px; }
+.cta { display:block; width:100%; margin-top:16px; border:0; border-radius:12px; background:var(--accent);
+  color:#fff; font-size:15px; font-weight:600; padding:13px; cursor:pointer; }
+.foot { text-align:center; margin-top:8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="mock">Mockup v2: proposed app section</span>
+  <h1>Cycle Map</h1>
+  <p class="sub">Bottom-up: business cycle &rarr; CME frameworks &rarr; asset class returns &rarr; portfolio construction. Pick a phase; every layer recomputes. Tap anything for the mechanism, the math, and the trap.</p>
+
+  <div class="phases" id="phases"></div>
+
+  <div class="layer">
+    <div class="ltag">Layer 1 &middot; Business cycle</div>
+    <p class="ltitle" id="pName"></p>
+    <p class="desc" id="pDesc"></p>
+    <div class="curveRow">
+      <div class="curveBox">
+        <svg width="150" height="86" viewBox="0 0 150 86" aria-label="Yield curve shape">
+          <line class="axis" x1="14" y1="74" x2="144" y2="74"></line>
+          <line class="axis" x1="14" y1="74" x2="14" y2="8"></line>
+          <path class="crv" id="curve" d=""></path>
+        </svg>
+        <div class="muted" style="text-align:center" id="curveLbl"></div>
+      </div>
+      <div class="wk" style="flex:1; min-width:240px; margin-top:0">
+        <div class="frm">Taylor: target = r* + &pi;e + 0.5(&pi;e &minus; &pi;*) + 0.5(gap)</div>
+        <div id="taylor"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="layer">
+    <div class="ltag">Layer 2 &middot; Capital market expectations</div>
+    <p class="ltitle">Pick an asset class; its return framework computes for this phase</p>
+    <div class="chips" id="fwchips"></div>
+    <div class="wk" style="margin-top:10px">
+      <b id="fwname"></b> <span class="rtag" id="fwtag"></span>
+      <div class="frm" id="fwfrm"></div>
+      <div class="bars" id="fwbars"></div>
+      <div class="muted" id="fwcap" style="margin-top:4px"></div>
+      <div id="fwgls" style="margin-top:8px"></div>
+    </div>
+    <p class="muted" style="margin:8px 0 0">Illustrative magnitudes; the exam tests the direction and the mix, not these numbers. Roll yield sign follows the term structure: backwardation earns it, contango pays it.</p>
+  </div>
+
+  <div class="layer">
+    <div class="ltag">Layer 3 &middot; Asset class returns</div>
+    <p class="ltitle">Favorability this phase</p>
+    <div class="chips" id="chips"></div>
+    <div class="panel" id="apanel">Tap an asset class for the transmission chain, mechanism, and exam trap.</div>
+    <div class="legend">
+      <span><span class="dot" style="background:var(--ow)"></span>Overweight</span>
+      <span><span class="dot" style="background:var(--nt)"></span>Neutral</span>
+      <span><span class="dot" style="background:var(--uw)"></span>Underweight</span>
+    </div>
+  </div>
+
+  <div class="layer">
+    <div class="ltag">Layer 4 &middot; Portfolio construction</div>
+    <p class="ltitle">What you do about it</p>
+    <p class="muted" style="margin:0 0 4px">Each card: WHY the layers above imply it, WHAT the trade is, HOW to build it. Tap to expand.</p>
+    <div class="moves" id="moves"></div>
+    <p class="hint">Reading tags open the notes in Study; every expanded card ends with the exam command it maps to.</p>
+  </div>
+
+  <button class="cta" id="cta"></button>
+  <p class="muted foot">In the app: assembles an LOS-filtered practice session for this phase via the session coordinator.</p>
+</div>
+
+<script>
+var CURVES = {
+  steep:"M14,66 C50,58 90,34 144,16", flatten:"M14,58 C50,46 95,34 144,26",
+  flat:"M14,42 C55,39 100,37 144,36", inverted:"M14,28 C55,36 100,44 144,48",
+  resteep:"M14,44 C48,48 92,34 144,18" };
+var A = ["Cash","Govt bonds","IG credit","High yield","Eq: cyclical","Eq: defensive","REITs","Commodities","FX carry"];
+var CHAIN = [
+ "Policy rate &rarr; deposit and bill yields &rarr; reinvestment path",
+ "Policy path + term premium &rarr; yield changes &rarr; duration return",
+ "Rates + default outlook &rarr; spread level &rarr; carry vs spread-duration loss",
+ "Growth and defaults &rarr; spread and equity beta &rarr; excess return",
+ "Growth surprises &rarr; earnings revisions &rarr; operating leverage &rarr; price",
+ "Earnings stability &rarr; relative revisions &rarr; drawdown defense",
+ "Rates &rarr; cap rates and financing; growth &rarr; occupancy and rents",
+ "Demand vs supply &rarr; spot; inventories &rarr; term structure &rarr; roll yield",
+ "Rate differentials &rarr; forward discount &rarr; carry until vol repricing" ];
+var TRAP = [
+ "The current cash rate is not the expected cash return over the horizon; use the expected path of short rates.",
+ "Positioning is about expected yield changes versus what the forwards already price, not about yield levels.",
+ "Excess return &asymp; spread carry &minus; spread duration &times; &Delta;spread &minus; default losses. Total return alone misgrades credit.",
+ "High yield has low empirical duration: it trades on the equity and default cycle more than on rates.",
+ "Markets lead the economy by a phase; positioning off current-phase macro data arrives late.",
+ "Defensive is about earnings stability, not just low beta; sector composition drives the label.",
+ "Short run REITs trade like rate product; the real-asset inflation pass-through is a long-run property.",
+ "Commodity return = collateral + spot + roll. Backwardation earns positive roll; contango pays it away.",
+ "UIP says carry should not work; empirically it does until volatility spikes, then losses concentrate." ];
+var MPLAIN = [
+ "Duration is how much the portfolio moves when rates move. Extending it positions you to gain more when yields fall; shortening gives up that sensitivity when yields are set to rise. Futures and swaps change the exposure overnight without selling a single bond.",
+ "Curve trades bet on the SHAPE of the curve, not the level. A bullet concentrates in one maturity; a barbell splits between short and long. Steepener or flattener names the position you hold; bull or bear names which way yields move to get there.",
+ "Credit return is the spread you collect minus what spread widening and defaults take back. Quality decisions are really about how much spread duration you are carrying into the next widening.",
+ "Factors are the axes equity returns rotate on. The phase decides which earnings stream the market pays up for: operating leverage in recoveries, stability in downturns.",
+ "Hedging locks in the forward rate: you keep the asset return and drop the currency return. The carry IS the forward differential, so the decision is simply whether you expect spot to do better or worse than the forward already implies." ];
+var MWORK = [
+ "Portfolio BPV $50,000 per bp. Target BPV $80,000. 10y futures BPV $85 per contract.<br>Buy (80,000 &minus; 50,000) / 85 &asymp; <b>353 contracts</b>.<br>To shorten instead: sell contracts, or pay fixed on a swap.",
+ "2s10s spread at 20bp; you expect a bull steepener to 80bp (front end rallies).<br>Long 2y futures, short 10y futures, BPV-matched so parallel moves cancel.<br>P&amp;L &asymp; curve change &times; position BPV: the level is hedged, the shape is the bet.",
+ "HY: spread 400bp, spread duration 4. Carry over one year &asymp; 4.0%.<br>Spreads widen 150bp: price loss &asymp; 4 &times; 1.5% = 6.0%. Default loss &asymp; 1.2%.<br>Excess return &asymp; 4.0 &minus; 6.0 &minus; 1.2 = <b>&minus;3.2%</b>. Same widening at IG (100bp, SD 6, 20bp move): 1.0 &minus; 1.2 &minus; 0.1 &asymp; &minus;0.3%. That gap is the up-in-quality argument.",
+ "Rotate 10% of equity from a cyclical value sleeve (revision beta &asymp; 1.3) to quality and low vol (beta &asymp; 0.6).<br>If forward EPS revisions fall 10%, the drag on that slice drops from &asymp;13% to &asymp;6%.<br>The difference is the defense you bought, paid for in upside if the cycle extends.",
+ "Foreign deposit rate 1%, domestic 4%: hedging the foreign exposure EARNS &asymp; 3% in forward points.<br>Staying unhedged wins only if the foreign currency appreciates by more than 3%.<br>In slowdown, with E(&Delta;spot) &asymp; &minus;4%, the decision is not close: hedge." ];
+var MTERMS = [
+ [["BPV (DV01)","Dollar P&amp;L for a 1bp yield move; the sizing unit for every rates trade."],
+  ["Receive-fixed swap","You receive the fixed leg and pay floating: gains when rates fall, so it ADDS duration."],
+  ["Pay-fixed swap","The mirror image: cuts duration without selling bonds."],
+  ["CTD / conversion factor","Futures track the cheapest-to-deliver bond; its BPV over the conversion factor gives the futures BPV."]],
+ [["Bullet","One maturity bucket; maximum rolldown at the belly of a steep curve."],
+  ["Barbell","Short and long wings; more convexity; outperforms when the curve flattens."],
+  ["Rolldown","Price gain from a bond aging down a steep curve as time passes."],
+  ["Bull steepener","Yields fall, short end fastest: the cutting-cycle move."],
+  ["Bear flattener","Yields rise, short end fastest: the hiking-cycle move."]],
+ [["Spread duration (SD)","Percent price change per 1% move in the spread."],
+  ["DTS","Spread duration &times; spread: the practical risk unit; equal DTS means similar spread risk."],
+  ["POD &times; LGD","Probability of default times loss given default: the expected default loss."],
+  ["Up-in-quality","Swap toward higher ratings: a little less carry, much less widening damage."]],
+ [["Value","Cheap on fundamentals; pays early cycle as multiples normalize."],
+  ["Momentum","Recent winners; rides established mid-cycle trends."],
+  ["Quality","Stable margins and low leverage; the late-cycle defense."],
+  ["Low volatility","Smallest drawdown beta; slowdown armor."],
+  ["Cyclical vs defensive","Sector earnings sensitivity to GDP: a different axis from value vs growth."]],
+ [["Forward points","The interest differential expressed in the forward price; what a hedger earns or pays."],
+  ["Hedge ratio","Share of the exposure hedged; the IPS sets the neutral point."],
+  ["Carry trade","Long the high-yielder funded in the low-yielder: earns the differential until spot bites."],
+  ["Collar","Buy a put, sell a call: brackets the currency cheaply when you hold a volatility view."]] ];
+var MTRAP = [
+ "Futures BPV runs through the CTD and its conversion factor; do not use the notional alone.",
+ "Bull and bear name the yield direction; steepener and flattener name the position. A bear flattener is short-end-led.",
+ "Spread duration is not effective duration: floaters have near-zero rate duration but full spread duration.",
+ "Value versus growth is not the same axis as defensive versus cyclical; the exam mixes them deliberately.",
+ "A full hedge removes the currency return and its diversification; the IPS decides how much you may keep." ];
+var MEX = [
+ "Determine the number of futures contracts, or the swap position, required. Show BPV work.",
+ "Recommend bullet or barbell given the curve forecast. Justify with rolldown and the expected reshaping.",
+ "Determine whether to move up or down in quality. Justify with spread level, expected &Delta;spread, and DTS.",
+ "Recommend the factor tilt most consistent with the phase. Justify with the earnings mechanism.",
+ "Determine whether to hedge the currency exposure. Justify with forward points versus expected spot." ];
+var P = [
+ {name:"Initial recovery", curve:"steep", curveLbl:"Steep",
+  desc:"Output gap wide and negative, inflation low and still falling, policy strongly stimulative, confidence just turning up.",
+  taylor:"&pi;e 1.0, gap &minus;3.0 &rarr; target &asymp; 1 + 1.0 &minus; 0.5 &minus; 1.5 = <b>0.0%</b>. Policy pinned below neutral: stimulus.",
+  cash:{now:0.3, note:"Policy pinned near the floor; the path stays flat until the gap closes.", avg:0.5}, rf:1.0, phi:0.75,
+  govt:[["Real rate",0.5],["Inflation prem",1.0],["Term prem",1.5]],
+  cred:[["IG credit prem",1.8],["HY credit prem",4.5],["HY liquidity prem",1.0]],
+  re:[["Cap rate",6.5],["NOI growth",1.5],["&minus;%&Delta;cap rate",1.0]],
+  cmd:[["Collateral yield",0.5],["Spot change",2.0],["Roll yield",-1.0]],
+  fx:[["Rate differential",2.0],["E(&Delta;spot)",0.5]],
+  gk:[["D/P",2.5],["&minus;&Delta;S (buybacks)",0.5],["i (inflation)",1.0],["g (real growth)",2.5],["&Delta;P/E (repricing)",2.0]],
+  st:["UW","N","OW","OW","OW","UW","OW","N","OW"],
+  mech:["Cuts are already delivered, so the reinvestment path lags every risk asset as the rebound starts.",
+   "Yields sit near the lows: little left from duration, but no hiking pressure yet either.",
+   "Spreads compress hard off recession wides; carry plus tightening is the best credit phase.",
+   "Maximum beta to the spread-tightening leg; defaults peak and then roll over.",
+   "Operating leverage turns positive as volumes recover; small caps and value lead off the trough.",
+   "Stable earners lag when risk appetite floods back in.",
+   "Financing cost relief arrives while occupancy starts recovering: both levers improve.",
+   "Slack still caps pricing power; spot firms late in the phase, not at the start.",
+   "Falling volatility and risk-on flows let carry positions rebuild profitably."],
+  moves:[["Duration","Neutral to short as yields base and the recovery builds","R13",
+     "Yields have bottomed with policy on hold; run benchmark-to-short duration and let credit, not rates, do the work. If underweight beta, pay-fixed swaps or short futures trim BPV cheaply.",
+     "Layer 1 has policy floored and Layer 2 shows a modest term premium at the lows: rates give little; the return is in credit."],
+   ["Curve","Steep curve: the bullet at the belly earns rolldown and carry","R19",
+     "A steep, stable curve maximizes rolldown at the belly; the bullet harvests it. Save the barbell for when flattening becomes the forecast.",
+     "Layer 1 curve is steep and stable, so the belly's rolldown is the free carry on the page."],
+   ["Credit","Down-in-quality tilt to capture the compression","R20",
+     "Spreads at wides plus falling default expectations: extend spread duration and reach down the quality ladder while the compression runs.",
+     "Layer 2 shows the widest credit and liquidity premia of the cycle starting to compress."],
+   ["Equity style","Cyclicals, small caps, and value lead off the trough","R15",
+     "Earnings revisions inflect first in cyclical sectors; the value factor pays as distressed multiples normalize.",
+     "Layer 3: cyclical earnings inflect first off the trough; operating leverage flips positive."],
+   ["Currency","Re-establish carry; risk currencies recover first","R14",
+     "Vol compresses and rate differentials reopen; run carry unhedged where the IPS allows discretionary exposure.",
+     "Layer 2 FX: positive differential with a stable expected spot: carry conditions restored."]]},
+ {name:"Early expansion", curve:"flatten", curveLbl:"Steep, bear-flattening",
+  desc:"Growth above trend, the gap closing, inflation bottoming, policy beginning to normalize from the front end.",
+  taylor:"&pi;e 2.0, gap &minus;1.0 &rarr; target &asymp; 1 + 2.0 + 0 &minus; 0.5 = <b>2.5%</b> and rising: normalization begins.",
+  cash:{now:2.5, note:"Hiking path underway; the average sits above the current rate.", avg:3.0}, rf:2.5, phi:0.80,
+  govt:[["Real rate",1.0],["Inflation prem",2.0],["Term prem",1.2]],
+  cred:[["IG credit prem",1.0],["HY credit prem",3.0],["HY liquidity prem",0.6]],
+  re:[["Cap rate",5.5],["NOI growth",3.0],["&minus;%&Delta;cap rate",0.0]],
+  cmd:[["Collateral yield",2.5],["Spot change",4.0],["Roll yield",0.5]],
+  fx:[["Rate differential",3.0],["E(&Delta;spot)",0.0]],
+  gk:[["D/P",2.0],["&minus;&Delta;S (buybacks)",0.5],["i (inflation)",2.0],["g (real growth)",3.0],["&Delta;P/E (repricing)",0.5]],
+  st:["N","UW","N","N","OW","N","N","OW","OW"],
+  mech:["Rising short rates lift the reinvestment path back toward neutral.",
+   "The front end reprices for hikes: a bear flattener, and short maturities take the losses.",
+   "Compression is largely done; the position clips spread carry and nothing more.",
+   "Carry is fine, but the asymmetric gain from tightening is behind you.",
+   "Earnings momentum is the return driver; growth and cyclicals compound it.",
+   "Neutral: leadership stays with the cycle while margins expand.",
+   "Improving fundamentals and rate pressure roughly offset.",
+   "Demand-pull firms industrial metals and energy as utilization climbs.",
+   "Differentials widen while volatility stays suppressed: peak carry conditions."],
+  moves:[["Duration","Short versus benchmark into the hiking path","R13",
+     "Forwards underprice the hiking path in an above-trend economy; stay short with futures or pay-fixed swaps and reassess as the gap closes.",
+     "Layer 1 Taylor sits above the policy rate: the priced hiking path is still too shallow."],
+   ["Curve","Bear flattener: the barbell outperforms the bullet","R19",
+     "Short-end-led flattening hurts the belly most; the barbell's long wing rallies relatively as the curve compresses.",
+     "Layer 1 shows a bear flattener: front-end led, which is the barbell's regime."],
+   ["Credit","Hold the carry; start trimming the lowest quality","R20",
+     "Spread income still clears default costs, but begin rotating out of the weakest names before the crowd needs to.",
+     "Layer 2 credit premium is down to carry-only; the compression trade is finished."],
+   ["Equity style","Growth and cyclicals ride earnings momentum","R16",
+     "Momentum and growth factors capture the revision cycle; quality lags while nothing is going wrong.",
+     "Layer 2 Grinold-Kroner: the g term dominates E(R): own the earnings cycle."],
+   ["Currency","Carry intact while volatility stays suppressed","R14",
+     "Keep carry sized to the vol regime; forward points understate expected spot moves in the funding currencies.",
+     "Layer 2 FX shows the widest differential with flat expected spot: peak carry."]]},
+ {name:"Late expansion", curve:"flat", curveLbl:"Flat, inverting",
+  desc:"Economy beyond potential, inflation rising, policy restrictive, the curve moving from flat toward inversion.",
+  taylor:"&pi;e 3.0, gap +1.5 &rarr; target &asymp; 1 + 3.0 + 0.5 + 0.75 = <b>5.25%</b>: restrictive territory.",
+  cash:{now:5.2, note:"Peak rates: cash finally pays, which is exactly the warning.", avg:5.0}, rf:4.5, phi:0.80,
+  govt:[["Real rate",1.5],["Inflation prem",3.0],["Term prem",0.2]],
+  cred:[["IG credit prem",0.8],["HY credit prem",2.6],["HY liquidity prem",0.5]],
+  re:[["Cap rate",4.5],["NOI growth",3.0],["&minus;%&Delta;cap rate",-2.0]],
+  cmd:[["Collateral yield",5.0],["Spot change",3.0],["Roll yield",2.0]],
+  fx:[["Rate differential",3.5],["E(&Delta;spot)",-1.0]],
+  gk:[["D/P",1.8],["&minus;&Delta;S (buybacks)",0.5],["i (inflation)",3.0],["g (real growth)",2.0],["&Delta;P/E (repricing)",-1.5]],
+  st:["OW","N","N","UW","UW","OW","UW","OW","N"],
+  mech:["Peak policy rates make cash the cheap option on rising volatility.",
+   "Start extending: from here the distribution of yield changes skews down.",
+   "Tights compensate the carry but not the tail; hold quality, cut beta.",
+   "Spreads at the tights have far more room to widen than tighten: pure asymmetry.",
+   "Cost pressure and multiple compression hit operating-leverage names first.",
+   "Earnings stability commands a premium as growth strains.",
+   "Peak financing costs pressure cap rates and refinancing schedules.",
+   "The late-cycle inflation pulse is the classic commodity phase.",
+   "Carry still accrues, but the volatility regime that funds it is turning."],
+  moves:[["Duration","Begin extending as the hiking cycle crests","R13",
+     "Scale in with receive-fixed swaps as data softens; the trade is early by design because the top in yields never announces itself.",
+     "Layer 1: Taylor is peaking, so the distribution of the next rate moves skews to cuts."],
+   ["Curve","Flat to inverted: set up for the eventual bull steepener","R19",
+     "Own the front-to-belly where the cuts will land; the inversion is the entry price of the steepener, not a reason to wait.",
+     "Layer 1 curve is flat to inverted: that inversion is the entry price of the coming steepener."],
+   ["Credit","Up-in-quality; cut high-yield beta at the tights","R20",
+     "Give up a little carry to shed spread duration in the names that gap first; DTS down, quality up.",
+     "Layer 2: IG 0.8 and HY 2.6 premia at cycle tights: no cushion left for the tail."],
+   ["Equity style","Rotate to quality and defensive factors","R16",
+     "Low vol and quality defend the revision downturn that cyclical multiples are not yet pricing.",
+     "Layer 2 Grinold-Kroner: the &Delta;P/E term has turned negative: compression risk is live."],
+   ["Currency","Reduce carry before the volatility regime breaks","R14",
+     "Carry losses concentrate in the regime shift; take exposure down while the exit is still liquid.",
+     "Layer 2 FX: expected spot has flipped negative against the differential: the trade is aging."]]},
+ {name:"Slowdown", curve:"inverted", curveLbl:"Inverted",
+  desc:"Growth decelerating below trend, inflation peaking then easing, markets pricing the policy pivot.",
+  taylor:"&pi;e 3.0, gap &minus;0.5 &rarr; target &asymp; 1 + 3.0 + 0.5 &minus; 0.25 = <b>4.25%</b> and falling: cuts enter the forecast.",
+  cash:{now:4.2, note:"Cuts move into the forecast; the average path is below spot.", avg:3.8}, rf:4.0, phi:0.65,
+  govt:[["Real rate",1.0],["Inflation prem",2.5],["Term prem",0.4]],
+  cred:[["IG credit prem",1.5],["HY credit prem",5.0],["HY liquidity prem",1.2]],
+  re:[["Cap rate",5.0],["NOI growth",0.5],["&minus;%&Delta;cap rate",-1.0]],
+  cmd:[["Collateral yield",4.0],["Spot change",-3.0],["Roll yield",0.5]],
+  fx:[["Rate differential",3.0],["E(&Delta;spot)",-4.0]],
+  gk:[["D/P",2.0],["&minus;&Delta;S (buybacks)",0.0],["i (inflation)",2.5],["g (real growth)",0.5],["&Delta;P/E (repricing)",-1.0]],
+  st:["N","OW","N","UW","UW","OW","N","UW","UW"],
+  mech:["Still earns the peak rate, but from here duration beats reinvestment.",
+   "The long-duration trade of the cycle: yields fall from the top as cuts get priced.",
+   "Quality spread product holds; the better entry in beta comes lower.",
+   "Widening spreads meet rising defaults: the worst phase for high yield.",
+   "Downgrades concentrate in cyclical earnings; operating leverage cuts both ways.",
+   "Low vol, staples, and dividend quality defend the drawdown.",
+   "Falling rates help financing while weakening tenants hurt income: net neutral.",
+   "Demand destruction rolls the complex over; contango returns.",
+   "The classic carry unwind: vol spikes and funding currencies squeeze."],
+  moves:[["Duration","Long duration; receive-fixed swaps add exposure fast","R13",
+     "Receive fixed at the belly and long end; swaps move BPV without selling assets, and the pivot pricing does the rest.",
+     "Layer 1 prices the pivot and Layer 2 shows the term premium rebuilding: duration is the trade."],
+   ["Curve","Position for the bull steepener: bullet beats barbell","R19",
+     "Front-end-led rallies steepen the curve; the bullet at the point of maximum expected yield decline outruns the wings.",
+     "Layer 1: the next curve move is a bull steepener, front-end led: bullet territory."],
+   ["Credit","Quality bias; let spreads widen before adding risk","R20",
+     "Hold IG carry, keep DTS low, and stage the shopping list for when spreads overshoot.",
+     "Layer 2: HY credit and liquidity premia are widening: let the spreads come to you."],
+   ["Equity style","Defensives, low volatility, and dividend quality","R16",
+     "The factor set with the shallowest revision beta owns the drawdown phase.",
+     "Layer 2 Grinold-Kroner: g collapses toward zero: earnings stability is the scarce asset."],
+   ["Currency","Unwind carry; hedge the risk-currency exposure","R14",
+     "Move toward full hedges on risk currencies; forward points are cheap insurance against the squeeze.",
+     "Layer 2 FX: E(&Delta;spot) at &minus;4 swamps the differential: the carry math is broken."]]},
+ {name:"Contraction", curve:"resteep", curveLbl:"Bull steepening",
+  desc:"Output falling, inflation declining, policy easing aggressively, risk premia out at the wides.",
+  taylor:"&pi;e 1.5, gap &minus;2.5 &rarr; target &asymp; 1 + 1.5 &minus; 0.25 &minus; 1.25 = <b>1.0%</b>: rapid cuts toward accommodation.",
+  cash:{now:1.2, note:"Cut sequence underway; reinvestment yield melts through the phase.", avg:1.0}, rf:2.0, phi:0.55,
+  govt:[["Real rate",0.5],["Inflation prem",1.5],["Term prem",1.0]],
+  cred:[["IG credit prem",2.5],["HY credit prem",7.5],["HY liquidity prem",2.0]],
+  re:[["Cap rate",6.0],["NOI growth",-1.0],["&minus;%&Delta;cap rate",0.5]],
+  cmd:[["Collateral yield",1.5],["Spot change",-4.0],["Roll yield",-1.5]],
+  fx:[["Rate differential",2.0],["E(&Delta;spot)",-3.0]],
+  gk:[["D/P",2.8],["&minus;&Delta;S (issuance)",-0.5],["i (inflation)",1.5],["g (real growth)",-1.0],["&Delta;P/E (repricing)",1.5]],
+  st:["UW","OW","OW","N","N","OW","N","UW","UW"],
+  mech:["Cuts erode the cash yield exactly when duration is paying.",
+   "The front-end rally completes the round trip; take the gains as the curve re-steepens.",
+   "Wide spreads on names that will survive: the credit entry point of the cycle.",
+   "Stage in late: prices trough before defaults peak, and dispersion is extreme.",
+   "Add cyclicality before the macro trough; equities lead the economy by a phase.",
+   "Defensives still hold, but leadership hands over near the low.",
+   "Financing relief arrives first; occupancy and rents lag it by quarters.",
+   "Weak demand keeps the complex heavy until the recovery is visible.",
+   "Funding currencies stay bid until risk appetite genuinely returns."],
+  moves:[["Duration","Maximum quality duration early in the contraction","R13",
+     "Own the government curve in size early; this is where the building-block term premium gets paid back.",
+     "Layer 1: the cut sequence is live: this is the phase where the term premium pays back."],
+   ["Curve","Bull steepening realized: take profit, roll toward the bullet","R19",
+     "As the front end collapses, monetize the steepener and reset carry positioning for the recovery curve.",
+     "Layer 1: the bull steepening is realizing: monetize the position you built for it."],
+   ["Credit","Stage back in as spreads peak; quality first","R20",
+     "Buy the survivors at the wides: IG first, then crossover; the compression pays through initial recovery.",
+     "Layer 2: credit plus liquidity premia at maximum width: the entry point of the cycle."],
+   ["Equity style","Add cyclicals before the trough: markets lead by phases","R15",
+     "Rebuild cyclical and small-cap exposure while headlines are worst; waiting for confirmation forfeits the first leg.",
+     "Layer 3: equity prices trough a phase before the economy: waiting forfeits the first leg."],
+   ["Currency","Funding currencies strong; re-risk late in the phase","R14",
+     "Stay hedged until vol breaks lower, then rebuild carry into initial recovery.",
+     "Layer 2 FX: the expected spot term is still negative: carry stays broken until vol breaks."]]}
+];
+var FW = [
+ {label:"Cash", formula:"E(R) = average expected short rate over the horizon",
+  gls:[["Policy now","The spot policy rate; what cash pays today."],
+       ["Expected average","Mean of the projected rate path; the number that actually accrues."]],
+  calc:function(p){ return {bars: bars([["Policy now", p.cash.now],["Expected average", p.cash.avg]]),
+    cap: p.cash.note}; }},
+ {label:"Govt bonds", formula:"E(R) &asymp; real rate + inflation prem + term prem",
+  gls:[["Real rate","Compensation for deferring consumption; anchored by trend growth."],
+       ["Inflation prem","Expected inflation plus a premium for inflation uncertainty."],
+       ["Term prem","Extra yield for bearing duration risk; compresses late cycle and can go negative."]],
+  calc:function(p){ return {bars: bars(p.govt), cap: "The mix is the story: watch the term premium travel through the cycle."}; }},
+ {label:"Credit", formula:"spread &asymp; credit prem (+ liquidity prem for HY)",
+  gls:[["IG credit prem","Spread for expected default loss plus risk aversion in quality names."],
+       ["HY credit prem","Larger default and downgrade compensation lower in the stack."],
+       ["HY liquidity prem","Payment for exit cost in stress; explodes exactly when you want out."]],
+  calc:function(p){ return {bars: bars(p.cred), cap: "Spread over governments; add these to the government stack for all-in yield."}; }},
+ {label:"DM equity", formula:"E(R) &asymp; D/P &minus; &Delta;S + i + g + &Delta;P/E",
+  gls:[["D/P","Income return from dividends."],
+       ["&minus;&Delta;S","Net buybacks raise per-share claims; net issuance dilutes them."],
+       ["i + g","Nominal earnings growth: inflation plus real growth."],
+       ["&Delta;P/E","Repricing: multiple expansion or compression; the cycle's swing term."]],
+  calc:function(p){ return {bars: bars(p.gk), cap: "Grinold-Kroner: income + growth + repricing."}; }},
+ {label:"EM equity", formula:"E(R) = RF + &phi;(&rho;&sigma;SR) + (1&minus;&phi;)(&sigma;SR)",
+  gls:[["RF","Risk-free anchor for the market being priced."],
+       ["&phi; &times; RP integrated","The premium if the market were fully priced in the global portfolio."],
+       ["(1&minus;&phi;) &times; RP seg.","The extra premium for imperfect integration; grows in stress."]],
+  calc:function(p){ var sig=26, sr=0.30, rho=0.75; var rpI=rho*sig*sr, rpS=sig*sr;
+    return {bars: bars([["RF", p.rf],["&phi; &times; RP integrated", p.phi*rpI],["(1&minus;&phi;) &times; RP segmented", (1-p.phi)*rpS]]),
+      cap: "&sigma; 26%, &rho; 0.75, Sharpe<sub>GIM</sub> 0.30, &phi; = <b>" + p.phi.toFixed(2) + "</b>. Integration falls in stress, so the segmentation slice grows into contraction."}; }},
+ {label:"Real estate", formula:"E(R) &asymp; cap rate + NOI growth &minus; %&Delta;cap rate",
+  gls:[["Cap rate","NOI yield on price; the income engine."],
+       ["NOI growth","Rents and occupancy; follows the growth cycle with a lag."],
+       ["&minus;%&Delta;cap rate","Price effect of cap-rate moves; rising cap rates are a capital loss."]],
+  calc:function(p){ return {bars: bars(p.re), cap: "The property analog of Grinold-Kroner: income + growth + repricing."}; }},
+ {label:"Commodities", formula:"E(R) &asymp; collateral yield + spot change + roll yield",
+  gls:[["Collateral yield","Return on the cash margin backing the futures."],
+       ["Spot change","Supply and demand moving the physical price."],
+       ["Roll yield","Futures curve shape: backwardation earns it, contango pays it away."]],
+  calc:function(p){ return {bars: bars(p.cmd), cap: "The roll sign follows the term structure through the cycle."}; }},
+ {label:"FX carry", formula:"E(R) &asymp; rate differential + E(&Delta;spot)",
+  gls:[["Rate differential","Carry earned from the rate gap; the forward discount."],
+       ["E(&Delta;spot)","Expected currency move. UIP says it offsets the carry; empirically it does not, until stress."]],
+  calc:function(p){ return {bars: bars(p.fx), cap: "When the spot term swamps the differential, the carry phase is over."}; }}
+];
+var fwSel = 3;
+var cur = 2, selAsset = -1, openMove = -1;
+function el(id){ return document.getElementById(id); }
+function bars(rows){
+  var scale = 22;
+  var html = rows.map(function(r){
+    var v = r[1], w = Math.min(Math.abs(v) * scale, 120);
+    var bar = v >= 0 ? '<span class="bpos" style="width:' + w + 'px"></span>'
+                     : '<span class="bneg" style="width:' + w + 'px"></span>';
+    return '<div class="brow"><span class="blbl">' + r[0] + '</span><span class="btrack">' + bar +
+      '</span><span class="bval">' + (v > 0 ? '+' : '') + v.toFixed(1) + '%</span></div>';
+  }).join('');
+  var sum = rows.reduce(function(a, r){ return a + r[1]; }, 0);
+  html += '<div class="brow bsum"><span class="blbl">E(R)</span><span class="btrack"></span><span class="bval">' +
+    sum.toFixed(1) + '%</span></div>';
+  return html;
+}
+function render(){
+  var p = P[cur];
+  el('phases').innerHTML = '';
+  P.forEach(function(x, i){
+    var b = document.createElement('button');
+    b.className = 'phase' + (i === cur ? ' on' : '');
+    b.textContent = x.name;
+    b.onclick = function(){ cur = i; selAsset = -1; openMove = -1; render(); };
+    el('phases').appendChild(b);
+  });
+  el('pName').textContent = p.name;
+  el('pDesc').textContent = p.desc;
+  el('curve').setAttribute('d', CURVES[p.curve]);
+  el('curveLbl').innerHTML = p.curveLbl;
+  el('taylor').innerHTML = p.taylor;
+  el('fwchips').innerHTML = '';
+  FW.forEach(function(f, i){
+    var c = document.createElement('button');
+    c.className = 'chip ' + (i === fwSel ? 'OW sel' : 'N');
+    c.textContent = f.label;
+    c.onclick = function(){ fwSel = i; render(); };
+    el('fwchips').appendChild(c);
+  });
+  var f = FW[fwSel];
+  el('fwname').textContent = f.label;
+  el('fwtag').textContent = 'R2';
+  el('fwfrm').innerHTML = f.formula;
+  var out = f.calc(p);
+  el('fwbars').innerHTML = out.bars;
+  el('fwcap').innerHTML = out.cap;
+  el('fwgls').innerHTML = f.gls.map(function(g){
+    return '<div class="gls"><b>' + g[0] + '</b><span>' + g[1] + '</span></div>';
+  }).join('');
+  el('chips').innerHTML = '';
+  A.forEach(function(name, i){
+    var c = document.createElement('button');
+    c.className = 'chip ' + p.st[i] + (i === selAsset ? ' sel' : '');
+    c.textContent = name;
+    c.onclick = function(){ selAsset = (selAsset === i ? -1 : i); render(); };
+    el('chips').appendChild(c);
+  });
+  if (selAsset < 0){
+    el('apanel').innerHTML = 'Tap an asset class for the transmission chain, mechanism, and exam trap.';
+  } else {
+    var stance = p.st[selAsset] === 'OW' ? 'Overweight' : p.st[selAsset] === 'UW' ? 'Underweight' : 'Neutral';
+    el('apanel').innerHTML =
+      '<div class="chain">' + CHAIN[selAsset] + '</div>' +
+      '<b>' + A[selAsset] + ': ' + stance + '.</b> ' + p.mech[selAsset] +
+      '<div class="trap"><b>Trap:</b> ' + TRAP[selAsset] + '</div>' +
+      '<div class="exam">Exam: justify the ' + stance.toLowerCase() + ' with the mechanism above, not the label.</div>';
+  }
+  el('moves').innerHTML = '';
+  p.moves.forEach(function(m, i){
+    var d = document.createElement('div');
+    d.className = 'move' + (i === openMove ? ' open' : '');
+    var inner = '<div class="mhead"><span class="mname">' + m[0] + '</span><span class="rtag">' + m[2] + (i === openMove ? '' : ' &rsaquo;') +
+      '</span></div><div class="mtext"><b>What:</b> ' + m[1] + '</div>';
+    if (i === openMove){
+      inner += '<div class="mdet"><b>Why (from the layers above):</b> ' + m[4] +
+        '<div style="margin-top:7px"><b>In plain English:</b> ' + MPLAIN[i] + '</div>' +
+        '<div style="margin-top:7px"><b>This phase:</b> ' + m[3] + '</div>' +
+        '<div class="frm"><b>Worked numbers</b><br>' + MWORK[i] + '</div>' +
+        MTERMS[i].map(function(g){ return '<div class="gls"><b>' + g[0] + '</b><span>' + g[1] + '</span></div>'; }).join('') +
+        '<div class="trap"><b>Trap:</b> ' + MTRAP[i] + '</div>' +
+        '<div class="exam">Exam: ' + MEX[i] + '</div></div>';
+    }
+    d.innerHTML = inner;
+    d.onclick = function(){ openMove = (openMove === i ? -1 : i); render(); };
+    el('moves').appendChild(d);
+  });
+  el('cta').textContent = 'Practice this phase: ' + p.name;
+}
+render();
+</script>
+</body>
+</html>
