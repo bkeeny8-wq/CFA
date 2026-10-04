@@ -8,7 +8,6 @@ import SwiftUI
 /// scroll of seventeen sections is a document, not a study screen.
 struct CommandWordsView: View {
     @Environment(ContentLoader.self) private var content
-    @Environment(LeftColumnPreference.self) private var leftColumns
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
     @State private var selectedWord: String?
@@ -38,7 +37,6 @@ struct CommandWordsView: View {
         .background(Theme.paper)
         .toolbar(.hidden, for: .navigationBar)
         .navigationTitle("Command words")
-        .leftColumnControl(.commandWordList, active: listIsColumn)
         .onAppear {
             if selectedWord == nil { selectedWord = words.first?.word }
         }
@@ -62,15 +60,19 @@ struct CommandWordsView: View {
 
     private var splitLayout: some View {
         HStack(spacing: 0) {
-            if !leftColumns.isHidden(.commandWordList) {
-                wordList
-                    .frame(width: 260)
-                    .transition(.move(edge: .leading).combined(with: .opacity))
-                Rectangle()
-                    .fill(Theme.pine.opacity(0.1))
-                    .frame(width: 1)
-                    .ignoresSafeArea()
-            }
+            // Always shown, with no fold control of its own. It used to
+            // register as a second collapsible column, which put a second
+            // glyph beside the sidebar's in the top-left control row on this
+            // screen and nowhere else. The list IS the navigation here - there
+            // are seventeen words and no other way to reach them - and it
+            // already stands down at compact width, where `listIsColumn` is
+            // false and the stacked layout takes over.
+            wordList
+                .frame(width: 260)
+            Rectangle()
+                .fill(Theme.pine.opacity(0.1))
+                .frame(width: 1)
+                .ignoresSafeArea()
             page
         }
     }

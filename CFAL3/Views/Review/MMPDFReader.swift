@@ -12,13 +12,22 @@ struct MMPDFReader: UIViewRepresentable {
     /// 1-based, matching the PDF's own printed table of contents.
     let startPage: Int
     @Binding var currentPage: Int
+    var pager: Pager?
 
     func makeUIView(context: Context) -> PDFView {
         let view = PDFView()
         view.document = document
-        view.displayMode = .singlePageContinuous
-        view.displayDirection = .vertical
+        // One whole slide at a time, turned left and right.
+        //
+        // These are 150-odd landscape slides, not a document you read down.
+        // Continuous vertical scrolling meant a slide was almost never framed:
+        // you arrived mid-page and scrolled to line it up, every time.
+        // `singlePage` plus `autoScales` fits each page to the viewport, and
+        // the page view controller gives it the horizontal swipe.
+        view.displayMode = .singlePage
+        view.displayDirection = .horizontal
         view.autoScales = true
+        view.usePageViewController(true, withViewOptions: nil)
         view.backgroundColor = UIColor(Theme.paper)
         view.delegate = context.coordinator
 
@@ -39,10 +48,12 @@ struct MMPDFReader: UIViewRepresentable {
             name: .PDFViewPageChanged,
             object: view
         )
+        pager?.view = view
         return view
     }
 
     func updateUIView(_ view: PDFView, context: Context) {
+        pager?.view = view
         context.coordinator.onPageChange = { page in
             // The notification fires during PDFKit's own layout, so publishing
             // straight into @State here would mutate view state mid-update.
@@ -85,6 +96,22 @@ struct MMPDFReader: UIViewRepresentable {
             else { return }
             onPageChange?(document.index(for: page) + 1)
         }
+    }
+}
+
+extension MMPDFReader {
+    /// Turning a page from outside the view.
+    ///
+    /// `usePageViewController` takes over the gesture, but `goToNextPage` and
+    /// `goToPreviousPage` still drive it, so the arrows and the swipe stay in
+    /// step and the page bar follows both.
+    final class Pager: ObservableObject {
+        weak var view: PDFView?
+
+        func next() { view?.goToNextPage(nil) }
+        func previous() { view?.goToPreviousPage(nil) }
+        func canGoNext() -> Bool { view?.canGoToNextPage ?? false }
+        func canGoPrevious() -> Bool { view?.canGoToPreviousPage ?? false }
     }
 }
 

@@ -20,8 +20,6 @@ struct LeftColumnSpec: Identifiable, Equatable, Sendable {
     var toggleIdentifier: String { "leftcolumn.toggle.\(key)" }
 
     static let sidebar = LeftColumnSpec(key: "sidebar", name: "sidebar", shortcut: "s")
-    static let notesLOSRail = LeftColumnSpec(key: "notes.rail", name: "LOS rail", shortcut: "l")
-    static let commandWordList = LeftColumnSpec(key: "commandwords.list", name: "word list", shortcut: "w")
 }
 
 /// Which left columns the reader has folded away, remembered across launches,
@@ -45,7 +43,17 @@ final class LeftColumnPreference {
 
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
-        hiddenKeys = Set(defaults.stringArray(forKey: Self.storageKey) ?? [])
+        // The Notes LOS rail and the Command words list were collapsible
+        // columns until both were made permanent. A reader who had folded
+        // either away would otherwise keep a stored preference for a control
+        // that no longer exists, and never see that column again.
+        var stored = Set(defaults.stringArray(forKey: Self.storageKey) ?? [])
+        let retired: Set<String> = ["notes.rail", "commandwords.list"]
+        if !stored.isDisjoint(with: retired) {
+            stored.subtract(retired)
+            defaults.set(stored.sorted(), forKey: Self.storageKey)
+        }
+        hiddenKeys = stored
     }
 
     func isHidden(_ column: LeftColumnSpec) -> Bool {

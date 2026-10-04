@@ -150,6 +150,7 @@ struct MMModuleReaderView: View {
 
     @State private var currentPage: Int
     @State private var document: PDFDocumentBox?
+    @StateObject private var pager = MMPDFReader.Pager()
 
     init(book: MMReviewBook, module: MMReviewModule) {
         self.book = book
@@ -163,7 +164,8 @@ struct MMModuleReaderView: View {
                 MMPDFReader(
                     document: document.document,
                     startPage: module.startPage,
-                    currentPage: $currentPage
+                    currentPage: $currentPage,
+                    pager: pager
                 )
                 .ignoresSafeArea(edges: .bottom)
                 .overlay(alignment: .bottom) { pageBar }
@@ -190,16 +192,64 @@ struct MMModuleReaderView: View {
         }
     }
 
+    /// Page turners either side of the position read-out.
+    ///
+    /// The swipe does the same thing, but a visible control is what tells you
+    /// the page turns sideways at all - and it is the only way through on a
+    /// pointer or a keyboard.
     private var pageBar: some View {
-        Text(pageLabel)
-            .font(.caption.weight(.medium))
-            .foregroundStyle(Theme.ink)
-            .padding(.horizontal, 14)
-            .padding(.vertical, 8)
-            .background(Theme.cardFill, in: Capsule())
-            .padding(.bottom, 14)
-            .accessibilityIdentifier("mmreview.pagebar")
-            .accessibilityLabel(pageLabel)
+        HStack(spacing: 6) {
+            pageButton(
+                systemImage: "chevron.left",
+                label: "Previous page",
+                identifier: "mmreview.page.previous",
+                enabled: currentPage > 1
+            ) {
+                pager.previous()
+            }
+
+            Text(pageLabel)
+                .font(.caption.weight(.medium))
+                .foregroundStyle(Theme.ink)
+                .lineLimit(1)
+                .padding(.horizontal, 6)
+                .accessibilityIdentifier("mmreview.pagebar")
+                .accessibilityLabel(pageLabel)
+
+            pageButton(
+                systemImage: "chevron.right",
+                label: "Next page",
+                identifier: "mmreview.page.next",
+                enabled: currentPage < book.pageCount
+            ) {
+                pager.next()
+            }
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 6)
+        .background(Theme.cardFill, in: Capsule())
+        .padding(.bottom, 14)
+    }
+
+    private func pageButton(
+        systemImage: String,
+        label: String,
+        identifier: String,
+        enabled: Bool,
+        action: @escaping () -> Void
+    ) -> some View {
+        Button(action: action) {
+            Image(systemName: systemImage)
+                .font(.caption.weight(.semibold))
+                .foregroundStyle(enabled ? Theme.accent : Theme.dust.opacity(0.4))
+                // 44pt target: this sits over the page content.
+                .frame(width: 44, height: 44)
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .disabled(!enabled)
+        .accessibilityLabel(label)
+        .accessibilityIdentifier(identifier)
     }
 
     private var pageLabel: String {

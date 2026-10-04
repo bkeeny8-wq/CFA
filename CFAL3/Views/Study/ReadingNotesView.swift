@@ -30,7 +30,6 @@ struct NotesScrollProbeKey: PreferenceKey {
 }
 
 struct ReadingNotesView: View {
-    @Environment(LeftColumnPreference.self) private var leftColumns
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
@@ -68,21 +67,28 @@ struct ReadingNotesView: View {
         ScrollViewReader { proxy in
             HStack(alignment: .top, spacing: 0) {
                 // Outside the ScrollView, so it stays put without any pinning
-                // machinery. Unmounted rather than hidden when folded away, so
-                // VoiceOver does not keep reading a rail that is not there.
-                if railApplies, !leftColumns.isHidden(.notesLOSRail) {
+                // machinery.
+                //
+                // Always shown, with no fold control of its own. It used to
+                // register as a second collapsible column, which put a second
+                // glyph beside the sidebar's in the top-left control row on
+                // notes pages and nowhere else - chrome that appeared and
+                // disappeared as you navigated. The rail is 52pt, it is the
+                // only wayfinding on a page of up to thirteen sections, and it
+                // already stands down on its own where it makes no sense: at
+                // compact width, and on the nine Ethics readings with no
+                // headings to put in it.
+                if railApplies {
                     LOSLetterRail(
                         outline: outline,
                         currentIndex: currentIndex,
                         expansion: expansion,
                         onJump: { jump(to: $0, proxy: proxy) }
                     )
-                    .transition(.move(edge: .leading).combined(with: .opacity))
                 }
                 notesScroll(proxy: proxy)
             }
         }
-        .leftColumnControl(.notesLOSRail, active: railApplies)
     }
 
     private func notesScroll(proxy: ScrollViewProxy) -> some View {

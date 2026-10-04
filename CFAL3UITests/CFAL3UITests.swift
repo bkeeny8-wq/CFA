@@ -115,7 +115,7 @@ final class CFAL3UITests: XCTestCase {
     }
 
     /// Opens Notes → Asset allocation → its first reading, which is where the
-    /// second left column (the LOS rail) lives.
+    /// LOS rail lives.
     private func openFirstNotesReading() {
         tab("Notes").tap()
         let book = notesBook("Asset allocation")
@@ -333,52 +333,66 @@ final class CFAL3UITests: XCTestCase {
                       "the book list must stay tappable with the sidebar folded away")
     }
 
-    /// A reading has a second left column — the LOS rail — and it folds with
-    /// the same control, offered next to the sidebar's rather than as a
-    /// one-off glyph in that screen's toolbar.
-    func testTheNotesReadingRailFoldsWithTheSameControl() throws {
+    /// The LOS rail is permanent: always there on a reading that has
+    /// sections, with no fold control of its own.
+    ///
+    /// It used to register as a second collapsible column, which put a second
+    /// glyph beside the sidebar's in the top-left control row on notes pages
+    /// and nowhere else - chrome that appeared and disappeared as you moved
+    /// around the app. The rail is 52pt and it is the only wayfinding on a
+    /// page of up to thirteen sections.
+    func testTheNotesReadingRailIsAlwaysShownAndHasNoFoldControl() throws {
         XCTAssertTrue(waitFor(tab("Notes")), "the sidebar never appeared")
-        XCTAssertFalse(columnToggle("notes.rail").exists,
-                       "the Notes library has no rail, so it must not offer a rail control")
-
         openFirstNotesReading()
-
-        let railToggle = columnToggle("notes.rail")
-        guard railToggle.waitForExistence(timeout: 10) else {
-            throw XCTSkip("the first Asset allocation reading has no LOS sections to rail")
-        }
-        XCTAssertEqual(railToggle.label, "Hide the LOS rail",
-                       "the second column names itself too")
-        XCTAssertTrue(columnToggle("sidebar").exists,
-                      "both left columns are controlled from the same row")
 
         let rail = app.descendants(matching: .any)["notes.rail"].firstMatch
-        XCTAssertTrue(rail.waitForExistence(timeout: 10), "the reading should show its LOS rail")
-
-        railToggle.tap()
-        XCTAssertTrue(rail.waitForNonExistence(timeout: 5),
-                      "hiding the rail must unmount it")
-        XCTAssertEqual(railToggle.label, "Show the LOS rail")
-
-        railToggle.tap()
-        XCTAssertTrue(rail.waitForExistence(timeout: 5), "the rail did not come back")
-    }
-
-    /// Leaving the reading takes its control with it: the bar offers a column
-    /// only while the screen that has it is on screen.
-    func testTheRailControlLeavesWithTheReading() throws {
-        XCTAssertTrue(waitFor(tab("Notes")), "the sidebar never appeared")
-        openFirstNotesReading()
-
-        let railToggle = columnToggle("notes.rail")
-        guard railToggle.waitForExistence(timeout: 10) else {
+        guard rail.waitForExistence(timeout: 10) else {
             throw XCTSkip("the first Asset allocation reading has no LOS sections to rail")
         }
 
-        tab("Today").tap()
-        XCTAssertTrue(railToggle.waitForNonExistence(timeout: 5),
-                      "Today has no LOS rail, so it must not offer a control for one")
-        XCTAssertTrue(columnToggle("sidebar").exists, "the sidebar control stays")
+        XCTAssertFalse(
+            columnToggle("notes.rail").exists,
+            "the rail is permanent, so it must not offer a control to fold it away"
+        )
+        XCTAssertTrue(
+            columnToggle("sidebar").exists,
+            "the sidebar control is the only one in the row"
+        )
+    }
+
+    /// Exactly one control in the row, on every screen that used to show two.
+    /// This is the assertion that catches the double glyph coming back.
+    ///
+    /// Mutation: re-register either inner column as collapsible and this fails
+    /// on that screen.
+    func testNoScreenOffersMoreThanOneLeftColumnControl() throws {
+        func controlCount() -> Int {
+            app.buttons.matching(
+                NSPredicate(format: "identifier BEGINSWITH %@", "leftcolumn.toggle.")
+            ).count
+        }
+
+        XCTAssertTrue(waitFor(tab("Notes")), "the sidebar never appeared")
+        XCTAssertEqual(controlCount(), 1, "the Notes library")
+
+        openFirstNotesReading()
+        let rail = app.descendants(matching: .any)["notes.rail"].firstMatch
+        if rail.waitForExistence(timeout: 10) {
+            XCTAssertEqual(
+                controlCount(), 1,
+                "a reading shows the rail permanently, so it adds no second control"
+            )
+        }
+
+        tab("Command words").tap()
+        XCTAssertTrue(
+            app.buttons["commandwords.word.discuss"].waitForExistence(timeout: 15),
+            "the command-word list did not appear"
+        )
+        XCTAssertEqual(
+            controlCount(), 1,
+            "the word list is permanent, so it adds no second control"
+        )
     }
 
     /// The state is remembered, so folding the sidebar away is a decision you
@@ -433,14 +447,13 @@ final class CFAL3UITests: XCTestCase {
         openFirstNotesReading()
         let rail = app.descendants(matching: .any)["notes.rail"].firstMatch
         guard rail.waitForExistence(timeout: 15) else { return }
-        saveScreenshot("notes-reading-both-columns-shown")
+        saveScreenshot("notes-reading-sidebar-shown")
         setColumn("sidebar", hidden: true)
+        // The rail is permanent now, so folding the sidebar away must leave it
+        // in place rather than taking the page's only wayfinding with it.
+        XCTAssertTrue(rail.exists, "the LOS rail must survive folding the sidebar")
         saveScreenshot("notes-reading-sidebar-hidden")
-        setColumn("notes.rail", hidden: true)
-        XCTAssertTrue(rail.waitForNonExistence(timeout: 5))
-        saveScreenshot("notes-reading-both-columns-hidden")
         setColumn("sidebar", hidden: false)
-        setColumn("notes.rail", hidden: false)
 
         tab("Progress").tap()
         XCTAssertTrue(progressCoverage().waitForExistence(timeout: 10))
