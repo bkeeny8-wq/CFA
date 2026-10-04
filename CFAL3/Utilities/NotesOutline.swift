@@ -11,11 +11,16 @@ import Foundation
 struct NotesOutline: Equatable {
 
     struct Section: Equatable, Identifiable {
-        /// The LOS index within its reading, exactly as the export wrote it.
-        /// NOT the heading's position — 11 of 36 readings skip numbers, so
-        /// `overview_of_asset_allocation` runs 1, 2, 5, 6, 7, 8, 9, 10. Never
-        /// renumber this; the letter is derived from it.
-        let number: Int
+        /// Every LOS index this heading names, ascending. Usually one, but 25
+        /// headings cover several at once ("LOS 3 & 4", "LOS 9-12").
+        ///
+        /// These are indices within the reading, exactly as the export wrote
+        /// them, NOT the heading's position — 11 of 36 readings skip numbers,
+        /// so `overview_of_asset_allocation` runs 1, 2, 5, 6, 7, 8, 9, 10.
+        /// Never renumber; the letters are derived from these.
+        let numbers: [Int]
+        /// A sub-part the author split out ("LOS 1b"), which is still LOS a.
+        let suffix: String?
         let title: String
         /// 1-based position among the headings actually PRESENT in this
         /// reading — the numerator of "2 of 7". Deliberately separate from
@@ -33,8 +38,18 @@ struct NotesOutline: Equatable {
         /// nothing to scroll) and the notes column never moved: every jump was
         /// silently inert. Key those by `position` instead.
         var id: String { anchorID }
-        var anchorID: String { NotesOutline.anchorID(number: number, title: title) }
-        var letter: String { losLetter(for: number).uppercased() }
+        /// The first statement the heading names. Kept for callers that need a
+        /// single index; `letter` is what the reader sees.
+        var number: Int { numbers.first ?? 0 }
+
+        var anchorID: String { NotesOutline.anchorID(numbers: numbers, suffix: suffix, title: title) }
+
+        /// The badge: "A", or "C & D", or "I-L" when the heading covers a run.
+        var letter: String { losLetters(for: numbers) }
+
+        /// The rail is a 52pt column, so a multi-LOS label will not fit in it.
+        /// It shows the first letter and says the rest through VoiceOver.
+        var railLetter: String { losLetter(for: number).uppercased() }
 
         /// What collapsing hides: everything under the header, never the
         /// header itself — the header carries the scroll anchor, so hiding it
@@ -42,11 +57,13 @@ struct NotesOutline: Equatable {
         var bodyRange: Range<Int> { (range.lowerBound + 1)..<range.upperBound }
     }
 
-    /// Blocks before the first heading. This is NOT just the orientation
-    /// paragraph: `principles_of_asset_allocation` carries roughly forty
-    /// blocks of real LOS material up here, because its first heading reads
-    /// "LOS 1 & 2 — …" and the parser's grammar does not recognise that form.
-    /// The preamble is therefore never collapsible and never counted.
+    /// Blocks before the first heading: the export banner and the orientation
+    /// paragraph. Never collapsible and never counted.
+    ///
+    /// This used to carry real LOS material too, because headings like
+    /// "LOS 1 & 2 - …" did not match the parser's grammar and so began no
+    /// section. They do now, which is why `principles_of_asset_allocation`
+    /// starts at LOS a rather than LOS c.
     let preamble: Range<Int>
     let sections: [Section]
 
@@ -58,10 +75,10 @@ struct NotesOutline: Equatable {
     var showsStickyHeader: Bool { !sections.isEmpty }
 
     static func build(from blocks: [NotesBlock]) -> NotesOutline {
-        var starts: [(index: Int, number: Int, title: String)] = []
+        var starts: [(index: Int, numbers: [Int], suffix: String?, title: String)] = []
         for (index, block) in blocks.enumerated() {
             if let heading = block.losSectionHeading {
-                starts.append((index, heading.number, heading.title))
+                starts.append((index, heading.numbers, heading.suffix, heading.title))
             }
         }
 
@@ -74,7 +91,8 @@ struct NotesOutline: Equatable {
             let end = offset + 1 < starts.count ? starts[offset + 1].index : blocks.count
             sections.append(
                 Section(
-                    number: start.number,
+                    numbers: start.numbers,
+                    suffix: start.suffix,
                     title: start.title,
                     position: offset + 1,
                     range: start.index..<end
@@ -90,8 +108,9 @@ struct NotesOutline: Equatable {
     /// `capital_market_expectations_part_2` share their first 24 title
     /// characters, so a title-only anchor would make them the same place and
     /// the jump bar would land on the wrong one.
-    static func anchorID(number: Int, title: String) -> String {
-        "los-\(number)-\(title.prefix(24))"
+    static func anchorID(numbers: [Int], suffix: String?, title: String) -> String {
+        let spec = numbers.map(String.init).joined(separator: ".") + (suffix ?? "")
+        return "los-\(spec)-\(title.prefix(24))"
     }
 
     /// nil-safe on purpose. The scroll tracker reports nil while the reader is
@@ -125,8 +144,10 @@ extension NotesBlock {
     /// "LOS 9–12 — …" — do NOT match the parser's grammar today and so are not
     /// sections. Widening that grammar is a parser change; it belongs here and
     /// nowhere else, so the outline never has to guess.
-    var losSectionHeading: (number: Int, title: String)? {
-        if case .losSection(let number, let title) = self { return (number, title) }
+    var losSectionHeading: (numbers: [Int], suffix: String?, title: String)? {
+        if case .losSection(let numbers, let suffix, let title) = self {
+            return (numbers, suffix, title)
+        }
         return nil
     }
 }

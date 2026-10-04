@@ -39,8 +39,34 @@ func losLetter(for number: Int) -> String {
     return String(UnicodeScalar(UInt8(96 + number)))
 }
 
+/// The badge label for a heading that names more than one LOS.
+///
+/// 25 headings across the corpus cover several statements at once: "LOS 3 & 4",
+/// "LOS 8, 9 & 11", "LOS 9-12". Rendering only the first number would claim the
+/// section is about one statement when it is about four.
+///
+/// A contiguous run collapses to a range ("I-L"); anything else lists ("H, I &
+/// K"), matching how the source writes it. `suffix` marks a sub-part the author
+/// split out ("LOS 1b"), which is still LOS a and is labelled as such - the
+/// title is what distinguishes it.
+func losLetters(for numbers: [Int]) -> String {
+    let letters = numbers.sorted().map { losLetter(for: $0).uppercased() }
+    guard let first = letters.first else { return "" }
+    guard letters.count > 1 else { return first }
+
+    let sorted = numbers.sorted()
+    let contiguous = zip(sorted, sorted.dropFirst()).allSatisfy { $1 == $0 + 1 }
+    if contiguous, letters.count > 2 {
+        return "\(first)-\(letters[letters.count - 1])"
+    }
+    if letters.count == 2 {
+        return "\(letters[0]) & \(letters[1])"
+    }
+    return letters.dropLast().joined(separator: ", ") + " & " + letters[letters.count - 1]
+}
+
 enum NotesBlock: Identifiable, Equatable {
-    case losSection(number: Int, title: String)
+    case losSection(numbers: [Int], suffix: String?, title: String)
     case losStatement(String)
     case callout(NotesCalloutKind, String)
     case subheading(String)
@@ -64,8 +90,8 @@ enum NotesBlock: Identifiable, Equatable {
     /// string that `ReadingNotesView` recomputes to jump to a LOS.
     var id: String {
         switch self {
-        case .losSection(let number, let title):
-            return "los-\(number)-\(title)"
+        case .losSection(let numbers, let suffix, let title):
+            return "los-\(numbers.map(String.init).joined(separator: "."))\(suffix ?? "")-\(title)"
         case .losStatement(let text):
             return "los-stmt-\(text)"
         case .callout(let kind, let text):
@@ -85,8 +111,67 @@ enum NotesBlock: Identifiable, Equatable {
 }
 
 enum NotesContentParser {
-    private static let losHeaderPattern = /^LOS (\d+) — (.+)$/
+    /// Captures the whole LOS SPEC, not just a single number.
+    ///
+    /// 25 headings name several statements at once ("LOS 3 & 4", "LOS 8, 9 &
+    /// 11", "LOS 9-12") or a sub-part ("LOS 1b"). The old `(\d+)` matched none
+    /// of them, so those sections were not sections at all: no badge, no rule,
+    /// no rail entry, and their content silently merged into whatever came
+    /// before. `principles_of_asset_allocation` opens with "LOS 1 & 2", which
+    /// is why roughly forty blocks of real material sat in its preamble.
+    ///
+    /// The spec charset deliberately excludes the em dash that separates spec
+    /// from title, so the two can never run together. The en dash inside it is
+    /// the range separator the source uses.
+    private static let losHeaderPattern = /^LOS ([0-9][0-9a-z,&\u{2013}\- ]*) — (.+)$/
     private static let tableTitlePattern = /^Table \d+ — (.+)$/
+
+    /// Turns a LOS spec into the statement numbers it names.
+    ///
+    /// Every form the corpus actually uses, and nothing more:
+    ///
+    ///     "7"          -> [7]
+    ///     "3 & 4"      -> [3, 4]
+    ///     "8, 9 & 11"  -> [8, 9, 11]
+    ///     "9-12"       -> [9, 10, 11, 12]     (an EN dash in the source)
+    ///     "1b"         -> [1], suffix "b"
+    ///
+    /// A range is expanded rather than kept as endpoints, so the label, the
+    /// letters and any future per-LOS lookup all see the same four statements.
+    /// Returns no numbers for anything it does not recognise, which the caller
+    /// treats as "not a heading" rather than inventing one.
+    static func parseLOSSpec(_ spec: String) -> (numbers: [Int], suffix: String?) {
+        var numbers: [Int] = []
+        var suffix: String?
+
+        let tokens = spec
+            .replacingOccurrences(of: "&", with: ",")
+            .split(separator: ",")
+            .map { $0.trimmingCharacters(in: .whitespaces) }
+            .filter { !$0.isEmpty }
+
+        for token in tokens {
+            // A range: "9-12", written with an en dash in the source.
+            let parts = token
+                .split(whereSeparator: { $0 == "\u{2013}" || $0 == "-" })
+                .map { $0.trimmingCharacters(in: .whitespaces) }
+            if parts.count == 2, let low = Int(parts[0]), let high = Int(parts[1]), low <= high {
+                numbers.append(contentsOf: low...high)
+                continue
+            }
+
+            // A plain number, optionally with a sub-part letter: "1b".
+            let digits = token.prefix { $0.isNumber }
+            guard !digits.isEmpty, let value = Int(digits) else { continue }
+            numbers.append(value)
+            let rest = token.dropFirst(digits.count).trimmingCharacters(in: .whitespaces)
+            if !rest.isEmpty, suffix == nil { suffix = rest }
+        }
+
+        // Deduplicated and ascending: "8, 9 & 11" and a range must both come
+        // out as a clean set for the label to read correctly.
+        return (Array(Set(numbers)).sorted(), suffix)
+    }
 
     /// A line longer than this is prose, not a table cell.
     ///
@@ -210,11 +295,18 @@ enum NotesContentParser {
             }
 
             if let match = line.firstMatch(of: losHeaderPattern) {
-                let number = Int(match.1) ?? 0
+                let spec = Self.parseLOSSpec(String(match.1))
                 let title = String(match.2)
-                blocks.append(.losSection(number: number, title: title))
-                index += 1
-                continue
+                // A spec that yields no numbers is not a LOS heading; let it
+                // fall through to be parsed as ordinary content rather than
+                // becoming a section with a blank badge.
+                if !spec.numbers.isEmpty {
+                    blocks.append(
+                        .losSection(numbers: spec.numbers, suffix: spec.suffix, title: title)
+                    )
+                    index += 1
+                    continue
+                }
             }
 
             if line.hasPrefix("LOS:") {

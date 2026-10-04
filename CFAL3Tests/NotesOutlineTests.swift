@@ -37,12 +37,12 @@ final class NotesOutlineTests: XCTestCase {
                     block.losSectionHeading,
                     "\(entry.readingID): section range starts on a non-header block"
                 )
-                XCTAssertEqual(heading.number, section.number)
+                XCTAssertEqual(heading.numbers, section.numbers)
                 XCTAssertEqual(heading.title, section.title)
                 checked += 1
             }
         }
-        XCTAssertEqual(checked, 193, "the set of LOS sections in the corpus moved")
+        XCTAssertEqual(checked, 218, "the set of LOS sections in the corpus moved")
     }
 
     /// The ranges must tile the array: preamble, then every section end-to-end,
@@ -82,21 +82,80 @@ final class NotesOutlineTests: XCTestCase {
 
     // MARK: - Position is not the number
 
-    /// The counter counts POSITION among present headings; the letter comes
-    /// from the NUMBER. For most of the corpus these differ, and conflating
-    /// them is the single easiest way to mislabel a statement.
-    /// Mutation: return `number` from `position` — this fails on section 3.
-    func testPositionCountsHeadingsWhileLetterComesFromTheNumber() throws {
+    /// The counter counts POSITION among present headings; the letters come
+    /// from the NUMBERS. For most of the corpus these differ, and conflating
+    /// them is the easiest way to mislabel a statement.
+    ///
+    /// `overview_of_asset_allocation` is the useful case: its third heading
+    /// reads "LOS 3 & 4", so it is one section covering two statements, and
+    /// the heading after it is LOS e while sitting at position 4.
+    ///
+    /// Mutation: return `number` from `position` and this fails on section 3.
+    func testPositionCountsHeadingsWhileLettersComeFromTheNumbers() throws {
         let page = try page("overview_of_asset_allocation")
         let sections = page.outline.sections
 
-        XCTAssertEqual(sections.map(\.number), [1, 2, 5, 6, 7, 8, 9, 10])
-        XCTAssertEqual(sections.map(\.position), [1, 2, 3, 4, 5, 6, 7, 8])
-        XCTAssertEqual(sections.map(\.letter), ["A", "B", "E", "F", "G", "H", "I", "J"])
+        XCTAssertEqual(sections.map(\.numbers), [[1], [2], [3, 4], [5], [6], [7], [8], [9], [10]])
+        XCTAssertEqual(sections.map(\.position), Array(1...9))
+        XCTAssertEqual(
+            sections.map(\.letter),
+            ["A", "B", "C & D", "E", "F", "G", "H", "I", "J"]
+        )
 
-        // The third heading is LOS E, and it is "3 of 8" — both true at once.
-        XCTAssertEqual(page.outline.counterText(at: 2), "3 of 8")
-        XCTAssertEqual(sections[2].letter, "E")
+        // The combined heading is ONE section at position 3 covering two
+        // statements; the next is LOS e at position 4.
+        XCTAssertEqual(page.outline.counterText(at: 2), "3 of 9")
+        XCTAssertEqual(sections[3].letter, "E")
+        XCTAssertEqual(page.outline.counterText(at: 3), "4 of 9")
+
+        // The rail is 52pt wide, so it shows only the first letter.
+        XCTAssertEqual(sections[2].railLetter, "C")
+    }
+
+    /// A heading that names several statements must begin a section, not
+    /// vanish into the one above it.
+    ///
+    /// `principles_of_asset_allocation` opens with "LOS 1 & 2", which the old
+    /// grammar did not match: roughly forty blocks of real LOS a/b material
+    /// sat in the preamble and the reading appeared to start at LOS c.
+    ///
+    /// Mutation: narrow the pattern back to `(\d+)` and this fails.
+    func testACombinedHeadingStartsItsOwnSection() throws {
+        let page = try page("principles_of_asset_allocation")
+        let first = try XCTUnwrap(page.outline.sections.first)
+
+        XCTAssertEqual(first.numbers, [1, 2], "the reading starts at LOS a, not LOS c")
+        XCTAssertEqual(first.letter, "A & B")
+        XCTAssertLessThan(
+            page.outline.preamble.count, 6,
+            "the preamble should now hold only the banner and orientation"
+        )
+    }
+
+    /// Every form the corpus uses, through the real parser.
+    func testEveryHeadingFormInTheCorpusParses() {
+        XCTAssertEqual(NotesContentParser.parseLOSSpec("7").numbers, [7])
+        XCTAssertEqual(NotesContentParser.parseLOSSpec("3 & 4").numbers, [3, 4])
+        XCTAssertEqual(NotesContentParser.parseLOSSpec("8, 9 & 11").numbers, [8, 9, 11])
+        // An EN dash, which is what the source writes.
+        XCTAssertEqual(NotesContentParser.parseLOSSpec("9\u{2013}12").numbers, [9, 10, 11, 12])
+
+        let sub = NotesContentParser.parseLOSSpec("1b")
+        XCTAssertEqual(sub.numbers, [1])
+        XCTAssertEqual(sub.suffix, "b", "a sub-part is still LOS a, and says so")
+
+        // Not a heading: no numbers, so the caller leaves the line as content.
+        XCTAssertTrue(NotesContentParser.parseLOSSpec("").numbers.isEmpty)
+    }
+
+    /// The badge label, which is what the reader actually sees.
+    func testTheBadgeLabelReadsTheWayTheSourceWritesIt() {
+        XCTAssertEqual(losLetters(for: [1]), "A")
+        XCTAssertEqual(losLetters(for: [3, 4]), "C & D")
+        XCTAssertEqual(losLetters(for: [8, 9, 11]), "H, I & K")
+        // A run of three or more collapses rather than listing.
+        XCTAssertEqual(losLetters(for: [9, 10, 11, 12]), "I-L")
+        XCTAssertEqual(losLetters(for: []), "")
     }
 
     // MARK: - Anchors
@@ -144,75 +203,12 @@ final class NotesOutlineTests: XCTestCase {
         XCTAssertNil(page.outline.section(at: 0), "must not trap on an empty outline")
     }
 
-    /// `principles_of_asset_allocation` opens with "LOS 1 & 2 — …", a form the
-    /// parser's grammar does not match, so roughly forty blocks of real LOS
-    /// material sit in the preamble. The outline must carry them rather than
-    /// discard them — dropping the preamble would silently delete that content
-    /// from the page.
-    func testPreambleCarriesContentBeforeTheFirstRecognisedHeading() throws {
-        let page = try page("principles_of_asset_allocation")
-        XCTAssertGreaterThan(
-            page.outline.preamble.count, 10,
-            "this reading's unrecognised first heading leaves real content up front"
-        )
-        XCTAssertEqual(page.outline.sections.first?.number, 3, "first recognised heading is LOS 3")
-        XCTAssertEqual(page.outline.preamble.lowerBound, 0)
-    }
-
-    /// The nine Ethics readings rendered TWO consecutive paragraphs both
-    /// opening "Orientation." — different text, same label, stacked.
-    ///
-    /// A reading with "LOS N —" headers has everything before the first header
-    /// dropped by the parser, which takes its own orientation with it, so the
-    /// entry's `orientation` field must be inserted. The Ethics readings have
-    /// no such header and keep theirs through parsing, so inserting the field
-    /// on top duplicated it.
-    ///
-    /// Mutation: drop the `opensWithOrientation` guard in NotesPage.init and
-    /// the duplicate assertion below fails for all nine.
-    func testOrientationIsNeverShownTwice() throws {
-        let content = try loadedContent()
-        var withHeadings = 0, withoutHeadings = 0
-
-        for entry in content.readingNotesBundle?.readings ?? [] {
-            let page = NotesPage(entry)
-            let leading = page.blocks.prefix(3).compactMap { block -> String? in
-                if case .paragraph(let t) = block { return t }
-                return nil
-            }
-            let orientations = leading.filter {
-                $0.trimmingCharacters(in: .whitespaces).hasPrefix("Orientation.")
-            }
-            XCTAssertLessThanOrEqual(
-                orientations.count, 1,
-                "\(entry.readingID): \(orientations.count) orientation paragraphs in a row"
-            )
-            if page.outline.sections.isEmpty { withoutHeadings += 1 } else { withHeadings += 1 }
-        }
-        XCTAssertEqual(withoutHeadings, 9, "the set of heading-less readings moved")
-        XCTAssertEqual(withHeadings, 27)
-    }
-
-    /// ...and the orientation is still THERE. Removing the duplicate must not
-    /// remove the content, which is the obvious way to over-correct.
-    func testEveryReadingStillOpensWithItsOrientation() throws {
-        let content = try loadedContent()
-        for entry in content.readingNotesBundle?.readings ?? [] {
-            guard !entry.orientation.isEmpty else { continue }
-            let page = NotesPage(entry)
-            XCTAssertTrue(
-                NotesPage.opensWithOrientation(page.blocks),
-                "\(entry.readingID) lost its orientation entirely"
-            )
-        }
-    }
-
     func testCounterIsNilWhenThereIsNothingToCount() {
         let outline = NotesOutline.build(from: [.paragraph("only prose")])
         XCTAssertTrue(outline.sections.isEmpty)
         XCTAssertNil(outline.counterText(at: 0))
 
-        let single = NotesOutline.build(from: [.losSection(number: 1, title: "Only"), .paragraph("x")])
+        let single = NotesOutline.build(from: [.losSection(numbers: [1], suffix: nil, title: "Only"), .paragraph("x")])
         XCTAssertEqual(single.sections.count, 1)
         XCTAssertFalse(single.showsRail, "one section needs no rail")
         XCTAssertTrue(single.showsStickyHeader)

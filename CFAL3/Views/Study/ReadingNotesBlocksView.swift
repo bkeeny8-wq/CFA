@@ -42,11 +42,11 @@ struct ReadingNotesBlocksView: View {
     @ViewBuilder
     private func blockView(_ block: NotesBlock) -> some View {
         switch block {
-        case .losSection(let number, let title):
+        case .losSection(let numbers, let suffix, let title):
             // Reached only when a caller renders the whole array without an
             // outline. The sectioned page draws its own headers.
-            LOSSectionHeader(number: number, title: title)
-                .id(NotesOutline.anchorID(number: number, title: title))
+            LOSSectionHeader(numbers: numbers, suffix: suffix, title: title)
+                .id(NotesOutline.anchorID(numbers: numbers, suffix: suffix, title: title))
         case .losStatement(let text):
             Text(text)
                 .font(.subheadline)
@@ -98,13 +98,15 @@ struct ReadingNotesBlocksView: View {
 /// The badge + title that opens a LOS section, and the tap target that
 /// collapses it.
 struct LOSSectionHeader: View {
-    let number: Int
+    let numbers: [Int]
+    var suffix: String?
     let title: String
     var position: String?
     var isCollapsed: Bool = false
     var onToggle: (() -> Void)?
 
-    private var letter: String { losLetter(for: number).uppercased() }
+    /// "A", or "C & D" when the heading covers several statements.
+    private var letter: String { losLetters(for: numbers) }
 
     var body: some View {
         let row = HStack(alignment: .top, spacing: 12) {

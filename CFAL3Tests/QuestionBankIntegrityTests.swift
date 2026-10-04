@@ -692,7 +692,7 @@ final class QuestionBankIntegrityTests: XCTestCase {
         let blocks = NotesContentParser.parse(entry.content)
         XCTAssertFalse(blocks.isEmpty)
         let losHeaders = blocks.compactMap { block -> Int? in
-            if case .losSection(let number, _) = block { return number }
+            if case .losSection(let numbers, _, _) = block { return numbers.first }
             return nil
         }
         XCTAssertEqual(losHeaders, [1, 2, 3, 4])

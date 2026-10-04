@@ -16,7 +16,7 @@ final class NotesContentParserTests: XCTestCase {
 
         let blocks = NotesContentParser.parse(sample, skipHeader: false)
 
-        XCTAssertTrue(blocks.contains { if case .losSection(1, "Framework role") = $0 { return true }; return false })
+        XCTAssertTrue(blocks.contains { if case .losSection([1], nil, "Framework role") = $0 { return true }; return false })
         XCTAssertTrue(blocks.contains { if case .losStatement = $0 { return true }; return false })
         XCTAssertTrue(blocks.contains { if case .callout(.examFocus, _) = $0 { return true }; return false })
         XCTAssertTrue(blocks.contains { if case .bulletList(let items) = $0 { return items.count == 2 }; return false })
@@ -234,23 +234,63 @@ final class NotesLOSLetteringTests: XCTestCase {
         XCTAssertEqual(losLetter(for: -3), "-3")
     }
 
-    /// The number is a LOS index, so a reading's notes may SKIP numbers — and
-    /// where they do, sequential labelling would name the wrong statement.
-    /// `overview_of_asset_allocation` covers 1, 2, 5, 6, 7, 8, 9, 10 of ten
-    /// LOS: its third heading is LOS e, not LOS c.
-    func testNotesHeadingsSkipNumbersRatherThanRenumbering() throws {
+    /// Every reading's headings now cover its LOS contiguously, 1...N.
+    ///
+    /// This test replaces one asserting the opposite. The old grammar matched
+    /// only `LOS <digits>`, so `overview_of_asset_allocation` appeared to run
+    /// 1, 2, 5, 6, 7, 8, 9, 10 and skip two statements. It never skipped them:
+    /// its third heading reads "LOS 3 & 4", which the parser could not see, so
+    /// that section was not a section and its two numbers were invisible.
+    /// Widening the grammar closed every such gap in the corpus.
+    ///
+    /// Which makes this the sharpest guard available on the grammar: a heading
+    /// form it stops recognising punches a hole in some reading's run, and
+    /// that hole fails here with the reading named.
+    func testEveryReadingCoversItsLOSContiguously() throws {
+        let content = ContentLoader()
+        content.load()
+        try XCTSkipIf(content.loadError != nil, content.loadError ?? "")
+
+        var checked = 0
+        for entry in content.readingNotesBundle?.readings ?? [] {
+            let numbers = NotesContentParser.parse(entry.content)
+                .compactMap { block -> [Int]? in
+                    if case .losSection(let numbers, _, _) = block { return numbers }
+                    return nil
+                }
+                .flatMap { $0 }
+                .sorted()
+            guard !numbers.isEmpty else { continue }   // the nine Ethics readings
+
+            XCTAssertEqual(
+                Array(Set(numbers)).sorted(), Array(1...numbers.max()!),
+                "\(entry.readingID): LOS numbers are not a complete run - "
+                + "a heading form the grammar no longer recognises"
+            )
+            checked += 1
+        }
+        XCTAssertEqual(checked, 27, "the set of readings with headings moved")
+    }
+
+    /// A combined heading is ONE section covering several statements, so after
+    /// one appears a section's position and its letter diverge. That is why
+    /// the two are separate fields and neither is derived from the other.
+    func testACombinedHeadingDecouplesPositionFromLetter() throws {
         let content = ContentLoader()
         content.load()
         try XCTSkipIf(content.loadError != nil, content.loadError ?? "")
 
         let notes = try XCTUnwrap(content.readingNotes(id: "overview_of_asset_allocation"))
-        let numbers = NotesContentParser.parse(notes.content).compactMap { block -> Int? in
-            if case .losSection(let number, _) = block { return number }
+        let sections = NotesContentParser.parse(notes.content).compactMap { block -> [Int]? in
+            if case .losSection(let numbers, _, _) = block { return numbers }
             return nil
         }
 
-        XCTAssertEqual(numbers, [1, 2, 5, 6, 7, 8, 9, 10])
-        XCTAssertEqual(numbers.map { losLetter(for: $0) }, ["a", "b", "e", "f", "g", "h", "i", "j"])
+        XCTAssertEqual(sections, [[1], [2], [3, 4], [5], [6], [7], [8], [9], [10]])
+        XCTAssertEqual(losLetters(for: sections[2]), "C & D", "one section, two statements")
+        // Position 4 (1-based) is LOS e, not LOS d: the combined section above
+        // consumed two numbers while occupying one slot.
+        XCTAssertEqual(losLetters(for: sections[3]), "E")
     }
 
     /// Every letter a notes heading shows must name a LOS the curriculum
@@ -274,7 +314,7 @@ final class NotesLOSLetteringTests: XCTestCase {
             guard let notes = content.readingNotes(id: reading.id) else { continue }
             let letters = Set(reading.los.map { $0.letter.lowercased() })
             let headings = NotesContentParser.parse(notes.content).compactMap { block -> Int? in
-                if case .losSection(let number, _) = block { return number }
+                if case .losSection(let numbers, _, _) = block { return numbers.first }
                 return nil
             }
             guard !headings.isEmpty else { continue }

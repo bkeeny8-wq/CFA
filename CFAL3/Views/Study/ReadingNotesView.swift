@@ -278,7 +278,8 @@ private struct ReadingNotesSectionedBody: View {
 
                 VStack(alignment: .leading, spacing: 20) {
                     LOSSectionHeader(
-                        number: section.number,
+                        numbers: section.numbers,
+                        suffix: section.suffix,
                         title: section.title,
                         position: page.outline.counterText(at: index),
                         isCollapsed: expansion.isCollapsed(section),
@@ -332,7 +333,7 @@ private struct LOSLetterRail: View {
                     Button {
                         onJump(index)
                     } label: {
-                        Text(section.letter)
+                        Text(section.railLetter)
                             .font(.caption.weight(.semibold))
                             .foregroundStyle(index == currentIndex ? .white : Theme.dust)
                             .frame(minWidth: 32, minHeight: 32)

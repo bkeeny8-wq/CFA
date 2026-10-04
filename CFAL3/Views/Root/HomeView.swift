@@ -160,7 +160,20 @@ struct HomeView: View {
     }
 
     private var oneTapRow: some View {
-        HStack(spacing: 10) {
+        // Reflows to a column when the three will not fit side by side.
+        // Each pill takes a third of the width, which at accessibility text
+        // sizes is narrower than its own label: the text wrapped INSIDE the
+        // capsule and each pill rendered as an oval reading "To-day's mix",
+        // "This read ing's drills", "Sit a cas e".
+        ViewThatFits(in: .horizontal) {
+            HStack(spacing: 10) { pills }
+            VStack(spacing: 10) { pills }
+        }
+    }
+
+    @ViewBuilder
+    private var pills: some View {
+        Group {
             oneTapPill(
                 title: "Today's mix · \(reviewPlan.sessionIDs.count)",
                 systemImage: "square.stack.3d.up",
@@ -199,6 +212,8 @@ struct HomeView: View {
             Label(title, systemImage: systemImage)
                 .font(.subheadline.weight(.medium))
                 .foregroundStyle(Theme.ink)
+                .lineLimit(1)
+                .minimumScaleFactor(0.85)
                 .padding(.horizontal, 14)
                 .padding(.vertical, 12)
                 .frame(maxWidth: .infinity)
@@ -214,6 +229,11 @@ struct HomeView: View {
         .accessibilityIdentifier(identifier)
     }
 
+    /// Width reserved in the header for the completion toggle that is
+    /// overlaid on the card's top-trailing corner. Scales with the text size,
+    /// because the glyph does.
+    @ScaledMetric(relativeTo: .title3) private var completionToggleSize: CGFloat = 24
+
     @ViewBuilder
     private var todaysPlanCard: some View {
         if let schedule = content.schedule,
@@ -226,15 +246,25 @@ struct HomeView: View {
                     router.selected = .plan
                 } label: {
                     VStack(alignment: .leading, spacing: 12) {
-                        HStack {
+                        // The hours and the completion toggle are laid out as
+                        // siblings. The toggle used to be an overlay with the
+                        // hours reserving space for it via a hardcoded 28pt
+                        // trailing pad, so at larger text sizes the two drew on
+                        // top of each other and the card read "3.50(h)".
+                        HStack(spacing: 10) {
                             Text("Today's plan")
                                 .font(.headline)
                                 .foregroundStyle(Theme.ink)
-                            Spacer()
+                            Spacer(minLength: 8)
                             Text(Formatting.hours(today.hours))
                                 .font(.subheadline)
                                 .foregroundStyle(Theme.dust)
-                                .padding(.trailing, today.isRestDay ? 0 : 28)
+                                .lineLimit(1)
+                            if !today.isRestDay {
+                                Color.clear
+                                    .frame(width: completionToggleSize, height: completionToggleSize)
+                                    .accessibilityHidden(true)
+                            }
                         }
 
                         if today.isRestDay {
@@ -276,6 +306,7 @@ struct HomeView: View {
                         Image(systemName: isDone ? "checkmark.circle.fill" : "circle")
                             .font(.title3)
                             .foregroundStyle(isDone ? Theme.pine : Theme.dust)
+                            .frame(width: completionToggleSize, height: completionToggleSize)
                             .padding(18)
                     }
                     .buttonStyle(.plain)

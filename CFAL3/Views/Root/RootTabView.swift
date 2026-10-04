@@ -117,6 +117,15 @@ private struct RootTabContent: View {
         (sidebarApplies ? [.sidebar] : []) + leftColumns.innerColumns
     }
 
+    /// 228pt at the default text size, growing with it.
+    ///
+    /// A fixed 228 truncated six of the nine destinations at accessibility
+    /// sizes - "Pra...", "Ca...", "Pro..." - and "Cards" and "Cases" became
+    /// indistinguishable from each other. Capped so the sidebar cannot eat the
+    /// page it is navigating.
+    @ScaledMetric(relativeTo: .subheadline) private var scaledSidebarWidth: CGFloat = 228
+    private var sidebarWidth: CGFloat { min(scaledSidebarWidth, 360) }
+
     var body: some View {
         @Bindable var router = router
 
@@ -127,7 +136,7 @@ private struct RootTabContent: View {
             HStack(spacing: 0) {
                 if sidebarApplies, !leftColumns.isHidden(.sidebar) {
                     DaybookSidebar()
-                        .frame(width: 228)
+                        .frame(width: sidebarWidth)
                         .transition(.move(edge: .leading).combined(with: .opacity))
                 }
                 destination
@@ -229,16 +238,22 @@ private struct DaybookSidebar: View {
             .padding(.top, 8)
             .padding(.bottom, 22)
 
-            VStack(spacing: 4) {
-                ForEach(AppTab.allCases) { tab in
-                    sidebarRow(tab, selected: router.selected == tab) {
-                        router.selected = tab
+            // Scrolls rather than squeezing. Nine rows at an accessibility
+            // text size are taller than an iPad in portrait, and without this
+            // the Spacer collapsed first and then the rows compressed until
+            // their labels truncated, with Settings cut off at the bottom
+            // edge.
+            ScrollView {
+                VStack(spacing: 4) {
+                    ForEach(AppTab.allCases) { tab in
+                        sidebarRow(tab, selected: router.selected == tab) {
+                            router.selected = tab
+                        }
                     }
                 }
+                .padding(.horizontal, 12)
             }
-            .padding(.horizontal, 12)
-
-            Spacer()
+            .scrollBounceBehavior(.basedOnSize)
 
             HStack(spacing: 10) {
                 Circle()
@@ -277,6 +292,12 @@ private struct DaybookSidebar: View {
             Label(tab.title, systemImage: tab.symbol)
                 .font(.subheadline.weight(selected ? .semibold : .regular))
                 .foregroundStyle(Theme.ink)
+                // Wrap, never truncate. "Cards" and "Cases" both truncated to
+                // "Ca..." at accessibility sizes, which is worse than a second
+                // line: two destinations you cannot tell apart.
+                .lineLimit(2)
+                .multilineTextAlignment(.leading)
+                .fixedSize(horizontal: false, vertical: true)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 12)
                 .frame(minHeight: 44)
