@@ -1,0 +1,3141 @@
+{
+ "covered_call": {
+  "family": "Derivatives: options",
+  "notesEvidence": [
+   {
+    "reading": "options_strategies",
+    "text": "LOS 3 & 4 — Covered calls and protective puts"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "LOS: compare the payoffs, risks, and uses of covered calls and protective puts"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "What you must do:  Compute max profit, max loss, and breakeven for the covered call and the protective put."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Covered call (long stock + short call)"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Worked example — covered call"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Table 1b — Covered call P&L at expiry (own at 50, short X=55 call, premium 2)"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "By put-call parity, a covered call has the SAME payoff shape as a short put at the same strike — both cap the upside at the premium collected and bear the downside of owning the stock."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Exam focus: Covered call: max profit (X−S₀)+premium, max loss S₀−premium, breakeven S₀−premium — income, capped upside."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Covered call is short the upside;"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "A covered call has the same payoff shape as a short put at the same strike (put-call parity)."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "•\tCovered call — delta below +1 (the short call subtracts delta): mildly bullish/neutral with capped upside."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Covered call: sell 1,000 calls with delta 0.4 → −400 → net delta +600"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Both reduce the +1,000 delta of the shares — here the covered call more so (to +600), because the short call subtracts more delta."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Exam focus: Rank by net delta: bull spread and protective put/covered call are net long (below +1);"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "The short call in a covered call and the long put in a protective put both REDUCE delta from the +1 of the underlying."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "covered call (collect premium)"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Options let a manager reshape exposure precisely and cheaply: protective puts and collars HEDGE downside (portfolio insurance), covered calls generate INCOME and monetize a neutral view, spreads express a directional view with defined risk, straddles/strangles trade VOLATILITY directly, and options can adjust delta or create synthetic exposures without transacting in the underlying."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Selling options — covered calls, cash-secured puts, short straddles and strangles — collects premium but creates an ASYMMETRIC payoff: limited gain (the premium) against large, sometimes unlimited, losses if the market moves sharply."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "selling puts or writing a covered call fits better."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Exam focus: Recommend by direction AND volatility: bullish+low-vol → sell puts/covered call;"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Uses: hedging (puts/collars), income (covered calls), defined-risk direction (spreads), volatility trading (straddles), and synthetic exposure."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Covered call: max profit (X−S₀)+prem ;"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "-> Sell puts (or write a covered call);"
+   }
+  ],
+  "los": [
+   {
+    "reading": "options_strategies",
+    "letter": "b",
+    "text": "discuss the investment objective(s), structure, payoff, risk(s), value at expiration, profit, maximum profit, maximum loss, and breakeven underlying price at expiration of a covered call position"
+   },
+   {
+    "reading": "options_strategies",
+    "letter": "d",
+    "text": "compare the delta of covered call and protective put positions with the position of being long an asset and short a forward on the underlying asset"
+   }
+  ],
+  "essayStems": [
+   {
+    "id": "options_wendy_manetti_wendy_manetti_essay_q6",
+    "stem": "EVALUATE Fillizola's proposal to write 20 covered call contracts (February 2020 $140 strike) for the client. Include the effective sale price analysis and IV claim."
+   },
+   {
+    "id": "options_wendy_manetti_wendy_manetti_essay_q8",
+    "stem": "DISCUSS two advantages and two disadvantages of the covered call strategy Fillizola proposed as an income-enhancement approach."
+   },
+   {
+    "id": "bristol_advisors_options_pathway_essay_q2",
+    "stem": "COMPARE Strategy 2 (protective put) vs Strategy 1 (covered call) for a client focused on downside protection. IDENTIFY key differences in risk/reward."
+   }
+  ],
+  "counts": {
+   "notes": 23,
+   "los": 2,
+   "essays": 3
+  }
+ },
+ "protective_put": {
+  "family": "Derivatives: options",
+  "notesEvidence": [
+   {
+    "reading": "an_overview_of_private_wealth_management",
+    "text": "•\tHedging with derivatives — buy protective puts (a downside floor for a premium) or a collar / zero-cost collar (a floor funded by selling upside via a call), reducing downside risk without an immediate taxable sale."
+   },
+   {
+    "reading": "an_overview_of_private_wealth_management",
+    "text": "Exam focus: Know the concentrated-position toolkit and its tax angle: staged sale (spreads tax), collar/protective put (hedges without selling), prepaid variable forward/borrowing (monetizes and defers), exchange fund (diversifies without a sale), and charitable gift/CRT (diversifies while avoiding the gain)."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Put-call parity links the prices of a call, a put, the underlying, and a risk-free bond with the same strike and expiry — a fiduciary call equals a protective put:"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "S + p = c + PV(X)      (protective put = fiduciary call)"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Protective put = S + p     = 50 + 2 = 52"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "The two should be equal, but the fiduciary call (54) is dearer than the protective put (52)."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Protective put (S + p) = fiduciary call (c + PV(X))."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "LOS 3 & 4 — Covered calls and protective puts"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "LOS: compare the payoffs, risks, and uses of covered calls and protective puts"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "What you must do:  Compute max profit, max loss, and breakeven for the covered call and the protective put."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Protective put (long stock + long put)"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Worked example — protective put"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Protective put: max loss (S₀−X)+premium, unlimited upside, breakeven S₀+premium — insurance."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "protective put pays a premium to floor the downside."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Collar (long stock + protective put + short call)"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "•\tProtective put — delta below +1 but positive (long put adds negative delta): bullish with a floor."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Protective put: buy 1,000 puts with delta −0.3 → −300 → net delta +700"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Exam focus: Rank by net delta: bull spread and protective put/covered call are net long (below +1);"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "The short call in a covered call and the long put in a protective put both REDUCE delta from the +1 of the underlying."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Options let a manager reshape exposure precisely and cheaply: protective puts and collars HEDGE downside (portfolio insurance), covered calls generate INCOME and monetize a neutral view, spreads express a directional view with defined risk, straddles/strangles trade VOLATILITY directly, and options can adjust delta or create synthetic exposures without transacting in the underlying."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "To hedge a long position, the manager chooses along a cost-versus-protection spectrum: a protective PUT gives full downside protection above the strike but costs a premium;"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Protective put: max loss (S₀−X)+prem ;"
+   }
+  ],
+  "los": [
+   {
+    "reading": "options_strategies",
+    "letter": "c",
+    "text": "discuss the investment objective(s), structure, payoff, risk(s), value at expiration, profit, maximum profit, maximum loss, and breakeven underlying price at expiration of a protective put position"
+   },
+   {
+    "reading": "options_strategies",
+    "letter": "d",
+    "text": "compare the delta of covered call and protective put positions with the position of being long an asset and short a forward on the underlying asset"
+   }
+  ],
+  "essayStems": [
+   {
+    "id": "bristol_advisors_options_pathway_essay_q2",
+    "stem": "COMPARE Strategy 2 (protective put) vs Strategy 1 (covered call) for a client focused on downside protection. IDENTIFY key differences in risk/reward."
+   }
+  ],
+  "counts": {
+   "notes": 22,
+   "los": 2,
+   "essays": 1
+  }
+ },
+ "collar": {
+  "family": "Derivatives: options",
+  "notesEvidence": [
+   {
+    "reading": "an_overview_of_private_wealth_management",
+    "text": "•\tHedging with derivatives — buy protective puts (a downside floor for a premium) or a collar / zero-cost collar (a floor funded by selling upside via a call), reducing downside risk without an immediate taxable sale."
+   },
+   {
+    "reading": "an_overview_of_private_wealth_management",
+    "text": "Exam focus: Know the concentrated-position toolkit and its tax angle: staged sale (spreads tax), collar/protective put (hedges without selling), prepaid variable forward/borrowing (monetizes and defers), exchange fund (diversifies without a sale), and charitable gift/CRT (diversifies while avoiding the gain)."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "LOS 5 & 10 — Spreads, straddles, collars, and calendar spreads"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "LOS: compare the payoffs, risks, and uses of spreads, straddles, collars, and calendar spreads"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Collar (long stock + protective put + short call)"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "A collar brackets a stock position: buy a downside put and finance it by selling an upside call (often a zero-cost collar)."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Worked example — zero-cost collar"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Adjust the net premium for the exact figures if the collar is not zero-cost."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Worked example — collar with a net premium"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Because the put cost more than the call brought in, the collar carries a net cost of 1 — raising the max loss to 6 and lowering the max profit to 4 relative to a zero-cost collar."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Collar bounds the payoff between the put and call strikes (often zero-cost)."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "•\tCollar — net positive but reduced delta: a dampened long position bounded on both sides."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Options let a manager reshape exposure precisely and cheaply: protective puts and collars HEDGE downside (portfolio insurance), covered calls generate INCOME and monetize a neutral view, spreads express a directional view with defined risk, straddles/strangles trade VOLATILITY directly, and options can adjust delta or create synthetic exposures without transacting in the underlying."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Which structure? (Answer: a zero-cost collar — buy a downside put financed by selling an upside call, bounding both loss and gain at little or no net cost.)"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "a COLLAR reduces or eliminates that cost by capping the upside;"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "The right choice depends on how much upside the manager will surrender and how much they will pay — full insurance (put), cheap bounded protection (collar), or partial low-cost protection (put spread)."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Uses: hedging (puts/collars), income (covered calls), defined-risk direction (spreads), volatility trading (straddles), and synthetic exposure."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Collar: payoff bounded between X_put and X_call (often zero-cost)"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "What does a collar do to the payoff?"
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "•\tSeagull / collar variants — combine several options to shape the payoff and reduce cost within a bounded range."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Cut cost by buying OTM options, using a risk reversal (sell one side to fund the other — net premium falls but the favorable side is capped), a put spread, or a seagull/collar — all trade lower cost for less complete protection."
+   }
+  ],
+  "los": [
+   {
+    "reading": "options_strategies",
+    "letter": "f",
+    "text": "discuss the investment objective(s), structure, payoffs, risk(s), value at expiration, profit, maximum profit, maximum loss, and breakeven underlying price at expiration of the following option strategies: bull spread, bear spread, straddle, and collar"
+   }
+  ],
+  "essayStems": [
+   {
+    "id": "bristol_advisors_options_pathway_essay_q1",
+    "stem": "EVALUATE Strategy 3 (zero-cost collar at $50 put / $60 call) against Ashcroft's stated objectives + JUSTIFY whether it meets her requirements."
+   },
+   {
+    "id": "bristol_advisors_options_pathway_essay_q3",
+    "stem": "CALCULATE the payoff on the collar (Strategy 3) at KEND prices of $40, $50, $56, $60, $70 at expiration. Compare to the unhedged stock position."
+   },
+   {
+    "id": "bristol_advisors_options_pathway_essay_q4",
+    "stem": "DISCUSS two additional tax considerations Ashcroft should consider with the collar strategy beyond constructive sale rules."
+   }
+  ],
+  "counts": {
+   "notes": 21,
+   "los": 1,
+   "essays": 3
+  }
+ },
+ "bull_bear_spread": {
+  "family": "Derivatives: options",
+  "notesEvidence": [
+   {
+    "reading": "options_strategies",
+    "text": "A bull spread caps both the gain (3) and the loss (2) — a cheaper, moderated bullish bet than an outright call."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Exam focus: Bull/bear spreads cap BOTH profit and loss (max profit = strike difference − net debit;"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Exam focus: Rank by net delta: bull spread and protective put/covered call are net long (below +1);"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "bullish+big-move → buy calls/bull spread;"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Bull/bear spread: max profit (X_high−X_low)−debit ;"
+   }
+  ],
+  "los": [
+   {
+    "reading": "options_strategies",
+    "letter": "f",
+    "text": "discuss the investment objective(s), structure, payoffs, risk(s), value at expiration, profit, maximum profit, maximum loss, and breakeven underlying price at expiration of the following option strategies: bull spread, bear spread, straddle, and collar"
+   }
+  ],
+  "essayStems": [],
+  "counts": {
+   "notes": 5,
+   "los": 1,
+   "essays": 0
+  }
+ },
+ "straddle": {
+  "family": "Derivatives: options",
+  "notesEvidence": [
+   {
+    "reading": "options_strategies",
+    "text": "Learn put-call parity, the covered-call and protective-put formulas, the spread and straddle payoffs, and the direction-times-volatility selection grid cold — this reading pays off directly in the exam."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "LOS 5 & 10 — Spreads, straddles, collars, and calendar spreads"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "LOS: compare the payoffs, risks, and uses of spreads, straddles, collars, and calendar spreads"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Straddle (buy call + buy put, same strike)"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "A long straddle is a bet on a BIG MOVE in either direction (long volatility) — you profit if the underlying moves far enough, and lose the combined premium if it sits at the strike."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Worked example — long straddle"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Like a straddle but built with OUT-OF-THE-MONEY strikes (buy an OTM call and an OTM put) — cheaper than a straddle but needing a LARGER move to profit."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "The strangle costs less than an at-the-money straddle but needs a move beyond 42–58 to pay off — cheaper long-volatility exposure for a bigger expected move."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Long straddle = long volatility, breakevens X ± total premium, loss capped at premium."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "•\tLong straddle — delta ≈ 0 at initiation (long call and long put deltas offset): direction-neutral, volatility-driven."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "a straddle is delta-neutral at inception."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Traders trade the surface directly: calendar spreads exploit differences in implied volatility across maturities, while straddles and strangles express a view on the LEVEL of implied versus realized volatility."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Sell straddle/strangle (short vol)"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Buy straddle/strangle (long vol)"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Options let a manager reshape exposure precisely and cheaply: protective puts and collars HEDGE downside (portfolio insurance), covered calls generate INCOME and monetize a neutral view, spreads express a directional view with defined risk, straddles/strangles trade VOLATILITY directly, and options can adjust delta or create synthetic exposures without transacting in the underlying."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Selling options — covered calls, cash-secured puts, short straddles and strangles — collects premium but creates an ASYMMETRIC payoff: limited gain (the premium) against large, sometimes unlimited, losses if the market moves sharply."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Conversely, a neutral investor expecting a BIG move buys a straddle (long vol) rather than selling one."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "neutral+low-vol → sell straddle;"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "neutral+big-move → buy straddle;"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Uses: hedging (puts/collars), income (covered calls), defined-risk direction (spreads), volatility trading (straddles), and synthetic exposure."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Straddle: breakevens X ± total premium ;"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "straddle delta ≈ 0 at inception"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "-> A straddle (long call and long put deltas offset)."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "-> A long straddle/strangle (long volatility)."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "•\tVolatility trading — use FX options (straddles, strangles, variance/vol products) to trade a view on currency VOLATILITY rather than direction."
+   }
+  ],
+  "los": [
+   {
+    "reading": "options_strategies",
+    "letter": "f",
+    "text": "discuss the investment objective(s), structure, payoffs, risk(s), value at expiration, profit, maximum profit, maximum loss, and breakeven underlying price at expiration of the following option strategies: bull spread, bear spread, straddle, and collar"
+   }
+  ],
+  "essayStems": [],
+  "counts": {
+   "notes": 25,
+   "los": 1,
+   "essays": 0
+  }
+ },
+ "strangle": {
+  "family": "Derivatives: options",
+  "notesEvidence": [
+   {
+    "reading": "options_strategies",
+    "text": "Strangle and butterfly (further volatility structures)"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Worked example — long strangle"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "The strangle costs less than an at-the-money straddle but needs a move beyond 42–58 to pay off — cheaper long-volatility exposure for a bigger expected move."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Traders trade the surface directly: calendar spreads exploit differences in implied volatility across maturities, while straddles and strangles express a view on the LEVEL of implied versus realized volatility."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Sell straddle/strangle (short vol)"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Buy straddle/strangle (long vol)"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Options let a manager reshape exposure precisely and cheaply: protective puts and collars HEDGE downside (portfolio insurance), covered calls generate INCOME and monetize a neutral view, spreads express a directional view with defined risk, straddles/strangles trade VOLATILITY directly, and options can adjust delta or create synthetic exposures without transacting in the underlying."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Selling options — covered calls, cash-secured puts, short straddles and strangles — collects premium but creates an ASYMMETRIC payoff: limited gain (the premium) against large, sometimes unlimited, losses if the market moves sharply."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "-> A long straddle/strangle (long volatility)."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "•\tVolatility trading — use FX options (straddles, strangles, variance/vol products) to trade a view on currency VOLATILITY rather than direction."
+   }
+  ],
+  "los": [],
+  "essayStems": [],
+  "counts": {
+   "notes": 10,
+   "los": 0,
+   "essays": 0
+  }
+ },
+ "calendar_spread": {
+  "family": "Derivatives: options",
+  "notesEvidence": [
+   {
+    "reading": "options_strategies",
+    "text": "LOS 5 & 10 — Spreads, straddles, collars, and calendar spreads"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "LOS: compare the payoffs, risks, and uses of spreads, straddles, collars, and calendar spreads"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Calendar spread (sell near-term, buy longer-term, same strike)"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "A calendar spread sells a near-term option and buys a longer-term option at the same strike, profiting from the FASTER time decay (theta) of the short near-term leg while the long leg retains value."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Calendar spread harvests near-term time decay and is long vega."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Traders trade the surface directly: calendar spreads exploit differences in implied volatility across maturities, while straddles and strangles express a view on the LEVEL of implied versus realized volatility."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "What is a calendar spread's main source of profit?"
+   }
+  ],
+  "los": [
+   {
+    "reading": "options_strategies",
+    "letter": "g",
+    "text": "describe uses of calendar spreads"
+   }
+  ],
+  "essayStems": [
+   {
+    "id": "options_duane_armitage_duane_essay_q6",
+    "stem": "EVALUATE Minkoff's calendar spread suggestion given Kadakia's expectations."
+   }
+  ],
+  "counts": {
+   "notes": 7,
+   "los": 1,
+   "essays": 1
+  }
+ },
+ "butterfly": {
+  "family": "Derivatives: options",
+  "notesEvidence": [
+   {
+    "reading": "options_strategies",
+    "text": "Strangle and butterfly (further volatility structures)"
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "Non-parallel (twist/butterfly) → immunization imperfect (structural risk, worse with higher dispersion/convexity)."
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "Beyond parallel shifts, the yield curve can steepen, flatten, or bend (butterfly), and a portfolio matched only on OVERALL duration is exposed to each — the reason key-rate durations and the dispersion/convexity conditions matter."
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "•\tCurve positioning — steepener/flattener (slope) and bullet/barbell/butterfly (shape)."
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "BUTTERFLY trades formalize the curvature bet: a long-butterfly (long the wings, short the body) profits if curvature increases;"
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "butterfly trades express curvature."
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "Key-rate durations are how a manager BUILDS and MONITORS duration-neutral curve trades: match total duration to the benchmark while deliberately tilting the key-rate profile to express a steepener, flattener, or butterfly view, then track the realized curve move against that profile."
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "Compare the portfolio's KRD profile to the benchmark's to see over/underexposed points, and TILT the KRD profile (keeping the sum = benchmark duration) to build duration-neutral steepener/flattener/butterfly trades."
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "Because a curve can move in many ways, managers evaluate a candidate position with SCENARIO ANALYSIS: project the total return under several yield-curve scenarios (parallel up/down, steepener, flattener, butterfly, unchanged), using the return decomposition for each."
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "Butterfly and barbell trades depend on convexity that only pays if volatility materializes."
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "Evaluate with SCENARIO ANALYSIS across parallel/steepener/flattener/butterfly/unchanged cases to see the outcome distribution and worst case."
+   }
+  ],
+  "los": [],
+  "essayStems": [],
+  "counts": {
+   "notes": 11,
+   "los": 0,
+   "essays": 0
+  }
+ },
+ "interest_rate_swap": {
+  "family": "Derivatives: swaps & futures",
+  "notesEvidence": [
+   {
+    "reading": "portfolio_management_for_institutional_investors",
+    "text": "A DB plan reduces the risk to its funded status by hedging the interest-rate sensitivity of its liabilities with long-duration bonds and derivatives (interest-rate swaps, bond futures) — liability-driven investing."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "LOS: demonstrate the use of interest rate swaps, forwards, and futures to modify a portfolio's risk exposure to interest rates"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "An interest-rate swap changes duration too: RECEIVE-fixed (pay-floating) ADDS duration (it behaves like owning a fixed-rate bond), while PAY-fixed REDUCES duration."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "Interest-rate swaps are over-the-counter and customizable to the exact tenor and notional, well suited to a longer-horizon or precise duration target — such as matching a pension's liability duration — and they avoid the cheapest-to-deliver complications, at the cost of counterparty exposure and lower liquidity."
+   }
+  ],
+  "los": [
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "letter": "a",
+    "text": "demonstrate how interest rate swaps, forwards, and futures can be used to modify a portfolio's risk and return"
+   }
+  ],
+  "essayStems": [],
+  "counts": {
+   "notes": 4,
+   "los": 1,
+   "essays": 0
+  }
+ },
+ "currency_swap": {
+  "family": "Derivatives: swaps & futures",
+  "notesEvidence": [
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "cross-currency swaps hedge longer-dated interest-and-principal exposures."
+   }
+  ],
+  "los": [
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "letter": "b",
+    "text": "demonstrate how currency swaps, forwards, and futures can be used to modify a portfolio's risk and return"
+   }
+  ],
+  "essayStems": [],
+  "counts": {
+   "notes": 1,
+   "los": 1,
+   "essays": 0
+  }
+ },
+ "equity_swap": {
+  "family": "Derivatives: swaps & futures",
+  "notesEvidence": [
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "LOS: demonstrate the use of equity swaps and futures to modify a portfolio's risk exposure to equities"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "Total-return equity swaps: switching and diversifying"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "A total-return equity swap exchanges the return on one asset for another (or for a financing rate), reshaping exposure without trading the underlying:"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "Worked example — total-return equity swap"
+   }
+  ],
+  "los": [
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "letter": "c",
+    "text": "demonstrate how equity swaps, forwards, and futures can be used to modify a portfolio's risk and return"
+   }
+  ],
+  "essayStems": [],
+  "counts": {
+   "notes": 4,
+   "los": 1,
+   "essays": 0
+  }
+ },
+ "variance_swap": {
+  "family": "Derivatives: swaps & futures",
+  "notesEvidence": [
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "and trading volatility with variance swaps and VIX futures."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "LOS: demonstrate the use of volatility derivatives, including VIX futures and variance swaps"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "VARIANCE SWAPS pay off on the difference between REALIZED variance and a strike variance agreed at inception:"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "Worked example — variance swap payoff"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "A long variance swap has a vega notional of 100,000 and a strike volatility of 20%."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "Note the CONVEXITY: the vega-notional approximation (100,000 × (25 − 20) = 500,000) understates the true payoff, because variance swaps pay on variance, not volatility."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "Worked example — short variance swap (the other side)"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "A dealer is SHORT the same variance swap (vega notional 100,000, strike vol 20%, variance notional 2,500)."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "A long variance swap (or long VIX futures) is a way to HEDGE a portfolio against volatility spikes and market crashes, or to speculate on volatility directly;"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "VIX futures roll and variance vs volatility swaps"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "A VARIANCE swap pays on realized VARIANCE (squared volatility) and is therefore CONVEX in volatility, while a VOLATILITY swap pays linearly on realized volatility;"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "variance swaps are the more common instrument, and their convexity means they gain more than a linear position when volatility spikes — attractive for a crash hedge."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "Variance swap payoff = variance notional × (realized var − strike var), with variance notional = vega notional/(2×strike vol)."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "the convexity means it pays MORE than the linear vega approximation, and more than a (linear) volatility swap."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "Variance swap: vega notional 100,000, strike vol 20%, realized 25%."
+   }
+  ],
+  "los": [
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "letter": "d",
+    "text": "demonstrate the use of volatility derivatives and variance swaps"
+   }
+  ],
+  "essayStems": [
+   {
+    "id": "swaps_heights_case_ford_tyron_essay_q7",
+    "stem": "EVALUATE each of Tryon's three tail-hedge trades (long VIX back-month futures, short OTM puts on VIX futures, long variance swap) given VIX contango."
+   }
+  ],
+  "counts": {
+   "notes": 15,
+   "los": 1,
+   "essays": 1
+  }
+ },
+ "total_return_swap": {
+  "family": "Derivatives: swaps & futures",
+  "notesEvidence": [
+   {
+    "reading": "case_study_in_portfolio_management_institutional_endowment",
+    "text": "Three vehicles: ETF, equity futures, total return swap (TRS)."
+   }
+  ],
+  "los": [],
+  "essayStems": [],
+  "counts": {
+   "notes": 1,
+   "los": 0,
+   "essays": 0
+  }
+ },
+ "futures": {
+  "family": "Derivatives: swaps & futures",
+  "notesEvidence": [
+   {
+    "reading": "overview_of_asset_allocation",
+    "text": "•\tDerivatives (futures/swaps) — efficient, capital-light exposure and overlays for quick or temporary positioning."
+   },
+   {
+    "reading": "overview_of_asset_allocation",
+    "text": "fast, cheap, broad exposure → ETF or futures;"
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "Effect on management: illiquidity means higher transaction costs and difficulty trading in size, so managers often use liquid proxies (government futures, bond ETFs, on-the-run bonds, CDS), tilt toward buy-and-hold, and demand a liquidity premium for less-liquid holdings."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "Exam focus: Know the liquidity ranking (sovereign > IG > high-yield > securitized/EM) and the on-the-run vs off-the-run distinction, plus the use of futures/ETFs/CDS as liquid proxies."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "•\tFutures — embedded leverage: large notional exposure for a small margin."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "Exam focus: Expect the levered-return calculation and a listing of methods (repo, futures, swaps) and risks (rollover/funding, margin calls/forced deleveraging, magnified losses)."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "The methods menu: FUTURES — exposure for initial margin, leverage = (notional − margin)/margin, cheap and liquid;"
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "To close a gap with futures: number of contracts = (BPV_liability − BPV_asset)/BPV_futures;"
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "sign tells direction (negative → short futures to shed duration)."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "The risks the reading names for hedged LDI: model risk in liability measurement, spread risk between hedge instruments and liabilities (futures on government bonds versus corporate-discounted liabilities), counterparty and collateral/rollover risk on derivative overlays — and the one risk essentially ELIMINATED by choosing exchange-traded futures over OTC swaps is counterparty credit exposure."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "Which LDI risk does using exchange-traded futures (vs OTC swaps) essentially remove?"
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "diversifying hedge-fund styles (global macro, equity market-neutral, managed futures) are held primarily for this."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "The diversification role is best filled by strategies whose returns are structurally independent of equity direction — market-neutral, macro, and managed futures."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Managed futures / trend-following in particular has historically produced \"crisis alpha\" — it tends to profit in prolonged equity drawdowns as it rides the downward trend — and global macro and equity market-neutral can also hold up when equities fall."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Trend/managed futures is the go-to example that meets both;"
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Drill: Rank three candidates as equity-risk mitigators: (i) 10-year government bonds, (ii) a managed-futures fund, (iii) a long-biased equity hedge fund."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "(Answer: bonds and managed futures are genuine mitigators — bonds most reliable and liquid, managed futures higher-returning but less certain;"
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Name trend/managed futures as the crisis-alpha example, and be explicit that a mitigator must work WHEN equities fall."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Why can trend/managed futures beat bonds as an equity-risk mitigator, and what's the cost?"
+   },
+   {
+    "reading": "portfolio_management_for_institutional_investors",
+    "text": "A DB plan reduces the risk to its funded status by hedging the interest-rate sensitivity of its liabilities with long-duration bonds and derivatives (interest-rate swaps, bond futures) — liability-driven investing."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "Reading: Swaps, Forwards, and Futures Strategies"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "Seven learning outcomes (one is a near-duplicate) covering: adjusting interest-rate risk (duration) with swaps and futures via the basis-point-value hedge ratio;"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "adjusting equity risk (beta) with equity futures;"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "and trading volatility with variance swaps and VIX futures."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "Framework — choosing among futures, forwards, and swaps"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "•\tFutures — exchange-traded, standardized, highly liquid, marked-to-market daily with margin, minimal counterparty risk (a clearinghouse stands between the parties);"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "The choice trades liquidity and low counterparty risk (futures) against customization (forwards and swaps)."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "Short, standard, liquid adjustments favor futures;"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "Exam focus: Futures = liquid, standardized, margined, clearinghouse (low counterparty risk) but basis risk;"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "LOS 1 — Modifying duration with futures and swaps"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "LOS: demonstrate the use of interest rate swaps, forwards, and futures to modify a portfolio's risk exposure to interest rates"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "What you must do:  Compute the number of interest-rate futures (via BPV) and the swap notional needed to hit a target duration."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "To move the portfolio's BPV to a target using bond futures, the number of contracts is the BPV gap divided by the futures BPV:"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "Worked example — duration adjustment with futures"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "The futures BPV is 80 per contract."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "A manager expecting to invest cash soon can lock in today's yield by buying bond futures (a pre-investment hedge);"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "an issuer planning to borrow can hedge against rising rates by selling futures or using a forward-starting swap."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "Swaps versus futures for duration management"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "For adjusting duration, futures and swaps each have merits."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "Bond futures are exchange-traded and liquid, ideal for short-term, tactical duration changes and easy to unwind, but they reference a cheapest-to-deliver bond (introducing delivery-option and basis complications) and require daily margin."
+   }
+  ],
+  "los": [
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "letter": "a",
+    "text": "demonstrate how interest rate swaps, forwards, and futures can be used to modify a portfolio's risk and return"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "letter": "b",
+    "text": "demonstrate how currency swaps, forwards, and futures can be used to modify a portfolio's risk and return"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "letter": "c",
+    "text": "demonstrate how equity swaps, forwards, and futures can be used to modify a portfolio's risk and return"
+   },
+   {
+    "reading": "trade_strategy_and_execution",
+    "letter": "f",
+    "text": "contrast key characteristics of the following markets in relation to trade implementation: equity, fixed income, options and futures, OTC derivatives, and spot currency"
+   }
+  ],
+  "essayStems": [
+   {
+    "id": "swaps_heights_case_ford_tyron_essay_q5",
+    "stem": "For Tryon's $10M corporate bond portfolio (MD 7.5), CALCULATE the number of Treasury futures contracts required to fully hedge duration. Show work."
+   },
+   {
+    "id": "swaps_heights_case_ford_tyron_essay_q6",
+    "stem": "For the $10M EM equity exposure using BOVESPA futures (beta 1.15, target 1.0), CALCULATE the number of futures contracts to establish the equitization. Show work."
+   },
+   {
+    "id": "swaps_heights_case_ford_tyron_essay_q7",
+    "stem": "EVALUATE each of Tryon's three tail-hedge trades (long VIX back-month futures, short OTM puts on VIX futures, long variance swap) given VIX contango."
+   },
+   {
+    "id": "swaps_tribeca_case_chelsea_stuyvesant_essay_q6",
+    "stem": "For the £10M UK-to-US equity transition, CALCULATE (a) number of FTSE futures to SHORT and (b) number of S&P futures to LONG. Show work."
+   },
+   {
+    "id": "swaps_tribeca_case_chelsea_stuyvesant_essay_q7",
+    "stem": "Using the current Fed funds rate (1.88%) and Fed funds futures price (98.33), CALCULATE the implied probability of a Fed rate CUT of 25 bps at the next FOMC meeting."
+   },
+   {
+    "id": "aventine_pension_swaps_pathway_essay_q1",
+    "stem": "CALCULATE the number of Treasury futures contracts required to close 60% of Aventine's duration gap. Show work."
+   },
+   {
+    "id": "aventine_pension_swaps_pathway_essay_q2",
+    "stem": "EVALUATE Kaminski's claim that receive-fixed swaps are SUPERIOR to Treasury futures for closing the LDI gap."
+   },
+   {
+    "id": "ldi_pm_pathway_abiquia_chosovi_puhuyesva_essay_q7",
+    "stem": "Given Puhuyesva's view that rates will FALL over three months and her desire to increase interest-rate sensitivity, CALCULATE the number of 10-year Treasury futures contracts required to fully close the BPV gap. Show work."
+   }
+  ],
+  "counts": {
+   "notes": 154,
+   "los": 4,
+   "essays": 10
+  }
+ },
+ "forwards": {
+  "family": "Derivatives: swaps & futures",
+  "notesEvidence": [
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "text": "Approach 3 — Forward rates"
+   },
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "text": "Forward rates embed the market's expected path of future rates plus a term premium."
+   },
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "text": "Covered interest-rate parity (CIP) is an arbitrage identity enforced by the forward market — the forward premium/discount exactly offsets the interest-rate differential, so a fully-hedged foreign investment earns the domestic rate."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "An FX forward removes the currency risk while bond futures cut the duration from 8 to 3 — a common combined hedge for a foreign fixed-income holding, and a reminder that currency and rate exposures are managed separately with the appropriate instrument for each."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "LOS: describe how forward contracts and FX swaps are used to adjust hedge ratios and manage currency exposure"
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Currency exposure is most often hedged with FORWARD contracts: to hedge a long foreign-currency exposure, SELL the currency forward."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Where a currency is not freely convertible or deliverable, hedges use NON-DELIVERABLE FORWARDS (NDFs): contracts settled in a convertible currency (usually USD) for the DIFFERENCE between the agreed forward rate and the actual spot at maturity, with no exchange of the restricted currency itself."
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "Forward rates are the market's implied expectation of future rates, and two 'agree with the market' cases must be kept apart."
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "If FORWARD RATES ARE REALIZED, every bond earns the same short-rate return over the horizon, so lengthening or shortening duration changes risk without changing expected return — only then is a neutral, benchmark-matching posture the answer."
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "LOS: formulate a portfolio positioning strategy given forward rates and a view that diverges from the market in rate level, slope, and shape"
+   }
+  ],
+  "los": [
+   {
+    "reading": "currency_management_an_introduction",
+    "letter": "f",
+    "text": "describe how forward contracts and FX (foreign exchange) swaps are used to adjust hedge ratios"
+   }
+  ],
+  "essayStems": [],
+  "counts": {
+   "notes": 10,
+   "los": 1,
+   "essays": 0
+  }
+ },
+ "government_bonds": {
+  "family": "Fixed income",
+  "notesEvidence": [
+   {
+    "reading": "asset_allocation_with_real_world_constraints",
+    "text": "A note on valuation signals and realism: a common relative-value signal is the gap between the equity earnings yield and the government bond yield (the \"Fed model\" idea) — a wide gap argues for equities."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "•\tDiversification — low or negative correlation with equities, especially high-quality government bonds."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "High-quality government bonds have low or negative correlation with equities (the diversification benefit), while credit-sensitive bonds — investment-grade and especially high-yield — are more correlated with equities, since they share exposure to the economic/credit cycle."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "The risks the reading names for hedged LDI: model risk in liability measurement, spread risk between hedge instruments and liabilities (futures on government bonds versus corporate-discounted liabilities), counterparty and collateral/rollover risk on derivative overlays — and the one risk essentially ELIMINATED by choosing exchange-traded futures over OTC swaps is counterparty credit exposure."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "High-quality government bonds are the classic equity-risk mitigator for three reasons: they tend to rally when equities sell off (a flight-to-quality that produces negative correlation in a crisis), they are highly liquid precisely when liquidity is scarce, and their duration delivers price gains as central banks cut rates in a downturn."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Drill: Rank three candidates as equity-risk mitigators: (i) 10-year government bonds, (ii) a managed-futures fund, (iii) a long-biased equity hedge fund."
+   },
+   {
+    "reading": "case_study_in_portfolio_management_institutional_swf",
+    "text": "A sovereign fund holds a 25% direct equity stake (US$4bn) in a coal-fired power and mining group in an emerging market, plus a US$1bn local-currency government bond position in the same country."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "A domestic investor holds a foreign government bond worth FC 20,000,000 with duration 8, and wants NO currency risk and a duration of 3."
+   }
+  ],
+  "los": [],
+  "essayStems": [
+   {
+    "id": "ldi_pm_pathway_beatriz_maestre_beatriz_maestre_essay_q9",
+    "stem": "Maestre proposes selecting one of three government bond portfolios to immunize the €2.3M balloon liability due in 6.5 years. IDENTIFY the required PROPERTIES the portfolio must satisfy for effective immunization."
+   }
+  ],
+  "counts": {
+   "notes": 8,
+   "los": 0,
+   "essays": 1
+  }
+ },
+ "ig_corporates": {
+  "family": "Fixed income",
+  "notesEvidence": [
+   {
+    "reading": "overview_of_asset_allocation",
+    "text": "How they relate: asset classes BUNDLE several factor exposures (a corporate bond is real rate + inflation + credit), and different asset classes can share the same factors — creating hidden correlation and concentration."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "High-quality government bonds have low or negative correlation with equities (the diversification benefit), while credit-sensitive bonds — investment-grade and especially high-yield — are more correlated with equities, since they share exposure to the economic/credit cycle."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "Investment-grade corporate"
+   },
+   {
+    "reading": "an_overview_of_private_wealth_management",
+    "text": "An investor in a 35% bracket compares a 3.0% municipal bond with a 4.2% taxable corporate bond."
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "Bond indexes span many categories — aggregate (broad investment-grade), government, corporate, high-yield, mortgage-backed, and global — each with its own liquidity and replication challenges."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "It allocates across SECTORS (cyclical vs defensive), QUALITY (investment-grade vs high-yield), and the overall credit BETA of the portfolio, positioning for the expected direction of spreads."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "An illiquid corporate bond has a bid-ask spread of 1.0% (buy at 100.5, sell at 99.5), versus 0.05% for a liquid on-the-run Treasury."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "A US investor buys a euro-denominated corporate bond yielding 3.0% (a 150 bp spread over Bunds)."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "LOS: describe the use of structured financial instruments as an alternative to corporate bonds"
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "STRUCTURED instruments — asset-backed securities (ABS), mortgage-backed securities (RMBS/CMBS), collateralized loan obligations (CLOs), covered bonds, and CDOs — are alternatives (or complements) to corporate bonds."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "The higher yield is compensation for these — do not treat a highly-rated tranche as risk-equivalent to a same-rated corporate bond."
+   }
+  ],
+  "los": [
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "letter": "j",
+    "text": "describe the use of structured financial instruments as an alternative to corporate bonds in credit portfolios"
+   }
+  ],
+  "essayStems": [
+   {
+    "id": "swaps_heights_case_ford_tyron_essay_q5",
+    "stem": "For Tryon's $10M corporate bond portfolio (MD 7.5), CALCULATE the number of Treasury futures contracts required to fully hedge duration. Show work."
+   },
+   {
+    "id": "credit_strategies_pm_pathway_central_county_central_county_essay_q8",
+    "stem": "EVALUATE Larent's three statements about credit risk considerations for investment-grade bonds."
+   },
+   {
+    "id": "credit_strategies_pm_pathway_harlow_choate_harlow_choate_essay_q7",
+    "stem": "EVALUATE Choate's characterization of the risk differences between investment-grade and high-yield bonds."
+   }
+  ],
+  "counts": {
+   "notes": 11,
+   "los": 1,
+   "essays": 3
+  }
+ },
+ "high_yield": {
+  "family": "Fixed income",
+  "notesEvidence": [
+   {
+    "reading": "capital_market_expectations_part_1_framework_and_macro_considerations",
+    "text": "Exam focus: Very high-yield."
+   },
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "text": "•\tUncovered interest-rate parity (UIP) — theoretically the high-yield currency should depreciate by the interest-rate differential."
+   },
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "text": "Empirically UIP fails at short horizons: high-yield currencies tend to hold up or appreciate, so borrowing low-yield and investing high-yield (the carry trade) has historically paid — until it unwinds violently in risk-off episodes (\"picking up pennies in front of a steamroller\")."
+   },
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "text": "Uncovered interest-rate parity (UIP) is the unhedged expectation — the expected spot change equals the differential, so the high-yield currency should depreciate."
+   },
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "text": "•\tCredit: reduce high-yield/spread exposure late-cycle when spreads are likely to widen;"
+   },
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "text": "Tilt 2 — Reduce high-yield credit and add real assets."
+   },
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "text": "Late-cycle, credit spreads tend to widen, which hurts high-yield;"
+   },
+   {
+    "reading": "overview_of_asset_allocation",
+    "text": "A portfolio holds high-yield bonds, public equities, and private equity, and looks well-diversified across three \"asset classes.\" But all three load heavily on the same equity/credit-risk factor, so in a downturn they fall together — the diversification is largely illusory."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "High-quality government bonds have low or negative correlation with equities (the diversification benefit), while credit-sensitive bonds — investment-grade and especially high-yield — are more correlated with equities, since they share exposure to the economic/credit cycle."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "Exam focus: Know the liquidity ranking (sovereign > IG > high-yield > securitized/EM) and the on-the-run vs off-the-run distinction, plus the use of futures/ETFs/CDS as liquid proxies."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "Rank liquidity: sovereign, high-yield, IG corporate."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "-> Sovereign > IG corporate > high-yield."
+   },
+   {
+    "reading": "portfolio_management_for_institutional_investors",
+    "text": "Exam focus: Very high-yield essay content."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "•\tCarry trade — borrow (short) a LOW-yield currency and invest (long) a HIGH-yield currency, profiting from the interest-rate differential when the high-yield currency does not depreciate enough to offset it — a bet AGAINST uncovered interest rate parity, which empirically fails short-term."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "The risk: if the high-yield currency DEPRECIATES against the funding currency by more than 4%, the trade loses."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Carry trades earn steadily in calm markets but suffer sharp losses in crises (the high-yield currency crashes) — a negatively skewed, 'picking up nickels in front of a steamroller' payoff."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Exam focus: Four styles: fundamentals (value via PPP/flows — buy cheap), technical (trends/momentum, ignore fundamentals), carry (long high-yield, short low-yield — bet against UIP), and volatility (FX options on a vol view)."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Roll yield is tied to the interest-rate differential (covered interest rate parity), so hedging a high-yield currency (typically at a forward discount) tends to earn positive roll yield, and hedging a low-yield currency tends to cost."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Carry trade: long high-yield, short low-yield (bet against UIP)"
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "-> Long high-yield, short low-yield currency;"
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "Bond indexes span many categories — aggregate (broad investment-grade), government, corporate, high-yield, mortgage-backed, and global — each with its own liquidity and replication challenges."
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "Indexes come in many types (aggregate, government, corporate, high-yield, MBS, global);"
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "It allocates across SECTORS (cyclical vs defensive), QUALITY (investment-grade vs high-yield), and the overall credit BETA of the portfolio, positioning for the expected direction of spreads."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "overweight cyclical sectors, shift somewhat down in quality (toward high-yield), and extend spread duration to capture the expected tightening."
+   },
+   {
+    "reading": "case_study_in_portfolio_management_institutional_endowment",
+    "text": "(2) exposure to classes or strategies OUTSIDE the policy benchmark universe but compliant with policy (e.g., high yield, EM fixed income)."
+   },
+   {
+    "reading": "application_of_code_and_standards_l3",
+    "text": "High-yield discriminations"
+   }
+  ],
+  "los": [],
+  "essayStems": [
+   {
+    "id": "credit_strategies_pm_pathway_harlow_choate_harlow_choate_essay_q7",
+    "stem": "EVALUATE Choate's characterization of the risk differences between investment-grade and high-yield bonds."
+   }
+  ],
+  "counts": {
+   "notes": 26,
+   "los": 0,
+   "essays": 1
+  }
+ },
+ "cds": {
+  "family": "Fixed income",
+  "notesEvidence": [
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "Effect on management: illiquidity means higher transaction costs and difficulty trading in size, so managers often use liquid proxies (government futures, bond ETFs, on-the-run bonds, CDS), tilt toward buy-and-hold, and demand a liquidity premium for less-liquid holdings."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "Exam focus: Know the liquidity ranking (sovereign > IG > high-yield > securitized/EM) and the on-the-run vs off-the-run distinction, plus the use of futures/ETFs/CDS as liquid proxies."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "Eleven learning outcomes: spread risk considerations, the spread measures and why OAS is best, bottom-up and top-down credit approaches, liquidity and tail risk, CDS strategies, positioning for a spread view (with duration times spread), international and structured credit, and the analytical tools."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "•\tUse liquid derivatives and index products — CDS indexes (CDX/iTraxx) and liquid ETFs give credit exposure that trades even when individual bonds do not."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "Manage with liquid on-the-run bonds and a cash buffer, CDS indexes/ETFs for liquid exposure, and position sizing to tradability (account for bid-ask/impact, which widens sharply in stress)."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "•\tHedge the tail — buy protection via CDS or index products, or options, to cap the loss from a systemic widening or default wave."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "Manage by diversifying, tilting to quality, reducing concentration, and buying tail hedges (CDS/index/options)."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "LOS 7 — Credit default swap strategies"
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "LOS: discuss the use of credit default swap strategies in active fixed-income portfolio management"
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "What you must do:  Explain CDS mechanics and the main CDS strategies."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "A CREDIT DEFAULT SWAP transfers credit risk: the protection BUYER pays a periodic premium and receives a payout if the reference entity defaults (a SHORT-credit position);"
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "•\tCurve and index trades — trade CDS at different maturities (credit-curve views) or CDS indexes (CDX/iTraxx) and their tranches for macro credit beta."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "•\tBasis trades — exploit the CDS-BOND BASIS, the difference between the CDS spread and the cash-bond spread, when they diverge."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "CDS is liquid, allows SHORTING credit (hard to do with bonds), and lets a manager separate the credit decision from the cash-bond position — an efficient, capital-light way to implement credit views."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "Worked example — a CDS protection payout"
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "An investor buys 10,000,000 notional of 5-year CDS protection at a spread of 200 bp (paying 200,000/year)."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "Before default the CDS also marks to market: if the credit's spread WIDENS, the protection buyer's position GAINS — the basis for using CDS to express spread views, not just default bets."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "Exam focus: CDS: buy protection = short credit (pay premium, gain on default/widening);"
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "Uses: adjust exposure without trading bonds, relative-value long/short pairs, curve and index (CDX/iTraxx) trades, and CDS-bond basis trades."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "A full credit process combines the pieces: a TOP-DOWN view sets the overall credit beta and the sector/quality tilts (how much DTS to run and where), a BOTTOM-UP process selects the specific issuers within that budget on relative value, LIQUIDITY and TAIL-risk limits constrain concentration and illiquid holdings, and CDS or index products fine-tune the exposure and hedge the tail efficiently."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "•\tImplementation — add exposure efficiently by SELLING CDS protection (or buying a CDX index) rather than sourcing many illiquid bonds — faster and more liquid."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "The resulting portfolio has higher DTS than the benchmark, a cyclical/lower-quality tilt, and CDS-based exposure for liquidity — a clean expression of 'spreads will tighten.' Its expected excess return is the spread income and expected tightening gain minus expected credit losses;"
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "Diversify, tilt to quality, buy tail protection (CDS/index/options)"
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "Use CDS indexes (CDX/iTraxx) or liquid ETFs"
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "CDS: buy protection = short credit ;"
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "use CDS indexes/ETFs (also size to tradability)."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "Buying CDS protection is a long or short credit position?"
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "CDS protection on 10M, recovery 40% — default payout?"
+   }
+  ],
+  "los": [
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "letter": "g",
+    "text": "discuss the use of credit default swap strategies in active fixed-income portfolio management"
+   }
+  ],
+  "essayStems": [],
+  "counts": {
+   "notes": 28,
+   "los": 1,
+   "essays": 0
+  }
+ },
+ "securitized": {
+  "family": "Fixed income",
+  "notesEvidence": [
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "Securitized / structured / EM"
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "Exam focus: Know the liquidity ranking (sovereign > IG > high-yield > securitized/EM) and the on-the-run vs off-the-run distinction, plus the use of futures/ETFs/CDS as liquid proxies."
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "Indexes come in many types (aggregate, government, corporate, high-yield, MBS, global);"
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "STRUCTURED instruments — asset-backed securities (ABS), mortgage-backed securities (RMBS/CMBS), collateralized loan obligations (CLOs), covered bonds, and CDOs — are alternatives (or complements) to corporate bonds."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "Watch out: Structured products add COMPLEXITY and model risk: MBS carry prepayment (and extension) risk, tranche values depend on correlation assumptions that failed badly in 2008, and many are less liquid than corporates."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "Risks: complexity/model risk, prepayment/extension (MBS), correlation risk in tranches (2008), and lower liquidity."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "-> Complexity/model risk and correlation risk in tranches (also prepayment for MBS, lower liquidity)."
+   }
+  ],
+  "los": [],
+  "essayStems": [],
+  "counts": {
+   "notes": 7,
+   "los": 0,
+   "essays": 0
+  }
+ },
+ "inflation_linked": {
+  "family": "Fixed income",
+  "notesEvidence": [
+   {
+    "reading": "principles_of_asset_allocation",
+    "text": "Exam focus: Given a described liability stream, identify the features that drive the hedge — most often duration (interest-rate exposure) and whether the cash flows are fixed or inflation-linked."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "•\tInflation protection — via inflation-linked bonds (e.g., TIPS)."
+   },
+   {
+    "reading": "an_overview_of_private_wealth_management",
+    "text": "•\tFloor-and-upside — cover essential spending with a secure floor (annuities, a bond ladder, or inflation-linked bonds) and pursue growth with the remainder for discretionary goals."
+   }
+  ],
+  "los": [],
+  "essayStems": [
+   {
+    "id": "sue_kim_case_scenario_essay_q8",
+    "stem": "EVALUATE (i) Kim's trading of acquisition-target derivatives based on Miriam's deal tips, and (ii) Kim's practice of trading Miriam's account before all other clients."
+   }
+  ],
+  "counts": {
+   "notes": 3,
+   "los": 0,
+   "essays": 1
+  }
+ },
+ "bullet_barbell_ladder": {
+  "family": "Fixed income",
+  "notesEvidence": [
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "A barbell (high dispersion) is exposed to curve twists even if its duration matches;"
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "a bullet (low dispersion) immunizes better."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "LOS 9 — Laddered bond portfolios"
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "LOS: describe construction, benefits, limitations, and risk–return characteristics of a laddered bond portfolio"
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "What you must do:  Describe a ladder and its benefits versus bullet and barbell structures."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "•\tHigher convexity than a duration-matched bullet, because the cash flows are spread out — a benefit when yields move."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "Against the alternatives: a bullet concentrates at one maturity (higher curve-point risk, less liquidity);"
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "a barbell splits short and long (more convexity but more exposure to curve twists);"
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "Exam focus: The reliable points: a ladder balances price vs reinvestment risk, throws off regular liquidity, and has MORE convexity than a bullet of the same duration."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "Contrast bullet (concentrated) vs barbell (dispersed) vs ladder (even)."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "-> Regular liquidity/reinvestment flexibility and higher convexity than a duration-matched bullet."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "Deep Dive D — Portfolio structures: ladder, bullet, barbell"
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "For a given duration, the structures differ in cash-flow dispersion and convexity: a BULLET concentrates maturities near the horizon (lowest dispersion/convexity — the immunizer's choice for a single liability);"
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "a BARBELL splits between short and long (highest convexity for the duration — outperforms in large parallel moves and curve flattening, lags in steepening and stable curves because convexity is paid for in yield);"
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "Barbell vs bullet at matched duration: which wins in a large parallel shift, and why?"
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "-> The barbell — higher convexity gains more when rates move far in either direction;"
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "•\tMinimize dispersion and convexity — cluster the asset cash flows tightly around the horizon (a bullet), keeping convexity just above the liability's;"
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "A tightly-clustered (bullet) structure minimizes the residual risk from non-parallel shifts."
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "But this BARBELL has higher dispersion and convexity than a single 7-year bullet, so it carries more structural (twist) risk — illustrating the trade-off between using the bonds available and minimizing convexity."
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "A barbell has high convexity/dispersion and greater structural risk;"
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "a bullet has low convexity/dispersion and less."
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "Exam focus: Single-liability immunization: (1) PV(assets) ≥ PV(liability), (2) Macaulay duration of assets = investment horizon, (3) minimize dispersion and convexity (bullet, convexity just above the liability's)."
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "Minimizing convexity (a bullet, or tighter cash-flow clustering) reduces this."
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "Under the twist, the year-7 value deviates from the liability — the structural risk that a bullet minimizes but does not eliminate."
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "Parallel shifts (bullet best)"
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "Bullet or barbell for immunization, and why?"
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "-> Bullet — lower dispersion/convexity means less exposure to non-parallel (twist) shifts."
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "Why does a barbell carry more structural risk than a bullet at the same duration?"
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "The return decomposition and the duration/convexity price-change formula are the calculation core, worked below, together with the bullet-vs-barbell and key-rate-duration analysis."
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "•\tBuy-and-hold / laddered — no view;"
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "•\tCurve positioning — steepener/flattener (slope) and bullet/barbell/butterfly (shape)."
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "Shape / curvature view — bullet vs barbell"
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "A curvature view is expressed with BULLET and BARBELL structures:"
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "•\tBullet — concentrate maturities at one point (e.g., the middle)."
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "•\tBarbell — hold short and long maturities, little in the middle."
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "Raise convexity (barbell / buy options)"
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "Reduce convexity (bullet / sell options)"
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "SHAPE: bullet (low convexity, benefits if stable/middle outperforms) vs barbell (high convexity, benefits from curvature/volatility);"
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "•\tExpect HIGHER volatility → INCREASE convexity (a barbell, or buy options / long-convexity structures): larger moves in either direction add value through the convexity term."
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "•\tExpect LOWER volatility → REDUCE convexity (a bullet, or sell options): in a calm market you do not want to pay for convexity you will not use."
+   }
+  ],
+  "los": [
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "letter": "i",
+    "text": "describe construction, benefits, limitations, and risk–return characteristics of a laddered bond portfolio"
+   }
+  ],
+  "essayStems": [],
+  "counts": {
+   "notes": 66,
+   "los": 1,
+   "essays": 0
+  }
+ },
+ "repo_leverage": {
+  "family": "Fixed income",
+  "notesEvidence": [
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "•\tRepurchase agreements (repos) — borrow cash against bonds at the repo rate, subject to a haircut;"
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "Exam focus: Expect the levered-return calculation and a listing of methods (repo, futures, swaps) and risks (rollover/funding, margin calls/forced deleveraging, magnified losses)."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "REPURCHASE AGREEMENTS — sell a bond spot, agree to repurchase at a price implying the repo rate;"
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "Risk framing: leverage magnifies duration and spread exposure, adds financing ROLLOVER risk (repo lines reprice or vanish in stress), and forces sales at the worst times when collateral values fall — the liquidity section and the leverage section are one topic wearing two hats."
+   },
+   {
+    "reading": "overview_of_fixed_income_portfolio_management",
+    "text": "What is a repo, economically, and what does the haircut do?"
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "Under a stable, upward-sloping curve, the two basic ways to generate excess return versus the benchmark are to ADD DURATION and to ADD LEVERAGE: longer-duration exposure earns a higher YTM over time and rolls down the curve, while the REPO CARRY trade — buy a higher-yielding bond financed at a lower repo (financing) rate — earns the spread between the two."
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "Buy-and-hold with extra duration, riding the curve (rolldown), repo carry, and selling convexity (which a calm, stable curve will not reward) are the static-curve strategies."
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "View = stable curve (matches market) → add duration or leverage (rolldown, repo carry);"
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "-> Add risk via duration or leverage: buy-and-hold longer bonds, ride the curve (rolldown), repo carry."
+   }
+  ],
+  "los": [],
+  "essayStems": [],
+  "counts": {
+   "notes": 9,
+   "los": 0,
+   "essays": 0
+  }
+ },
+ "index_replication": {
+  "family": "Equity",
+  "notesEvidence": [
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "Reading: Index-Based Equity Strategies"
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "Six learning outcomes (two are duplicates, so five distinct topics): comparing factor-based strategies with cap-weighted indexing, the vehicles for index exposure, the three portfolio-construction methods (full replication, stratified sampling, optimization), the causes and control of tracking error, and the sources of return and risk in an index portfolio."
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "LOS 2 & 3 — Approaches to index-based equity exposure"
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "LOS: compare different approaches to index-based equity strategies (vehicles and management)"
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "LOS: compare full replication, stratified sampling, and optimization approaches for constructing index-based equity portfolios"
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "FULL REPLICATION gives the tightest tracking and is ideal for a liquid index with a manageable number of names (e.g., a large-cap index), but it is expensive or impossible for an index with thousands of illiquid constituents."
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "STRATIFIED SAMPLING and OPTIMIZATION hold a subset that mimics the index's characteristics — sampling by matching cell weights, optimization by explicitly minimizing modeled tracking error using the covariance structure."
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "A broad or illiquid index — a total-market or small-cap benchmark of thousands of names, some barely traded — is better served by STRATIFIED SAMPLING or OPTIMIZATION, which capture the index's risk characteristics while avoiding the cost and market impact of trading illiquid names."
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "Full replication (2,000 names): ~0 sampling tracking error, HIGH trading cost"
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "Exam focus: Full replication = all names at index weights → lowest tracking error, best for liquid/small indexes, costly for large/illiquid."
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "Stratified sampling = match cell (sector/size) weights with a sample → cheaper, higher tracking error, no covariances."
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "LOS: discuss potential causes of tracking error and methods to control tracking error for index-based equity portfolios"
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "Full replication (where feasible) minimizes sampling error."
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "LOS: explain sources of return and risk to an index-based equity portfolio"
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "Construction: full replication (lowest TE) / stratified sampling / optimization (covariances)"
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "How does optimization differ from stratified sampling?"
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "Because full replication is impractical, bond index funds use STRATIFIED SAMPLING / cell matching — matching the index's exposures to duration, sector, credit quality, and key-rate buckets with a manageable subset of liquid bonds (enhanced indexing)."
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "Because full replication is impossible, bond index managers practice ENHANCED INDEXING: they sample the index to match its key risk exposures — effective duration, KEY-RATE durations across the curve, sector and quality weights, and convexity — while substituting more liquid bonds for illiquid ones and taking small, controlled tilts to add value."
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "Funds use stratified sampling / enhanced indexing — matching duration, KEY-RATE durations, sector, quality, convexity — not full replication."
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "Stratified sampling / enhanced indexing"
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "Stratified sampling is the practical workhorse;"
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "Full replication is essentially never used for broad bond indexes."
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "Exam focus: Passive bond exposure: full replication (impractical for bonds), stratified sampling/enhanced indexing (the standard), bond ETFs/index funds (simple, low-cost — best for small investors), and derivatives (total-return swap to receive the index return, or futures for duration — efficient, must be rolled)."
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "How do bond index funds handle the impracticality of full replication?"
+   },
+   {
+    "reading": "liability_driven_and_index_based_strategies",
+    "text": "-> Stratified sampling / cell matching by duration, sector, quality, and key-rate buckets."
+   }
+  ],
+  "los": [
+   {
+    "reading": "index_based_equity_strategies",
+    "letter": "b",
+    "text": "compare different approaches to index-based equity strategies"
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "letter": "c",
+    "text": "compare different approaches to index-based equity investing"
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "letter": "d",
+    "text": "compare the full replication, stratified sampling, and optimization approaches for the construction of index-based equity portfolios"
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "letter": "e",
+    "text": "discuss potential causes of tracking error and methods to control tracking error for index-based equity portfolios"
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "letter": "f",
+    "text": "explain sources of return and risk to an index-based equity portfolio"
+   }
+  ],
+  "essayStems": [
+   {
+    "id": "index_based_equity_strategies_arthur_camme_arthur_camme_essay_q8",
+    "stem": "Based on Exhibit 1 and Parker's preference for stratified sampling + optimization, DETERMINE which manager (A, B, or C) is most appropriate + JUSTIFY."
+   }
+  ],
+  "counts": {
+   "notes": 25,
+   "los": 5,
+   "essays": 1
+  }
+ },
+ "factor_investing": {
+  "family": "Equity",
+  "notesEvidence": [
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "text": "•\tFactor-based covariance matrices."
+   },
+   {
+    "reading": "principles_of_asset_allocation",
+    "text": "What you must do:  Explain how a factor-based allocation is built and analyzed, and how it complements an asset-class view."
+   },
+   {
+    "reading": "principles_of_asset_allocation",
+    "text": "A factor-based allocation targets exposures to the underlying return drivers — equity, term, credit, inflation, size, value, momentum, liquidity — rather than asset-class labels."
+   },
+   {
+    "reading": "overview_of_equity_portfolio_management",
+    "text": "What you must do:  Explain where passive, factor-based, and active sit on the spectrum and the rationale for each."
+   },
+   {
+    "reading": "overview_of_equity_portfolio_management",
+    "text": "Factor / smart beta / enhanced index"
+   },
+   {
+    "reading": "overview_of_equity_portfolio_management",
+    "text": "When no standard index fits — a factor tilt, a concentrated or thematic mandate, or a portfolio with unusual constraints — a custom or strategy-specific benchmark (e.g., a factor index or a blended benchmark) is more appropriate than forcing a broad market index that the manager does not actually track."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "•\tRisk-factor-based allocation."
+   },
+   {
+    "reading": "case_study_in_portfolio_management_institutional_swf",
+    "text": "A fund sets a total risk budget — say a target of roughly 10% expected portfolio volatility, or a tracking-error budget versus its reference portfolio — and allocates it across strategies: public-equity beta, factor tilts, and the illiquid direct book."
+   },
+   {
+    "reading": "case_study_in_portfolio_management_institutional_swf",
+    "text": "Know the direct-vs-fund trade-off, that an illiquidity budget plus a liquidity reserve lets a long-horizon fund hold illiquids safely, and that a reference portfolio (with a total-portfolio, factor-based approach) is the yardstick against which direct/active risk must earn its return."
+   },
+   {
+    "reading": "portfolio_performance_evaluation",
+    "text": "The main choices: for a top-down or factor-based process, a FACTOR-based risk attribution decomposes tracking error into factor exposures;"
+   },
+   {
+    "reading": "portfolio_performance_evaluation",
+    "text": "Exam focus: Pick the risk-attribution method to match the decision process: factor-based for top-down/factor strategies, holdings/position-based for bottom-up selection."
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "Six learning outcomes (two are duplicates, so five distinct topics): comparing factor-based strategies with cap-weighted indexing, the vehicles for index exposure, the three portfolio-construction methods (full replication, stratified sampling, optimization), the causes and control of tracking error, and the sources of return and risk in an index portfolio."
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "LOS 1 — Factor-based strategies vs market-cap-weighted indexing"
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "LOS: compare factor-based strategies to market-capitalization-weighted indexing"
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "What you must do:  Contrast pure cap-weighting with factor ('smart beta') strategies and know the factor categories."
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "Factor-based (smart beta) strategies."
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "That extra cost is the practical price of the factor tilt."
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "For a FACTOR-based index strategy, there is additional FACTOR risk — the strategy underperforms the cap-weighted market when its chosen factor is out of favor, and it bears the factor's specific drawdowns."
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "The unifying idea is that low-cost, rules-based index exposure is the default building block, with active or factor tilts layered on only where justified."
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "Smart beta = return- / risk- / diversification-oriented factor tilts"
+   },
+   {
+    "reading": "index_based_equity_strategies",
+    "text": "What extra risk does a factor-based index strategy carry?"
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "Nine learning outcomes: the fundamental-versus-quantitative distinction, the four strategy families (bottom-up, top-down, factor-based, activist) plus statistical-arbitrage/microstructure approaches, how fundamental and quantitative strategies are each created (and their characteristic pitfalls), and equity style classification."
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "LOS 4 — Factor-based active strategies"
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "LOS: analyze factor-based active strategies, including their rationale and associated processes"
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "FACTOR-BASED strategies build portfolios systematically around one or more rewarded factors — value, momentum, size, quality, low volatility — on the rationale that these factors carry persistent premia (from risk or behavior)."
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "The risks mirror smart beta: crowding erodes premia, factors endure long stretches of underperformance (value's extended drawdown is a well-known example), and a factor discovered by data-mining may never have been real."
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "Exam focus: Factor-based = systematic tilts to rewarded factors (value/momentum/size/quality/low-vol) for their premia."
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "Factor-based: z = (x − mean)/σ → composite → tilt, hedge unrewarded factors"
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "Active risk² = (variance from factor tilts) + (idiosyncratic active variance)"
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "A FACTOR BETTOR has high active risk from factor tilts despite modest Active Share."
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "To run higher active risk, the manager concentrates or takes larger factor tilts."
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "Risk budgeting turns the abstract 'how much active risk' question into concrete allocations: how much tracking error to spend on factor tilts vs stock selection, or across strategies in a multi-strategy fund, keeping total active risk within the mandate's limit."
+   }
+  ],
+  "los": [
+   {
+    "reading": "index_based_equity_strategies",
+    "letter": "a",
+    "text": "compare factor-based strategies to market-capitalization-weighted indexing"
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "letter": "d",
+    "text": "analyze factor-based active strategies, including their rationale and associated processes"
+   }
+  ],
+  "essayStems": [
+   {
+    "id": "elbe_society_the_elbe_society_essay_q6",
+    "stem": "EVALUATE Zimmermann's statement about traditional asset allocation vs risk-factor-based approaches."
+   },
+   {
+    "id": "index_based_equity_strategies_sapphire_bay_edward_cullen_essay_q8",
+    "stem": "EVALUATE Stapleton's three claims about factor-based strategies relative to market-cap-weighted indexing."
+   },
+   {
+    "id": "index_based_equity_strategies_arthur_camme_arthur_camme_essay_q7",
+    "stem": "EVALUATE Parker's three statements about factor-based approaches."
+   }
+  ],
+  "counts": {
+   "notes": 32,
+   "los": 2,
+   "essays": 3
+  }
+ },
+ "long_short": {
+  "family": "Equity",
+  "notesEvidence": [
+   {
+    "reading": "overview_of_asset_allocation",
+    "text": "Construction and trade-offs: factors are often isolated with long-short portfolios (value = long cheap, short expensive), which can require leverage and shorting."
+   },
+   {
+    "reading": "overview_of_asset_allocation",
+    "text": "Be ready to explain why two asset classes can look diversified yet share a common factor (hidden concentration), and to name a drawback of factor investing (implementation via long-short/derivatives)."
+   },
+   {
+    "reading": "principles_of_asset_allocation",
+    "text": "Construction can start from a factor risk budget (how much of total risk each factor should contribute) and then map factors to investable instruments, often via long-short portfolios."
+   },
+   {
+    "reading": "principles_of_asset_allocation",
+    "text": "Exam focus: Tie to the prior reading: factors are more granular and less correlated than asset classes, they reveal hidden overlaps, but they are implemented via long-short/derivatives (added complexity, leverage, shorting)."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Decompose a typical long/short equity hedge fund and you might find it is mostly equity beta, plus some credit and liquidity exposure, plus a residual of manager-specific (idiosyncratic) return."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "A long/short equity fund's return might decompose approximately as:"
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "Factor strategies can be built as long-only tilts or as LONG-SHORT factor portfolios (long high-scoring, short low-scoring) that isolate the factor return."
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "Build long-only or long-short (isolates the factor);"
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "RELAXING the long-only constraint (a long extension or long/short) lets the manager act on negative views and raises TC most where the benchmark has many small names."
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "LOS 9 — Long-only, long extension, long/short, market-neutral"
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "LOS: discuss the long-only, long extension, long/short, and equitized market-neutral approaches, including their risks, costs, and effects on potential alphas"
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "•\tLong/short — separate long and short books;"
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "•\tEquitized market-neutral — a market-neutral long/short book PLUS an equity-index overlay (futures) to add market beta back, combining the pure alpha of the neutral book with the market return."
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "Leverage in long-short and 130/30 structures magnifies both gains and losses and can force deleveraging in stress."
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "These are why long-extension and long/short strategies demand stronger operational infrastructure, risk controls, and prime-brokerage relationships than a long-only fund."
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "Long/short: separate books;"
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "-> A market-neutral long/short book plus an equity-index (futures) overlay to add market beta — alpha + beta."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "•\tExpress relative value — sell protection on a favored credit and buy protection on a disliked one (a long-short credit pair)."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "Uses: adjust exposure without trading bonds, relative-value long/short pairs, curve and index (CDX/iTraxx) trades, and CDS-bond basis trades."
+   }
+  ],
+  "los": [
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "letter": "h",
+    "text": "discuss the long-only, long extension, long/short, and equitized market-neutral approaches to equity portfolio construction, including their risks, costs, and effects on potential alphas"
+   }
+  ],
+  "essayStems": [],
+  "counts": {
+   "notes": 19,
+   "los": 1,
+   "essays": 0
+  }
+ },
+ "long_extension": {
+  "family": "Equity",
+  "notesEvidence": [
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "RELAXING the long-only constraint (a long extension or long/short) lets the manager act on negative views and raises TC most where the benchmark has many small names."
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "LOS 9 — Long-only, long extension, long/short, market-neutral"
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "LOS: discuss the long-only, long extension, long/short, and equitized market-neutral approaches, including their risks, costs, and effects on potential alphas"
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "•\tLong extension (e.g., 130/30) — short 30% of capital and use the proceeds to hold 130% long, for 100% net market exposure."
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "Worked example — 130/30 mechanics"
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "Leverage in long-short and 130/30 structures magnifies both gains and losses and can force deleveraging in stress."
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "Long extension (130/30): short 30%, long 130%, net 100%, gross 160% → more breadth, moderate leverage/short cost."
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "130/30: long 130, short 30, net 100%, gross 160%"
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "130/30: net and gross exposure?"
+   }
+  ],
+  "los": [
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "letter": "h",
+    "text": "discuss the long-only, long extension, long/short, and equitized market-neutral approaches to equity portfolio construction, including their risks, costs, and effects on potential alphas"
+   }
+  ],
+  "essayStems": [],
+  "counts": {
+   "notes": 9,
+   "los": 1,
+   "essays": 0
+  }
+ },
+ "market_neutral": {
+  "family": "Equity",
+  "notesEvidence": [
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "diversifying hedge-fund styles (global macro, equity market-neutral, managed futures) are held primarily for this."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Hedge funds — macro / market-neutral / trend"
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "The diversification role is best filled by strategies whose returns are structurally independent of equity direction — market-neutral, macro, and managed futures."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Managed futures / trend-following in particular has historically produced \"crisis alpha\" — it tends to profit in prolonged equity drawdowns as it rides the downward trend — and global macro and equity market-neutral can also hold up when equities fall."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "select alternatives (trend, macro, market-neutral) mitigate with higher expected return but sacrifice liquidity and may fail when correlations spike."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "(macro, market-neutral, trend) / inflation hedge (real assets)"
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "-> Growth (private equity), income (real estate / private credit), diversification (macro / market-neutral / trend), inflation protection (real assets)."
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "Stat-arb is typically market-neutral, high-turnover, and reliant on large datasets and increasingly machine learning."
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "Trade: SHORT A and LONG B in equal dollar amounts (market-neutral)"
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "market-neutral, high-turnover, data/ML-driven."
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "•\tLeverage risk — market-neutral stat-arb often uses leverage to amplify thin spreads, turning a small model error into a large loss."
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "Stat-arb = mean reversion/pairs, market-neutral;"
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "LOS 9 — Long-only, long extension, long/short, market-neutral"
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "LOS: discuss the long-only, long extension, long/short, and equitized market-neutral approaches, including their risks, costs, and effects on potential alphas"
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "MARKET-NEUTRAL versions target ~zero net beta (pure alpha, no market return), while directional versions keep a net exposure."
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "•\tEquitized market-neutral — a market-neutral long/short book PLUS an equity-index overlay (futures) to add market beta back, combining the pure alpha of the neutral book with the market return."
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "market-neutral ≈ zero beta (pure alpha), directional keeps net exposure."
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "Equitized market-neutral: neutral book + index overlay = alpha + beta."
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "What is an equitized market-neutral portfolio?"
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "-> A market-neutral long/short book plus an equity-index (futures) overlay to add market beta — alpha + beta."
+   }
+  ],
+  "los": [
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "letter": "h",
+    "text": "discuss the long-only, long extension, long/short, and equitized market-neutral approaches to equity portfolio construction, including their risks, costs, and effects on potential alphas"
+   }
+  ],
+  "essayStems": [],
+  "counts": {
+   "notes": 20,
+   "los": 1,
+   "essays": 0
+  }
+ },
+ "activist": {
+  "family": "Equity",
+  "notesEvidence": [
+   {
+    "reading": "overview_of_equity_portfolio_management",
+    "text": "and, for activists, public campaigns."
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "Nine learning outcomes: the fundamental-versus-quantitative distinction, the four strategy families (bottom-up, top-down, factor-based, activist) plus statistical-arbitrage/microstructure approaches, how fundamental and quantitative strategies are each created (and their characteristic pitfalls), and equity style classification."
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "LOS 5 — Activist strategies"
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "LOS: analyze activist strategies, including their rationale and associated processes"
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "ACTIVIST investors take significant stakes in companies and use their position to push management for changes that unlock value;"
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "Activist TACTICS escalate from private engagement to public pressure:"
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "the whole process can last a number of years, though activists' time horizon is often shorter than that of buy-and-hold investors."
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "Its success depends on the activist's ability to build a stake, make a credible case, and rally other shareholders."
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "Critics charge that some activists pursue SHORT-TERM gains — a quick buyback or sale — at the expense of long-run investment, and that historically abusive tactics such as greenmail harmed other holders."
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "Exam focus: Activists take stakes to force value-unlocking change."
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "•\tConcentration risk — bottom-up and activist portfolios hold few names, so a single position can dominate results;"
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "•\tLiquidity risk — activist stakes and small-cap positions can be hard to exit without moving the price, and stat-arb depends on continuous liquidity that vanishes in stress."
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "The families differ most in their RETURN SOURCE and BREADTH: activist and bottom-up concentrate in few high-conviction bets, factor and stat-arb spread across many small ones, and top-down places a handful of large macro bets."
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "Activist: stake + push (spin-offs, buybacks, board seats, proxy fight);"
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "List three characteristics of a typical activist target."
+   }
+  ],
+  "los": [
+   {
+    "reading": "active_equity_investing_strategies",
+    "letter": "e",
+    "text": "analyze activist strategies, including their rationale and associated processes"
+   }
+  ],
+  "essayStems": [],
+  "counts": {
+   "notes": 15,
+   "los": 1,
+   "essays": 0
+  }
+ },
+ "private_equity": {
+  "family": "Alternatives",
+  "notesEvidence": [
+   {
+    "reading": "overview_of_asset_allocation",
+    "text": "A portfolio holds high-yield bonds, public equities, and private equity, and looks well-diversified across three \"asset classes.\" But all three load heavily on the same equity/credit-risk factor, so in a downturn they fall together — the diversification is largely illusory."
+   },
+   {
+    "reading": "principles_of_asset_allocation",
+    "text": "Illiquid asset classes — real estate, private equity, infrastructure — can offer an illiquidity premium, but only investors with a long horizon and modest near-term liquidity needs (large endowments, sovereign funds) can safely harvest it."
+   },
+   {
+    "reading": "asset_allocation_with_real_world_constraints",
+    "text": "A very large fund faces capacity limits and market impact — it can't move the needle with small or niche asset classes and is pushed toward large-cap, liquid holdings — though it CAN access scale-only strategies (large private equity, direct real estate)."
+   },
+   {
+    "reading": "asset_allocation_with_real_world_constraints",
+    "text": "A very small fund is blocked from asset classes with high minimums (private equity, hedge funds, direct real estate), can't diversify across enough managers, and may lack the resources for alternatives due diligence."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Private equity (buyout and venture), and long-biased and event-driven hedge funds, target equity-like or higher long-run returns, in part by harvesting an illiquidity premium and manager skill that public markets do not offer."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "-> Growth (private equity), income (real estate / private credit), diversification (macro / market-neutral / trend), inflation protection (real assets)."
+   },
+   {
+    "reading": "portfolio_management_for_institutional_investors",
+    "text": "A university endowment (perpetual, 5% spending rule, 2,000M) holds 45% public equity, 40% alternatives (much of it illiquid private equity and real assets), 10% bonds, 5% cash."
+   },
+   {
+    "reading": "overview_of_the_global_investment_performance_standards",
+    "text": "The GIPS provisions are grouped into sections that track the performance workflow — fundamentals of compliance, INPUT DATA and calculation methodology, COMPOSITE and pooled-fund construction, DISCLOSURE, and PRESENTATION and reporting — with additional guidance for specific asset classes (such as real estate and private equity) and for asset owners."
+   },
+   {
+    "reading": "overview_of_the_global_investment_performance_standards",
+    "text": "(A money-weighted / internal rate of return is permitted only where the firm controls the cash flows and the assets are illiquid — e.g., private equity and real estate.)"
+   },
+   {
+    "reading": "case_study_in_portfolio_management_institutional_endowment",
+    "text": "•\tCommitment-pacing models — for private equity and real estate: project the growth of the private-markets allocation and the cash needed for COMMITTED BUT UNDRAWN capital calls."
+   },
+   {
+    "reading": "case_study_in_portfolio_management_institutional_endowment",
+    "text": "The proposed SAA raises private equity 18% → 23% and real assets 13% → 16%, funded by cuts to public equities and fixed income, transitioned gradually over two to three years."
+   },
+   {
+    "reading": "case_study_in_portfolio_management_institutional_endowment",
+    "text": "The setting: trustee Virginia Hall founded GVC, a private equity firm bidding to manage part of the endowment;"
+   },
+   {
+    "reading": "asset_manager_code_of_professional_conduct",
+    "text": "A private equity holding sits at last-round cost a year after a down round."
+   }
+  ],
+  "los": [],
+  "essayStems": [
+   {
+    "id": "elbe_society_the_elbe_society_essay_q5",
+    "stem": "EVALUATE Zimmermann's three statements about substituting fixed income with private equity."
+   },
+   {
+    "id": "elbe_society_the_elbe_society_essay_q8",
+    "stem": "DISCUSS two RISK considerations beyond volatility that should be examined when substituting IG fixed income with private equity."
+   }
+  ],
+  "counts": {
+   "notes": 13,
+   "los": 0,
+   "essays": 2
+  }
+ },
+ "hedge_funds": {
+  "family": "Alternatives",
+  "notesEvidence": [
+   {
+    "reading": "asset_allocation_with_real_world_constraints",
+    "text": "A very small fund is blocked from asset classes with high minimums (private equity, hedge funds, direct real estate), can't diversify across enough managers, and may lack the resources for alternatives due diligence."
+   },
+   {
+    "reading": "asset_allocation_with_real_world_constraints",
+    "text": "Blocked from PE / hedge funds / direct real estate;"
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Private equity (buyout and venture), and long-biased and event-driven hedge funds, target equity-like or higher long-run returns, in part by harvesting an illiquidity premium and manager skill that public markets do not offer."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Hedge funds — long-biased / event"
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Hedge funds — macro / market-neutral / trend"
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Correlations are not uniform across the category: a long-biased equity hedge fund still carries most of the market's beta, so calling it a \"diversifier\" overstates its benefit."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "a long-biased equity hedge fund meets neither."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Drill: Rank three candidates as equity-risk mitigators: (i) 10-year government bonds, (ii) a managed-futures fund, (iii) a long-biased equity hedge fund."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "the long-biased hedge fund is NOT a mitigator, since it carries equity beta and falls with the market.)"
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "By named class: equities, bonds, real estate, PE, hedge funds"
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Decompose a typical long/short equity hedge fund and you might find it is mostly equity beta, plus some credit and liquidity exposure, plus a residual of manager-specific (idiosyncratic) return."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Under the asset-class lens it sits in a tidy \"hedge fund\" bucket that looks like a diversifier;"
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "The asset-class view files this under \"hedge funds\" (apparent diversifier)."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "A hedge fund earns a 10% gross return."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Why is a long-biased equity hedge fund NOT a true diversifier?"
+   },
+   {
+    "reading": "case_study_in_portfolio_management_institutional_endowment",
+    "text": "•\tGates activate — hedge funds and real estate vehicles refuse withdrawals to protect remaining investors."
+   }
+  ],
+  "los": [],
+  "essayStems": [
+   {
+    "id": "rothhaven_foundation_alt_pathway_essay_q1",
+    "stem": "EVALUATE Redland's claim that the proposed allocation improves return by ~150 bps, reduces volatility by ~200 bps, and provides downside protection through hedge funds."
+   },
+   {
+    "id": "rothhaven_foundation_alt_pathway_essay_q3",
+    "stem": "EVALUATE Redland's proposed benchmarking approaches: PME for PE and hedge fund composite benchmarks."
+   }
+  ],
+  "counts": {
+   "notes": 16,
+   "los": 0,
+   "essays": 2
+  }
+ },
+ "real_estate": {
+  "family": "Alternatives",
+  "notesEvidence": [
+   {
+    "reading": "capital_market_expectations_part_1_framework_and_macro_considerations",
+    "text": "LOS: explain the relationship of inflation to the business cycle and the implications of inflation for cash, bonds, equity, and real estate returns"
+   },
+   {
+    "reading": "capital_market_expectations_part_1_framework_and_macro_considerations",
+    "text": "Real estate rents and replacement costs rise with inflation, making it a natural hedge."
+   },
+   {
+    "reading": "capital_market_expectations_part_1_framework_and_macro_considerations",
+    "text": "Under rising inflation, rank nominal bonds vs real estate."
+   },
+   {
+    "reading": "capital_market_expectations_part_1_framework_and_macro_considerations",
+    "text": "→ Real estate benefits (inflation hedge);"
+   },
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "text": "LOS: explain how economic and competitive factors can affect expectations for real estate investment markets and sector returns"
+   },
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "text": "•\tReal assets: add real estate/commodities when inflation is expected to run above expectations."
+   },
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "text": "meanwhile above-target inflation favors real estate and commodities, which tend to rise with inflation."
+   },
+   {
+    "reading": "principles_of_asset_allocation",
+    "text": "Illiquid asset classes — real estate, private equity, infrastructure — can offer an illiquidity premium, but only investors with a long horizon and modest near-term liquidity needs (large endowments, sovereign funds) can safely harvest it."
+   },
+   {
+    "reading": "asset_allocation_with_real_world_constraints",
+    "text": "A very large fund faces capacity limits and market impact — it can't move the needle with small or niche asset classes and is pushed toward large-cap, liquid holdings — though it CAN access scale-only strategies (large private equity, direct real estate)."
+   },
+   {
+    "reading": "asset_allocation_with_real_world_constraints",
+    "text": "A very small fund is blocked from asset classes with high minimums (private equity, hedge funds, direct real estate), can't diversify across enough managers, and may lack the resources for alternatives due diligence."
+   },
+   {
+    "reading": "asset_allocation_with_real_world_constraints",
+    "text": "Blocked from PE / hedge funds / direct real estate;"
+   },
+   {
+    "reading": "asset_allocation_with_real_world_constraints",
+    "text": "Asset location (distinct from asset allocation) places tax-inefficient assets — taxable bonds, high-turnover strategies, REITs — in tax-deferred or tax-exempt accounts, and tax-efficient assets — low-turnover equities held for long-term gains — in taxable accounts."
+   },
+   {
+    "reading": "asset_allocation_with_real_world_constraints",
+    "text": "Small: high minimums block PE/HF/direct real estate."
+   },
+   {
+    "reading": "asset_allocation_with_real_world_constraints",
+    "text": "Under asset location, where do tax-inefficient bonds and REITs go?"
+   },
+   {
+    "reading": "asset_allocation_with_real_world_constraints",
+    "text": "Asset location is the allocation's sibling decision: place tax-INEFFICIENT assets (taxable bonds, REITs, high-turnover strategies) in tax-advantaged accounts, and tax-EFFICIENT assets (low-turnover equity, index exposure benefiting from deferred gains and favorable dividend treatment) in taxable accounts."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Core real estate, infrastructure, and private credit throw off contractual cash yield, valuable for spending-driven investors and for total return."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Real assets (real estate, commodities, infrastructure, timberland, farmland) hedge inflation because their cash flows and values rise with the price level;"
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Real estate / infrastructure"
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "By named class: equities, bonds, real estate, PE, hedge funds"
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "-> Growth (private equity), income (real estate / private credit), diversification (macro / market-neutral / trend), inflation protection (real assets)."
+   },
+   {
+    "reading": "overview_of_the_global_investment_performance_standards",
+    "text": "The GIPS provisions are grouped into sections that track the performance workflow — fundamentals of compliance, INPUT DATA and calculation methodology, COMPOSITE and pooled-fund construction, DISCLOSURE, and PRESENTATION and reporting — with additional guidance for specific asset classes (such as real estate and private equity) and for asset owners."
+   },
+   {
+    "reading": "overview_of_the_global_investment_performance_standards",
+    "text": "(A money-weighted / internal rate of return is permitted only where the firm controls the cash flows and the assets are illiquid — e.g., private equity and real estate.)"
+   },
+   {
+    "reading": "overview_of_the_global_investment_performance_standards",
+    "text": "money-weighted is allowed only where the firm controls flows and assets are illiquid (PE/real estate)."
+   },
+   {
+    "reading": "overview_of_the_global_investment_performance_standards",
+    "text": "-> When the firm controls the cash flows and assets are illiquid (e.g., PE/real estate)."
+   },
+   {
+    "reading": "case_study_in_portfolio_management_institutional_endowment",
+    "text": "•\tCommitment-pacing models — for private equity and real estate: project the growth of the private-markets allocation and the cash needed for COMMITTED BUT UNDRAWN capital calls."
+   },
+   {
+    "reading": "case_study_in_portfolio_management_institutional_endowment",
+    "text": "•\tGates activate — hedge funds and real estate vehicles refuse withdrawals to protect remaining investors."
+   }
+  ],
+  "los": [
+   {
+    "reading": "capital_market_expectations_part_1_framework_and_macro_considerations",
+    "letter": "g",
+    "text": "explain the relationship of inflation to the business cycle and the implications of inflation for cash, bonds, equity, and real estate returns"
+   },
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "letter": "e",
+    "text": "explain how economic and competitive factors can affect expectations for real estate investment markets and sector returns"
+   }
+  ],
+  "essayStems": [
+   {
+    "id": "cme_foundation_the_united_states_essay_q5",
+    "stem": "Assume instead a correlation of 0.39 between US real estate and the GIM (rather than Grey's assumed 0.34) and, using the Singer-Terhaar approach, CALCULATE the expected return for US real estate. Show work."
+   },
+   {
+    "id": "cme_foundation_the_united_states_essay_q8",
+    "stem": "EVALUATE Grey's statement about performance of Treasury bonds, real estate, and equities under RiteVal's near-term deflation forecast."
+   },
+   {
+    "id": "sabonete_sabonete_sa_essay_q8",
+    "stem": "Radell's Statement 2 says the 10% real estate allocation is too high given Sabonete's recent African real estate acquisitions. DETERMINE if correct + JUSTIFY."
+   },
+   {
+    "id": "gambier_advisory_lucas_thompson_essay_q5",
+    "stem": "EVALUATE Nguyen's statement about reallocating half of Mungo's fixed income to PUBLIC REAL ESTATE."
+   }
+  ],
+  "counts": {
+   "notes": 26,
+   "los": 2,
+   "essays": 4
+  }
+ },
+ "commodities": {
+  "family": "Alternatives",
+  "notesEvidence": [
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "text": "•\tAlso weigh the seriousness/credibility of policymakers and the structure of the economy (commodity concentration, diversification)."
+   },
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "text": "•\tReal assets: add real estate/commodities when inflation is expected to run above expectations."
+   },
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "text": "meanwhile above-target inflation favors real estate and commodities, which tend to rise with inflation."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Real assets (real estate, commodities, infrastructure, timberland, farmland) hedge inflation because their cash flows and values rise with the price level;"
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Commodities / real assets"
+   },
+   {
+    "reading": "portfolio_management_for_institutional_investors",
+    "text": "•\tStabilization funds — buffer government budgets against commodity-price or fiscal volatility;"
+   },
+   {
+    "reading": "case_study_in_portfolio_management_institutional_swf",
+    "text": "•\tMarket risk — losses from moves in equity prices, interest rates, credit spreads, currencies, and commodities."
+   },
+   {
+    "reading": "case_study_in_portfolio_management_institutional_swf",
+    "text": "A STABILIZATION fund — buffering the government budget against commodity-price or fiscal swings — needs high liquidity and low risk, so large illiquid direct stakes are generally inappropriate for it."
+   },
+   {
+    "reading": "case_study_in_portfolio_management_institutional_swf",
+    "text": "commodity (coal/metals) price risk;"
+   },
+   {
+    "reading": "case_study_in_portfolio_management_institutional_swf",
+    "text": "•\tHedging — derivatives to offset the market, currency, rate, or commodity exposure of the direct book where instruments exist."
+   },
+   {
+    "reading": "case_study_in_portfolio_management_institutional_swf",
+    "text": "Hedge: hedge the EM-currency exposure and, where liquid instruments exist, the commodity exposure."
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "top-down dominates when macro forces (rates, commodities, the cycle) swamp individual stock differences."
+   },
+   {
+    "reading": "active_equity_investing_strategies",
+    "text": "Top-down: macro-driven markets (rates/commodities/cycle)."
+   }
+  ],
+  "los": [],
+  "essayStems": [],
+  "counts": {
+   "notes": 13,
+   "los": 0,
+   "essays": 0
+  }
+ },
+ "infrastructure": {
+  "family": "Alternatives",
+  "notesEvidence": [
+   {
+    "reading": "capital_market_expectations_part_1_framework_and_macro_considerations",
+    "text": "•\tInvestment in education and human capital / infrastructure."
+   },
+   {
+    "reading": "principles_of_asset_allocation",
+    "text": "Illiquid asset classes — real estate, private equity, infrastructure — can offer an illiquidity premium, but only investors with a long horizon and modest near-term liquidity needs (large endowments, sovereign funds) can safely harvest it."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Core real estate, infrastructure, and private credit throw off contractual cash yield, valuable for spending-driven investors and for total return."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Real assets (real estate, commodities, infrastructure, timberland, farmland) hedge inflation because their cash flows and values rise with the price level;"
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Real estate / infrastructure"
+   },
+   {
+    "reading": "portfolio_management_for_institutional_investors",
+    "text": "•\tDevelopment funds — finance domestic economic and infrastructure projects."
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "These are why long-extension and long/short strategies demand stronger operational infrastructure, risk controls, and prime-brokerage relationships than a long-only fund."
+   },
+   {
+    "reading": "active_equity_investing_portfolio_construction",
+    "text": "Shorting expands breadth/TC and potential alpha, at borrow/margin/leverage cost — plus unlimited-loss, recall, and short-squeeze risks needing stronger infrastructure."
+   }
+  ],
+  "los": [],
+  "essayStems": [],
+  "counts": {
+   "notes": 8,
+   "los": 0,
+   "essays": 0
+  }
+ },
+ "private_credit": {
+  "family": "Alternatives",
+  "notesEvidence": [
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Core real estate, infrastructure, and private credit throw off contractual cash yield, valuable for spending-driven investors and for total return."
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "Roles: growth (PE) / income (RE, private credit) / diversification"
+   },
+   {
+    "reading": "asset_allocation_to_alternative_investments",
+    "text": "-> Growth (private equity), income (real estate / private credit), diversification (macro / market-neutral / trend), inflation protection (real assets)."
+   }
+  ],
+  "los": [],
+  "essayStems": [
+   {
+    "id": "gambier_advisory_lucas_thompson_essay_q7",
+    "stem": "For Nullarbor Foundation's shift to alternatives, DISCUSS two considerations regarding the choice of NONVENTURE PE and DIRECT LENDING for private credit."
+   }
+  ],
+  "counts": {
+   "notes": 3,
+   "los": 0,
+   "essays": 1
+  }
+ },
+ "fx_hedging": {
+  "family": "Currency",
+  "notesEvidence": [
+   {
+    "reading": "portfolio_management_for_institutional_investors",
+    "text": "The hedge ratio expresses how much of the liability's rate risk is hedged;"
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Delta doubles as a hedge ratio and as an approximate probability of finishing in the money."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Delta is the hedge ratio (and ≈ probability of finishing ITM): ±0.5 ATM, toward ±1 deep ITM."
+   },
+   {
+    "reading": "options_strategies",
+    "text": "Delta = hedge ratio ≈ prob(ITM);"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "Seven learning outcomes (one is a near-duplicate) covering: adjusting interest-rate risk (duration) with swaps and futures via the basis-point-value hedge ratio;"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "What you must do:  Compute the equity-futures hedge ratio to hit a target beta, and use swaps to switch or diversify exposure."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "used to ROLL a maturing hedge and to ADJUST the hedge ratio as the underlying asset value changes."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "the hedge notional must be periodically REBALANCED (often via FX swaps) to keep the hedge ratio on target — a point developed further in the currency-management reading."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "A cross hedge leaves BASIS risk, because the hedge and the exposure do not move one-for-one, and the optimal cross-hedge ratio is the regression (minimum-variance) beta of the exposure on the hedging instrument — a point developed in the currency-management reading."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "FX swaps roll maturing hedges and adjust the hedge ratio as asset values change;"
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "Where no exact instrument exists, cross-hedge with a correlated one (minimum-variance hedge ratio), accepting basis risk."
+   },
+   {
+    "reading": "swaps_forwards_and_futures_strategies",
+    "text": "-> Rolling a maturing hedge and adjusting the hedge ratio as the asset value changes."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "The quantitative core — the domestic-currency return, the risk decomposition, and the minimum-variance hedge ratio — is worked below."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "The IPS sets the strategic currency policy: the benchmark (strategic) HEDGE RATIO, the permitted RANGE for active deviation from it, and the rebalancing approach."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Choosing the strategic hedge ratio"
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "With no strong currency view and roughly zero expected currency return, theory does not pin down a single best hedge ratio, so investors often anchor to a benchmark such as FULL hedging (the minimum-risk default for a pure risk reducer) or a 50% 'regret-minimizing' hedge that avoids the extremes of being fully exposed if the currency falls or fully hedged if it rises."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Practical considerations — costs, the proportion of foreign assets, the correlation with the portfolio, and behavioral regret — then adjust the choice, and the IPS records the resulting benchmark hedge ratio and the discretionary band around it."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Exam focus: The IPS decides the benchmark hedge ratio, the discretionary range around it, and rebalancing."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "What you must do:  Lay out the passive-to-active continuum and why hedge ratios sit between 0 and 1."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Match the benchmark hedge ratio mechanically;"
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Real-world hedge ratios usually sit BETWEEN 0 and 100%: full hedging removes currency risk but forgoes diversification and incurs cost and rebalancing effort, while no hedging leaves full currency risk."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "The overlay can be a pure hedging mandate (keep the hedge on target) or an active/alpha mandate (add return from currency views), and its performance is measured against a currency benchmark — typically the strategic hedge ratio."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Hedge ratios typically fall between 0 and 1 because full hedging costs money and forgoes diversification while no hedging bears full currency risk;"
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "An active currency program is often run as a separate overlay mandate benchmarked to the strategic hedge ratio."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "LOS: describe how forward contracts and FX swaps are used to adjust hedge ratios and manage currency exposure"
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Because forwards have a fixed maturity, the hedge is rolled forward as each contract expires using an FX SWAP — a simultaneous spot transaction and offsetting forward that extends the hedge to a new date (and can also ADJUST the hedge ratio by changing the forward notional)."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "The investor sells additional forward to rebalance back to the target hedge ratio."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "How often to rebalance a currency hedge is a cost-versus-tracking trade-off."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Rebalancing frequently (or with tighter triggers) keeps the hedge ratio close to target and reduces tracking error to the benchmark, but incurs more transaction costs and — for a forward-premium currency — more roll cost."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "roll the hedge with FX swaps (which also adjust the hedge ratio)."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "LOS 8 — Cross hedges, macro hedges, and the minimum-variance hedge ratio"
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "LOS: describe the use of cross hedges, macro hedges, and minimum-variance hedge ratios"
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "What you must do:  Define cross and macro hedges and compute the minimum-variance hedge ratio."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Minimum-variance hedge ratio."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "The hedge ratio that minimizes the variance of the domestic-currency return is the regression slope (beta) of the asset's domestic-currency return on the currency return — so it hedges the currency risk AND the part of asset risk correlated with the currency:"
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Worked example — minimum-variance hedge ratio"
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Minimum-variance hedge ratio h* = ρ(R_DC,R_FX) × σ(R_DC)/σ(R_FX) — the regression beta;"
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Minimum-variance hedge ratio: h* = ρ(R_DC,R_FX) × σ(R_DC)/σ(R_FX)"
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Compute the minimum-variance hedge ratio: ρ 0.60, σ_DC 10%, σ_FX 8%."
+   }
+  ],
+  "los": [
+   {
+    "reading": "currency_management_an_introduction",
+    "letter": "f",
+    "text": "describe how forward contracts and FX (foreign exchange) swaps are used to adjust hedge ratios"
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "letter": "h",
+    "text": "describe the use of cross-hedges, macro-hedges, and minimum-variance-hedge ratios in portfolios exposed to multiple foreign currencies"
+   }
+  ],
+  "essayStems": [
+   {
+    "id": "ldi_pm_pathway_shrewsbury_rumen_shrewsbury_essay_q9",
+    "stem": "For clients with hedge ratios below 100% who expect rates to RISE, IDENTIFY the 'costless derivative position' Silver recommends and JUSTIFY."
+   }
+  ],
+  "counts": {
+   "notes": 39,
+   "los": 2,
+   "essays": 1
+  }
+ },
+ "carry_trade": {
+  "family": "Currency",
+  "notesEvidence": [
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "text": "Empirically UIP fails at short horizons: high-yield currencies tend to hold up or appreciate, so borrowing low-yield and investing high-yield (the carry trade) has historically paid — until it unwinds violently in risk-off episodes (\"picking up pennies in front of a steamroller\")."
+   },
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "text": "UIP is only a theory and fails at short horizons, and that failure is exactly what makes the carry trade pay."
+   },
+   {
+    "reading": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+    "text": "The carry trader bets it won't be — pocketing ~4% while the currency holds, but exposed to a sharp loss if it snaps back in a risk-off move."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Learn those three calculations, the hedging spectrum, and the carry trade cold."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "What you must do:  Distinguish the four active styles, with the carry trade worked."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "•\tCarry trade — borrow (short) a LOW-yield currency and invest (long) a HIGH-yield currency, profiting from the interest-rate differential when the high-yield currency does not depreciate enough to offset it — a bet AGAINST uncovered interest rate parity, which empirically fails short-term."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Worked example — the carry trade"
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Carry trades earn steadily in calm markets but suffer sharp losses in crises (the high-yield currency crashes) — a negatively skewed, 'picking up nickels in front of a steamroller' payoff."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "EM carry trades are especially crash-prone."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "An investor funds a carry trade by borrowing at 1% and investing in an EM currency yielding 9% — an 8% carry."
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "Carry trade: long high-yield, short low-yield (bet against UIP)"
+   },
+   {
+    "reading": "currency_management_an_introduction",
+    "text": "What is a carry trade and what does it bet against?"
+   },
+   {
+    "reading": "yield_curve_strategies",
+    "text": "Under a stable, upward-sloping curve, the two basic ways to generate excess return versus the benchmark are to ADD DURATION and to ADD LEVERAGE: longer-duration exposure earns a higher YTM over time and rolls down the curve, while the REPO CARRY trade — buy a higher-yielding bond financed at a lower repo (financing) rate — earns the spread between the two."
+   },
+   {
+    "reading": "fixed_income_active_management_credit_strategies",
+    "text": "Watch out: Because credit is negatively skewed, a strategy can look excellent on average-return and volatility measures for years, then suffer a large loss in a default/widening event — the same 'picking up nickels' trap as the carry trade."
+   }
+  ],
+  "los": [],
+  "essayStems": [],
+  "counts": {
+   "notes": 14,
+   "los": 0,
+   "essays": 0
+  }
+ }
+}
