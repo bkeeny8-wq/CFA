@@ -1,0 +1,160 @@
+{
+ "key": "hedge_funds",
+ "name": "Hedge Funds",
+ "family": "Alternatives",
+ "summary": "Pooled, lightly constrained active strategies in a high-fee wrapper with lock-ups, notice periods and gates. Most allocation answers turn on which style sits inside the sleeve, because the style, not the \"hedge fund\" label, decides whether the allocation fills the growth role or the diversifying role. The benchmarking and fee questions turn instead on index bias and net-of-fee arithmetic.",
+ "pros": [
+  {
+   "text": "The diversifying styles, global macro, equity market-neutral and managed futures, have low correlation to equity direction and are the genuine diversifiers in the alternatives table.",
+   "source": "asset_allocation_to_alternative_investments"
+  },
+  {
+   "text": "Managed futures and trend following have historically produced crisis alpha, profiting in a prolonged equity drawdown as they ride the downward trend, while still expected to earn more than high-quality bonds. That makes them a return-generating diversifier rather than low-yielding insurance.",
+   "source": "asset_allocation_to_alternative_investments"
+  },
+  {
+   "text": "Long-biased and event-driven styles target equity-like or higher long-run returns, in part by harvesting an illiquidity premium and manager skill that public markets do not offer.",
+   "source": "asset_allocation_to_alternative_investments"
+  },
+  {
+   "text": "The mandate is far less constrained than a long-only one: short selling, leverage and derivatives let the manager pursue a return that does not depend on market direction, and in a factor decomposition that shows up as the idiosyncratic, manager-specific residual.",
+   "source": "curriculum"
+  },
+  {
+   "text": "The sleeve is funded in full at subscription and reaches target exposure at once, so there are no capital calls, no J-curve and no commitment pacing, and committed capital is not left sitting undrawn as it is in a private fund.",
+   "source": "curriculum"
+  }
+ ],
+ "cons": [
+  {
+   "text": "A long-biased equity hedge fund retains most of the market's beta, so it falls with the market. It is neither a true diversifier nor an equity-risk mitigator, whatever the label on the bucket says.",
+   "source": "asset_allocation_to_alternative_investments"
+  },
+  {
+   "text": "Fees consume more than a third of a good year. On a 10% gross return with a 2% management fee and a 20% incentive fee on the return above the management fee, net is 10 less 2 less 1.6, so 6.4%, a 3.6% drag. Read the basis from the vignette, because an incentive fee charged on the gross return instead leaves 6.0%.",
+   "source": "asset_allocation_to_alternative_investments"
+  },
+  {
+   "text": "The gap between top-quartile and bottom-quartile managers is enormous in alternatives, far wider than in public markets, so manager selection is a primary driver of the outcome rather than a secondary refinement.",
+   "source": "asset_allocation_to_alternative_investments"
+  },
+  {
+   "text": "The diversification is weakest exactly when it is needed: correlations to equities can spike in a crisis, so a benefit measured on average-period data overstates the protection available in a drawdown.",
+   "source": "asset_allocation_to_alternative_investments"
+  },
+  {
+   "text": "Gates and notice periods let the vehicle refuse withdrawals precisely when the portfolio needs cash. Gates activating is one of the three named sources of liquidity deterioration in severe stress, alongside capital calls exceeding distributions and the smoothing or denominator effect.",
+   "source": "case_study_in_portfolio_management_institutional_endowment"
+  },
+  {
+   "text": "High minimums and thin due-diligence resources can block a very small fund outright, and leave it unable to diversify across enough managers even if it does get in.",
+   "source": "asset_allocation_with_real_world_constraints"
+  },
+  {
+   "text": "Reported risk can flatter the sleeve wherever the holdings are genuinely illiquid or appraisal-valued. Lagged marks make successive reported returns positively autocorrelated, which dampens measured volatility and lowers measured correlation with public assets. For a book marked off listed prices the live defect is the crisis correlation above, not smoothing.",
+   "source": "curriculum"
+  }
+ ],
+ "whenToRecommend": [
+  "A large endowment or sovereign wealth fund with a long horizon, low near-term liquidity needs, strong governance and scale wants a diversifier expected to earn more than high-quality bonds. A foundation qualifies only if it passes the same tests: a fixed grant schedule and a grantmaking rather than investment-professional board usually mean it fails the liquidity and governance ones.",
+  "The portfolio is equity-heavy and the committee wants a drawdown cushion, but starting yields are low, so a larger bond allocation buys both a lower expected return and a smaller negative-correlation cushion, since there is less room for yields to fall. Managed futures, global macro or equity market-neutral fits that gap.",
+  "The investor wants alternatives exposure but cannot fund capital calls or wear a J-curve, so the hedge fund sleeve, funded once at subscription, carries more of the program than private equity. Note the limit: the sleeve still has its own lockup, notification period and gates, so it is shorter-dated than a ten-year private fund, not a liquidity solution.",
+  "The mandate is an absolute return objective independent of market direction, which a benchmark-relative long-only manager is not set up to pursue."
+ ],
+ "whenNotTo": [
+  "The vignette stresses near-term liquidity needs, a short horizon or thin governance. The answer is a smaller allocation or liquid-alternative substitutes, not the full illiquid program.",
+  "The pool is small, so minimums bite and it cannot spread across managers, strategies and vintages. A fund-of-funds buys multi-manager diversification, professional due diligence and smaller minimums at the cost of a second fee layer, roughly another 1% and 10% on top of the underlying managers. Listed or semi-liquid vehicles are the other route, and their cost is public-market beta and a higher correlation with public equity, which dilutes the diversification story.",
+  "The objective is a reliable, liquid hedge against an equity selloff. High-quality government bonds are the dependable mitigator: they rally in a flight to quality, their duration gains as policy rates are cut, and they can actually be sold in the crisis.",
+  "The objective is inflation protection. Real assets, real estate, commodities, infrastructure, timberland and farmland, hedge inflation because their cash flows and values rise with the price level. Hedge funds are not held for that role.",
+  "The objective is contractual cash yield for a spending-driven investor. Core real estate, infrastructure and private credit throw off that yield; a hedge fund sleeve pays no contractual income.",
+  "The style on offer is long-biased equity and the stated role is diversification. Either restate the role as capital growth, or switch the style to market-neutral, macro or trend."
+ ],
+ "pitfalls": [
+  "Calling the sleeve a diversifier because the asset-class label says \"hedge funds\". Decompose it instead: a long/short equity fund can come out around half equity beta, plus some credit and liquidity exposure, plus an idiosyncratic manager residual, so under the factor lens it is largely more of the equity risk the portfolio already owns.",
+  "Getting the equity-risk mitigator ranking wrong. Government bonds are the most reliable and the most liquid, managed futures is higher-returning but less certain, and a long-biased equity hedge fund is not a mitigator at all.",
+  "Feeding reported volatility and correlation straight into a single-period mean-variance optimizer. The inputs are smoothed and the returns are non-normal and path-dependent, so an unconstrained optimizer will over-weight the allocation. De-smooth or constrain the inputs, or switch to Monte Carlo or a risk-factor allocation. A Sharpe ratio built on the same inputs inherits the same flattery.",
+  "Accepting a broad hedge fund composite as the benchmark without qualification. Survivorship, backfill and self-selection bias inflate the reported index and therefore the hurdle. Say it is partially appropriate, name the three biases, and recommend strategy-specific benchmarks. PME is the private equity half of that answer, not the hedge fund half.",
+  "Trading a strong track record off against operational red flags. Operational due diligence is a separate screen from investment due diligence, and self-valuation, weak controls, custody problems or no independent audit should disqualify the manager whatever the returns look like."
+ ],
+ "cues": [
+  {
+   "signal": "The fund is described as long-biased equity, or the manager is said to run a net long book.",
+   "implication": "It carries most of the equity beta, so it cannot answer a diversification or downside-protection question. File it in the capital growth role and say the diversification claim is overstated. A hedged net long book cushions somewhat versus long-only, but that is not the same as being a mitigator."
+  },
+  {
+   "signal": "The role asked for is protection when equities fall.",
+   "implication": "Apply the two-leg test: reliably uncorrelated or negatively correlated WHEN equities drop, and liquid enough to be sold then. Trend or managed futures is the named example that meets both, and government bonds are the most reliable on both legs. Long-biased and credit-oriented strategies meet neither, because they fall with equities. Check the liquidity leg against the vehicle rather than assuming it: the comparison table scores diversifying alternatives as often low on liquidity because of lock-ups, so a trend fund in a hedge fund wrapper still sits behind a notification period and gates."
+  },
+  {
+   "signal": "The vignette gives the sleeve's style mix, for example 40% long/short equity, 40% global macro, 20% event-driven.",
+   "implication": "Split the sleeve by role before answering. Macro is the diversifier; long/short equity and event-driven sit in the growth role and carry equity beta. Only part of the sleeve supports a downside-protection claim, which is usually the point of the question."
+  },
+  {
+   "signal": "The investor is small, has no dedicated investment staff, or the committee is said to lack alternatives due-diligence experience.",
+   "implication": "Minimums, manager dispersion and governance fail together. Recommend a smaller allocation, liquid-alternative substitutes or a fund-of-funds rather than the full direct program, and retaining a specialist consultant for manager selection, which is often the vignette's own remedy for the due-diligence gap."
+  },
+  {
+   "signal": "The fund's holdings are described as less liquid or side-pocketed, or its valuations are described as quarterly or appraisal-based.",
+   "implication": "Those inputs are smoothed and understated. Say so before using them, and say that an optimizer fed the raw numbers will over-weight the allocation. De-smooth, constrain, or use Monte Carlo or a factor approach. If the vignette quotes a volatility or correlation number with no valuation detail, the live defect is crisis correlation instead, not smoothing."
+  },
+  {
+   "signal": "Grants, benefits or other spending must be met on a fixed schedule, or the portfolio is already heavy in private funds.",
+   "implication": "Liquidity planning dominates the answer. Raise capital calls exceeding distributions, gates activating, and the smoothing or denominator effect, then pacing plans, a liquidity buffer and stress tests. Wider public-bond bid-ask spreads is the classic distractor, not one of the three named stress drains."
+  },
+  {
+   "signal": "A consultant or sponsor claims a specific volatility reduction, or claims genuine downside protection, from a hedge fund allocation.",
+   "implication": "The expected verdict is OVERSTATED. Equity correlations rise in a crisis; crisis alpha from macro and trend comes with high dispersion across managers, so the cross-sectional average is not the result this manager will deliver; and any benefit depends on which styles sit inside the sleeve. Keep stale marks and smoothing for the private equity and real estate half of a volatility-reduction claim, not for the hedge fund half."
+  },
+  {
+   "signal": "The proposed benchmark is a broad hedge fund index or composite.",
+   "implication": "Partially appropriate at best. Attack survivorship, backfill and self-selection bias, note that they inflate the comparison hurdle, and recommend strategy-specific benchmarks with the biases acknowledged."
+  },
+  {
+   "signal": "Fees are given as 2 and 20, or a hurdle rate and a high-water mark are described.",
+   "implication": "Do the net-of-fee arithmetic, quote the drag, check whether the incentive fee is charged on the gross return or on the return net of the management fee, and note that a high-water mark stops the manager being paid twice for recovering the same losses."
+  }
+ ],
+ "comparesWith": [
+  "private_equity",
+  "government_bonds",
+  "market_neutral",
+  "long_short"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "Deleted the whenToRecommend item 'The alternatives program is already heavy in private equity and direct real estate, and the remaining gap is a non-directional exposure that can be cut back if the liquidity budget tightens'. It restated the neighbouring item about avoiding capital calls and a ten-year lock, and the claim that the sleeve can be cut back is weak once gates and notice periods are in the cons.",
+   "Deleted the clause 'or treating a reported IRR as comparable to a public manager's time-weighted return' from the gross-return pitfall. IRR, PME and vintage-peer comparison are the private fund problem; hedge funds report NAV-based time-weighted returns, so the clause was borrowed from the private equity entry and is wrong here.",
+   "Deleted the claim that a hedge fund composite is 'neither investable nor specified in advance'. Overstated: investable strategy indexes exist, and the bank's own model answer rests the critique on survivorship, backfill and self-selection bias inflating the hurdle, not on investability.",
+   "Deleted 'alternative risk premia version' and 'giving part of the exposure without the lock-up' from the liquid alternatives pro. The grounding supports liquid-alternative substitutes as the response for an unsuited investor; the specific product category and the implied equivalence of exposure were invented.",
+   "Second pass: deleted the pro 'An investor who fails the scale or governance test still has a partial route in: a smaller allocation or liquid-alternative substitutes rather than the full illiquid program, accepting the leverage and liquidity limits such a vehicle has to live with'. Both skeptics flagged it. It is not a benefit of holding hedge funds but the remedy for an investor the suitability tests have just excluded, it already appears in whenNotTo[0], whenNotTo[1] and cues[3], and it ended by arguing against itself. Its one unique clause, the leverage and liquidity limits of a liquid-alternative vehicle, was not relocated: that is jurisdiction-specific registered-fund regulation and appears nowhere in this bundle. The cost the candidate's material actually attaches to listed and semi-liquid vehicles is public-market beta and higher equity correlation, and that is now in whenNotTo[1].",
+   "Second pass: deleted the pitfall 'Quoting the gross return. Show the net number and the arithmetic: 10% less the 2% management fee less 20% of the 8% excess is 6.4%.' It is the third copy of the same calculation, after cons[1] and cues[8], and cons[1] is strictly more useful because it also gives the 6.0% figure for the other fee basis.",
+   "Second pass: deleted the sentence 'A net-of-fee calculation is wanted even when the command word is EVALUATE' from cues[8]. It is an invented exam-technique rule. command_words.json says evaluate is marked on the verdict, and that only one evaluate stem in the whole bank asks for work, so arithmetic under EVALUATE is the exception. Neither hedge fund stem in the grounding asks for fee arithmetic. The instruction to do the arithmetic when the vignette hands over the fee terms is kept."
+  ],
+  "corrected": [
+   "Changed the source on the reported-risk con from portfolio_performance_evaluation to asset_allocation_to_alternative_investments. No evidence from the performance-evaluation reading appears in this instrument's grounding, while the alternatives reading states the smoothing mechanism directly. The Sharpe ratio and non-normality point moved into pitfalls, which carries no source field, rather than being attributed to a reading that does not support it.",
+   "The fee con now states the basis: the 6.4% net figure holds when the 20% incentive fee is charged on the return above the management fee, and 6.0% when it is charged on the gross return. As drafted it presented one convention as the answer, which is the easiest way to get the arithmetic marked wrong.",
+   "The manager-dispersion con no longer says the outcome turns on manager selection 'rather than on the decision to allocate'. Corrected to the curriculum's own formulation, a primary driver rather than a secondary refinement, since the allocation decision still sets the risk the sleeve contributes.",
+   "Added a con, missing from the draft, that correlations to equities can spike in a crisis, which is a different defect from smoothed marks and is the second leg of the standard 'downside protection is overstated' answer.",
+   "Added a cue for the vignette that hands over the style mix of the sleeve, which is how the bank's own alternatives item is set up, and is the cue that forces the role-by-role split rather than a verdict on the whole sleeve.",
+   "The long-biased cue now concedes that a hedged net long book cushions somewhat versus long-only, because the model answer allows long/short equity some downside cushion while still refusing it the mitigator label.",
+   "The liquidity cue now names the distractor explicitly: wider public-bond bid-ask spreads is not one of the three named stress-time liquidity drains.",
+   "The funding pro no longer claims 'redemption is measured in months'. Lock-ups, notice periods and gates make that unreliable, and the cons rest on exactly that. The pro now claims only what is safe: the sleeve is fully funded at subscription with no calls, no J-curve and no pacing.",
+   "Confidence lowered from high to medium. There is no hedge fund strategies reading in this bundle, so the entry is the allocation-level view only, and several claims are added curriculum rather than grounded in the notes.",
+   "Name set to title case, Hedge Funds, to match the other finished entries.",
+   "Second pass: the summary no longer says 'Every hedge fund answer turns on one decision'. There are two essay stems for this key and only one of them turns on style; the benchmarking stem turns on survivorship, backfill and self-selection bias, and the fee and operational-due-diligence material is style-independent too. Changed to 'Most allocation answers', with the benchmarking and fee routes named.",
+   "Second pass: 'foundation' removed from the suitable-archetype list in whenToRecommend[0]. The notes restrict that list to large endowments and sovereign wealth funds. Foundations are the archetype that tends to fail the governance test, because foundation boards are grantmakers rather than investment professionals, and the one foundation vignette in the bank is one where the grader holds the liquidity concern valid and concedes the committee's due-diligence gap. The item now says a foundation qualifies only on passing the same tests, and names the two it usually fails.",
+   "Second pass: whenToRecommend[2] no longer offers hedge funds to an investor who 'cannot accept a multi-year lock'. Both skeptics flagged the self-contradiction with the summary and cons[4]. The capital-call and J-curve halves survive; the item now states the limit explicitly, that the sleeve carries its own lockup, notification period and gates, so it is shorter-dated than a ten-year private fund rather than a liquidity solution.",
+   "Second pass: whenNotTo[1] no longer attaches the second fee layer to both access routes. The second layer is the fund-of-funds cost specifically, roughly another 1% and 10% on top of the underlying managers, and what it buys is multi-manager diversification, professional due diligence and smaller minimums. The listed or semi-liquid route is now priced separately, at public-market beta and a higher correlation with public equity.",
+   "Second pass: the reported-risk con is narrowed from 'Reported risk flatters the category' to the sleeves whose holdings are genuinely illiquid or appraisal-valued, and its source changed from asset_allocation_to_alternative_investments to curriculum. That reading illustrates the autocorrelation mechanism with a private real-asset fund and its category table gives hedge funds the equity-exposure and low-correlation notes, not the smoothing note; the hedge-fund extension comes from the capital market expectations reading, which is not in this instrument's notes evidence. The con now also points at crisis correlation as the live defect for a book marked off listed prices.",
+   "Second pass: cues[4] signal narrowed. It fired on any vignette that quoted a hedge fund's volatility or correlation at all and then told the candidate the inputs were smoothed, which is the private equity and real estate answer rather than the hedge fund one. The signal now requires illiquid, side-pocketed, quarterly or appraisal-based valuations, and the implication redirects the bare volatility or correlation case to crisis correlation.",
+   "Second pass: cues[6] implication now leads with the two legs the grading key credits for hedge funds, crisis correlation and high dispersion across managers, and keeps stale marks and smoothing for the private equity and real estate half of a volatility-reduction claim. The draft had dropped manager dispersion, which is the key's second leg, and led with smoothing, which the key assigns elsewhere.",
+   "Second pass: cues[1] now tells the candidate to check the liquidity leg against the vehicle. The notes do say trend and managed futures meets both legs, so that stays, but the same notes score diversifying alternatives as often low on liquidity because of lock-ups and warn that they sacrifice liquidity, so the cue no longer implies a managed futures allocation is sellable mid-crisis.",
+   "Second pass: cues[3] trimmed so it points at the specialist-consultant remedy and does not restate the fee-layer economics that now sit in whenNotTo[1].",
+   "Second pass, kept against a flag: fund-of-funds stays in whenNotTo[1] and cues[3]. One skeptic called it ungrounded Level I or II material; it is not. The alternatives reading's own drills teach the vehicle choice of direct, fund or fund of funds, price the fund-of-funds layer at an additional 1% and 10%, and prescribe it by name for the small-foundation scale constraint, 'fund of funds may be appropriate to gain diversification but at additional fee layer'.",
+   "Second pass, kept against a flag: the leverage and liquidity limits clause was not moved into whenNotTo[1] as the mechanism skeptic proposed. The other skeptic showed the clause is invented registered-fund detail, and the candidate's material gives listed and semi-liquid vehicles a different cost, public-market beta. The grounded cost is used instead."
+  ],
+  "shortfall": "",
+  "residualRisk": "Three things a reader should still check. First, the pro that managed futures is 'still expected to earn more than high-quality bonds'. The notes state it as the crisis alpha case and the comparison table gives diversifying alternatives a higher expected return than bonds, but it is a historical and environment-dependent claim, weakest where bond yields have already risen, and the bank's own model answer notes hedge fund alpha has often been negative net of fees. Second, the liquidity leg of the mitigator test is genuinely in tension inside the candidate's own notes: the watch-out says trend and managed futures meets both legs, while the comparison table scores diversifying alternatives as often low on liquidity and the exam-focus line says they sacrifice liquidity. The cue now carries both sides rather than resolving it. Third, this entry is the allocation-level view only. There is no hedge fund strategies reading in the bundle, the grounding carries sixteen notes sentences, no learning outcome statements and two essay stems, and the style adjudication that runs through the entry is shared with the long_short and market_neutral entries; what is unique to this key is the fee drag, the benchmark biases and the liquidity and gates interaction."
+ }
+}

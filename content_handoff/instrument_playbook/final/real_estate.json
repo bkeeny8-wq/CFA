@@ -1,0 +1,184 @@
+{
+  "key": "real_estate",
+  "name": "Real Estate And REITs",
+  "family": "Alternatives",
+  "summary": "Equity ownership of income-producing property, held directly or through a private fund whose values are appraisal-based and whose capital is locked up, or through listed REITs that trade like equities. The expected return is the cap rate plus NOI growth less the rise in the cap rate, and the decision it turns on is whether the investor can fund years of illiquidity to earn the premium or must take the listed proxy instead.",
+  "pros": [
+    {
+      "text": "Inflation hedge: rents and replacement costs rise with the price level, so the inflation grid is positive for real estate both when inflation comes in as expected (income plus growth) and when it runs above expectations.",
+      "source": "capital_market_expectations_part_1_framework_and_macro_considerations"
+    },
+    {
+      "text": "Contractual cash yield: core real estate throws off income, which is what makes it the income allocation for a spending-driven investor, alongside private credit and infrastructure.",
+      "source": "asset_allocation_to_alternative_investments"
+    },
+    {
+      "text": "Carries an illiquidity premium that a long horizon can harvest, available to investors with modest near-term liquidity needs such as large endowments and sovereign funds, and not to investors with near-term liabilities.",
+      "source": "principles_of_asset_allocation"
+    },
+    {
+      "text": "The expected return is explicitly computable, which few alternatives are: E(R) = cap rate + NOI growth less the percentage change in the cap rate, with the cap rate behaving like a Gordon-growth yield, roughly the required return less expected NOI growth.",
+      "source": "capital_market_expectations_part_2_forecasting_asset_class_returns"
+    },
+    {
+      "text": "Listed REITs give liquid access to property cash flows: exchange liquidity, no capital calls and no multi-year commitment, which makes them the usable route for an investor who cannot lock capital up. The exposure is not risk-equivalent to the private program, because REITs carry a high positive equity beta and roughly 0.5 to 0.7 correlation with equities.",
+      "source": "curriculum"
+    }
+  ],
+  "cons": [
+    {
+      "text": "Private real estate is illiquid in the ways that bite: multi-year lockups, capital calls that can exceed distributions in a down market, and gates, which real estate vehicles and hedge funds use to refuse withdrawals to protect remaining investors.",
+      "source": "case_study_in_portfolio_management_institutional_endowment"
+    },
+    {
+      "text": "Appraisal-based values are updated infrequently and lag the market, so reported returns are positively autocorrelated and both volatility and correlation with public assets are understated, which flatters risk-adjusted performance. A private real-asset fund reporting about 8% volatility can de-smooth to roughly 12% to 13%, and the raw number makes an optimizer load up on it.",
+      "source": "asset_allocation_to_alternative_investments"
+    },
+    {
+      "text": "No protection in deflation or when inflation comes in below expectations: the grid is negative for real estate because rents and property values decline, and that is the regime where high-quality nominal bonds win.",
+      "source": "capital_market_expectations_part_1_framework_and_macro_considerations"
+    },
+    {
+      "text": "The cap rate reprices values against you. It rises with the required REAL rate and the risk premium and falls with expected NOI growth, so a higher required real rate or a wider risk premium cuts value even while income holds up. A rise in nominal long rates driven purely by expected inflation is not the same thing: NOI growth rises with it, the cap rate need not move, and the grid still marks real estate positive.",
+      "source": "capital_market_expectations_part_2_forecasting_asset_class_returns"
+    },
+    {
+      "text": "The asset-class label understates the true risk, because one alternative bundles several risk factors at once rather than sitting cleanly in its named bucket, so grouping by class hides the shared exposures and makes the measured correlation with what the portfolio already holds look lower than the economics. Reframe the property allocation by factor exposure to see the overlap.",
+      "source": "asset_allocation_to_alternative_investments"
+    },
+    {
+      "text": "High minimums block a small pool from direct real estate outright, alongside private equity and hedge funds, and a small pool also cannot spread across enough managers or resource the due diligence.",
+      "source": "asset_allocation_with_real_world_constraints"
+    },
+    {
+      "text": "There is no directly investable index for direct property, so it cannot be held passively, it is hard to value, and it is hard to rebalance.",
+      "source": "principles_of_asset_allocation"
+    }
+  ],
+  "whenToRecommend": [
+    "Inflation is forecast to run above expectations, or the indicators read late expansion (closed output gap, tight labor market, rising inflation, flat curve), and the mandate permits real assets. Add real estate with commodities and state the mechanism: rents and replacement costs rise with the price level. Fund it the way the model answer does, by reducing high-yield credit late-cycle, and treat shortening duration as a separate tilt rather than selling nominal bonds to buy property.",
+    "The investor has a long horizon, liquid assets elsewhere to meet both spending and capital calls, the governance to select and monitor managers given the huge dispersion, and the scale to diversify across managers, strategies and vintage years, a large endowment or sovereign fund. Direct or private-fund real estate is then suitable and the illiquidity premium is harvestable.",
+    "The investor wants property exposure but is small, needs liquidity, or cannot meet fund minimums. Listed REITs are the standard proxy, with the caveat that they are not a substitute for the fixed income allocation.",
+    "A very large fund is pushed toward liquid large-cap holdings by capacity and market impact, but can still access scale-only strategies. Direct real estate and large private funds are open to it where niche strategies are not."
+  ],
+  "whenNotTo": [
+    "The investor has near-term spending needs, a short horizon, thin governance or a small pool. Recommend little or no private real estate, and use listed REITs or liquid substitutes rather than the full illiquid program.",
+    "The stated purpose is to reduce equity risk and the vehicle is a listed REIT. Public REITs carry high positive equity beta and roughly 0.5 to 0.7 correlation with equities, so keep the fixed income, whose equity beta is small and negative.",
+    "Property already sits on the investor's own economic balance sheet, a private client whose wealth is concentrated in a residence. Size the new allocation against that total exposure rather than against the financial portfolio alone. A client concentrated in an illiquid operating business is a different objection: that is a liquidity-capacity failure against the tests above, not property exposure to net off.",
+    "The only available risk inputs are raw appraisal-based volatilities and correlations. Do not run a mean-variance optimization on them: de-smooth, impose constraints, size the allocation outside the optimizer, or use Monte Carlo simulation to capture the path dependency of calls and lockups.",
+    "What is wanted is a direct inflation hedge with no tenant credit, vacancy or appraisal risk. Inflation-linked bonds do that on the index itself, while real estate bundles equity, rates, credit and property-specific risk with the inflation link."
+  ],
+  "pitfalls": [
+    "Calling public real estate a diversifier against equities. In the graded Mungo answer the lower-correlation and lower-beta claims for public REITs are both INCORRECT, because REITs trade like stocks, while the high-liquidity and no-long-term-commitment claims in the same statement are CORRECT. Grade each claim separately instead of accepting or rejecting the statement whole.",
+    "Getting the deflation direction wrong. The grid is negative in deflation, positive when inflation is as expected (income plus growth), positive when inflation runs above expectations. Treasuries, not real estate, are the deflation winner, because falling yields lift bond prices.",
+    "Sign error on the repricing term. The full form is E(R) = cap rate + NOI growth less the percentage change in the cap rate, so a rising cap rate subtracts (5.5 + 2.0 less 2.0 = 5.5%) and compression adds (5.5 + 2.0 + 1.0 = 8.5%). Cap rate plus NOI growth alone is the steady-state case where cap rates are unchanged.",
+    "Feeding raw appraisal-based volatility and correlation into an optimizer. De-smooth or impose constraints first. In a Singer-Terhaar calculation use the volatility and correlation the exhibit hands you, unadjusted, and add an illiquidity premium only when the vignette supplies one, never a number you invented. Remember the segmented leg sets the correlation to 1.0, so a less integrated property market prices its full standalone volatility and carries a HIGHER premium.",
+    "Getting the balance sheet wrong on existing property. The test is whose economic balance sheet it sits on: a private client's residence counts, but in the Sabonete answer the sponsor's African land and planned facilities are corporate operating assets held outside the pension plan's extended balance sheet, so the claim that the plan's 10% real estate allocation is too high is INCORRECT.",
+    "Confusing committed with invested capital. A private real estate commitment is drawn over years, so the J-curve and commitment pacing across vintage years apply, and in a downturn calls can accelerate while distributions slow. The denominator effect is a separate mechanism, not a consequence of the drawdown schedule: private valuations mark with a LAG, so the private weight rises as liquid assets fall and can breach a policy limit with no transaction at all. The arithmetic is worked in the private equity entry."
+  ],
+  "cues": [
+    {
+      "signal": "A current cap rate, an NOI growth forecast, and a view that cap rates will rise or compress.",
+      "implication": "This is the return decomposition, not Singer-Terhaar. E(R) = cap rate + NOI growth less the change in the cap rate. Rising cap rates mean falling values and subtract, compression adds."
+    },
+    {
+      "signal": "Real estate volatility, its correlation with the global market, the global market Sharpe ratio, and a degree of integration.",
+      "implication": "This is Singer-Terhaar, not the cap-rate decomposition. Blend the integrated premium (volatility times correlation times global Sharpe) with the segmented premium, which sets the correlation to 1.0, and add an illiquidity premium only if the vignette gives one. Use the volatility and correlation as handed to you."
+    },
+    {
+      "signal": "The forecast is deflation or inflation below expectations.",
+      "implication": "Real estate is ruled out and high-quality nominal bonds are ruled in. Any statement that income-producing property outperforms in deflation has the direction wrong."
+    },
+    {
+      "signal": "A statement claims public real estate has lower equity correlation or lower equity beta than the fixed income it would replace.",
+      "implication": "Both claims are wrong, and the switch reduces diversification and raises volatility. Claims about REIT liquidity and the absence of lockups in the same statement are right."
+    },
+    {
+      "signal": "Risk inputs come from quarterly appraisals, properties trade infrequently, or the quoted volatility for a private property fund looks implausibly low.",
+      "implication": "Smoothing. Volatility and contemporaneous correlations are understated and the risk-adjusted performance is overstated. De-smooth or constrain before optimizing."
+    },
+    {
+      "signal": "The investor is small, has no dedicated staff, or cannot meet fund minimums.",
+      "implication": "Direct and private-fund real estate are blocked. Use listed REITs as the proxy, and note that the listed proxy overlaps the public equity allocation, so the two classes are no longer mutually exclusive."
+    },
+    {
+      "signal": "Near-term spending or large withdrawals are scheduled and the real estate program is private.",
+      "implication": "Unsuitable, or reduce the allocation. Name the mechanisms: calls can accelerate while distributions slow, gates can block redemptions, and the denominator effect can push the private share through its policy limit at the worst moment."
+    },
+    {
+      "signal": "The vignette names a property sector, or stresses that leases reprice nightly.",
+      "implication": "Sector to driver mapping, and hotel is the most cyclical because it reprices daily. Office tracks employment, retail consumer spending, industrial trade and logistics demand, multifamily household formation."
+    },
+    {
+      "signal": "The vignette gives a weak demand or soft fundamentals picture for the named sector alongside an inflation story.",
+      "implication": "Check the sector driver before recommending on the inflation story alone. Weak demand in that sector's driver cuts NOI growth, which is the growth term in both the cap rate and the return decomposition, so the inflation grid is not the whole answer."
+    },
+    {
+      "signal": "A taxable private client holds both a taxable account and a tax-deferred account.",
+      "implication": "Asset location, not allocation. REITs are tax-inefficient and belong in the tax-deferred or tax-exempt account, with low-turnover equity left in the taxable account."
+    },
+    {
+      "signal": "A GIPS question about a private real estate or private equity composite.",
+      "implication": "Asset-class-specific provisions apply, and a money-weighted return is permitted here because the firm controls the cash flows and the assets are illiquid."
+    }
+  ],
+  "comparesWith": [
+    "infrastructure",
+    "commodities",
+    "private_equity",
+    "inflation_linked"
+  ],
+  "confidence": "medium",
+  "_review": {
+    "deleted": [
+      "Pro: 'The required return stacks several premiums ... a term premium (very long duration), a credit premium (tenant credit risk), an equity risk premium ... and a liquidity premium', cited to CME Part 2. That building-block stack in the bundled notes is the FIXED-INCOME one (short rate plus term, credit and liquidity premiums), so the citation was a misattribution, and the pro on the cap-rate decomposition already carries the return story.",
+      "Pro: 'Private core real estate diversifies public equities and bonds through lower correlation.' The alternatives reading assigns real estate the income plus inflation-hedge role and gives diversification to macro, market-neutral and trend strategies, and it warns that the asset-class label understates true correlation. The factor-bundle half of this claim was moved to cons, where it belongs.",
+      "Pro clause: 'The CME reading treats 2% to 4% as a reasonable liquidity premium for commercial real estate overall.' No such range appears anywhere in the bundled notes; a fabricated number attributed to a named reading is the worst failure mode here.",
+      "Pro clause: 'aggregate mean returns of 8.80% direct versus 9.29% unlevered REITs', with the inference that there is no return penalty for liquidity. Neither figure is in the notes, and the no-penalty conclusion drawn from them is not something I would defend.",
+      "Con: 'The inflation hedge is delayed, not immediate ... pass-through happens at renewal, and the speed depends on lease length, existing supply and the new-supply pipeline.' Defensible as general theory, but the bundled grid marks real estate positive under above-expected inflation with no lag qualifier, so hedging the graded answer with it costs marks rather than earning them.",
+      "Cue: 'Inflation is expected above target ... Real estate and commodities are the tilt and nominal bonds are the funding source.' Deleted as a cue because it restates the first whenToRecommend item word for word, and its closing instruction to 'keep the rest of the answer consistent with the same scenario' is generic essay advice that selects no instrument.",
+      "Cue: investor already owns property, implication 'Expect the optimizer to move away from assets correlated with the existing property, and expect the recommendation to re-examine rather than add.' Invented optimizer behaviour and an invented university example; the defensible version is now one whenNotTo item and one pitfall built on the Sabonete key.",
+      "Con clause: wide manager dispersion and infrequent lagged reporting. True of alternatives generally rather than specific to this instrument, and already carried by the governance tests in whenToRecommend.",
+      "Skeptic pass, deleted whenToRecommend 'A spending-driven investor needs contractual cash yield from the portfolio. Core real estate fills the income role alongside private credit and infrastructure.' This is pros[1] with the clauses reversed, from the same two sentences of the alternatives reading, and it adds no trigger, no funding source and no caveat. Both halves of the point survive in pros[1].",
+      "Skeptic pass, deleted whenToRecommend 'The question names a property sector and gives a macro forecast. Match sector to driver: office to employment ... hotel to the cycle itself.' The mapping is verbatim correct against CME Part 2's sector-sensitivities list, but it is a recognition cue rather than a recommendation trigger, and cues[7] already carries it with the hotel mechanism ('leases reprice nightly') that the notes themselves give. One piece of content was occupying two slots.",
+      "Skeptic pass, deleted whenNotTo 'Deflation or below-expected inflation is the forecast. Rents and values fall, so hold nominal government bonds, whose prices rise as yields fall, instead of adding real estate.' The deflation cell was stated four times in one entry (cons[2], this item, pitfalls[1], cues[2]), all correct against Table 3 and the graded deflation essay, so one grid cell was consuming roughly a tenth of the entry. Its only unique content, the yields-fall mechanism, moved into pitfalls[1].",
+      "Skeptic pass, deleted from cons[4] the enumerated four-factor list for property ('equity, rates, credit and inflation'). Checked against the reading: its risk-based taxonomy does list those factors, but its only worked factor decomposition is of a long/short EQUITY hedge fund (0.5 equity + 0.2 credit + 0.1 liquidity + idiosyncratic) and it never decomposes property. The entry also carried a different list in whenNotTo, so the reader could not tell which to write down. The grounded halves (a single alternative bundles several factors; the label understates true correlation) are kept, and whenNotTo now holds the only factor list in the entry.",
+      "Skeptic pass, deleted from cues[4] the clause 'while the mean return is not biased'. The prior pass's own residualRisk conceded this was my addition. Verified: the alternatives reading says autocorrelation 'dampens the measured volatility and lowers the measured correlation', CME Part 2 says smoothed indices 'understate true volatility and correlations', and nothing in the 36 readings states that the mean is unbiased. A cue carries no source field, so the reader could not tell it was an inference.",
+      "Skeptic pass, deleted the worked denominator arithmetic from pitfalls (200/(560+200) = 26.3% through a 25% limit). The numbers are verbatim correct against the alternatives reading, but private_equity.json already runs exactly this example, and the reading's own pacing and denominator illustrations are private-equity ones. Real estate is named there only because the endowment case pairs 'private equity and real estate' for commitment pacing, so the arithmetic lives in one entry and is cross-referenced from here.",
+      "Skeptic pass, deleted from whenNotTo the raw-input item's 'or an equilibrium model', and from cues[4] 'or before an equilibrium model'. De-smoothing is scoped in every source to an optimizer or an allocation, never to an equilibrium model.",
+      "Skeptic pass, deleted the supply-side content from the last cue: 'Heavy new construction and rising vacancy', 'the competitive half of the LOS', 'New supply and vacancy cut NOI growth and raise the cap rate, so the repricing term turns negative', and the matching clause 'weaker NOI growth from rising vacancy' in cons[3]. Grepped all 36 readings in reading_notes.json: 'vacancy', 'new supply', 'absorption' and 'oversupply' return ZERO hits, and CME Part 2's own exam-focus line for this LOS says 'Two testable pieces: the cap-rate return decomposition ... and matching a sector to its macro driver'. The LOS statement does say 'economic and COMPETITIVE factors', so the phrase was not invented out of nothing, but the notes carry no competitive or supply-side material, and the step from vacancy to a higher cap rate was the entry's own. Deleting it also disposes of the second skeptic's narrower complaint that 'the repricing term turns negative' inverts against the entry's own notation, in which the repricing term IS the percentage change in the cap rate.",
+      "Skeptic pass, deleted the invented vehicle name 'a global REIT index fund' from whenToRecommend and 'a listed index such as global REITs' from cues[5]. Grep shows the word REIT appears in only one of the 36 readings, and only under asset location; no REIT index product is named anywhere, so the generic 'listed REITs' is as far as the material goes."
+    ],
+    "corrected": [
+      "Summary now states the decision the instrument turns on, funding the illiquidity versus taking the listed proxy, instead of ending on the return formula alone.",
+      "Inflation pro now gives both positive cells of the grid, as expected (income plus growth) and above expectations, and drops the invented triple about 'high property demand, rental income rising faster than general inflation'.",
+      "Income pro no longer says real estate 'acts partly as a bond substitute'. That is the exact inference the graded Mungo answer marks wrong when fixed income is the funding source.",
+      "New pro on the cap-rate decomposition, which the notes carry verbatim with a worked example, replacing the deleted premium-stack pro.",
+      "Illiquidity con now says calls can EXCEED DISTRIBUTIONS, the stress drain the endowment case actually names, rather than the vaguer 'accelerate in depressed markets', and attributes gates to real estate vehicles and hedge funds as the notes do.",
+      "Cap-rate con lost the clause 'cap rates are pro-cyclical, only partly offset by countercyclical credit spreads'. Nothing in the grounding supports that offset and it garbles the mechanism.",
+      "Access con split in two and corrected: 'no accurate index and no low-cost passive vehicle' became 'no DIRECTLY INVESTABLE index', the phrase the notes use, and the minimums claim is now cited to the real-world-constraints reading that carries it.",
+      "New con, moved from the deleted diversification pro: the asset-class label understates the true risk because one alternative bundles several factors.",
+      "whenToRecommend on inflation now lists the four late-expansion indicators the notes test on.",
+      "whenToRecommend on suitability now names all four tests, horizon, liquidity elsewhere, governance, scale, rather than asserting suitability from horizon alone.",
+      "whenToRecommend on REITs as the small-investor proxy now carries the caveat that they are not a fixed-income substitute, so the entry cannot be read as endorsing the Mungo reallocation.",
+      "whenNotTo on inflation-linked bonds had a direction error: it credited ILBs with 'no credit, vacancy or RATE risk'. ILBs carry real-rate duration. Changed to no tenant credit, vacancy or appraisal risk.",
+      "whenNotTo on existing property reframed onto the economic balance sheet, dropping the invented university-with-local-holdings example.",
+      "whenNotTo on raw appraisal inputs now includes the notes' other remedy, sizing the illiquid allocation outside the optimizer, not only de-smoothing and Monte Carlo.",
+      "Repricing pitfall now carries the worked arithmetic from the notes, 5.5 + 2.0 less 2.0 = 5.5% against 5.5 + 2.0 + 1.0 = 8.5%, and drops the claim that long-run NOI growth 'should sit near nominal GDP growth', which nothing in the grounding states.",
+      "Singer-Terhaar pitfall replaced the vague 'real estate is location-specific so it may be tied more to local than global factors' with the mechanism and its direction: the segmented leg prices full standalone volatility, so a less integrated market carries a HIGHER premium.",
+      "Sabonete pitfall now states the general test, whose economic balance sheet the property sits on, so it covers the private-client residence case too instead of reading as one case trivia item.",
+      "Cap-rate cue and a new Singer-Terhaar cue now eliminate each other explicitly, since the two real-estate calculations are told apart by which inputs the vignette hands you.",
+      "Small-investor cue now says plainly that listed REITs overlap the public equity allocation, so the classes are no longer mutually exclusive.",
+      "Confidence lowered from high to medium. The draft asserted high while carrying two fabricated figures and a misattributed premium stack, which is exactly the case the badge exists to warn about.",
+      "Note on provenance: the cap-rate decomposition, sector drivers and smoothing warning are cited to CME Part 2 even though they are not in this instrument's extracted notesEvidence slice, because the extractor only kept sentences containing the words 'real estate'. I verified all of it verbatim in that reading's own notes, which is the stronger test.",
+      "Skeptic pass, cons[3] direction inversion fixed. The prior text glossed the mechanism as 'higher long rates ... cut value'. The notes say the cap rate 'rises with the required REAL rate and risk premium', and the reading's own rapid self-test asks exactly the opposite case: 'Under rising inflation, rank nominal bonds vs real estate' answered 'Real estate benefits (inflation hedge); nominal bonds suffer (yields up, prices down).' So in the most-tested scenario nominal long rates rise and real estate still wins, because NOI growth rises with inflation and cap rate = r less g need not move. The item now says 'required REAL rate', and adds the nominal-versus-real distinction explicitly so the gloss cannot be read back in. The self-contradictory tail 'even while income holds up' now attaches only to the real-rate and risk-premium drivers, which is where it is true.",
+      "Skeptic pass, pitfalls on de-smoothing rescoped, flagged by both skeptics. Every source scopes de-smoothing to an optimizer or an allocation: Principles of Asset Allocation ('never feed raw appraisal-based volatilities and correlations into an optimizer'), the alternatives reading ('first DE-SMOOTH ... so the optimizer does not over-allocate'), CME Part 2 ('adjust (de-smooth) before using historical real-estate risk in an allocation'). The notes' Singer-Terhaar section takes sigma_i as a given input with no de-smoothing step, and the one graded Singer-Terhaar real-estate item, cme_foundation_the_united_states_essay_q5, scores the full mark for 16.0% x 0.39 x 0.36 and 16.0% x 0.36 using the Exhibit 1 volatility exactly as handed over. A candidate who de-smoothed the given 16% would lose the arithmetic marks, so the pitfall now says to use the exhibit's inputs unadjusted.",
+      "Skeptic pass, pros[4] equivalence removed, flagged by both skeptics. 'The same property exposure' is the exact claim the graded Mungo key exists to refute: it marks the correlation and beta claims INCORRECT because public REITs show high positive equity beta and roughly 0.5 to 0.7 equity correlation and 'they trade like stocks', against fixed income's small negative equity beta. It also contradicted this entry's own pitfalls[0], whenNotTo on listed REITs and cues[5]. The pro now claims only the liquidity and commitment halves, which the key marks CORRECT, and states that the exposure is not risk-equivalent.",
+      "Skeptic pass, whenToRecommend funding source corrected. The prior text said 'fund it from nominal bonds'. The model constructed-response answer in that LOS pairs 'Shorten duration' as one tilt with 'Reduce high-yield credit and add real assets' as the other; it never sells nominal bonds to buy property, and the Mungo key marks a fixed-income-to-public-real-estate reallocation INCORRECT. The item now names reducing high-yield credit and keeps duration as a separate tilt.",
+      "Skeptic pass, whenNotTo on existing property split by channel. The item had bundled 'a residence or an illiquid business' under 'property already sits on the investor's own economic balance sheet'. The economic-balance-sheet worked example does list home equity as an economic asset, so the residence belongs there; a concentrated illiquid operating business is not property exposure and bears on the investor's capacity to fund calls and lockups instead. As written it told the candidate to net an operating business against a property allocation, which is the Sabonete slip from the other direction.",
+      "Skeptic pass, pitfalls on committed-versus-invested capital: the denominator effect is no longer bundled under 'drawn over years'. The endowment reading attributes it to lagged marks ('private valuations mark with a LAG, so their weight rises relatively as liquid assets fall'), and the alternatives reading's worked example depends on the private 200 being unmarked while public falls, not on the drawdown schedule. The J-curve and commitment pacing do follow from the drawdown; the denominator effect is now stated as a separate mechanism."
+    ],
+    "shortfall": "",
+    "residualRisk": "Three things a reader should still check. First, the last cue's instruction to check the sector driver before recommending on an inflation story: the sector-to-driver mapping and the inflation grid are each grounded, but nothing in the notes joins them, so treating a weak sector driver as a reason to hold back the inflation tilt is my reading of how the two LOS combine. Second, the factor list for property in the inflation-linked-bond comparison (equity, rates, credit, property-specific) is now the only such list in the entry and is still mine: the reading's one worked factor decomposition is of a long/short equity fund, not of property. Third, all of the listed-REIT material rests on a single graded answer key, since REITs appear in the reading notes only under asset location, so there is no second source in the candidate's material against which to check the 0.5 to 0.7 correlation and the beta sign."
+  }
+}

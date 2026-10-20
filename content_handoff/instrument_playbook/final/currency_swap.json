@@ -1,0 +1,153 @@
+{
+ "key": "currency_swap",
+ "name": "Currency Swap",
+ "family": "Derivatives: swaps & futures",
+ "summary": "A currency swap exchanges principal in two currencies at inception, exchanges interest payments in those two currencies over the life of the contract, and re-exchanges the principal at maturity at the original rate. It turns on one question: is the exposure a fixed, long-dated schedule of interest and principal, which the swap matches exactly, or a market value that drifts, which needs a forward rolled and resized with FX swaps instead?",
+ "pros": [
+  {
+   "text": "Hedges interest and principal together over a long horizon: the periodic exchanges cover the coupon stream and the final re-exchange covers the redemption amount, which is why cross-currency swaps are the tool for longer-dated interest-and-principal exposures.",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "Built for foreign-currency debt: it converts both the proceeds and the debt service of a foreign-currency bond issue or loan into the borrower's own currency for the whole life of the borrowing, so the liability and the cash flows that service it sit in the same currency.",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "One contract covers the whole horizon, so there is nothing to roll and no exposure to whatever forward points prevail at each future expiry.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Changes currency and interest-rate basis at once: legs can be fixed for fixed, fixed for floating or floating for floating, so a borrower can pay fixed at home while receiving floating abroad without a second swap.",
+   "source": "curriculum"
+  },
+  {
+   "text": "OTC and negotiated, so tenor, notional and payment dates are matched to the exposure exactly instead of fitting the exposure to a listed contract.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Opens funding markets the issuer could not otherwise use: it can reach a different investor base or place a larger deal abroad while carrying no foreign-currency exposure. Any funding gain is the new-issue spread or the cross-currency basis, not the lower foreign coupon.",
+   "source": "curriculum"
+  }
+ ],
+ "cons": [
+  {
+   "text": "Over-the-counter, so it carries counterparty exposure and lower liquidity than a listed contract, and here that exposure runs for years rather than months. Central clearing and collateral mitigate it, they do not remove it.",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "The notional is fixed at inception, so it cannot track an exposure whose value drifts. A static hedge on a marked-to-market asset goes off target and the notional has to be rebalanced to the current value, which a currency swap cannot do; that is the FX swap's job.",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "The two legs are in different currencies, so payments are not netted. The full amount changes hands in each currency on every payment date, and again at the principal re-exchange, which concentrates settlement risk at maturity.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Expensive and slow to exit early: unwinding means negotiating a termination payment at market value or entering an offsetting swap, and the offsetting swap leaves residual counterparty exposure.",
+   "source": "curriculum"
+  },
+  {
+   "text": "It does not deliver the cheaper foreign coupon. Covered interest rate parity means a fully hedged foreign position earns the domestic rate, so the all-in cost after swapping lands near home-currency funding. What is left over is the cross-currency basis and the new-issue spread, and the basis can run for you or against you.",
+   "source": "capital_market_expectations_part_2_forecasting_asset_class_returns"
+  },
+  {
+   "text": "It does not touch the credit risk or the local-market price risk of the underlying asset. It converts only the currency and the interest-rate basis it was written on.",
+   "source": "curriculum"
+  }
+ ],
+ "whenToRecommend": [
+  "The firm has a foreign-currency bond or loan outstanding with several years to run and wants the coupon stream and the redemption amount both hedged into its functional currency.",
+  "The vignette says the issuer can place a larger deal or reach a better investor base abroad, and management will not carry foreign-currency exposure on the debt. Recommend the swap for the exposure, not for a coupon saving.",
+  "The exposure is a liability or a set of contracted cash flows with a known, fixed schedule over a long horizon, not a portfolio whose market value moves.",
+  "Both the currency and the interest-rate basis have to change, for example a borrower paying floating in one currency that wants fixed payments in another.",
+  "The hedge horizon runs past the liquid part of the forward curve, so rolling short forwards would leave the cost of the hedge hostage to future forward points.",
+  "A parent funds a long-lived foreign subsidiary or foreign asset and wants the funding currency matched to those cash flows for the life of the investment."
+ ],
+ "whenNotTo": [
+  "Hedging a foreign equity or bond portfolio whose value fluctuates: sell the currency forward instead, and roll and resize with FX swaps, because the hedge notional has to follow the asset value.",
+  "Rolling a maturing hedge or moving the hedge ratio: that is an FX swap, a spot transaction plus an offsetting forward, not a currency swap.",
+  "A single known payment or receipt a few months out: a currency forward, or currency futures, is enough.",
+  "A mandate or IPS bars OTC derivatives outright: the swap is out, and so are forwards and NDFs. Note what is given up, because no listed currency future runs five or ten years and none exchanges principal, so a listed hedge has to be rolled. A stated worry about counterparty credit, on its own, is not a prohibition: answer that one with central clearing, collateral and counterparty limits.",
+  "The currency is not freely convertible or deliverable: use non-deliverable forwards, which cash-settle the difference in a convertible currency, because no exchange of principal is possible.",
+  "Only the interest-rate exposure needs changing inside one currency: an interest rate swap does it, receive fixed to add duration, pay fixed to cut it."
+ ],
+ "pitfalls": [
+  "Calling an FX swap a currency swap, or the reverse. An FX swap is a spot deal plus an offsetting forward with no interim interest exchange, used to roll a hedge and adjust the hedge ratio. A currency swap exchanges interest and principal over time.",
+  "Not stating the direction leg by leg. For a hedged foreign-currency bond issue: hand over the foreign-currency proceeds at inception for home currency, then pay home-currency interest and receive foreign-currency interest to service the bond, and reverse the principal at maturity. Derive it from the exposure every time rather than from a mnemonic, because the inception exchange runs the opposite way to the interest legs, and the whole pattern inverts for an investor holding foreign assets instead of owing foreign debt.",
+  "Forgetting the principal re-exchange. Hedging only the coupons leaves the redemption amount exposed, and it is the final exchange at the original rate that fixes the principal.",
+  "Putting a fixed-notional swap on an asset whose value moves, and never saying that the hedge drifts and would have to be rebalanced. A rising asset becomes under-hedged, a falling one over-hedged.",
+  "Claiming the swap captures the cheaper foreign interest rate. The interest differential is embedded in the swap pricing, so the funding gain is the basis or the new-issue spread, not the coupon gap.",
+  "Treating the hedge as risk free. It is a multi-year OTC obligation with counterparty exposure, collateral terms, and gross settlement in both currencies."
+ ],
+ "cues": [
+  {
+   "signal": "\"Issued a 10-year bond in a foreign currency\", or \"foreign-currency debt outstanding\".",
+   "implication": "Interest and principal are both exposed for years, which is the cross-currency swap case. A forward hedge would need a separate contract for every coupon plus one for the principal."
+  },
+  {
+   "signal": "\"Roll the maturing hedge\", or \"adjust the hedge ratio as the asset value changes\".",
+   "implication": "That is an FX swap, not a currency swap. The notes' exam focus states it in exactly those words, and naming a currency swap here is the easiest mark to lose on this topic."
+  },
+  {
+   "signal": "\"The IPS does not permit OTC derivatives\", or \"the mandate is limited to exchange-traded instruments\".",
+   "implication": "Rules out the currency swap, and forwards and NDFs with it. Answer with currency futures, but say what is lost: no tenor beyond the liquid listed months, no exact notional or date matching, and no principal exchange, so the hedge has to be rolled repeatedly. A vignette that only says management is concerned about counterparty exposure is not this cue, and calls for clearing, collateral and counterparty limits rather than a different instrument."
+  },
+  {
+   "signal": "\"The portfolio has appreciated and the hedge is now off target\".",
+   "implication": "A fixed-notional swap cannot follow it. Sell additional forward to rebalance back to the target hedge ratio."
+  },
+  {
+   "signal": "\"We can issue at a lower coupon in that market\".",
+   "implication": "Swap the proceeds and the debt service into the home currency, but say in the answer that covered interest rate parity leaves the all-in cost near home-currency funding, and that the gain, if any, is the new-issue spread or the cross-currency basis rather than the coupon differential."
+  },
+  {
+   "signal": "\"Capital controls\", \"non-convertible\", or \"not deliverable\".",
+   "implication": "No exchange of principal is possible, so a currency swap is off the table. Use non-deliverable forwards, cash-settled in a convertible currency for the difference between the contracted rate and spot, or a proxy hedge in a correlated currency, accepting basis risk."
+  },
+  {
+   "signal": "\"Wants protection but would like to keep the gain if the currency moves our way\".",
+   "implication": "Rules out the swap and the forward: both lock the rate and surrender the favorable move along with the adverse one. Buy the option and pay the premium, a put on the foreign currency for a long foreign-currency exposure. Do not answer with a risk reversal or a seagull, because they fund the premium by capping the favorable side, which is the thing the client asked to keep."
+  },
+  {
+   "signal": "\"We hold a foreign government bond, we want the rate view but no currency risk\".",
+   "implication": "Two overlays, not one instrument. Sell the currency forward for the FX exposure and use bond futures for the duration. Currency and rate exposures are managed separately with the right instrument for each."
+  },
+  {
+   "signal": "\"Pay floating in one currency but we want fixed payments in another\".",
+   "implication": "One currency swap handles the currency conversion and the interest-rate basis together. A separate interest rate swap is not needed."
+  },
+  {
+   "signal": "\"The horizon is uncertain\", or \"may need to exit within a year\".",
+   "implication": "A multi-year OTC swap is costly to unwind. Shorter rolled instruments or listed futures keep the option to stop cheaply."
+  }
+ ],
+ "comparesWith": [
+  "forwards",
+  "fx_hedging",
+  "interest_rate_swap",
+  "futures"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "\"or hedging costs too much\" plus the remedy list \"a risk reversal, a put spread, or a seagull\", removed from the upside-retention cue: it fused two opposite motives into one answer, and a cost complaint does not rule out a swap, which carries no premium at all, so as an instrument-selection cue it pointed the wrong way. The cost-reduction ladder belongs in fx_hedging."
+  ],
+  "corrected": [
+   "pros[1]: dropped the meta-claim \"which is the use the notes name\"; the reading gives five words, \"useful for hedging foreign-currency debt\", and says nothing about bond issues, the borrower's own currency or the life of the borrowing.",
+   "pros[5]: \"the best demand or pricing\" became investor base and deal size, with the gain named as the new-issue spread or cross-currency basis; \"best pricing\" invited the exact coupon-arbitrage error that pitfalls[4] and cons[4] exist to close.",
+   "cons[0]: added that clearing and collateral mitigate counterparty risk rather than remove it, which is how the cited reading frames it.",
+   "cons[1]: \"which a swap cannot do\" became \"which a currency swap cannot do; that is the FX swap's job\", because the cited reading attributes rebalancing to FX swaps and the unqualified claim read as the reading ruling swaps out of rebalancing.",
+   "cons[4]: \"It does not create cheap funding\" became \"It does not deliver the cheaper foreign coupon\", with the cross-currency basis named inline; the app's own bank item on this LOS has a fully hedged Japanese bond returning 2.18 percent against 1.75 percent domestic because of the basis, so the flat version would lead the reader to the wrong answer there.",
+   "cons[5]: grammar only, \"the interest basis that were swapped\" became \"the interest-rate basis it was written on\"; the claim is unchanged.",
+   "whenToRecommend[1]: \"can borrow at a lower coupon\" became deal size and investor base, with an explicit instruction to recommend the swap for the exposure rather than for a coupon saving.",
+   "whenNotTo[3]: conditioned on an actual mandate or IPS prohibition instead of a stated concern, and stopped recommending currency futures as a like-for-like substitute, since no listed currency future runs five or ten years and none exchanges principal. A bare concern now routes to clearing, collateral and counterparty limits.",
+   "pitfalls[1]: removed the mnemonic \"receive the currency you owe and pay the currency your cash flows are in\". It inverts for the inception exchange described in the same sentence, and \"your cash flows\" reads as the bond's foreign cash flows, which makes it self-contradictory. The explicit leg-by-leg statement was already correct and now carries the point alone, with a note that the pattern inverts for the asset case.",
+   "cues[2]: no longer rules out \"every other OTC instrument\" on a mere expression of concern, which contradicted both the cited reading and this entry's own NDF recommendation. The hard conclusion is now tied to the mandate prohibition, and the implication states what listed contracts cost you.",
+   "cues[4]: added the cross-currency basis and new-issue spread, since this cue tells the candidate what to write and \"near home-currency funding\" alone is an incomplete answer on this LOS.",
+   "cues[5]: added the proxy or cross hedge alongside NDFs, which is the second half of the curriculum's answer for a restricted currency.",
+   "cues[6]: the remedy was backwards. A risk reversal and a seagull fund the premium by capping the favorable side, which is exactly what this signal asks to keep; the cue now rules out the swap and the forward and answers with a bought put, naming the premium as the cost."
+  ],
+  "shortfall": "",
+  "residualRisk": "cons[4]'s closing clause, that the cross-currency basis \"can run for you or against you\". The direction is real and the app's own bank item shows a hedged position out-yielding the domestic rate on the basis, but I deliberately did not state which side of a swap earns the basis, because the sign depends on which currency is in demand and the bundled notes give no sign convention. A reader should not infer one from this entry."
+ }
+}

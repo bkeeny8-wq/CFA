@@ -1,0 +1,171 @@
+{
+ "key": "total_return_swap",
+ "name": "Total Return Swap",
+ "family": "Derivatives: swaps & futures",
+ "summary": "An over-the-counter swap in which the total return receiver takes the whole return on a reference equity, commodity or bond index, the cash flows plus any appreciation, and pays MRR plus or minus a predetermined spread, while the payer is compensated by the receiver for any depreciation and for default losses. It turns on one decision: do you want an index's entire total return without owning the assets, or do you want to shed the entire total return of something you refuse to sell? The two sides pay different prices. The receiver's price is the funding leg plus counterparty risk; the payer's price is the forgone appreciation and income plus the dealer's spread and counterparty risk, and she finances nothing because she already owns the asset. Do not memorise one sign for the spread: the bond-index form in the LDI reading is MRR plus a predetermined spread, while the R17 index-swap example has the receiver pay MRR minus the agreed spread.",
+ "pros": [
+  {
+   "text": "Replication is exact. The counterparty is obligated to deliver the index return, so there is no tracking error, whereas an ETF carries NAV premiums and discounts, cash drag and regulatory diversification limits, and futures carry liquidity and supply-demand effects, dividend forecast error and interest rate differentials.",
+   "source": "case_study_in_portfolio_management_institutional_endowment"
+  },
+  {
+   "text": "Capital light. It generates the same economic exposure as an ETF with far less cash committed: an ETF must finance the full notional or use margin, which regulation caps at 50% of account value for a maximum of 2x leverage, so USD80 million of ETF exposure ties up at least USD40 million. Note that futures are capital light on the same argument, so cash efficiency alone does not single out the swap.",
+   "source": "case_study_in_portfolio_management_institutional_endowment"
+  },
+  {
+   "text": "Customised and over the counter, so no listed contract need exist. An active futures market is not required for synthetic index exposure, and a TRS can reach assets that are difficult to access directly, such as some high-yield and commercial loan investments.",
+   "source": "curriculum"
+  },
+  {
+   "text": "A TRS on a corporate bond index passes through both the interest rate component and the credit spread component of a liability's discount rate, which is why it is the answer when a plan wants passive exposure to both. Treasury futures and interest rate swaps move the rate component only.",
+   "source": "curriculum"
+  },
+  {
+   "text": "It reshapes exposure with no sale. A holder of a large low-basis position pays the stock's total return, price change plus dividends, and receives either a floating reference rate or a diversified index return, neutralising or diversifying the position while keeping the shares and deferring the tax event rather than triggering a taxable sale.",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "Preferred to owning the shares when market access is restricted, when taxes on the physical shares that the swap avoids make ownership costly (stamp duty on buying or transferring stock, for example), when custodian fees are high, or when monitoring the position through corporate actions is costly.",
+   "source": "curriculum"
+  }
+ ],
+ "cons": [
+  {
+   "text": "Counterparty credit risk is added, not swapped away. Performance depends on the dealer, and the total return receiver still compensates the payer for index depreciation and for default losses on the reference portfolio, so on a bond index the receiver keeps the issuers' credit risk and takes the dealer's on top of it.",
+   "source": "curriculum"
+  },
+  {
+   "text": "The dearest of the three implementation vehicles in the QUINCO case's unlevered stack, 51 bps against 42 bps for futures and 35 bps for the ETF, and the total is dominated by the 40 bps funding cost. Those are the case's assumptions, not universal costs.",
+   "source": "case_study_in_portfolio_management_institutional_endowment"
+  },
+  {
+   "text": "The contract has a finite life, so a TRS must be rolled. It is not a set and forget holding.",
+   "source": "liability_driven_and_index_based_strategies"
+  },
+  {
+   "text": "Collateral has to be posted, the contract is bilateral, and it is relatively illiquid next to a listed future or an ETF: exiting early means executing a new offsetting swap for the remainder of the original term or negotiating a termination with the dealer rather than selling in a market, and extending the exposure means renegotiating at expiration. The tenor therefore has to be matched to the period over which the exposure or the protection is wanted. A synthetic receiver holds no shares, so it has no voting rights. Do not push illiquidity too far, though: the LDI notes still call a TRS easy to unwind and suitable for temporary or overlay exposure, so it is not an argument against a short-dated overlay.",
+   "source": "curriculum"
+  },
+  {
+   "text": "It is linear and two sided, not optionality. The payer surrenders the appreciation and the dividends in order to shed the downside, and when the index falls the receiver owes the depreciation on top of the financing leg, so a TRS preserves no upside the way a put or a collar does.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Because the notional is not funded, a TRS can be a source of leverage: the notes list interest rate and total return swaps among the methods of leveraging a fixed-income portfolio, alongside repos and futures. That is a conditional defect, not an automatic one. Unless cash or assets are held against the notional, gains and losses are magnified against the capital actually committed and margin calls can force selling into a falling market.",
+   "source": "overview_of_fixed_income_portfolio_management"
+  }
+ ],
+ "whenToRecommend": [
+  "A passive mandate needs exposure to an index with no active futures market, for example a foreign or specialist debt index, so no listed instrument exists to use.",
+  "The liability's discount rate contains a credit spread and the plan wants passive exposure that hedges rate and credit together: receive the total return on a corporate bond index, economically a synthetic secured financing.",
+  "The portfolio is small and the client doubts that building and maintaining a cell-matched sample is worth his staff's time and the transaction costs, because one swap delivers the whole index; a pooled index fund is an equally acceptable answer.",
+  "The exposure is temporary, tactical or an overlay, which is what the notes name the TRS for. Do not extend this to cash or leverage constraints on their own: futures deliver the exposure with as little capital, and on the QUINCO 4x numbers futures are cheaper at 192 bps against the swap's 201.",
+  "Tracking error is explicitly unacceptable or the exposure must match the benchmark exactly, and cost is not the binding constraint.",
+  "A client holds a large low-basis concentrated position, will not sell, and wants to keep ownership and votes, so she pays the stock's total return and receives a floating reference rate or a diversified index return."
+ ],
+ "whenNotTo": [
+  "The IPS bars OTC or uncollateralised derivatives outright, or the vignette makes central clearing or daily settlement a stated requirement. Then use exchange-traded futures or an ETF. A mere worry about counterparty risk is not a disqualifier: answer it with a Credit Support Annex, collateral or clearing.",
+  "A fully funded, unlevered overweight where the client values the flexibility to change the view: in the QUINCO case the ETF wins at 35 bps against the TRS at 51 bps.",
+  "Leverage is permitted and the test is cost: at 4x the case ranks futures 192 bps, TRS 201 bps and ETF 222.50 bps, so futures win and the TRS is only second.",
+  "Only the rate component of the liability needs hedging, for example a duration or BPV adjustment where the discount rate carries no credit spread the plan wants hedged. Then an interest rate swap or bond futures is simpler and a TRS adds credit exposure nobody asked for. Do not look for a liability discounted at a risk-free rate: the exam's framing is the reverse, since liabilities are discounted at high-quality corporate yields while Treasury futures and swaps price off the risk-free curve, and that gap is the spread risk being tested.",
+  "The client wants to keep the upside and limit only the downside, AND listed options on the name are available. Then a protective put or a collar beats the TRS, which pays away the whole total return. Where exchange-traded options do not exist on the name (the Tundra example) or the shares are too illiquid to trade (Inwood), the keyed answer is still a cash-settled total return payer swap, even though it surrenders the upside for the swap's term.",
+  "The reallocation is large and permanent over a long horizon, where the case's rule sends the trade to the cash market and keeps derivatives for shifts that are small, temporary, levered or must be reversible.",
+  "A tax or regulatory limit in the client's jurisdiction blocks hedging the concentrated holding this way."
+ ],
+ "pitfalls": [
+  "Reversing payer and receiver. The total return receiver receives the index cash flows and appreciation and pays the funding leg. To hedge an existing holding the client must be the PAYER; the receiver side just builds a second long position.",
+  "Ignoring settlement. On a physically settled single-stock swap the receiver takes delivery of the shares against the notional, so the payer gives up the stock, which defeats a client who wants to keep it. The hedge for a retained holding is a cash-settled total return PAYER swap.",
+  "Writing that a TRS eliminates counterparty credit risk. It introduces it. The advantage to cite instead is the smaller initial cash outlay for similar performance.",
+  "Dropping the income leg. Total return is price change plus dividends or coupons: in the Tundra example the stock return is [(14 x 1.01) - 14 + 0.10]/14 = 1.71%, not 1.00%, and because that beats the 0.17% six-month reference rate return the client pays the counterparty rather than receiving.",
+  "Picking the TRS for its exact replication on the unlevered mandate. Precision does not pay for 16 bps of extra cost; the answer is the ETF at 35 bps. Equally, do not carry the unlevered ranking into the levered question, because it flips.",
+  "Claiming that synthetic index exposure needs an active futures market. It does not. A TRS can be written over the counter on the desired index, which is exactly why it beats futures for a specialist or illiquid index."
+ ],
+ "cues": [
+  {
+   "signal": "No active futures market, or no listed contract, on the index the client wants.",
+   "implication": "Rules in the OTC total return swap and rules out futures. Synthetic exposure does not require an exchange-traded contract."
+  },
+  {
+   "signal": "Long-held shares with a low tax basis, client will not sell, wants to keep voting rights.",
+   "implication": "A TRS where the client PAYS the stock's total return, cash settled. No sale, the gain is deferred, ownership and votes retained. Physical settlement and the receiver side are both wrong."
+  },
+  {
+   "signal": "Worried about counterparties, wants central clearing, daily margin or exchange-traded instruments.",
+   "implication": "Separate the worry from the prohibition. A stated worry does not rule out the TRS: mitigate it with a Credit Support Annex, collateral and daily marking, or central clearing, which the reading says drives single-trade counterparty risk to virtually zero. In the Maestre case counterparty risk is keyed as the one risk that CAN be eliminated this way, and the same case still recommends a total return swap. Only an explicit IPS ban on OTC or uncollateralised derivatives, or a hard requirement for central clearing and daily settlement, sends you to futures or an ETF."
+  },
+  {
+   "signal": "The exposure must match the index exactly, or tracking error is not tolerated.",
+   "implication": "Rules in the TRS, because the counterparty is obligated to deliver the index return while ETFs and futures both track imperfectly. Check the cost data before answering: precision alone lost by 16 bps in QUINCO."
+  },
+  {
+   "signal": "Leverage of four times is permitted, or the account is capital constrained.",
+   "implication": "Futures 192 bps, TRS 201 bps, ETF 222.50 bps. The TRS beats the ETF but loses to futures. The ETF is not ineligible at 4x, it is simply dearest, because it must finance the full notional: 187.50 bps of financing (2.5% on 75% of notional) on top of its 35 bps. Its 50% regulatory margin cap, a 2x maximum, is why it is the least cash-efficient vehicle."
+  },
+  {
+   "signal": "The liability discount rate includes a credit spread and the plan wants PASSIVE exposure to both rate and credit.",
+   "implication": "A TRS referencing a corporate bond index, economically a synthetic secured financing. Treasury futures or interest rate swaps alone hedge the rate leg and earn no credit for the credit component."
+  },
+  {
+   "signal": "Small portfolio, the client doubts cell matching is worth his staff's time, costs must stay low.",
+   "implication": "Rules out stratified sampling and full replication. A TRS or a pooled index fund are both acceptable; the swap buys the whole index in one contract."
+  },
+  {
+   "signal": "Wants exposure to high-yield loans, commercial loans or another market that is hard to access directly.",
+   "implication": "A customised OTC TRS, because the reading names high-yield and commercial loan investments as assets that are difficult to access directly and a customised over-the-counter contract can reach them. The ground is difficulty of access, not the size of the trade."
+  },
+  {
+   "signal": "Wants to neutralise part of the equity allocation into money market like returns for six months without selling the underlying holdings.",
+   "implication": "Pay the equity total return and receive the floating rate on a notional equal to the slice being neutralised. The reasonableness check is that the outcome matches holding that slice in money market instruments."
+  },
+  {
+   "signal": "Large, permanent strategic reallocation over a long horizon.",
+   "implication": "Pushes toward the cash market; derivatives are for exposure that is small, temporary, levered or must be reversible. The swap's funding spread recurs every year and its tenor has to be renewed."
+  }
+ ],
+ "comparesWith": [
+  "futures",
+  "equity_swap",
+  "interest_rate_swap",
+  "index_replication"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "Pro: 'One contract, little capital, easy to unwind, which suits temporary, tactical or overlay exposure and small portfolios where building or sampling the index is not worth the cost and the staff time' - padding that restates the capital-light pro and two whenToRecommend entries.",
+   "Cue: signal 'Only one leg needs to move, either credit or rates, not both' - near-duplicate of the rate-and-credit cue and of the whenNotTo entry on rate-only hedges, so it adds no discrimination.",
+   "Clause 'and no corporate action rights' from the collateral con - the grounding supports no voting rights only, so the extension was unsupported.",
+   "The '60 bps versus 82 bps' rebalancing figures in whenNotTo and in the large-reallocation cue - that comparison in the case is cash market against a FUTURES overlay whose 82 bps is dominated by 68 bps of annual tracking error, a cost a TRS does not have, so quoting it here was wrong.",
+   "The invented specifics 'plan rules or insider status' from the tax and regulatory con - the grounding says only that tax or regulatory limits may apply.",
+   "Skeptic pass: cue 'Fully funded, unlevered, one-year horizon, values the flexibility to change the view' with its 'ETF 35, TRS 51' implication - deleted as padding. Both skeptics counted the QUINCO unlevered comparison five times in one entry (cons[1], whenNotTo[1], pitfalls[4] and two cues); whenNotTo[1] and pitfalls[4] already carry it.",
+   "Skeptic pass: the clause 'or the account is capital constrained and wants index economics with very little cash tied up' from whenToRecommend. Both skeptics flagged it and the entry contradicted itself on it. The endowment notes read 'futures and TRS deliver the same exposure with far less capital', so capital constraint does not discriminate, and on the case's 4x numbers futures win at 192 against 201.",
+   "Skeptic pass: 'cheaper and' from the rate-only whenNotTo. There is no cost comparison anywhere in the material between an interest rate swap or bond futures and a TRS; the only cost stack is QUINCO's equity ETF/futures/TRS, which contains no interest rate swap.",
+   "Skeptic pass: 'because the cash market is not practically investable at that size' from the hard-to-access cue. The R22 drill quotes the reading as 'a TRS can offer exposure to assets that are difficult to access directly, such as some high-yield and commercial loan investments'. The ground is access, not size, and the size logic was carried over from the Abiquia full-replication argument, which is a different point.",
+   "Skeptic pass: 'at the price of counterparty risk and a funding spread' from the summary, which charged the funding spread to both sides including the hedging payer, who finances nothing because she already owns the asset. The 40 bps funding cost in the QUINCO stack is a receiver's cost."
+  ],
+  "corrected": [
+   "Con 1 said a TRS 'substitutes the counterparty for the issuer'. Inverted the economics: the receiver compensates the payer for depreciation AND default losses, so issuer credit risk stays with the receiver and counterparty risk is layered on top, not swapped for it.",
+   "Added the third source of futures tracking error (liquidity and supply-demand) to the exact-replication pro, since the reading lists three and the draft gave two.",
+   "'Triggering no capital gain' changed to 'deferring the tax event' in the concentrated-position pro and cue, matching the grounding, which says no sale occurs and the gain is deferred rather than extinguished.",
+   "Pitfall on settlement now names the direction: on physical settlement the RECEIVER takes delivery of the shares against the notional, so the payer gives up the stock.",
+   "The exact-replication cue now carries the cost caveat, because a vignette that dislikes tracking error can still answer ETF on cost, as the case does by 16 bps.",
+   "The small-portfolio whenToRecommend and cue now rule OUT stratified sampling and full replication and name a pooled index fund as an equally acceptable answer alongside the TRS, rather than selecting the TRS alone.",
+   "The large-reallocation whenNotTo and cue now state the size, permanence and horizon rule and the TRS-specific recurring cost (funding spread, tenor renewal) instead of the misattributed futures tracking error.",
+   "Softened 'score zero here' to 'earn no credit for the credit component' in the rate-and-credit cue, and trimmed 'leaving managers in place' from the equity-neutralisation cue as embroidery.",
+   "Moved the tax and regulatory limit from cons to whenNotTo, where it is a disqualifying situation rather than a property of the instrument.",
+   "Tightened the tenor con to include tenor matching, flagged the 35/42/51 and 222.50/192/201 figures as the QUINCO case's assumptions, and copied the family string verbatim from grounding.json, where the draft had rewritten the ampersand.",
+   "Summary now states the payer's side (compensated for depreciation and default losses) and the single decision the instrument turns on.",
+   "Added two claims: the swap is preferred to holding the physical shares when access is restricted or stamp duty, custody or corporate-action monitoring makes ownership costly; and the exposure is unfunded, so it is leverage against the cash committed.",
+   "Skeptic pass: the counterparty-risk cue and the first whenNotTo entry both treated a mention of counterparty risk as ruling out the TRS and, in the cue, 'every OTC structure'. Both skeptics flagged this and the material is decisive against it. The Maestre MC rationale keys counterparty credit risk as the risk that 'can be essentially eliminated from over-the-counter derivatives, such as swaps, through inclusion of a Credit Support Annex', the R17 clearing drill says clearing with collateral and daily marking makes single-trade counterparty risk 'virtually zero', and question 3 of that same Maestre case lists a synthetic strategy using a total return swap as a strategy Maestre WOULD recommend. Both now separate a worry (mitigate it) from an IPS prohibition or a stated clearing/daily-settlement requirement (disqualifying).",
+   "Skeptic pass: the 4x cue said 'the ETF fails because 50% regulatory margin caps it at 2x leverage' while quoting the ETF's own 4x cost in the same sentence. The notes price all three vehicles at 4x (222.50 = 35 + 187.50, financing 2.5% on 75% of notional) and call the ETF 'most expensive', not unavailable. The cue now says dearest, gives the decomposition, and keeps the 50% margin cap as the separate cash-efficiency point.",
+   "Skeptic pass: the leverage con stated a special case generally. It now carries the condition. The r26 rationale says 'if MRR is offset by depositing cash, the residual funding cost dominates', which is exactly the unlevered QUINCO position this entry describes elsewhere, so the defect is the absence of cash or assets against the notional, not the unfunded notional itself. Also replaced the invented 'collateral calls' wording with the notes' own leverage risk, margin calls forcing sales into a falling market.",
+   "Skeptic pass: the illiquidity con asserted only the half of the tension that the notes contradict. Both skeptics flagged it. The flashcard does list 'relatively ILLIQUID' among the drawbacks, so it is not deleted, but the con now gives the mechanism (bilateral exit: an offsetting swap for the remaining term, or a negotiated termination; renegotiation to extend) and carries the R22 counterweight, 'easy to unwind and useful for temporary or overlay exposure', so a candidate does not argue illiquidity against a short-dated overlay the entry itself recommends the swap for.",
+   "Skeptic pass: the tenor con cited the LDI reading for both halves, but only 'must be rolled' is in that reading. Tenor matching belongs to swaps_forwards_and_futures_strategies (the Tundra example and flashcard p7), so the roll claim stays with the LDI reading and tenor matching moved to the bilateral-exit con.",
+   "Skeptic pass: the rate-only whenNotTo told the candidate to look for 'a liability discounted at a risk-free rate', which inverts the exam's framing. The Shrewsbury model answer has liabilities discounted at high-quality corporate yields while 'Treasury futures / swaps price off risk-free curve', and that gap is the spread risk under test. The rule is now whether the discount rate carries a credit spread the plan wants hedged.",
+   "Skeptic pass: the protective-put whenNotTo would have steered the candidate off the keyed answer in both single-stock TRS items in the material. It now carries the condition the items turn on: listed options available. In Tundra 'he cannot find exchange-traded options on the stock' and in Inwood the vignette grants long-term value in the equity but the shares are 'very illiquid to trade', and both keyed answers are still a total return payer swap.",
+   "Skeptic pass: the summary now gives both signs of the spread (the LDI bond-index form is MRR plus a predetermined spread, per drill r18/r22; the R17 TMM index example has the receiver pay MRR minus the agreed-on spread) and attributes the funding leg to the receiver, naming the payer's separate price.",
+   "Skeptic pass: provenance tightened on the sources. A reading id is now used only where that reading's own notes in reading_notes.json carry the claim. Four claims verified only in drills, flashcards or the question bank (the OTC access-to-difficult-assets pro, the corporate-bond-index rate-and-credit pro from the Shrewsbury model answer, the stamp duty and custody pro from flashcard p3, the counterparty and default-loss con from drill r22, the linearity con, and the bilateral-exit con) are now sourced to 'curriculum' rather than to a reading. The note that futures are capital light on the same argument was added to the capital-light pro, since the same sentence of the endowment notes says so and the entry previously let the reader infer the swap was distinctive there."
+  ],
+  "shortfall": "",
+  "residualRisk": "Two things. First, the grounding file gives this key one sentence of notesEvidence, no LOS and no essay stems, so nothing in the entry beyond 'ETF, futures, TRS are the three QUINCO vehicles' can be checked against the grounding itself; every other claim was verified against reading_notes.json, los_drills_r7/r17/r22/r26.json, flashcards.json and question_bank.json instead, and the confidence badge stays medium for that reason. Second, one skeptic argued that roughly eleven claims here have near-twins in the equity_swap entry and that the single-stock payer-swap material should move there, leaving this entry on the index TRS. That restructuring was not done: it edits a second entry this pass cannot verify, and the curriculum names the Inwood instrument a 'total return payer swap', so the single-stock material is legitimately in scope here. The overlap remains, and the one substantive disagreement between the two entries (how a capital constraint resolves) is fixed on this side, toward futures; equity_swap should be checked to match."
+ }
+}

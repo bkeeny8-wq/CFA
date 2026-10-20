@@ -1,0 +1,146 @@
+{
+  "key": "butterfly",
+  "name": "Butterfly",
+  "family": "Derivatives: options",
+  "summary": "Four contracts across three equally spaced strikes at one expiry: buy one low strike call, sell two middle strike calls, buy one high strike call, paying most if the underlying finishes at the middle strike with loss capped at the net debit. The decision it turns on is whether you want a short volatility position with a hard loss cap. The same word separately names the fixed income curve trade on curvature, which wants movement rather than stillness.",
+  "pros": [
+    {
+      "text": "Expresses a low volatility view, that the underlying finishes near the middle strike, with risk capped: max profit occurs at the middle strike and max loss is the small net premium paid. A short straddle or short strangle expresses the same neutral view with open ended loss.",
+      "source": "options_strategies"
+    },
+    {
+      "text": "All three payoff numbers are fixed at the trade date and fall out of the bull spread plus bear spread decomposition: max profit = (middle strike minus lower strike) minus the net premium, max loss = the net premium, breakevens = lower strike plus the premium and upper strike minus the premium. The formulas assume equally spaced strikes and a single expiry.",
+      "source": "curriculum"
+    },
+    {
+      "text": "The net debit is small and is the entire capital at risk, so margin sits far below what writing naked options for the same neutral view requires. That is what lets a mandate which bars uncovered writing take a short volatility position at all.",
+      "source": "curriculum"
+    },
+    {
+      "text": "Centred on the current price it starts close to delta neutral, so it takes a volatility view without a direction bet. The strikes then do the targeting: the body on a specific forecast, the wings at the edges of the plausible range.",
+      "source": "curriculum"
+    },
+    {
+      "text": "It can be built entirely from calls or entirely from puts with the same payoff, so the manager uses whichever side of the strike chain is more liquid. It also decomposes into a bull spread plus a bear spread, which is the fastest way to derive the payoff under exam pressure.",
+      "source": "curriculum"
+    },
+    {
+      "text": "In fixed income the same name denotes a curvature trade rather than a volatility one: long the wings and short the body profits if curvature increases, and the trade can be built duration neutral so total duration still matches the benchmark and no level bet is taken.",
+      "source": "yield_curve_strategies"
+    }
+  ],
+  "cons": [
+    {
+      "text": "The maximum profit occurs at one single point, the middle strike exactly. The payoff peak is a spike, not a plateau, so the realized result is normally well below the maximum even when the view is right.",
+      "source": "curriculum"
+    },
+    {
+      "text": "The full value only appears at expiry, and the legs that have to decay are the two short middle strike calls: with the underlying sitting on the body they are at the money and carry the largest time value of any leg, which is a liability against the position. The long wings' time value works the other way and adds to the value. So the position can show little gain with spot on the body, which makes it a poor fit for a manager who needs the gain inside the reporting period.",
+      "source": "curriculum"
+    },
+    {
+      "text": "Four contracts across three strikes means three bid-ask spreads to cross, with the body crossed at double size, plus per contract commissions, all against a small maximum profit. A trade that looks attractive on mid prices can be poor once execution is counted.",
+      "source": "curriculum"
+    },
+    {
+      "text": "The profit is capped and the whole premium is lost on any finish at or beyond either wing, so it pays nothing in the tail it is betting against. It is a short volatility position with a limited payout, not a cheap way to hold optionality.",
+      "source": "curriculum"
+    },
+    {
+      "text": "It protects nothing. On its own it puts no floor under an existing holding, caps no portfolio drawdown and hedges no liability. A protective put or a collar does that job.",
+      "source": "curriculum"
+    },
+    {
+      "text": "The fixed income version depends on convexity that only pays if volatility materializes, and a duration neutral curve trade is still exposed to the curve moving in a non-parallel way the key rate tilt did not anticipate.",
+      "source": "yield_curve_strategies"
+    }
+  ],
+  "whenToRecommend": [
+    "The vignette gives a neutral direction view plus a falling or over priced volatility view, for example the manager expects the index to stay in a range through expiry and thinks implied volatility sits above likely realized volatility.",
+    "The mandate or IPS forbids uncovered option writing, or caps loss at the premium paid, and the manager still wants to monetize a range bound view. That three part combination, neutral direction plus short volatility plus a loss cap, is the discriminating one: it rules out the short straddle and short strangle and leaves the butterfly.",
+    "The manager has a specific price target and a date, so the body can sit on the target and the wings at the edges of the plausible range, with capital at risk known in advance.",
+    "A fixed income manager expects curvature to increase, the belly cheapening relative to the wings: go long the wings and short the body, built duration neutral by tilting key rate durations while keeping their sum equal to the benchmark duration.",
+    "A fixed income manager expects curvature to decrease, the belly outperforming the wings: that is the opposite leg arrangement, long the body and short the wings, which is the bullet side of the trade."
+  ],
+  "whenNotTo": [
+    "The view is a large move of uncertain direction, or a dated event such as earnings, an election or a central bank decision sits before expiry. Use a long straddle, or a long strangle if the premium must be smaller. A long butterfly loses its whole premium on exactly the outcome being predicted.",
+    "The view is directional. Use a bull or bear spread for a moderate move with defined risk, or a long call for an uncapped payoff. Note that a long put is not the uncapped mirror of a long call: its gain is capped at the strike less the premium, because the underlying cannot fall below zero.",
+    "The job is protecting an existing holding or capping portfolio downside. Use a protective put, or a collar if the put must be financed by giving up upside.",
+    "The manager wants to size volatility exposure precisely, or wants exposure that does not depend on where the underlying finishes. Use a variance swap: it pays variance notional times (realized variance minus strike variance), so it settles on the realized path regardless of the terminal level and gives constant exposure per unit of variance. The butterfly's volatility exposure instead depends on where spot sits relative to the strikes.",
+    "The option chain is thin, the bid-ask is wide, or there are no equally spaced strikes around the target. Execution cost across four contracts will exceed a small maximum profit, so prefer a one or two leg structure, with the caveat that a short strangle or a single short option reintroduces open ended loss and so is unavailable under a loss cap. A covered call is not the substitute here: it requires already owning the underlying, its loss is the holding's own downside less the premium, and it is a mildly bullish income view rather than a range view.",
+    "The manager wants a near neutral position that gains if implied volatility rises rather than falls. Use a calendar spread, which harvests the faster decay of the short near term leg and is long vega, where the butterfly is short volatility around the body."
+  ],
+  "pitfalls": [
+    "Confusing the two butterflies. In a derivatives vignette it is the three strike option spread, a short volatility position. In a fixed income vignette it is either the curve trade or the curve movement itself. Check which reading the question sits in before answering.",
+    "Getting the appetite for movement backwards between them. The option butterfly wants the price to sit still. The curve butterfly, long the wings and short the body, wants the curve's shape to change. The identical words carry opposite views.",
+    "Mixing up the positive and negative butterfly labels, which run opposite to intuition because of the inverse price-yield relationship. Butterfly spread = minus the short yield, plus twice the medium yield, minus the long yield. A NEGATIVE butterfly means that spread INCREASES, the belly yield rising relative to the wings, and the position is short the body and long the wings. A POSITIVE butterfly means the spread DECREASES and the position is long the body and short the wings. Safest practice in the exam is to name the legs rather than trust the label.",
+    "Using the wrong width in the max profit formula. It is (middle strike minus lower strike) minus the net premium, not the full wing to wing distance, and the formula assumes equally spaced strikes.",
+    "Quoting the maximum profit when the question asks for the likely or expected outcome. The maximum requires the underlying to finish exactly at the middle strike.",
+    "Forgetting that a long butterfly is a net debit, so the maximum loss is that debit and it is incurred on any finish at or beyond either wing, not only on a catastrophic move.",
+    "In the fixed income version, taking the curvature bet without matching total duration, which leaves an unintended level bet. Tilt the key rate durations while keeping their sum equal to the benchmark duration, then evaluate with scenario analysis across parallel, steepener, flattener, butterfly and unchanged cases."
+  ],
+  "cues": [
+    {
+      "signal": "The manager expects the underlying to trade in a narrow range through expiry, or says implied volatility looks high relative to what will be realized.",
+      "implication": "A short volatility structure is wanted. Combined with any cap on loss, that rules in a long butterfly and rules out a short straddle or short strangle."
+    },
+    {
+      "signal": "The mandate prohibits uncovered or naked option writing, or the IPS caps loss at the premium paid.",
+      "implication": "Rules out short straddles, short strangles and naked calls, whose loss is open ended. A long butterfly delivers the same neutral, short volatility view with loss capped at the net debit."
+    },
+    {
+      "signal": "A single target price is named, plus limited capital or a small option budget.",
+      "implication": "Rules in a long butterfly centred on the target: the body sits on the forecast, the wings bracket the range, and the debit is the entire exposure."
+    },
+    {
+      "signal": "A large move is expected but the direction is unknown, or a binding event sits before expiry.",
+      "implication": "Rules out a long butterfly, which pays nothing beyond the wings. Rules in a long straddle, or a long strangle for a smaller premium and wider breakevens. A loss limit does not change that answer, because a long straddle's loss is already capped at the total premium paid."
+    },
+    {
+      "signal": "The vignette mentions key rate durations, duration neutrality, 2s/10s/30s tenors, or the butterfly spread.",
+      "implication": "This is the fixed income butterfly, not the option spread. Answer with a key rate duration tilt whose sum still equals the benchmark duration."
+    },
+    {
+      "signal": "The curve is expected to bend with the belly cheapening relative to the wings, or the vignette names a negative butterfly.",
+      "implication": "The butterfly spread is increasing. Go long the wings and short the body, the barbell side. The opposite wording, a positive butterfly or the belly outperforming, means long the body and short the wings, the bullet side."
+    },
+    {
+      "signal": "An immunized or liability matched portfolio is matched only on overall duration, and the question raises a twist or butterfly move.",
+      "implication": "Structural risk. Total duration matching is not enough and immunization is imperfect, worse with higher dispersion and convexity, so the answer is key rate durations plus the dispersion and convexity conditions."
+    },
+    {
+      "signal": "Thin option volume, wide bid-ask, or strikes not available at equal spacing around the target.",
+      "implication": "Execution cost across four contracts will swamp a small maximum profit. Prefer a one or two leg structure, or express the view in the more liquid of the call or put chain, remembering that a single short option reintroduces uncapped loss."
+    }
+  ],
+  "comparesWith": [
+    "straddle",
+    "strangle",
+    "calendar_spread",
+    "bullet_barbell_ladder"
+  ],
+  "confidence": "medium",
+  "_review": {
+    "deleted": [
+      "whenToRecommend: 'Capital or margin is constrained, or an investment committee requires the worst case to be stated numerically before the position is approved.' Removed as padding: every long premium structure in the reading (bull and bear spreads, long straddles and strangles, long calls and puts, protective puts) has a numerically known worst case, so the cue discriminates nothing, and the capped loss idea was already carried by two pros, one whenToRecommend and two cues.",
+      "cues: the skew/smile cue, signal 'The option chain shows a steep skew or smile, with out of the money strikes priced at higher implied volatility than at the money', implication 'The wings are the rich legs. That raises a long butterfly's debit'. Removed because it conflates two shapes the notes define separately: the stated property holds only for a symmetric smile, and under the equity skew that a CFA vignette almost always describes the OTM call wing is priced BELOW at the money, so the two wings push the debit in opposite directions and the net effect is indeterminate rather than an increase.",
+      "cues: the clause 'or a short butterfly if the loss must stay capped' on the large move cue. Removed because the discriminator is false and teaches a wrong fact: a long straddle's maximum loss is already capped at the total premium paid, so a loss cap gives no reason to prefer a short butterfly, and a short butterfly's capped gain makes it a poor way to express a big move view anyway.",
+      "whenNotTo: 'a single short option overlay such as a covered call is the cheaper way to harvest the same neutral view'. Removed as the recommended fallback because a covered call is not a substitute: it requires owning the underlying, its loss is the holding's downside less the premium rather than a small capped debit, and the notes file it under a bullish low volatility view, not neutral.",
+      "pros and cons: the openers 'The notes state it directly' and 'The notes make the same point about multi leg curve trades'. Removed as meta-commentary in user-facing prose; the source field already carries that information."
+    ],
+    "corrected": [
+      "cons: inverted the stated mechanism for why the position shows little gain before expiry. It is the TWO SHORT middle strike calls whose at the money time value holds the position down, not the wings: at spot on the body the shortfall from max profit equals twice the body's time value minus the wings' time value, so the long wings' time value raises the value and shrinks the shortfall. The original wording also implies negative theta on the body, which is backwards.",
+      "whenNotTo: rewrote the variance swap comparison. The draft claimed a variance swap has 'no strike or path dependence'; both halves are wrong and the path half is inverted. The payoff is variance notional times (realized variance minus strike variance), so there is a variance strike, and realized variance is accumulated from the whole path, whereas a European butterfly depends only on the terminal price. The defensible contrast, now stated, is that the variance swap pays regardless of the terminal level and gives constant exposure per unit of variance.",
+      "whenNotTo: corrected 'a long call or put for an unlimited payoff'. A long put's maximum gain is the strike less the premium, since the underlying cannot fall below zero; only the long call is uncapped.",
+      "whenNotTo: replaced the covered call fallback for a thin chain with a one or two leg structure plus the explicit caveat that short options reintroduce open ended loss and fail a premium loss cap.",
+      "cues: rewrote the large move implication to point at a long straddle or strangle and to state that a loss limit does not disqualify them, since their loss is capped at the premium.",
+      "summary and cons: corrected the leg and spread counts. It is four contracts across three strikes, so three bid-ask spreads are crossed with the body at double size, not four of each as the draft had it.",
+      "pitfalls: added the positive versus negative butterfly label mapping with the butterfly spread definition, which the draft never taught even though that vocabulary is what a yield curve question actually uses, and softened the previous claim that the options versus curve mix up is 'the easiest mark to lose'.",
+      "cues: folded the curvature direction cue together with the negative and positive butterfly labels so the signal matches exam wording, and phrased every fixed income position by its legs rather than by a long or short butterfly label.",
+      "whenToRecommend: merged the discriminating three part condition (neutral direction plus short volatility plus a loss cap) into the mandate bullet, which is what actually rules out the short straddle.",
+      "cons: changed the execution cost source from yield_curve_strategies to curriculum. The claim is now about option contracts rather than bond maturities, and the transaction cost sentence sits outside this instrument's grounding slice."
+    ],
+    "shortfall": "",
+    "residualRisk": "The naming of the fixed income trade. I follow the bundled notes, which call long the wings and short the body a 'long butterfly', and the legs and the economics are right: short the belly gains when the belly yield rises relative to the wings, which is rising curvature, an increasing butterfly spread, and a negative butterfly. But that label is not universal, since other desks and texts call long the body the long butterfly. I have named the legs explicitly at every point so a reader is not relying on the label, and the pitfall says to do the same in the exam, but the word 'long butterfly' in pros and in the pitfalls still carries the notes' convention rather than a settled one."
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "key": "private_credit",
+  "name": "Private Credit",
+  "family": "Alternatives",
+  "summary": "Privately negotiated, non-traded loans to companies, most often senior floating-rate direct lending held in a closed-end drawdown fund. It is the income sleeve of an alternatives program, so the decision it turns on is whether the investor can fund spending from contractual yield while accepting credit risk, borrower concentration and a multi-year lock-up. Whether it also diversifies depends on what the portfolio already owns: it diversifies a pure-duration bond portfolio, not one already long credit, and it is not an equity-risk mitigator.",
+  "pros": [
+    {
+      "text": "Fills the income role in an alternatives program: the loans throw off contractual cash yield, which suits a spending-driven investor and supports total return.",
+      "source": "asset_allocation_to_alternative_investments"
+    },
+    {
+      "text": "Yields more than public investment-grade credit, and the curriculum attributes the pickup to the illiquidity premium. Watch the comparator: the named public proxy for private credit is high yield, not investment grade, so part of the gap to investment grade is credit quality rather than illiquidity.",
+      "source": "curriculum"
+    },
+    {
+      "text": "Senior direct lending is usually floating rate, so the coupon resets with the reference rate as short rates rise. It therefore carries little interest rate duration, although spread duration remains.",
+      "source": "curriculum"
+    },
+    {
+      "text": "For a fixed-income-dominated portfolio the curriculum does assign private credit a diversification role: it diversifies pure yield-curve risk, because the exposure it adds is credit and illiquidity rather than duration. The one bank case on this instrument is exactly that investor, a foundation replacing half its fixed income with direct lending.",
+      "source": "curriculum"
+    }
+  ],
+  "cons": [
+    {
+      "text": "Carries credit and liquidity risk and correlates with the credit cycle, so it does not diversify a portfolio that is already long credit risk.",
+      "source": "asset_allocation_to_alternative_investments"
+    },
+    {
+      "text": "Credit losses in an economic downturn can be substantial.",
+      "source": "curriculum"
+    },
+    {
+      "text": "Exposure is concentrated in specific borrowers rather than spread across an index, so one or two defaults move the fund's return.",
+      "source": "curriculum"
+    },
+    {
+      "text": "Capital is locked up for years: positions cannot be exited easily, and the uncalled commitment constrains liquidity elsewhere, because the investor must hold liquid assets able to meet calls even in a down market.",
+      "source": "curriculum"
+    },
+    {
+      "text": "Fees are high and partly performance-based, so management and performance fees take a large share of the gross return. Compare net of fees, never gross.",
+      "source": "curriculum"
+    },
+    {
+      "text": "Valuations are model or appraisal based and infrequent, so reported volatility and correlation with public assets are smoothed and understated.",
+      "source": "curriculum"
+    },
+    {
+      "text": "Manager dispersion in alternatives is wide and a disappointing private fund cannot simply be sold, so the outcome depends on manager selection and on operational due diligence that is separate from investment due diligence.",
+      "source": "curriculum"
+    }
+  ],
+  "whenToRecommend": [
+    "The alternatives program has growth from private equity and inflation protection from real assets, but nothing producing cash yield: private credit fills the income gap alongside core real estate and infrastructure.",
+    "The investor funds spending from portfolio cash flow rather than by selling assets, and wants contractual income rather than realization-dependent distributions.",
+    "Horizon is long, there are enough liquid assets elsewhere to meet capital calls in a down market, and governance is strong enough to run manager and operational due diligence.",
+    "The IPS caps interest rate duration, or the committee expects short rates to rise, and yield is still wanted: senior floating-rate direct lending adds yield with little rate duration, accepting credit and illiquidity risk instead.",
+    "The pool is large enough to diversify across managers, borrowers and vintage years and to meet fund minimums."
+  ],
+  "whenNotTo": [
+    "The vignette stresses near-term spending needs or a short horizon. The answer is a smaller allocation, or the liquid substitute the reading prescribes: public high yield, the curriculum's public proxy for private credit, which keeps the credit exposure and gives up the illiquidity premium.",
+    "The stated purpose is mitigating equity drawdown. Credit spreads widen when equities fall, so use government bonds for reliable mitigation, or trend and managed futures for crisis alpha.",
+    "The portfolio already holds a large high-yield or leveraged-loan allocation. Adding private credit stacks the credit factor the portfolio already owns, and the one new exposure it brings, illiquidity, is a cost rather than a diversifier.",
+    "The investor needs inflation protection. The curriculum assigns that role to real assets. A floating coupon resets with short rates, so it passes inflation through only indirectly and only as far as the central bank responds, and the principal is nominal: it is not the instrument to point to for an inflation mandate.",
+    "The mandate requires daily or monthly liquidity, an observable market price, or benchmark-relative tracking error. Use a public credit sleeve instead.",
+    "The pool is too small to meet fund minimums or to diversify across borrowers, and there is no staff for operational due diligence."
+  ],
+  "pitfalls": [
+    "Calling private credit a diversifier without saying which risk. Under a risk-factor lens senior direct lending is credit plus liquidity exposure, so it adds nothing to a portfolio already long high yield or leveraged loans; for a fixed-income-dominated portfolio the curriculum does credit it with diversifying pure yield-curve risk. Name the risk you mean.",
+    "Quoting the gross yield. Subtract management and performance fees before comparing it with a public bond yield, or the comparison is worthless.",
+    "Feeding the reported volatility and correlation straight into an optimizer. Model and appraisal based marks are positively autocorrelated, which understates risk and correlation. De-smooth or constrain first.",
+    "Treating the commitment as the exposure. Committed capital is not invested capital, so the plan needs commitment pacing across vintage years, not one large pledge.",
+    "Forgetting the denominator effect. After a public-market fall, the stale private credit mark becomes a larger share of a smaller portfolio and can breach the private-asset limit, exactly when the stakes cannot be sold.",
+    "Comparing the fund's IRR with a public manager's return. IRR is money-weighted, so benchmark with PME or vintage peers. Separately, a public credit index as the stated benchmark for direct lending is accepted industry practice in the bank item: the flaw there is measuring volatility and correlation from quarterly reported values, not the index choice."
+  ],
+  "cues": [
+    {
+      "signal": "The alternatives program is described as private equity for growth and real assets for inflation protection, with no source of cash yield.",
+      "implication": "The gap is the income role, which private credit, core real estate and infrastructure fill. Do not answer private equity, that is the growth sleeve."
+    },
+    {
+      "signal": "The question names direct lending as the private credit route, usually paired against nonventure private equity, and asks you to DISCUSS considerations.",
+      "implication": "The rubric rewards covering both instruments rather than two points on one, so write at least one consideration for each. For direct lending, the floating-rate coupon and the yield pickup over public investment-grade credit on one side, and borrower concentration, downturn credit losses, fee drag and the lock-up on the other."
+    },
+    {
+      "signal": "The committee wants the new allocation to reduce equity drawdown or to act as a risk mitigator.",
+      "implication": "Rules private credit out. Credit-oriented strategies correlate with equities exactly when equities fall, and the stake cannot be sold mid-crisis. Government bonds mitigate reliably and liquidly at a low expected return; trend and managed futures mitigate with crisis alpha but less reliably."
+    },
+    {
+      "signal": "A private credit fund reports volatility below that of public high yield.",
+      "implication": "Read that as smoothing from infrequent model based marks, not as lower risk. De-smoothed volatility is higher, and so is the measured correlation with public assets, the public credit and fixed income the portfolio already owns included. De-smooth or constrain the inputs before optimizing, or the optimizer overweights the fund."
+    },
+    {
+      "signal": "The IPS caps portfolio duration, or the committee wants more yield without taking interest rate risk.",
+      "implication": "Senior floating-rate direct lending fits: because the coupon resets with the reference rate, a rise in short rates does not mark it down the way it marks down a fixed-rate bond. Say explicitly that spread duration remains, so a spread widening or a credit deterioration still cuts the value, and that the risk taken instead is credit and illiquidity. There is no observable price in any case, only a quarterly model or appraisal mark."
+    },
+    {
+      "signal": "Public equities have just fallen sharply and the private allocation sits near its policy limit.",
+      "implication": "Denominator effect. Recompute the private share on the smaller total, then answer with halting or slowing new commitments, not a forced secondary sale at a discount."
+    },
+    {
+      "signal": "The investor has large near-term withdrawals, a short horizon, a small pool or no dedicated investment staff.",
+      "implication": "Fails the horizon, liquidity, governance and scale tests. Recommend little or no illiquid private credit whatever the yield on offer, and a liquid credit substitute if income is still needed."
+    }
+  ],
+  "comparesWith": [
+    "high_yield",
+    "ig_corporates",
+    "private_equity",
+    "real_estate"
+  ],
+  "confidence": "medium",
+  "_review": {
+    "deleted": [
+      "'Terms are negotiated bilaterally, so the lender sets covenants, security and pricing with the borrower rather than accepting what the public market offers.' Removed as low-value padding: it is absent from both the notes and the one essay grading key on this instrument, and the security and seniority substance survives in the senior-secured pro, which carries the sharper point about recovery.",
+      "SKEPTIC PASS. 'The usual vehicle is a closed-end drawdown fund with no redemption right, so the manager is not forced to sell into a spread shock the way an open-end credit fund meeting outflows is.' Deleted as an invention tagged curriculum. Nothing in the reading, the question bank or the flashcards presents the lock-up as a benefit; the q7 grading key lists the opposite twice as a cost ('cannot exit positions easily', 'ties up capital during commitments'), the reading treats illiquidity only as a cost, and the argument is about the general partner's position rather than the limited partner's. It also contradicted this entry's own lock-up con and whenNotTo items.",
+      "SKEPTIC PASS. 'Direct lending is typically senior and secured, ranking ahead of the borrower's junior debt and equity, so expected recovery on a default is higher than on an unsecured claim.' Deleted. It appears nowhere in the candidate's material: not in the reading notes, not among the q7 key's accepted direct-lending considerations, not in any flashcard. It is true but it is Level I and II capital-structure and recovery mechanics, and it supports no Level III recommendation, justification or suitability judgement. Not folded into the yield pro either, because the clause that would survive (the pickup over like-rated public credit is therefore modest) is itself ungrounded.",
+      "SKEPTIC PASS. 'the borrowers are typically smaller and more leveraged than public index issuers.' Deleted from both places it appeared, the yield pro and the downturn-loss con. Both skeptics are right that the reading's private credit row says only 'Yield with credit and liquidity risk; correlates with credit cycle', that the notes never characterise the borrowers and that the q7 key has only 'CREDIT LOSSES in economic downturns can be substantial'. The repair pass had added it under a reading citation, which made an untaught institutional detail look verified. The same con also lost its duplicate of the credit-cycle clause that the first con already carries."
+    ],
+    "corrected": [
+      "Yield pickup pro: the draft said the extra yield compensates for illiquidity alone. Added the credit component, since the borrower is weaker and more leveraged than a public index issuer, and re-sourced to curriculum because the notes do not state it.",
+      "Floating-rate pro: the draft said direct lending 'takes credit risk instead of duration risk'. Corrected to little interest rate duration with spread duration remaining, and scoped to senior direct lending, because mezzanine and junior private debt is often fixed rate.",
+      "Senior secured pro: softened 'Most direct lending is senior and secured' to 'typically', and 'recovery is higher' to 'expected recovery is higher', since recovery is a distribution and not a guarantee.",
+      "Closed-end pro: scoped the no-redemption claim to the closed-end drawdown vehicle, because listed BDCs and semi-liquid evergreen private credit funds do face redemption or market pressure.",
+      "Downturn-loss con: tied the loss claim to the credit-cycle correlation the notes actually state, rather than asserting it free-standing.",
+      "Fee-drag con: removed 'single-digit gross yield', an invented magnitude, and kept the net-versus-gross instruction.",
+      "Borrower-concentration con re-sourced from the reading to curriculum: it comes from the question bank grading key, not from the reading notes.",
+      "Duration whenToRecommend: replaced the vague 'keeps the coupon moving' with the actual mechanism, yield with little rate duration in exchange for credit and illiquidity risk.",
+      "Near-term-needs whenNotTo: dropped 'thin governance' from it so it no longer restates the final scale-and-governance condition.",
+      "Inflation whenNotTo: the draft flatly denied any inflation protection. Corrected to the distinction that earns marks, a floating coupon is a rate hedge and not an inflation hedge, with nominal principal, and that the curriculum assigns inflation protection to real assets.",
+      "Essay-stem cue: removed the claim about what 'earns partial credit' and replaced it with the rubric's actual shape, cover both instruments rather than two points on one. The bank record for this question is internally inconsistent on points, so no mark numbers are quoted.",
+      "Duration cue: the draft said the coupon 'resets rather than repricing down', which conflates coupon and price. Corrected to the coupon resetting so the price stays near par, instead of a fixed-rate bond's price falling.",
+      "SKEPTIC PASS, both lenses on the same claim. Summary and first pitfall: the blanket 'its role is income, not whether it diversifies' told the candidate that a statement his own material endorses is an error. Flashcard fc_asset_allocation_to_alternative_investments_001_p3 (LOS .a) reads 'for fixed-income investors, private credit diversifies pure yield-curve risk', and the one bank case is exactly that investor, a 60% fixed-income university fund and a foundation replacing half its fixed income with direct lending. Both now scope the claim: it does not diversify credit the portfolio already owns and it is not an equity-risk mitigator, but it does diversify pure duration risk, so name the risk you mean. The reading's Table 1 row never denies a diversification role, and the earlier wording looks pattern-copied from private_equity.json, where the same pitfall is correct because the reading says private equity 'still carries equity beta'.",
+      "SKEPTIC PASS. Added a pro for the yield-curve diversification role, sourced to curriculum rather than to the reading, because the reading's role table lists private credit under income only while the flashcard and the bank case supply the conditional role. This is the one addition in this pass; it exists because the repaired pitfall and summary now refer to a role the entry otherwise never stated.",
+      "SKEPTIC PASS. Factor decomposition in the first pitfall scoped from 'private credit' to 'senior direct lending'. Lens 1 is right that the candidate's own LOS drill r8_altaa_los_a_q7 gives the decomposition as credit AND interest rate with an illiquidity premium, for private credit defined to include mezzanine and distressed, while the reading's Table 1 row gives credit and liquidity. The entry already scoped its low-duration claim to senior direct lending; the factor claim is now scoped the same way instead of being stated for the whole category.",
+      "SKEPTIC PASS, both lenses. Rate-view whenToRecommend: 'the committee expects short rates to stay high' corrected to 'expects short rates to rise'. The q7 grading key's mark-earning wording is 'Floating rates -> hedge against rate increases'. A fixed-rate bond bought into a curve that already prices rates staying high locks in the same income and gains if rates fall, so the level of rates argues for nothing; the floating structure pays off on increases. The IPS duration cap in the same sentence was already sound and is kept.",
+      "SKEPTIC PASS. Yield pro: dropped the invented borrower characterisation the repair pass had added and fixed the comparator instead. The q7 key's accepted wording is 'Higher yields than public IG credit due to illiquidity premium'; flashcard cards[809] names high yield as the curriculum's public proxy for private credit, so the entry now warns that part of the gap to investment grade is credit quality rather than illiquidity, without asserting anything about borrower size or leverage.",
+      "SKEPTIC PASS. Lock-up con: 'the commitment ties up capital through the drawdown period' replaced with the uncalled commitment constraining liquidity elsewhere. The loose phrasing came from the bank key but contradicted this entry's own commitment pitfall and flashcard cards[808], which lists 'treating committed capital as invested capital' as a classic error. The markable LOS 7 point is that the investor must hold liquid assets able to meet calls in a down market.",
+      "SKEPTIC PASS. Fee con: deleted the unsourced premise that the return is 'mostly contractual yield'. The reading's fee material is generic alternatives fee drag worked on a 2-and-20 hedge fund, and the q7 key has only 'Fee drag (management fees) reduces net returns'; neither says anything about the composition of a private credit return. What survives is the reading's own wording, fees are high and often performance-based, plus the net-versus-gross instruction.",
+      "SKEPTIC PASS. Smoothing cue: 'De-smoothed volatility and equity correlation are both higher' corrected to volatility and the correlation with public assets, the public credit and fixed income the portfolio already owns included. The grounding (q4 rationale B and LOS 6) is about correlation with publicly traded assets; the equity axis belongs to the reading's de-smoothing illustration, which is a private real-asset fund, and naming it on a credit instrument points the candidate at the wrong comparison.",
+      "SKEPTIC PASS, both lenses. Duration cue: 'the coupon resets with the reference rate so the price stays near par' removed. pros[2] concedes that spread duration remains and the valuation con says the marks are model or appraisal based and infrequent, so there is neither price stability nor an observable price. The cue now says a rate rise does not mark the loan down the way it marks down a fixed-rate bond, that a spread widening or credit deterioration still cuts the value, and that the mark is a quarterly model or appraisal figure.",
+      "SKEPTIC PASS. Liquid-substitute whenNotTo: 'high yield or investment-grade corporates' narrowed to public high yield, the curriculum's named public proxy. Offering the two as interchangeable blurred the credit-quality distinction, since swapping direct lending for investment grade removes most of the credit risk and most of the yield the investor wanted.",
+      "SKEPTIC PASS. IRR pitfall: kept the money-weighted point, which LOS 8 supports, and added the caveat the bank attaches to this exact instrument. In gambier_advisory_lucas_thompson_q4 the investment-grade index benchmark for direct lending is the acceptable element (rationale A) and the measurement of volatility and correlation from quarterly values is the defective one (rationale B), so a candidate who had generalised 'benchmark with PME, not a public index' was being set up to pick the wrong option.",
+      "SKEPTIC PASS. Provenance sweep on 'source'. The reading id is now carried only by the two claims the reading's own notes state about private credit itself: the income role sentence and the Table 1 row (credit and liquidity risk, correlates with the credit cycle). Everything the reading states about alternatives at large rather than about private credit (fee drag, lock-ups, appraisal smoothing, manager dispersion and operational due diligence) is sourced to curriculum, which is what both skeptics' provenance objections turned on."
+    ],
+    "shortfall": "",
+    "residualRisk": "The smoothing claims are grounded in the candidate's bank, not merely extended to this instrument: gambier_advisory_lucas_thompson_q4 rationale B applies infrequent quarterly pricing, understated volatility and reduced measured correlation with publicly traded assets to the Nullarbor portfolio, which is the one whose fixed income is being replaced with direct lending. Because the reading's notes attach appraisal smoothing to real estate and infrastructure and illustrate de-smoothing with a private real-asset fund, the reading id alone does not carry it, so those claims are sourced to curriculum here. Two doubts remain. First, the factor decomposition is scoped to senior floating-rate direct lending, because LOS drill r8_altaa_los_a_q7 gives credit AND interest rate with an illiquidity premium for private credit defined to include mezzanine and distressed, while the reading's Table 1 row gives credit and liquidity; a mezzanine or fixed-rate private credit vignette needs the rate factor added back. Second, the liquid-substitute item now names public high yield only, following flashcard cards[809]; the same drill calls private credit a substitute or complement for public high-yield OR investment-grade credit, and the bank accepts an investment-grade index as its benchmark, so an investment-grade sleeve is not wrong as a liquid comparator, it simply gives up the credit exposure and the yield the investor wanted. More broadly, the grounding slice for this instrument is three sentences of notes, no learning outcome statements and one essay stem, so most of this entry rests on the question bank, the flashcards and the LOS drills rather than on the reading notes."
+  }
+}

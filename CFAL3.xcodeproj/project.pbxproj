@@ -39,13 +39,16 @@
 		27245A1BE64B4A7E9354EA18 /* los_drills_r21.json in Resources */ = {isa = PBXBuildFile; fileRef = E7085731F60A42518C0B6D14 /* los_drills_r21.json */; };
 		275ADD3E5FC84A09822F8857 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763FBAAB21F406994A4BC27 /* HomeView.swift */; };
 		27A01F415B844E03ABA4047A /* los_drills_r6.json in Resources */ = {isa = PBXBuildFile; fileRef = DDFD84E9DBF04FE8BDB10221 /* los_drills_r6.json */; };
+		FF01PBMD0001000100010001 /* InstrumentPlaybook.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF01PBMD0002000200020002 /* InstrumentPlaybook.swift */; };
 		EE01CMAP0001000100010001 /* CycleMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE01CMAP0002000200020002 /* CycleMap.swift */; };
 		AA01B00K0001000100010001 /* MMReviewBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01B00K0002000200020002 /* MMReviewBook.swift */; };
 		AA02RDRA0001000100010001 /* MMPDFReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA02RDRA0002000200020002 /* MMPDFReader.swift */; };
 		AA03VIEW0001000100010001 /* MMReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA03VIEW0002000200020002 /* MMReviewView.swift */; };
+		FF03PBJS0001000100010001 /* instrument_playbook.json in Resources */ = {isa = PBXBuildFile; fileRef = FF03PBJS0002000200020002 /* instrument_playbook.json */; };
 		EE05CJSN0001000100010001 /* cycle_map.json in Resources */ = {isa = PBXBuildFile; fileRef = EE05CJSN0002000200020002 /* cycle_map.json */; };
 		AA04JSON0001000100010001 /* mm_review.json in Resources */ = {isa = PBXBuildFile; fileRef = AA04JSON0002000200020002 /* mm_review.json */; };
 		AA05MMDR0001000100010001 /* MMReview in Resources */ = {isa = PBXBuildFile; fileRef = AA05MMDR0002000200020002 /* MMReview */; };
+		FF02PBVW0001000100010001 /* InstrumentPlaybookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF02PBVW0002000200020002 /* InstrumentPlaybookView.swift */; };
 		EE02CVEW0001000100010001 /* CycleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE02CVEW0002000200020002 /* CycleMapView.swift */; };
 		EE03CCMP0001000100010001 /* CycleMapComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE03CCMP0002000200020002 /* CycleMapComponents.swift */; };
 		2858D578CEFC46B28B17E658 /* ReadingNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE663547DD984B628B8BD8B2 /* ReadingNotesView.swift */; };
@@ -155,6 +158,7 @@
 		F8EADDB27D404E1DB0370DE4 /* FlashcardsHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8C5D1B2964494D853FC285 /* FlashcardsHomeView.swift */; };
 		DD02MTST0001000100010001 /* ProgressMergeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02MTST0002000200020002 /* ProgressMergeTests.swift */; };
 		BB02TEST0001000100010001 /* NotesOutlineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB02TEST0002000200020002 /* NotesOutlineTests.swift */; };
+		FF04PBTS0001000100010001 /* InstrumentPlaybookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF04PBTS0002000200020002 /* InstrumentPlaybookTests.swift */; };
 		EE06CTST0001000100010001 /* CycleMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE06CTST0002000200020002 /* CycleMapTests.swift */; };
 		CC01CMDW0001000100010001 /* CommandWordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01CMDW0002000200020002 /* CommandWordTests.swift */; };
 		FAF0FB28A4074A6E8CA13738 /* NotesContentParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CAADDFEE34FF7ACA5F995 /* NotesContentParserTests.swift */; };
@@ -247,6 +251,7 @@
 		7FE3603862AE45B39D37FA8A /* StudyPlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPlannerView.swift; sourceTree = "<group>"; };
 		DD02MTST0002000200020002 /* ProgressMergeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressMergeTests.swift; sourceTree = "<group>"; };
 		BB02TEST0002000200020002 /* NotesOutlineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesOutlineTests.swift; sourceTree = "<group>"; };
+		FF04PBTS0002000200020002 /* InstrumentPlaybookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentPlaybookTests.swift; sourceTree = "<group>"; };
 		EE06CTST0002000200020002 /* CycleMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleMapTests.swift; sourceTree = "<group>"; };
 		CC01CMDW0002000200020002 /* CommandWordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandWordTests.swift; sourceTree = "<group>"; };
 		849CAADDFEE34FF7ACA5F995 /* NotesContentParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesContentParserTests.swift; sourceTree = "<group>"; };
@@ -291,13 +296,16 @@
 		BC7D1CD9504D479ABA253582 /* los_drills_r24.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r24.json; sourceTree = "<group>"; };
 		BC982C5DD0C044079B9EDBC4 /* FlashcardContentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardContentTests.swift; sourceTree = "<group>"; };
 		BD9DE8DF2B924B2682370D97 /* LOSChecklistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOSChecklistRow.swift; sourceTree = "<group>"; };
+		FF01PBMD0002000200020002 /* InstrumentPlaybook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentPlaybook.swift; sourceTree = "<group>"; };
 		EE01CMAP0002000200020002 /* CycleMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleMap.swift; sourceTree = "<group>"; };
 		AA01B00K0002000200020002 /* MMReviewBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMReviewBook.swift; sourceTree = "<group>"; };
 		AA02RDRA0002000200020002 /* MMPDFReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMPDFReader.swift; sourceTree = "<group>"; };
 		AA03VIEW0002000200020002 /* MMReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMReviewView.swift; sourceTree = "<group>"; };
+		FF03PBJS0002000200020002 /* instrument_playbook.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = instrument_playbook.json; sourceTree = "<group>"; };
 		EE05CJSN0002000200020002 /* cycle_map.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cycle_map.json; sourceTree = "<group>"; };
 		AA04JSON0002000200020002 /* mm_review.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mm_review.json; sourceTree = "<group>"; };
 		AA05MMDR0002000200020002 /* MMReview */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MMReview; sourceTree = "<group>"; };
+		FF02PBVW0002000200020002 /* InstrumentPlaybookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentPlaybookView.swift; sourceTree = "<group>"; };
 		EE02CVEW0002000200020002 /* CycleMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleMapView.swift; sourceTree = "<group>"; };
 		EE03CCMP0002000200020002 /* CycleMapComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleMapComponents.swift; sourceTree = "<group>"; };
 		BE663547DD984B628B8BD8B2 /* ReadingNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingNotesView.swift; sourceTree = "<group>"; };
@@ -529,6 +537,7 @@
 				59D44B94DF504165949735B4 /* QuestionBank.swift */,
 				AA01B00K0002000200020002 /* MMReviewBook.swift */,
 				EE01CMAP0002000200020002 /* CycleMap.swift */,
+				FF01PBMD0002000200020002 /* InstrumentPlaybook.swift */,
 				0E553728AAB1455896D12DAD /* ReadingNotes.swift */,
 				E2DE7AB1BAA5484897E95179 /* StudySchedule.swift */,
 				A4D513B3FFA3404C8AD32BD8 /* Topic.swift */,
@@ -583,6 +592,7 @@
 				4F6DDCFA99884B51ADC4FD45 /* los_master.json */,
 				AA04JSON0002000200020002 /* mm_review.json */,
 				EE05CJSN0002000200020002 /* cycle_map.json */,
+				FF03PBJS0002000200020002 /* instrument_playbook.json */,
 				709285E3BFCA4D1CAB303324 /* question_bank.json */,
 				8522D72A30624A7DB90C00EA /* reading_notes.json */,
 				FC34B73FE9EA4562B202CAF8 /* study_schedule.json */,
@@ -622,6 +632,7 @@
 				BE663547DD984B628B8BD8B2 /* ReadingNotesView.swift */,
 				EE03CCMP0002000200020002 /* CycleMapComponents.swift */,
 				EE02CVEW0002000200020002 /* CycleMapView.swift */,
+				FF02PBVW0002000200020002 /* InstrumentPlaybookView.swift */,
 				36176D2B656643E9A65667BC /* StudyAreaDetailView.swift */,
 				3C566E562D6C4ECBB63B2BD1 /* StudyComponents.swift */,
 				4EA614611467451C93082870 /* StudyPlannerSplitView.swift */,
@@ -700,6 +711,7 @@
 				929CD068491F4FA29B4E9EDA /* GradingResponseParserTests.swift */,
 				CC01CMDW0002000200020002 /* CommandWordTests.swift */,
 				EE06CTST0002000200020002 /* CycleMapTests.swift */,
+				FF04PBTS0002000200020002 /* InstrumentPlaybookTests.swift */,
 				849CAADDFEE34FF7ACA5F995 /* NotesContentParserTests.swift */,
 				BB02TEST0002000200020002 /* NotesOutlineTests.swift */,
 				DD02MTST0002000200020002 /* ProgressMergeTests.swift */,
@@ -826,6 +838,7 @@
 				57BB770922ED474DAB420B3C /* topics.json in Resources */,
 				AA04JSON0001000100010001 /* mm_review.json in Resources */,
 				EE05CJSN0001000100010001 /* cycle_map.json in Resources */,
+				FF03PBJS0001000100010001 /* instrument_playbook.json in Resources */,
 				AA05MMDR0001000100010001 /* MMReview in Resources */,
 				1405045309544F9A9A39CCD7 /* reading_notes.json in Resources */,
 				4B607CAFC1F44046BE3534C6 /* content_targets.json in Resources */,
@@ -884,6 +897,7 @@
 				F3F572AD8E65408E9B33CE60 /* GradingResponseParserTests.swift in Sources */,
 				CC01CMDW0001000100010001 /* CommandWordTests.swift in Sources */,
 				EE06CTST0001000100010001 /* CycleMapTests.swift in Sources */,
+				FF04PBTS0001000100010001 /* InstrumentPlaybookTests.swift in Sources */,
 				FAF0FB28A4074A6E8CA13738 /* NotesContentParserTests.swift in Sources */,
 				BB02TEST0001000100010001 /* NotesOutlineTests.swift in Sources */,
 				DD02MTST0001000100010001 /* ProgressMergeTests.swift in Sources */,
@@ -940,11 +954,13 @@
 				14A8DFE021CB49A58ACFE113 /* ReadingNotesBlocksView.swift in Sources */,
 				AA01B00K0001000100010001 /* MMReviewBook.swift in Sources */,
 				EE01CMAP0001000100010001 /* CycleMap.swift in Sources */,
+				FF01PBMD0001000100010001 /* InstrumentPlaybook.swift in Sources */,
 				AA02RDRA0001000100010001 /* MMPDFReader.swift in Sources */,
 				AA03VIEW0001000100010001 /* MMReviewView.swift in Sources */,
 				2858D578CEFC46B28B17E658 /* ReadingNotesView.swift in Sources */,
 				EE03CCMP0001000100010001 /* CycleMapComponents.swift in Sources */,
 				EE02CVEW0001000100010001 /* CycleMapView.swift in Sources */,
+				FF02PBVW0001000100010001 /* InstrumentPlaybookView.swift in Sources */,
 				4E3E64899A264FDF8DCEFD46 /* StudyAreaDetailView.swift in Sources */,
 				52CB938372B04A5AA8006E99 /* StudyComponents.swift in Sources */,
 				7049E344B47C4F1EB4DA77E5 /* StudyPlannerSplitView.swift in Sources */,

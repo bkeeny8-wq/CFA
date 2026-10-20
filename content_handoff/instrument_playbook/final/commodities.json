@@ -1,0 +1,167 @@
+{
+ "key": "commodities",
+ "name": "Commodities",
+ "family": "Alternatives",
+ "summary": "Exposure to physical commodity prices, held almost always through collateralized futures, a commodity index fund or a total return swap rather than the goods themselves. The decision it turns on is whether the portfolio needs protection against unexpected inflation that it is not already getting from its own revenue, business or holdings.",
+ "pros": [
+  {
+   "text": "Commodities are the asset class that fills the inflation-protection role: real assets hedge inflation because their values rise with the price level, and commodity prices are themselves part of that level. That is the role nominal bonds cannot fill, because a nominal bond's cash flows are fixed in the currency that is losing value.",
+   "source": "asset_allocation_to_alternative_investments"
+  },
+  {
+   "text": "The tilt the notes prescribe when a scenario has inflation expected to run above expectations: add real assets, which here means real estate and commodities together, since both tend to rise with inflation.",
+   "source": "capital_market_expectations_part_2_forecasting_asset_class_returns"
+  },
+  {
+   "text": "Liquid and daily priced, unlike the rest of the alternatives bucket: exchange-traded futures and index funds mean no lock-up, no capital calls, no J-curve and no appraisal-smoothed marks, so an investor who cannot bear a private fund's lock-ups and capital calls can still own the inflation hedge.",
+   "source": "curriculum"
+  },
+  {
+   "text": "There are two implementation structures and the choice is a real one, so name the one you mean. A fully collateralized position holds cash equal to the notional, which earns the short-term rate as part of the total return but ties that capital up. An unfunded futures overlay posts margin only, so the tilt can be added without selling existing holdings, at the cost of leverage, which an IPS may cap, and of a cash buffer for variation margin. Claim one or the other, never both in the same sentence.",
+   "source": "curriculum"
+  }
+ ],
+ "cons": [
+  {
+   "text": "Volatile and non-income-producing: the commodity itself pays no coupon, rent or earnings. In a collateralized futures position the only contractual income is the interest on the collateral; the rest of the return is the spot move plus the roll.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Not a reliable equity-risk mitigator, though it is often treated as one. A demand-led downturn sinks commodity prices and equities together, and only a supply-driven or inflationary drawdown is one commodities cushion. The dependable mitigator is high-quality government bonds, reliable and liquid, though the cushion weakens at low yields; trend following, global macro and equity market-neutral mitigate with a higher expected return but are less certain and can fail when correlations spike.",
+   "source": "curriculum"
+  },
+  {
+   "text": "No cash flows means no DCF and no yield-plus-growth build-up. The build-up is collateral yield plus expected spot change plus roll yield, so two of the three terms rest on a price view and a curve view, which is harder to defend than an equity or bond return forecast. Do not drop the collateral yield when asked to decompose or forecast the return.",
+   "source": "curriculum"
+  },
+  {
+   "text": "A long futures position has to be rolled, and the curve decides whether that helps or hurts. An upward sloping curve (contango) hands the long a negative roll return at every roll whatever spot does; a downward sloping curve (backwardation) pays the long a positive roll return.",
+   "source": "curriculum"
+  },
+  {
+   "text": "The inflation hedge is noisy and the inflation beta is unstable from one period to the next, so over short horizons the price volatility can swamp the inflation signal. Inflation driven by wages or services may show up only weakly in commodity prices.",
+   "source": "curriculum"
+  },
+  {
+   "text": "The exposure is often already in the portfolio. A commodity-exporting state, a stabilization fund whose receipts are commodity revenue, or an owner of a mining or energy business already carries the price risk, so adding the asset class concentrates rather than diversifies.",
+   "source": "portfolio_management_for_institutional_investors"
+  },
+  {
+   "text": "Implementation has moving parts. A futures overlay needs a cash buffer for variation margin and discipline around roll dates; the swap or note route replaces those with a funding spread and counterparty exposure. Either is a real cost for a thinly staffed investor.",
+   "source": "curriculum"
+  }
+ ],
+ "whenToRecommend": [
+  "The scenario expects inflation to run above expectations, or describes a closed output gap, a tight labor market and a tightening central bank. That is late expansion, and real assets are the tilt.",
+  "The IPS names inflation protection or preservation of real purchasing power, and the portfolio currently holds only equities and nominal bonds, neither of which reliably protects against an inflation surprise.",
+  "The investor wants real-asset protection but cannot bear what private markets require: lock-ups, capital calls, or a pool too small to diversify across managers and vintage years. Commodities deliver the role in daily-liquid form, sized small. Say what the liquidity does and does not buy: it answers the lock-up and capital-call test only, so the horizon and the risk budget still cap the size, and a thinly staffed investor belongs in a pooled commodity index fund rather than running a futures overlay.",
+  "The IPS states the return objective in real terms against costs that track goods prices, such as energy, food or construction inputs, so the inflation the investor is exposed to is the one commodities track."
+ ],
+ "whenNotTo": [
+  "The investor's income already comes from commodities: a stabilization SWF funded by oil or copper receipts, or a client whose wealth sits in a mining or energy business. Adding the asset class compounds the concentration. Hedge the exposure by SELLING commodity futures, or by paying the commodity leg of a swap, and diversify into non-commodity assets instead. State the direction, and note the basis risk between the contract and the revenue stream it is standing in for.",
+  "The stated worry is an equity drawdown rather than inflation. Use high-quality government bonds for the reliable, liquid cushion, or trend following and managed futures for crisis alpha at a higher expected return.",
+  "The mandate is short-horizon, conservative and liquidity-hungry: a stabilization fund, a thinly capitalized life insurer, a bank's liquid book. Commodities clear the liquidity test and fail the risk test.",
+  "The investor needs current income to fund spending. Commodities produce none. The income role goes to core real estate, infrastructure and private credit; among real assets, core real estate and infrastructure are the income-producing ones, while private credit is private debt.",
+  "The forecast is decelerating growth with inflation peaking or falling. The inflation hedge has no impulse to work with, and duration in quality bonds is the trade.",
+  "The investor wants contractual certainty of real return. Inflation-linked government bonds deliver indexation by contract; commodities deliver it statistically, with far more volatility and no guarantee in any given year."
+ ],
+ "pitfalls": [
+  "Calling commodities a diversifier or a hedge without saying what they hedge. The marks are for inflation, specifically unexpected inflation. 'Reduces risk' earns nothing.",
+  "Allocating to commodities for a fund whose revenue is already commodity-linked. Read where the money comes from first: the stabilization SWF question wants a hedge and diversification away from commodities, not more of them.",
+  "Naming the tilt without the mechanism. The notes' own sentence is that above-target inflation favors real estate and commodities, which tend to rise with inflation. Say that, and keep the rest of the answer in the same macro scenario.",
+  "Treating the futures route as cheap because the headline fee is low, or treating a change of vehicle as a way out of the roll. In contango every futures-based route pays the roll: a commodity index fund holds the same futures, and a total return swap references the same futures-based index, because spot commodity indexes are not directly investable. The roll is common to all of them, not a differentiator. What separates the vehicles is the fee, the swap's funding spread, tracking error and counterparty risk.",
+  "Promising short-horizon protection of real return. The price volatility can swamp the inflation signal, so present it as a long-run hedge and size it accordingly."
+ ],
+ "cues": [
+  {
+   "signal": "Inflation is expected to run above expectations, or the output gap is closed with the central bank signalling more tightening.",
+   "implication": "Late expansion. Add real assets, commodities with real estate, and keep the rest of the answer in the same scenario: shorter duration in nominal bonds, less credit risk, not more."
+  },
+  {
+   "signal": "The fund's receipts are oil, gas, coal or metals revenue: a stabilization SWF, a commodity-exporting state, a concentrated mining or energy owner.",
+   "implication": "Rules a commodity allocation OUT and a commodity HEDGE in. The economy is already commodity-concentrated and the fund exists to buffer that, so the answer is to sell commodity futures or pay the commodity leg of a swap, and to diversify into non-commodity assets. Name the direction of the hedge; a long position doubles the concentration."
+  },
+  {
+   "signal": "'High liquidity and low risk', a short horizon, buffering a government budget.",
+   "implication": "Stabilization mandate. Large illiquid direct stakes are out, and so is a large volatile non-income allocation. Liquidity alone does not qualify commodities here; the risk limit disqualifies size."
+  },
+  {
+   "signal": "'Needs current income', spending-driven, a payout rule to fund.",
+   "implication": "Commodities are non-income-producing. The income role goes to core real estate, infrastructure and private credit; commodities stay the inflation-protection sleeve only."
+  },
+  {
+   "signal": "'Protect against a market crash', equity drawdown, 'what holds up when equities fall'.",
+   "implication": "Not commodities. Government bonds for the reliable liquid cushion, trend following or managed futures for crisis alpha. Say explicitly that a mitigator must work when equities fall."
+  },
+  {
+   "signal": "Short horizon, near-term withdrawals, no dedicated staff or a small pool, but the investor still wants real-asset protection.",
+   "implication": "Suitability fails for private real assets. The graded response is a reduced allocation, or a liquid substitute: commodity futures or a commodity index fund keep the inflation-hedge role without lock-ups or capital calls. Add the limit, or the answer is half right: liquidity answers the lock-up and capital-call tests only, and the short horizon and the risk budget still cap the size."
+  },
+  {
+   "signal": "The IPS prohibits derivatives, futures or leverage.",
+   "implication": "Rules out the collateralized futures and total return swap routes, which is how this exposure is normally held. What is left is natural-resource or commodity-producer equities, which the curriculum itself calls a weak inflation hedge because they import equity beta. Name that trade-off rather than ignoring the constraint."
+  },
+  {
+   "signal": "The opportunity set is defined by underlying risk factor rather than asset-class label.",
+   "implication": "Under a factor lens commodities are the inflation exposure in the menu, but say the limitation this LOS actually tests: a commodity inflation beta is unstable and look-back dependent, where a bond portfolio's duration is stable. And asset classes bundle factors, so real estate carries inflation together with rate sensitivity and equity-like exposure: a real-estate-plus-commodities pair is not two independent factor bets."
+  },
+  {
+   "signal": "The vignette compares ways to get COMMODITY exposure: collateralized futures, a commodity index fund, a swap.",
+   "implication": "The answer is the curve and the counterparty, not the headline fee. In contango the roll is a recurring negative return to any long futures-based exposure, the index a swap references included, so the swap does not remove it; it passes the index return through. The dealer takes over only the roll execution and the tracking error, charging a funding spread and leaving bilateral counterparty exposure. Note what this cue is not: the ETF-versus-futures-versus-total-return-swap cost stack with a quarterly roll is the equity index replication case, so go to futures or equity_swap for that, not here."
+  },
+  {
+   "signal": "Macro forces (rates, commodities, the cycle) are said to swamp individual stock differences.",
+   "implication": "That is the top-down signal in active equity, not an instruction to buy commodities. Recommend a top-down process; the commodity reference is there to establish the macro regime."
+  }
+ ],
+ "comparesWith": [
+  "inflation_linked",
+  "real_estate",
+  "infrastructure",
+  "futures"
+ ],
+ "confidence": "low",
+ "_review": {
+  "deleted": [
+   "pros: 'Clean inflation-factor exposure when the opportunity set is framed by risk factor, where a long/short fund turns out to be mostly equity beta and real estate bundles inflation with rates and credit.' Deleted as a pro: it restates the inflation-hedge point in factor vocabulary and most of its content is about other instruments. The usable part is kept as the risk-factor cue, with real estate's factors corrected.",
+   "pros: 'Diversifies because of what drives it: supply shocks and goods demand ... so correlation with stocks and bonds is low on average.' Deleted because the average-correlation claim is not one I would defend in a grading room (commodity-equity correlation has been materially higher since 2008), and the inflation-shock half duplicates the first pro.",
+   "whenToRecommend: 'The opportunity set is defined by risk factor and the portfolio carries no inflation factor, while its real estate and private credit already supply rates and credit.' Deleted: it restates the IPS inflation-protection trigger, and it mis-assigns real estate's exposures, since real estate carries inflation too.",
+   "whenToRecommend: 'Growth is accelerating off the bottom with a steep curve, the early-expansion setup where cyclical demand lifts commodity prices alongside equities.' Deleted as an ungrounded market-view trigger: nothing in this slice supports it, and in an essay it competes with the inflation-hedge rationale that actually earns the marks.",
+   "SKEPTIC PASS. pros, two-way exposure: 'Liquid instruments exist, so the exposure is two-way. Futures and swaps let a fund add commodity exposure, or hedge the commodity exposure already sitting in a direct book.' Deleted on lens 2's flag. The cited SWF case supports only the hedging half ('hedge ... where liquid instruments exist, the commodity exposure'), which is about removing an exposure the fund already has, so the reading id made the combined sentence look grounded when half of it was not. Hedging an existing exposure is also not a benefit of allocating to the class, and the point is already carried, correctly, by whenNotTo[0] and cues[1].",
+   "SKEPTIC PASS. pitfalls, private-markets language: 'Applying private-markets language to commodities: lock-ups, capital calls, the J-curve, de-smoothing appraisal data.' Deleted on lens 2's flag as pros[2] restated as a warning, same four items in the same order. I did not write a replacement pitfall, because replacing a deletion with new material is how this entry got long in the first place.",
+   "SKEPTIC PASS. cues, derivatives prohibited: 'a physically backed fund' deleted from the fallback list. Both lenses flagged it. Nothing anywhere in the candidate's material mentions a physically backed commodity vehicle, and it is only feasible for cheaply storable goods (precious and some base metals, never energy or agriculture), so offering it first as the general fallback is institutional detail the curriculum does not teach. The cue now names only the equity route, which the material does name ('energy stocks or commodity futures for private real assets'), with its weak-hedge label attached.",
+   "SKEPTIC PASS. cons, inflation-hedge noise: the 'one to two year' window deleted, and 'over a year or two' deleted from the matching pitfall. Lens 2 is right that no source in the notes, flashcards, drills or question bank puts a number on it; the supported statement is the unstable, look-back-dependent inflation beta. One invented figure had been stated twice."
+  ],
+  "corrected": [
+   "sources: three claims cited asset_allocation_to_alternative_investments where that reading's evidence is only the one line that real assets hedge inflation. The liquidity pro, the non-income con and the equity-mitigator con are now 'curriculum'; only the inflation-hedge pro keeps the reading id.",
+   "cons, non-income: 'a collateralized futures position earns interest on the collateral, and that is the only yield in the position' was wrong on the decomposition, since the roll return is also part of the return and is positive in backwardation. Corrected to say the collateral interest is the only contractual income, with spot and roll making up the rest.",
+   "cons, roll: the draft gave only the contango side. Corrected to state both signs explicitly, negative roll return to the long in contango and positive in backwardation, because that direction is what gets tested.",
+   "pitfalls and cues: deleted 'usually the largest cost line on the futures route' and 'the biggest line on that route' as unquantifiable overstatements. Replaced with the defensible version, that the roll can outweigh the fee difference between vehicles.",
+   "cons, equity mitigation: the blanket claim was overstated. Added the supply-shock exception, since a supply-driven or stagflationary equity drawdown is exactly the one commodities do cushion.",
+   "pros, inflation tilt: dropped 'alongside shortening duration and cutting high yield' from the cited claim. The notes support the real-asset tilt on above-expectation inflation, not a high yield call. Scenario consistency now lives in the pitfall where it belongs, and the credit side appears only in the late-expansion cue.",
+   "pros, inflation hedge: reworded so the mechanism fits the asset. The note sentence covers real assets generally ('cash flows and values rise with the price level') and commodities have no cash flows; the claim now rests on commodity prices being a component of the price level.",
+   "whenToRecommend, IPS: 'equities and nominal bonds, both of which lose in an inflation surprise' softened to 'neither reliably protects'. Nominal bonds lose by construction; equities are an unreliable short-horizon hedge, not a guaranteed loser.",
+   "whenNotTo, slowdown: trimmed the 'commodities need a demand or price-level impulse' sentence to the version I can defend and dropped the steep-curve detail.",
+   "cues, risk factor: corrected real estate's factor loadings to inflation plus rates plus economic growth, and made the implication an instruction (name the factor, do not double-count two real-asset labels).",
+   "summary: added the single decision the instrument turns on, which the draft summary left out.",
+   "comparesWith: replaced hedge_funds with futures, so the selector reaches the implementation vehicle this entry keeps pointing at; inflation_linked, real_estate and infrastructure kept.",
+   "added three claims the draft lacked: the capital-efficiency pro (margin-only funding, collateral earns the short rate), the already-in-the-portfolio con cited to portfolio_management_for_institutional_investors, and the cue for an IPS that prohibits derivatives, which is the constraint that rules out the normal implementation route.",
+   "SKEPTIC PASS. pros, capital efficiency: both lenses caught the same free lunch. The draft welded margin-only funding ('needs only margin, so the tilt can sit on top of the existing portfolio') to the collateral return ('the collateral keeps earning the short-term rate'), which counts the same capital twice and contradicts the entry's own cons[0]. Rewritten to state the two structures separately, fully collateralized (cash against the notional, earns the short rate, no leverage, capital tied up) versus unfunded overlay (margin only, capital efficient, levered, needs a variation-margin buffer), with the instruction to name which one is meant.",
+   "SKEPTIC PASS. cons, valuation anchor: the draft's build-up was 'a spot-price view plus the shape of the futures curve', dropping the collateral yield. That contradicts the candidate's own memorized formula (cycle_map: E(R) approximately collateral yield + spot change + roll yield) and the entry's own cons[0], and would cost the collateral-yield mark in a decomposition. All three terms restored.",
+   "SKEPTIC PASS. whenNotTo and cues, concentrated commodity revenue: the hedge had no direction anywhere in the entry. An investor already long commodity revenue hedges by SELLING futures or paying the commodity leg of a swap; executed as written, 'hedge the exposure with liquid futures' doubles the concentration the recommendation exists to cut. Direction added in both places, with the basis-risk caveat.",
+   "SKEPTIC PASS. pitfalls, vehicle choice: the draft said the contango roll 'can outweigh the fee difference against an index fund or a swap', which imports the equity ETF-versus-futures-versus-TRS cost stack into commodities, where the physical leg does not exist. Spot commodity indexes are not directly investable (los_drills_r13), so an index fund holds the same futures and a swap references the same futures-based index: every route bears the identical roll. Rewritten to say the roll is common to all of them and the fee, funding spread, tracking error and counterparty risk are what separate them.",
+   "SKEPTIC PASS. cues, vehicle comparison: lens 2 showed the signal was lifted from the wrong vignette. The only ETF/futures/TRS cost comparison in the material is the endowment case's S&P 500 index replication question, which the futures and equity_swap entries already own. The signal is narrowed to commodity exposure, the imported 'rolling contracts each quarter' is gone, and the cue now points the reader away to the right entries for the equity case. The implication also wrongly said a swap 'moves roll and tracking decisions to the dealer in exchange for a funding spread', which reads as converting a negative roll into a fee: the index return already nets the roll, so the roll stays with the investor and only the execution and the tracking error move (the material's TRS is exact, no tracking error).",
+   "SKEPTIC PASS. whenToRecommend and cues, liquid substitute: both lenses flagged the same wrong-side error. The draft recommended commodities BECAUSE of a short horizon and near-term spending, which the entry itself disqualifies three other times, and because of thin governance, which is one of the four suitability tests and is also the objection to running a futures overlay (cons[6]). The notes' response for a poorly suited investor is a smaller allocation or a liquid substitute, and a vignette stressing a short horizon or thin governance steers toward 'not suitable' or 'reduce or limit'. Thin governance is out of the trigger list and routed to a pooled index fund instead; the size limit and the 'liquidity answers only the lock-up and capital-call test' line are now in both the trigger and the cue.",
+   "SKEPTIC PASS. pitfalls, transmission chain: both lenses flagged the chain as circular. Commodities ARE real assets in this curriculum, so 'above-target inflation lifts commodity prices, which lifts real-asset values' is X lifting X with an invented causal step. The notes' actual sentence ('above-target inflation favors real estate and commodities, which tend to rise with inflation') replaces it, and lens 2 is right that presenting an invented sentence in quotation marks as what 'the grader wants' fabricates a marking key for a key with zero LOS and zero essay grounding. That framing is gone.",
+   "SKEPTIC PASS. whenNotTo, income: private credit is no longer called a real asset. The notes define the category as real estate, commodities, infrastructure, timberland and farmland, and keep private credit in the income role; the draft's label invited an inflation-protection claim for a fixed-rate credit instrument, which is the opposite of its exposure. cues[3] already had it right and is unchanged.",
+   "SKEPTIC PASS. cues, risk factor: this is the line the previous pass introduced as a correction, and it was the worst claim in the entry. 'Commodities are the cleanest inflation exposure in the menu' inverts the marked point on the very LOS it invokes, where commodities are the curriculum's named example of an UNSTABLE, look-back-dependent factor loading against a bond portfolio's stable duration. And 'economic growth' is not a factor in the eight-factor list, where equity market return is the proxy for growth. Rewritten around the instability limitation, with real estate's bundling stated generically (rate sensitivity and equity-like exposure) rather than as a loadings list the material never gives.",
+   "SKEPTIC PASS. cons, equity mitigation: 'the dependable mitigators are high-quality government bonds and trend following' erased the distinction the reading is graded on. Bonds are the reliable, liquid, low-return mitigator whose cushion weakens at low yields; trend, macro and market-neutral mitigate with a higher expected return but are less certain and may fail when correlations spike. Both halves restored, and macro and market-neutral added back to the list.",
+   "SKEPTIC PASS. whenNotTo, conservative mandates: the P&C insurer example is gone, replaced by the thinly capitalized life insurer. The notes say P&C insurers carry MORE equity and risk capital than life insurers because their surplus is larger relative to reserves, so offering P&C as the exemplar of a mandate that fails the risk test invites the candidate to write the opposite of the marked distinction. The stabilization fund and the bank liquid book were already well grounded and are kept.",
+   "SKEPTIC PASS. whenToRecommend, input-cost liability: reduced to the general liability-matching form and tied to the IPS. The specific 'a funded capital project' is gone as institutional detail the material does not teach; nothing in the notes pairs a commodity allocation with an input-cost liability, so the idea is kept only in the form the IPS language supports.",
+   "SKEPTIC PASS. pros, liquidity: 'an investor who fails the suitability tests for private real assets can still own the inflation hedge' narrowed to 'cannot bear a private fund's lock-ups and capital calls'. Neither lens flagged this line, but it carried the same wrong-side looseness as the trigger and the cue that were flagged, and leaving it would have contradicted the corrections made three fields away.",
+   "SKEPTIC PASS. confidence lowered from medium to low, on lens 2's flag. This key has 13 keyword-matched note sentences, zero official LOS text and zero essay stems, most of the pros and cons are tagged 'curriculum', the cues carry no source field at all, and two independent adversarial passes found four claims that contradict the candidate's own material. The badge should tell the reader to check, not to trust."
+  ],
+  "shortfall": "",
+  "residualRisk": "This key has ZERO LOS text and ZERO essay-stem grounding (counts: 13 notes, 0 los, 0 essays), so every statement here about what earns marks is inference from the notes, flashcards and drills rather than evidence from a marking key. Treat the cues especially carefully: they carry no source field, and both skeptic passes found the inventions concentrated there. Named residual items, in order. (1) The con that inflation driven by wages or services shows up only weakly in commodity prices: the direction is standard, nothing in this slice states it, and I have given no figure and no horizon. (2) Real estate's factor bundling in cues[8]: the general principle that asset classes bundle factors is well grounded, but the material nowhere gives real estate's loadings, so that clause is deliberately generic and should not be written as a list. (3) The capital-efficiency pro depends on the investor being allowed derivatives at all, which the derivatives-prohibited cue then takes away. (4) The input-cost-liability trigger survives only in its general IPS form; one skeptic doubted the construction entirely and was not confident, and I kept it reduced rather than deleting it. (5) The CME tilt pro overlaps whenToRecommend[0] and cues[0]; one skeptic asked for it to be deleted as padding and I kept it, which is recorded in that pass's rejections. Earlier passes: the draft's problems array was empty rather than absent, so nothing had been flagged for this key by the generator and every claim was checked from scratch in the repair pass."
+ }
+}

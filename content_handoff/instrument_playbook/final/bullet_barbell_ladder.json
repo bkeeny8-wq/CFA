@@ -1,0 +1,159 @@
+{
+  "key": "bullet_barbell_ladder",
+  "name": "Bullet, Barbell, Ladder",
+  "family": "Fixed income",
+  "summary": "Three ways to spread one portfolio duration across the curve: a bullet concentrates maturities at a single point, a ladder holds roughly equal amounts maturing at evenly spaced dates, a barbell holds short and long with little in the middle. At a matched duration the choice changes two things. It changes the key-rate profile, because a barbell is long the wings, so it gains in a flattening and gives ground in a steepening. And it changes cash-flow dispersion and convexity, which only pays when the move is large and is paid for in yield. Duration-matched structures behave almost alike in a parallel shift, so for ordinary moves the key-rate effect is the larger of the two.",
+  "pros": [
+    {
+      "text": "At a given duration the three structures are a dial on cash-flow dispersion and convexity: barbell highest, ladder middling, bullet lowest. That lets a volatility, curvature or slope view be expressed by reshaping maturities rather than by moving duration.",
+      "source": "overview_of_fixed_income_portfolio_management"
+    },
+    {
+      "text": "The barbell's convexity term is positive whichever way yields move and grows with the size of the move. Duration 6, a 100bp move: the convexity term is 0.45% at convexity 90 against 0.25% at convexity 50, a 0.20% edge in either direction, before the barbell's lower yield is netted off.",
+      "source": "yield_curve_strategies"
+    },
+    {
+      "text": "The bullet is the single-liability immunizer's structure. Once Macaulay duration equals the horizon, clustering the cash flows near the horizon leaves the least residual exposure to non-parallel shifts: the best portfolio is the one with the lowest dispersion and convexity that is still above the liability's convexity.",
+      "source": "liability_driven_and_index_based_strategies"
+    },
+    {
+      "text": "A ladder balances price risk against reinvestment risk instead of betting on one maturity, and a rung matures every period, which gives predictable cash and spreads the reinvestment decision across dates.",
+      "source": "overview_of_fixed_income_portfolio_management"
+    },
+    {
+      "text": "A ladder runs with low turnover and minimal active management, which suits a private client who wants a portfolio that needs little oversight.",
+      "source": "overview_of_fixed_income_portfolio_management"
+    },
+    {
+      "text": "The bullet earns the higher yield at the same duration, because the market charges for convexity. In a calm market that is the point: you keep the yield instead of paying for convexity you will not use.",
+      "source": "yield_curve_strategies"
+    }
+  ],
+  "cons": [
+    {
+      "text": "A barbell is exposed to curve twists even when its duration matches, so duration matching alone does not protect it. That is the structural risk a bullet minimizes.",
+      "source": "overview_of_fixed_income_portfolio_management"
+    },
+    {
+      "text": "Convexity is paid for in yield, so at matched duration the barbell normally lags when the curve is stable and gives ground in a steepening, while it gains in large parallel moves and in a flattening. The convexity only earns its cost if the expected volatility actually arrives.",
+      "source": "overview_of_fixed_income_portfolio_management"
+    },
+    {
+      "text": "Rank the two structures on rolling yield, which is yield income plus rolldown, not on yield alone. In the curriculum's AUD bullet versus barbell case the barbell won by about 28bp over a one-year horizon, roughly 25.5bp of it from rolldown and only about 2.6bp from the extra convexity, so an unchanged curve does not automatically favour the bullet.",
+      "source": "curriculum"
+    },
+    {
+      "text": "A bullet concentrates at one curve point: higher curve-point and key-rate risk at that maturity, no periodic liquidity from maturing bonds, and the whole reinvestment decision landing on a single date.",
+      "source": "overview_of_fixed_income_portfolio_management"
+    },
+    {
+      "text": "A ladder is not optimized and takes no view, so it cannot be the recommendation in a vignette that hands you a rate or curve view. Separately, it will not match a specific liability as precisely as cash-flow matching.",
+      "source": "overview_of_fixed_income_portfolio_management"
+    },
+    {
+      "text": "A bullet or barbell position drifts. Durations and key-rate exposures move, so it needs periodic rebalancing, and switching bullet to barbell is a multi-leg trade whose transaction costs and maturity-by-maturity liquidity eat into the edge.",
+      "source": "yield_curve_strategies"
+    }
+  ],
+  "whenToRecommend": [
+    "The manager expects interest-rate volatility to rise, or a large move in either direction, while the mandate holds duration at the benchmark: barbell.",
+    "The vignette expects the curve to flatten and holds duration unchanged: at matched duration the barbell is the side that gains, because its long-end weight captures the fall in long yields, and the bullet is the side for an expected steepening. The reading's own flattener may be built as a barbell, short the short end and long the long end.",
+    "The vignette expects a calm, stable curve or the middle to outperform, and wants the yield rather than the optionality: bullet.",
+    "A single payment at a known future date is being immunized: PV(assets) at least PV(liability), Macaulay duration equal to the horizon, and the lowest dispersion and convexity available with convexity still just above the liability's, which means a bullet clustered near the horizon.",
+    "A private client wants predictable periodic cash, simple administration and low turnover and states no rate view, for example a retiree funding an essential-spending floor: ladder."
+  ],
+  "whenNotTo": [
+    "Immunizing a single liability when a maturity near the horizon is available: the barbell's extra dispersion and convexity add twist risk the immunization is not compensated for. Take the bullet. The curriculum's two-bond barbell exists because no bond sat at the horizon, so it is a concession to the bonds available, not a preference.",
+    "Matching multiple liabilities: the objective changes. Asset dispersion and convexity must be greater than the liabilities', alongside MV(assets) at least MV(liabilities) and BPV(assets) equal to BPV(liabilities). Greater means the asset cash-flow range brackets the liability dates, reaching earlier than the first payment and later than the last, not merely coinciding with them, so the answer is a dispersed structure rather than a single bullet.",
+    "Reinvestment risk has to be eliminated rather than balanced and the cash flows are known: cash-flow matching or a dedicated portfolio, not a ladder.",
+    "Volatility is expected to fall: do not pay for the barbell's convexity. Take the bullet's yield, or sell convexity by writing options, accepting that a short-convexity position is dangerous if volatility spikes. If the vignette gives no volatility view at all, match the benchmark's convexity rather than taking a shape bet in either direction.",
+    "The view is about the level of rates: switching bullet to barbell at matched duration does not move duration, so on its own it cannot express a level view. Change duration, with futures or a swap if the bonds cannot be traded, receive-fixed to lengthen and pay-fixed to shorten, and choose the shape separately."
+  ],
+  "pitfalls": [
+    "Saying the barbell wins outright. It needs a large move. On the curriculum's 0.2% fall in yields at duration 6, the barbell gains 1.218% against the bullet's 1.21%, an edge of under one basis point that a yield give-up wipes out. Note that the example hands both portfolios the same 3.5% rolling yield, so compare rolling yields before concluding which side wins.",
+    "Treating equal duration as equal risk. Matched duration still leaves a dispersion and convexity gap, which is the twist risk, and a bullet minimizes that risk without eliminating it.",
+    "Garbling the dispersion condition. Single liability: minimize dispersion and convexity, keeping convexity just above the liability's. Multiple liabilities: asset dispersion and convexity greater than the liabilities', with the asset cash flows bracketing the liability dates, but kept only slightly above rather than as high as possible, because structural risk grows the further asset convexity sits above the liability side's. Asset convexity exceeds the liability's in both sets, so the inequality never flips.",
+    "Calling a duration-matched barbell slope-neutral. It is long the wings, so it carries a key-rate exposure alongside its convexity edge: in the reading's Example 14 a 2y/10y barbell and a 5y bullet, both duration 4.88, gain 3.891% against 2.473% under a bull flattening and lose 3.518% against 2.407% under a bear steepening. Say which end of the curve drives the result. If the vignette wants the slope trade in its formalized form, name the key-rate tilt: buy short and sell long for an expected steepener, buy long and sell short for an expected flattener.",
+    "Forgetting to keep the shape trade duration-neutral. Size the legs so total effective duration still equals the benchmark's, or a level bet has been bolted onto the shape bet.",
+    "Ranking convexity wrongly. A ladder has MORE convexity than a duration-matched bullet, and less than a barbell.",
+    "Listing a ladder's benefits and stopping. The LOS asks for construction, benefits, limitations and risk and return, so the answer must also say it is not optimized, takes no view, matches a liability less closely than cash-flow matching, and, for a ladder of individual bonds, diversifies issuer default risk less well and costs much more to acquire than a bond mutual fund, which can also be liquidated faster and at a better price. Fixed-maturity corporate bond ETFs are an alternative way to build the rungs."
+  ],
+  "cues": [
+    {
+      "signal": "Interest-rate volatility is expected to rise, and the IPS pins duration to the benchmark.",
+      "implication": "Raise convexity without a level bet: barbell, or buy options. The bullet is the sell-convexity side and is wrong here."
+    },
+    {
+      "signal": "Volatility is expected to fall, or the vignette describes a calm market.",
+      "implication": "The convexity will not be used, so do not pay for it. Bullet, taking the higher yield available at the same duration."
+    },
+    {
+      "signal": "One payment of a stated size at a stated date, for example 10 million due in 7 years.",
+      "implication": "Single-liability immunization: PV(assets) at least PV(liability), Macaulay duration 7, and the lowest dispersion and convexity available with convexity still just above the liability's, which is a bullet near year 7 if the exhibit offers one. A barbell built to duration 7 meets the first two conditions and clears the liability's convexity, but it carries more dispersion and so more twist risk, which makes it the right answer only when no bond sits near the horizon."
+    },
+    {
+      "signal": "Several liability payment dates spread across years, or the liabilities' BPV is given alongside a payment schedule.",
+      "implication": "Multiple-liability duration matching: MV(assets) at least MV(liabilities), BPV(assets) equal to BPV(liabilities), and asset dispersion and convexity greater than the liabilities'. That calls for a dispersed or laddered structure whose cash flows bracket the payment dates, reaching earlier than the first payment and later than the last, not a single bullet."
+    },
+    {
+      "signal": "A private client who wants a bond maturing each year for spending, minimal oversight, and offers no rate view.",
+      "implication": "Ladder. The absence of a view is the signal: it buys reinvestment-date diversification and steady liquidity at the price of not optimizing for anything."
+    },
+    {
+      "signal": "The body of the curve is expected to cheapen relative to the wings, or the hump to grow.",
+      "implication": "Barbell, or a long butterfly, long the wings and short the body. If the body is expected to outperform instead, bullet or short butterfly."
+    },
+    {
+      "signal": "The IPS or mandate prohibits derivatives, or the client cannot use options, futures or swaps.",
+      "implication": "The convexity decision has to be made in cash bonds, so it becomes bullet versus barbell versus ladder. Buying options to add convexity and writing them to shed it are both ruled out."
+    },
+    {
+      "signal": "The exhibit of available bonds has nothing maturing near the horizon, only short and long maturities.",
+      "implication": "Hitting the duration target forces a barbell, so the answer must blend to the required duration and then flag the extra dispersion, convexity and structural risk that the missing horizon bond would have avoided."
+    }
+  ],
+  "comparesWith": [
+    "butterfly",
+    "government_bonds",
+    "futures",
+    "interest_rate_swap"
+  ],
+  "confidence": "medium",
+  "_review": {
+    "deleted": [
+      "cues: the clause \"Rates are expected to move as the forwards imply\" was cut from the sell-convexity cue. Forwards being realized means every bond earns the same horizon return, so no duration or shape tilt raises expected return. That is a different statement from low volatility, and bundling the two teaches a false trigger for the bullet. The volatility half of the cue was kept.",
+      "comparesWith: dropped index_replication, which has no bearing on the dispersion and convexity decision, in favour of government_bonds, the instruments these structures are actually built from.",
+      "skeptic pass, withdrawn deletion: the repair pass had deleted the flattener/steepener whenToRecommend item on the grounds that \"a candidate who writes barbell for an expected flattener loses the mark\". That rationale was false and has been struck from this record so a later pass does not trust it. The reading itself states that flattener strategies may use a barbell, short the short end and long the long end (drill r8_ycs_los_c_q9), buying long while selling short IS that barbell leg arrangement, and Example 14 (drills r8_ycs_los_g_q2 and q3) exists precisely to compare a 5y bullet against a 2y/10y barbell at matched duration under slope scenarios. The item is restored. Slope views are in scope for this entry.",
+      "skeptic pass: cons, the credit item (\"The choice is about dispersion and convexity at a given duration, and says nothing about credit... so a barbell of corporates still needs a credit view\"). Both skeptics flagged it. The blanket opener is false for the structure this entry recommends to private clients, because choosing a ladder of individual bonds over a bond fund does carry a default-diversification consequence, and the surviving half reduced to \"a duration tool is not a credit tool\", which is true of every instrument in the playbook and names no condition a vignette could state. Deleted rather than reworded; the real ladder credit limitation now sits in the ladder-limitations pitfall.",
+      "skeptic pass: whenToRecommend, the curvature item (\"expects curvature to increase, the middle cheapening relative to the wings: barbell, or a long butterfly\"). Stated three times across the playbook: cues[5] carries the same trigger in vignette-signal form, and the butterfly entry carries the construction in its own whenToRecommend. Deleted as duplication.",
+      "skeptic pass: whenNotTo, \"The vignette states an explicit curve or volatility view: a ladder is the no-view structure and cannot be the recommendation.\" Restates the cons item on the ladder, which already ends with that conclusion. Deleted as duplication; the conclusion is kept in cons, where the reasoning sits."
+    ],
+    "corrected": [
+      "pros: the three-way convexity ranking was sourced to yield_curve_strategies, which only ranks bullet against barbell. The ladder's middling position appears in overview_of_fixed_income_portfolio_management (Deep Dive D and LOS 9), so it is re-sourced there.",
+      "pros: the 0.20% convexity edge now says \"before the barbell's lower yield is netted off\". As drafted it read as a net return advantage, which is the exact error the first pitfall exists to prevent.",
+      "pros: added \"still above the liability's convexity\" to the bullet immunization claim. \"Lowest dispersion and convexity\" on its own invites the candidate to write asset convexity BELOW the liability's, which fails the condition.",
+      "cons: the bullet's \"less liquidity\" is now \"no periodic liquidity from maturing bonds\". The notes mean cash-flow liquidity relative to a ladder's maturing rungs, and as drafted it implied a concentrated government bullet is market-illiquid, which contradicts the liquidity ranking.",
+      "cons: narrowed \"None of the three is set and forget\" to bullet and barbell positions. The notes call a ladder simple to run with low turnover, so the blanket claim overstated.",
+      "whenNotTo and pitfalls: removed \"the condition reverses\" and \"Same words, opposite direction\". Asset convexity must exceed the liability's in BOTH the single and multiple liability sets. As drafted it would have taught the inequality to flip, which is wrong on the most heavily tested conditions in the reading. The multiple-liability item now also carries the MV and BPV conditions, since dispersion alone is not the condition set.",
+      "whenNotTo: removed \"for no gain\" from the immunization item. The curriculum's own two-bond barbell exists because no bond sat at the 7-year horizon, so the gain can be feasibility; the item now says take the bullet when the maturity is available.",
+      "whenNotTo: \"No volatility view\" no longer prescribes a bullet. With no view the answer is to match the benchmark's convexity; the bullet is for an expected calm. Also added that a written-option short-convexity position is dangerous if volatility spikes, which the drafted version omitted while recommending it.",
+      "whenNotTo: the level-view item prescribed \"a receive-fixed swap\" unconditionally. Receive-fixed lengthens duration, so it is right only when the view calls for more duration. Now states receive-fixed to lengthen and pay-fixed to shorten.",
+      "pitfalls: the 1.218% versus 1.21% figures are the curriculum's 0.2% FALL in yields, not any 0.2% move. Stated the direction so the numbers can be reproduced.",
+      "cues: added two constraint cues the draft lacked, a derivatives prohibition (which forces the convexity decision into cash bonds) and an available-bond exhibit with no horizon maturity (which forces a barbell and an explicit structural-risk caveat). Both are things a vignette states and both select or rule out a structure.",
+      "schema: replaced the free-text \"uncertain\" field with _review; its surviving caveats are in residualRisk.",
+      "skeptic pass: summary. The matched-duration decision was framed as dispersion and convexity alone. That is the smaller half: the entry's own figures put the convexity gap at 0.008pp on a 20bp move and 0.20pp on a 100bp move, while Example 14 puts the duration-matched bullet-barbell gap under a slope move at 1.42pp. The summary now names the key-rate profile first and says it is the larger effect for ordinary moves, which is also the flashcard's statement that duration-matched bullets and barbells behave almost identically in a parallel shift but very differently across slope scenarios.",
+      "skeptic pass: the slope pitfall. \"Answering a slope question with a bullet or barbell\" was listed as an error and is not one. The reading states flattener strategies may use a barbell, and Example 14 is built as a slope comparison of a bullet against a barbell at matched duration. The pitfall is rewritten as the opposite warning, that a duration-matched barbell is not slope-neutral, with the Example 14 numbers. The key-rate tilt prescription (buy short and sell long for a steepener, the reverse for a flattener) was kept, because it is the notes' own position map verbatim and is true, but it is now offered as the formalized version of the slope trade rather than as a reason the structures are the wrong tool.",
+      "skeptic pass: cues, single-liability immunization. The condition set was given as two of three (the PV condition was missing both here and in whenToRecommend, so the entry never stated it) and a duration-7 barbell was said to \"fail the third one\". It does not: its convexity sits above the liability's, so it clears the inequality and loses only on the minimisation, and the curriculum's own two-bond barbell is called a trade-off between using the bonds available and minimizing convexity, not a failure. The PV condition is added in both places and the barbell is now described as right only when no bond sits near the horizon, which also removes the contradiction with the no-horizon-bond cue.",
+      "skeptic pass: the dispersion pitfall. \"Clearly greater\" was an invented intensifier pointing the candidate the wrong way, since the same readings say structural risk is larger the further asset convexity exceeds the liability's. The notes say \"keep asset convexity/dispersion slightly above the liabilities' but minimized, with the asset cash-flow range bracketing the liabilities\". The excess is a floor to clear, not a quantity to maximise. Also removed the \"only minimize-just-above versus clearly-greater changes\" clause, which read as commentary on an earlier draft rather than exam content.",
+      "skeptic pass: the multiple-liability prescription, in both the cue and the whenNotTo item. \"A structure spread across\" or \"spanning the payment dates\" does not satisfy a strictly wider dispersion condition, since an asset range coincident with the liability range has roughly the same dispersion. Both now say the asset cash flows must bracket the payment dates, reaching earlier than the first payment and later than the last, which is the notes' own word.",
+      "skeptic pass: the ladder-limitations pitfall. It claimed to enumerate the limitations half of the LOS answer while omitting the two the curriculum's own limitations card gives: less diversification of default risk and a much higher cost of acquisition than a bond mutual fund, which can also be liquidated faster and at a better price, with fixed-maturity corporate bond ETFs as the alternative way to build the rungs. Added. These are not in the candidate's notes for that LOS, which stop at \"not optimized\" and the cash-flow-matching comparison.",
+      "skeptic pass: the stable-curve claim. \"The barbell lags in stable and steepening curves\" was stated as a property of the structure. It holds on yield, but the comparison the curriculum actually makes is on rolling yield, which is yield income plus rolldown: in its AUD bullet versus barbell case the barbell won by about 28bp with roughly 25.5bp of that from rolldown and only 2.6bp from convexity. The notes claim is kept as written, and a separate con now carries the rolling-yield comparison and the counterexample. The offsetting half of the same notes sentence, that the barbell outperforms in large parallel moves and in a flattening, was being dropped and is now restored alongside the lag.",
+      "skeptic pass: the ladder con. \"It will not match a specific liability as precisely as cash-flow matching, SO it cannot be the answer to a vignette that hands you a rate or curve view\" is a non sequitur. Liability imprecision has no bearing on whether a ladder answers a rate view; the reason is that it takes no view. The two claims are now separated and the causal word removed.",
+      "skeptic pass: the level-view whenNotTo item. \"Reshaping maturities is the wrong tool\" was more absolute than the reading supports, since the reading's own closing framework lists bullet/barbell among the level and duration adjustments. The mechanism is kept and stated precisely instead: a bullet-to-barbell switch at matched duration does not move duration, so on its own it cannot express a level view.",
+      "skeptic pass: the ladder pro. It restated the ladder-versus-bullet convexity ranking, which is already given in full in the first pro and again as an error warning in the pitfalls. The ranking is dropped from the pro, leaving the operational content (low turnover, minimal management, suits private clients) that is not said elsewhere.",
+      "skeptic pass, partial: one skeptic called the closing clause of the first pitfall unsupported, on the ground that the curriculum's worked comparison gives both portfolios the same 3.5% rolling yield so nothing erases the barbell's 0.8bp edge within the example. The notes do state the yield give-up one sentence after the example (\"the barbell's yield is lower, so if the move is small the bullet wins on yield\"), so the claim is not unsourced. The fix was applied anyway because it is more precise: the item now says the edge is under one basis point, and that the example stipulates equal rolling yields, so rolling yields have to be compared before concluding."
+    ],
+    "shortfall": "",
+    "residualRisk": "The unresolved item is the taxonomy. The candidate's notes map bullet versus barbell to SHAPE and curvature (\"Curve positioning: steepener/flattener (slope) and bullet/barbell/butterfly (shape)\"), while the reading's own closing framework as quoted in drill r8_ycs_los_g_q11 maps bullet/barbell to the LEVEL and duration adjustment and gives SHAPE to butterfly strategies. This pass resolved it by refusing to narrow the structures to any one view: the entry now states the mechanisms (duration, key-rate profile, convexity) and lets each view attach to the mechanism it moves. A candidate who memorised either taxonomy as exclusive will still find one item here that reads against it. Secondary: two of the strongest claims in this entry, the Example 14 slope numbers and the AUD rolling-yield case, come from the drills and flashcards rather than from the notes, so they are sourced as curriculum and sit in the notes' blind spot, which is also why the confidence is medium rather than high. Third: the ladder's convexity is stated as middling, which is the curriculum's ranking, but an actual ladder's convexity depends on the rungs chosen, so no number should ever be quoted for it."
+  }
+}

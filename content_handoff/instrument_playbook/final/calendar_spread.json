@@ -1,0 +1,137 @@
+{
+  "key": "calendar_spread",
+  "name": "Calendar Spread",
+  "family": "Derivatives: options",
+  "summary": "A calendar spread sells a near-dated option and buys a longer-dated option of the same type, same strike and same underlying, so the position collects the faster time decay of the short near leg while staying long the higher-vega far leg. It turns on the horizon: the underlying must hold a range until the near expiry while a longer-dated directional view stays alive.",
+  "pros": [
+    {
+      "text": "Time decay is more pronounced on a short-dated option than on a long-dated one, so net position theta is positive and the spread accrues value while the underlying sits near the strike. In the curriculum example the near SEP 45 call decays at -0.029 per day against the far JAN 45 call at -0.014, and the position, short the fast leg, nets +0.015.",
+      "source": "options_strategies"
+    },
+    {
+      "text": "Delta is approximately zero at inception, so it monetizes a flat near-term view without taking a directional bet at that horizon.",
+      "source": "options_strategies"
+    },
+    {
+      "text": "Net vega is positive, because the longer-dated leg has the greater vega. Maximum profit comes when the short leg expires worthless with the underlying near the strike and implied volatility then surges, lifting the remaining long option.",
+      "source": "options_strategies"
+    },
+    {
+      "text": "It pays the manager to wait: a longer-term bullish or bearish view sits in the far leg while the near leg, expected to expire worthless, funds the quiet weeks before the view plays out. Other short-premium structures also collect near-term decay, but here the long-dated directional leg survives the near expiry.",
+      "source": "curriculum"
+    },
+    {
+      "text": "It expresses a view across maturities rather than on the level of implied versus realized volatility: calendar spreads exploit differences in implied volatility between expirations, while a single-expiry structure such as a straddle can only trade the level. Which maturity is the rich one depends on the shape of the surface, so do not assume the leg sold is the expensive one.",
+      "source": "options_strategies"
+    },
+    {
+      "text": "The near-term sale pays for part of the longer-dated option, so a long calendar costs less to establish than buying the far leg outright.",
+      "source": "curriculum"
+    }
+  ],
+  "cons": [
+    {
+      "text": "There is no closed-form maximum profit. The legs do not expire together, so value at the near expiry depends on what the remaining long option is then worth, which needs an implied volatility assumption. You cannot write strike difference minus net debit the way you can for a money spread.",
+      "source": "curriculum"
+    },
+    {
+      "text": "The leg sold is the one with the highest gamma, so the main way a long calendar loses is the underlying moving too far, too fast, away from the strike. Delta is near zero but gamma is not.",
+      "source": "options_strategies"
+    },
+    {
+      "text": "Being net long vega cuts both ways: a decrease in implied volatility hurts a long calendar. Getting the direction and the decay right and the volatility wrong still loses money.",
+      "source": "options_strategies"
+    },
+    {
+      "text": "The theta ordering the trade relies on is not universal. For in-the-money calls it reverses, the curriculum's SEP 40 at -0.007 against the OCT 40 at -0.011, so the longer-dated leg decays faster. That removes the premise of the long calendar and can motivate the short version.",
+      "source": "curriculum"
+    },
+    {
+      "text": "The short near leg has to be managed. Pin risk arises if the underlying finishes near the strike at that expiry; early assignment on an American option arises instead when the short leg goes deep in the money, or when an ex-dividend date falls before the near expiry, not when it sits at the money. Either way the near expiry forces an active decision to close or roll.",
+      "source": "curriculum"
+    }
+  ],
+  "whenToRecommend": [
+    "The client holds a longer-term directional view on a name but states the move is not imminent, and expects the shares to stay in a trading range until roughly the near-term expiry.",
+    "Implied volatility is low by historical standards and the manager wants a position that gains if volatility normalizes upward while being paid to wait for it.",
+    "The near-term outlook is a trading range and implied volatility is expected to be unchanged. That is the cell of the curriculum's selection grid the calendar spread occupies, where neither buying a straddle, which needs a volatility increase, nor writing one, which needs a decrease, fits.",
+    "A catalyst is dated after the near-term expiry: the manager wants exposure to it through the far leg and wants the quiet weeks before it funded by the leg sold."
+  ],
+  "whenNotTo": [
+    "The expected move lands inside the life of the option sold. Put the trade at that expiry instead: an outright option if the move really is sharp and implied volatility is expected to rise, or a money spread to cut the cost when the direction view is right but the market is not clearly trending. For a decline that is a bear spread, and if the vignette also asks to minimize the cost of establishing the position, the call version, buy the higher strike call and sell the lower strike call, is the one that comes in at a net credit.",
+    "A large move is expected but the direction is unknown. Buy a straddle or strangle. A long calendar loses on a big move either way.",
+    "Implied volatility is high and expected to fall. Write a straddle or strangle, or run a short (reverse) calendar, since the long calendar is net long vega.",
+    "The mandate is downside protection on an existing holding. Use a protective put or a collar: a calendar spread has delta near zero and floors nothing.",
+    "The client already owns the shares and wants near-term income with a capped upside. A covered call harvests the same near-dated theta against an asset already held, with no second expiry to manage.",
+    "A maximum profit and loss computable at trade date is required for a defined-risk mandate or a risk report. Use a butterfly or a money spread, whose payoffs settle at a single expiry."
+  ],
+  "pitfalls": [
+    "Confusing a calendar (time) spread with a money spread. Calendar: same strike, different expirations. Money: same expiration, different strikes. Both are on the same underlying, and the answer choices routinely swap the two.",
+    "Accepting the claim that a calendar spread is appropriate only when implied volatility is expected to increase. It is not. Decay on the short leg with the underlying near the strike is enough, and the grid places the calendar spread in the volatility-unchanged cell. Rising implied volatility raises the profit, it is not a precondition.",
+    "Reversing the long and short labels. Long calendar: buy the distant option, sell the near-term one. Short or reverse calendar: buy the near-term, sell the distant, and it wants a big move or falling implied volatility.",
+    "Calling the position vega-neutral because the two legs offset. They do not cancel: the longer-dated option has the larger vega, so net vega is positive and the long calendar is a long volatility trade.",
+    "Naming a directional move, or capture of a dividend paid between the two expirations, as the source of profit. The source is the faster time decay of the shorter-dated leg.",
+    "Testing only one half of a calendar spread recommendation. Both halves are graded: whether the horizon of the client's expected move matches a structure that needs near-term stability, and whether any claim made about implied volatility is correct. In the bundled Minkoff item the horizon mismatch is what the essay rubric rewards, while the defect inside her own statement is the implied-volatility claim, and her description of direction and timing is marked correct."
+  ],
+  "cues": [
+    {
+      "signal": "The manager expects the price to move in a certain direction but not immediately, and expects a trading range in the meantime.",
+      "implication": "Rules the calendar spread in. A longer-term directional outlook combined with a near-term neutral outlook is exactly the structure's premise, and the shorter-lived option is expected to expire worthless."
+    },
+    {
+      "signal": "The client expects a sharp decline over the next month, and the exhibit quotes only that month's expiry.",
+      "implication": "Rules the calendar spread out twice over. The move lands inside the life of the option sold, so the near-term stability the structure needs fails, and with a single maturity quoted there is no second expiry to trade. The fit is a bear spread at that expiry, built with calls for a net credit when the client also wants to minimize the cost of establishing the position."
+    },
+    {
+      "signal": "Someone states a calendar spread is appropriate only when implied volatility is expected to increase.",
+      "implication": "Mark the claim incorrect. The long calendar is long vega and does benefit from a rise, but it can profit on time decay alone with the underlying near the strike and implied volatility unchanged."
+    },
+    {
+      "signal": "Implied volatility is described as low relative to its own history and the underlying is expected to hold a trading range until the near expiry.",
+      "implication": "Favors a long calendar: that is the market the curriculum says the structure is typically implemented in. A later rise in the level lifts the profit through positive vega but is not required. An exhibit showing near-dated implied volatility above longer-dated is not the same signal, because an inverted surface usually means the market is pricing a near-term move, which is the condition that breaks this trade."
+    },
+    {
+      "signal": "Both legs share a strike and the expiration months differ.",
+      "implication": "That is a calendar spread. If instead one expiry is shown with two strikes, the structure is a bull or bear money spread and the calendar answer is a distractor."
+    },
+    {
+      "signal": "An earnings release, policy meeting or other catalyst is dated before the near-term expiry.",
+      "implication": "Breaks the near-term stability a long calendar needs. The gamma risk sits in the short leg, so the move hits before the decay is collected. A catalyst dated between the two expiries is the favorable case."
+    },
+    {
+      "signal": "The options under discussion are in the money rather than at the money, and the exhibit gives a theta for each expiry.",
+      "implication": "Check the theta ordering before asserting positive net theta. For in-the-money calls the curriculum's ordering reverses and the longer-dated leg decays faster, which removes the long calendar's premise and points to the short version."
+    },
+    {
+      "signal": "The investor wants to profit from a directional view, to limit losses if it fails, and to minimize the cost of establishing the position.",
+      "implication": "That triple does not select a calendar spread; in the bundled item it selects a bear spread built with calls. The cost clause is the discriminator: a bear spread can be built with calls for a net credit or with puts for a net debit, and minimizing the establishment cost picks the credit version."
+    }
+  ],
+  "comparesWith": ["straddle", "bull_bear_spread", "butterfly", "covered_call"],
+  "confidence": "medium",
+  "_review": {
+    "deleted": [
+      "whenToRecommend: 'The surface is inverted after a near-term scare: near-dated implied volatility sits well above longer-dated, so the manager sells the rich maturity and buys the cheap one.' Nothing in the grounding turns an inversion into a long-calendar recommendation, and the notes say the curve inverts when near-term fear spikes, which is the near-term move that kills the structure; the warning survives inside cues[3] instead.",
+      "whenToRecommend: 'The investor follows the name but owns no shares, so covered-call income is unavailable and time value has to be harvested through an options-only structure.' Owning no shares does not select a calendar spread: a cash-secured put, a written straddle or any credit money spread harvests time value with no share position.",
+      "cons: 'It protects nothing. With delta near zero it is not a hedge for an existing holding and it puts no floor under a portfolio, and the near expiry forces an active decision to close or roll.' Padding that restates whenNotTo[3], which is the actionable place for it; the close-or-roll clause moved into the short-leg management con."
+    ],
+    "corrected": [
+      "pros[0]: dropped 'The source of profit is mechanical, not a forecast', because the long calendar does require two views (near-term stability plus a longer-term direction) and the drill marks 'no directional view at all' wrong; kept the grounded theta arithmetic.",
+      "pros[2]: added 'with the underlying near the strike' to the maximum-profit condition, since the short leg expiring worthless is not sufficient on its own.",
+      "pros[3]: dropped the uniqueness claim 'the one structure that pays a manager to wait', because every net-short-premium structure collects decay; kept the real discriminator, that the far directional leg survives the near expiry.",
+      "pros[4]: removed 'selling the rich maturity and buying the cheap one', which is backwards in the normal upward-sloping surface the curriculum recommends the trade in; a long calendar always sells the near leg whatever the term structure does.",
+      "pros[5]: cut the claim that the net debit is the capital at risk, which the grounding gives no payoff formula for and which does not hold cleanly for a deep in-the-money long calendar put; kept only the cost comparison against buying the far leg outright.",
+      "cons[3]: narrowed 'in-the-money options' to in-the-money calls, matching the curriculum example, since a deep in-the-money put can carry positive theta and the mechanism is not the stated one.",
+      "cons[4]: fixed the early-assignment trigger, which was inverted. Near the strike is pin risk; early assignment is driven by deep moneyness or an ex-dividend date before the near expiry, and an at-the-money short leg is the least likely to be assigned. Re-sourced to curriculum, since the notes support only pin risk generically.",
+      "whenToRecommend[3]: changed 'neutral on direction' to a near-term trading range, because the calendar trader does hold a longer-term directional view; the grid's cell is about the near-term outlook.",
+      "whenNotTo[0]: replaced 'a bear put spread for a decline' with a bear spread whose leg type follows the cost constraint. The bundled item marks the bear PUT spread down (net debit 2.37, max profit 2.63) and marks the bear CALL spread correct (net credit 2.70) precisely because the client wants to minimize the establishment cost. Also softened 'sharp move, use a money spread': the money spread is the cost-cutting choice when the market is not clearly trending, while a genuinely sharp move with rising implied volatility points to the outright option.",
+      "pitfalls[5]: removed 'The timing mismatch, not the direction, is where the marks are.' The MCQ marks the implied-volatility claim as the defect and marks the direction-and-timing description correct; the essay rubric pays for both the horizon mismatch and the volatility claim.",
+      "cues[1]: removed 'bull call spread', which is bullish and cannot fit an expected decline, and removed the claim that the timing mismatch is the graded point in that item; named the bear call spread as the fit and kept the single-expiry-exhibit observation.",
+      "cues[3]: split the signal, keeping the low-implied-volatility half that the curriculum supports and demoting the inverted-surface half to a warning, and replaced 'The trade is on the term structure, not on the level' with the graded position: the long calendar is a long volatility trade, so a rise in the level helps but is not required.",
+      "cues[6]: lowered the trigger from 'deep in the money' to in the money, because the curriculum's theta reversal happens at ordinary in-the-money moneyness and a candidate told to check only deep strikes would skip the exhibit that actually appears.",
+      "cues[7]: removed 'A money spread also caps both profit and loss for a small net debit', which is false for the call-built bear spread (a net credit) and erases the discriminator the item turns on."
+    ],
+    "shortfall": "",
+    "residualRisk": "cons[0], that a calendar spread has no closed-form maximum profit. The grounding supplies no calendar payoff formula at all, which is consistent with the claim, but some texts do quote a maximum loss equal to the net debit and a maximum profit under an assumed implied volatility at the near expiry, so a grader working from one of those would call the wording absolute."
+  }
+}

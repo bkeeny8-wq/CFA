@@ -1,0 +1,173 @@
+{
+  "key": "futures",
+  "name": "Futures",
+  "family": "Derivatives: swaps & futures",
+  "summary": "A futures contract is an exchange-traded, standardized agreement to buy or sell an underlying at a set price on a set date, cleared and marked to market daily against margin, used at Level III as an overlay to shift duration, equity beta, asset allocation or volatility exposure without trading the underlying securities. The decision it turns on is whether a standardized, liquid, cleared contract is close enough to the exposure you need, or whether the tenor, size or reference mismatch is large enough to force a customized OTC structure instead.",
+  "pros": [
+    {
+      "text": "A clearinghouse stands between the parties, so counterparty credit exposure is essentially eliminated. In an LDI risk list, that is the one risk choosing exchange-traded futures over OTC swaps actually removes.",
+      "source": "overview_of_fixed_income_portfolio_management"
+    },
+    {
+      "text": "Exchange-traded, standardized and cleared, so standard contracts are highly liquid and cheap to execute in size and easy to unwind. That makes futures the default for short, tactical adjustments you intend to reverse.",
+      "source": "swaps_forwards_and_futures_strategies"
+    },
+    {
+      "text": "Capital efficient: a small initial margin controls a large notional, with leverage = (notional minus margin) / margin, so exposure can be added without funding the full position.",
+      "source": "overview_of_fixed_income_portfolio_management"
+    },
+    {
+      "text": "The exposure change happens as an overlay, leaving the underlying holdings and the external managers in place, and for a taxable investor it avoids realizing the capital gain an outright sale would trigger.",
+      "source": "swaps_forwards_and_futures_strategies"
+    },
+    {
+      "text": "Going short is as easy as going long, with no securities borrow, which is what makes de-equitizing, hedging and duration-shortening overlays practical.",
+      "source": "curriculum"
+    },
+    {
+      "text": "Listed prices are usable market-implied inputs: fed funds and interest-rate futures imply the market's expected path of policy rates, so a futures price can be read as a forecast rather than only traded as a hedge.",
+      "source": "swaps_forwards_and_futures_strategies"
+    }
+  ],
+  "cons": [
+    {
+      "text": "Standardized terms create basis risk. Bond futures reference a cheapest-to-deliver bond with a conversion factor and a delivery option, and an equity beta hedge assumes a beta that is stable and correctly estimated, so a shifting beta leaves residual risk.",
+      "source": "swaps_forwards_and_futures_strategies"
+    },
+    {
+      "text": "Government bond futures price off the sovereign curve, so they will not track a corporate bond portfolio or a liability discounted at a corporate or AA rate. That spread basis risk is a separate defect from the cheapest-to-deliver basis and survives a perfect BPV match.",
+      "source": "overview_of_fixed_income_portfolio_management"
+    },
+    {
+      "text": "Daily mark to market means variation margin is paid in cash, so an adverse move drains cash from a position that is hedged in economic terms. Even a fully invested fund running a futures overlay must hold a liquidity buffer.",
+      "source": "swaps_forwards_and_futures_strategies"
+    },
+    {
+      "text": "Rollover risk: contracts are short-dated and must be rolled at an uncertain roll cost, quarterly for bond and equity index contracts and monthly for VIX. A long VIX futures hedge in a contango curve bleeds negative roll yield for as long as it is held.",
+      "source": "swaps_forwards_and_futures_strategies"
+    },
+    {
+      "text": "An equity index futures hedge removes systematic market risk only. It does nothing about idiosyncratic risk, so a concentrated portfolio is still fully exposed to company-specific moves at a target beta of zero.",
+      "source": "swaps_forwards_and_futures_strategies"
+    },
+    {
+      "text": "The hedge drifts. Portfolio value and beta both move, and the contract count has to be rebalanced to stay on target, which is ongoing cost and operational risk rather than a set-and-forget hedge.",
+      "source": "swaps_forwards_and_futures_strategies"
+    },
+    {
+      "text": "Coverage is narrow on the fixed-income side: bond futures deliver mainly government duration and cover only part of a broad bond index, so they cannot replicate credit or securitized exposure.",
+      "source": "liability_driven_and_index_based_strategies"
+    }
+  ],
+  "whenToRecommend": [
+    "The adjustment is short-horizon and tactical: a manager wants to cut duration or beta on a three-month view and expects to reverse the trade, so liquidity and easy unwind matter more than an exact tenor.",
+    "The vignette says no ISDA documentation is in place, or the mandate bars bilateral or uncleared OTC exposure. That is the categorical case for exchange trading, because a cleared swap also sits behind a CCP and so is a matter of degree rather than a different kind of exposure.",
+    "Cash has just arrived or a manager is funded but not yet invested, and cash drag needs removing: buy index futures to equitize. Contracts = cash / (futures price times multiplier) when the contract's beta is about 1, otherwise scale by beta_target / beta_futures.",
+    "A transition between markets is underway and the physical trades have not settled: short futures on the market being exited and long futures on the market being entered to hold the intended exposure in the gap.",
+    "A known future transaction needs locking in: a manager with cash arriving buys bond futures as a pre-investment hedge, and an issuer planning to borrow sells futures against rising rates."
+  ],
+  "whenNotTo": [
+    "The hedge is a large, lasting, precisely matched liability hedge, such as a pension matching a 20-year liability BPV. A receive-fixed interest rate swap hits the exact tenor and notional, avoids cheapest-to-deliver basis and needs no quarterly roll. Say in the same breath that the swap substitutes swap-curve basis against a corporate-discounted liability for the futures' Treasury basis, and still carries initial and variation margin, so the swap is the better instrument rather than a clean one.",
+    "The exposure needs a non-standard size, date or underlying, for example an exact foreign-currency amount on a specific settlement date. Use a currency forward, or an FX swap to roll and resize an existing hedge.",
+    "The objective is the total return of a credit, corporate or broad bond index rather than government duration. Use a total return swap, or a sampled physical portfolio, since bond futures carry mainly government duration.",
+    "The objective is downside protection with the upside kept. Futures are symmetric and surrender the gain along with the loss, so a protective put is the answer; a collar is the cheaper version that still caps the upside at the call strike, and a put spread is cheaper still but leaves the deep downside unhedged.",
+    "The investor cannot reliably fund variation margin or has no liquidity buffer, in which case a paid-up option position or an unlevered physical holding avoids forced liquidation on a margin call.",
+    "The problem is a concentrated low-basis single stock that must be diversified without a sale. Index futures hedge only the market component. Use a total return swap paying the stock return and receiving an index return."
+  ],
+  "pitfalls": [
+    "Getting the sign backwards. The formula is N_f = (BPV_target minus BPV_portfolio) / BPV_futures, so a negative answer means SELL. In a BPV-gap question the gap is liability BPV minus asset BPV, and an underhedged plan goes LONG. Wrong direction usually scores zero even with perfect arithmetic.",
+    "Ignoring the conversion factor. Futures BPV is approximately BPV of the cheapest-to-deliver divided by the conversion factor. If the vignette hands you a CTD BPV and a conversion factor, it wants that adjustment, and leaving it out shifts the contract count by the size of the factor.",
+    "Misapplying the equity formula. N_f = [(beta_target minus beta_portfolio) / beta_futures] times [V / (futures price times multiplier)]. Candidates divide by the index level instead of the full contract value, or forget to divide by the futures beta. The same divide applies to an equitization, where beta_portfolio is zero for cash.",
+    "Forgetting currency when the index futures are denominated in another currency. The beta-adjusted exposure must be converted into the contract's currency before dividing by contract value. State that the position still carries residual foreign-currency exposure, but do not reflexively prescribe a forward against it: the overlay is funded on margin rather than on the converted notional, and in an EM mandate the foreign-currency exposure is often the intended allocation.",
+    "Claiming futures remove the risks they do not. Clearing removes counterparty credit risk. Basis risk, margin and liquidity risk, roll cost, leverage and idiosyncratic risk all remain, and a hedged futures position still needs cash.",
+    "Reading 'managed futures' in an allocation or alternatives vignette as this instrument. There it is a trend-following hedge fund strategy held as an equity-risk mitigator for its crisis alpha, not a duration or beta overlay."
+  ],
+  "cues": [
+    {
+      "signal": "The vignette says no ISDA is in place, or that the mandate bars bilateral or uncleared OTC exposure.",
+      "implication": "Rules out forwards and uncleared swaps, rules in exchange-traded futures and listed options. A bare mention of counterparty concern is weaker than it looks: a standard interest rate swap is centrally cleared and collateralized, so the difference from futures there is degree, not kind, and a swap can still be the answer."
+    },
+    {
+      "signal": "Words like tactical, temporary, three-month view, until the physical portfolio is rebalanced, or until the new manager is funded.",
+      "implication": "Futures over swaps. Short horizon plus easy unwind is exactly the futures case, and the roll cost barely bites over one or two contract cycles."
+    },
+    {
+      "signal": "Match the liability duration precisely, a named long tenor, avoid rolling every quarter, or a pension closing a funded-status gap for good.",
+      "implication": "A receive-fixed interest rate swap wins. Exact tenor and notional, no cheapest-to-deliver basis, no quarterly roll. Futures remain defensible on liquidity and clearing, so argue both sides rather than declaring the swap flawless."
+    },
+    {
+      "signal": "A cheapest-to-deliver BPV and a conversion factor are given.",
+      "implication": "A contract count is being asked for, not a swap notional, and the conversion factor must be used: futures BPV = CTD BPV / conversion factor. The factor tells you the futures arithmetic is wanted here; it is not by itself a signal that futures are the recommended instrument."
+    },
+    {
+      "signal": "A futures price, a contract multiplier, a portfolio beta and a target beta are given.",
+      "implication": "Equity beta hedge ratio. Sign comes from target minus current beta, and target beta zero is the full hedge. Answer in whole contracts with the direction stated."
+    },
+    {
+      "signal": "Liability BPV exceeds asset BPV, or the manager expects rates to fall and wants more interest-rate sensitivity.",
+      "implication": "Buy, that is go LONG, bond futures to add BPV. The mirror case, assets over-hedged relative to liabilities or a rate-rise view, is SHORT."
+    },
+    {
+      "signal": "Cash sitting uninvested, cash drag quantified in basis points, or a mandate funded ahead of deployment.",
+      "implication": "Equitize with long index futures. Contracts = cash / (futures price times multiplier) when the contract's beta is about 1; when a futures beta is supplied, scale by beta_target / beta_futures. Reverse it, short index futures against an equity holding, creates synthetic cash and earns roughly the risk-free rate without selling stock."
+    },
+    {
+      "signal": "Keep the external managers, do not disturb the underlying holdings, or do not realize capital gains.",
+      "implication": "An overlay answer, futures or swaps, rather than physical trading. For a multi-manager fund left short a region or a duration bucket, name it a completion overlay."
+    },
+    {
+      "signal": "The VIX curve is in contango and the proposed tail hedge is long VIX futures.",
+      "implication": "Credit the hedge for rising when volatility spikes, then name negative roll yield as a persistent drag. A long variance swap is the cleaner crash hedge because it has no roll and pays on realized variance, which is convex in volatility. Selling options on VIX futures is an income trade, not a hedge: the gain is capped at the premium just when payoff is needed."
+    },
+    {
+      "signal": "A fed funds futures price such as 98.33 alongside the current policy rate.",
+      "implication": "Implied rate = 100 minus price. Then set expected rate = P(move) times the post-move rate plus the complement times the current rate and solve for P. The question is about inferring market expectations from derivative prices, not about hedging."
+    },
+    {
+      "signal": "The fund is described as fully invested with no cash reserve, and an overlay is being proposed.",
+      "implication": "Flag variation margin. Daily settlement can force an asset sale at the worst moment, so the recommendation must come with a liquidity buffer. This is a standard mark-grabbing point."
+    },
+    {
+      "signal": "The position being hedged is one stock or a handful of names, and a beta hedge is proposed.",
+      "implication": "Systematic risk goes, idiosyncratic risk stays. Say so explicitly, and if the objective is actually diversification without a sale, redirect to a total return swap."
+    },
+    {
+      "signal": "The index futures are quoted in a different currency from the portfolio, for example BRL contracts against a USD exposure.",
+      "implication": "Convert the beta-adjusted exposure into the contract currency before dividing by contract value, and state that the position leaves residual currency exposure. Whether to hedge that exposure is a separate decision the vignette has to ask for."
+    },
+    {
+      "signal": "The liabilities are discounted at a corporate or AA rate while the hedge instrument is a Treasury future.",
+      "implication": "Spread basis risk, not counterparty risk, is the live issue. The hedge tracks the government curve and the liability does not, so a parallel-shift hedge can still move the funded ratio."
+    }
+  ],
+  "comparesWith": [
+    "forwards",
+    "interest_rate_swap",
+    "equity_swap",
+    "total_return_swap"
+  ],
+  "confidence": "high",
+  "_review": {
+    "deleted": [
+      "whenToRecommend: 'The investor wants the exposure changed but the holdings, the external managers or the tax basis left undisturbed, so a rebalancing or completion overlay is preferred to physical trading.' Removed as non-discriminating padding: it is equally satisfied by an equity swap or a total return swap, so it never selects futures, and it was the third statement of the same idea after pros 4 and the overlay cue."
+    ],
+    "corrected": [
+      "pros 2 (liquidity): dropped 'order-driven', because that market-mechanism framing comes from the trade execution reading rather than the cited swaps reading, which supports only exchange-traded, standardized, highly liquid and easy to unwind.",
+      "pros 5 (easy shorting): re-sourced from swaps_forwards_and_futures_strategies to 'curriculum', because the reading says only that derivatives make it easy to go SHORT and never mentions securities borrowing as the contrast.",
+      "pros 6 (market-implied inputs): trimmed the implied-probability mechanics out of the pro, because the notes support only that fed funds and interest-rate futures imply the expected path of policy rates; the probability arithmetic now lives in the cue where it belongs.",
+      "cons 1 (basis risk): split into two cons and re-sourced. The cheapest-to-deliver, conversion-factor and beta-stability half stays with the swaps reading; the corporate-discounted-liability half moved to overview_of_fixed_income_portfolio_management, which is the reading that actually names spread risk between government futures and corporate-discounted liabilities.",
+      "cons 4 (rollover): roll frequency was stated as 'typically quarterly' one clause before a VIX example, which would have a candidate claiming a quarterly roll for a monthly contract. Now attributed explicitly: quarterly for bond and index contracts, monthly for VIX.",
+      "whenToRecommend 2 (counterparty): narrowed from a generic counterparty-credit concern to no ISDA or a mandate barring bilateral or uncleared OTC, because the swaps reading itself says swap counterparty risk is mitigated by central clearing and collateral, so clearing is not a categorical discriminator against a cleared swap.",
+      "whenToRecommend 3 (equitization): added the beta condition, because the notes state contracts = cash / (f times multiplier) only for a beta-1 contract and the app's own BOVESPA question divides by a futures beta of 1.15; the unqualified rule gives 402 contracts where the grading key credits 350.",
+      "whenNotTo 1 (liability hedge): added that the receive-fixed swap substitutes swap-curve basis against a corporate-discounted liability and still carries initial and variation margin, because the bank grades this claim 'mostly valid' and awards the marks for the missing considerations, not for declaring the swap superior.",
+      "whenNotTo 4 (asymmetric payoff): the collar was on the wrong side of the distinction. A collar is long put plus short call, so it caps the upside at the call strike and is not an upside-retaining hedge. The protective put is now named as the answer when upside must be kept, with the collar and the put spread as the cheaper alternatives and what each gives up.",
+      "pitfalls 4 (currency): removed the instruction that the futures position needs its own forward. The overlay is funded on margin, not on the converted notional, so a forward sized to the notional over-hedges, and in the grounded EM case the foreign-currency exposure is the intended allocation. The conversion requirement and a statement of residual FX exposure remain.",
+      "pitfalls 3 (equity formula): added that the same divide by futures beta applies to an equitization with beta_portfolio of zero, so the pitfall now covers the case the equitize rule was silently assuming away.",
+      "cues 1 (counterparty): rewrote the signal and implication. The categorical trigger is no ISDA or a bar on bilateral or uncleared OTC; a bare counterparty-credit mention does not rule out a swap, and the old 'categorical rather than a matter of degree' claim would have had a candidate rule out the swap on a vignette that pairs counterparty concern with a 20-year liability match, where the swap is the answer.",
+      "cues 4 (conversion factor): cut the claim that the factor is the tell that the examiner wants the futures route. In the bank's own Aventine pathway a conversion factor is supplied and the next question concludes the receive-fixed swap is the better instrument. The factor signals that a contract count is computable, not which instrument to recommend.",
+      "cues 7 (equitize) and cues 13 (foreign-currency contract): same two fixes as the corresponding whenToRecommend and pitfall items, so the beta condition and the no-forward-prescription hold everywhere the rules appear rather than in one place only."
+    ],
+    "shortfall": "",
+    "residualRisk": "The roll frequencies in cons 4, quarterly for bond and equity index contracts and monthly for VIX, are listing conventions I added rather than statements in the notes. They are right for the March/June/September/December cycle and for monthly VIX expiries, and the bank's Aventine answer does say Treasury futures must be rolled quarterly, but a vignette can specify any expiry it likes, so the frequency should be read off the exhibit rather than assumed."
+  }
+}

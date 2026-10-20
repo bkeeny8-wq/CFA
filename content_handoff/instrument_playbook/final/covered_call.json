@@ -1,0 +1,153 @@
+{
+ "key": "covered_call",
+ "name": "Covered Call",
+ "family": "Derivatives: options",
+ "summary": "Long stock plus a short call on the same shares: the writer is paid a premium today and gives up any gain above the strike, so by put-call parity the payoff shape is the same as a short put at that strike. The decision it turns on is whether the premium received is worth more than the upside above the strike, which needs a view on direction AND on implied versus expected volatility.",
+ "pros": [
+  {
+   "text": "Generates premium income immediately, which raises the yield on a holding the manager expects to go sideways and monetizes a neutral view without selling the shares.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "If the shares are called, the effective sale price is the strike plus the premium, above the strike alone. Own at 50, write the X=55 call for 2, and max profit is (55 - 50) + 2 = 7.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "The premium lowers the breakeven to S0 - premium, so a modest decline is absorbed. Own at 50 and write for 2, and the position still breaks even at 48.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Reduces net delta below +1 without disposing of the shares. 1,000 shares against calls on 1,000 shares at delta 0.4 gives net delta +600, so exposure falls with no realisation of the gain at the time of writing and no market impact from a block trade.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "The short call leg wins when realized volatility comes in below the implied volatility received, so implied volatility above the manager's own forecast is what puts the writer on the right side of the option trade.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Requires no cash outlay. Unlike a protective put it is funded by the premium received, so it does not drag on return in a flat market.",
+   "source": "options_strategies"
+  }
+ ],
+ "cons": [
+  {
+   "text": "The upside above the strike is forfeited. Max profit is fixed at (X - S0) + premium no matter how far the stock runs, so a strong rally is pure opportunity cost.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "It does not protect the downside. The only cushion is the premium, so max loss is S0 - premium and the shares can still fall to near zero. A covered call is income, not insurance.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "The payoff is asymmetric: the gain is capped at (X - S0) + premium while a sharp fall still costs almost the whole value of the position. That large downside belongs to the shares rather than to the short call, which improves the outcome by the premium received, but a buy-write still has to be sized as an equity position and never treated as riskless premium.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Short gamma runs the wrong way for the holder. As the stock rises the short call's delta grows and net delta falls toward zero, so gains decelerate into the cap; as the stock falls that delta decays and net delta climbs back toward +1, so full downside exposure returns exactly when it is least wanted.",
+   "source": "curriculum"
+  },
+  {
+   "text": "A rally through the strike means the shares are called away, a sale the holder may not have wanted to make, unless the writer closes or rolls the call up and out at a loss on the option leg.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "On a low-basis concentrated holding, assignment realizes the capital gain the holder was deferring. American-style equity calls can also be assigned early, most likely just before an ex-dividend date when the dividend exceeds the call's remaining time value, so the writer can lose both the shares and the dividend sooner than expected.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Needs ongoing management: rolling or closing the short call as expiry nears, plus transaction costs on every option trade, which eat into the premium collected.",
+   "source": "options_strategies"
+  }
+ ],
+ "whenToRecommend": [
+  "The client holds a large equity position, expects it to trade flat to slightly higher over the next few months, and has asked for more income from it. On the direction-by-volatility grid that is the bullish plus low-volatility cell: sell puts or write a covered call. Bearish plus low volatility is a covered call too (sell calls, covered), but a genuinely direction-neutral low-volatility view belongs to a short straddle or strangle, not here.",
+  "The vignette gives an implied volatility above the manager's own volatility forecast, so options are rich and the manager should be writing rather than buying.",
+  "The holder already has a target exit price. Write the call at that strike and assignment delivers the intended sale at strike plus premium.",
+  "The manager wants to trim equity delta without selling: a block too large to sell cleanly, or a disposal the client does not want to signal. In a tax-sensitive account this works only with a strike far enough out of the money that assignment is unlikely, because assignment forces the sale."
+ ],
+ "whenNotTo": [
+  "The stated concern is downside protection or capital preservation. A covered call provides none. Recommend a protective put for a floor above the strike, a collar if the put premium is the objection (the short call finances the put, paid for with the upside), or a put spread if only the first part of the decline needs covering.",
+  "A near-term catalyst could produce a large upward move: earnings, a takeover approach, a regulatory decision. The cap costs real money here, so buy calls or a bull call spread instead.",
+  "Implied volatility sits below the manager's own volatility forecast. The options are cheap relative to the move expected, so writing is the wrong side of the trade. Thin premium in absolute terms is a practical annoyance, not the test.",
+  "The holding is low-basis and the client cannot accept a taxable sale, because assignment forces one. Use a protective put, or a collar struck so the shares are unlikely to be called.",
+  "The view is a large move with no direction. Buy a straddle or strangle. Writing is the wrong side of a long-volatility view."
+ ],
+ "pitfalls": [
+  "Writing that the covered call has unlimited downside. The loss is bounded at S0 - premium because the stock stops at zero. Unlimited loss belongs to a naked short call, not a covered one.",
+  "Confusing the effective sale price with max profit. Effective sale price if called is X + premium, max profit is (X - S0) + premium, and breakeven is S0 - premium, not the strike. Items that ask you to check a proposal's math turn on exactly this distinction.",
+  "Reversing the implied volatility logic. Writing is attractive when expected volatility is BELOW implied volatility, because the options are overpriced. A vignette claiming the strategy works when expected volatility exceeds implied has the direction backwards, and saying so is the mark.",
+  "Calling it a hedge, or saying it protects or insures the position. It cushions a decline by the premium and nothing more.",
+  "Sign error and scale error on delta. The short call SUBTRACTS delta: net delta = shares - (number of options x call delta). 1,000 shares against calls on 1,000 shares at delta 0.4 is +600, not +1,400. Carry the multiplier: a listed equity contract covers 100 shares, so 20 contracts is 2,000 options on 2,000 shares of cover, which is how the bank's own vignette reads it.",
+  "Importing the long-option Greeks into the writer's position. The warning that getting direction right but volatility wrong still loses money through vega and theta is about the investor who BUYS options. The covered-call writer is short vega and short gamma but LONG theta: decay is the income. A writer who gets volatility wrong loses through implied volatility rising on the short call, and through the upside surrendered once the stock runs past the strike, never through time decay.",
+  "Treating a covered call and a short put as opposites. By put-call parity the covered call has the same payoff shape as a short put at the same strike: both cap the upside and both bear the downside of owning the stock, and both are SHORT volatility. A vignette that calls either one long volatility, or calls the covered call protective, is wrong, and saying so is the mark."
+ ],
+ "cues": [
+  {
+   "signal": "The vignette states both views: the stock is expected to be range-bound or to drift slightly higher, and volatility is expected to stay low.",
+   "implication": "That is the bullish plus low-volatility cell, so write calls against the holding or sell puts. It rules out buying calls, which are long vega but short theta so decay works against the buyer, and it rules out a short straddle, which needs a direction-neutral view."
+  },
+  {
+   "signal": "The case gives an implied volatility number alongside the manager's own volatility estimate.",
+   "implication": "Compare them before anything else. Implied above expected means options are rich, so write. Implied below expected means writing is the wrong side and the proposal should be rejected on that ground."
+  },
+  {
+   "signal": "The client is worried about a decline, cannot lose more than a stated percentage, or wants a floor under the position.",
+   "implication": "Rules the covered call out as the answer. The premium is a cushion, not a floor. Protective put for full protection above the strike, collar if the put's cost is the stated objection."
+  },
+  {
+   "signal": "The client says they would be content to sell at a particular price, or that price sits just above the current market.",
+   "implication": "Assignment is the plan rather than a risk. Write at that strike and, if assigned, the effective sale price is the strike plus the premium. If the stock never finishes above the strike, the shares stay and the premium is kept."
+  },
+  {
+   "signal": "A large unrealized gain, a very low cost basis, or an explicitly tax-sensitive account.",
+   "implication": "Being called away crystallizes the deferred gain. Push the strike further out of the money, or move to a put or a collar structured so the shares stay put."
+  },
+  {
+   "signal": "A pending earnings release, a takeover approach, a trial result, or any binary catalyst.",
+   "implication": "A large move is plausible, so the upside being sold is worth more than the premium to this holder. Covered call out. Long calls or a bull spread if directional, a straddle if not."
+  },
+  {
+   "signal": "The manager wants to eliminate the equity exposure altogether, or to fix the price at which the shares will be sold.",
+   "implication": "A covered call only reduces delta partway, to somewhere below +1. Long the asset plus a short forward is the delta-zero position, which is the comparison LOS d asks for, and it fixes the sale price at the forward price, not at today's spot. An outright sale also takes delta to zero but settles at spot now and realises the gain."
+  },
+  {
+   "signal": "No cash is available for the hedge, or the mandate forbids paying a premium.",
+   "implication": "Rules in structures funded by premium received. A covered call fits where a protective put does not. If protection is also required, a zero-cost collar."
+  },
+  {
+   "signal": "The underlying pays a dividend and the options are American-style listed equity options.",
+   "implication": "Early assignment is live around the ex-dividend date once the dividend exceeds the call's remaining time value. The writer can lose the shares and the dividend, so flag it in any practical-considerations answer."
+  }
+ ],
+ "comparesWith": [
+  "protective_put",
+  "collar",
+  "bull_bear_spread",
+  "straddle"
+ ],
+ "confidence": "high",
+ "_review": {
+  "deleted": [
+   "whenToRecommend: 'The client has stated income as the objective and has not asked for downside protection, so being paid for upside they do not expect to get is the right trade.' Padding: same vignette and same trigger as the first whenToRecommend item, and the absent protection request is already covered from the other side by whenNotTo[0] and the floor cue.",
+   "whenNotTo: 'The client wants protection at little or no net cost: that is a zero-cost collar, the covered call plus a financed downside put, not the covered call alone.' Restated the collar branch that whenNotTo[0] already carries; the collar-finances-the-put point is folded into that item instead."
+  ],
+  "corrected": [
+   "summary: added the put-call-parity equivalence to a short put at the same strike, which the notes state twice and the entry never said, and named the decision the instrument turns on.",
+   "pros[3]: 'no tax event' became 'no realisation of the gain at the time of writing', because writing is not a realisation but an in-the-money short call can still affect holding-period and dividend treatment, and the flat claim contradicted the entry's own assignment warnings. Also restated the delta example as calls on 1,000 shares to remove the contract-multiplier ambiguity.",
+   "pros[4]: narrowed from 'the way to monetize' a rich-volatility view to the short CALL LEG winning when realized undershoots implied. An unhedged buy-write still has net delta around +600 on 1,000 shares, so direction, not volatility, dominates its P&L; selling puts and short straddles express the same view.",
+   "cons[2]: dropped 'short gamma means the loss accelerates' and 'a small known gain'. At expiry the payoff is linear below the strike and flat above it, a sharp move UP produces the maximum profit, and max gain is (X - S0) + premium, not the premium. Kept the tail-risk and sizing point and attributed the large downside to the shares.",
+   "cons[3] (new, replacing that gamma mechanism): stated the correct negative-gamma consequence, net delta falling toward zero into the cap and climbing back toward +1 on the way down.",
+   "cons[4]: 'A rally means the shares are called away' became a rally THROUGH THE STRIKE, unless the writer closes or rolls at a loss, because assignment needs the call in the money and the entry elsewhere tells the candidate to roll.",
+   "whenToRecommend[0]: fixed the grid-cell attribution. Verified Table 2 of options_strategies directly: bullish plus low vol is 'Sell puts; covered call', bearish plus low vol is 'Sell calls (covered)', and NEUTRAL plus low vol is 'Sell straddle/strangle'. The draft assigned the neutral cell to the covered call.",
+   "whenToRecommend[3]: removed 'a tax-sensitive account' as a plain reason to write, which contradicted the entry's own assignment-crystallizes-the-gain claims; it now carries the far-out-of-the-money qualifier.",
+   "whenNotTo[2]: 'Implied volatility is low' became implied BELOW the manager's own forecast. Absolute IV is not the test; the bank model answer is explicit that writing is better when expected vol is under implied, so the draft version would have rejected the right answer at IV 12 against a 9 forecast.",
+   "pitfalls[4]: formula now reads shares - (number of options x call delta), with the 100-shares-per-contract multiplier spelled out, because the bank item reads '20 covered call contracts' as 2,000 shares and the literal draft formula was out by 100x there.",
+   "pitfalls[5]: fixed the theta sign. Confirmed in options_strategies that the 'vega and theta' warning describes the option BUYER and that long positions are short theta; the writer is long theta, so the loss channels are short vega and the surrendered upside.",
+   "cues[0]: 'long vega and decay' became 'long vega but short theta, so decay works against the buyer', and the signal now names both views the vignette plants rather than direction alone.",
+   "cues[3]: dropped 'which beats a limit order at the strike'. The effective-sale-price advantage holds only if the call is assigned; if the stock settles below the strike the limit order would have filled and the writer keeps shares plus premium.",
+   "cues[6]: a short forward fixes the FORWARD price, not today's spot, and an outright sale matches it only in delta; it settles at spot now and realises the gain."
+  ],
+  "shortfall": "",
+  "residualRisk": "The early-assignment-before-ex-dividend mechanism and the holding-period/dividend wording in pros[3] are standard derivatives and private-wealth material rather than anything in this candidate's bundled notes, and the tax detail is jurisdiction-specific. I am confident both are correct; I am less confident they are pitched at the level of detail this exam would reward, and the dividend cue is the one claim I would most want a reviewer to confirm."
+ }
+}

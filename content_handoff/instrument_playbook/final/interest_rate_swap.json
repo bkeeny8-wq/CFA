@@ -1,0 +1,171 @@
+{
+  "key": "interest_rate_swap",
+  "name": "Interest Rate Swap",
+  "family": "Derivatives: swaps & futures",
+  "summary": "An over-the-counter contract to exchange a fixed rate for a floating reference rate on an agreed notional for an agreed tenor, with no principal exchanged and zero value at initiation. The single decision it turns on is direction: receive-fixed adds duration, pay-fixed removes it.",
+  "pros": [
+    {
+      "text": "The notional needed to hit a duration target is NP = [(D_target minus D_portfolio) times V_portfolio] / D_swap, so one trade retargets rate exposure without trading bonds: NP = [(6 minus 4) times 100,000,000] / 7 = 28.6 million notional, entered receive-fixed to lift duration from 4 to 6.",
+      "source": "swaps_forwards_and_futures_strategies"
+    },
+    {
+      "text": "It hedges the interest-rate sensitivity of the liabilities, which is what drives funded-status volatility in a DB plan, so it is the core liability-driven investing tool alongside long bonds and bond futures.",
+      "source": "portfolio_management_for_institutional_investors"
+    },
+    {
+      "text": "Capital efficient. A receive-fixed overlay raises asset BPV toward the liability BPV without the cash to buy the long bonds: a plan with 450 million of assets against 500 million of liabilities (BPV 900,000) can lift asset BPV toward that 900,000 without holding the full 500 million in bonds.",
+      "source": "liability_driven_and_index_based_strategies"
+    },
+    {
+      "text": "Over-the-counter and customizable to the exact tenor and notional, so it fits a precise or longer-horizon duration target such as matching a pension's liability duration.",
+      "source": "swaps_forwards_and_futures_strategies"
+    },
+    {
+      "text": "No cheapest-to-deliver bond and no conversion factor, so the delivery-option and CTD basis complications of bond futures do not arise. A swap prices off the swap curve.",
+      "source": "swaps_forwards_and_futures_strategies"
+    },
+    {
+      "text": "A single maturity, so a multi-year hedge needs no quarterly roll and carries no uncertain roll cost.",
+      "source": "curriculum"
+    },
+    {
+      "text": "A swap has zero value at initiation and costs no up-front premium, unlike a purchased receiver swaption. Where rates are expected to stay low, the receive-fixed swap is the keyed default derivative for closing a negative duration gap.",
+      "source": "curriculum"
+    }
+  ],
+  "cons": [
+    {
+      "text": "Counterparty credit exposure and lower liquidity than exchange-traded bond futures, where a clearinghouse stands between the parties. Central clearing and collateral mitigate a swap's counterparty risk; they do not remove it, and the word 'bilateral' belongs to forwards rather than to a cleared swap.",
+      "source": "swaps_forwards_and_futures_strategies"
+    },
+    {
+      "text": "It does not eliminate basis risk. When a derivative sets the BPV, the swap may not track the liability's discount rate exactly, and liabilities are often discounted at a credit or corporate rate while the hedging assets move with risk-free or swap rates, so assets and liabilities diverge even when durations match.",
+      "source": "liability_driven_and_index_based_strategies"
+    },
+    {
+      "text": "Operational and regulatory setup: an ISDA agreement, initial margin, ongoing variation margin, and clearing requirements under rules such as Dodd-Frank. Even a fully hedged overlay needs a cash buffer to meet margin calls.",
+      "source": "curriculum"
+    },
+    {
+      "text": "It changes duration only. It does not hedge credit spread, does not close a funding deficit, and a portfolio matched on overall duration alone is still exposed to steepening, flattening and butterfly moves.",
+      "source": "liability_driven_and_index_based_strategies"
+    },
+    {
+      "text": "The payoff is linear and two-sided: a receive-fixed position loses value as rates rise and the loss is not capped. A purchased receiver swaption caps the downside at the premium instead.",
+      "source": "curriculum"
+    },
+    {
+      "text": "Harder and costlier to exit or resize than futures. Unwinding means a negotiated termination at mark-to-market or an offsetting swap, not a click in a deep listed market.",
+      "source": "curriculum"
+    },
+    {
+      "text": "Collateral exhaustion risk. A large notional hedge generates big daily collateral and margin flows, so collateral availability itself limits the feasible hedging ratio, which is one reason partial hedges are common in practice.",
+      "source": "curriculum"
+    }
+  ],
+  "whenToRecommend": [
+    "A DB plan or insurer has a negative duration gap (liability BPV above asset BPV) and the sponsor will not raise the bond allocation: enter receive-fixed, sized from Asset BPV + [NP times Swap BPV / 100] = Liability BPV, then multiply that notional by the hedging ratio if the vignette hedges less than 100 percent.",
+    "The duration change is large, lasting, or tied to a specific liability tenor, so a standardized quarterly futures contract would have to be rolled many times.",
+    "A corporate issuer has floating-rate debt and wants a known all-in fixed cost: pay-fixed converts the floating-rate note to synthetic fixed. Issuing fixed and receiving fixed does the reverse.",
+    "The plan is fully invested with little spare cash and still needs more liability-hedging duration, so a capital-efficient overlay beats funding a bond purchase. Hold a liquidity buffer for margin.",
+    "An issuer has a borrowing scheduled for a future date and wants today's rate locked against a rise: a forward-starting PAY-fixed swap. Name the direction, and note that the mirror case, a manager with cash to invest soon, is keyed to a pre-investment hedge using long bond futures rather than a swap.",
+    "The mandate allows active management of the hedging ratio within a range and the manager expects rates to fall, which favours the linear receive-fixed swap over a premium-paying option."
+  ],
+  "whenNotTo": [
+    "The vignette flags counterparty credit exposure, no ISDA in place, or a committee that will not take OTC credit risk: use exchange-traded bond futures, where a clearinghouse stands between the parties and counterparty risk is minimal.",
+    "The duration tilt is tactical, a few months, and will be reversed: bond futures are more liquid and easier to unwind.",
+    "The client wants the gain if rates fall but will accept no loss if rates rise: only a purchased receiver swaption does that, and the premium is the stated cost. Do not offer a swaption collar here, because the written payer swaption is exercised against you once rates rise above its strike and puts the rates-rise loss back.",
+    "The exposure involves two currencies, including principal: a cross-currency swap exchanges interest and usually principal in both currencies, which a single-currency interest rate swap does not do.",
+    "The need is index or credit exposure rather than rate exposure: a total return swap delivers the reference index total return with little capital.",
+    "Near-term liabilities are known in amount and date and reinvestment risk is the concern: cash-flow matching with actual bonds removes rate and reinvestment risk, which a swap overlay cannot."
+  ],
+  "pitfalls": [
+    "Reversing the direction. Receive-fixed ADDS duration (long a fixed-rate bond, short a floater), pay-fixed REDUCES it. Watch the wording: a 'fixed-rate payer' is paying fixed, so duration falls.",
+    "Trusting the sign instead of the words in NP = [(D_target minus D_portfolio) times V] / D_swap. Settle the convention first: quote D_swap as the receive-fixed swap's duration, a positive number, and then a positive NP means receive-fixed while a negative NP means pay-fixed on the absolute notional. A pay-fixed position's own modified duration is negative, so plugging that in flips the sign of the answer without changing the trade. State the direction in words either way.",
+    "Picking the wrong notional formula. Use NP = [(D_target minus D_portfolio) times V] / D_swap when the vignette gives portfolio and target DURATIONS, and Asset BPV + [NP times Swap BPV / 100] = Liability BPV when it gives asset and liability BPVs. Two classic slips in the BPV form: omitting the division by 100 (swap BPV is quoted per 100 of notional, futures BPV per contract), and solving for the full-hedge notional then forgetting to scale it by the hedging ratio.",
+    "Writing that a swap is exchange-traded, or that notional principal changes hands at inception and maturity. A single-currency interest rate swap is over-the-counter and exchanges no principal, only the net interest.",
+    "Claiming the swap eliminates basis risk. It removes cheapest-to-deliver basis, not the spread risk between the swap curve and the bonds or liability discount curve.",
+    "Answering a 'swaps are superior to futures' claim uncritically. Marks come from validating each true element on both sides (for swaps: precise duration matching, no CTD basis, no quarterly roll; for futures: less operational setup and minimal counterparty risk through the clearinghouse) and then naming what was omitted: swap-curve basis risk against a corporate liability discount curve, futures liquidity, clearing requirements, variation margin plus initial margin, and hedge accounting treatment. The usual conclusion is that both are used.",
+    "Forgetting the margin cash. Initial and variation margin on a cleared swap mean a plan that is fully invested must still hold liquidity, and a plan already short of assets cannot assume the overlay is free."
+  ],
+  "cues": [
+    {
+      "signal": "Liability BPV exceeds asset BPV and the sponsor will not increase the fixed-income allocation",
+      "implication": "A receive-fixed overlay, sized by Asset BPV + [NP times Swap BPV / 100] = Liability BPV and then scaled by the stated hedging ratio if the vignette closes only part of the gap. Buying long bonds is ruled out by the stated constraint, not by the economics, so say so explicitly."
+    },
+    {
+      "signal": "The horizon is several years, or the duration target is pinned to a liability tenor such as 30 years",
+      "implication": "Swap over futures: exact tenor and notional, no quarterly roll, no CTD. Futures would be rolled repeatedly at uncertain cost."
+    },
+    {
+      "signal": "The committee is uneasy about counterparty exposure, or there is no ISDA agreement",
+      "implication": "Points away from OTC swaps and forwards and toward exchange-traded bond futures with central clearing and daily margin. Clearing and collateral reduce a swap's counterparty risk without removing it, so a stated IPS or committee constraint still decides the answer."
+    },
+    {
+      "signal": "The tilt is explicitly short term, three to six months, and will be reversed",
+      "implication": "Futures, not a swap. Liquidity and ease of unwinding dominate customization at that horizon."
+    },
+    {
+      "signal": "The plan wants the gain if rates fall but will accept no loss if rates rise",
+      "implication": "A purchased receiver swaption, not a linear swap, with the premium as the stated cost. A swaption collar does not satisfy this condition, because the written payer swaption is exercised against the plan when rates rise above its strike."
+    },
+    {
+      "signal": "The vignette states the manager's view on future rates before asking which hedging derivative to use",
+      "implication": "Apply the keyed rule: rates expected to be low, the receive-fixed swap is the preferred derivative; rates expected to go up, the purchased receiver swaption becomes attractive; rates projected to reach a threshold that depends on option costs and strike rates, the swaption collar becomes the favoured choice. Note that the swap is the instrument with no premium, so a sponsor objecting to an up-front premium points TO the swap, not away from it."
+    },
+    {
+      "signal": "Liabilities are discounted at high-grade or AA corporate yields while the hedge is a swap",
+      "implication": "Declare swap-curve basis risk. Matching BPV does not make the hedge exact, because the two curves can move apart."
+    },
+    {
+      "signal": "The portfolio is fully invested with no cash, or the plan is underfunded",
+      "implication": "Capital efficiency is the argument for the overlay, and the liquidity buffer for variation margin is the required caveat. Both belong in the answer, and a funding deficit is closed by a return-seeking sleeve, not by a larger hedge."
+    },
+    {
+      "signal": "A curve steepening or flattening view sits alongside an existing LDI hedge",
+      "implication": "One swap gives level exposure only, so use a two-leg trade, DV01-neutral and sized modestly as an overlay on top of the hedge rather than a substitute for it. Name the direction: a steepener is receive-fixed at the short tenor and pay-fixed at the long tenor; a flattener is the reverse, pay-fixed short and receive-fixed long. Getting the direction backwards scores zero."
+    },
+    {
+      "signal": "The firm has issued floating-rate debt and wants budget certainty on interest cost",
+      "implication": "Pay-fixed, receive-floating: the floating-rate note plus the swap is synthetic fixed-rate funding. The all-in cost is the swap fixed rate plus the issue spread."
+    },
+    {
+      "signal": "The mandate sets a hedging-ratio range, for example 25 to 75 percent, rather than a single ratio",
+      "implication": "This is strategic hedging, so the answer is a ratio choice, not an instrument choice. Expecting lower rates, move to the top of the range with receive-fixed swaps; expecting swap rates to rise, move to the bottom. Performance is measured against holding a preset ratio."
+    }
+  ],
+  "comparesWith": [
+    "futures",
+    "forwards",
+    "government_bonds",
+    "currency_swap"
+  ],
+  "confidence": "medium",
+  "_review": {
+    "deleted": [
+      "'write a payer swaption against it for a near zero-cost swaption collar that caps the benefit' (whenNotTo, the asymmetric-payoff item): the collar contradicts the stated condition, because the written payer is exercised when rates rise and reinstates the rates-rise loss. Replaced with an explicit warning not to offer it there.",
+      "'or the sponsor objects to paying a premium' (cue signal for a contingent instrument): inverted. The swap is the instrument with no premium and zero value at initiation, so a premium objection points to the swap. The asymmetric-payoff half of that signal was kept.",
+      "The pre-investment use of a forward-starting swap (whenToRecommend, future-dated transaction): the notes key a manager with cash to invest soon to buying bond futures, and the forward-starting swap to an issuer planning to borrow. Only the borrower case was kept, with the direction named.",
+      "'operational setup' from the list of omissions in the swaps-versus-futures pitfall: in the app's own Aventine key, Kaminski states the lighter operational setup of futures and it is scored TRUE under claims to validate, not under missing considerations. Hedge accounting treatment replaced it."
+    ],
+    "corrected": [
+      "Dropped 'bilateral' from the counterparty con and added that central clearing and collateral mitigate without removing the risk: the bundled notes reserve 'bilateral counterparty risk' for forwards and describe swaps as having counterparty risk mitigated by central clearing and collateral.",
+      "Re-sourced the ISDA, initial margin and clearing con from swaps_forwards_and_futures_strategies to 'curriculum': ISDA and initial margin appear zero times in that reading's notes, and the reading's variation-margin and liquidity-buffer passages are written about futures.",
+      "Re-sourced the basis-risk con from 'curriculum' to liability_driven_and_index_based_strategies, which states both halves almost verbatim, so a reader can follow the citation to a real page.",
+      "Added 'then multiply by the hedging ratio if the vignette hedges less than 100 percent' to the BPV sizing instruction in both whenToRecommend and the matching cue: the BPV equation solves for a full hedge, and omitting the scaling is a classic error.",
+      "Split the future-dated transaction recommendation and named the direction: a forward-starting PAY-fixed swap for the issuer, long bond futures for the pre-investment case.",
+      "Rewrote the sign pitfall to settle the convention rather than flag an unresolved tension: quote D_swap as the receive-fixed swap's positive duration, read a negative NP as pay-fixed, and state the direction in words.",
+      "Added a pitfall on which notional formula a vignette calls for (durations given, use the NP duration form; BPVs given, use the BPV form) plus the divide-by-100 slip, because the entry carries both formulas and previously never said which was which.",
+      "Named the direction on both legs of the curve-trade cue: steepener is receive-fixed short tenor and pay-fixed long tenor, flattener is the reverse. The draft gave only the steepener for a signal that admitted both views, in the field a candidate scans under time pressure.",
+      "Added a cue carrying the keyed rate-view decision rule across receive-fixed swap, receiver swaption and swaption collar, which is where the deleted premium clause belonged.",
+      "Trimmed the lead pro so it opens with the notional formula and its worked numbers instead of restating the summary's direction clause and the capital-efficiency pro.",
+      "Softened the capital-efficiency pro from 'can hedge 500 million of liabilities' to 'can lift asset BPV toward that 900,000': the overlay raises BPV, it does not fund the 50 million deficit.",
+      "Added pros for the absence of an up-front premium and cons for collateral exhaustion capping the feasible hedging ratio, plus a cue on a mandated hedging-ratio range.",
+      "Lowered confidence from 'high' to 'medium': the grounding slice was 4 note sentences, 1 LOS and 0 essay stems, and a large share of the entry is material added from other readings and from standard curriculum.",
+      "Replaced repo_leverage with currency_swap in comparesWith, so the compare chips reach the instrument the cross-currency whenNotTo item sends the reader to.",
+      "Set family to 'Derivatives: swaps & futures', copied from grounding.json as instructed. Note for the merge: the six sibling drafts in this family all spell it 'Derivatives: swaps and futures', so one spelling must be normalised before the entries are assembled or the page will show two families."
+    ],
+    "shortfall": "",
+    "residualRisk": "The collateral-exhaustion con. It is real Level III LDI material and the reason partial hedges are common, but in this app it appears only in the flashcards, not in any bundled reading's notes, so it is tagged 'curriculum' and a reader cannot follow it to a reading."
+  }
+}

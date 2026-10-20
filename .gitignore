@@ -31,3 +31,10 @@ CFAL3/Resources/MMReview/*.pdf
 # Python bytecode from the content scripts
 __pycache__/
 *.pyc
+
+# The instrument playbook's FIRST draft, before the fact check pass. A verifier
+# found real errors in every entry it got to, so this is a directory of known
+# wrong exam content. The repaired entries in final/ and the per entry ledger in
+# REVIEW.md are tracked; the draft is deliberately not, so nobody studies it by
+# accident out of a public clone.
+content_handoff/instrument_playbook/draft/

@@ -1,0 +1,146 @@
+{
+  "key": "market_neutral",
+  "name": "Market Neutral",
+  "family": "Equity",
+  "summary": "A long/short equity book sized so the two legs offset in beta terms, leaving net beta near zero, so the targeted return is the spread between the longs and the shorts rather than the market's return. It turns on one decision: does the client want manager skill without equity market exposure.",
+  "pros": [
+    {
+      "text": "Shorting frees the full opportunity set: a small benchmark name can be underweighted below a zero holding, which raises breadth and the transfer coefficient and so potential alpha. The gain is largest in benchmarks with many small-weight stocks.",
+      "source": "active_equity_investing_portfolio_construction"
+    },
+    {
+      "text": "Returns are structurally independent of equity direction, which makes it one of the genuine diversifiers in an alternatives program alongside global macro and managed futures, and it can hold up when equities fall while offering a higher expected return than high-quality bonds.",
+      "source": "asset_allocation_to_alternative_investments"
+    },
+    {
+      "text": "The market exposure can be added back on top: a neutral book plus a long equity index futures overlay is equitized market neutral, giving alpha plus beta with net beta back near 1.",
+      "source": "active_equity_investing_portfolio_construction"
+    },
+    {
+      "text": "It is the natural structure for pairs trading and statistical arbitrage, where the view is on one stock relative to another and the profit does not depend on the overall market.",
+      "source": "active_equity_investing_strategies"
+    },
+    {
+      "text": "Because there is no market return to measure against an index, the mandate carries an absolute (target) return benchmark: a stated rate or a spread over a short-term rate, for example 3-month T-bill plus a spread, rather than an equity index.",
+      "source": "curriculum"
+    }
+  ],
+  "cons": [
+    {
+      "text": "It gives up the market return. Strip out the beta and you forgo the equity risk premium, so the limitation the curriculum names is limited upside in a bull market unless the book is equitized. Against long-only it trails only when the forgone market premium exceeds the extra spread that relaxing the long-only constraint buys, which is the usual case in a strongly rising market.",
+      "source": "active_equity_investing_portfolio_construction"
+    },
+    {
+      "text": "Leverage is high in this structure rather than inherent to it. The usual 100/100 book runs 200% gross against 100% for long-only, and leverage magnifies gains and losses alike and can force deleveraging in stress, when positions have to be cut into falling liquidity. The low-risk neutral structure in Exhibit 27 is 50 long / 50 short at 100% gross, unlevered, at the cost of a smaller spread on the same capital.",
+      "source": "active_equity_investing_portfolio_construction"
+    },
+    {
+      "text": "The short leg has theoretically unlimited loss against a capped gain, depends on borrow that can be recalled, and is exposed to short squeezes. That is why the structure demands prime brokerage, margin management and risk controls a long-only fund does not need.",
+      "source": "active_equity_investing_portfolio_construction"
+    },
+    {
+      "text": "Zero net beta is a target, not an achievement. The construction aim is zero exposure to the market and to a wide variety of other risk factors, but not all risks hedge efficiently and correlations continually shift, so beta drifts and residual sector and factor exposure survives inside the risk limits. Idiosyncratic risk is the exposure retained by design, because the return is meant to come from security selection rather than factor carry.",
+      "source": "active_equity_investing_portfolio_construction"
+    },
+    {
+      "text": "Crowding and model breakdown are the live failure mode of the quant styles that run this structure: when many funds run similar models and one is forced to unwind, the crowded positions move against everyone at once, as in the August 2007 quant quake, and high leverage magnifies the loss.",
+      "source": "active_equity_investing_strategies"
+    },
+    {
+      "text": "It does not protect against a correlation spike. The diversification is structural in normal markets and can fail in the stress where it was wanted, so it is a less certain mitigator than high-quality bonds.",
+      "source": "asset_allocation_to_alternative_investments"
+    },
+    {
+      "text": "In hedge fund form it sacrifices liquidity: lock-ups and redemption terms mean it cannot be sold to raise cash mid-crisis the way government bonds can.",
+      "source": "asset_allocation_to_alternative_investments"
+    }
+  ],
+  "whenToRecommend": [
+    "The client wants manager skill without equity market exposure, because the beta already comes from a passive core or the mandate is absolute return.",
+    "An alternatives program needs its diversification sleeve genuinely filled, and the hedge funds already held are long-biased, which carries most of the market's beta, or event-driven, which retains meaningful equity exposure and carries short-volatility risk that bites when equities fall. Neither is a true diversifier.",
+    "The strategy is pairs trading or statistical arbitrage, where the bet is relative and market exposure is unwanted noise.",
+    "The client wants both the alpha and the market return: run the neutral book and equitize it with an index futures overlay.",
+    "The investor wants an equity-drawdown mitigator with a higher expected return than high-quality bonds and can accept illiquidity and lock-ups."
+  ],
+  "whenNotTo": [
+    "The mandate is benchmarked to an equity index and the client expects the market's return. Use long-only, or a 130/30 long extension if the aim is only more breadth at 100% net beta.",
+    "The IPS prohibits short selling. Long-only or index replication is what remains, accepting the lower transfer coefficient. Note two near misses. A leverage limit alone does not rule the structure out: the low-risk neutral book in Exhibit 27 is 50 long / 50 short with 100% cash, 100% gross, no more leverage than long-only, and only the 100/100 version at 200% gross is levered. A ban on derivatives alone leaves the physically shorted neutral book possible and rules out only the futures overlay, since the beta could still be added with an index ETF or a physical index fund, using capital the book is already posting as collateral, which is why the overlay is normally the chosen route.",
+    "The investor needs a mitigator that is reliably low or negatively correlated and liquid in a crash. Government bonds are the dependable hedge, and managed futures is the crisis-alpha example.",
+    "Near-term spending needs liquidity, so lock-ups and redemption gates are unacceptable.",
+    "The fee and cost load would consume the alpha. A low-cost, low tracking-error mandate is better served by index replication or factor investing than by a levered long/short book paying borrow, financing and performance fees.",
+    "The governance budget cannot support monitoring leverage, borrow availability, margin and a prime broker."
+  ],
+  "pitfalls": [
+    "Treating market neutral as low risk or hedged. The construction target is zero exposure to the market and to a wide variety of other risk factors, so do not write that the book keeps factor and sector bets. What remains is idiosyncratic risk, retained by design because the return is security selection, plus beta drift, because not all risks hedge efficiently and correlations continually shift, plus leverage, borrow, margin and crowding risk. Writing \"zero beta\" alone earns no marks.",
+    "Forgetting that the neutral book earns no market return. If the question asks about a rising market, say the upside is limited because the equity risk premium was removed, unless the book is equitized. Do not write flatly that it trails long-only: it does so only when the forgone market premium exceeds the extra spread the relaxed long-only constraint buys.",
+    "Describing equitized market neutral as just a market-neutral fund. You must name the equity index futures overlay that adds the beta back, giving alpha plus beta and net beta near 1.",
+    "Confusing it with a 130/30 long extension. Both short, but 130/30 keeps about 100% net market exposure (long 130, short 30, gross 160) while market neutral targets zero net beta.",
+    "Assuming equal dollar long and short means zero beta. Treating dollar neutral as market neutral is the classic error: if the longs are higher beta than the shorts the book keeps net market exposure, so neutrality has to be set on beta, not on dollars alone.",
+    "Listing the breadth benefit of shorting without the cost side. Graders want borrow fees, margin and financing, leverage risk, unlimited short loss, recall and squeeze risk, and the operational burden named too."
+  ],
+  "cues": [
+    {
+      "signal": "The fund targets zero net beta, or the long and short legs are described as offsetting in beta terms.",
+      "implication": "Market neutral, not a long extension and not a directional long/short. Market direction drops out of the answer, and attribution assigns little or nothing to market exposure, so the return has to be explained by selection."
+    },
+    {
+      "signal": "The board already has its equity beta from a passive core and wants to add manager skill.",
+      "implication": "A market-neutral mandate fits, because it adds alpha without adding more beta. A long-only or 130/30 satellite would raise market exposure the plan did not ask for."
+    },
+    {
+      "signal": "A market-neutral long/short book is overlaid with long equity index futures.",
+      "implication": "Equitized market neutral. Expected return is the neutral book's alpha plus the market return, net beta near 1, and the overlay has to be rolled and resized as the equity value moves."
+    },
+    {
+      "signal": "The IPS prohibits short selling.",
+      "implication": "Market neutral is ruled out, and so is the 130/30 long extension, since both need a short leg. You are left with long-only construction or index replication, and should state the cost: a lower transfer coefficient because negative views on small-weight names cannot be expressed."
+    },
+    {
+      "signal": "The vignette notes that the shorts are hard to borrow, that the borrow is expensive, or that lenders can recall the stock.",
+      "implication": "The short leg is the binding constraint, not the idea. Borrow cost comes straight off the alpha and recall can force the position closed, so size the short leg to what can actually be borrowed: a long extension shorts about 30% of capital where a neutral book shorts 50% to 100%, so the same borrow stretches much further, and long-only is the fallback at a lower transfer coefficient. Say that the spread has to cover the borrow."
+    },
+    {
+      "signal": "A fund is held for diversification but is described as long-biased or event-driven.",
+      "implication": "The role-mislabelling trap. A long-biased fund carries most of the market's beta, so it is a growth allocation. Event-driven retains meaningful equity exposure, and its low measured beta and correlation understate that exposure because the short-volatility risk bites when equities fall. Either way the diversification role belongs to market neutral, macro or managed futures."
+    },
+    {
+      "signal": "High turnover, model-driven, trades pairs on mean reversion, uses leverage to amplify thin spreads.",
+      "implication": "Statistical arbitrage, which is a market-neutral style. Name crowding, model breakdown and leverage as the risks rather than market risk, and note that the historical relationship may have permanently broken."
+    }
+  ],
+  "comparesWith": [
+    "long_short",
+    "long_extension",
+    "index_replication",
+    "hedge_funds"
+  ],
+  "confidence": "medium",
+  "_review": {
+    "deleted": [
+      "whenToRecommend: 'The manager has strong negative views on small benchmark names that a long-only book cannot express, and the IPS permits shorting and leverage.' Removed because it is the case for relaxing the long-only constraint in general, which a 130/30 long extension satisfies while keeping full market exposure, so it never selects market neutral over the cheaper structure.",
+      "Second pass. pros 1: 'Net beta near zero means the targeted return is the long/short spread rather than the market return, so the expected payoff does not depend on the direction of the index.' Removed as padding. It restated the summary's own first sentence and then overlapped the diversification pro, so the defining property was stated three times. It is now stated once, in the summary.",
+      "Second pass. pros 6: the clause 'plus a cash return on collateral, less borrow and financing cost' removed. Nothing in the reading notes, flashcards or question bank gives a market-neutral book a cash return on its collateral; the only collateral content in the candidate's material runs the other way (requirements rise with the amount shorted and as a short moves against you, and risky collateral is haircut below full value). The cost side is already charged in cons 2 and cons 3.",
+      "Second pass. whenNotTo 2: the borrow clause ('or the borrow is thin, expensive or subject to recall in that market. Long-only or index replication is what remains') removed. A thin, expensive or recallable borrow is a sizing constraint, not a disqualifier, and it is handled correctly in cues 5; keeping it here contradicted that cue by dropping the long extension, which shorts about 30% of capital against 50% to 100% for a neutral book and so binds far less on the same borrow."
+    ],
+    "corrected": [
+      "pros 1: 'performance does not depend on market direction' narrowed to 'the expected payoff does not depend on the direction of the index', because at zero net beta the residual factor, sector and idiosyncratic exposure still moves realised performance with the market. The claim was later deleted as padding; see deleted.",
+      "cons 2: re-sourced from active_equity_investing_strategies to active_equity_investing_portfolio_construction, which is the reading whose notes actually say leverage in long/short and 130/30 structures magnifies gains and losses and can force deleveraging in stress.",
+      "whenNotTo 2: separated the prohibitions, instead of lumping short selling, leverage and derivatives together as one disqualifier.",
+      "cues 4: narrowed the signal to a short-selling ban and added why the long extension falls with it (both need a short leg).",
+      "cues 1: 'attribution assigns nothing to the market' softened to 'little or nothing to market exposure', since zero net beta is a target and beta estimation error leaves a small market component.",
+      "Second pass. cons 5 (the quant quake): the first pass deleted 'as in the August 2007 quant quake' on the stated ground that the notes name no episode or date. That ground was false and the deletion is reversed. active_equity_investing_strategies names it twice, in the Watch-out line on stat-arb crowding and model breakdown and again in that LOS's exam-focus line, so it is citable and is the example the reading expects to be named. The earlier rationale rested on the filtered notesEvidence slice rather than the reading text and is withdrawn.",
+      "Second pass. cons 4: reversed direction. The draft said the book 'keeps factor, sector and idiosyncratic exposure', which inverts the definition the candidate is drilled on for this LOS: market-neutral portfolios are constructed so that exposures to a wide variety of risk factors are zero, and zero factor exposure is the construction target because returns come from security selection, not factor carry. The con now says zero net beta is a target rather than an achievement, gives the curriculum's own first inherent limitation (not all risks hedge efficiently and correlations continually shift, so beta drifts and residual sector and factor exposure survives inside the position/sector/factor risk limits), and keeps idiosyncratic risk as the exposure retained by design. The crowding and model breakdown half was split out into its own con so it can carry the strategies reading, which is where it belongs.",
+      "Second pass. pitfalls 1: same inversion as cons 4, fixed the same way, and the more costly copy because it told the candidate what to write. It now warns against writing that the book keeps factor and sector bets, and routes residual factor risk in through beta drift instead.",
+      "Second pass. cons 1 and pitfalls 2: the unconditional comparative was conditioned. Long-only earns the market plus its alpha while the neutral book earns its spread, so the neutral book trails only when the forgone market premium exceeds the extra spread that relaxing the long-only constraint buys. Both now lead with the curriculum's own narrower form, limited upside in a bull market unless equitized.",
+      "Second pass. cons 2: 'Leverage is part of the structure' corrected to 'high in this structure rather than inherent to it'. Table 2 rates market-neutral long/short leverage High and the usual 100/100 book is 200% gross, but Exhibit 27's low-risk neutral structure is 50/50 with 100% cash at 100% gross, which is no more leverage than long-only. The thin-spread rationale was also dropped from this con, because that sentence belongs to active_equity_investing_strategies and is specific to market-neutral stat-arb; it already sits in cues 7, where the stat-arb signal carries it.",
+      "Second pass. whenNotTo 2: a leverage prohibition is no longer treated as a disqualifier, since the low-risk neutral structure is unlevered. The derivatives point was also narrowed: a derivatives ban rules out the futures overlay, not equitizing as such, because the candidate's material names index ETFs as well as futures as a way to equitize, and a physical index fund would also add the beta, at the cost of capital the book is already posting as collateral.",
+      "Second pass. cues 6 and whenToRecommend 2: the mechanism was wrong for half the claim. 'Those styles keep most of the equity beta' is right for long-biased, which carries most of the market's beta, but the reading's own table says event-driven funds 'retain meaningful equity exposure', and the candidate's flashcard says arbitrage and event-driven show low to no measured correlation while carrying short-volatility risk, so reported volatility looks muted unless the sample includes a stress period. Event-driven therefore fails as a diversifier through tail exposure that bites when equities fall, not through a high measured beta. The conclusion stands; the mechanism now matches.",
+      "Second pass. cues 5: added the reason the recommendation works, which the cue previously omitted. A long extension still needs a short leg, so the advice only holds because it shorts about 30% of capital where a neutral book shorts 50% to 100%.",
+      "Second pass. pros 5 (the benchmark claim): the unsupported cash-on-collateral half was deleted and the surviving half re-grounded. The absolute (target) return benchmark, typical for market-neutral long/short funds at a short-term rate plus a spread, comes from the candidate's flashcard for portfolio_performance_evaluation LOS j, corroborated by a question-bank item on absolute return benchmarks. It is tagged 'curriculum' rather than that reading id because the stored notes for portfolio_performance_evaluation list the asset-based benchmark types without the absolute-return entry or the market-neutral example, so the reading's own notes do not carry the claim.",
+      "Second pass. cons 3 left unchanged, deliberately. The collateral mechanics that disprove the deleted cash-return clause (requirements rise with the amount shorted and as a short moves against you, risky collateral is haircut, extremes force liquidation of good longs) sit in the flashcards for this LOS but not in the stored notes for the cited reading, and no skeptic fix asked for them, so they were not added here.",
+      "Second pass. pitfalls 5: anchored to the curriculum's phrasing, that treating dollar neutral as market neutral is the classic error."
+    ],
+    "shortfall": "",
+    "residualRisk": "Three things a reader should double check rather than take on trust. First, several load-bearing claims are verified against the full reading text, the LOS drills and the flashcards rather than against the 20-sentence notesEvidence slice for this key: the Exhibit 27 structures (50/50 at 100% gross, 100/100 at 200% gross), the reading's definition of market neutrality as zero exposure to a wide variety of risk factors, the Table 2 leverage rating, the two inherent limitations, and the quant quake reference. The first pass's worst error came from trusting the slice over the source, so the reading ids here mean the reading supports the claim, not that the slice quotes it. Second, pros 5 is tagged 'curriculum' because the benchmark point is grounded in a flashcard and a question-bank item for portfolio_performance_evaluation LOS j rather than in that reading's stored notes; the decision-relevant half is that the yardstick is an absolute return target and not an equity index. Third, the short-volatility mechanism for event-driven funds in cues 6 and whenToRecommend 2 is grounded in a flashcard for asset_allocation_to_alternative_investments and not in that reading's notes text, which says only that event-driven funds retain meaningful equity exposure. This entry also overlaps long_short.json, which covers the same LOS h material including the equitized version; what is distinctive here is the dollar-neutral versus beta-neutral trap and the equitizing detail."
+  }
+}

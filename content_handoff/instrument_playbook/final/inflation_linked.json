@@ -1,0 +1,166 @@
+{
+ "key": "inflation_linked",
+ "name": "Inflation-Linked Bonds",
+ "family": "Fixed income",
+ "summary": "A government bond whose principal accretes with a published price index, with a fixed coupon rate applied to that indexed principal, so it is quoted as a real yield and pays for inflation as it is realised rather than as it was forecast. The single decision it turns on is whether the liability or spending need is real or nominal: if it is real, a nominal portfolio with the right duration is not a complete hedge.",
+ "pros": [
+  {
+   "text": "Inflation protection is one of the named roles fixed income plays in a portfolio, and inflation-linked bonds (TIPS the standard example) are the instrument named for it, so this is the asset to name when the stated problem is inflation rather than the level of rates or credit.",
+   "source": "overview_of_fixed_income_portfolio_management"
+  },
+  {
+   "text": "The protection is contractual, not a correlation story: principal accretes with the published index and the fixed coupon rate is applied to the indexed principal, so coupons and redemption both rise with realised inflation. Held to maturity it therefore delivers a contracted real return, subject, like any coupon bond, to the rate at which coupons are reinvested. Because the quoted yield is already a real yield, it also drops straight into a real return objective with no inflation forecast required.",
+   "source": "curriculum"
+  },
+  {
+   "text": "It is the correct hedging asset when the liability itself is inflation-linked. The features that drive a liability hedge are duration and whether the cash flows are fixed or inflation-linked, so a CPI-indexed liability is matched with a CPI-indexed asset.",
+   "source": "principles_of_asset_allocation"
+  },
+  {
+   "text": "It is one of the three named ways to build the secure floor for essential spending in a floor-and-upside decumulation plan, alongside annuities and a bond ladder, and it is the choice that keeps the floor real over a long horizon where a nominal ladder would not.",
+   "source": "an_overview_of_private_wealth_management"
+  },
+  {
+   "text": "Against a comparable nominal bond held to maturity it wins when realised inflation runs above the breakeven rate priced into that bond: the nominal bond's cash flows are fixed while the indexed bond's accrete. Treat breakeven as the approximate indifference point rather than an exact one, since the two coupon streams are reinvested at different rates and the indexation runs with a lag. Over a horizon shorter than maturity the comparison is driven by the change in breakeven rather than by realised inflation, so a narrowing breakeven can make it underperform even while inflation runs high, and both bonds lose value if real yields rise.",
+   "source": "curriculum"
+  },
+  {
+   "text": "A sovereign issue buys inflation protection at government credit quality, with daily pricing and divisibility in small size, where private real estate and private infrastructure bring illiquidity, minimum investment sizes and appraisal lag, and commodities bring equity-like volatility and no contractual cash flow at all.",
+   "source": "curriculum"
+  }
+ ],
+ "cons": [
+  {
+   "text": "It does not remove interest-rate risk. Real yields move, so it carries real-rate duration and loses value when real yields rise. Matching the indexation does not by itself match the duration, so a real liability still has to be hedged on both legs.",
+   "source": "curriculum"
+  },
+  {
+   "text": "You pay a hurdle for the hedge. Breakeven inflation, the nominal yield less the indexed bond's real yield, is roughly expected inflation plus an inflation risk premium, net of any liquidity premium demanded in the indexed bond's own yield. Compare the inflation view against the breakeven itself rather than against consensus expected inflation, and if realised inflation comes in below breakeven the indexed bond underperforms the comparable nominal bond.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Falling inflation works against it relative to a comparable nominal bond whenever realised inflation undershoots the breakeven priced into that bond: the index accretion slows while the nominal bond's fixed cash flows are unaffected. Disinflation alone does not reverse the adjustment, because the published index is still rising; only outright deflation reverses it, shrinking the indexed principal and the coupons paid on it, and some structures, US TIPS among them, still repay at least par at maturity.",
+   "source": "curriculum"
+  },
+  {
+   "text": "It hedges the published index, not the investor's actual costs. A capped or lagged cost-of-living adjustment, a wage-linked liability, or a client basket heavy in healthcare, education or local property leaves residual basis risk.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Long-dated indexed issues are scarcer than long nominal issues at many sovereigns, so the supply of long real cash flows can cap how much of a long real liability is hedgeable with bonds alone.",
+   "source": "curriculum"
+  },
+  {
+   "text": "If the vignette's tax regime taxes the index uplift before it is received, the holding is tax-inefficient, so asset location puts it in the tax-deferred or tax-exempt account. In a fully taxable account, answer with the after-tax real return rather than the quoted real yield.",
+   "source": "curriculum"
+  }
+ ],
+ "whenToRecommend": [
+  "The liability or spending stream in the vignette is explicitly indexed, for example a defined-benefit plan with a CPI-linked cost-of-living adjustment, so the hedge has to match the indexation and not just the duration.",
+  "The return objective is stated in real terms and the investor has no capacity to absorb a shortfall if inflation runs above the forecast built into the plan. A real objective on its own is the default in a private-client vignette; the binding condition is the inability to absorb the shortfall.",
+  "A floor-and-upside or bucketing structure needs a secure floor for essential spending over a horizon long enough that the floor must stay real, not just nominal.",
+  "The stated view is that realised inflation will run above the breakeven rate priced into nominal bonds, and the mandate permits moving out of nominal exposure into inflation-linked exposure."
+ ],
+ "whenNotTo": [
+  "The liability is fixed in nominal terms, such as defined-benefit payments with no cost-of-living adjustment or a fixed nominal debt repayment or bequest. Match it with nominal bonds and duration, because clearing the breakeven hurdle buys cover for a risk the liability does not carry.",
+  "The stated risk is the LEVEL of the nominal curve rather than inflation. Use duration management with futures or an interest-rate swap, which moves duration more cheaply and without taking a breakeven-inflation position. If the stated risk is the SHAPE of the curve, the answer is key-rate positioning, a bullet, a barbell or a steepener or flattener, and inflation indexation is beside the point.",
+  "The scenario is contraction or outright deflation, with the central bank easing and the curve re-steepening. High-quality nominal government bonds gain most there, because the breakeven paid for is never recovered, and in deflation the index adjustment reverses on top of that.",
+  "The protection has to come with income or growth. A sovereign indexed bond pays close to a real risk-free rate, with no credit or equity risk premium in it and nothing like the illiquidity premium a private real asset pays, so if the required real return sits above that real yield the hedge alone cannot fund the plan: real estate or infrastructure for inflation-linked rents and regulated tariffs, or equities for long-run real protection, fit better when the investor can bear the volatility, the illiquidity and the appraisal lag."
+ ],
+ "pitfalls": [
+  "Calling it a hedge against interest-rate risk. It carries real-rate duration, which is what hedges the duration of a real liability as well as its indexation, but it still loses value when real yields rise and it does not immunise a nominal liability.",
+  "Duration-matching an inflation-indexed liability and stopping there. Say explicitly that the indexation is still unhedged, because a nominal portfolio with the right duration earns no credit against a real liability.",
+  "Writing \"inflation hedge\" with no mechanism. State it: principal accretes with the published price index, so coupons and redemption rise with realised inflation.",
+  "Comparing against expected inflation instead of breakeven inflation. The nominal bond already prices expected inflation plus an inflation risk premium, so what decides the comparison is realised inflation against the breakeven, not against the inflation forecast.",
+  "Quoting the real yield as if it were the nominal return the plan needs, or setting a real yield against a nominal required return. The yield on this instrument is already a real yield, so name the units before comparing it with anything."
+ ],
+ "cues": [
+  {
+   "signal": "Benefits carry an annual cost-of-living adjustment, or spending is described as indexed to CPI.",
+   "implication": "The liability is a real liability, so the liability-hedging portfolio needs inflation-linked assets. Rules out a purely duration-matched nominal portfolio as a complete hedge."
+  },
+  {
+   "signal": "Essential spending is separated from discretionary spending and the essential tier must be secure.",
+   "implication": "Floor-and-upside. The floor is annuities, a bond ladder or inflation-linked bonds, and the indexed bond is the pick when the floor must also hold purchasing power across a long retirement."
+  },
+  {
+   "signal": "Late-expansion macro fingerprint: output gap closed, inflation rising, policy restrictive, curve flattening toward inversion, or an explicit view that inflation will beat breakeven.",
+   "implication": "The macro fingerprint is not by itself the trade. It rules inflation-linked in over a nominal government bond of similar duration only where the vignette's inflation path runs above the breakeven already priced; a rising-inflation narrative the market has priced does not. Note that this is a breakeven position, not a duration position, and it does not by itself select indexed bonds over commodities: the liquidity, volatility and mandate constraints decide that."
+  },
+  {
+   "signal": "Inflation is coming in at or below expectations, the central bank is cutting, the curve is re-steepening.",
+   "implication": "Rules the instrument out in favour of high-quality nominal government bonds. Both rally as yields fall, but the breakeven narrows against the indexed bond, so the inflation compensation it paid for is never recovered."
+  },
+  {
+   "signal": "Benefits are indexed to CPI and paid for an uncertain lifetime, so both the amount and the timing of the liability are uncertain (a Type IV liability).",
+   "implication": "Both amount and timing are uncertain, so this is Type IV and exact cash-flow matching is out. The binding obstacle is the longevity timing, since indexed bonds would match the indexed amount. Hedging the inflation leg still leaves longevity, which needs annuitisation or a return-seeking surplus, so do not present indexed bonds as a complete hedge."
+  },
+  {
+   "signal": "The portfolio is fully taxable with no tax-deferred capacity, and interest income is taxed at a high ordinary rate.",
+   "implication": "This is an asset-location question: a taxable bond is the canonical tax-inefficient holding, so it belongs in the tax-advantaged account where there is one. With no such account, answer with the after-tax real return, not the quoted real yield."
+  },
+  {
+   "signal": "The investor wants inflation protection but the IPS requires daily liquidity, caps alternatives, or the portfolio is too small for private-fund minimums.",
+   "implication": "Rules out private real estate, private infrastructure and private real-asset funds. Listed REITs and listed infrastructure still clear the liquidity and size tests, so the case for sovereign inflation-linked bonds against them is the contractual index link and government credit quality, plus the point that real-asset inflation pass-through is a long-run property while listed real estate trades short-run like rate product."
+  }
+ ],
+ "comparesWith": [
+  "government_bonds",
+  "commodities",
+  "real_estate",
+  "bullet_barbell_ladder"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "whenToRecommend: \"You are sizing the liability-hedging portfolio in a hedging plus return-seeking split and the described liability characteristics include inflation sensitivity.\" Padding: it restates the indexed-liability item immediately above it with LDI vocabulary and adds no new trigger.",
+   "whenNotTo: \"The whole holding would sit in a fully taxable account with no tax-deferred capacity ... consider real assets or tax-exempt alternatives instead.\" Deleted as a recommendation I cannot defend: accrual tax is an asset-location and after-tax-return point, not a reason to drop an inflation hedge the investor needs. The substance is kept in cons and in the tax cue.",
+   "pitfalls: \"Recommending it in a recession or deflation case because bonds do well.\" The disinflation case is already carried by whenNotTo and by its own cue, and the framing was a strawman rather than a mark-losing error.",
+   "skeptic pass, pitfalls: \"Mixing real and nominal units in a required-return calculation. Take the net withdrawal over the current portfolio to get the real return, then multiply by (1 + inflation); never add inflation instead of multiplying, and never gross up twice.\" Both skeptics hit this and both were right, for different reasons. Read literally the instruction multiplies the real RETURN by (1 + inflation), which on the candidate's own worked example gives 3.50% x 1.025 = 3.59% instead of (1.035)(1.025) - 1 = 6.09%: an error of roughly the whole inflation rate on the calculation the notes call the one the morning session loves. It is also not a pitfall of this instrument: it is private-client IPS arithmetic that would read identically under government_bonds or commodities, it lives in an_overview_of_private_wealth_management where the candidate already meets it, and it was duplicated in the real-objective cue. Replaced with the instrument-specific units pitfall (do not pass a real yield off as the nominal return the plan needs).",
+   "skeptic pass, cues: \"The return objective is stated in real terms, or spending is given as today's amount to be grown with inflation.\" Non-discriminating, so it selects nothing: the private wealth notes instruct the candidate to state return objectives in real, after-tax terms, which makes a real objective the default in essentially every private-client vignette, and it is satisfied as well by equities or by a nominal portfolio with a positive real return. The discriminating condition, a real objective PLUS no capacity to absorb a shortfall, is in whenToRecommend, and the implication's calculation half duplicated the deleted pitfall.",
+   "skeptic pass, whenToRecommend: \"The investor needs inflation protection but is barred from illiquid real assets by liquidity requirements, governance limits or minimum investment sizes.\" Same trigger and same conclusion as the liquidity-constraint cue, which states it better, and the comparison is made a third time in pros. Kept the cue, dropped this."
+  ],
+  "corrected": [
+   "confidence: high to medium. The grounding is 3 note sentences, zero LOS and one essay stem that is a Standards question with no connection to this instrument, so most of the entry is material I added. The brief says that is medium at best.",
+   "pros: the inflation-protection point was carrying the whole indexation mechanism on the overview_of_fixed_income_portfolio_management id, where the evidence is the single line \"Inflation protection, via inflation-linked bonds (e.g., TIPS)\". Trimmed that claim to what the note says and moved the mechanism into its own curriculum claim.",
+   "pros: \"It works in the regime where nominal bonds fail\" asserted an absolute return. Corrected to the relative claim (it beats a comparable nominal when realised inflation exceeds breakeven) and added that both can still lose value when real yields rise, which is what 2022 did to indexed bonds.",
+   "pros: merged the stand-alone \"quoted yield is already a real yield\" point into the mechanism claim and dropped \"no grossing up\", which reads as though the return requirement needs no inflation step at all.",
+   "pros: \"public-market liquidity\" and the flat lumping of commodities with illiquid assets were loosened to daily pricing and small denominations versus illiquidity, minimums and appraisal lag, so this no longer contradicts the market-depth con. Commodities are described as volatile with no contractual cash flow rather than illiquid.",
+   "pros: narrowed the floor-and-upside claim so the purchasing-power clause compares only against a nominal ladder. Annuities can themselves be inflation-indexed, so claiming the indexed bond is the only real floor would be wrong.",
+   "cons: re-sourced the real-rate duration con from principles_of_asset_allocation to curriculum. That reading's evidence sentence says the hedge turns on duration and on whether cash flows are indexed; it says nothing about real yields moving. The duration-versus-indexation half is now where it belongs, in the pro that cites it.",
+   "cons: \"when inflation lands at or below what was priced in, the indexed bond underperforms\" was overstated at the boundary. At breakeven the two are equivalent; underperformance needs realised inflation below breakeven. Also added the decomposition (breakeven is expected inflation plus an inflation risk premium) so the hurdle is stated rather than implied.",
+   "cons: \"No protection against disinflation or deflation\" rewritten as the relative statement. Some structures, US TIPS among them, repay at least par at maturity, so a flat no-protection claim is attackable; what is reliably true is that the adjustment reverses, coupons shrink, and a nominal bond is better in that state.",
+   "cons: the accrual-tax point now names the jurisdiction dependence (US TIPS treatment) instead of asserting \"generally taxed as it accrues\" as a universal rule.",
+   "whenToRecommend: replaced the recited cycle phase (\"closed output gap, tight labour market, rising inflation, flat curve\") with the view that actually drives the trade, realised inflation above breakeven. The phase language stays in cues, where a vignette plants it.",
+   "whenNotTo: the nominal-liability examples were wrong. A fixed-term GIC is an asset, not a liability, and a level annuity payment is a liability of the insurer. Replaced with defined-benefit payments carrying no cost-of-living adjustment and a fixed nominal debt repayment or bequest.",
+   "whenNotTo: \"Real yields are the thinnest in the fixed-income menu\" compared a real yield against nominal yields. Restated as the low real yield with no credit or illiquidity premium attached.",
+   "pitfalls: strengthened the real-versus-nominal arithmetic to the method in the candidate's own private wealth notes: net withdrawal over current portfolio, then multiply by (1 + inflation), never add it.",
+   "pitfalls: added the inflation risk premium to the breakeven pitfall, so the comparison is against breakeven rather than against expected inflation.",
+   "cues: the late-expansion cue claimed this is \"the phase in which inflation-linked beats nominal government bonds\" and stopped. The app's own approved cycle map assigns the late-cycle inflation pulse to commodities, so the cue now says the signal selects indexed over nominal but does not by itself select it over commodities.",
+   "cues: \"the inflation premium you gave up is a pure cost\" was overstated; the forgone premium is a cost realised only in that outcome. Reworded, and the implication now names where duration pays in a contraction.",
+   "cues: the real-objective cue was a calculation note more than a selection cue. Its implication now says what it rules in (real-yield assets) as well as how to keep the units straight.",
+   "cues: the Type IV cue now states which liability types support exact cash flow matching (Type I only) instead of asserting that matching \"is not available\" without the reason, and spells out why both amount and timing are uncertain.",
+   "cues: \"free of credit risk\" corrected to government credit quality. No sovereign is risk-free, and the entry should not teach that phrase.",
+   "cues: the tax cue now carries the jurisdiction condition, matching the softened con.",
+   "skeptic pass, cons and whenNotTo: the two skeptics contradicted each other on the indexed market's liquidity. One wanted the thin-market con kept as proof of a liquidity premium and whenNotTo fixed; the other wanted the con's thinness-and-wider-spreads half deleted as ungrounded. Resolved on the candidate's curriculum: Table 2 of overview_of_fixed_income_portfolio_management ranks sovereign and government highest in liquidity with no inflation-linked carve-out, and the only distinction it teaches is on-the-run versus off-the-run. So the thinness and wider-spreads assertion is gone and only the long-maturity supply point survives, and whenNotTo no longer denies an illiquidity premium outright; it now says the real yield carries no credit or equity premium and nothing like the illiquidity premium a private real asset pays. The three fields that contradicted each other now agree.",
+   "skeptic pass, cons: the disinflation con asserted the deflation mechanism for both states. Disinflation is a falling RATE of inflation, so the published index still rises and coupons still grow, just more slowly; only outright deflation reverses the adjustment. Rewritten so the disinflation argument runs through the breakeven (realised inflation undershooting what the nominal bond priced) and deflation alone carries the reversing-index claim.",
+   "skeptic pass, cons: the breakeven con stated the decomposition as an identity and built an unconditional recommendation on it. Breakeven is net of any liquidity premium in the indexed bond's own real yield, which can leave it at or below consensus expected inflation, so \"has to beat more than consensus expected inflation\" is not a general truth. Now stated as roughly expected inflation plus an inflation risk premium net of any liquidity premium, with the instruction to compare the view against the breakeven itself.",
+   "skeptic pass, cons: the tax con rested on a mechanism that is nowhere in the candidate's material. Accrual or phantom-income taxation of an index uplift returns zero hits across the notes, flashcards and question bank, and \"(the US TIPS treatment)\" is jurisdiction-specific tax law under a curriculum tag. The asset-location conclusion IS grounded (asset_allocation_with_real_world_constraints puts taxable bonds in tax-deferred or tax-exempt accounts), so the point is now conditional on the vignette's regime, and \"far below the quoted real yield\" is gone as an unquantified magnitude.",
+   "skeptic pass, whenNotTo: \"the level or the shape of the nominal curve ... use duration management with futures or an interest-rate swap\" taught the exact conflation the yield-curve material exists to break. The candidate's Table 1 maps LEVEL to lengthening or shortening duration and SLOPE and SHAPE to steepeners, flatteners, bullets and barbells, and the approved cycle map states it flatly: curve trades bet on the shape, not the level. Split into the level case (duration with futures or a swap) and the shape case (key-rate positioning), with inflation indexation beside the point in both. The skeptic also asked for interest_rate_swap, futures and bullet_barbell_ladder to be added to comparesWith; comparesWith caps at four keys and the four it holds are the comparisons the entry actually turns on, so the three alternatives are named inline in the item instead.",
+   "skeptic pass, whenNotTo: the contraction item said the index adjustment \"is working against you\" in disinflation. Same conflation as the con; corrected to the narrowing breakeven as the mechanism, with the reversing index reserved for outright deflation. The phase description itself was sound and matches the approved cycle map, so only the mechanism changed.",
+   "skeptic pass, whenNotTo: \"The real yield on a sovereign indexed bond is low\" asserted a market level as a permanent property of the instrument. Ten-year real yields have been negative and have been around two percent, so a vignette exhibit would contradict the page and the clause earns nothing anyway. Replaced with the structural point: it pays close to a real risk-free rate, so if the required real return sits above that yield the hedge alone cannot fund the plan.",
+   "skeptic pass, pitfalls: \"It hedges indexation, not duration\" was wrong and contradicted its own next clause, which told the reader to write real-rate duration. An indexed bond carries real-rate duration, and in LDI that is what matches the duration of a real liability as well as its indexation; taken literally the bullet would have the candidate double-count the hedge. Narrowed to the defensible point: it is not a hedge against nominal rate risk and gives no protection when real yields rise.",
+   "skeptic pass, pitfalls: the duration-matching pitfall repeated, word for word, the sentence already in pros, which is itself the entry's one note-grounded liability-hedge sentence. With the summary and the first cue saying it too, one three-sentence grounding was being stated four times. Cut the restatement and kept the writing instruction.",
+   "skeptic pass, pros: \"it wins exactly when realised inflation exceeds the breakeven\" was true only for a hold-to-maturity comparison and was stated generally, while the entry's own cues are one-phase tactical trades. Over a shorter horizon the relative return is driven by the CHANGE in breakeven, so a collapsing breakeven can make the indexed bond underperform while realised inflation is high. \"Exactly\" also overstated an approximation that ignores the different coupon reinvestment paths and the indexation lag. Both skeptics raised this; now scoped to hold-to-maturity, flagged approximate, and the short-horizon case is stated.",
+   "skeptic pass, pros: the comparison against real assets asserted a property of PRIVATE vehicles about the asset classes generally. Listed REITs and listed infrastructure are daily-priced, divisible and marked by the market, so they carry neither minimum sizes nor appraisal lag, which is a feature of appraisal-based private valuation. Qualified to private real estate and private infrastructure, and \"small denominations\" (a market convention the curriculum does not teach) is now \"divisibility in small size\".",
+   "skeptic pass, cues: the late-expansion cue licensed the very error the breakeven pitfall forbids. Its trigger was a macro fingerprint with the breakeven view only as an alternative after \"or\", and on the macro leg alone the implication does not follow: late cycle is precisely the fact pattern where rising inflation is already in the price. The implication now says the fingerprint is not by itself the trade and requires an inflation path above the priced breakeven.",
+   "skeptic pass, cues: \"which is where duration pays in that phase\" read as though the indexed bond had no duration, contradicting the real-rate duration con. A duration-matched linker also rallies when real yields fall; what makes the nominal bond the better holding in a contraction is the narrowing breakeven. Mechanism corrected.",
+   "skeptic pass, cues: \"Exact cash flow matching is available only for Type I liabilities\" is not in the candidate's notes. Both the fixed-income overview and the LDI reading say only that cash-flow matching needs specific bonds maturing on specific dates to match timing and amount, and Table 3 puts Type III at uncertain amount with known timing, which indexed bonds would in fact match. The blanket rule would have a candidate reject matching for a fixed-term indexed payment stream. Rewritten to name the binding leg: it is the longevity timing that rules matching out here, not the indexed amount.",
+   "skeptic pass, cues: the tax cue's signal was US tax code presented without a source field, and as a detector it would never fire. \"A trust taxed at top income rates\" is the US compressed trust bracket, which appears nowhere in this candidate's material, and no vignette states an accrual-taxation regime for index uplift. Reduced to what a vignette actually states: fully taxable, no tax-deferred capacity, interest taxed at a high ordinary rate.",
+   "skeptic pass, three consistency edits that follow from the flags above rather than from flags of their own. The real-rate-duration con dropped \"hedging indexation is a separate job from hedging duration\", which was the same conflation the pitfall was corrected for, and now says a real liability has to be hedged on both legs. The breakeven pitfall's \"the indexed bond only wins when realised inflation exceeds the breakeven rate\" carried the same false exactness as the pro, and now says what decides the comparison rather than asserting a boundary. The real-terms whenToRecommend item absorbed the discriminating condition from the cue that was deleted, so the section states the binding condition (no capacity to absorb the shortfall) rather than the default one.",
+   "skeptic pass, cues: the liquidity-constraint cue claimed a daily-liquidity requirement \"rules out real estate, infrastructure and private real assets\". It rules out the private vehicles only: listed REITs and listed infrastructure are daily-priced and divisible at a share price. Narrowed to the private vehicles, with the real argument against listed real estate as an inflation hedge taken from the approved cycle map's own trap: short run REITs trade like rate product, and the pass-through is a long-run property."
+  ],
+  "shortfall": "",
+  "residualRisk": "The surviving half of the market-structure con: that long-dated indexed issues are scarcer than long nominal issues, so long real cash flows can be in short supply. It is a real liability-driven-investing constraint and it is what both skeptics left standing, but it is still a generalisation with nothing in this candidate's notes behind it and the degree varies a lot by issuer. Second, the whole breakeven thread (the hurdle, the comparison, the tactical cues) is curriculum material: breakeven inflation appears in the candidate's own content only once, as a factor definition on a multi-factor risk flashcard, so none of it is reinforced by their notes, flashcards or question bank. Third, whenToRecommend still twins the cues almost item for item, which one skeptic called a systemic duplication across this playbook; I deleted the worst instance and pruned the rest to the condition each cue does not state, but the section still earns less space than the cues do."
+ }
+}

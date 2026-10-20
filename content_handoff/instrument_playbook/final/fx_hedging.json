@@ -1,0 +1,160 @@
+{
+ "key": "fx_hedging",
+ "name": "FX Hedging",
+ "family": "Currency",
+ "summary": "Taking an offsetting position in a foreign currency, normally selling it forward, so that the domestic-currency return on a foreign asset comes from the asset and not from the exchange rate. The decision has two parts: HOW MUCH of the exposure to hedge, given what the hedge costs to roll and how much discretion the IPS allows, and WITH WHAT, given whether the currency is deliverable, whether the client will give up the upside, and which tools the IPS permits.",
+ "pros": [
+  {
+   "text": "Cuts total risk where the asset and the currency are not negatively correlated. Hedging the currency strips the FX variance and the asset-currency covariance out of the domestic-currency return, leaving roughly the asset's own local-currency volatility: the notes' case goes from 19.0% unhedged to about 15.0% fully hedged (σ_FC 15%, σ_FX 8%, ρ 0.30). That is why full hedging is the neutral, risk-reducing default for a client with no currency view. It is the minimum-variance position only where that covariance is zero or positive; where the correlation is negative the unhedged position can be the less volatile one and h* falls below 1.",
+   "source": "currency_management_an_introduction"
+  },
+  {
+   "text": "Separates the currency decision from the asset decision. Because the domestic-currency return decomposes into the asset return and the currency return, a manager can keep a foreign asset they like and hedge away a currency they do not.",
+   "source": "currency_management_an_introduction"
+  },
+  {
+   "text": "A forward hedge needs no upfront premium, unlike buying a currency option. It is not costless, though: where the foreign currency is at a forward discount the negative roll yield is realized in cash at every roll (see the roll-cost con below), margin or collateral may still be posted, and all of the currency upside is surrendered.",
+   "source": "curriculum"
+  },
+  {
+   "text": "With no currency view and roughly zero expected currency return, there is no expected-return argument for carrying the exposure. Theory does not pin down a single best hedge ratio, so a risk reducer can anchor to full hedging, which the notes label the minimum-risk default, or to 50% as the regret-minimizing compromise that avoids both extremes.",
+   "source": "currency_management_an_introduction"
+  },
+  {
+   "text": "The hedge ratio is adjustable without touching the underlying assets. An FX swap rolls a maturing forward to a new date and resizes the notional in the same trade.",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "The exposure can be carved out to a currency overlay mandate benchmarked to the strategic hedge ratio, either as a pure hedging mandate that keeps the hedge on target or as an active mandate that is paid for currency views.",
+   "source": "currency_management_an_introduction"
+  }
+ ],
+ "cons": [
+  {
+   "text": "A full hedge gives up currency diversification as well as currency upside. Currencies are imperfectly correlated, so a multi-currency portfolio's aggregate currency risk is less than the sum of its single-currency exposures, and hedging each one separately throws that netting away.",
+   "source": "currency_management_an_introduction"
+  },
+  {
+   "text": "It does not protect the asset. A fully hedged position still carries the asset's entire local-currency volatility, because the hedge fixes the exchange rate, not the price.",
+   "source": "currency_management_an_introduction"
+  },
+  {
+   "text": "Quantity risk forces ongoing rebalancing. A forward fixes a rate on a fixed notional while the asset value moves, so a rise leaves the position under-hedged and a fall over-hedged. How tightly you rebalance is a trade-off: tighter triggers hold the hedge ratio near target and cut tracking error against the benchmark, but cost more in transactions. Residual exposure never disappears, so the realistic goal is a target level of currency risk consistent with the IPS, not zero.",
+   "source": "currency_management_an_introduction"
+  },
+  {
+   "text": "Hedging the higher-yielding currency is expensive. If the foreign currency carries the higher interest rate it trades at a forward discount, so each roll sells it below spot and the hedge bleeds roughly the interest differential, whatever the spot rate does.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Where no exact instrument exists the hedge is a cross hedge in a correlated currency, which leaves basis risk because the hedge and the exposure do not move one for one.",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "Forwards, FX swaps and non-deliverable forwards are OTC and bilateral, so they carry counterparty credit exposure that centrally cleared, exchange-traded currency futures effectively remove. The cash trade-off runs the other way: futures impose initial and daily variation margin, while a forward has no daily settlement and posts collateral only where a credit support annex requires it. NDF credit risk sits between the two, because only the net difference is ever exchanged.",
+   "source": "curriculum"
+  }
+ ],
+ "whenToRecommend": [
+  "The foreign holdings are BONDS. The local-currency return is relatively stable, so the currency can be the dominant source of domestic-currency risk, and a high hedge ratio is the standard answer.",
+  "The investor has a short horizon or low risk tolerance and cannot afford to wait out a currency swing on the argument that it will mean-revert.",
+  "A large proportion of the portfolio sits in foreign assets, or the asset-currency correlation is high, so the currency contributes heavily to total portfolio risk.",
+  "Hedging is cheap because the foreign currency is the LOWER-yielding one and so trades at a forward premium. Selling it forward sells it above spot, and the roll earns rather than costs, which argues for a higher hedge ratio.",
+  "The IPS sets a benchmark hedge ratio and a permitted band and the position has drifted outside it, or the asset value has moved so the existing hedge notional is off target. These are two different jobs: rebalance with an FX swap if the forward is maturing, since unequal legs resize it in the same trade, or with an additional outright forward to the existing settlement date if it is not."
+ ],
+ "whenNotTo": [
+  "The horizon is long and risk tolerance is high, and the manager accepts that currency effects largely wash out over that horizon. Run a lower strategic hedge ratio or leave the exposure open.",
+  "The exposure is foreign EQUITY, whose own volatility dwarfs the currency's, and in some markets equity and currency returns are negatively correlated, giving a natural partial hedge. Hedge equities far less fully than bonds.",
+  "The foreign currency is the HIGHER-yielding one, so it trades at a forward discount and every roll sells it below spot. Consider a lower hedge ratio, an out-of-the-money option, or a SHORT risk reversal rather than a full forward hedge.",
+  "The client wants to keep the gain if the currency appreciates. A forward surrenders all of it, so buy a put, or fund the put by writing an out-of-the-money call, which is a SHORT risk reversal, and accept the cap on the favorable side.",
+  "The currency is not freely deliverable or is subject to capital controls, so a plain forward is unavailable. Use a non-deliverable forward, or cross hedge in a correlated major currency and accept basis risk.",
+  "The position is a deliberate long in a high-yielding currency funded by a low-yielding one. Hedging it away removes exactly the carry the trade is being paid for, so size and tail-limit the position instead of hedging it."
+ ],
+ "pitfalls": [
+  "Adding the asset and currency returns. R_DC = (1 + R_FC)(1 + R_FX) - 1 is multiplicative, so include the cross product: 8% and 3% give 11.24%, not 11%.",
+  "Dropping the covariance term from the risk formula. Use σ²(R_DC) ≈ σ²(R_FC) + σ²(R_FX) + 2ρ(R_FC,R_FX)σ(R_FC)σ(R_FX), and remember a fully hedged position still leaves σ(R_FC).",
+  "Capping the minimum-variance hedge ratio between 0 and 1. The 0 to 100% range is a statement about STRATEGIC hedge ratios in practice; h* is a regression beta, so it exceeds 1 only when ρ × σ(R_DC)/σ(R_FX) > 1, which needs the asset's domestic-currency return to be both positively correlated with the currency AND more volatile than it. Correlation alone is not enough: ρ 0.90 with σ_DC 5% and σ_FX 10% gives h* = 0.45, a partial hedge. It goes negative whenever the correlation is negative.",
+  "Putting σ(R_FC) in the numerator of h*. The regression is the asset's DOMESTIC-currency return on the currency return: h* = ρ(R_DC, R_FX) × σ(R_DC)/σ(R_FX).",
+  "Getting the roll-yield sign backwards. Selling a forward-DISCOUNT currency (the higher-yielding one) forward sells it below spot, so the hedge COSTS roughly the interest differential; selling a forward-PREMIUM currency (the lower-yielding one) forward sells it above spot and EARNS roll yield. WARNING, your own reading notes for Currency Management have this INVERTED in six places: the roll-yield paragraph, both worked examples, the LOS 5 and 6 exam-focus line, the quick-reference card and self-test Q7. The curriculum rule, and the way the question bank grades it, is that positive roll yield comes from BUYING at a forward discount or SELLING at a forward premium. Trust this card over those six passages, and get the notes fixed.",
+  "Calling a risen foreign asset over-hedged. The hedge notional is fixed, so an asset that has gained value has outgrown it and is UNDER-hedged, and you sell additional forward. A fall is what leaves it over-hedged."
+ ],
+ "cues": [
+  {
+   "signal": "The foreign holdings are fixed income, or the vignette stresses that the local-currency return is stable while the currency is volatile.",
+   "implication": "Currency is the dominant share of domestic-currency risk, so argue a HIGH hedge ratio. If the same portfolio also holds foreign equity, argue a lower ratio on that sleeve in the same answer, because equity volatility dwarfs the currency's."
+  },
+  {
+   "signal": "The forward rate on the foreign currency is quoted BELOW spot, or the foreign currency is named as the higher-interest-rate one.",
+   "implication": "Forward discount, so selling it forward locks in a rate below spot and the hedge loses roughly the interest differential on every roll. High hedging cost argues for a LOWER hedge ratio, or an out-of-the-money option or short risk reversal instead of a full forward. Reverse the whole argument if the forward is above spot."
+  },
+  {
+   "signal": "The IPS or the trustees limit the hedging tools permitted, or bar OTC derivatives.",
+   "implication": "The IPS sets the tools permitted as well as the benchmark hedge ratio and the discretionary band, so check it before recommending an instrument. If OTC is barred, short exchange-traded currency futures and concede that standard contract sizes and expiry dates make the notional less precise. Do not argue that a central-clearing requirement rules out NDFs: NDFs are commonly cleared or collateralized."
+  },
+  {
+   "signal": "The IPS states a benchmark hedge ratio with a permitted range around it.",
+   "implication": "The question is about discretion inside the band, not whether to hedge at all. The overlay is benchmarked to that strategic hedge ratio, not to 0% and not to 100%, so performance is measured relative to it and any recommendation has to stay inside the stated range."
+  },
+  {
+   "signal": "The foreign asset has risen or fallen in value since the hedge was placed, or the existing forward is about to mature.",
+   "implication": "Two different jobs, so read which one fired. If the forward is MATURING, roll it with an FX SWAP, a spot transaction plus an offsetting forward, and resize in the same trade by making the legs unequal. If the forward is still outstanding and only the asset value has moved, leave it in place and trade an additional OUTRIGHT forward to that same settlement date: sell more forward if the asset has risen, buy some back if it has fallen. The LOS names forward contracts AND FX swaps, so say which one and why."
+  },
+  {
+   "signal": "The client wants protection against depreciation but refuses to give up the gain if the currency appreciates.",
+   "implication": "Rules out a forward and an FX swap entirely, because both surrender the whole upside. Buy an out-of-the-money put on the foreign currency; if the premium is also objected to, fund it by writing an out-of-the-money call, which is a SHORT risk reversal, or use a put spread, accepting a cap on the favorable side or an incomplete floor. Name the side: in FX a long call plus a short put is the LONG risk reversal, so the hedger's collar is the short one."
+  },
+  {
+   "signal": "The currency is non-deliverable, subject to capital controls, or no liquid forward is quoted in it.",
+   "implication": "Rules out a deliverable forward. Use a non-deliverable forward, which cash settles the difference between the contracted forward rate and the spot fixing in the NON-CONTROLLED, freely convertible currency of the pair, conventionally USD, with the restricted currency never delivered. Or cross hedge with a correlated liquid currency sized by the regression beta. Both leave basis risk, and that basis tends to widen in exactly the crisis the hedge was bought for. Two NDF-specific points worth a mark: the NDF rate can diverge from the onshore rate, and because capital controls break cross-border arbitrage, NDF pricing need not satisfy covered interest parity."
+  },
+  {
+   "signal": "The portfolio holds many small exposures across numerous currencies and the mandate objects to the cost of hedging each one.",
+   "implication": "Macro hedge: one derivative on a currency basket or index taken against the portfolio's broad currency risk. Cheaper and simpler to administer than hedging currency by currency, but less precise, since it addresses aggregate exposure rather than any single pair."
+  },
+  {
+   "signal": "The vignette supplies a correlation between the asset's domestic-currency return and the currency return, plus the two standard deviations.",
+   "implication": "It wants the minimum-variance hedge ratio h* = ρ × σ(R_DC)/σ(R_FX), not a full hedge. Report it as the percentage of exposure to sell forward and state that it hedges the currency plus the part of asset risk correlated with the currency. With ρ 0.60, σ_DC 10% and σ_FX 8%, h* is 75%."
+  },
+  {
+   "signal": "The phrase 'hedge ratio' appears in a pension, LDI or liability context rather than a currency one.",
+   "implication": "That is the LIABILITY rate hedge ratio, how much of the liability's interest-rate risk is hedged, not a currency hedge ratio. Different instruments (interest-rate swaps, futures, swaptions) and different arithmetic (basis point value), so do not reach for forwards, FX swaps or roll yield."
+  }
+ ],
+ "comparesWith": [
+  "forwards",
+  "currency_swap",
+  "carry_trade",
+  "protective_put"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "SKEPTIC PASS, CORRECTING THE REPAIR PASS: the repair pass deleted \"the notes' case goes from 19.0% unhedged to about 15.0% fully hedged\" from pros[0] on the stated ground that \"no such illustration exists anywhere in this key's notesEvidence\". That ground was false and the claim has been RESTORED. The illustration is in CFAL3/Resources/reading_notes.json under currency_management_an_introduction, section 'Illustration - hedging reduces risk': unhedged σ 19.0% from σ_FC 15%, σ_FX 8%, ρ 0.30, and 'Hedged σ ≈ σ_FC = 15.0%'. The arithmetic checks exactly (0.0225 + 0.0064 + 0.0072 = 0.0361, √0.0361 = 0.190). Both skeptics caught this independently. Lesson recorded for future passes: the grounding.json notesEvidence slice is KEYWORD-MATCHED (this key matched on 'hedge ratio'), so absence from the slice is not absence from the notes, and nothing may be deleted as invented without checking the reading itself.",
+   "\"Residual exposure always remains. A cross hedge leaves basis risk, an option hedge leaves the out-of-the-money deductible plus the premium, and a rolled hedge leaves uncertainty about future forward points.\" from cons, by the repair pass: three unrelated residuals fused into one point, two of them belonging to instruments this entry only cross-references. The single piece the notes support, cross-hedge basis risk, survives as cons[4].",
+   "\"The client is a pure risk reducer with no currency view, where full hedging is the minimum-risk neutral default and a 50% hedge is the regret-minimizing compromise.\" from whenToRecommend, by the repair pass: restates pros[3] in substance, so it was padding.",
+   "SKEPTIC PASS: \"so the currency position is managed independently of the asset managers\", the trailing clause of pros[4]. Third statement of the separability idea in six pros (pros[1] makes the conceptual case, pros[5] the organisational one), and it was carried on the swaps_forwards id although it comes from the currency-management overlay sentence. The FX swap mechanism is the distinctive content and stands alone.",
+   "SKEPTIC PASS: \"and listed currency options\" plus the exchange-calendar colour from cues[2], and the claim that a clearing requirement \"Rules out ... non-deliverable forwards\". R18's toolkit is entirely OTC and does not teach listed currency options; question_bank states that \"Modern NDFs are often centrally cleared or collateralized\", so the exclusion was contradicted by the candidate's own material. The OTC-customization-versus-clearinghouse trade-off is also the whole thesis of the 'forwards' entry, already in comparesWith.",
+   "SKEPTIC PASS: \"The realistic goal is a target level of currency risk, not zero\" deleted from cons[4], where it sat under the swaps_forwards id although that reading never says it. Not lost: relocated into cons[2] under currency_management_an_introduction, which is the reading that states it (LOS 8 exam focus, and 'reduce it to a level consistent with the IPS')."
+  ],
+  "corrected": [
+   "REPAIR PASS, THE ROLL-YIELD SIGN, inverted in six places: pros[3], cons[3], whenToRecommend[3], whenNotTo[2], pitfalls[4] and cues[1]. Covered interest parity puts the HIGHER-yielding currency at a forward DISCOUNT, so a hedger who SELLS it forward sells below spot and loses roughly the interest differential on every roll. Positive roll yield accrues to hedging the LOWER-yielding, forward-premium currency. SKEPTIC PASS CONFIRMS ALL SIX, from four independent sources, and the matter is now closed: flashcard fc_currency_management_an_introduction_010_p4; question_bank (AUD at a forward premium of 2.27% gives a short hedge a roll yield of +2.27%, CHF at a 2.64% discount gives -2.64%); the curriculum rule quoted verbatim in los_drills_r18.json (positive roll yield from buying at a discount or selling at a premium); and covered interest parity itself.",
+   "REPAIR PASS, pros[2]: \"costs no upfront premium, unlike any option structure\" became \"unlike buying a currency option\", because a zero-cost collar carries no net premium either.",
+   "REPAIR PASS, pros[3]: dropped the \"free lunch\" framing and restated the weaker claim the notes make.",
+   "REPAIR PASS, cons: merged the quantity-risk point and the rebalancing-frequency cost point, since the second is the consequence of the first.",
+   "REPAIR PASS: re-sourced the FX swap roll-and-resize pro and the cross-hedge basis-risk con to swaps_forwards_and_futures_strategies, whose notesEvidence states both verbatim.",
+   "REPAIR PASS, pitfalls[2]: made explicit that the 0 to 100% range applies to STRATEGIC hedge ratios, not to h*.",
+   "SKEPTIC PASS, cons[5] was BACKWARDS on collateral. It claimed OTC forwards carry \"collateral obligations that exchange-traded currency futures do not\". Futures are the instrument with the mandatory obligation (initial plus daily variation margin through the clearinghouse); a forward has no daily settlement and posts collateral only under a CSA. question_bank grades \"MARGIN AND LIQUIDITY REQUIREMENTS: derivatives require initial and variation margin; may create cash flow demands\" as a futures risk, and flashcard fc_swaps_forwards_and_futures_strategies_005_p2 names standardization, not collateral, as the futures cost. Rewritten so the credit trade-off and the cash trade-off run in opposite directions, with the NDF's lower credit risk (only the net difference moves) placed between them.",
+   "SKEPTIC PASS, cues[6] NDF settlement currency. It said an NDF \"cash settles the difference in the domestic currency\", true only for a USD-based investor and wrong for the EUR-, GBP- or CHF-based investor the vignettes use. Both skeptics flagged it. The curriculum is explicit: cash settled \"in the non-controlled currency of the currency pair\", \"usually the USD or some other major currency\", with the controlled currency neither delivered nor received; question_bank keys an essay on exactly this ('NDFs settle in the freely-convertible currency (USD in this case), not in INR'). Corrected, and the two NDF-specific risks the curriculum names were added: onshore/offshore divergence, and pricing that need not satisfy covered interest parity once capital controls break arbitrage.",
+   "SKEPTIC PASS, cues[4] and whenToRecommend[4] named the FX swap as the instrument for BOTH the roll and a mid-life resize, and cues[4] went further and dismissed \"a fresh outright forward\" as not what the LOS names. Both skeptics flagged this and both are right on both counts. (1) LOS f reads 'describe how forward contracts AND FX swaps are used to adjust hedge ratios', so it names two instruments. (2) A pure mid-life resize of an outstanding forward is done with an additional outright forward to the same settlement date: reading_notes currency_management_an_introduction says 'The investor sells additional forward to rebalance back to the target hedge ratio' (also in this key's notesEvidence), and flashcard fc_currency_management_an_introduction_011_p5 is explicit that where the original forward has not matured 'no swap is needed'. The FX swap resizes as a by-product of rolling. Both fields now split the signal and say which instrument answers which trigger. The entry had also contradicted itself, since pitfalls[5] already said 'you sell additional forward'.",
+   "SKEPTIC PASS, pros[0] overclaimed \"a full hedge is the minimum-risk benchmark\" and rested it on the variance decomposition, which does not support it. Removing the covariance term lowers variance only where that covariance is positive: with σ(R_FC) 10%, σ(R_FX) 8% and ρ -0.8, unhedged σ is 6% against 10% fully hedged, so the full hedge RAISES risk. question_bank's model answer is unambiguous ('FULL hedging of USD would REMOVE this natural offset ... Optimal hedge ratio is LESS THAN 100% given the negative correlation'), and the entry contradicted its own whenNotTo[1] and cues[8]. Rewritten as the currency-neutral default, with the minimum-variance claim conditioned on the sign of the covariance. The notes' phrase 'minimum-risk default' is retained in pros[3], where it is a labelling convention for the neutral anchor rather than a result of the variance formula.",
+   "SKEPTIC PASS, pros[2]: \"You pay in forgone appreciation rather than cash out the door\" was wrong for a forward-discount currency, where the negative roll yield is realized in cash at every roll, and it contradicted cons[3] on the same page. Flashcard fc_currency_management_an_introduction_010_p7 names this exact framing as the 'classic error: treating a forward hedge as costless because no premium is paid up front'. Rewritten to say no premium up front but not costless.",
+   "SKEPTIC PASS, the RISK REVERSAL SIGN, unqualified in three places (cues[5], whenNotTo[2], whenNotTo[3]). The structure was described correctly (buy an OTM put, write an OTM call) but labelled with the opposite sign of the FX convention the candidate is taught: flashcard fc_currency_management_an_introduction_012_p3 says 'SHORT RISK REVERSAL (collar) ... (In FX, long call + short put = a LONG risk reversal, so the hedger's collar is the SHORT one.)'. Bare 'risk reversal' reads as the long version, which ADDS to a long foreign-currency exposure. All three now say SHORT, and cues[5] carries the convention warning. Note that the reading's own prose uses the bare term, so naming the side is a precision gain over the notes, not a contradiction of them.",
+   "SKEPTIC PASS, pitfalls[2] gave correlation alone as the condition for h* > 1. The condition is ρ × σ(R_DC)/σ(R_FX) > 1, so the asset's domestic-currency return must also be more volatile than the currency: ρ 0.90 with σ_DC 5% and σ_FX 10% gives 0.45. The notes and flashcard 013_p5 use the loose shorthand, but a pitfall whose whole job is to stop a mis-stated rule has to state it exactly, so the counterexample is now in the card.",
+   "SKEPTIC PASS, cues[2] was invented by the repair pass and conflated 'exchange-traded' with 'centrally cleared' to rule out the whole OTC set. Rewritten onto the grounded core, which is narrower and more useful: the IPS specifies the 'hedging tools permitted' alongside the hedge ratio and the band. That phrase is quoted verbatim from the curriculum in question_bank. Short exchange-traded futures remain the fallback if OTC is barred (R17 names currency futures), with standardization as the cost.",
+   "SKEPTIC PASS, summary: \"The whole decision is the hedge ratio\" mis-framed the page. Two of the nine learning outcomes in this reading are instrument-choice outcomes, not ratio outcomes (option structures to cut hedging cost; cross hedges, macro hedges and the minimum-variance ratio), and cues[5], cues[6] and cues[7] all turn on which instrument rather than how much. Restated as a two-part decision, how much and with what.",
+   "REPAIR PASS: dropped the draft's top-level \"uncertain\" and empty \"problems\" fields to match the required shape."
+  ],
+  "shortfall": "",
+  "residualRisk": "THE ROLL-YIELD SIGN IN THIS ENTRY IS CORRECT AND IS NO LONGER IN DOUBT. The repair pass left it as the entry's main residual risk and characterised the conflict as one ambiguous notesEvidence sentence ('for a forward-premium currency, more roll cost') that might be quoting from the other side of the pair. That characterisation was wrong and it buried the real defect, which both skeptics found independently. The sign is confirmed by flashcard fc_currency_management_an_introduction_010_p4, by question_bank in at least three places (AUD forward premium 2.27% gives +2.27% roll yield on a short hedge; CHF forward discount 2.64% gives -2.64%; two essays award zero for inverted mechanics), by the curriculum rule quoted verbatim in los_drills_r18.json, and by covered interest parity. DEFECT FOUND ELSEWHERE, NOT YET FIXED: CFAL3/Resources/reading_notes.json, reading currency_management_an_introduction, teaches the INVERTED rule in six places: the 'Roll yield' paragraph, the forward-points worked example, the roll-yield-and-rebalancing worked example, the LOS 5 and 6 exam-focus line, the quick-reference card and self-test Q7. One of those worked examples refutes itself on its own arithmetic: it computes forward 1.2356 against spot 1.2000, then calls selling at 1.2356 a NEGATIVE roll yield when it is a gain of 2.97%. So the live risk is not that this entry is wrong but that the app will show this page, and the flashcards, against notes that contradict both on a point the question bank grades directly. pitfalls[4] now warns the reader explicitly and tells them which card to trust; that warning is a stopgap and those six passages need correcting at source. SECOND RESIDUAL: this entry still has effectively no essay grounding. The single stem in the slice is an LDI costless-swaption question that matched on the words 'hedge ratio', so no FX substance was drawn from it beyond the final terminology-trap cue. THIRD RESIDUAL: a material share of this entry is verified against the reading text, the flashcards and the question bank rather than against the keyword-matched notesEvidence slice, which is why 'source' stays on the literal \"curriculum\" for the roll-cost con, the no-premium pro and the OTC-versus-futures con. For the roll-cost con in particular, one skeptic asked for it to be re-sourced to currency_management_an_introduction; that was declined, because attributing the CORRECT sign to the reading that states the inverted one in six places is exactly the mis-sourcing this review is meant to prevent. Confidence is held at medium for these three reasons."
+ }
+}

@@ -1,0 +1,161 @@
+{
+ "key": "infrastructure",
+ "name": "Infrastructure",
+ "family": "Alternatives",
+ "summary": "Equity in long-lived physical assets that deliver an essential service (toll roads, airports, ports, water, power transmission, pipelines, telecom towers), reached mainly through closed-end funds, direct deals or co-investment, with listed vehicles as the liquid proxy. The decision it turns on: can this investor give up liquidity for a decade or more in exchange for contractual, partly inflation-linked cash yield?",
+ "pros": [
+  {
+   "text": "Core assets throw off contractual cash yield, so the allocation funds spending directly instead of waiting on an exit value.",
+   "source": "asset_allocation_to_alternative_investments"
+  },
+  {
+   "text": "A real asset: cash flows and values rise with the price level. The role the curriculum assigns it is income plus inflation hedge, not growth and not equity-risk mitigation.",
+   "source": "asset_allocation_to_alternative_investments"
+  },
+  {
+   "text": "Can offer an illiquidity premium, which only an investor with a long horizon and modest near-term liquidity needs can safely harvest.",
+   "source": "principles_of_asset_allocation"
+  },
+  {
+   "text": "Operating assets whose revenue is set by regulation or by a concession contract (the sovereign fund case's airport earns 70% of revenue from regulated charges), so operating cash flow is steadier and more predictable than private equity's.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Asset lives run for decades, and where the tariff or concession escalates with a published price index the cash flows are both long dated and partly real, which suits long dated real spending.",
+   "source": "curriculum"
+  }
+ ],
+ "cons": [
+  {
+   "text": "Illiquid, with a fund life measured in many years. Capital is drawn by calls and returned by distributions on the manager's schedule, so committed capital is not invested capital, and any drawdown fund shows the J-curve, because fees and costs are charged before realizations. An asset still under construction compounds it, paying no yield until it is operating.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Valued by appraisal, so reported returns are positively autocorrelated and the reported volatility and the reported correlation with public markets both understate the truth. De-smooth them before an optimizer sees them.",
+   "source": "principles_of_asset_allocation"
+  },
+  {
+   "text": "There is no investable index of the private assets, so performance has to be judged against a public market equivalent (PME) or a peer and vintage-year universe, remembering that the fund's IRR is money-weighted and sensitive to the timing of calls and distributions, so it is not comparable with a public manager's time-weighted return.",
+   "source": "curriculum"
+  },
+  {
+   "text": "High, often performance-based fees and very wide manager dispersion, so the net return turns on manager selection and on the fee terms: the management fee base, the hurdle rate, the preferred return, carried interest and clawback.",
+   "source": "curriculum"
+  },
+  {
+   "text": "It is not an equity-risk mitigator. A mitigator has to be reliably uncorrelated when equities fall and liquid enough to sell, and demand-exposed assets (toll roads, ports, airports, energy infrastructure) fall in the same global demand shock while the position cannot be realized mid-crisis.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Regulatory and political risk is specific to each asset and jurisdiction: tariff resets, concession renegotiation, permit revocation, expropriation. A small program holding a few large assets cannot diversify it away.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Long dated, bond-like cash flows make the valuation sensitive to the discount rate, and project leverage still has to be refinanced, so a sustained rise in real rates can hit the value and the cost of the debt together.",
+   "source": "curriculum"
+  }
+ ],
+ "whenToRecommend": [
+  "The investor has a long horizon, modest near-term spending, professional staff and scale (large endowment, sovereign savings sleeve, well-funded mature pension), so four of the five suitability tests for illiquids are satisfied: horizon, liquidity elsewhere, governance and expertise, scale. The fifth, tolerance for lagged valuations and limited transparency, has to be checked separately.",
+  "The mandate needs income now rather than terminal value, and the alternatives book is already growth heavy in private equity and long-biased hedge funds.",
+  "The spending rule is indexed to inflation and the investor wants a real asset that also pays a cash yield, which commodities do not.",
+  "A very large fund needs to deploy size into something that moves the needle, and has the governance to underwrite direct deals or co-investments.",
+  "A sovereign development fund is mandated to finance domestic economic and infrastructure projects, so the exposure follows from the mandate rather than from a diversification argument."
+ ],
+ "whenNotTo": [
+  "There is any near-term liquidity need: a stabilization draw, a short horizon, large known withdrawals. Hold high-quality government bonds and cash for that job.",
+  "The job is cushioning an equity drawdown. High-quality government bonds are the reliable, liquid, low-return hedge, with the caveat that at low yields both the expected return and the size of the negative-correlation cushion shrink. Trend following and managed futures are the crisis-alpha alternative, mitigating with a higher expected return but less reliably and with lock-ups.",
+  "A specific inflation-indexed liability has to be matched. Inflation-linked bonds deliver the index directly, while infrastructure pass-through is contractual, partial and lagged.",
+  "The pool is small or thinly governed. Minimums block it, there are too few managers and vintages to diversify across, and the due diligence capacity is missing. Use listed infrastructure or a liquid real asset substitute, or a much smaller allocation.",
+  "The decision is a short-term tactical deviation from the strategic allocation. Express it in liquid sleeves or derivatives, because illiquid weights do not move.",
+  "The investor's own revenue or existing book already loads on the same factor, for example a commodity exporter adding energy infrastructure. That is concentration, not diversification."
+ ],
+ "pitfalls": [
+  "Treating listed and unlisted infrastructure as interchangeable. Listed vehicles give daily liquidity, but they carry public market beta and a higher correlation with public equity than the private assets, and they pay no illiquidity premium, so they answer a small or liquidity-constrained investor's problem, not a long horizon investor's return problem. Say as well that a listed proxy overlaps the public equity allocation, which breaks the mutual-exclusivity rule for asset classes and raises input sensitivity in the optimizer.",
+  "Feeding raw appraisal-based volatility and correlation into mean-variance optimization. The smoothed inputs make the asset look low risk and low correlation, so an unconstrained optimizer loads up on it. De-smooth, constrain the weight, or size it outside the optimizer.",
+  "Planning on committed capital rather than invested capital, and forgetting that in a downturn calls accelerate while distributions slow, so the squeeze lands when the rest of the portfolio is down.",
+  "Treating all infrastructure as one risk. An operating asset whose revenue is set by regulation or a concession contract is a yield asset, an asset still under construction is not, and a volume-exposed asset (a toll road, a port, an airport) carries demand risk.",
+  "Claiming unconditional inflation protection. Pass-through depends on the tariff or concession mechanism and on the regulator allowing it, and listed infrastructure trades like equity in the short run."
+ ],
+ "cues": [
+  {
+   "signal": "Long horizon, modest near-term spending, dedicated investment staff, multi-billion pool.",
+   "implication": "Four of the five suitability tests for illiquid alternatives are satisfied on these facts: horizon, liquidity elsewhere, governance, scale. The fifth, tolerance for lagged valuations and limited transparency, is not established by them and has to be checked. Say which test each fact satisfies, and confirm the liquid assets cover both spending and the capital calls in a down market."
+  },
+  {
+   "signal": "Spending or the liability is indexed to inflation and the investor needs cash yield.",
+   "implication": "This is the income plus inflation-protection role, and only core real estate and infrastructure fill both halves. Private credit fills the income half only: it is not a real asset, so its contractual coupons do not rise with the price level. Commodities are ruled out of the income half, since they produce no income."
+  },
+  {
+   "signal": "The sleeve may have to be drawn within a year, or there is a stabilization mandate alongside the savings mandate.",
+   "implication": "A draw inside a year rules the unlisted sleeve out. A stabilization mandate alongside a savings mandate does not: ring-fence the stabilization sleeve in government bonds and cash, and size the illiquid weight against the savings sleeve, which has the long horizon and the risk capacity to hold it. The dual mandate's real problem is correlation, not exclusion, because the sponsor's revenue, the risk assets and the draw all turn on the same global demand shock, so drawdowns and mark-to-market losses arrive together."
+  },
+  {
+   "signal": "Quarterly appraisal-based valuations, or a private asset volatility that looks suspiciously low.",
+   "implication": "Two tested readings run off stale appraisals. For optimizer inputs, de-smooth the volatility and correlation or constrain the weight, and say the smoothing comes from lagged appraisals. For an allocation limit, the denominator effect: a fall in public markets shrinks the denominator while the stale private NAV does not move, so the illiquid share rises through the limit with no transaction at all, and precisely when the stakes can only be sold at a secondary-market discount."
+  },
+  {
+   "signal": "The fund already holds timberland and energy infrastructure, and the sponsor's revenue is commodity royalties.",
+   "implication": "One global demand factor drives the sponsor's revenue and the portfolio together, so adding more is concentration dressed as diversification. Pair any residual exposure with unrelated long-term directs, non-energy infrastructure outside the commodity cycle whose revenue is set by regulation or a concession, rather than more energy-linked real assets."
+  },
+  {
+   "signal": "Greenfield build, construction loan, permits still outstanding, local opposition.",
+   "implication": "Greenfield carries construction, permitting and ramp-up risk and pays no early yield, so it is the wrong answer for an investor who needs income now: an operating asset behind a regulated tariff or a concession, or a listed yield vehicle for a small investor, is. If it is still recommended, the graded mitigants are staged capital released against permit and construction milestones, contractual protections including offtake and ESG covenants and step-in rights, risk transfer through political-risk insurance or a multilateral guarantee plus syndication or co-investment rather than holding the whole ticket, and independent risk-committee approval. Name transition and stranded-asset risk on a long dated offtake."
+  },
+  {
+   "signal": "Risk is reported as one-day 95% VaR on listed holdings.",
+   "implication": "The unlisted infrastructure exposure sits outside the risk measure entirely. Recommend multi-horizon stress and scenario analysis that covers the unlisted sleeves."
+  },
+  {
+   "signal": "Funds call roughly a quarter of the commitment a year over four years.",
+   "implication": "Commitment pacing across vintage years plus a liquid buffer for the calls, not one large commitment to reach the target faster."
+  }
+ ],
+ "comparesWith": [
+  "real_estate",
+  "private_credit",
+  "commodities",
+  "inflation_linked"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "whenToRecommend 'The capital market view is inflation above expectations and the real asset sleeve is thin.' Deleted: it restated the inflation-indexed-spending item above it, and framing an illiquid decade-long commitment as a response to a capital market view contradicts the whenNotTo item that says tactical views belong in liquid sleeves.",
+   "pitfall 'Calling it a diversifier or an equity-risk mitigator. A mitigator must be reliably uncorrelated when equities fall and liquid enough to sell, and unlisted infrastructure fails the second test outright.' Deleted as a duplicate: the same two-part mitigator test is now stated once, in cons, and the slot was reused for the listed versus unlisted pitfall the draft did not have.",
+   "cue 'The illiquid sleeve weights are identical in the policy and tactical columns' / 'Those sleeves contribute zero to the tactical incremental return.' Deleted: it selects no instrument, so it fails the cue test, and as written it was imprecise, identical weights zero out the asset-allocation effect but the sleeve can still contribute a selection effect.",
+   "Skeptic pass: pro 'Individual deals and core open-end funds are large, so a multi-billion pool can reach a meaningful weight without assembling dozens of small positions.' Deleted, flagged by both skeptics. Three defects. The curriculum's scale advantage is access, not ticket size (a very large fund cannot move the needle with niche classes but can reach scale-only strategies). Reaching the weight through few large positions is what cons on undiversifiable political risk and the commitment-pacing cue both forbid. And 'core open-end funds' has zero occurrences in this candidate's readings, drills, cards or bank, so the vehicle was invented. The access point survives, better anchored, in whenToRecommend.",
+   "Skeptic pass: pitfall 'Answering in gross returns. Fees are high and performance based, so quote net and name the fee base, the preferred return, carried interest and clawback as due diligence items.' Deleted as a near-verbatim duplicate of the fee con, same claim, same prescription, same list. The hurdle rate, which the graded fee-protection key leads with, was added to the con instead."
+  ],
+  "corrected": [
+   "Summary no longer calls infrastructure 'unlisted' flatly, since the entry's own whenNotTo and pitfalls rely on listed vehicles existing, and it now names the decision the instrument turns on (liquidity given up for contractual, partly inflation-linked yield).",
+   "Pro on cash yield narrowed to 'core' assets, because the grounding sentence is about core real estate, infrastructure and private credit, and an asset under construction pays no early yield.",
+   "Pro on inflation dropped 'protects purchasing power when inflation runs above expectations' and now states the role assignment instead, because the entry's own pitfall says pass-through is conditional on the tariff mechanism, so an unconditional protection claim is overstated.",
+   "Pro on the illiquidity premium changed from 'Pays an illiquidity premium' to 'Can offer an illiquidity premium', matching the grounding, which says illiquid classes can offer it and only some investors can safely harvest it.",
+   "Pro on long dated cash flows made conditional: real only where the tariff or concession escalates with a published index, not 'the cash flows are long dated and real'.",
+   "Con on benchmarking: 'there is no directly investable index' narrowed to no investable index of the private assets, since listed infrastructure indexes are investable.",
+   "Con on fees: 'high-water marks' replaced with the preferred return, carried interest and clawback, which are the terms a private closed-end infrastructure fund actually uses. High-water mark is a hedge fund term.",
+   "Con on regulatory risk: 'risk that diversification does not fix' replaced with risk that a small program holding a few large assets cannot diversify away, since spreading across jurisdictions and regulators does reduce it.",
+   "Con on rates split out of the regulatory con into its own claim, so the discount-rate and refinancing point is not buried inside a political-risk sentence.",
+   "whenToRecommend on indexed spending dropped 'or liability', because a dated inflation-indexed liability is the whenNotTo case that points at inflation-linked bonds.",
+   "Skeptic pass, both lenses: the pro on inflation now states the dual role the curriculum assigns, income plus inflation hedge, instead of 'inflation hedging rather than growth or safety'. The category table's row for real estate and infrastructure reads 'Income + inflation hedge', so naming one half dropped half the available credit; 'safety' is also not one of the four role names, and the precise exclusion is equity-risk mitigation, which the mitigator con already makes.",
+   "Skeptic pass: the inflation-plus-income cue no longer answers with 'core real estate, infrastructure, private credit'. The role table gives private credit the role 'Income' alone and gives inflation protection to real assets, and the mechanism is the point: a real asset's cash flows rise with the price level, a private credit coupon is a nominal contractual claim. The cue now says private credit fills the income half only.",
+   "Skeptic pass: the dual-mandate cue no longer says a stabilization mandate rules infrastructure out. A draw inside a year does; a stabilization mandate alongside a savings mandate does not, because the stabilization sleeve is ring-fenced and the illiquid weight is sized against the savings sleeve, which the institutional grid gives a very long horizon and high risk capacity. The sovereign fund case grades the ring-fence as a strength and grades the unlisted liquidity gap as material for the stabilization sleeve and less so for the savings sleeve, and grades the dual mandate's financial risk as correlation: royalties, risk assets and the draw turn on one global demand shock.",
+   "Skeptic pass: the appraisal cue no longer says 'The question is about optimizer inputs, not about the asset.' Stale marks have two separately tested consequences, and the second, the denominator effect, is called high-value and heavily tested in the notes and is carried by a flashcard that names infrastructure. The cue now gives both readings and the non-obvious direction, that the private share rises through the limit with no transaction.",
+   "Skeptic pass: the suitability cue and the matching whenToRecommend no longer claim every suitability test passes. The curriculum lists five (horizon, liquidity elsewhere, governance and expertise, scale, tolerance for complexity and transparency limits) and the vignette facts establish four; the old wording also contradicted itself by telling the candidate to check the liquidity test it had just declared passed.",
+   "Skeptic pass, both lenses: the benchmarking con replaces 'a public proxy' with the public market equivalent (PME) and adds the comparability caution, that a money-weighted IRR is not comparable with a public manager's time-weighted return. PME is the examined word and a public proxy index is not the same thing as a PME calculation. The trailing 'no cheap way to move the weight' was cut as a third statement of the illiquidity point. The anchor for this con is the monitoring LOS of asset_allocation_to_alternative_investments, but the source field stays 'curriculum' because the infrastructure grounding slice from that reading carries no PME sentence.",
+   "Skeptic pass, both lenses: whenNotTo on equity drawdowns restores the two-sided contrast the repair pass removed on a false premise. The comparison table sets expected return Low for bonds against Higher for diversifying alternatives, and the exam-focus line asks for both halves, so the item now names trend following and managed futures as the crisis-alpha example with the higher expected return, and adds the bond-side caveat that at low yields both the return and the cushion shrink. This replaces the earlier note claiming the curriculum contrast is reliability and not return.",
+   "Skeptic pass: the greenfield cue restores the project-finance mitigants the repair pass deleted as 'above Level III'. That reason was false for this candidate: the question bank's grading key awards marks for staged capital against milestones, contractual protections including step-in rights, risk transfer through political-risk insurance or a multilateral guarantee, syndication or co-investment, and independent risk-committee approval, and it refuses credit for liquid-book answers. Transition and stranded-asset risk, also deleted, is named in the same key and in a flashcard, and appears nowhere else in the entry. This replaces the earlier note.",
+   "Skeptic pass: the regulated-revenue pro drops 'core brownfield' and 'availability payments'. Neither term, nor 'greenfield', occurs anywhere in this candidate's readings, drills, cards or bank; availability-based payment mechanisms are infrastructure-finance practitioner detail and the brownfield split is Level I taxonomy. The substance is kept in the material's own vocabulary, revenue set by regulation or by a concession contract, with the sovereign fund case's airport (70% of revenue from regulated charges) as the instance. The same substitution was made in the one-risk pitfall and in the commodity-exporter cue. 'Greenfield' survives only in the cue that also says what it means.",
+   "Skeptic pass: the lock-up con drops the claim that the J-curve belongs to value-add and greenfield funds while core open-end funds distribute yield earlier. The J-curve is a property of the drawdown vehicle, fees and costs charged early against unrealised assets, so a core closed-end fund shows it too, and the candidate's material states it generally for private drawdown funds with no strategy split. The exception also rested on a vehicle category absent from the material. The income pro does not need it: the grounding sentence assigns cash yield to the core asset itself.",
+   "Skeptic pass: the appraisal con and the fee con re-sourced. The appraisal con now cites principles_of_asset_allocation, whose infrastructure sentence in the grounding ('illiquid asset classes, real estate, private equity, infrastructure, can offer an illiquidity premium') is the antecedent of the sentence that lists the three complications, hard to value because appraisal data understates risk and correlation, hard to rebalance, no directly investable index. The lock-up and fee cons stay on 'curriculum' because the infrastructure slice of asset_allocation_to_alternative_investments carries only the cash-yield sentence, the real-asset inflation sentence and the category-table row, none of which carries a J-curve or a fee claim.",
+   "Skeptic pass: the listed-versus-unlisted pitfall drops 'cheap to hold', an unanchored cost claim with no fee comparison anywhere in the material, and adds the caution the material does carry, that a listed proxy overlaps the public equity allocation, breaks the mutual-exclusivity rule for asset classes and raises input sensitivity in the optimizer.",
+   "Skeptic pass: whenNotTo on tactical views drops the invented 'six to twelve month' band. The notes define tactical asset allocation as a deliberate short-term deviation from the strategic allocation with no horizon in months, and the item's logic needs only that the view is short-term and the weight is not movable.",
+   "Skeptic pass: the optimizer pitfall de-duplicated against the appraisal con, keeping only the behaviour point, that smoothed inputs make an unconstrained optimizer load up, plus the option of sizing the asset outside the optimizer. The committed-capital pitfall was re-led so it does not repeat the con's sentence verbatim and carries only the downturn dynamic, calls accelerating while distributions slow.",
+   "Skeptic pass, flag not applied: the summary's access list was NOT extended with 'core open-end funds' as the mechanism lens asked. The lens was right that the entry was internally inconsistent, but the term has zero occurrences in this candidate's material, so the inconsistency was removed from the other side, by deleting the capacity pro and restating the J-curve con, rather than by promoting an invented vehicle into the summary. The semi-liquid structures this candidate is actually taught are interval funds, tender-offer funds and BDCs.",
+   "Skeptic pass, flag not applied in full: the provenance lens asked for the lock-up and fee cons to be re-sourced to asset_allocation_to_alternative_investments as well. Declined for those two, because the handoff rule allows a reading id only where that reading's infrastructure grounding evidence supports the claim, and the three fragments from that reading do not mention lock-ups, calls or fees. The appraisal and index halves of the fix were applied.",
+   "Skeptic pass, flag not applied in full: the mechanism lens also wanted the inflation pro to carry a greenfield exception ('greenfield is held for capital appreciation'). Not added. The income pro is already narrowed to core assets, the construction-stage exception is stated in the lock-up con, the one-risk pitfall and the greenfield cue, and the other lens showed the bare label is unanchored in this candidate's material, so a fourth statement of it inside a role claim would reintroduce the label without its explanation."
+  ],
+  "shortfall": "",
+  "residualRisk": "The rate-sensitivity con. It holds cleanly for contracted assets, but a rate-regulated utility whose allowed return resets with prevailing rates is partly cushioned, so 'can hit the value and the cost of the debt together' is the right strength and should not be hardened into a general rule. Second, the regulated-revenue pro: the substance is now in the material's vocabulary, but its only instance is one sovereign fund case dialogue, not a notes sentence, so treat the 70% figure as that case's fact and not as a general one. Third, scope: the lock-up, appraisal, benchmarking and fee cons plus the optimizer and committed-capital pitfalls are the generic private-fund block, shared claim for claim with real_estate and private_credit, so only the income role, the inflation role, the regulated-revenue and long-life pros and the political and rate cons are infrastructure-specific. The grounding slice is thin (eight notes sentences, three of them substantive, no LOS statements and no essay stems), which is why the badge is medium."
+ }
+}

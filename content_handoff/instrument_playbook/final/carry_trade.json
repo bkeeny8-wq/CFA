@@ -1,0 +1,161 @@
+{
+ "key": "carry_trade",
+ "name": "Carry Trade",
+ "family": "Currency",
+ "summary": "A carry trade borrows (shorts) a low-yield funding currency and invests (longs) a high-yield currency, earning the interest rate differential. The decision it turns on is whether the differential pays enough to hold unhedged spot risk in a currency that can crash, because hedging that risk removes the carry.",
+ "pros": [
+  {
+   "text": "It earns the rate differential without needing the high-yield currency to appreciate. If spot is unchanged the position collects the differential, and it stays profitable until the high-yield currency depreciates by more than that differential.",
+   "source": "currency_management_an_introduction"
+  },
+  {
+   "text": "It exploits a documented empirical failure rather than a hunch. UIP says the high-yield currency should depreciate by the differential, but at short horizons high-yield currencies tend to hold up or appreciate, so the trade has historically paid.",
+   "source": "capital_market_expectations_part_2_forecasting_asset_class_returns"
+  },
+  {
+   "text": "Carry is one of the few persistent sources of active currency return, alongside value, momentum and the volatility risk premium, and it is the one that trades the rate differential rather than valuation, trend or implied volatility.",
+   "source": "currency_management_an_introduction"
+  },
+  {
+   "text": "The opportunity set is widest where rate dispersion is widest. Funding at 1% into an emerging market currency yielding 9% is an 8% carry, and the notes pair that wider carry with the worse tail.",
+   "source": "currency_management_an_introduction"
+  },
+  {
+   "text": "It can be expressed in the forward market instead of by borrowing, by buying the currency at a forward discount (the high-yield one) and selling the currency at a forward premium (the low-yield one), which is trading the forward rate bias. If spot does not move, the buyer of the forward-discount currency collects the forward points, and the trade can be run as an overlay without disturbing the underlying asset managers.",
+   "source": "curriculum"
+  }
+ ],
+ "cons": [
+  {
+   "text": "The payoff is negatively skewed: steady earnings in calm markets, then a sharp loss when the high-yield currency crashes in a risk-off episode. The phrase in the notes is picking up nickels in front of a steamroller.",
+   "source": "currency_management_an_introduction"
+  },
+  {
+   "text": "One devaluation erases years of carry. The notes' own illustration funds at 1% into a 9% currency for an 8% carry, then a 25% devaluation leaves roughly minus 17%, which undoes about three years of accumulated carry. Timing makes it worse: the move arrives in weeks, when barely any of that 8% has accrued, so the realised loss is nearer the whole 25%.",
+   "source": "currency_management_an_introduction"
+  },
+  {
+   "text": "It protects against nothing and is unhedged by construction. By covered interest rate parity a foreign money market investment with the currency sold forward just earns the domestic rate, so the carry exists only as payment for holding the spot risk.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Volatility and Sharpe ratios flatter it, because the return distribution is negatively skewed and fat-tailed. Risk control has to come from conservative position sizing, stop-losses and explicit tail-risk limits rather than from the Sharpe ratio.",
+   "source": "currency_management_an_introduction"
+  },
+  {
+   "text": "Diversifying across several high-yield currencies fails in the one event that matters. Contagion makes emerging market currencies crash together, so the positions share a common risk-off factor rather than carrying independent risks.",
+   "source": "currency_management_an_introduction"
+  },
+  {
+   "text": "The differential is fixed only for the term of the two legs. Run as rolling short-dated positions, which is the usual implementation, a hike in the funding currency or a cut in the investment currency compresses it at the next roll while the full spot exposure stays in place. Lengthening the legs, or using a single dated forward, fixes the forward points for that horizon but leaves the spot risk untouched; hedging the spot leg with an offsetting forward is the one move that removes the risk, and it removes the carry with it. Funded and forward-based positions also embed leverage, which magnifies a forced unwind.",
+   "source": "curriculum"
+  }
+ ],
+ "whenToRecommend": [
+  "The vignette describes calm markets, low and stable FX volatility, a wide rate differential and no imminent policy turn in the funding currency.",
+  "The IPS permits active currency management within discretionary bands, or the account runs a separate currency overlay benchmarked to the strategic hedge ratio.",
+  "The horizon of the view is short. UIP fails at short horizons, so a carry view is defensible over months, while PPP is the anchor for a multi-year forecast.",
+  "The investor has real tail-risk capacity: no near-term forced liquidation, a position small relative to total assets, and position limits, stop-losses or bought option protection already specified."
+ ],
+ "whenNotTo": [
+  "The IPS prohibits speculative or unhedged currency exposure, or the investor is short-horizon or liability-driven. Do not put the trade on. There is no hedged version of it, because selling the high-yield currency forward surrenders the differential and leaves only the domestic rate. If the account already holds the high-yield currency through its foreign assets, that exposure is a hedging decision, not a carry trade.",
+  "Risk-off conditions: FX volatility rising, credit spreads widening, a flight to quality. This is the regime in which carry unwinds, so cut the position rather than add to it.",
+  "The manager's view is on the size of the move rather than its direction. Trade FX volatility with options, a straddle or a strangle, not carry.",
+  "The investment currency is non-convertible or under capital controls. The position can only be expressed through non-deliverable forwards, which add basis risk between the NDF and onshore rates, counterparty risk and poor liquidity.",
+  "The role being filled is diversification or crisis protection. Carry loses exactly when risk assets lose, so it is not a hedge. Use duration in high-quality government bonds, or a protective put, for that job.",
+  "The investor wants the yield pickup but cannot accept the left tail. Size the position down and buy a put on the high-yield currency, accepting lower expected carry in exchange for a floor."
+ ],
+ "pitfalls": [
+  "Writing the legs backwards. Long and invest the HIGH-yield currency, short and borrow the LOW-yield currency. An essay answer has to name both legs to earn the mark.",
+  "Saying the trade relies on UIP. It is a bet against UIP. CIP is an arbitrage identity and holds; UIP is only a theory, and its short-horizon failure is the entire source of the return.",
+  "Getting the return arithmetic wrong. The trade loses only if the high-yield currency depreciates by MORE than the differential, so a 4% carry survives up to 4% of depreciation, and the differential has to be scaled to the holding period (an annualised 4% carry is about 1% over three months) while the spot move is not annualised.",
+  "Confusing currency carry with repo carry. In a yield curve vignette, carry means buying a higher-yielding bond financed at a lower repo rate under a static upward-sloping curve, which is a leverage decision, not a currency one.",
+  "Trying to make the trade safe by hedging it. Selling the high-yield currency forward gives up about the differential, leaving only the domestic rate, so the carry and a forward hedge cannot coexist. A bought put floors the tail while surrendering only the premium rather than the whole differential, so some carry survives, but expected carry is lower, not unchanged. Name position sizing, stop-losses and tail-risk limits as the rest of the risk control, and add that a stop can gap through in a crash, which is why bought protection is the only hard floor.",
+  "Your own reading notes for LOS 5 and 6 of the currency reading state the roll-yield sign BACKWARDS, in the summary bullet, both worked examples, the exam-focus line and self-test question 7. The correct sign, which your flashcards and the question bank both carry: hedging means SELLING the currency forward, so hedging a forward-DISCOUNT (high-yield) currency COSTS roughly the differential (negative roll yield), and hedging a forward-PREMIUM (low-yield) currency EARNS it. The carry trader, who buys the forward-discount currency, is on the collecting side."
+ ],
+ "cues": [
+  {
+   "signal": "Two money market rates are given and the vignette says the exchange rate is expected to be unchanged, or asks for the return if spot holds.",
+   "implication": "Carry trade. The return is approximately the differential, the investment rate minus the funding rate, scaled to the holding period. Do not apply UIP and depreciate the high-yield currency, which would hand back the whole pickup. If several pairs are given, the choice rule is both screens together: the widest yield spread AND the lowest implied volatility among the candidate pairs. Borrow the lowest-yield currency, invest in the highest-yield one, and name the volatility screen in the justification."
+  },
+  {
+   "signal": "The manager believes the high-yield currency will not depreciate as much as the forward rate implies, or the vignette names the forward rate bias.",
+   "implication": "The same trade in forward market language: buy the currency trading at a forward discount, which is the high-yield one, and sell the currency at a forward premium, which is the low-yield one. Recommend carry and say explicitly that it is a bet against UIP."
+  },
+  {
+   "signal": "A foreign money market position, or a foreign bond's yield pickup, is fully hedged back to the domestic currency, and the question asks where the yield advantage went or what the hedge costs.",
+   "implication": "Covered interest rate parity. The high-yield foreign currency trades at a forward discount, so selling it forward means selling below spot: the hedge gives up roughly the differential (negative roll yield). For a foreign MONEY MARKET position that makes the hedged return exactly the domestic rate. For a foreign BOND the hedge removes only the short-rate differential, leaving the domestic cash rate plus whatever the bond earns above foreign cash: term premium, credit spread, price change. What vanishes is the money-market yield advantage, not the bond's excess return. Capturing the money-market pickup requires leaving the currency unhedged, which is the carry trade."
+  },
+  {
+   "signal": "A currency program shows several years of steady returns, low volatility and a high Sharpe ratio.",
+   "implication": "The question is setting up a skew critique. Answer on negative skew and tail risk, not on the reported Sharpe. Credit strategies are flagged for the same trap, so the cue can appear outside the currency reading."
+  },
+  {
+   "signal": "A high-yielding emerging market currency, or several EM carry positions presented as a diversified book.",
+   "implication": "EM carry: the widest carry and the worst tail. Contagion crashes those currencies together, so spreading the trade across pairs is not risk control. Answer with conservative sizing, explicit tail-risk limits, and bought puts rather than forwards where a floor is required."
+  },
+  {
+   "signal": "The investment currency is non-convertible or under capital controls.",
+   "implication": "The trade and any hedge can only go through non-deliverable forwards, so an IPS that bars counterparty exposure or illiquid instruments rules it out altogether rather than merely sizing it down."
+  },
+  {
+   "signal": "The IPS sets a strategic hedge ratio with discretionary bands, and the question asks where an active currency view belongs.",
+   "implication": "Carry is taken inside those bands, or as a separate overlay mandate benchmarked to the strategic hedge ratio and judged on information ratio against it. It is not a reason to abandon the strategic ratio."
+  },
+  {
+   "signal": "Risk-off language: spreads widening, a flight to quality, FX volatility spiking, forced deleveraging.",
+   "implication": "This is the unwind episode. Recommend reducing or exiting the carry."
+  },
+  {
+   "signal": "The vignette describes a manager's currency approach and asks which style it is, or asks the candidate to compare the active styles.",
+   "implication": "The command word in the official LOS (currency_management_an_introduction.d) is COMPARE, so give the bet each style places, not just the label: carry trades the rate differential; fundamentals trades valuation via PPP and flows; technical trades trend and momentum while ignoring fundamentals; volatility trades implied against realised volatility with FX options."
+  },
+  {
+   "signal": "A fixed income vignette with an upward-sloping curve, a view that the curve will stay STATIC or UNCHANGED (so the forwards are NOT realized), and the word carry.",
+   "implication": "Fixed income carry, not currency carry. Wrong instrument, wrong answer: go to the repo_leverage entry for the mechanics. Keep the two 'agree with the market' cases apart, because the exam separates them: a static-curve view rewards added duration, rolldown and repo carry, but if the vignette instead says rates will evolve as the forwards imply, the forwards ARE realized, every bond earns the same horizon return, and the answer is a neutral benchmark-matching posture, not carry."
+  }
+ ],
+ "comparesWith": [
+  "fx_hedging",
+  "forwards",
+  "repo_leverage",
+  "straddle"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "Pitfall 'Claiming that spreading the trade across several EM currencies controls the risk. Contagion makes them crash together, so sizing and tail limits have to do that work.' Removed in the repair pass because the contagion point is already carried by a cons entry and by a dedicated EM cue, so as a pitfall it was a restatement.",
+   "SKEPTIC PASS: pitfall 'Defending the strategy with its volatility or its Sharpe ratio. The marker wants negative skew, fat tails and a tail-risk limit.' Deleted as the third slot for one point. cons[3] carries the property and cues[3] carries the trigger with the signal attached, so the pitfall added nothing.",
+   "SKEPTIC PASS: pros[3] clause 'typically far wider than a G10 pair offers'. Nothing in the candidate's material compares EM carry with G10 spreads; the notes only pair wider EM carry with the worse tail. The repair pass had softened this from 'any G10 pair offers', which hedged an unsupported comparison instead of removing it.",
+   "SKEPTIC PASS: cues[7] clause 'and expect a follow-up asking why volatility-based risk measures gave no warning.' Speculation about item construction, and the content it predicts is cues[3] in full.",
+   "SKEPTIC PASS: the re-listed NDF risks and the 'prices the trade off an onshore rate the investor cannot access' clause in cues[5]. The three risks are word for word whenNotTo[3], which keeps them; the onshore-pricing clause is a signal no vignette states in those terms.",
+   "SKEPTIC PASS: the repo carry mechanics in cues[8].implication. repo_leverage owns that teaching and is already in comparesWith; this entry's unique job is the disambiguation, so the implication now points there instead of teaching it a third time.",
+   "SKEPTIC PASS: the duplicated 'fixing it with a forward would eliminate the carry altogether' framing in cons[5], compressed to the one distinction that is not already in cons[2] and pitfalls[5]: locking the rate spread is not the same operation as hedging the spot leg."
+  ],
+  "corrected": [
+   "Pro 1 claimed the trade needs 'no directional view'. That is inverted: the carry trade is precisely a directional bet that the high-yield currency will not depreciate by more than the differential. Rewritten to say it does not need appreciation, only the absence of a larger depreciation.",
+   "Pro 3 asserted carry could therefore 'be run as a systematic program', which the grounding does not support. Trimmed to the supported fact plus what distinguishes carry from the other three styles.",
+   "Pro 5 added the roll-yield direction the draft deliberately withheld: the buyer of the forward-discount (high-yield) currency collects the forward points.",
+   "Con 2 said an 8% carry against a 25% devaluation is 'roughly minus 17% in weeks'. Restated so both cases are right.",
+   "Con 3 was sourced to the capital market expectations reading, but its covered interest rate parity claim is not in that reading's evidence for this instrument. Re-sourced to 'curriculum'.",
+   "Con 6 asserted flatly that 'the position is levered'. Narrowed to funded and forward-based implementations.",
+   "Pitfall 3 was broadened from the breakeven alone to the whole return calculation, adding that the differential scales to the holding period while the spot move does not.",
+   "Added a pitfall on hedging the position to make it safe, and a cue on the fully hedged foreign position whose yield advantage has vanished.",
+   "Cue 2 now names which leg is which (the forward-discount currency is the high-yield one), so the signs cannot be read backwards.",
+   "The draft's single emerging market cue bundled crash risk with capital controls. Split into a contagion cue and a non-convertible/NDF cue, since the second one can rule the trade out entirely under an IPS constraint while the first only sizes it down.",
+   "SKEPTIC PASS: cues[9] (formerly cues[8]) signal said 'a view that matches the forward curve', which bundles two mutually exclusive cases and recommends the trade on the one where it scores zero. Verified against yield_curve_strategies LOS 2, which separates them twice and emphatically: if forward rates are REALIZED every bond earns the same short-rate horizon return and a neutral posture is the answer, whereas added duration, rolldown and repo carry need the curve to stay STATIC, i.e. forwards NOT realized. Signal now says static/unchanged, and the implication states the contrast so the trap is visible.",
+   "SKEPTIC PASS: cues[2] applied 'the hedged return collapses toward the domestic rate' to 'a foreign bond or money market position'. That holds only for a riskless foreign money market instrument. Hedging strips out the short-rate differential, not the bond's excess return over foreign cash, so a term premium, credit spread or price gain survives the hedge. This also contradicted the entry's own cons[2], which states the restriction correctly. Signal and implication now separate the money market case from the bond case.",
+   "SKEPTIC PASS: cons[5] said the differential 'is not locked in, and cannot be'. 'Cannot be' is false: fixed-term legs, or a single dated forward in the direction of the trade, fix the rate spread or the forward points for that horizon. What cannot be removed is the SPOT risk, and the real exposure is rollover risk at each roll. Rewritten, and the two operations (locking the spread vs hedging the spot leg) are now distinguished.",
+   "SKEPTIC PASS: pitfalls[5] said 'Only paying option premium keeps the carry while flooring the tail'. A bought put surrenders part of the carry; the notes put it as 'accepting lower expected carry in exchange for surviving the inevitable stress episodes', and the entry's own whenNotTo[5] already agreed with the notes, so the two items contradicted each other. The markable distinction is one of degree: a forward hedge gives up the whole differential, an option gives up only the premium. Restated.",
+   "SKEPTIC PASS: cons[3] had imported 'explicit tail-risk limits' from the notes' EM subsection and deleted the stop-losses the general LOS 4 passage names ('sizing positions and setting stop-losses accordingly rather than trusting a Sharpe ratio that ignores the skew'). The repair pass's rationale for dropping them was wrong about what the notes prescribe. Stop-losses restored in cons[3] and in whenToRecommend[3]; the gapping caveat is kept as a caveat in pitfalls[5] rather than as grounds for omitting the term.",
+   "SKEPTIC PASS: whenNotTo[0] prescribed 'Hedge the exposure instead by selling the foreign currency forward.' A carry trade is a position being created, not an inherited foreign-asset exposure, and by this entry's own CIP logic that remedy leaves full cost and zero carry. It also contradicted pitfalls[5] on the same page. Rewritten to 'do not put the trade on', with the note that an inherited high-yield exposure is a hedging decision rather than a carry trade.",
+   "SKEPTIC PASS: cues[0] sent the reader to compute a differential, but the one bank item that gives money market rates (currency_sabanai_marina_campos_q3) is graded on two screens: 'The spread in yields is widest between the United Kingdom and the United States, and the USD/GBP currency pair has the lowest implied volatility, which is better for a carry trade.' The volatility screen was stranded in whenToRecommend[0] as regime mood. The selection rule is now stated in the cue.",
+   "SKEPTIC PASS: whenToRecommend[2] was a multiple-choice recognition tell, not a condition about the client, and in an essay slot it would earn nothing. Moved to cues[8] and widened into the four-way comparison the official LOS actually asks for, since the LOS command word is COMPARE.",
+   "SKEPTIC PASS: cons[1]'s 25% devaluation figure was challenged as invented. REJECTED on the source: it is verbatim in CFAL3/Resources/reading_notes.json readings[17] ('Crisis: EM currency devalues 25% -> approximately -25% + 8% = -17% in weeks'), it just did not make the 14-sentence grounding sample. The arithmetic half of the flag was valid and is fixed: 25% against an 8% carry is about three years of carry, not one, so the figure is now attributed to the notes' illustration and the three-year and timing points are stated separately.",
+   "SKEPTIC PASS: confidence rationale corrected. The previous rationale said the grounding has 'no LOS', which is false about the candidate's material: los_master.json carries currency_management_an_introduction.d, 'compare active currency trading strategies based on economic fundamentals, technical analysis, carry-trade, and volatility trading', at /los_flat/155, and currency_sabanai_marina_campos_q3 is tagged to it. The grounding slice simply reported counts.los = 0.",
+   "SKEPTIC PASS: added the reader-facing pitfall that the candidate's own reading notes state the roll-yield sign backwards, so a reader who cross-checks this entry against those notes is not left thinking the entry is wrong."
+  ],
+  "shortfall": "",
+  "residualRisk": "The roll-yield sign in pro 5, cue 3 and pitfall 5 is CONFIRMED, not residual, and must not be touched by a later pass. Three independent parts of the candidate's own material state it as shipped: flashcards fc card 1813 ('Hedging a long foreign exposure means SELLING that currency forward, positive roll yield if it is the LOW-yield (forward-PREMIUM) currency, and a COST if it is the HIGH-yield (forward-DISCOUNT) currency') and card 1815 (carry trade = buy forward-discount / sell forward-premium = earning positive roll yield); question_bank currency_sabanai_marina_campos ('The CHF is at a forward discount of 2.64%, which means that the expected roll yield for a short hedge of CHF is -2.64%'); and maravella_global_currency_pathway ('Selling a currency at a forward DISCOUNT locks in NEGATIVE roll yield', with the reciprocal case spelled out). The previous pass's claim that a flashcard states the opposite was a false attribution and has been removed. The defect is confined to CFAL3/Resources/reading_notes.json readings[17], which is inverted in five places (the LOS 5 and 6 roll-yield bullet, both worked examples, the exam-focus line, self-test question 7) and contradicts itself inside its own 1.2000 spot / 1.2356 forward example, where the short forward in fact gains about 2.97% and the hedged return comes to exactly the 4% domestic rate. That is a notes fix to file, not an open question here, and pitfalls[5] now warns the reader directly. What genuinely remains open: cons[5]'s term-structure-of-the-carry reasoning is derived from covered interest rate parity rather than taken from the study material, and the 'an IPS barring counterparty exposure rules the trade out altogether' step in cues[5] is an inference from the notes' NDF paragraph rather than something the notes state. Everything else in the entry is now corroborated in the candidate's own material: the four active styles and the four return sources, the IPS discretionary bands and the information-ratio benchmark, the overlay rung of the management continuum, the 1%/9%/8% EM illustration with its 25% crash, the contagion point, the NDF risks, the stop-losses and tail-risk limits, and the static-curve repo carry distinction. Confidence stays medium only because of those two derived steps and because a reader studying from the inverted notes will meet a direct contradiction on roll yield."
+ }
+}

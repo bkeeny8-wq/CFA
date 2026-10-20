@@ -15,6 +15,7 @@ final class ContentLoader {
     private(set) var schedule: StudySchedule?
     private(set) var mmReview: MMReviewBundle?
     private(set) var cycleMap: CycleMap?
+    private(set) var playbook: InstrumentPlaybook?
     private(set) var commandWordBundle: CommandWordBundle?
     private(set) var loadError: String?
 
@@ -137,6 +138,7 @@ final class ContentLoader {
         let mmReview: MMReviewBundle?
         let commandWords: CommandWordBundle?
         let cycleMap: CycleMap?
+        let playbook: InstrumentPlaybook?
     }
 
     private static func decodeSnapshot() throws -> ContentSnapshot {
@@ -155,6 +157,9 @@ final class ContentLoader {
         // Optional like the others: a decode failure hides the Cycle Map
         // entry card rather than taking the whole content load down.
         let cycleMap: CycleMap? = try? decodeJSON("cycle_map")
+        // Optional like the rest: a decode failure hides the playbook entry
+        // card rather than taking the whole content load down.
+        let playbook: InstrumentPlaybook? = try? decodeJSON("instrument_playbook")
         #if DEBUG
         if cycleMap == nil {
             print("CFAL3: cycle_map.json failed to decode")
@@ -183,7 +188,8 @@ final class ContentLoader {
             schedule: schedule,
             mmReview: mmReview,
             commandWords: commandWords,
-            cycleMap: cycleMap
+            cycleMap: cycleMap,
+            playbook: playbook
         )
     }
 
@@ -221,6 +227,7 @@ final class ContentLoader {
         schedule = snapshot.schedule
         mmReview = snapshot.mmReview
         cycleMap = snapshot.cycleMap
+        playbook = snapshot.playbook
         applyFlashcards(snapshot.flashcardBundle)
         applyCommandWords(snapshot.commandWords)
         rebuildIndexes(from: snapshot.bank, los: snapshot.los, notes: snapshot.notes)

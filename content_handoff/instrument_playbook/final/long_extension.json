@@ -1,0 +1,138 @@
+{
+ "key": "long_extension",
+ "name": "Long Extension (130/30)",
+ "family": "Equity",
+ "summary": "An active equity structure that shorts 30% of capital and uses the proceeds to hold 130% long, leaving net market exposure at 100% and gross exposure at 160%. It turns on one decision: whether relaxing the long-only constraint buys enough transfer coefficient to pay for the borrow, financing and leverage it adds.",
+ "pros": [
+  {
+   "text": "Shorting relaxes the long-only constraint, so a portfolio weight can go negative instead of stopping at zero and a negative view is no longer capped at the stock's benchmark weight. That raises the transfer coefficient, and since IR = TC x IC x sqrt(BR), it raises potential alpha.",
+   "source": "active_equity_investing_portfolio_construction"
+  },
+  {
+   "text": "The transfer-coefficient gain is largest where the benchmark holds many small-weight names, because those are exactly the positions a long-only manager can only underweight down to zero.",
+   "source": "active_equity_investing_portfolio_construction"
+  },
+  {
+   "text": "Net market exposure stays at 100% and, when the two legs are matched in beta, net beta is held near 1, so a benchmark-relative equity mandate survives intact. What the structure adds is security selection on both sides of the book, not a bet on market direction. Note the qualifier: net 100% of capital does not by itself produce beta 1, so beta neutrality has to be an explicit constraint rather than a consequence of the dollar exposure.",
+   "source": "active_equity_investing_portfolio_construction"
+  },
+  {
+   "text": "More breadth at moderate leverage and short cost: gross exposure runs 160% of capital against 100% for long-only, which carries no leverage at all, and 200% for a 100/100 market-neutral book, so the reading's comparison grid calls this leverage moderate. Read that as the grid's own comparison, not a general ranking: some long/short structures run less gross than 160%, so the defensible claim is that the structure adds financing, borrow and leverage risk rather than removing it.",
+   "source": "active_equity_investing_portfolio_construction"
+  }
+ ],
+ "cons": [
+  {
+   "text": "It does not reduce market risk. Net beta is held at about 1 by construction, the same as long-only, so a falling market is felt in full. Market-neutral is the approach that takes beta to about 0, and a long/short book runs a variable net exposure; a long extension holds net exposure at 100% by design.",
+   "source": "active_equity_investing_portfolio_construction"
+  },
+  {
+   "text": "The short leg loses without limit if the stock keeps rising, while its best case is capped at 100% of the position, the reverse of the payoff on a long holding.",
+   "source": "active_equity_investing_portfolio_construction"
+  },
+  {
+   "text": "Shorts must be borrowed, so they are exposed to borrow availability and recall, require posted margin, and face short squeezes when a crowded short rises sharply and forces buying.",
+   "source": "active_equity_investing_portfolio_construction"
+  },
+  {
+   "text": "Gross 160% magnifies both gains and losses and can force deleveraging in stress, typically the moment when the shorts are rising and the longs are falling at once.",
+   "source": "active_equity_investing_portfolio_construction"
+  },
+  {
+   "text": "It demands stronger operational infrastructure, risk controls and prime-brokerage relationships than a long-only fund, on top of borrow fees and financing cost.",
+   "source": "active_equity_investing_portfolio_construction"
+  },
+  {
+   "text": "A higher transfer coefficient only multiplies the skill that is there. With no genuine skill on the negative views there is no TC gain to be had, and forecasts that are pure noise can even lower TC by pulling the active weights away from the optimal set, so the extra gross exposure buys borrow, financing, leverage risk and operational complexity for no gain in transferred skill.",
+   "source": "curriculum"
+  }
+ ],
+ "whenToRecommend": [
+  "A manager with a good information coefficient reports a transfer coefficient well below 1, and the analysis attributes the shortfall to the long-only constraint rather than to position limits.",
+  "The benchmark is broad with a long tail of small-weight names, such as a broad all-cap or small-cap index, so most negative views cannot be expressed by underweighting to zero.",
+  "The IPS or the board insists on keeping full equity market exposure and a benchmark-relative mandate, but permits limited shorting and gross exposure of roughly 1.6 times capital.",
+  "The committee wants more expected active return out of the same active-risk budget rather than a larger one: in E(R_A) = TC x IC x sqrt(BR) x active risk, lifting TC raises expected active return at unchanged active risk. Add that the gross exposure and financing risk the structure brings are not captured by that active-risk term.",
+  "Prime-brokerage, margin and stock-borrow infrastructure is already in place, and the names to be shorted are liquid and easy to borrow."
+ ],
+ "whenNotTo": [
+  "The IPS prohibits shorting, borrowing or leverage. Stay long-only and use the levers that remain: widen position and sector limits within prudent risk control, strip out constraints that add no real risk control, which simply recovers wasted skill, and raise breadth by running the strategy across more securities or markets. Say which term each lever works on, because the first two raise TC while breadth raises the information ratio through sqrt(BR). Widening the tracking-error budget is a different lever again: it raises active risk, not TC.",
+  "The objective is to strip out market risk and deliver pure alpha. Net beta stays near 1 here, so use a market-neutral long/short book at beta about 0 instead.",
+  "The benchmark is a concentrated large-cap index where even the smaller names carry meaningful weight, so most negative views can already be expressed by underweighting. The transfer-coefficient gain is small and may not cover the borrow, financing and operational cost.",
+  "The intended shorts are hard to borrow, illiquid or already heavily shorted, and the borrow is quoted at a high and rising fee. Recall and squeeze risk can close the position at the worst price, and gross 160% magnifies the loss and can force deleveraging, so stay long-only, shrink the short list to liquid easy-to-borrow names, or take the view through the pay leg of a single-name swap where the dealer carries the borrow. Shorting the index is not a substitute: it sells the manager's own longs too, so it transfers none of the name-specific view, and it drops net exposure below 100%.",
+  "The manager's demonstrated edge is long-side security selection only, with no track record on negative views. A long-only active or factor approach is cheaper for the alpha that is actually there.",
+  "The investor cannot tolerate a margin call or forced deleveraging, for example a fund with large near-term spending needs. Keep the exposure unlevered."
+ ],
+ "pitfalls": [
+  "Mixing up net and gross. 130/30 is net 100% (130 minus 30) and gross 160% (130 plus 30). Writing 160% net or 100% gross loses the mark.",
+  "Claiming it lowers market risk or beta. The structure is built at net beta about 1, the same as long-only; beta about 0 is the market-neutral case, and about 1 again once a neutral book is equitized with futures. The mirror-image trap is treating net dollar exposure as beta exposure: 130/30 guarantees net 100% of capital, not net beta 1, so if the shorts are higher-beta than the longs the net beta is below 1 (130 x 0.9 minus 30 x 1.3 gives 0.78). Check the betas a vignette supplies before asserting beta 1.",
+  "Treating the 30 of short proceeds as extra capital. Capital is 100. The proceeds finance the extra 30 of longs, which is why 130 long sits on 100 of capital.",
+  "Calling the alpha gain automatic. Relaxing long-only raises TC, and TC multiplies IC and the square root of breadth. Say what the gain depends on: real skill on the negative views and genuinely independent bets.",
+  "Listing lower cost or simplicity as an advantage. Long-only is the cheapest and simplest. The advantage here is breadth and transfer coefficient, paid for with borrow, financing and operational cost.",
+  "Answering the risks of shorting with volatility alone. The marks are on unlimited loss against capped gain, borrow availability and recall, margin, short squeeze, and forced deleveraging under leverage."
+ ],
+ "cues": [
+  {
+   "signal": "The benchmark holds well over a thousand names, most at weights under 0.1%, and the manager says it cannot act on its sell ideas.",
+   "implication": "The long-only constraint binds on nearly every negative view, since a 0.05% weight can only be underweighted to zero. This is the case where relaxing long-only lifts the transfer coefficient and potential alpha most, so the structural answer is to relax the long-only constraint: a long extension if the mandate requires full equity market exposure, a long/short book if it does not. Find the net-exposure requirement before naming one of the two, because nothing else discriminates between them."
+  },
+  {
+   "signal": "The transfer coefficient is reported as roughly 0.6 and the committee asks how to improve the portfolio's structural efficiency.",
+   "implication": "TC is held down by binding constraints, so answer with the constraints: the long-only limit first, which a long extension or long/short relaxes, then position and sector limits, which can be widened within prudent risk control, and any constraint that adds no real risk control, which should simply be stripped out. Because the question is about structural efficiency rather than TC alone, offer breadth as well, more independent bets or the same strategy across more securities or markets, but say which term it works through: breadth raises the information ratio via sqrt(BR) and leaves TC unchanged. A wider tracking-error budget is not a TC lever either, it raises active risk."
+  },
+  {
+   "signal": "The mandate requires full equity market exposure at all times, or is benchmarked to the index rather than to cash.",
+   "implication": "Net market exposure must stay at 100% and net beta about 1. A long extension delivers that provided the two legs are matched in beta, and an equitized market-neutral book delivers it through the index-futures overlay; a plain market-neutral book at beta about 0 is ruled out. Check the betas the exhibit gives before asserting beta 1, because dollar exposure is not beta exposure."
+  },
+  {
+   "signal": "Gross exposure is capped at 150% of capital, or borrowing is limited to a fraction of capital.",
+   "implication": "130/30 runs gross 160%, so it breaches a 150% cap. Scale the extension down to 125/25, which is net 100% and gross 150%, or stay long-only. Always test the proposed structure against the stated gross limit, not just the net one."
+  },
+  {
+   "signal": "The fund has no prime broker, or the custodian does not support stock lending.",
+   "implication": "The single-name short leg cannot be implemented, because shorting requires borrowed stock and posted margin, so the long extension is ruled out as proposed. Either build that infrastructure first, or take synthetic short exposure to the same names through the pay leg of a single-name equity or total-return swap, where the dealer carries the borrow and prices it into the swap spread, so a name that is hard to borrow is still expensive or simply unquoted. The swap substitutes dealer counterparty exposure for the prime-broker counterparty exposure the borrow route already carries on posted collateral; it does not create counterparty risk where there was none. Short index futures are not a substitute: they sell the market rather than the stock, so they transfer none of the name-specific view, and unless matched by extra longs they cut net exposure below the 100% the structure exists to preserve."
+  }
+ ],
+ "comparesWith": [
+  "long_short",
+  "market_neutral",
+  "factor_investing",
+  "index_replication"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "pros: 'The short proceeds fund the extension. Start with 100 of capital, short 30, receive 30, invest it long, and you hold 130 long on 100 of capital with no new money' removed, because it is mechanics rather than an advantage and it restates both the summary and the third pitfall.",
+   "whenToRecommend: 'A market-neutral or long/short fund has been rejected because the board will not give up market return or accept high gross leverage, but some shorting is acceptable' removed as a restatement of its neighbour, which already carries the full-market-exposure requirement plus permission to short up to roughly 1.6 times capital.",
+   "SKEPTIC PASS. pros 5, 'It stays one portfolio measured against the equity index, so risk, attribution and reporting continue against the existing benchmark instead of splitting into a cash-benchmarked alpha sleeve plus a beta overlay', removed. The reading compares the four approaches on flexibility, alpha, risk and cost and teaches nothing about reporting or attribution continuity, and the benchmark-relative point is already banked in pros 3. The one grounded idea inside it, that there is no index-futures overlay to roll (Table 2 gives the equitized book's added cost as 'Borrow + overlay roll'), was deliberately NOT added back, so that a deletion is not replaced by a new claim.",
+   "SKEPTIC PASS. cue 6, 'The intended shorts are a handful of the benchmark's most heavily shorted small caps, borrow is quoted at a high and rising fee, and the vignette mentions a market shock', removed. 'The vignette mentions a market shock' describes the vignette from outside rather than stating what an exhibit would show, which is the same meta-framing the repair pass claimed to have removed from this cue, and the rest restated whenNotTo 4 plus cons 3 and cons 4. The borrow-economics trigger and the squeeze, recall and gross-leverage marks now live in whenNotTo 4.",
+   "SKEPTIC PASS. whenNotTo 2, the clause 'and equitize it with index futures if the market return is wanted back', removed. The item's premise is an objective to strip out market risk, and equitizing restores beta to about 1, so the clause ended at the same market exposure that disqualified the long extension two clauses earlier. The equitized case already sits correctly in cue 3, as the alternative when the mandate requires full market exposure."
+  ],
+  "corrected": [
+   "whenNotTo 1 and cue 2 both listed 'raise breadth with more independent bets' as a lever on the transfer coefficient. Breadth is a separate term in the fundamental law (sqrt(BR)) and does not raise TC, so both now name constraint relaxation as the TC levers and say explicitly that more bets leave TC unchanged.",
+   "pros 4 claimed gross 160% is low 'against the high gross of a market-neutral long/short book'. The notes support only 'moderate leverage/short cost', and a market-neutral book's gross is not fixed, so the comparison is now to long-only at 100% gross with the cost ranking stated as between long-only and a full long/short book.",
+   "cons 1 said 'Only the market-neutral version takes beta to about 0'. A long/short book runs a variable net exposure, so 'only' was wrong; the claim now distinguishes market-neutral at about 0, long/short as variable, and the long extension as 100% net by design.",
+   "cons 2, 3 and 5 cited active_equity_investing_portfolio_construction, but unlimited short loss, borrow and recall, margin, squeeze risk and prime-brokerage infrastructure appear nowhere in this instrument's nine note sentences. All three are now sourced 'curriculum', which is what the provenance rule requires. [SUPERSEDED BY THE SKEPTIC PASS, SEE BELOW: the premise was wrong and the reading id has been restored.]",
+   "whenNotTo 3 asserted the TC gain 'does not cover' the cost of a concentrated large-cap benchmark. That is a judgement, not a fact, so it now reads that the gain is small and may not cover the cost.",
+   "whenNotTo 5 said a long-only approach is cheaper 'for the same expected alpha'. That holds only if short-side skill is exactly zero, so it now reads 'for the alpha that is actually there'.",
+   "whenToRecommend 4 claimed higher expected active return at unchanged active risk without qualification. The fundamental-law result is kept, with the caveat that the gross exposure and financing risk the structure adds are not captured in the active-risk term.",
+   "pros 1 said a negative view can be expressed 'below a zero weight', which conflates portfolio and active weight. It now says the portfolio weight can go negative and the underweight is no longer capped at the benchmark weight.",
+   "pros 3 attributed the added active return to 'structure'. The structure only permits the bets, so it now attributes the return to security selection on both sides of the book.",
+   "cons 4 stated flatly that stress 'is' shorts rising and longs falling at once; softened to 'typically'.",
+   "cue 5 recommended an equity-swap short leg without naming its cost: the counterparty exposure it introduces is now stated, and the cue now says plainly that the long extension is ruled out as proposed.",
+   "cue 6 was a meta-instruction about which question was being asked and selected nothing. Its signal is now a borrow-economics fact a vignette would state, and its implication eliminates the single-name short list in favour of liquid names or an index-level expression. [SUPERSEDED BY THE SKEPTIC PASS: the cue is deleted and the index-level expression was wrong.]",
+   "confidence lowered from 'high' to 'medium'. The grounding is nine note sentences and one LOS, with no essay stems, and a substantial share of the entry is standard material added on top, which the brief caps at medium.",
+   "SKEPTIC PASS, PROVENANCE REVERSED. cons 2, 3 and 5 are sourced back to active_equity_investing_portfolio_construction. The repair pass downgraded them to 'curriculum' on the premise that unlimited loss, borrow availability and recall, margin, squeeze risk and prime-brokerage infrastructure 'appear nowhere in this instrument's nine note sentences'. That tested the wrong text: all of it is verbatim in the candidate's own R21 notes, CFAL3/Resources/reading_notes.json, section 'The risks and requirements of shorting', and the sibling entry final/long_short.json already cites the reading id for the same three facts (its cons 1, 2 and 6). The 'curriculum' tag was telling the reader that examinable R21 material was generic background, and it made the playbook contradict itself on provenance for identical claims. The nine-sentence extract in grounding.json is a filtered slice of the reading, not the limit of what the reading supports.",
+   "SKEPTIC PASS. pros 4 leverage ranking rewritten. 'Financing, borrow and leverage risk sit between long-only and a full long/short book' is false as a general ordering, and the candidate's own drill gives the counterexamples: Exhibit 27, reproduced in CFAL3/Resources/los_drills_r21.json question 6, runs long-only at 100 gross, 130/30 at 160, market neutral low risk (50/50) at 100, directional low risk (80/40) at 120, net short (40/100) at 140 and market neutral higher risk (100/100) at 200. Three long/short structures there run LESS gross than a 130/30, and flashcard 2540 puts typical equity hedge fund gross at 150 to 200 percent, which brackets 160 rather than sitting above it. The claim now gives the two grounded comparators (100% long-only, 200% for a 100/100 market-neutral book), attributes the word 'moderate' to Table 2's grid, and warns against generalising the ranking. This is the second time this claim has had to be repaired.",
+   "SKEPTIC PASS. The unqualified equation of net dollar exposure with net beta is fixed in pros 3, pitfall 2 and cue 3, which asserted beta about 1 as a consequence of net 100%. The candidate's own flashcards mark this as the classic error in exactly this reading: card 2543 'Classic error: treating dollar neutral as market neutral', cards 2544 and 2545 'Equal dollars long and short is not zero beta, the economic drivers of the two sides differ ... (e.g. long $100 at beta 1.0 vs short $80 at beta 1.25)', and card 2536 is careful that net exposure only 'signals' Market-factor exposure. Beta near 1 is a construction constraint imposed on top of net 100%, not a result of it: 130% long at beta 0.9 against 30% short at beta 1.3 is net beta 0.78. The arithmetic counterexample is now in pitfall 2 rather than in a seventh pitfall, so that the correction does not pad the list.",
+   "SKEPTIC PASS. cue 2 no longer tells the candidate to withhold breadth on a structural-efficiency question. The notes' own 'Improving structural efficiency' list has four levers (relax long-only, widen position and sector limits, increase breadth, strip out constraints that add no real risk control), the exam-focus line repeats 'relaxing long-only, widening limits, or raising breadth', and self-test 16, 'Name three ways to improve a structure's transfer coefficient', is marked correct with 'Relax the long-only constraint, widen position/sector limits, and raise breadth'. Suppressing a lever the candidate will be graded on costs marks. The cue and whenNotTo 1 now give the constraint levers first, add breadth, and say which term each works through. whenNotTo 1 also no longer claims widening limits is 'the way still open', singular, since with shorting barred the notes leave several.",
+   "SKEPTIC PASS. Tracking-error limits removed from the list of TC levers in whenNotTo 1 and cue 2. TC is the correlation between actual and optimal active weights and is therefore scale-invariant: a binding active-risk budget scales every active weight down proportionally, leaves the shape of the bet set unchanged and leaves TC unchanged. Widening it raises sigma_A, the separate multiplicative term in E(R_A) = TC x IC x sqrt(BR) x sigma_A. The notes name only position and sector limits, and keeping tracking error on the TC list also contradicted whenToRecommend 4, which sells the structure as buying active return out of the same active-risk budget rather than a larger one. Both items now state the distinction explicitly.",
+   "SKEPTIC PASS. The index-level short is removed as a substitute for a single-name short, in cue 5 and whenNotTo 4 (and with cue 6, where it appeared a third time). The views at issue are security-specific, and shorting an index sells every name in it, including the ones the manager is long, so it transfers none of the stock-specific negative forecasts; worse, short index futures against an unchanged long book cut net exposure and net beta below 100%, which breaches the full-market-exposure property that is the whole reason to choose a long extension over a market-neutral book, as cue 3 and cons 1 of this same entry insist. Both items now route the view through the pay leg of a single-name swap and say plainly why the index is not a substitute.",
+   "SKEPTIC PASS. cue 5's swap caveat corrected twice over. 'Needs no stock borrow' hid the borrow rather than removing it: the dealer hedges by shorting, and therefore borrowing, the stock and prices that borrow into the swap spread, which bites hardest in the hard-to-borrow names the cue is about, so the name may be expensive or simply unquoted. And 'adds counterparty exposure' mis-framed the comparison, since the stock-borrow route already carries bilateral credit exposure to the prime broker on posted collateral, which flashcard 2553 names exactly ('counterparty risk if collateral sits in a prime broker's general account (Lehman)'). The swap substitutes one counterparty for another.",
+   "SKEPTIC PASS. cue 1 no longer names a 130/30 off a signal that cannot select it. The grounding's lever is the constraint, not the structure: 'RELAXING the long-only constraint (a long extension or long/short) lets the manager act on negative views'. The signal says nothing about required net market exposure, which is the only thing that discriminates between the two, so the cue now answers 'relax long-only' and tells the reader to find the net-exposure requirement before choosing. The sibling final/long_short.json cue 1 handles the identical signal the same way.",
+   "SKEPTIC PASS. cons 6 reframed from 'transfers no alpha' to 'no gain in transferred skill'. The claim was too absolute in both directions: with pure-noise short forecasts TC does not merely fail to rise, it can fall, because the active weights correlate less well with the optimal set; and the extension is not inert on the long side either, since the extra 30% of longs deploys more active weight on the ideas the manager does have skill in, raising sigma_A. The clean exam claim is about the TC gain. 'Higher fees' also dropped: the reading's cost list for this LOS is exhaustive ('shorting/borrow fees, margin and financing, leverage risk, and operational complexity') and fee levels are not among the marks, so the claim now lists the grounded costs only.",
+   "SKEPTIC PASS, confidence re-examined and kept at 'medium', but for different reasons than the repair pass gave. That pass capped it at medium partly on the false premise that the shorting-risk material was ungrounded; with Table 2, the 130/30 worked example, the shorting-risks paragraph, the efficiency-lever list and flashcards 2536 to 2553 all in scope, the core of this entry is in fact strongly supported, and in isolation that core would justify 'high'. Medium is kept because material remains in doubt after this pass: the single-name swap route in cue 5 and whenNotTo 4 is cross-reading and partly market mechanics (the notes use index futures only for the equitized overlay, and the dealer's borrow pass-through is nowhere in the notes), the 125/25 rescaling in cue 4 is arithmetic rather than curriculum text, and the operational-readiness items in whenToRecommend and whenNotTo are standard practice rather than taught content. This is also the second pass to find a repeated error in the leverage ranking and the beta claim, which argues for the badge telling the reader to check."
+  ],
+  "shortfall": "",
+  "residualRisk": "Three things. First, the synthetic short route now carried in cue 5 and whenNotTo 4: single-name total-return swaps are taught in swaps_forwards_and_futures_strategies (paying the return on a concentrated stock), but using one to replace a stock borrow in a long extension, and the claim that the dealer prices its own borrow into the spread, are inference from market mechanics rather than anything in this reading's notes, so they are tagged to no reading and a grader may not want them volunteered. Second, whenToRecommend 4, that lifting TC raises expected active return 'at unchanged active risk': the fundamental-law algebra is right and this is how the curriculum frames the benefit of relaxing constraints, but a 130/30 changes the realised risk profile through leverage and borrow even when the stated active-risk budget is held constant, so the qualifier matters and a grader may want it stated more strongly. Third, the beta qualification now in pros 3, pitfall 2 and cue 3 cites flashcard-level material (cards 2536 and 2543 to 2545) and the arithmetic example; Table 2 itself only says net beta '~1' for a 130/30, so if a vignette supplies no leg betas the unqualified answer is still the expected one and the qualification should be offered as a check, not as a contradiction of the table."
+ }
+}

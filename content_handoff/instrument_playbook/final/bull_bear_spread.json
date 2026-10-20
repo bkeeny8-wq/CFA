@@ -1,0 +1,144 @@
+{
+ "key": "bull_bear_spread",
+ "name": "Bull and Bear Spreads",
+ "family": "Derivatives: options",
+ "summary": "A vertical spread: buy one option and sell another of the same type, same underlying and same expiry at a different strike. It turns on a single trade, giving up everything beyond the short strike in exchange for a known worst case and a much lower net cost, and the vignette's cost constraint then decides whether you build it with calls or with puts.",
+ "pros": [
+  {
+   "text": "Both the gain and the loss are bounded. The notes' worked bull call spread (buy X=50 at 4, sell X=55 at 2) caps the gain at 3 and the loss at 2, a cheaper and moderated version of an outright call, and the bear spread is the mirror image.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "The worst case is a number you can state before the trade, so the position can be sized exactly and the downside disclosed to the client up front. For a debit spread it is the net premium paid; for a credit spread it is the strike width less the net credit received.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "The premium received on the short leg funds part of the long leg, so the outlay is smaller than for the outright option expressing the same view.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "The same payoff can be built with calls or with puts, so you can choose the construction that brings in a net credit: bear spread with calls, bull spread with puts.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Written as exchange-traded options, a vertical replaces dealer credit exposure with the clearinghouse, so it survives an IPS that bars OTC counterparty risk where a forward or swap overlay would not. The exposure is mutualised rather than absent, the short leg carries initial and variation margin, and verticals are also written OTC, so the recommendation has to specify listed options.",
+   "source": "curriculum"
+  }
+ ],
+ "cons": [
+  {
+   "text": "The cap is real and it binds on exactly the side you wanted. Profit stops at the strike difference less the net debit, or at the net credit received for a credit construction, so a move far beyond the short strike earns nothing extra.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Being right on direction is not enough: the position has to clear the breakeven, and the full maximum loss is taken whenever the underlying finishes at or beyond the long leg's strike on the losing side.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Laid over a holding as protection, a put spread cheapens the cover but leaves the deep downside unhedged, because the protection stops at the short strike instead of continuing toward zero.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Two legs mean two bid-ask spreads and two sets of commissions, which can take a large share of a narrow strike width.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Maximum profit arrives only at expiry. Before then the short leg still carries time value, so an in-the-money spread trades below its stated maximum.",
+   "source": "curriculum"
+  },
+  {
+   "text": "An American-style short leg can be assigned early once it is in the money, a short call especially before a dividend, leaving an unintended position in the underlying.",
+   "source": "curriculum"
+  }
+ ],
+ "whenToRecommend": [
+  "The investor names a target price over a stated horizon, so the short strike can be placed at or just beyond that target and the premium beyond it sold rather than bought.",
+  "The investor wants to profit from an expected decline but wants the loss limited if the decline does not happen. A bear spread delivers both; a naked short call or a short futures position does not.",
+  "The client will not pay an upfront premium, or the vignette says to minimize the cost of establishing the position: build the spread as a net credit, bear with calls or bull with puts.",
+  "A mandate, IPS or risk policy requires a maximum loss that is known and capped before the position is opened."
+ ],
+ "whenNotTo": [
+  "The objective is to capture the full extent of a large move and the vignette sets no cost limit and no cap on the loss the investor will accept: buy the outright call or put, which keeps the upside the short leg gives away. The adverb alone does not settle this, because a vignette can expect a sharp move and still want a spread.",
+  "Bullish but implied volatility is expected to fall, or the objective is income: the selection grid answer is selling puts or writing a covered call, not a bull spread.",
+  "The view is on volatility with no direction: a long straddle or strangle for a big move, a short straddle or a butterfly for a narrow range.",
+  "The holding has to be protected all the way down, or the client cannot absorb a gap below the short strike: that is a protective put for full cover, because a put spread's protection stops at the short strike.",
+  "The move is expected but not immediately, or the view concerns time decay and the volatility term structure: that is a calendar spread, one strike and two expiries."
+ ],
+ "pitfalls": [
+  "Applying the debit formula to a credit spread. Max profit = strike difference less net debit, max loss = net debit, holds only when you paid. For a credit construction max profit is the net credit received and max loss is the strike difference less that credit. Check every answer against the identity: max profit plus max loss equals the strike difference.",
+  "Assuming a bear spread must use puts. Either spread works with calls or with puts; the strikes set the direction. Bear spread buys the higher strike and sells the lower; bull spread does the reverse.",
+  "Reading the adverb instead of the constraint. A vignette that expects a share price to decline sharply can still be a bear spread question. What selects the spread over the outright put is a stated wish to limit the loss if the move does not happen, or to minimize the cost of opening the position, and the selection grid puts the spread in the big-move cell alongside buying calls.",
+  "Ignoring the cost constraint in the vignette. Both constructions have the correct payoff shape, so a sentence about avoiding a cash outlay is what decides between them and is usually worth a mark on its own.",
+  "Writing unlimited profit for a bull spread or unlimited loss for a bear spread. Every vertical spread is bounded on both sides.",
+  "Breakeven errors. A call-based spread breaks even at the lower strike plus the net premium, a put-based spread at the higher strike minus the net premium, and both hold whether you paid or received. Do not assume the midpoint of the two strikes: it coincides with the breakeven only when the net premium happens to be half the width.",
+  "Getting the delta mechanism wrong. Net delta is the long leg's delta less the short leg's, so a bull spread is net long and a bear put spread net short, each smaller in magnitude than the long leg taken alone. The reason is the short leg, not the absence of stock: push both legs deep into the money and each delta approaches 1, so the spread's net delta collapses toward zero rather than toward the +1 of the underlying.",
+  "Treating a vertical as volatility-neutral or time-neutral. The legs partly offset, but vega and theta peak at the money, so whichever leg sits nearer the money dominates. The net sign can go either way, and a deep in-the-money vertical can be net short vega."
+ ],
+ "cues": [
+  {
+   "signal": "Wants to profit from an expected move but also wants to limit losses if the move does not materialize.",
+   "implication": "A defined-risk structure is required. Rules out naked short options and outright futures, and points to a spread rather than an outright option once cost is also mentioned."
+  },
+  {
+   "signal": "Would like to minimize the cost of establishing the position, or to avoid a cash outlay.",
+   "implication": "Choose the credit construction: bear spread using calls, bull spread using puts. Both constructions give the right payoff shape, so this single line decides the answer. It does not make the position free, because the short leg still has to be margined."
+  },
+  {
+   "signal": "The exhibit lists call and put premiums at two strikes for a single expiration.",
+   "implication": "A vertical spread calculation is coming. Compute the net premium, then strike width less net premium, then breakeven at the lower strike plus the premium for calls or the higher strike minus it for puts."
+  },
+  {
+   "signal": "Expects prices to move in a certain direction but not immediately.",
+   "implication": "Timing language means a calendar spread, same strike and different expiries, not a vertical spread."
+  },
+  {
+   "signal": "The client already holds a large position in the underlying.",
+   "implication": "The question is about an overlay, and the choice sits on a cost-versus-protection spectrum: covered call for income, protective put for full cover, collar for cheap bounded cover, put spread for partial low-cost cover. A put spread is a sanctioned answer here, not an excluded one."
+  },
+  {
+   "signal": "Concerned about counterparty credit, or cannot sign OTC documentation.",
+   "implication": "Rules out forwards, swaps and any dealer-written structure. Exchange-traded options survive, so a listed vertical clears the constraint, but the answer must say listed, because verticals are also written OTC."
+  },
+  {
+   "signal": "Asked to rank strategies by net delta, or which position is delta neutral.",
+   "implication": "Bull spread net positive and below a single long call, bear put spread net negative, straddle about zero at inception. Never assign a spread a delta of +1."
+  },
+  {
+   "signal": "Given two of max profit, max loss and the strike width, and asked for the third.",
+   "implication": "Max profit plus max loss equals the difference between the strikes for every vertical spread, whichever option type built it."
+  }
+ ],
+ "comparesWith": [
+  "straddle",
+  "calendar_spread",
+  "covered_call",
+  "collar"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "'Because the two legs partly offset, exposure to implied volatility and to time decay is much smaller than for a single long option, so getting the volatility view wrong costs less.' Removed as a pro because it is false in general, not merely width-dependent: vega peaks at the money, so a vertical whose short leg sits nearer the money than its long leg is net short vega with magnitude exceeding the long leg's own, and the trailing clause invites skipping the volatility axis the selection grid exists to test. The accurate residue is now pitfall 8.",
+   "'The outright call or put premium is large relative to the move expected, so selling the far strike recovers part of the cost.' Removed from whenToRecommend as padding restating the cost motive already carried by the net-credit item.",
+   "'The direction view is firm but conviction on magnitude and timing is limited, so an unbounded position would be oversized for the view.' Removed from whenToRecommend: it restates the target-price item and leans on a moderate-move framing that the notes' own grid undercuts by placing the spread in the big-move cell.",
+   "'The available strikes are so close together that bid-ask spreads and commissions consume most of the width.' Removed from whenNotTo as a near-verbatim restatement of the two-legs transaction-cost con.",
+   "Cue 'Expects a moderate or modest move, or names a target price.' Removed as a vague market-view cue: its implication places a strike rather than ruling an instrument in or out, and the moderate-move premise conflicts with the grid. The strike-placement point survives in whenToRecommend."
+  ],
+  "corrected": [
+   "whenNotTo[0] no longer reads the adverb as the discriminator. The drafted rule sent a candidate to the outright option on words like sharply, which contradicts the notes grid ('bullish+big-move points to buy calls or a bull spread') and would mis-answer the one bank case on this instrument, where a client expecting a sharp decline is correctly given a bear call spread. Rewritten to key off the stated objective, and the trap is now named explicitly in pitfall 3.",
+   "cons[1] replaced. 'If the underlying sits still, the entire net debit is lost' is wrong as a general payoff statement: the full debit is lost only at or beyond the long strike on the losing side, a spread straddling spot can be profitable unchanged, and a credit construction pays no debit at all. Now states that the position must clear the breakeven and that max loss hits past the long strike.",
+   "cons[2] replaced. 'It protects nothing' was refuted by its own second clause and by the notes, which list a put spread as partial low-cost protection alongside the put and the collar. The con is now the narrow and true one: protection stops at the short strike.",
+   "whenNotTo[3] inverted. The draft ruled out a bear spread overlay for a holder needing downside protection; the notes sanction exactly that as the cheap partial option. Now rules the put spread out only when cover is needed all the way down.",
+   "pros[1] and cons[0] qualified by construction. Both stated the debit formulas unconditionally while the entry recommends the credit construction twice, so the pros and cons taught the error pitfall 1 exists to prevent. Each now carries the credit branch.",
+   "pros[4] rewritten. 'No counterparty exposure' overstated exchange trading, which substitutes the clearinghouse rather than removing the exposure, and 'listed' is a choice rather than a property of a vertical, since verticals are routinely written OTC. Margin on the short leg added as the real constraint.",
+   "pitfalls[6] on breakeven softened from 'it is never the midpoint of the two strikes', which is literally false: buy X=50 at 4 and sell X=55 at 1.50 breaks even at 52.50, the midpoint. Now says do not assume the midpoint and names the condition under which it coincides.",
+   "pitfalls[7] on delta keeps the conclusion but fixes the mechanism. 'A spread holds no underlying' cannot be the reason, because an outright call holds none either yet its delta approaches 1 deep in the money per the notes' Greeks table. The reason is the offsetting short leg, which drives net delta toward zero, not toward +1.",
+   "pros[3] source changed from options_strategies to curriculum. The notes present only the bull call and bear put constructions, so the call-or-put equivalence and the credit variants are added material, however firmly the arithmetic holds.",
+   "cues[1] gained the margin caveat so 'no cash outlay' is not read as 'no capital committed'.",
+   "cues[4] rewritten. The draft said a bull or bear spread suits someone with no position, which excluded the put spread overlay the notes sanction. Now gives the full four-way overlay menu.",
+   "cues[5] rewritten in line with pros[4]: listed options clear an OTC prohibition, but the answer must specify listed.",
+   "summary now names the decision the instrument turns on, rather than only describing the structure."
+  ],
+  "shortfall": "",
+  "residualRisk": "Pitfall 8, that a deep in-the-money vertical can be net short vega. The mechanism is sound, since vega peaks at the money and the nearer-the-money leg dominates, but it sits well outside the grounding and beyond the depth the notes go to, so a grader may not expect or reward it. It is stated as a caution against assuming neutrality rather than as a sign rule, which is the safe way to carry it."
+ }
+}

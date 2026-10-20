@@ -1,0 +1,155 @@
+{
+ "key": "repo_leverage",
+ "name": "Repo and Leverage",
+ "family": "Fixed income",
+ "summary": "A repurchase agreement is economically a collateralized loan structured as a sale: the manager sells a bond spot and agrees to repurchase it at a price implying the repo rate, raising cash while retaining the bond's coupon and price exposure. The whole decision turns on whether the asset return will exceed the financing cost by enough to pay for the rollover, haircut and margin-call risk the borrowing adds.",
+ "pros": [
+  {
+   "text": "Economically a collateralized loan, not a disposal: the cash is raised while the borrower retains the bond's coupon and its price and spread exposure, so the financing decision does not disturb security selection.",
+   "source": "overview_of_fixed_income_portfolio_management"
+  },
+  {
+   "text": "The most common leverage method in fixed income, so it belongs in any answer that lists the methods alongside futures, swaps and securities lending.",
+   "source": "overview_of_fixed_income_portfolio_management"
+  },
+  {
+   "text": "The financing cost is explicit and fixed for the repo's term, and it prices off observable factors: the repo rate falls with collateral quality and rises with term and counterparty risk.",
+   "source": "overview_of_fixed_income_portfolio_management"
+  },
+  {
+   "text": "Repo carry is the named static-curve strategy: buy a higher-yielding bond financed at a lower repo rate and earn the spread between the two.",
+   "source": "yield_curve_strategies"
+  },
+  {
+   "text": "The effect on the equity return is one line of arithmetic: r_p = r_I + (V_B / V_E) times (r_I minus r_B), so a vignette giving equity, borrowings and the two returns is fully answerable.",
+   "source": "overview_of_fixed_income_portfolio_management"
+  },
+  {
+   "text": "It levers the manager's own bonds. Bond futures only deliver the government curve through a cheapest-to-deliver issue, so a credit or relative-value position can be financed with repo but not replicated with futures.",
+   "source": "curriculum"
+  }
+ ],
+ "cons": [
+  {
+   "text": "Symmetric: equity 100 financed with 150 of repo at 3% gives V_B / V_E = 1.5, so a 5% asset return becomes 8% but a 1% asset return becomes -2%, and the downside arrives with redemptions attached.",
+   "source": "overview_of_fixed_income_portfolio_management"
+  },
+  {
+   "text": "Rollover and funding risk: repo is short dated against a long asset, and repo lines reprice or vanish in stress.",
+   "source": "overview_of_fixed_income_portfolio_management"
+  },
+  {
+   "text": "Margin calls force sales into a falling market, exactly when collateral values are falling. The liquidity problem and the leverage problem are one topic wearing two hats.",
+   "source": "overview_of_fixed_income_portfolio_management"
+  },
+  {
+   "text": "It magnifies duration and spread exposure, not just return volatility, so the portfolio's risk versus the liability or benchmark changes as well as its return.",
+   "source": "overview_of_fixed_income_portfolio_management"
+  },
+  {
+   "text": "Repo is a bilateral, over-the-counter contract, so counterparty exposure remains even though the collateral and haircut mitigate it. Exchange-traded futures essentially remove that risk by substituting a clearinghouse and daily margining.",
+   "source": "overview_of_fixed_income_portfolio_management"
+  }
+ ],
+ "whenToRecommend": [
+  "The manager's curve view coincides with the market and the curve is expected to stay static or stable, which is the setup where adding duration or adding leverage is how you beat the benchmark. Repo carry is the leverage leg.",
+  "The asset yield sits reliably above the short-term financing rate for the horizon of the view, so the levered spread is positive and the position does not depend on a price move to pay.",
+  "The manager wants more of a specific cash bond chosen on issuer work or relative value, and generic government-curve exposure would not express the view.",
+  "A fully invested portfolio needs cash for a redemption, a margin call or a new position, rather than selling holdings and realising losses or taxable gains.",
+  "Collateral is on-the-run sovereign or large recent investment-grade issues, so haircuts are smallest, the repo rate lowest and the financing the least likely of the sub-sectors to be withdrawn in a stress period.",
+  "The IPS permits borrowing with a stated leverage cap, and the required duration or return cannot be reached unlevered."
+ ],
+ "whenNotTo": [
+  "The vignette says forward rates will be realized. Every bond then earns the same short-rate return over the horizon, so levering scales risk without raising expected return. Stay benchmark neutral.",
+  "The asset return is expected to fall below the financing cost. Leverage then subtracts even from a positive asset return: 2 + 1.5 times (2 minus 3) = 0.5%.",
+  "The IPS prohibits borrowing or caps leverage below what the trade needs. Extend duration unlevered instead, with longer buy-and-hold bonds or by riding the curve.",
+  "The IPS prohibits counterparty exposure or requires exchange-traded instruments. Use bond futures for the embedded leverage, which trade off bilateral credit risk for daily variation margin.",
+  "Collateral is high yield, securitized or emerging market, and the fund faces redemption risk. Haircuts widen and lines are withdrawn precisely when that collateral is falling, which is how forced deleveraging starts.",
+  "The exposure wanted is generic index duration or total return without holding and financing cash bonds. A receive-fixed interest rate swap or a total return swap gets there with less balance sheet."
+ ],
+ "pitfalls": [
+  "Scaling the levered-return formula with the wrong ratio. V_B / V_E is borrowed funds over EQUITY, not over total assets: equity 100 with borrowings 150 gives 1.5, not 0.6.",
+  "Listing \"bigger losses\" as the only risk of leverage. Graders want rollover and funding risk, margin calls and forced deleveraging, and the lengthened duration and spread exposure.",
+  "Treating a repo as a sale of the bond. It is a collateralized loan, so the borrower keeps the coupon and the price risk of the collateral and the position stays in the risk report.",
+  "Getting the haircut backwards. The haircut over-collateralizes and so protects the LENDER against a fall in collateral value; for the borrower it is a cost, because it limits the cash raised against a given bond.",
+  "Offering repo carry as the way to express a directional view. Its return source is the yield minus financing spread on an unchanged curve, so a view that rates will fall or the curve will reshape is expressed through duration and key-rate positioning, which leverage can then scale but cannot substitute for.",
+  "Treating repo as a way to add exposure in a single trade. Repo raises cash and adds no bond-market exposure by itself; the exposure only arrives when the cash is deployed, so a question asking how to increase the exposure of a FULLY INVESTED portfolio wants long bond futures, whose embedded leverage adds the exposure directly.",
+  "Answering repo when the vignette has already ruled out counterparty exposure or off-exchange instruments, or has already capped leverage. Read the constraints before picking the financing method."
+ ],
+ "cues": [
+  {
+   "signal": "\"The manager's view of the curve coincides with the market view\" or \"the curve is expected to remain stable or unchanged\".",
+   "implication": "Static-curve setup. Excess return comes from adding duration or adding leverage, and repo carry is the named leverage trade: higher-yielding bond financed at a lower repo rate."
+  },
+  {
+   "signal": "\"Forward rates are expected to be realized.\"",
+   "implication": "Rules repo carry and duration tilts OUT as return trades. All bonds earn the same horizon return, so leverage buys risk and no expected return. A neutral posture is the answer."
+  },
+  {
+   "signal": "Equity, borrowed amount, a borrowing rate and an asset return are all given in the exhibit.",
+   "implication": "A levered-return calculation is being asked for, even if the question words it as \"evaluate the strategy\". Use r_p = r_I + (V_B / V_E) times (r_I minus r_B) and say which way leverage worked."
+  },
+  {
+   "signal": "The asset return in the scenario is positive but below the stated borrowing cost.",
+   "implication": "Leverage subtracts. The expected answer is that the strategy destroys return despite a profitable asset, not that leverage is \"risky\"."
+  },
+  {
+   "signal": "\"The IPS prohibits counterparty credit exposure\" or \"only exchange-traded derivatives are permitted\".",
+   "implication": "Rules out repo, which is bilateral. Futures become the leverage method, and the risk essentially eliminated by that choice is counterparty credit risk."
+  },
+  {
+   "signal": "\"Borrowing is prohibited\" or a stated maximum leverage ratio.",
+   "implication": "Caps or removes repo. Reach for unlevered duration extension (longer buy-and-hold bonds, riding the curve) and size any permitted leverage to the cap rather than to the view."
+  },
+  {
+   "signal": "The portfolio's holdings are high-yield, securitized or emerging market bonds, or the fund has near-term redemption or margin obligations.",
+   "implication": "Flag forced deleveraging. Those sectors sit at the bottom of the liquidity ranking, so haircuts widen and repo lines disappear at the same time as collateral prices fall."
+  },
+  {
+   "signal": "Short-dated or overnight repo financing a long-maturity bond, with a stress scenario in the vignette.",
+   "implication": "Rollover and funding risk is the specific risk wanted, distinct from market risk: the asset term is fixed but the financing has to be renewed at whatever rate and haircut the market offers."
+  },
+  {
+   "signal": "The manager wants more of one specific bond identified by issuer or relative-value analysis.",
+   "implication": "Favours repo over futures. Futures give the deliverable government curve with cheapest-to-deliver and basis risk, so they cannot lever an issuer-specific or spread position."
+  },
+  {
+   "signal": "The objective is stated as increasing the investment exposure of a portfolio that is already fully invested, in one trade.",
+   "implication": "Selects futures over repo. Selling a repo only raises cash, which still has to be deployed, so the single-trade answer is to buy long bond futures for their embedded leverage."
+  },
+  {
+   "signal": "The question asks for a GIPS compliant presentation or a disclosure list.",
+   "implication": "The use and extent of leverage or derivatives must be disclosed where material. Do not leave it out of a disclosure answer just because the leverage was profitable."
+  }
+ ],
+ "comparesWith": [
+  "futures",
+  "total_return_swap",
+  "interest_rate_swap",
+  "bullet_barbell_ladder"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "\"It is a disclosure item: a GIPS compliant presentation must disclose the use and extent of leverage where material.\" (cons) removed: it is a reporting requirement, not a drawback of the instrument, and its only support sits in the GIPS reading, outside this instrument's grounding slice. The point is kept where it is actually useful, as a cue, which carries no citation."
+  ],
+  "corrected": [
+   "pros[1]: cut the \"default answer when a vignette asks how a bond manager levers up\" heuristic. The app's own bank item overview_of_fi_danny_moynahan_danny_q5 marks \"sell an overnight repurchase agreement\" INCORRECT for adding exposure to a fully invested portfolio, so the heuristic would lose that item. Reduced to the grounded \"most common leverage method\" ranking among the methods list.",
+   "pros[2]: scoped \"explicit and priceable before the trade\" to \"explicit and fixed for the repo's term\", because for the overnight or short-dated repo this entry assumes elsewhere the cost of financing a long bond is precisely not known in advance, which is the rollover point in cons[1].",
+   "pros[0]: \"keeping the bond\" changed to retaining the bond's coupon and price and spread exposure, since legal title does transfer in the sale-and-repurchase form and only the economics are retained.",
+   "cons[0]: restored the inputs that make the arithmetic reproducible (equity 100, 150 borrowed at 3%, V_B / V_E = 1.5) so 8% and -2% follow from the claim itself rather than from a rate stated only in another field.",
+   "cons[4]: added that the collateral and haircut mitigate the counterparty exposure, since repo is collateralized and \"counterparty credit exposure remains\" unqualified overstates it. The contrast with cleared futures is unchanged.",
+   "whenToRecommend[1]: dropped the \"invitation to compute the levered return\" clause, which restated cues[2], and left the economic condition, with the spread required to hold over the horizon of the view.",
+   "whenToRecommend[3]: \"crystallise the trade\" replaced with realising losses or taxable gains, which is the actual reason not to sell.",
+   "whenToRecommend[4]: \"the line is likely to survive a stress period\" softened to a comparative claim across the liquidity sub-sectors, which is what the ranking supports; no collateral guarantees a line survives.",
+   "whenNotTo[2]: removed the barbell as the unlevered substitute. A barbell is a convexity and dispersion structure, not a duration extension, and the notes say it lags on a stable curve, which is the very scenario where repo carry was the alternative.",
+   "cues[5]: same barbell correction applied to the unlevered alternatives named in the implication.",
+   "pitfalls[3]: \"it does nothing for the borrower\" replaced with the accurate consequence, that the haircut limits the cash raised against a given bond and is therefore a cost to the borrower.",
+   "pitfalls[4]: reframed from \"never recommend repo carry on a directional view\" to the defensible point that carry's return source is the yield minus financing spread on an unchanged curve, so leverage scales a directional position but is not itself the expression of the view.",
+   "ADDED pitfalls[5] and cues[9]: repo is a two-step trade, cash first and exposure only on deployment, so a question about adding exposure to a fully invested portfolio in one trade wants bond futures. The verifier flagged that this distinction was missing from the whole entry and the bank item above confirms it.",
+   "confidence lowered from high to medium: the grounding slice is 9 note sentences with no LOS and no essay stems, and the futures comparison, liquidity and GIPS material is amplification rather than quoted substance."
+  ],
+  "shortfall": "",
+  "residualRisk": "pros[5], that a credit or relative-value position \"can be financed with repo but not replicated with futures\". It holds for the government bond futures the curriculum covers and for issuer-specific exposure, but credit index derivatives such as CDX can proxy credit beta, so the claim is about issuer and relative-value precision rather than credit exposure in general. I agree with all three verifier findings on this entry and applied each."
+ }
+}

@@ -1,0 +1,153 @@
+{
+ "key": "forwards",
+ "name": "Forwards",
+ "family": "Derivatives: swaps & futures",
+ "summary": "An over-the-counter contract to buy or sell an asset, a currency or a rate at a price agreed today for one settlement date, with no daily settlement. The decision it turns on is customization against counterparty risk and liquidity: take an exact notional and date and accept bilateral credit exposure, or take a listed future's standard size, fixed expiry and clearinghouse.",
+ "pros": [
+  {
+   "text": "Customizable to the exact notional, currency and date of the exposure, so the hedge leaves no size or maturity residual.",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "No daily settlement, so no variation margin and no daily margin calls. Cash demands arrive at maturity or at each roll date, which a client with a thin liquidity buffer can plan around.",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "No upfront premium: a full forward hedge locks the rate at zero initial cost, where an option hedge has to be paid for.",
+   "source": "currency_management_an_introduction"
+  },
+  {
+   "text": "The default currency hedging tool: sell a long foreign-currency exposure forward, then roll it with an FX swap, which is also how the hedge ratio is resized.",
+   "source": "currency_management_an_introduction"
+  },
+  {
+   "text": "Pricing is mechanical, not a forecast. Covered interest rate parity fixes the forward premium or discount at the interest-rate differential, so the carry on the contract being written is known when it is struck, and a fully hedged foreign risk-free (money market) investment earns the domestic risk-free rate.",
+   "source": "capital_market_expectations_part_2_forecasting_asset_class_returns"
+  },
+  {
+   "text": "Available on far more currency pairs, sizes and maturities than listed currency futures, which is why currency hedges are run with forwards and FX swaps rather than exchange-traded contracts.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Non-deliverable forwards extend forward hedging to currencies that are not convertible or deliverable, cash settling the difference between the contracted rate and spot in a convertible currency.",
+   "source": "currency_management_an_introduction"
+  }
+ ],
+ "cons": [
+  {
+   "text": "Bilateral counterparty credit risk: performance depends on the dealer, with no clearinghouse between the parties. Collateral and central clearing mitigate it and a listed future largely removes it, but a forward does not.",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "Less liquid than futures for standardized exposures: for a duration or equity-beta overlay the listed bond and index futures are the deep venue, so an exposure that will be resized or exited repeatedly belongs there. This does not carry over to currency, where forwards and FX swaps are the venue.",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "The payoff is symmetric, so a full forward hedge gives up all favorable currency movement along with the downside. There is no participation in appreciation.",
+   "source": "currency_management_an_introduction"
+  },
+  {
+   "text": "Hedging a higher-yielding foreign currency, the one trading at a forward discount, costs roll yield: the hedge sells below spot and gives up the rate differential at every roll. Each roll is also struck at the then-prevailing differential, so the cost of a multi-period hedging program is not locked at inception.",
+   "source": "curriculum"
+  },
+  {
+   "text": "One maturity and one fixed notional, so the hedge has to be rolled and resized. As the underlying asset value moves, a static hedge drifts off target: a rising asset is under-hedged, a falling one over-hedged.",
+   "source": "currency_management_an_introduction"
+  },
+  {
+   "text": "Hedges only the exposure written into the contract. An FX forward does nothing about the asset's duration, spread or equity risk, which is why a foreign bond needs the forward for currency plus bond futures or a swap for duration.",
+   "source": "swaps_forwards_and_futures_strategies"
+  }
+ ],
+ "whenToRecommend": [
+  "The exposure is a known amount on a known date, for example a foreign-currency receipt in seven months, and a standardized contract would leave an unhedged residual and an expiry mismatch.",
+  "A long foreign-currency asset exposure has to be brought to the hedge ratio the IPS specifies: sell the foreign currency forward, then roll and resize with FX swaps.",
+  "The client cannot support daily variation margin, or the vignette flags the operational burden of daily margining. Still say that cash is needed at each roll date when the hedge is out of the money.",
+  "The currency faces capital controls or is not deliverable, so the hedge has to be a non-deliverable forward, or a proxy hedge in a correlated liquid currency with basis risk accepted.",
+  "One rate or price has to be locked for a single date and amount, or the exposure change is tailored or longer dated. A swap's series of exchanges is more machinery than a one-date exposure needs."
+ ],
+ "whenNotTo": [
+  "The mandate prohibits OTC or uncleared instruments: use exchange-traded futures and accept standardized sizes, fixed expiries, basis risk and daily margin. A vignette that only raises counterparty credit concern argues for clearing and collateral, which does not by itself rule out a cleared swap.",
+  "The duration or beta change is tactical and will be unwound soon: futures are more liquid and easier to exit, at the cost of basis risk and daily margin.",
+  "The exposure is ongoing or long dated with periodic cash flows, such as managing portfolio duration or hedging foreign-currency debt: a swap is a series of exchanges and fits better than rolling single-date forwards, so use an interest rate swap or a cross-currency swap.",
+  "The client wants to keep the gain if the currency moves in its favor: a forward keeps none of it. Buy a put instead, out of the money to cut the premium, and note that a collar, risk reversal or put spread is cheaper only because it gives back protection or caps the favorable side.",
+  "The foreign currency is the higher-yielding one at a deep forward discount, so the hedge costs the rate differential at every roll. Weigh that cost against the expected spot move: if it exceeds the depreciation being avoided, a partial hedge, an option floor or no hedge can be the answer, though a risk-averse mandate may still hedge.",
+  "The exposure is a thinly traded emerging-market currency with crash and contagion risk: the curriculum's answer is conservative position sizing, explicit tail-risk limits, bought option protection and a cross hedge in a correlated major, rather than relying on forwards alone."
+ ],
+ "pitfalls": [
+  "Getting the direction wrong. A long foreign-currency exposure is hedged by SELLING that currency forward, not buying it.",
+  "Getting the roll-yield sign wrong. Positive roll yield comes from selling the base currency at a forward premium or buying it at a forward discount, so hedging a lower-yielding, forward-premium currency EARNS roll yield and hedging a higher-yielding, forward-discount currency COSTS it. Check it against covered interest rate parity: spot 1.2000 DC/FC with a domestic rate of 4 percent and a foreign rate of 1 percent gives a forward of 1.2356, and selling the foreign currency forward above an unchanged spot gains about 3 percent, which is exactly what makes the hedged return equal the 4 percent domestic rate. Warning: the bundled Currency Management reading notes state this rule backwards in several places; the flashcards, the LOS drills and the question bank have it right.",
+  "Treating the hedge as set and forgotten. Asset-value moves cause over and under-hedging, a rising asset is under-hedged, and the notional has to be rebalanced, usually with an FX swap.",
+  "Confusing an FX swap with a currency swap. An FX swap is a spot transaction plus an offsetting forward, used to roll or resize a hedge, with no stream of interest payments; a cross-currency swap exchanges interest and principal over time.",
+  "Calling a forward hedge free because there is no premium. There is still bid-ask and rebalancing cost, counterparty exposure, the whole favorable side given up, and negative roll yield whenever the hedged currency trades at a forward discount.",
+  "Treating an NDF as a clean hedge of a controlled currency. It cash settles the difference in a convertible currency, the NDF rate can diverge from the onshore rate, and counterparty and liquidity risk remain."
+ ],
+ "cues": [
+  {
+   "signal": "The IPS or mandate prohibits OTC or uncleared instruments.",
+   "implication": "Rules out forwards, FX swaps and uncleared swaps, and rules in exchange-traded futures and listed options. Accept standardized size, fixed expiries, basis risk and daily margin as the price. Counterparty concern on its own is the weaker signal: clearing and collateral answer it, so a cleared swap can survive."
+  },
+  {
+   "signal": "An exact amount on an exact date, for example FC 23.4 million settling 17 March.",
+   "implication": "Rules in a forward over futures. Standard contract sizes and quarterly expiries would leave a residual exposure and a maturity mismatch."
+  },
+  {
+   "signal": "The fund is fully invested, holds no cash buffer, or says it cannot meet margin calls.",
+   "implication": "Rules out futures, whose variation margin is daily. A forward has no daily settlement, so the cash demand arrives at maturity or at the roll date instead. Say that it is lower in frequency, not zero, if the hedge is out of the money at the roll."
+  },
+  {
+   "signal": "The currency is non-convertible, non-deliverable or subject to capital controls.",
+   "implication": "Use a non-deliverable forward, cash settled in a convertible currency, or a cross hedge in a correlated currency. Say in the answer that NDF basis against the onshore rate remains."
+  },
+  {
+   "signal": "The foreign currency is the higher-yielding one, or its forward points quote a discount.",
+   "implication": "Selling it forward COSTS roll yield, so the hedge is expensive. That is the standard setup for a partial hedge, an option structure, a cross hedge, or leaving the exposure unhedged when the roll cost exceeds the depreciation being avoided. The mirror case, a lower-yielding foreign currency at a forward premium, is the one where the short hedge is paid roll yield and a full hedge is cheap."
+  },
+  {
+   "signal": "The board or IPS wants to participate if the currency appreciates, or asks for downside protection only.",
+   "implication": "A forward is wrong because it is symmetric and removes all upside. Buy a put, out of the money to cut the premium, and name what a collar, risk reversal or put spread gives back: less complete protection, or a cap on the favorable side."
+  },
+  {
+   "signal": "The vignette says forward rates are expected to be realized.",
+   "implication": "The forwards already price your view, so every bond earns the same short-rate return over the horizon and lengthening or shortening duration changes risk without changing expected return. Position neutral to the benchmark rather than trading the rate view. A stable or unchanged curve is the different case, where added duration earns carry and rolldown."
+  },
+  {
+   "signal": "A foreign bond holding where the question asks to remove currency risk AND change duration.",
+   "implication": "Two overlays, not one instrument: sell the foreign currency forward for the FX exposure, and use bond futures or an interest rate swap for the duration. Size the futures from the BPV ratio, separately from the forward notional."
+  },
+  {
+   "signal": "The hedged foreign asset has risen in value since the hedge was placed.",
+   "implication": "The position is under-hedged by roughly the appreciation. Sell additional currency forward, typically through an FX swap, to return to the target hedge ratio."
+  }
+ ],
+ "comparesWith": [
+  "futures",
+  "interest_rate_swap",
+  "currency_swap",
+  "fx_hedging"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "whenToRecommend: 'The hedge is a one-off that will be held to maturity rather than traded, so customization matters more than ease of exit' - padding, it restates the known-amount-known-date item and the tailored-or-longer-dated item on either side of it."
+  ],
+  "corrected": [
+   "Roll-yield sign inverted in four places (cons, pitfalls twice, cues) and now reversed throughout: hedging a forward-premium, lower-yielding currency EARNS roll yield, hedging a forward-discount, higher-yielding one COSTS it. Verified by CIP arithmetic (1.2000 spot, 4 percent domestic, 1 percent foreign gives a 1.2356 forward, so the short hedge gains about 3 percent and the hedged return equals the 4 percent domestic rate) and against the app's flashcards, LOS drills and question bank.",
+   "The cost case moved from a pro-shaped statement into cons, because selling a premium currency forward is a gain and only the discount case is a cost.",
+   "Source on the roll-yield con changed to 'curriculum' rather than currency_management_an_introduction, because the bundled notes for that reading state the rule backwards and must not be cited for the corrected sign.",
+   "Added a warning to the roll-yield pitfall that the reader's own Currency Management notes have this rule inverted, since they will meet the wrong version while studying.",
+   "'A fully hedged foreign asset earns the domestic rate' narrowed to a fully hedged foreign risk-free (money market) investment earning the domestic risk-free rate, which is what CIP says; a hedged risky asset is not domestic cash.",
+   "'The roll cost or gain of the hedge is known in advance' narrowed to the contract being struck, with the repricing of later rolls moved into the cons where it belongs.",
+   "'No margin calls or cash drain over its life' and the matching cue qualified: no daily variation margin, but each roll cash settles the expiring leg, which is the real risk in the no-cash-buffer vignette.",
+   "The liquidity con scoped to duration and beta overlays, with an explicit note that it does not transfer to currency, where forwards and FX swaps are the deep venue. Added a pro for pair and maturity coverage so the candidate does not write 'forwards are less liquid' in a currency answer.",
+   "'The risk exchange-traded futures remove' softened to 'largely removes', since the clearinghouse minimizes rather than eliminates counterparty risk.",
+   "The OTC cue narrowed: an explicit OTC prohibition rules out forwards and swaps, while counterparty concern alone argues for clearing and collateral and leaves a cleared swap viable.",
+   "Option alternatives made precise: a bought put retains the upside, while a collar or risk reversal is cheaper precisely because it caps the favorable side.",
+   "The emerging-market item split in two, separating the cost-of-hedging decision (high yield, forward discount, weigh roll cost against expected depreciation) from the liquidity and crash-risk case (sizing, tail limits, bought protection, cross hedge).",
+   "family set to the grounding string 'Derivatives: swaps & futures'; the draft had rewritten the ampersand as 'and'.",
+   "confidence lowered from high to medium: 10 note sentences, 1 LOS and no essay stems, several claims added as curriculum, and the entry deliberately contradicts the bundled notes on roll yield."
+  ],
+  "shortfall": "",
+  "residualRisk": "The pro that forwards cover far more pairs, sizes and maturities than listed currency futures. It is standard curriculum and it is the necessary counterweight to the notes' blanket 'forwards are less liquid', but it is the one kept claim with no support anywhere in this candidate's own notes, and it is asserted qualitatively with no depth or spread figures behind it."
+ }
+}

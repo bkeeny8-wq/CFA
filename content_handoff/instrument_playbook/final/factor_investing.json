@@ -1,0 +1,171 @@
+{
+ "key": "factor_investing",
+ "name": "Factor Investing",
+ "family": "Equity",
+ "summary": "Factor investing builds an equity portfolio systematically around one or more rewarded factors (value, size, momentum, quality, low volatility) rather than around market capitalization, on the rationale that those factors carry persistent premia arising from risk or from behaviour. The decision it turns on: do you want your active risk to come from transparent, rules-based factor exposure that a risk model can measure and cap, accepting that this concentrates risk exposures rather than diversifying them, instead of from security selection or from no active risk at all.",
+ "pros": [
+  {
+   "text": "Rules-based: factor definition, weighting and rebalancing are specified in advance rather than left to judgement, so the investor knows which exposure they own and why they own it.",
+   "source": "index_based_equity_strategies"
+  },
+  {
+   "text": "Sits between pure indexing and discretionary active on the management spectrum: it seeks rewarded factor premia at modest cost AND modest tracking error relative to discretionary active management, while still being a deliberate active bet unlike cap-weighted indexing. Do not confuse this with the active factor bettor of the Active Share cue, who deliberately runs high active risk; a smart-beta index strategy and an active factor bettor sit at different points on the same spectrum.",
+   "source": "overview_of_equity_portfolio_management"
+  },
+  {
+   "text": "One toolkit covers three different client needs: return-oriented (dividend yield, momentum, fundamentally weighted), risk-oriented (volatility weighting, minimum variance), and diversification-oriented (equal weighting, maximum diversification). Keep this list of weighting schemes separate from the rewarded-factor list of active equity investing (value, size, momentum, quality, low volatility), which is a different taxonomy.",
+   "source": "index_based_equity_strategies"
+  },
+  {
+   "text": "The exposure is measurable, not just labelled: a factor model regresses the portfolio's returns on factor exposures to give its loading on each factor, so a committee can verify that a fund labelled value actually carries positive value exposure, and can compare strategies on their true factor content rather than on their names.",
+   "source": "index_based_equity_strategies"
+  },
+  {
+   "text": "Signals on different scales become combinable: standardising each raw metric to z = (x minus mean) / sigma lets value, momentum and quality be combined into one composite score and a single ranking.",
+   "source": "active_equity_investing_strategies"
+  },
+  {
+   "text": "At total-portfolio level, return drivers are more granular and typically less correlated than asset-class labels, so decomposing an existing allocation into factor exposures can expose hidden concentration where several supposedly diversified asset classes all load on the same equity or credit factor.",
+   "source": "principles_of_asset_allocation"
+  }
+ ],
+ "cons": [
+  {
+   "text": "Relative to broad cap weighting it CONCENTRATES risk exposures, it does not diversify them. A single-factor fund owns one style and stays exposed through periods when that factor is out of favour, bearing that factor's specific drawdowns.",
+   "source": "index_based_equity_strategies"
+  },
+  {
+   "text": "Factor returns are cyclical, so the strategy endures long stretches of relative underperformance against the cap-weighted market. Value's extended drawdown is the standard example.",
+   "source": "active_equity_investing_strategies"
+  },
+  {
+   "text": "Costlier than cap weighting. Any non-cap weighting scheme breaks the link between weight and price at construction, so as prices move the weights drift AWAY from the intended scheme (equal, fundamental, minimum variance) and have to be deliberately reset; a cap-weighted portfolio's weights drift with prices too, but that drift keeps it at cap weights, so it self-adjusts and needs far less (only reconstitution, share-count changes and corporate actions). That turnover, plus higher fees and tighter capacity, is the practical price of the tilt.",
+   "source": "index_based_equity_strategies"
+  },
+  {
+   "text": "The methodology is published, so other investors can copy it. Crowding into a popular factor bids up the same names and compresses the premium, eroding the realised advantage.",
+   "source": "active_equity_investing_strategies"
+  },
+  {
+   "text": "Data mining: a factor discovered in a backtest may be a historical artifact that was never real and fails out of sample. Demand an economic rationale, risk-based or behavioural, plus out-of-sample evidence.",
+   "source": "active_equity_investing_strategies"
+  },
+  {
+   "text": "A long-only factor tilt is not a hedge. The factor exposure is layered on top of retained equity market exposure, so the portfolio still falls with the market in a broad selloff. Isolating the factor return requires a long-short construction, long the high-scoring names and short the low-scoring ones.",
+   "source": "curriculum"
+  }
+ ],
+ "whenToRecommend": [
+  "The client doubts that stock pickers add value but accepts that rewarded risk premia exist, is fee-sensitive, wants more than benchmark return, and the IPS permits some tracking error. That is the gap between indexing and discretionary active that factor investing fills.",
+  "The committee runs a tracking-error budget and wants its active risk in a form a risk model can measure, attribute and cap, rather than resting on one manager's judgement. Risk budgeting then decides how much tracking error to spend on factor tilts versus stock selection.",
+  "The IPS asks for lower equity volatility or shallower drawdowns without leaving the asset class: recommend a risk-oriented tilt such as volatility weighting or minimum variance, and present it as a risk reduction rather than promising an added return premium.",
+  "Governance capacity is thin. The board cannot realistically select and monitor discretionary managers net of fees, but it can hold and oversee a documented, rules-based mandate.",
+  "A factor decomposition of the current allocation shows several asset classes loading on the same return driver, and the sponsor wants to target the drivers directly (equity, term, credit, inflation, size, value, momentum, liquidity) instead of asset-class labels."
+ ],
+ "whenNotTo": [
+  "The mandate is lowest cost, widest capacity and benchmark-like return with minimal tracking error. Use index_replication: cap weighting is macro consistent in that all investors can hold it simultaneously, it is largely self-rebalancing, and its turnover is low.",
+  "The claimed edge is security-specific research in an inefficient segment such as small cap or emerging markets. That is bottom-up selection rather than factor investing, and holdings or position-based attribution fits it instead of factor-based attribution.",
+  "The evaluation horizon is short, or the client cannot tolerate multi-year relative underperformance. A factor drawdown can outlast a typical evaluation period, so a cap-weighted index is the safer default.",
+  "The goal is to isolate the factor return with no equity market exposure. A long-only tilt will not do it, and neither will a directional long/short book that retains net beta: use market_neutral, a beta-balanced long of the high-scoring names against a short of the low-scoring ones. Use long_short only if the client will accept a chosen non-zero net market exposure alongside the factor spread.",
+  "The tilt is wanted only temporarily or tactically. An equity or total-return swap referencing the factor index, or a factor ETF, can deliver it without rebuilding physical holdings on factor rules, at the cost of bilateral dealer credit exposure on the swap. Plain index futures will not deliver it: they give cap-weighted market beta, which is the right tool for equitising a cash balance but not for a temporary factor exposure.",
+  "The bet actually being expressed is a sector or country view. In factor construction those are incidental exposures to neutralise, not the intended tilt, so this is a top-down active mandate rather than a factor mandate."
+ ],
+ "pitfalls": [
+  "Saying a value factor fund seeks to lower downside risk. Value is held to capture the value premium and can underperform badly in growth-led markets. Lowering risk is the job of the risk-oriented tilts, volatility weighting and minimum variance.",
+  "Saying fundamental weighting overweights overpriced stocks and underweights underpriced ones. That is cap weighting's flaw. Fundamental weighting breaks the link to price precisely to correct it, which is why it carries a value and contrarian tilt.",
+  "Confusing Active Share with active risk. A factor bettor runs HIGH active risk on MODEST Active Share, because Active Share only measures the size of holdings deviations while active risk also depends on factor exposures and on how correlated those deviations are. Active risk squared = variance from factor tilts plus idiosyncratic active variance.",
+  "Benchmarking a factor mandate to a broad cap-weighted index. When no standard index fits the tilt, a custom or strategy-specific benchmark, a factor index or a blend, is the appropriate yardstick.",
+  "Combining raw metrics measured on different scales. Standardise to z-scores first, then composite. Watch the sign while doing it: a high book-to-price is a POSITIVE value z, because cheap is the strong signal."
+ ],
+ "cues": [
+  {
+   "signal": "A manager claims \"our factor strategy will diversify our risk exposures relative to the cap-weighted benchmark.\"",
+   "implication": "Mark the claim INCORRECT. Factor strategies concentrate risk exposures relative to broad cap weighting, leaving the investor exposed when the chosen factor is out of favour."
+  },
+  {
+   "signal": "The vignette stresses that the index methodology is published, so selection, weighting and rebalancing are transparent and other investors can replicate it.",
+   "implication": "Both halves are CORRECT and they are linked, so do not reject either. Transparency is a genuine advantage, and replicability is exactly what produces the crowding that compresses the premium."
+  },
+  {
+   "signal": "A manager shows modest Active Share alongside high tracking error.",
+   "implication": "This is a FACTOR BETTOR, not a closet indexer: the active risk lives in factor tilts, so factor-based risk attribution is the right diagnostic. It is the PAIRING of the two measures, not the level of either one, that classifies the manager, so do not memorise an Active Share threshold. Note too that the fee is now in question rather than justified: the same factor exposure is sold in a rules-based smart-beta vehicle far more cheaply, so ask what the manager adds beyond the tilt."
+  },
+  {
+   "signal": "The mandate names low volatility or minimum variance.",
+   "implication": "Risk-oriented tilt, not return-oriented. Promise lower volatility, not a return premium. Note that minimum variance also concentrates holdings in low-volatility, low-correlation names."
+  },
+  {
+   "signal": "The index equal-weights every constituent.",
+   "implication": "Diversification-oriented by category rather than a deliberate return-factor bet, though the construction still picks up incidental rewarded-factor exposure: relative to cap weighting it tilts toward smaller AND cheaper (value) names, and because the weights have to be reset as prices move it carries high rebalancing turnover. Naming only the small-cap half of that tilt is half an answer."
+  },
+  {
+   "signal": "The index weights constituents by sales, earnings, book value or dividends.",
+   "implication": "Fundamental weighting. It breaks the link between weight and price, which gives it a value and contrarian tilt because it rebalances against price moves. On the category, the curriculum exhibit (reproduced with its worked examples in the flashcard for this reading) files fundamentally weighted under RETURN-oriented; be warned that the prose of the index_based_equity_strategies reading note in this app contradicts that and lists fundamental weighting as diversification-oriented. Trust the exhibit, and treat that note line as the error."
+  },
+  {
+   "signal": "\"The factor has lagged for three years, so the committee proposes rotating into a factor it expects to do better.\"",
+   "implication": "This is FACTOR TIMING, which is difficult and often unrewarded. Recommend holding a diversified set of factors through the cycle. Factor cyclicality is a known cost of the strategy, not evidence the strategy is broken."
+  },
+  {
+   "signal": "The premium is evidenced only by an in-house backtest over a chosen historical window.",
+   "implication": "DATA MINING risk. Require an economic rationale, risk-based or behavioural, plus out-of-sample results before funding it."
+  },
+  {
+   "signal": "\"We want the value exposure but no sector or country bet.\"",
+   "implication": "Target the rewarded factor and hedge or neutralise the unrewarded exposures, so the active return comes from the intended factor rather than from incidental risk."
+  },
+  {
+   "signal": "A performance-evaluation question states that the investment process is top-down or factor-based.",
+   "implication": "Use FACTOR-based risk attribution, which decomposes tracking error into factor exposures. Holdings or position-based attribution is for bottom-up security selection. Match the method to the decision process."
+  },
+  {
+   "signal": "\"No standard index matches the portfolio, which runs a factor tilt and some unusual constraints.\"",
+   "implication": "Recommend a custom or strategy-specific benchmark, a factor index or a blend. Forcing a broad market index the manager does not actually track fails the appropriateness and accountability properties of a valid benchmark."
+  }
+ ],
+ "comparesWith": [
+  "index_replication",
+  "long_short",
+  "market_neutral",
+  "activist"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "Repair pass: deleted the whenToRecommend item 'The manager's stated philosophy is systematic and top-down with broad breadth... Systematic factor tilts are consistent, a concentrated 20-name book is not' because it is a signal-and-implication cue miscast as a recommendation condition, and its useful content already survives in the top-down attribution cue.",
+   "Repair pass: deleted 'fundamental weighting' and 'risk parity' from the diversification-oriented category because the notes evidence supplies only the three category labels and no per-strategy assignment, and the curriculum files fundamentally weighted and dividend yield under return-oriented, so the draft's placement was likely inverted. UPHELD in the skeptic pass against the repo: the flashcard fc_index_based_equity_strategies_001, which reproduces the curriculum exhibit with its worked examples, files fundamentally weighted under return-oriented and names maximum diversification, not fundamental weighting or risk parity, as the second diversification-oriented member.",
+   "Repair pass: deleted 'and less correlated than asset-class labels' from the factor-decomposition pro because low factor correlation depends on how the factors are constructed and is not supported by the evidence. REVERSED in the skeptic pass: the justification was false against the candidate's own material, which states it twice (principles_of_asset_allocation exam focus, 'factors are more granular and less correlated than asset classes, they reveal hidden overlaps'; overview_of_asset_allocation, 'Factors are more granular and typically less correlated with each other, so a factor lens can reveal risk that an asset-class lens hides'). The clause is the mechanism that makes the pro work, so it is restored.",
+   "Repair pass: deleted 'Equal weighting brings a small-cap and value tilt' down to the small-cap tilt alone, because the value tilt of equal weighting is an assertion I cannot defend as curriculum. REVERSED in the skeptic pass: it is doubly stated in the candidate's notes (index_based_equity_strategies, 'Equal-weighting, every constituent the same weight; tilts toward smaller and value names, with high turnover'; and overview_of_equity_portfolio_management's exam focus and quick reference, 'equal = small-cap/value + rebalancing'). The value tilt is restored to the equal-weighting cue.",
+   "Repair pass: deleted the meta-claims 'this is the single most graded error on the comparison LOS' and 'in an EVALUATE question with three claims, this is usually the only wrong one' because they are unverifiable statements about exam construction, not about the instrument.",
+   "Skeptic pass: deleted the first pitfall, 'Agreeing that factor strategies diversify risk exposures relative to cap weighting. They CONCENTRATE them. On the comparison LOS the word the grader wants is concentrates.' The substance is right and well graded, but it was the third statement of the same point (cues[0] already puts it in the exam's own manager-claim format and cons[0] states it as a risk), and its closing clause was another unverifiable claim about what the grader wants, the species the repair pass meant to purge.",
+   "Skeptic pass: deleted the clause 'and naming the right category is usually the point of the question' from the three-categories pro. It is a claim about exam construction rather than about the instrument, and it is not supportable: of the three essay stems in the grounding pack none asks for the category, and in the question bank only the Camme item q4 ('MultiFAK's primary strategy is most likely') turns on identifying the strategy type.",
+   "Skeptic pass: deleted the two invented figures from the Active Share cue, 'say 0.30' and 'say 6%'. The candidate's material gives this classification only as a qualitative LOW/HIGH two-by-two and explicitly warns that 'the same nominal Active Share can serve a low-tracking-error diversified strategy or a high-tracking-error concentrated one, the CONSTRUCTION, not the Active Share number, determines the risk.' A memorised 0.30 threshold would misclassify a vignette pairing Active Share 0.32 with tracking error of about 1%."
+  ],
+  "corrected": [
+   "Repair pass: corrected the most serious error, in the long-only con: the draft said a long-only tilt 'carries full equity beta, so it gives no downside protection in a selloff.' Both halves are wrong in direction for the risk-oriented branch, since a long-only low-volatility or minimum-variance tilt deliberately runs beta below 1 and is designed to reduce drawdown. Reworded to the defensible point, that the tilt retains market exposure and is not a hedge, and that isolating the factor return needs a long-short construction.",
+   "Repair pass: corrected 'periodic rebalancing that cap weighting never requires' to 'largely self-rebalancing and needs far less', because cap-weighted indices do require rebalancing for reconstitution, share-count changes and corporate actions. The curriculum point is that weights drift with prices automatically, not that rebalancing is absent.",
+   "Repair pass: corrected the spectrum pro by deleting 'modest tracking error', which contradicted the entry's own factor-bettor material showing high active risk, and by changing 'captures rewarded factor premia' to 'seeks', since crowding and cyclicality mean capture is not assured. PARTLY REVERSED in the skeptic pass: 'modest tracking error' is the sourced half of the spectrum table in overview_of_equity_portfolio_management ('Capture rewarded factor premia (value, size, quality, momentum) at modest cost and tracking error'), so the fix was to reconcile the two and not to delete it. A smart-beta index strategy runs modest tracking error against the market; an active factor bettor deliberately runs high active risk. Both halves are now stated and the distinction is named. 'Seeks' is kept.",
+   "Repair pass: corrected the risk-oriented recommendation by deleting 'expect roughly market-like return with less risk', which promises the low-volatility anomaly as a planning assumption; it now presents the tilt as a risk reduction with no added premium.",
+   "Repair pass: corrected the source id on the crowding con from index_based_equity_strategies to active_equity_investing_strategies, which is the reading whose evidence actually says crowding erodes premia.",
+   "Repair pass: corrected the source id on the verifiable-exposure pro from index_based_equity_strategies to portfolio_performance_evaluation, and reframed it around factor-based risk attribution, which is what that reading's evidence supports; the draft's factor-model regression framing was not in any cited evidence. REVERSED in the skeptic pass: the factor-model framing is in the evidence, in a different reading. index_based_equity_strategies, 'Measuring factor exposures': a factor model 'regresses returns on factor exposures, yielding the portfolio's loading (beta) on each factor. This lets a manager verify that a value fund actually has positive value exposure.' Verifying a label is the factor model's job; factor-based risk attribution answers a different question (which decisions consumed the active-risk budget). The pro is now the factor model, sourced to index_based_equity_strategies, and the attribution point is left to the top-down attribution cue, which already carries it, rather than restated as a second pro.",
+   "Repair pass: corrected 'cap weighting is the true market portfolio' to the curriculum's actual term, macro consistent, meaning all investors can hold it simultaneously. CORRECTION OF THE LOG in the skeptic pass: 'true market portfolio' is also the candidate's own wording (index_based_equity_strategies: cap weighting 'is the true market portfolio, is macro-consistent (everyone can hold it)'), so the stated ground for the change was wrong. The surviving text is accurate either way and is left as it stands.",
+   "Repair pass: corrected the Active Share pitfall, which said active risk comes from factor exposures while Active Share comes from holdings deviations. That contradicted the decomposition quoted in the same sentence, since active risk includes idiosyncratic active variance too.",
+   "Repair pass: corrected two unquantified time claims: 'measured in years rather than quarters' and 'factor drawdowns outlast most evaluation periods' are now qualitative, since the evidence says only 'long stretches' and gives no dates or magnitudes.",
+   "Repair pass: corrected the unrewarded-bet item by dropping currency from the sector and country list, because FX carry is itself treated as a rewarded factor elsewhere in the curriculum.",
+   "Repair pass: split the draft's combined weighting cue into two. It had grouped equal weighting with sales, earnings, book-value and dividend weighting and labelled them all diversification-oriented, but dividend yield is a return-oriented tilt, so one signal carried two different implications.",
+   "Repair pass: rewrote the summary to name the decision the instrument turns on, and softened the opening claim that factor investing is defined by weighting on something other than market cap, since factor strategies can cap-weight within a selected subset.",
+   "Repair pass: removed the duplicated accountability clause from the rules-based pro so it no longer restates the measurement pro, and changed 'knows exactly what exposure they own' to 'knows which exposure they own'.",
+   "Repair pass: changed the z-score pro from signals being 'averaged' into a composite to 'combined', since a composite may be weighted rather than equally averaged.",
+   "Repair pass: changed comparesWith from long_extension to market_neutral so the compare list matches the alternatives the entry actually points the reader to, and kept activist, which the evidence names as a sibling strategy family.",
+   "Skeptic pass: corrected an inverted mechanism in the cost con. The draft said a non-cap scheme means 'weights no longer drift with prices', which is backwards: the weights do drift with prices, and that is the problem, because the drift carries them away from the target scheme. Cap weights drift too, but the drift keeps them at cap weights. The candidate's own self-test puts it this way (index_based_equity_strategies, item 15: 'They break the price link, so weights drift as prices move; cap-weighting self-adjusts with price'). Reworded so the reason turnover arises is right.",
+   "Skeptic pass: corrected the isolate-the-factor item in whenNotTo. Its condition is already no equity market exposure, which is zero net beta, so naming long_short first and adding 'if the brief ALSO rules out net market beta' was both wrong and self-contradictory. By the companion entries in this playbook, long_short is the version with 'a chosen net exposure in a directional one' and market_neutral is the one 'sized so the two legs offset in beta terms, leaving net beta near zero'. market_neutral is now the recommendation, with long_short as the fallback only if a non-zero net exposure is acceptable.",
+   "Skeptic pass: corrected the temporary-exposure item in whenNotTo, flagged by both skeptics. It named index futures first, but a future on a broad cap-weighted index delivers market beta, not a factor tilt, so the named remedy could not meet the stated need; the equitise-a-cash-balance example is a market-beta problem and it already appears in the index_replication entry. The item is now about delivering the tilt by swap on a factor index or a factor ETF, says plainly that index futures will not deliver it, and notes the bilateral dealer credit exposure a swap adds.",
+   "Skeptic pass: corrected the fee inference in the Active Share cue. The draft said the active risk living in factor tilts means 'the fee is defensible on factor exposure rather than stock picking'. That inverts the test the candidate's material teaches (active_equity_investing_portfolio_construction: Active Share is used 'as a fee-reasonableness check', and the pairing tells you 'whether the fee is justified') and inverts the economics, since factor exposure is exactly what a rules-based smart-beta vehicle sells cheaply, as this entry's own spectrum pro says. The diagnosis (factor bettor) and the diagnostic (factor-based risk attribution) were right and are kept; the fee clause now puts the fee in question.",
+   "Skeptic pass: corrected the three-category lists to the curriculum's example strategies as the flashcard records them: return-oriented (dividend yield, momentum, fundamentally weighted), risk-oriented (volatility weighting, minimum variance), diversification-oriented (equal weighting, maximum diversification). The draft had spliced in the rewarded-factor list (value, size, quality) from active_equity_investing_strategies, which is a different taxonomy, and had dropped fundamentally weighted and maximum diversification, the two scheme names the entry's own fundamental-weighting pitfall and cue depend on. The pro now also tells the reader the two lists are different taxonomies.",
+   "Skeptic pass: softened 'the IPS permits meaningful tracking error' to 'permits some tracking error' in the first recommendation condition, because the curriculum's rationale for a factor or smart-beta mandate is modest cost AND modest tracking error; requiring a meaningful tracking-error budget first would argue against the mandate the key recommends.",
+   "Skeptic pass: resolved the fundamental-weighting category, where the two skeptics disagreed about what to tell the reader. Lens 1 wanted the claim stated with an instruction to verify it against the curriculum exhibit; Lens 2 showed that the verification is already available in the repo and resolves, and that sending the reader to the index_based_equity_strategies reading note hands him the wrong answer, since that note's prose lists fundamental weighting (and risk parity) as diversification-oriented. I went with the resolution rather than the deferral: the cue now states the return-oriented category on the authority of the curriculum exhibit as reproduced in flashcard fc_index_based_equity_strategies_001, and warns the reader explicitly that the reading note contradicts it and is the error. The value and contrarian tilt and the rebalances-against-price mechanism in that cue are confirmed by both note files and are unchanged."
+  ],
+  "shortfall": "",
+  "residualRisk": "One thing is still open, and it is the reason this entry is not marked high. The candidate's two sources for the smart-beta categories contradict each other on fundamental weighting: flashcard fc_index_based_equity_strategies_001 files fundamentally weighted under return-oriented and names volatility weighting and minimum variance as the risk-oriented pair, while the prose of CFAL3/Resources/reading_notes.json for index_based_equity_strategies files fundamental weighting and risk parity under diversification-oriented and names the risk-oriented pair low-volatility and minimum-variance. I resolved it for the flashcard, because it states that it is giving the curriculum's example strategies and reproduces the exhibit's own worked illustrations (the Dividend Aristocrats screen, MSCI momentum's 12-month and 6-month windows, the 252-trading-day volatility measure, the diversification ratio), which the prose does not. That makes the flashcard the better witness to the exhibit, but it is still a judgement between two secondary sources rather than a reading of the curriculum, so a candidate relying on this for a categorisation question should check the exhibit itself. The same reading note's prose also needs fixing, and the entry now warns the reader about it instead of sending him there."
+ }
+}

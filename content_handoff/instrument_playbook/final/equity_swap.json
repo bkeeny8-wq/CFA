@@ -1,0 +1,172 @@
+{
+ "key": "equity_swap",
+ "name": "Equity Swap",
+ "family": "Derivatives: swaps & futures",
+ "summary": "An equity swap exchanges the return on an equity index or a single stock for a fixed rate, a floating financing rate, the return on another asset class such as a bond index, or another equity return, on an agreed notional and tenor. The decision it turns on is which leg you pay: receive the equity return to add exposure synthetically, pay it to hedge or diversify a holding you will not sell.",
+ "pros": [
+  {
+   "text": "Reshapes exposure without trading the underlying: receive the index return and pay a financing rate to add equity, or pay the equity return and receive a bond return to switch asset classes, leaving the holdings and the external managers untouched.",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "Diversifies a concentrated low-basis holding with no taxable sale: pay the return on the stock and receive a diversified index return.",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "The hedger keeps the shares, so ownership and votes stay with the client while the return is swapped away. Cash settlement is what preserves that, because a physically settled single-stock swap delivers the shares against the notional at termination.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Replication of the referenced index is exact: the counterparty is obligated to deliver the index return, so the equity leg carries no tracking error, unlike an ETF (NAV premium or discount, cash drag, regulatory diversification) or futures (dividend forecast error, interest rate differentials). The receiver's net return is still that index return less financing.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Capital efficient: the notional exposure is delivered against collateral rather than cash, where margin regulation caps an ETF near 2x leverage, so USD 80 million of ETF exposure ties up at least USD 40 million.",
+   "source": "curriculum"
+  },
+  {
+   "text": "No quarterly roll and no exchange-traded margin cycle: one contract can cover the whole horizon, where the roll was the largest single futures cost at 20 bps a year on an upward sloping (contango) curve. Collateral is still posted.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Terms are negotiated, so notional, tenor, reset frequency and the exact index, sector or single name are set to the need, including underlyings with no liquid listed contract or with restricted market access.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Can beat owning the shares outright when holding physical stock carries transaction taxes such as stamp duty, high custodian fees, or costly monitoring of corporate actions.",
+   "source": "curriculum"
+  }
+ ],
+ "cons": [
+  {
+   "text": "Counterparty credit risk: an equity swap is bilateral and over the counter, so the executive who hedges by swap has replaced stock risk with dealer exposure. Collateral, and central clearing where the contract is eligible for it, mitigate that risk; they do not remove it.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Funding cost dominates the price. In the Exhibit 15 stack the TRS was the dearest unlevered vehicle at 51 bps against the ETF at 35 and futures at 42, and 40 of those 51 bps were funding.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Relatively illiquid and harder to exit than a listed contract: unwinding means negotiating with the dealer or writing an offsetting swap rather than selling into an exchange, and collateral is tied up for the life of the trade.",
+   "source": "curriculum"
+  },
+  {
+   "text": "The payoff is symmetric on both legs and floors nothing. The return receiver pays the negative return plus financing when the index falls, so the loss is not limited to the cash committed; the return payer gives up the holding's appreciation for the whole life of the swap.",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "If the leg you pay is an index rather than the holding itself, only the systematic component is hedged: stock-specific risk survives, and the hedge carries basis risk if the portfolio's beta to that index is mis-estimated or shifts.",
+   "source": "curriculum"
+  },
+  {
+   "text": "The gain is deferred, not erased: the low-basis shares and the embedded gain stay on the balance sheet, and the structure may face tax or regulatory limits.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Synthetic exposure confers no ownership: the return receiver holds no shares and gets no vote, so a swap cannot satisfy a stewardship or engagement policy.",
+   "source": "curriculum"
+  }
+ ],
+ "whenToRecommend": [
+  "An executive or founder holds a large, low-cost-basis position in employer stock, wants the exposure cut or diversified, and will not trigger the capital gain: pay the stock's total return and receive an index return or a floating rate.",
+  "The holding has to be hedged but kept, because the shares are illiquid to trade or because the votes matter: a cash-settled total return payer swap hedges the return and leaves the shares in place.",
+  "Replication precision decides the choice once cost is settled: the swap delivers the referenced index return exactly, so prefer it where the mandate penalises tracking error AND the cheaper routes are closed off by funding, leverage or the absence of a listed contract. Exactness on its own does not win the trade.",
+  "The exposure is wanted for a year or longer AND the position cannot be fully funded, or no listed contract fits, or a custom notional is needed: the swap avoids the quarterly roll that futures carry. A long horizon on its own does not select the swap, because a fully funded ETF position is cheaper at 35 bps against 51 and also escapes rolls and margin calls.",
+  "The plan must shift synthetically between asset classes or sleeves, equities to bonds for instance, without disturbing the underlying managers or realizing gains.",
+  "The wanted exposure is an index, sector or single name with no liquid listed contract, or sits in a market where access restrictions, transaction taxes or custody costs make owning the shares impractical."
+ ],
+ "whenNotTo": [
+  "The IPS or mandate bars OTC or uncollateralised derivatives: the swap is out, and listed index futures or an ETF reach the same index exposure. A committee that voices counterparty concern without prohibiting OTC can be answered with collateral and, where the contract is eligible, central clearing, but a stated concern is also legitimate grounds to prefer the listed route: the endowment case lists counterparty credit risk as a standing cost of the TRS and picks an exchange-traded vehicle.",
+  "The tilt is short term, tactical and quickly reversible: index futures are cheaper to put on and to unwind, 42 bps against the swap's 51. The curriculum draws this line by size and permanence rather than by a fixed number of weeks.",
+  "The position is fully funded and unlevered: the ETF was cheapest of the three at 35 bps against the TRS at 51.",
+  "The exposure is to be levered: at 4x the ranking flipped and futures were cheapest at 192 bps, against 201 for the TRS and 222.50 for the ETF.",
+  "The client wants the exposure plus votes, engagement or stewardship: the return receiver owns no shares, so buy the shares or an index fund.",
+  "The objective is to remove the embedded gain rather than defer it: an outright charitable gift of the appreciated shares, or a CRT that sells inside the trust. An exchange fund is not the answer here, because like the swap it diversifies without a sale and so defers the gain at carryover basis rather than eliminating it."
+ ],
+ "pitfalls": [
+  "Getting the legs backwards. To add exposure, RECEIVE the equity return and PAY the financing rate. To hedge or diversify a holding, PAY the equity return and receive an index return or a floating rate. The receiver is synthetically long, so a receiver swap written over an existing holding doubles the position instead of hedging it.",
+  "Choosing physical settlement when the vignette says the shares are to be kept. A physically settled single-stock swap hands the shares to the receiver against the notional at termination, so a client who wants to keep the holding needs cash settlement.",
+  "Netting on the wrong base. The settlement is the return differential times notional: (8% minus 5%) times 20,000,000 equals 600,000. It is not a return applied to a revalued portfolio.",
+  "Reaching for the futures beta formula on a swap question. N_f = [(beta_target minus beta_p)/beta_f] x [V/(f x multiplier)] returns a contract count; a swap answer is a notional, a direction on each leg, and a tenor.",
+  "Saying the diversification swap is tax free. Say deferred, and add that the structure may face tax or regulatory limits, because the sale has only been postponed.",
+  "Leaving the tenor unstated or mismatched. The swap has to run for the period over which protection is wanted, so a vignette expecting five quarters of earnings misses calls for roughly five quarters of cover, not twelve months and not an open-ended hedge. Where the question fixes the tenor in the stem, as the Inwood item does by prefixing every choice 'Buy a one-year', take the tenor from the stem and spend the answer on payer versus receiver and cash versus physical."
+ ],
+ "cues": [
+  {
+   "signal": "The client will not sell because of a large embedded capital gain, or the shares are too illiquid to sell.",
+   "implication": "Rules out an outright or staged sale. Pay the stock's total return and receive an index return or a floating rate, cash settled so the shares stay put. Choose an option structure instead if the client wants upside: a protective put keeps the whole upside less the premium, a collar keeps it only up to the short call strike and is cheaper or costless because the call funds the put. The swap gives up all of the upside."
+  },
+  {
+   "signal": "The IPS or the mandate prohibits OTC or uncollateralised derivatives.",
+   "implication": "Rules out the equity swap and every other OTC structure. Answer with exchange-traded index futures or an ETF, which reach the same index exposure. A stated worry about counterparty credit, with no prohibition, is answered by collateral and, where the contract is eligible, central clearing, but it also legitimately supports choosing the listed route instead."
+  },
+  {
+   "signal": "The holding is to be hedged but retained, and the vignette says the shares will not be sold or delivered.",
+   "implication": "Selects a cash-settled total return payer swap. Physical settlement would deliver the shares against the notional at termination, and a receiver swap would add a second long rather than hedge the first."
+  },
+  {
+   "signal": "Voting, engagement or a stewardship policy is named for exposure the client does not yet own.",
+   "implication": "Rules out synthetic index exposure. The return receiver holds no shares and gets no vote, so use physical shares or an index fund."
+  },
+  {
+   "signal": "The mandate specifies exact replication or zero tracking error.",
+   "implication": "Points to the swap on replication: the counterparty is obligated to deliver the index return, while an ETF carries NAV premium or discount and cash drag and futures carry dividend forecast and interest rate differential error. Settle cost first, though, because in the endowment case the swap's exactness was on the table and the ETF still won the fully funded mandate at 35 bps against 51."
+  },
+  {
+   "signal": "The horizon is a year or more, or the committee objects to the daily margin monitoring and quarterly rolls that futures carry.",
+   "implication": "Moves the answer away from futures, whose roll cost was 20 bps a year on an upward sloping curve. The swap if cash is short, a custom notional is needed or no listed contract fits; the ETF if the position is fully funded, since it is cheaper and has no rolls or margin calls either."
+  },
+  {
+   "signal": "The exposure is to be levered, or cash is constrained.",
+   "implication": "Rules out the ETF, which margin rules cap near 2x and which was dearest at 4x at 222.50 bps. Between the two synthetic routes futures were cheaper at 192 against 201 with the 20 bps roll already inside that 192, so do not charge the roll again as a tie-breaker. Name the swap only when a custom notional, a missing listed contract, or the operational burden of rolling and monitoring margin decides it, not on cost."
+  },
+  {
+   "signal": "The allocation must change but the external managers and the underlying holdings must not be disturbed.",
+   "implication": "An overlay answer: pay the equity return and receive the bond return to move equities to bonds, or the reverse. Futures do this too, so what selects the swap is a longer horizon, a custom notional, or no liquid listed contract."
+  },
+  {
+   "signal": "The exposure wanted is a single name, a narrow sector, or a market with restricted access, stamp duty or heavy custody costs.",
+   "implication": "Owning the physical is penalised, which selects the swap over the SHARES: stamp duty, custody fees and corporate-action monitoring fall on the holder, not on a synthetic. Against futures and an ETF the deciding fact is different, because a fund holder escapes those frictions too; the swap wins only where no listed contract or fund tracks the exposure, which is the single-name case more often than the sector case."
+  }
+ ],
+ "comparesWith": [
+  "futures",
+  "total_return_swap",
+  "collar",
+  "index_replication"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "REPAIR PASS claimed to remove whenNotTo 'The objective is to eliminate the embedded gain ... a charitable gift, a CRT or an exchange fund', but the item was still in the shipped file. Both skeptics caught it. This pass rewrote it rather than deleting it, because the contrast IS grounded in the candidate's material: an_overview_of_private_wealth_management lists the concentrated-position toolkit as 'exchange fund (diversifies without a sale), and charitable gift/CRT (diversifies while avoiding the gain)'. So the earlier note was right that the exchange fund was filed on the wrong side, and wrong that the whole item was ungrounded. The item now puts the exchange fund explicitly on the deferral side with the swap.",
+   "pros: 'The portfolio is cash-constrained, or the overweight is to be levered' as a reason to pick the swap removed from whenToRecommend, because the endowment case shows futures cheapest at 4x (192 against 201), so leverage argues for futures, not for the swap. The cash-efficiency point is kept as a pro against the ETF only, and the levered ranking now appears in whenNotTo and a cue.",
+   "pitfall: 'Writing that the swap leaves the client risk free' removed as a restatement of its neighbours, since cons already name counterparty risk, basis and idiosyncratic residual, and the retained embedded gain, and the tax pitfall covers the deferral.",
+   "SKEPTIC PASS, pitfalls: 'Calling the swap the cheapest vehicle without checking leverage. Unlevered the ETF wins at 35 bps, but at 4x the order flips to futures 192, TRS 201, ETF 222.50' deleted as padding. The Exhibit 15/16 stack was stated five times in one entry; whenNotTo items 3 and 4 already carry both rankings as decision rules, and cons[1] carries the unlevered stack. This pitfall only relabelled them.",
+   "SKEPTIC PASS, cues: 'The question gives a target beta, a futures price and a contract multiplier' deleted as a duplicate of pitfalls[3], which makes the same discrimination and additionally carries the beta formula the candidate has to reproduce."
+  ],
+  "corrected": [
+   "family changed from 'Derivatives: swaps and futures' to 'Derivatives: swaps & futures' to match grounding.json, which is also what the families[] test checks against.",
+   "cons: 'When the receive leg is an index it removes only systematic risk' was inverted. The notes' systematic-only caveat belongs to index hedging, and in the diversification trade the holder PAYS the stock's own return, which removes its idiosyncratic risk too. Rewritten as: only the systematic component is hedged when the leg you PAY is an index rather than the holding itself, plus the beta basis risk the same paragraph names.",
+   "pros: 'an ETF position must finance the whole notional' corrected to the notes' actual figure, that margin regulation caps an ETF near 2x so USD 80 million of exposure ties up at least USD 40 million of cash.",
+   "pros and cues: added the payer-versus-receiver and cash-versus-physical settlement distinction, which the draft omitted entirely although it is the answer to the app's own single-stock swap item (swaps_heights_case_ford_tyron_q4): a cash-settled total return PAYER swap hedges a holding the client wants to keep, while physical settlement delivers the shares and a receiver swap doubles the long.",
+   "pros: the draft's blanket 'a swap receiver holds no shares, so no votes' is kept only for the receiver. Added the other side, that a holder who pays the return keeps the shares and the votes, which is what makes the swap the answer when control matters.",
+   "pros: added the ownership-frictions case (stamp duty, custodian fees, corporate action monitoring, restricted access) and a pitfall on matching tenor to the protection period, both grounded in this reading's flashcards and both missing from the draft.",
+   "dropped the draft's 'uncertain' and 'problems' fields, which are not part of the required shape. The content-model point it raised stands and is repeated in residualRisk.",
+   "cue 1: dropped the 'exchange fund' clause from the embedded-gain cue, same reason as the rewritten whenNotTo item.",
+   "con 6: struck 'particularly for an insider' from the tax and regulatory claim, because nothing in the bundled readings supports an insider-specific restriction.",
+   "SKEPTIC PASS, pros[5]: 'and no daily variation margin' struck, flagged wrong by both skeptics and verified wrong. Flashcard fc_swaps_forwards_and_futures_strategies_007_p4 lists 'collateral must be posted' as an equity-swap drawback, this entry's own cons[2] says collateral is tied up for the life of the trade, and 'no daily settlement' in this reading belongs to FORWARDS, not swaps. The grounded contrast is the endowment note that 'Futures require DAILY margin monitoring and quarterly rolls (operational burden)', so the swap's edge is the absent exchange-traded roll and margin cycle, not an absence of collateral. The pro now says collateral is still posted.",
+   "SKEPTIC PASS, whenToRecommend[3]: rewritten, flagged by both skeptics. As written it recommended the swap for the one graded fact pattern where the answer is NOT the swap: the endowment case is a USD 80 million, one-year, fully funded S&P 500 overweight and the curriculum picks the ETF at 35 bps, 'liquid, flexible, no rolls/margin'. A long horizon and a wish to avoid rolls therefore select the ETF, not the swap. The trigger now requires constrained funding, a custom notional or a missing listed contract, and says outright that horizon alone points to the ETF.",
+   "SKEPTIC PASS, pitfalls (tenor): 'five quarters of expected earnings misses is a one-year swap' corrected, flagged by both skeptics. Five quarters is fifteen months, so the example contradicted the rule in its own sentence and taught the candidate to round a protection period DOWN. The rule is grounded (flashcard ...007_p7, 'Tenor must be matched to the period over which protection is wanted') but the one-year figure is an artifact of swaps_heights_case_ford_tyron_q4, whose every option begins 'Buy a one-year', so tenor was never the variable under test. The pitfall now says roughly five quarters and adds the real lesson, that a tenor fixed in the stem is taken from the stem.",
+   "SKEPTIC PASS, whenToRecommend[2], whenNotTo[0], cons[0], cues[1]: the claim that this trade is centrally cleared is removed, flagged by both skeptics. 'A cleared and collateralised dealer exposure' was self-cancelling (a cleared trade faces the CCP, not the dealer) and contradicted cons[0], which correctly calls the swap bilateral and over the counter. The notes' 'mitigated by central clearing and collateral' appears twice, both times in generic instrument-comparison and risk lists covering rate, currency and equity swaps, and trade_strategy_and_execution classes OTC derivatives as 'bilateral/dealer, negotiated'. Clearing is now named only as the curriculum's generic mitigant, qualified by contract eligibility.",
+   "SKEPTIC PASS, whenNotTo[0] and cues[1]: 'spreading dealers' and 'dealer diversification' deleted as invented. A full-text search of reading_notes.json, flashcards.json and question_bank.json returns no dealer-diversification mitigant anywhere; the readings offer only clearing and collateral. The normative 'not by abandoning the swap' is also softened, because the endowment case treats counterparty credit risk as a standing cost of the TRS and chooses the exchange-traded vehicle, so a stated concern does legitimately support the listed route.",
+   "SKEPTIC PASS, whenToRecommend[2] and cues[4]: 'the mandate specifies exact replication' demoted from a standalone trigger to a tiebreak after cost. In the one place the curriculum weighs exact replication, the endowment case, the TRS's exactness is available and the ETF still wins the fully funded mandate. Lens 2 raised this without confidence, but the endowment note ('For the fully funded, unlevered mandate Thompson picks the ETF') settles it, so it was acted on.",
+   "SKEPTIC PASS, cues (leverage): the roll was being double-counted. Exhibit 16's futures total of 192 is 42 + 150, and the 42 already contains the 20 bps roll, so futures beat the swap by 9 bps with the roll fully charged to them and the roll cannot be a cost tie-breaker that overturns the ranking. The cue now says the roll is already inside the 192 and moves the tie-breaker to the operational burden, which is a different argument from the cost one.",
+   "SKEPTIC PASS, cues (single name, sector, restricted access): 'which selects the OTC equity swap over futures, an ETF and the shares themselves' narrowed. Every friction in flashcard ...007_p3 (restricted access, stamp duty, custodian fees, corporate-action monitoring) is a cost of holding PHYSICAL stock, and none of them is borne by an ETF holder either, so they do not discriminate between the swap and a fund. The cue now separates the swap-versus-shares argument from the swap-versus-listed-vehicle argument, and concedes that sector ETFs and sector futures usually exist.",
+   "SKEPTIC PASS, cues[0]: 'a collar or protective put ... if the client wants to keep part of the upside' split into the two structures, flagged by Lens 1. A protective put retains the FULL upside less the premium; only the collar gives up the upside above the short call strike. The source applies both to this same holding (swaps_heights_case_ford_tyron_essay_q8's model answer is a long collar or a rolled protective put, and it names the funding call at 110), so the candidate needs the three-way distinction.",
+   "SKEPTIC PASS, summary: the bond-return leg restored, flagged by both skeptics. The repair pass said it rewrote the summary to avoid 'implying a bond leg is the standard one', but the reading names 'Switch asset classes, pay the equity return and receive a bond return' as one of its three headline uses, and this entry sells that leg twice (pros[0] and the overlay cue). The three-leg list the old summary borrowed is the receive-equity classification from flashcard ...007_p1, not a list of what the opposite leg can be.",
+   "SKEPTIC PASS, source fields: eleven pros and cons re-sourced from a reading id to the literal 'curriculum'. Lens 2 flagged that five claims cited case_study_in_portfolio_management_institutional_endowment, which appears ZERO times in this key's grounding slice. Applying the rule strictly, this key's notesEvidence names only swaps_forwards_and_futures_strategies and only four sentences of it, so a reading id is now used only where those sentences carry the claim (the reshape-and-switch pro, the diversification pro, and the worked-example payoff con). Every other claim is sourced to 'curriculum'. I verified each figure directly against reading_notes.json, flashcards.json and question_bank.json before re-sourcing (35/42/51, 222.50/192/201, 40 bps funding, 20 bps roll, 2x margin cap, USD 80m/40m, the 600,000 netting, the q4 settlement mechanics), so no claim was dropped for provenance, only relabelled honestly."
+  ],
+  "shortfall": "",
+  "residualRisk": "The key-boundary question is still open and is now the main risk, not any single claim. The notes head this material 'Total-return equity swaps', and the Exhibit 15/16 index-overlay cost stack sits in this entry while the endowment case is the sole grounding for the separate total_return_swap key. So this entry and total_return_swap describe one instrument from two sides, and two different trades (an index overlay and a single-stock payer hedge) share one page. Lens 2 flagged this and it needs an owner decision about which key carries the cost stack and the bond-index use; re-sourcing to 'curriculum' made the provenance honest but did not resolve the content model. Second, this key's own grounding slice is thin at 4 note sentences, 1 LOS and 0 essays, so most of what the reader sees was reconstructed from the reading's flashcards, the endowment case notes and the question bank rather than from the slice, which is why confidence stays at medium. Third, 'Replication of the referenced index is exact' is the curriculum's own wording and is now qualified with the financing offset, but a swap written on a custom basket rather than on the index itself can still mismatch, and the curriculum does not discuss that case."
+ }
+}

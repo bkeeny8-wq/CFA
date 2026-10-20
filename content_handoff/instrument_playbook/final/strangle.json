@@ -1,0 +1,161 @@
+{
+ "key": "strangle",
+ "name": "Strangle",
+ "family": "Derivatives: options",
+ "summary": "A strangle buys (or writes) an out-of-the-money call and an out-of-the-money put on the same underlying and expiry, conventionally the same degree out of the money. It is a direction-neutral volatility trade, and it turns on one decision: pay less premium than the at-the-money straddle in exchange for breakevens that sit further apart.",
+ "pros": [
+  {
+   "text": "Cheaper than the at-the-money straddle for the same long-volatility view, because both legs are out of the money. In the notes' own example the strangle costs 3 (55 call at 1.5 plus 45 put at 1.5) against 6 for the 50-strike straddle.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Direction neutral at inception: the long call's positive delta and the long put's negative delta offset, the same reason the notes give for the straddle being delta neutral at initiation, so the position isolates a view on volatility rather than taking a side. It is long gamma, so once the underlying moves the net delta takes a side and the neutrality has to be re-established.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "The long position's loss is capped at the premium paid while the call-side gain is open ended, so the cost is known in advance and easy to size against a stated premium budget or IPS limit.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Long vega: it gains if implied volatility reprices upward even before the underlying moves, so a trader who positions ahead of the repricing can close at a profit rather than wait for the realised move.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Written, it earns the full premium across a band rather than at a single price: a short strangle keeps everything as long as the underlying finishes anywhere between the two strikes, which happens far more often than finishing at one strike.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "It expresses a view on the LEVEL of implied against realised volatility directly: long wins if realised volatility exceeds the implied volatility paid, short wins if realised falls short. A plain forward or future on the underlying, or a directional spread, cannot express that view at all.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "The structure transfers to currency work unchanged: FX options, strangles among them, are the standard way to trade a view on currency volatility rather than on direction, so the same payoff arithmetic is examinable in both the options reading and the currency reading.",
+   "source": "currency_management_an_introduction"
+  }
+ ],
+ "cons": [
+  {
+   "text": "It needs a bigger move than the straddle. In the notes' example the strangle only pays beyond 42 or 58, against 44 or 56 for the straddle, so a correct volatility call can still lose money if the move is merely moderate.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "The full premium is lost across a BAND, not at a single price. Max loss of 3 applies anywhere from 45 to 55, whereas the straddle surrenders its whole 6 only at the 50 strike exactly, so the strangle is likelier to finish in its total-loss region.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Lower gamma and lower vega per contract than the at-the-money straddle, because both Greeks peak at the money, so the structure bought for its sensitivity to the move and to the repricing has less of each.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Negative theta: a long option loses value with the passage of time wherever the underlying sits, not only while it is between the strikes. The notes' own rule is that a long position whose expected move has not materialised is exited rather than carried into the final weeks.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Short strangles are asymmetric: limited gain (the premium) against large and on the call side unlimited losses if the market moves sharply. The payoff is negatively skewed, the notes' hook is picking up nickels in front of a steamroller, and being short gamma adds a dynamic-hedging cost. Size and monitor it, never treat it as free income.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Cheaper in premium does not mean buying volatility more cheaply. In currency options the smile puts implied volatility HIGHER on both out-of-the-money wings than at the money, so an FX strangle pays a richer volatility than the straddle it replaced.",
+   "source": "curriculum"
+  }
+ ],
+ "whenToRecommend": [
+  "The manager expects a big move in either direction, states no view on direction, and wants the cheaper of the two long-volatility structures.",
+  "FX vignette: a trader believes a pair is about to become much more volatile than usual with no view on whether it appreciates or depreciates, and the quotes are given by delta. Buy the 25-delta strangle.",
+  "A premium budget or cost constraint is stated and the position must still be long volatility and delta neutral at inception.",
+  "The view is that implied volatility itself will reprice upward, and the position will be closed on that repricing rather than held to expiry.",
+  "Short side: an income mandate expecting a range-bound market and falling implied volatility, where the writer wants a band of full-premium profit instead of the single point a short straddle gives, and the tail risk can be sized and monitored."
+ ],
+ "whenNotTo": [
+  "The brief is protecting an existing equity holding against a drawdown. A strangle is not a hedging structure: the long put leg does floor the downside at its strike, but you also pay for an upside call that protects nothing against the drawdown. Use a protective put for full protection above the strike, or a collar when the cost must be near zero and the upside can be capped.",
+  "There is a directional view. Half the premium goes on a leg that will expire worthless. Use a bull or bear spread for defined-risk direction, or an outright call or put.",
+  "The expected move may be only moderate, or a strong directional break is the stated expectation. Use the straddle: breakevens of 44 and 56 against the strangle's 42 and 58, and the at-the-money legs carry the full gamma and vega.",
+  "The view is on the volatility TERM STRUCTURE rather than the level. Use a calendar spread, which trades implied volatility differences across maturities.",
+  "The view is that the underlying settles near one price. Use a long butterfly, which pays near the middle strike and caps the loss at a small net premium.",
+  "The exposure wanted is to realised variance itself rather than to the terminal price. Use a variance swap, which pays on realised VARIANCE and is therefore convex in volatility, so it gains more than a linear position when volatility spikes. Long VIX futures also hedge a volatility spike, but their payoff is linear in the VIX level and a long roll in contango is a persistent drag.",
+  "The mandate or IPS bars uncovered short option positions. That rules out the short strangle outright, whatever the volatility view, so check the constraint before offering it."
+ ],
+ "pitfalls": [
+  "Breakeven arithmetic: use the TOTAL premium of both legs at each breakeven. Upper is call strike plus total premium, lower is put strike minus total premium. Adding only the call premium on the upside loses the mark.",
+  "Do not state max loss as a point. For a strangle it is the total premium across the whole band between the strikes, so quote the band: 3, anywhere from 45 to 55.",
+  "Equal distance in strike does not mean equal absolute delta, and a skew widens that gap rather than creating it, because the lognormal distribution is already asymmetric under flat volatility. The construction taught is the same degree out of the money; the FX convention quotes the legs by delta, 25-delta against 25-delta. Match on whichever measure the vignette actually gives you.",
+  "Do not fight the labels on a delta-quoted table. A 50-delta pair is at the money, so it prices and behaves as the straddle, fuller gamma and vega for a dearer premium, even where an item calls it a 50-delta strangle. The substance is that lower-delta legs are cheaper and need a bigger move.",
+  "Never answer short strangle to a rising-volatility prompt. Writing the structure is the low-volatility cell of the selection grid, and a near-the-money short strangle loses precisely when the long-volatility view turns out right: short vega as implied rises, and short gamma into the realised move, with only the collected premium and the time decay on the writer's side.",
+  "Do not describe the short strangle's loss as unlimited in both directions. It is open ended on the call side only; the put side is bounded because the underlying stops at zero, so the worst downside loss is the put strike less the premium received."
+ ],
+ "cues": [
+  {
+   "signal": "Expects the underlying or the exchange rate to become much more volatile than usual, with no strong view on direction.",
+   "implication": "A delta-neutral long volatility position: long straddle or long strangle. It rules out a forward or future on the underlying and any directional spread, all of which are bets on direction. It does not rule out volatility derivatives: a variance swap or long VIX futures is also a long-volatility answer, so check what the question is actually asking you to choose among."
+  },
+  {
+   "signal": "Wants the cheapest way to express the volatility view, or a premium budget or cost constraint is named.",
+   "implication": "The strangle over the straddle, out-of-the-money strikes quoted at the same delta. The price of the saving is a wider breakeven band, so say so when you recommend it."
+  },
+  {
+   "signal": "The expected move is described as moderate rather than large, or a strong directional break is the stated expectation, or tight breakevens are what the manager wants.",
+   "implication": "The straddle, not the strangle. A moderate move dies inside the strangle's 42 to 58 band but clears the straddle's 44 to 56, and the at-the-money legs carry the full gamma and vega."
+  },
+  {
+   "signal": "Option quotes are tabulated by DELTA: 15-delta, 25-delta and 50-delta puts and calls.",
+   "implication": "The 50-delta pair is at the money and prices as the straddle; the lower-delta pairs are the cheap out-of-the-money structures. Under a rising-volatility view, long an equal number of 25-delta puts and calls is the cheap correct answer, and short an equal number of 15-delta puts and calls is the least appropriate answer in the set."
+  },
+  {
+   "signal": "The forecast is that implied volatility will RISE, as distinct from the underlying making a big realised move.",
+   "implication": "Long vega is the point, and the trade can be closed on the repricing before expiry. Breakeven arithmetic is an expiry-only measure, so do not use it to reject a position the manager will not hold that long."
+  },
+  {
+   "signal": "Range-bound market expected, premium income wanted, or implied volatility described as elevated relative to realised.",
+   "implication": "Short strangle: the writer wins when realised volatility falls short of the implied volatility received. Always pair the recommendation with the asymmetric tail loss, the negative skew and position sizing, or the answer is incomplete."
+  },
+  {
+   "signal": "The client or the IPS states a hard cap on how much can be lost.",
+   "implication": "A LONG strangle satisfies it, maximum loss is the premium paid. A short strangle does not, so the constraint alone rules out the short side regardless of the volatility view."
+  },
+  {
+   "signal": "An implied-volatility table where out-of-the-money put IV sits far above out-of-the-money call IV (the equity index skew, crash fear).",
+   "implication": "The put leg of a symmetric strangle is the rich leg and the call leg is the cheap one. If the vignette is asking how to exploit the skew rather than the level, a risk reversal or a skew-normalisation trade fits better than a strangle."
+  },
+  {
+   "signal": "A short option position is running into the last few weeks before expiry.",
+   "implication": "Close or roll it. The notes' rule is that short-option positions are closed or rolled before the final weeks to avoid pin risk; the economics are that most of the premium has already been earned while short gamma and assignment uncertainty at either strike peak, so the remaining reward no longer pays for the risk."
+  }
+ ],
+ "comparesWith": [
+  "straddle",
+  "butterfly",
+  "calendar_spread",
+  "variance_swap"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "Whole claim removed from whenToRecommend: 'A scheduled binary event, an election, a central bank decision, a ruling, an earnings release, where the expected move is large, so paying for at-the-money strikes buys range the manager does not need.' It restates whenToRecommend item 1, event volatility appears nowhere in the bundled notes, and it is actively misleading because implied volatility is normally already rich ahead of a scheduled event, which argues against buying volatility rather than for it.",
+   "Clause removed from pros item 6: 'which no forward, future or directional spread can do.' False as stated. VIX futures and variance swaps are futures and forwards that trade exactly implied against realised volatility, and the entry's own whenNotTo then sends the candidate to them, so the original contradicted itself.",
+   "Clause removed from pitfalls item 4: 'so a 50-delta pair is a straddle, not a strangle. Any lower-delta pair, 25-delta or 15-delta, is the strangle.' The nomenclature rule fights the candidate's own bank item, which calls a 50-delta pair both a 50-delta strangle and a 50-delta straddle in the same rationale. The economics are kept, the naming rule is gone.",
+   "Clause removed from whenNotTo item 6: 'Pure path-independent exposure to realised variance.' A strangle's own expiry payoff is strictly path independent, so the contrast was the wrong one. The real contrast is exposure to realised variance rather than to the terminal price.",
+   "Clause removed from pitfalls item 5: 'Getting direction right but volatility wrong still loses through vega and theta.' True of a long option position (it is the notes' own line about buying calls into low volatility) but false of the short strangle this pitfall is about: the writer is LONG theta and earns decay. Replaced with vega and gamma."
+  ],
+  "corrected": [
+   "pros item 2: added 'at inception' and the long-gamma consequence, because a strangle is delta neutral only at initiation and to first order; a candidate who memorises 'direction neutral' full stop will mis-answer whether the position still needs rebalancing after a move.",
+   "pros items 2 and 4: re-sourced from currency_management_an_introduction to options_strategies. That reading's bundled notes contain the string 'delta' zero times and 'vega' zero times; the net-delta and vega material is all in options_strategies.",
+   "pros item 6: kept the implied-against-realised claim, dropped the exclusivity over all forwards and futures.",
+   "pros item 7 is new: the one claim the currency reading's evidence genuinely supports (FX options including strangles trade currency volatility rather than direction), which is why the structure is examinable in two readings.",
+   "cons item 2: the original said total loss was 'the likeliest single outcome', which is loose. Restated as the comparison that is actually checkable, a full-loss BAND of 45 to 55 against the straddle's single point at 50.",
+   "cons item 3: trimmed the trailing sentence, substance unchanged.",
+   "cons item 4: the original said theta runs against the position only 'while the underlying sits inside the strikes'. A long vanilla option has negative theta everywhere, and the original invites the false inference that decay stops once a leg goes in the money.",
+   "whenNotTo item 1: the original said 'a strangle hedges nothing, it adds a position', which is false as a payoff statement. Long stock plus a long out-of-the-money put IS floored below that strike. The real objection is efficiency, that roughly half the premium buys an upside call contributing nothing to drawdown protection.",
+   "whenNotTo item 3 and cues item 3: the original signal read 'a strong directional break is likely but the move may be only moderate', which is self-contradictory. Split into the two distinct conditions that both point to the straddle.",
+   "whenNotTo item 6: the convexity was attached to both the variance swap and VIX futures. The notes attach convexity to the variance swap (it pays on squared volatility) and warn that VIX futures carry a contango roll cost. Separated, and the VIX payoff correctly described as linear in the VIX level.",
+   "whenNotTo item 7 is new: the 'check whether the mandate bars naked short options' clause was buried in item 6. Promoted, because an IPS constraint that eliminates an instrument regardless of the view is the highest-scoring kind of observation.",
+   "pitfalls item 3: the original implied equal strike distance and equal delta coincide absent a skew. They do not, because the lognormal distribution is asymmetric even under flat volatility; a skew widens an existing gap.",
+   "pitfalls item 4: recast from nomenclature to economics, so the candidate reads a 50-delta pair correctly whatever an item calls it.",
+   "pitfalls item 5: theta sign corrected to vega and gamma, and theta named as the one Greek on the writer's side.",
+   "cues item 1: removed the claim that a long-volatility view rules out all forwards and futures, and named the volatility derivatives it does not rule out.",
+   "cues item 6: 'harvesting the volatility risk premium that implied tends to exceed realised' replaced with the notes' own formulation, that the writer wins when realised falls short of implied. The structural premium is real but is not in this reading.",
+   "cues item 9: the original gave accelerating time decay as the reason to close a short position, which is backwards economically because decay is the writer's income. The notes do phrase it that way, so the rule is kept and the economics corrected alongside it: the premium is largely earned while short gamma and pin risk peak."
+  ],
+  "shortfall": "",
+  "residualRisk": "The straddle-versus-strangle cue, where I knowingly departed from the draft's own verifier. The verifier called 'a strong directional break is likely' a wrong signal for the straddle, arguing that a strong break is a large move and a large move is the strangle's case. I kept the association because the candidate's own question bank states it as the grading key ('Straddle better than strangle if strong directional break is likely') and it is defensible on the arithmetic: in the reading's own pair the straddle nets 2 more at any price outside both bands, since 3 of extra premium buys 5 of strike, and the at-the-money legs carry more gamma into the break. It is the one claim in the entry where a reasonable reviewer disagreed and I overrode them, so it is the claim to double check. Secondary: the 25-delta leg convention appears in none of the 36 bundled readings (it comes from the app's own flashcard and bank items), so it is amplification wherever it appears here."
+ }
+}

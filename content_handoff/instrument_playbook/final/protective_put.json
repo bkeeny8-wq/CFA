@@ -1,0 +1,145 @@
+{
+ "key": "protective_put",
+ "name": "Protective Put",
+ "family": "Derivatives: options",
+ "summary": "Long the stock plus a long put: a premium buys a contractual floor at the strike while the shares, the dividends and the whole upside stay with the client. The decision it turns on is how much premium to pay for how high a floor, because everything between today's price and the strike is an uninsured first loss.",
+ "pros": [
+  {
+   "text": "Floors the loss at a known number while leaving the upside open: max loss = (S0 - X) + premium, max profit unlimited, breakeven = S0 + premium. Own at 50, buy the 45 put for 2, and the worst case is 7 no matter how far the stock falls.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Cuts downside risk without selling, so an embedded capital gain stays unrealized and the client keeps the shares, the dividends and the votes. This is why it sits in the concentrated-position toolkit next to the collar.",
+   "source": "an_overview_of_private_wealth_management"
+  },
+  {
+   "text": "Net delta stays positive but below +1, because the long put adds negative delta: the client is left bullish with a floor rather than flat. Hold 1,000 shares, buy 1,000 puts at delta -0.3, and net delta is +700.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "The premium is the entire cost, paid up front: no variation margin, no margin calls, and no rebalancing. A long put is long gamma, so protection strengthens as the stock falls and survives an overnight gap down that a dynamic hedge would miss.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Strike and tenor are explicit dials on cost versus protection: a lower strike costs fewer premium dollars and leaves a bigger uninsured first loss, a higher strike floors nearer the current price for more premium, and a longer tenor costs more but postpones the roll. Because the floor is contractual rather than estimated, the strike can be solved backwards from the client's stated maximum loss.",
+   "source": "curriculum"
+  }
+ ],
+ "cons": [
+  {
+   "text": "The premium is a certain cash cost against an uncertain payoff, and it lifts breakeven to S0 + premium. In the 50/45/2 example the stock has to clear 52 before the hedged position makes anything.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "With an out-of-the-money put, nothing between the current price and the strike is covered. That (S0 - X) gap is an uninsured first loss the client eats, which is exactly why max loss is (S0 - X) + premium rather than just the premium.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Equity index puts sit on the rich side of the volatility skew: implied volatility is higher at lower strikes than at higher ones, reflecting crash fear and persistent demand for downside protection, and a steep skew signals expensive protection. Name the unit when you say expensive: the downside strikes a hedger wants are the richest on the surface in implied-volatility terms, even though a lower strike still costs fewer dollars of premium.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Protection stops at expiry. Rolling repays the premium at whatever implied volatility prevails then, and a long put is short theta, so holding insurance through a flat market is a steady bleed.",
+   "source": "curriculum"
+  },
+  {
+   "text": "The clean floor is an expiry result, but a pre-expiry floor still exists and is lower and softer. Put-call parity, S + p = c + PV(X), bounds the hedged position's value below at PV(X), and for an American put p >= X - S bounds it at X outright. What is partial before expiry is the offset: put delta sits strictly between -1 and 0, so a modest decline is cushioned rather than matched one for one, and the mark can still slide toward that floor as theta and any fall in implied volatility erode the put.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "It hedges the price, not the concentration: the client still owns one stock, and the put raises no cash and pays no income. Monetization, a staged sale, an exchange fund or a charitable vehicle are still the answer when the problem is diversification or liquidity.",
+   "source": "an_overview_of_private_wealth_management"
+  }
+ ],
+ "whenToRecommend": [
+  "The IPS or the client states a maximum tolerable loss on the position over a stated horizon, and the manager must deliver a hard floor rather than a cushion.",
+  "A low-basis concentrated holding the client will not sell, where the vignette stresses deferring the capital gain and does not ask for cash to be raised.",
+  "A known near-term event risk, earnings, litigation, a regulatory decision, with the manager still bullish beyond it and unwilling to surrender the recovery.",
+  "The client refuses to cap the upside, which takes the collar and the covered call off the table.",
+  "Implied volatility is low or the put skew is flat, so insurance is cheap relative to the risk being hedged."
+ ],
+ "whenNotTo": [
+  "The client wants protection at little or no net cost and will give up gains above a strike: that is the collar, often a zero-cost collar.",
+  "Income to fund current spending is a stated objective. A put pays nothing out, while the covered call collects the premium. Keep the label straight: a collar struck for a net credit pays a small amount out, and a true zero-cost collar nets to nothing because the call premium received equals the put premium paid.",
+  "Only a moderate decline is feared and the premium looks dear: a bear put spread cheapens the protection, accepting that the deep downside is left unhedged.",
+  "The exposure is to be removed outright with no upside wanted and no premium paid: short futures or a short forward takes net delta to zero.",
+  "Implied volatility has already spiked and the skew is steep, so insurance is being bought at the top. Prefer a collar, a put spread or a futures hedge, and say why.",
+  "The real problem is concentration, liquidity or estate planning rather than price: a staged sale, exchange fund, prepaid variable forward or CRT addresses it, and a put leaves the client holding one stock."
+ ],
+ "pitfalls": [
+  "Mangling the three numbers. Max loss is (S0 - X) + premium, not S0 - X and not X - premium, and breakeven is S0 + premium, not X + premium. Own at 50, buy the 45 put for 2: max loss 7, breakeven 52.",
+  "Putting a figure on the maximum profit. It is unlimited, S_T - S0 - premium, and an answer that caps it loses the mark.",
+  "Flipping the sign because the put is in the money. (S0 - X) + premium goes negative only if X > S0 + premium, not merely when X > S0, and no-arbitrage rules that case out for an American put because p >= X - S0. On the KEND exhibit, stock at 56: the 60 put at 7.20 gives 56 - 60 + 7.20 = a loss of 3.20 per share, and the 65 put at 10.50 gives a loss of 1.50, both with the strike above spot. As the strike rises the worst case shrinks but stays a loss, so never write 'maximum loss is negative, so this is a guaranteed gain'.",
+  "Getting the delta wrong, or the units. The long put adds negative delta, so net delta falls below +1 but stays positive; the position is not delta neutral, only long stock plus a short forward is. Net delta is the sum of (quantity x delta) in share equivalents, so 500,000 shares hedged with puts on 500,000 shares at delta -0.25 leaves +375,000. Those puts are 5,000 listed contracts of 100 shares, so convert contracts to share equivalents before multiplying or the hedge is out by a factor of 100.",
+  "Comparing the premium received on a covered call with the premium paid on a put and calling the covered call the better hedge. The covered call cushions only by the premium received, max loss S0 - premium and breakeven S0 - premium, so owning at 50 and writing a call for 2 breaks even at 48 and still loses 48 if the stock goes to zero. It is a cushion of exactly the premium, not protection against a large decline.",
+  "Carrying the index-put sizing formula into a futures question. The number of index puts is (portfolio value x beta) / (index level x multiplier), so a 10,000,000 portfolio at beta 1.2 against a 4,000 index with a 100 multiplier needs 30 puts. The futures hedge ratio is a different formula: N_f = [(beta_target - beta_portfolio) / beta_futures] x [V / (f x multiplier)], where the denominator uses the futures price f rather than the index level, and the target beta need not be zero."
+ ],
+ "cues": [
+  {
+   "signal": "The client names a maximum acceptable loss on the position, for example 15 percent over 12 months.",
+   "implication": "A hard floor is being demanded, so the put or the collar is in and the covered call is out. Prove the fit: a 50-strike put at 2.20 on a 56 stock gives a worst case of 8.20 per share, 14.6 percent, inside a 15 percent tolerance."
+  },
+  {
+   "signal": "Low cost basis, large embedded gain, and wording like 'without triggering an immediate taxable sale'.",
+   "implication": "Rules out the outright sale and points at hedging, protective put or collar, or at monetization, an exchange fund or a charitable vehicle if diversification is also wanted. Scope the tax follow-on correctly: under US tax law the constructive-sale rule bites on a structure that removes substantially all risk of loss AND opportunity for gain, which is a tight collar or a deep-in-the-money put against a tight call, not a standalone put that leaves the upside intact."
+  },
+  {
+   "signal": "Wants to keep all the upside, or expects a rebound once a near-term risk passes.",
+   "implication": "Rules out the covered call and the collar, which both cap. The protective put is the structure that floors the downside and leaves the upside intact."
+  },
+  {
+   "signal": "Needs income or cash flow from the position to fund lifestyle spending.",
+   "implication": "Argues against a standalone protective put, which is a cash outflow with no income. Steer to the covered call for premium, or the collar when protection is also required."
+  },
+  {
+   "signal": "'Zero-cost', or does not want to pay a premium.",
+   "implication": "Eliminates the protective put as presented. Fund the put by writing an upside call: that is the collar, and the price is the capped upside."
+  },
+  {
+   "signal": "Implied volatility is elevated, the put skew is steep, or the quoted puts look rich against the calls.",
+   "implication": "The protection is being bought at the most expensive part of the surface. Favor a collar, a put spread or a futures hedge, and name the skew as the reason."
+  },
+  {
+   "signal": "The question asks to compare the overlay's delta with long the asset and short a forward on it.",
+   "implication": "Long stock plus short forward is delta 0, fully hedged with no upside. Both the covered call and the protective put sit between 0 and +1. Which of the two keeps more delta depends on the option deltas, so compute it rather than asserting it."
+  },
+  {
+   "signal": "The vignette prices a call, a put, the stock and a bond on the same strike and expiry, or quotes a protective put against a fiduciary call.",
+   "implication": "This is a put-call parity question, not a strategy-selection question. S + p = c + PV(X), so the protective put and the fiduciary call are the same exposure. With the protective put at 52 (stock 50 plus put 2) and the fiduciary call at 54 (call 5 plus PV(X) 49), sell the dear side, write the call and borrow PV(X), buy the cheap side, the stock and the put, and bank the 2."
+  },
+  {
+   "signal": "A large single-stock hedge on a mid-cap, or the words 'over the counter', 'bespoke tenor' or 'counterparty'.",
+   "implication": "Listed single-stock puts may be too illiquid or too short-dated for the size and horizon, pushing the hedge OTC with counterparty risk and a wider spread. If the vignette stresses counterparty concern, stay with listed options."
+  }
+ ],
+ "comparesWith": [
+  "covered_call",
+  "collar",
+  "bull_bear_spread",
+  "forwards"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "'Below the strike the put offsets the stock decline dollar for dollar at expiry, so the floor is contractual rather than estimated and the strike can be set to the client's stated maximum loss' (pros): restated the floor already quantified in pros[0] and the strike dial already in pros[4]; the one distinct idea, solving the strike from a stated maximum loss, was folded into pros[4].",
+   "'The hedge has to hold through a gap down with no rebalancing and no margin calls, for example in a thinly staffed private-client account' (whenToRecommend): verifier-flagged padding, a restatement of pros[3] with invented colour; no vignette plants 'thinly staffed', and the item named no alternative to beat."
+  ],
+  "corrected": [
+   "pitfalls[2], the in-the-money put: the draft said max loss turns negative 'once X is above S0' and called the result a locked-in gain. Threshold corrected to X > S0 + premium, and the gain case removed because p >= X - S0 makes (S0 - X) + premium non-negative for an American put; the KEND 60 put at 7.20 and 65 put at 10.50 are both still losses. The pitfall now teaches the opposite lesson, that the worst case shrinks but stays a loss.",
+   "cons[4], the pre-expiry floor: the draft said a mid-life decline is 'cushioned, not floored', which contradicts parity. Rewritten so parity bounds the hedged value at PV(X), an American put at X, and the partial part is the marginal offset from a put delta between -1 and 0 plus theta and vega drag.",
+   "pitfalls[4], the covered call: 'no downside protection at all' overstated and self-contradicting. Replaced with the graded formula, max loss and breakeven S0 - premium, 48 on the notes' own 50/55/2 example, so the cushion is exactly the premium.",
+   "cons[0]: 'the 50-strike-45-put example' mislabelled S0 as a strike, in an entry whose first pitfall is that confusion. Now 'the 50/45/2 example'.",
+   "whenNotTo[1]: 'a zero-cost collar can even run a small credit' contradicted the definition. Split into a net-credit collar, which pays out, and a true zero-cost collar, where the premiums offset to nothing.",
+   "cons[2]: 'the most expensive strikes on the surface' conflated implied volatility with premium dollars and fought pros[4]. The unit is now named, richest in implied-volatility terms, cheaper in dollars.",
+   "pros[2], now pros[2] trimmed: the short-forward comparison was cited to options_strategies, whose notes do not contain it (it is LOS d, not note text). The forward comparison stays in cues[6], which carries no source, and the pro keeps only the notes-backed delta claim plus the notes' own 1,000-share, delta -0.3, net +700 example.",
+   "cues[1]: the constructive-sale and holding-period gloss was unscoped and sat in a protective-put entry. Jurisdiction added, the structure at risk named as the tight collar or deep-ITM put, and the holding-period claim dropped because it is a separate US rule the notes never state.",
+   "pitfalls[3]: 'contracts x delta' was applied to 500,000 share equivalents. Now states share equivalents and the 100-share contract conversion, the slip that would otherwise over-hedge by 100 times.",
+   "pitfalls[5]: a beta-0 special case was stated as the general hedge formula with the index level as denominator. Now explicitly the index-put sizing rule, with the futures ratio N_f = [(beta_target - beta_portfolio)/beta_futures] x [V/(f x multiplier)] shown beside it so the futures denominator is the futures price.",
+   "cons[1]: added the out-of-the-money qualifier, since there is no uninsured gap when X exceeds S0.",
+   "summary: rewritten to carry the decision the instrument turns on, premium paid against height of floor, rather than only describing the structure.",
+   "Added one cue (the parity cue), because five of the 22 grounding sentences are put-call parity and the reading's exam focus says to memorise it, yet the draft never mentioned it. The arbitrage direction follows the notes' own worked example, 52 versus 54, capture 2."
+  ],
+  "shortfall": "",
+  "residualRisk": "The US constructive-sale scoping in cues[1]. It is correct as written and matches IRC 1259 as the app's own Bristol vignette states it, but it appears nowhere in the bundled notes, it is jurisdiction-specific, and cues carry no source field, so nothing on screen tells the reader it is US tax law rather than curriculum. A grader outside a US context would mark it irrelevant rather than wrong."
+ }
+}

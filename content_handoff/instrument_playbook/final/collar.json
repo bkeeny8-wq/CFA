@@ -1,0 +1,162 @@
+{
+ "key": "collar",
+ "name": "Collar",
+ "family": "Derivatives: options",
+ "summary": "A collar is a long stock position bracketed by a bought lower strike put and a written higher strike call, so the payoff is locked between the two strikes. The decision it turns on is how much upside the holder will surrender in order to stop paying for the protection.",
+ "pros": [
+  {
+   "text": "Bounds the payoff between the put strike and the call strike, and the call premium pays for the put, so the protection can be struck at zero net cost. On the notes example, long stock at 50 with a 45 put and a 55 call gives max loss 5 and max profit 5.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Hedges a large low basis holding without an immediate taxable sale, so the embedded capital gain stays deferred and the client keeps the shares.",
+   "source": "an_overview_of_private_wealth_management"
+  },
+  {
+   "text": "Sits on the cost versus protection spectrum as the compromise answer: a protective put gives full protection above the strike but costs a premium, a collar reduces or eliminates that cost by capping the upside, a put spread cheapens the protection but leaves the deep downside unhedged. Mind the ordering, because a long put spread is always a net debit: it is cheaper than an outright put, not cheaper than a collar.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Leaves a net positive but reduced delta, so the holding stays a dampened long rather than going directionally flat. Useful when the vignette wants risk cut but not exposure removed.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Can be struck for a net credit by selling the call for more than the put costs, which answers an income objective and a protection objective in the same trade. A protective put, always a net debit, cannot do that.",
+   "source": "curriculum"
+  },
+  {
+   "text": "The same structure cuts currency hedging cost: buy an out of the money put on the foreign currency and sell an out of the money call to fund it, known as a risk reversal, with seagull variants shaping the bounded range further.",
+   "source": "currency_management_an_introduction"
+  }
+ ],
+ "cons": [
+  {
+   "text": "The upside is surrendered above the call strike. Zero cost is not free: the price is every gain beyond the call strike, which is the objective a collar most often fails in an essay.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Risk inside the band is unchanged. The holder takes the full move from the current price down to the put strike and up to the call strike, so a collar is not a flat or riskless position.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "It reshapes the payoff but does not reduce the concentration or the embedded gain. Diversifying without a sale needs an exchange fund, not a collar.",
+   "source": "an_overview_of_private_wealth_management"
+  },
+  {
+   "text": "The protection ends at expiry, so a need that runs longer means rolling the structure, closing the current options and opening later dated ones, at whatever the market charges then.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Tax rules bite on concentrated positions. Strikes set close enough together to leave little risk of loss and little opportunity for gain can be treated as a constructive sale, realising the gain the hedge was meant to defer. Separately, the hedge stops the holding period clock, so stock not yet held long enough for long term treatment will not ripen while the collar is on. It does not strip long term status from shares already held beyond a year, and inherited shares are long term from the start.",
+   "source": "curriculum"
+  },
+  {
+   "text": "If the stock finishes above the call strike the shares can be called away, realising the gain the collar was meant to defer, unless the call is bought back or rolled at a loss. An American style short call can also be assigned early, typically ahead of a large dividend.",
+   "source": "curriculum"
+  }
+ ],
+ "whenToRecommend": [
+  "The vignette says the client is nervous about a near term fall, will not pay much for protection, and is willing to give up some upside. That three part sentence is the standard setup for a zero cost collar.",
+  "A founder or executive holds a large low basis single stock position and refuses to sell because of the embedded gain, but the concentration risk has to be cut now.",
+  "The client states a maximum acceptable loss and a limited or zero premium budget at the same time. A protective put satisfies the first and breaks the second.",
+  "The client wants income or at least no cash outlay and treats a stated price as full value, which names the call strike for you.",
+  "A long foreign currency exposure needs hedging but the premium on a straight option hedge is objected to, and capping favourable currency moves is acceptable. That is a risk reversal, the FX collar."
+ ],
+ "whenNotTo": [
+  "The client insists on keeping full upside participation, for example because a bid or a re rating is expected. Pay for a protective put instead.",
+  "The objective is to actually eliminate the concentration rather than cushion it. Use a staged sale, an exchange fund, or a charitable vehicle such as a CRT.",
+  "The client needs cash now. A collar raises little or nothing. Borrowing against the position or a prepaid variable forward monetizes and defers the tax.",
+  "Reaching zero cost would require strikes close to the current price. The retained upside becomes trivial and the structure risks constructive sale treatment, so either buy the put outright, or hold the put at the client's stated loss limit, push the call strike further out, and accept the resulting debit.",
+  "The short leg cannot be covered: the shares are already pledged as loan collateral, or the account is not approved or margined for writing options. A protective put needs no short leg. Where the obstacle is instead a blackout window, an insider restriction, or a corporate anti hedging policy, assume no option hedge is permitted, because those rules reach the bought put as well, and go to a non derivative route.",
+  "The view is on volatility rather than direction. A collar is a dampened long, not a volatility trade, so a straddle or strangle is the structure."
+ ],
+ "pitfalls": [
+  "Getting the net premium sign wrong. Max loss = (S0 minus put strike) + net premium paid, max profit = (call strike minus S0) minus net premium paid, breakeven = S0 + net premium paid. When the call brings in more than the put costs, the net premium paid is negative, so the floor improves and the breakeven falls below S0.",
+  "Measuring the maximum profit and loss from the strikes instead of from the initial stock price. The strikes bound the stock price, not the profit and loss.",
+  "Writing that a zero cost collar has no cost. State the cost: the gains above the call strike.",
+  "Recommending a collar on a concentrated position without the tax paragraph. Constructive sale risk if the band is narrow, the holding period clock stopping for stock not yet held long term, and assignment of the short call forcing the sale are the marks on offer.",
+  "Calling the collar delta neutral, or claiming it removes risk. Its delta is positive but reduced, and the full move between the strikes is still the holder's."
+ ],
+ "cues": [
+  {
+   "signal": "Will not sell because of a low cost basis or a large embedded gain",
+   "implication": "Hedge rather than divest, so a collar or a protective put. Rules out an outright sale as the primary answer and puts the tax discussion on the mark scheme."
+  },
+  {
+   "signal": "Does not want to pay much for protection, wants it self funding, premium neutral, or cash neutral",
+   "implication": "The put has to be financed by a written call. That is a collar, not a protective put."
+  },
+  {
+   "signal": "Willing to give up gains above a stated price, or treats a stated price as fair or full value",
+   "implication": "That price is the call strike. Cap the payoff there and quantify the surrendered upside as a percentage of the current price."
+  },
+  {
+   "signal": "Must retain full upside participation, or a takeover bid is anticipated",
+   "implication": "A collar fails that objective outright. Recommend a protective put and say the premium is the price of keeping the upside."
+  },
+  {
+   "signal": "Strikes sit close to the current price, or the band is described as narrow",
+   "implication": "Constructive sale risk, because little risk of loss or opportunity for gain is left. Flag it and widen the band before recommending."
+  },
+  {
+   "signal": "A maximum acceptable loss is given as a percentage or a dollar amount per share",
+   "implication": "Test the floor against it: (S0 minus put strike) plus net premium paid, divided by S0. The answer is met, nearly met, or breached, and you say which."
+  },
+  {
+   "signal": "Shares are pledged against a loan, or the account is not approved or margined for writing options",
+   "implication": "The short call cannot be covered, so the collar is unavailable. Recommend the protective put, which has no short leg, and price the premium."
+  },
+  {
+   "signal": "A blackout window, an insider trading restriction, or a corporate anti hedging policy",
+   "implication": "Those rules reach derivatives on the company's own stock, so the bought put is blocked too and a protective put is not the workaround. Go to a non derivative route: a pre cleared staged sale, an exchange fund, or a charitable vehicle."
+  },
+  {
+   "signal": "Wants income, or current spending needs funding from the position",
+   "implication": "Strike the collar for a net credit by selling the call for more than the put costs. This is a point a protective put cannot score."
+  },
+  {
+   "signal": "Needs liquidity or cash now, not just protection",
+   "implication": "A collar raises almost nothing. Shift to monetization: borrow against the position or use a prepaid variable forward."
+  },
+  {
+   "signal": "Concerned about counterparty exposure, or the required strikes and maturity are bespoke",
+   "implication": "Listed options carry minimal counterparty risk, because the clearinghouse stands between the parties, but only standard strikes and shorter maturities. A tailored OTC collar solves the fit and adds bilateral counterparty risk, so say which trade off the vignette prefers."
+  },
+  {
+   "signal": "Downside protection is described as expensive, or a steep volatility skew is mentioned",
+   "implication": "The skew is why. Zero cost then requires a call nearer the money, so quantify how little upside is left before calling the structure appropriate."
+  },
+  {
+   "signal": "A currency mandate that will not pay a premium and is indifferent to favourable currency moves",
+   "implication": "Sell the currency forward outright: no premium, and no upside to protect. A collar or risk reversal is the answer only when some favourable move must be retained."
+  }
+ ],
+ "comparesWith": [
+  "protective_put",
+  "covered_call",
+  "bull_bear_spread",
+  "fx_hedging"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "Equity puts carry higher implied volatility than equivalent calls because of the downside skew, so a symmetric strike band is normally a net debit: the notes' skew LOS is explicitly about equity INDEX options, single stock skew is flatter and can invert, and the app's own Bristol exhibit prices a symmetric band around 56 as a small credit, so the pricing conclusion is contradicted by the data the candidate is reading. The conditional version survives in the skew cue.",
+   "Protection is needed over a defined window, for example until a lock up expires, a vesting date, or a stated twelve month horizon: a defined window fits a put, a put spread or a covered call equally, so it discriminates nothing, and the useful half (protection ends at expiry) is already a con.",
+   "Netting only one leg, usually charging the put premium and forgetting the call premium received: restates the net premium pitfall that precedes it.",
+   "Cue 'a defined horizon such as twelve months, until the lock up expires, or until a vesting date': selects a maturity, not an instrument, and the rolling point is already carried by a con.",
+   "The clause 'and the dividends and the votes' in the no taxable sale pro: true and standard but the cited private wealth reading says nothing about dividends or voting rights, so the citation was carrying weight it could not."
+  ],
+  "corrected": [
+   "The cost spectrum pro called a put spread 'cheaper still' than a collar. Reversed: a long put spread is always a net debit while a collar can be zero cost or a credit, and the cited reading has the collar ELIMINATING the cost and the put spread only CHEAPENING it. On the Bristol exhibit the 55/45 put spread costs 3.10 per share against the collar's 0.70 per share credit.",
+   "The holding period tax claim said the hedge converts a long term gain into a short term one. Wrong direction: suspension tolls a clock that has not yet run, so it stops an unripened holding from maturing, and it does not reach shares already held beyond a year. Added that inherited shares are long term from the start, which is exactly the archetypal collar client.",
+   "Split the single private wealth con into two, so the expiry and rolling point now cites options_strategies, which is where the roll sentence actually lives, rather than the private wealth reading, which never discusses hedge maturity.",
+   "'Listed options carry no counterparty risk' softened to 'minimal counterparty risk, because the clearinghouse stands between the parties', which is the wording of the bundled notes; the clearinghouse replaces bilateral exposure, it does not reduce it to zero.",
+   "'Widen the band and accept a debit' was presented as arithmetic. Widening both strikes moves both legs further out of the money and both premiums fall, so the net can go either way. Now states the version that is true: hold the put at the client's loss limit and push only the call strike out.",
+   "Split the 'cannot write calls' condition and its cue into two. A blackout window, an insider restriction or an anti hedging policy reaches derivatives on the company's stock, so the bought put is blocked too and 'buy a protective put instead' would lose the mark; only pledged collateral and a non approved option account are genuinely short leg specific.",
+   "Trimmed the no taxable sale pro to what the private wealth reading supports, and added 'always a net debit' to the net credit pro so the contrast with a protective put is stated rather than implied.",
+   "Aligned the tax pitfall with the corrected holding period direction."
+  ],
+  "shortfall": "",
+  "residualRisk": "The holding period suspension clause in the tax con. The direction is now right and the exception for already long term and inherited shares is stated, but this is US statutory detail that the curriculum treats only qualitatively, and the app's own grading key for the Bristol tax question still carries the uncorrected wording, so the candidate will meet a contradiction. Constructive sale is the safer half of that con and is stated without any band threshold, because the 5 to 10 percent figure in that grading key is a rule of thumb, not a statute."
+ }
+}

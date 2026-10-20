@@ -1,0 +1,151 @@
+{
+ "key": "index_replication",
+ "name": "Index Replication",
+ "family": "Equity",
+ "summary": "Owning the index's own securities, in a separate account or a pooled index fund, so the portfolio earns the index return. The decisions it turns on are the construction method, full replication when the index is liquid with a manageable number of names and stratified sampling or optimization when it is broad or illiquid; the vehicle, pooled index fund, ETF, separate account or derivatives; and whether the proposed index is itself rules based, investable, float adjusted and predictably reconstituted.",
+ "pros": [
+  {
+   "text": "Full replication holds every name at index weight, so sampling error is roughly zero and it tracks more tightly than any other construction method, which is what a tight tracking error budget needs.",
+   "source": "index_based_equity_strategies"
+  },
+  {
+   "text": "Stratified sampling and optimization make a broad or illiquid index investable, capturing its risk characteristics while avoiding the cost and market impact of trading barely traded names.",
+   "source": "index_based_equity_strategies"
+  },
+  {
+   "text": "Optimization uses a factor risk model to minimize modeled tracking error through the index's covariance structure, which stratified sampling ignores, so it builds the smallest tracking error portfolio for a given number of holdings and set of constraints.",
+   "source": "index_based_equity_strategies"
+  },
+  {
+   "text": "Holding the physical shares lets the manager run a securities lending programme, and that income offsets fund expenses and shrinks the tracking difference, at the cost of counterparty and collateral reinvestment risk that has to be managed.",
+   "source": "index_based_equity_strategies"
+  },
+  {
+   "text": "A separately managed index account gives direct ownership of the shares: tax lot control for loss harvesting, client specific customization such as exclusions, and the votes. Votes are forfeited on any shares out on loan, so a lending programme and a stewardship mandate pull against each other.",
+   "source": "index_based_equity_strategies"
+  },
+  {
+   "text": "A physical portfolio has no contract to roll and no margin to post, so it satisfies an IPS that bars derivatives. A securities lending programme does not breach a derivatives ban, because a stock loan is a collateralized loan of shares and not a derivative; what it breaches is an IPS that bars counterparty or collateral exposure.",
+   "source": "curriculum"
+  }
+ ],
+ "cons": [
+  {
+   "text": "Full replication is expensive or outright impossible for an index of thousands of constituents, some of them barely traded.",
+   "source": "index_based_equity_strategies"
+  },
+  {
+   "text": "The position is unhedged market beta. It is fully exposed to the market and offers no downside protection, falling as much as the index in a bear market by design, and it inherits whatever single stock and sector concentration the index carries.",
+   "source": "index_based_equity_strategies"
+  },
+  {
+   "text": "Some tracking error is unavoidable: fees and expenses, transaction costs, cash drag, sampling or optimization error, index reconstitution trading, and dividend reinvestment timing plus any withholding taxes.",
+   "source": "index_based_equity_strategies"
+  },
+  {
+   "text": "Stratified sampling tracks worse than replication and models no covariances, so cell weights can match while the residual risk does not.",
+   "source": "index_based_equity_strategies"
+  },
+  {
+   "text": "Optimization is model dependent. The covariances and factor exposures are estimated from history and are backward looking, so if they shift the realized tracking error can exceed the model's forecast and the sample has to be re-optimized. That model dependency is the key limitation of optimization.",
+   "source": "index_based_equity_strategies"
+  },
+  {
+   "text": "For a broad bond index full replication is essentially never used, because of the number of issues and thin trading, so the physical route there is always a sampled approximation.",
+   "source": "liability_driven_and_index_based_strategies"
+  }
+ ],
+ "whenToRecommend": [
+  "The benchmark is liquid with a manageable number of names, a large cap index of a few hundred constituents, and the tracking error budget is tight: full replicate it.",
+  "The benchmark is broad or illiquid, a total market or small cap index of thousands of names with a barely traded tail: sample it, optimize if a credible risk model exists, or blend the two by fully replicating the liquid large cap portion and sampling the barely traded tail, which is what managers usually do.",
+  "The IPS prohibits derivatives outright, or the investor cannot post and monitor variation margin: the physical portfolio is the only route left. A ban on bilateral counterparty exposure alone rules out the over the counter routes, not centrally cleared index futures.",
+  "A credible risk model exists and the manager wants to control specific factor exposures and the index's covariance structure, not just its sector and size cell weights: optimization rather than stratified sampling.",
+  "The investor is large enough for a separate account and wants tax lot control, custom exclusions, or to vote the shares."
+ ],
+ "whenNotTo": [
+  "The exposure is temporary: equitizing a cash inflow, a short tactical tilt, or an overlay. Index futures are faster and cheaper, accepting that they must be rolled.",
+  "The benchmark is a broad bond index, where full replication is essentially never used given the number of issues and the thin trading. The method is forced rather than chosen: stratified sampling and enhanced indexing matching duration, key rate durations, sector, quality and convexity, or a bond ETF or total return swap if you do not want to build the portfolio at all.",
+  "The investor is small and just wants broad low cost access. An index mutual fund or ETF beats building the portfolio, and the ETF adds intraday trading plus in kind tax efficiency.",
+  "The investor wants protection against a market fall. Replication provides none: that calls for a protective put or a collar.",
+  "The mandate wants a return source other than market beta. Cap weighted replication delivers only market beta, factor and smart beta strategies buy factor premia, active buys manager skill.",
+  "The target market is restricted or costly to access directly. An over the counter total return or equity swap can deliver the index return without buying the local shares, and no active listed futures market is required for it. Index futures work only where a liquid contract on that market actually trades, which a restricted market often lacks."
+ ],
+ "pitfalls": [
+  "Tracking difference is the return gap over a period, a level. Tracking error is the standard deviation of that gap over time, a volatility. Index 10.0% against fund 9.7% over one year gives a tracking difference of negative 0.3%, fund minus index, and says nothing about tracking error.",
+  "Annualize tracking error by multiplying the monthly active return standard deviation by the square root of 12, not by 12. A 0.15% monthly figure is about 0.52% annualized.",
+  "Choose the vehicle on total cost of ownership, not the headline expense ratio. Trading costs and securities lending income can make the higher fee fund the cheaper one to own.",
+  "Cash drag helps in a falling market, so candidates call it neutral. Its expected effect is negative because equities rise on average. Remove it by equitizing the cash with index futures.",
+  "More holdings lower tracking error but raise cost. The right answer is the least cost point that meets the tracking error tolerance, which for a liquid index of a few hundred names is usually every name, that is full replication, and for a broad or illiquid index is a sample rather than the largest sample you can afford. The reading's illustration on a 2,000 name index: full replication gives roughly zero sampling error at high trading cost, a 200 name stratified sample about 0.5% tracking error at much lower cost, and a 500 name optimized sample about 0.2% at moderate cost. Note that those two samples differ in size as well as in method."
+ ],
+ "cues": [
+  {
+   "signal": "Benchmark is a large cap index of a few hundred liquid names and the mandate caps tracking error tightly.",
+   "implication": "Full replication. Every name is held at index weight so sampling error goes to roughly zero, and at a few hundred liquid names the trading cost of holding them all is bearable. There is no reason to accept sampling error when the tightest tracking method is feasible."
+  },
+  {
+   "signal": "An exhibit gives each candidate manager's holdings count against the index constituent count, for example 498 of 500, 800 of 928, or 1,200 of 3,000.",
+   "implication": "Read the count together with the tracking error and the covariance row, not as a percentage on its own. 498 of 500 at 0.06% tracking error is the signature of full replication. 800 of 928 is 86% of the names and is still stratified sampling, with large tracking error and no covariances, so a high fraction is not replication. 1,200 of 3,000 plus 'accounts for covariances' is sampling combined with optimization."
+  },
+  {
+   "signal": "The manager accounts for covariances, or uses a factor risk model to minimize tracking error subject to constraints.",
+   "implication": "Optimization, not stratified sampling. This is the phrase that picks the manager when the client asks for sampling plus optimization."
+  },
+  {
+   "signal": "The manager matches sector, size or style cell weights with a representative subset.",
+   "implication": "Stratified sampling. Cheaper than replication, higher tracking error, and no covariance modeling, so it fails a client who wants covariances handled."
+  },
+  {
+   "signal": "Index has thousands of constituents and some trade thinly, or the benchmark is a broad bond aggregate.",
+   "implication": "Replication is impractical. Equity: sample or optimize. Bonds: stratified sampling and enhanced indexing, matching duration, key rate durations, sector, quality and convexity."
+  },
+  {
+   "signal": "The exposure is needed only until the new manager is funded, or to put an inflow to work this week, or as an overlay.",
+   "implication": "Temporary exposure. Index futures or a swap, not building a physical portfolio. Note the roll requirement in the justification."
+  },
+  {
+   "signal": "The IPS prohibits derivatives or counterparty exposure, or the investor cannot post margin or has no ISDA.",
+   "implication": "Split the signal, because the three constraints do not rule out the same things. An outright derivatives prohibition, or an inability to post and monitor variation margin, rules out futures as well as swaps, leaving physical index holdings, replicated or sampled. No ISDA, or a ban on bilateral counterparty exposure, rules out the over the counter routes only: an ISDA master agreement is the document for OTC swaps and forwards, while exchange traded index futures are centrally cleared and margined, with a clearinghouse between the parties, which is what makes their counterparty risk minimal."
+  }
+ ],
+ "comparesWith": [
+  "factor_investing",
+  "futures",
+  "equity_swap",
+  "total_return_swap"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "whenToRecommend: 'The exposure is the permanent low cost core of the portfolio rather than a temporary tilt, so there is nothing to roll and no basis to manage' removed, because it only mirrors the pro about nothing to roll and the inverse whenNotTo about temporary exposure, adding no new decision.",
+   "skeptic pass, pitfalls 3: 'Stratified sampling uses no covariances. If the vignette says a manager accounts for covariances, that manager is optimizing, and that phrase is usually the discriminator a manager selection essay turns on' deleted as padding. The covariance discriminator is already carried by cues 3 from the optimization side, by cues 4 from the sampling side, and by cons 4, so the pitfall added no decision the reader does not already have."
+  ],
+  "corrected": [
+   "pros 1: dropped 'a mandate capped at a few basis points of tracking error can actually be met', because the notes support zero sampling error, not a basis point level that also depends on fees and trading costs.",
+   "pros 3: REVERSED by the skeptic pass. The repair pass deleted the figures '500 name optimized sample tracks at about 0.2% against about 0.5% for a 200 name stratified sample' on the stated ground that no such numbers appear in the grounding. That ground was false: R19 of the candidate's notes carries a section headed 'Illustration, holdings vs tracking error' with exactly those figures on a 2,000 name index. The numbers are restored, to pitfalls 5 where they anchor the cost against tracking error trade off. The repairer had mistaken the 25 sentence keyword filtered extract in grounding.json for the whole 235 line reading.",
+   "pros 3: wording tightened to the reading's own risk model passage, that the optimizer builds the smallest tracking error portfolio for a given number of holdings and set of constraints, which is the name for name claim the previous residualRisk said was unsupported.",
+   "pros 4: source RESTORED to index_based_equity_strategies by the skeptic pass. The repair pass demoted it to curriculum because 'securities lending appears nowhere in the notes evidence', which is false: R19 has a section headed 'Securities lending and index reconstitution'. The notes' own caveat, that lending introduces counterparty and collateral reinvestment risk, is added, because another pro now turns on that distinction.",
+   "pros 5: source RESTORED to index_based_equity_strategies by the skeptic pass. Table 1 of R19 gives the separately managed index account as 'Direct ownership, customization, tax-lot control; for larger investors', which is this point's core. Added that votes are forfeited on shares out on loan, because the equity portfolio management notes list 'the loss of voting rights while on loan' among the costs of lending, and this entry was selling the votes in one pro and the lending programme in another with no mention that they conflict.",
+   "pros 6: the repair pass's caveat 'provided the manager is not also lending the shares' is REMOVED as a category error flagged by both skeptics. A securities loan is not a derivative, so lending cannot breach an IPS clause that bars derivatives. The point now separates the derivatives ban from the counterparty and collateral ban, which is the distinction an IPS compliance question tests.",
+   "cons 1: dropped the editorial tail 'which is exactly where the tracking benefit is most wanted', because it is an assertion about client demand that nothing supports.",
+   "cons 2: source RESTORED to index_based_equity_strategies by the skeptic pass. The repair pass called the claim 'standard material rather than note evidence', but both halves are near verbatim R19: 'it is FULLY exposed to the market and offers NO downside protection, it falls as much as the index in a bear market, by design. It also inherits whatever concentration the index carries.'",
+   "cons 3: source RESTORED to index_based_equity_strategies by the skeptic pass. R19 enumerates the six causes in the same order this con reproduces, and repeats the list twice more in the LOS 5 exam focus line and the quick reference. 'withholding tax on foreign dividends' changed to 'any withholding taxes', which is what the notes actually say.",
+   "cons 5: source RESTORED to index_based_equity_strategies by the skeptic pass. R19 has a section headed 'The risk model behind optimization' making this exact critique, that backward looking covariances can shift so realized tracking error can exceed the forecast, and calling that 'the key limitation of optimization'; self test 16 repeats it.",
+   "whenToRecommend 1: 'liquid and concentrated' changed to 'liquid with a manageable number of names', because concentration is not what makes replication feasible and the notes say manageable name count.",
+   "whenToRecommend 2: added the blend, fully replicating the liquid large cap portion and sampling the barely traded tail, because R19 says 'Managers often BLEND the two' and the entry had presented sample against optimize as a binary, which loses the mark earning recommendation for exactly the broad or small cap trigger this line describes.",
+   "whenToRecommend 3: the disjunction is corrected. A ban on bilateral counterparty exposure on its own does not leave the physical portfolio as the only route, because exchange traded index futures carry minimal counterparty risk with a clearinghouse between the parties. Only the outright derivatives prohibition and the margin constraint force the physical route.",
+   "whenToRecommend 4: the repair pass's rewrite is REVERSED. It had removed 'control of specific factor exposures' on the reasoning that controlling factor exposures is a factor strategy, but that sentence is the notes' own trigger: 'Optimization is preferred when a good risk model exists and the manager wants to control specific factor exposures; sampling is simpler and more transparent.' Controlling factor exposures inside an index mandate is what a risk model is for, and the notes' wording is the wording a vignette is most likely to use. Restored, with the covariance structure kept alongside it.",
+   "whenNotTo 2: restated as a scope limit on full replication rather than an exclusion. As written it prescribed stratified sampling inside the list of reasons not to use this instrument, while whenToRecommend 2 recommends sampling for a broad benchmark, so sampling appeared on both sides of the entry.",
+   "whenNotTo 6: removed the claim that a swap avoids local dividend withholding tax, because an index swap is normally referenced to a net of withholding return, so the saving is not general; the restricted market access rationale is kept.",
+   "whenNotTo 6: the order is reversed by the skeptic pass to lead with the over the counter swap, and the futures route is made conditional on a liquid listed contract actually trading. The keyed Abiquia answer is that a manager claiming a synthetic strategy cannot be pursued 'because there are no exchange-traded derivative contracts for these indexes' is incorrect, 'because an active futures market is not required. A total return swap could be entered into in the over-the-counter market to achieve exposure to the desired index.' Restricted markets are the ones least likely to have a liquid listed future, so leading with futures invited the student to name the route that may not exist and to miss the keyed one.",
+   "pitfalls 1: stated the direction explicitly as fund minus index, because a tracking difference quoted without sign convention is the error the pitfall exists to prevent.",
+   "pitfalls 6: 'never the maximum number of names' REMOVED by the skeptic pass as an inverted absolute. For a liquid large cap index with a tight tracking error budget the least cost point that meets the tolerance IS every name, which is what this entry's own pros 1, whenToRecommend 1 and cues 1 prescribe, what R19 says ('ideal for a liquid index with a manageable number of names'), and what the keyed Camme case does, recommending a replication manager at 498 of 500 names 'owing to the large size of the fund, in order to minimize total costs'. The rule now names both directions.",
+   "cues 1: 'caps tracking error at a handful of basis points' changed to 'caps tracking error tightly', same overstatement as in pros 1.",
+   "cues 1: the implication 'so a sampled portfolio would not meet the limit' is REMOVED as a non sequitur. Replication's sampling error being near zero and its cost being bearable make replication feasible and tightest; neither establishes that a sample would breach the budget, and the keyed Camme exhibit cuts the other way with Manager C sampling and optimizing 1,200 of 3,000 names at 0.34%. The real discriminator, that there is no reason to accept sampling error you do not have to, replaces it.",
+   "cues 2: REVERSED by the skeptic pass. The repair pass replaced the example '498 of 500' with 'at or within a name or two of the index count' on the stated ground that the specific pair was not in evidence. It is in evidence: Exhibit 1 of the Arthur Camme case, which is the single essay stem in this entry's own grounding, gives Manager A 498 of 500 at 0.06% tracking error, Manager B 800 of 928 at 1.97%, and Manager C 1,200 of 3,000 at 0.34%, and the keyed rationale reads 'Manager A holds 498 of the index's 500 constituents with very low tracking error, the signature of FULL REPLICATION'. The real figures are restored and the invented one or two name tolerance is gone.",
+   "cues 7: split by the skeptic pass, because the single implication 'Every derivative route is out, including futures and swaps' did not follow from two of the three signals it was attached to. An ISDA master agreement is the document for OTC swaps and forwards, so no ISDA leaves exchange traded futures available, and the candidate's R17 notes say futures carry 'minimal counterparty risk (a clearinghouse stands between the parties)', so a bilateral counterparty ban does not rule them out either. Only the outright ban and the margin constraint rule out futures.",
+   "summary: 'The single decision it turns on is construction method' widened to the three examinable decisions. R19 gives construction its own LOS but gives the vehicles two LOS and devotes LOS 3b to choosing the index, closing it 'The index decision is therefore itself a portfolio decision, not a mere administrative choice'. The old summary also contradicted this entry's own body, whose whenToRecommend and whenNotTo lists are mostly vehicle decisions."
+  ],
+  "shortfall": "",
+  "residualRisk": "Two things for the reader to check, and one correction to what the repair pass flagged. (1) whenNotTo 6, that a swap is the route into a restricted or costly to access market. The mechanism is keyed, that an active futures market is not required because a total return swap can be struck over the counter to receive an index return, but it is keyed for a South American debt index, so the extension to a restricted equity market is the curriculum's logic rather than a cited equity example; the second skeptic doubted the restricted market rationale outright and would have cut the futures half entirely. (2) The summary now names benchmark selection, which is R19's own LOS 3b point that a good index is rules based, transparent, investable, float adjusted, representative and reconstituted on a clear schedule, but no pro, con or cue develops it, so a 'critique the proposed index' prompt still has to be answered from the notes; nothing was added to the body because padding would have been the worse fault. The previous pass's residual risk on pros 3 is withdrawn: R19 states directly that the optimizer builds the smallest tracking error portfolio for a given number of holdings and set of constraints, which is the name for name claim, and cons 5 carries the model dependency caveat. Note for any later pass that grounding.json's notesEvidence is a 25 sentence keyword filtered extract of a 235 line reading. Treating it as the whole reading is what caused four sources to be wrongly demoted to 'curriculum' and two sets of real figures to be deleted as inventions; check CFAL3/Resources/reading_notes.json and question_bank.json before calling anything ungrounded."
+ }
+}

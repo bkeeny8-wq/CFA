@@ -1,0 +1,160 @@
+{
+ "key": "long_short",
+ "name": "Long/Short Equity",
+ "family": "Equity",
+ "summary": "A separate long book and short book of individual stocks, where shorting lets the manager act on negative views instead of only underweighting to zero. The decision it turns on is net market exposure: roughly zero beta in the market-neutral version, a chosen net exposure in a directional one, and beta added back by an index futures overlay in the equitized version.",
+ "pros": [
+  {
+   "text": "Shorting relaxes the long-only constraint, so a negative view can be expressed below a zero holding. That expands breadth and raises the transfer coefficient, and so potential alpha, with the gain largest where the benchmark has many small-weight stocks a long-only manager cannot underweight.",
+   "source": "active_equity_investing_portfolio_construction"
+  },
+  {
+   "text": "Shorting fully frees the opportunity set, which is why the four-approach comparison puts market-neutral long/short at the top for breadth and alpha potential, highest with the full opportunity set, and the equitized version highest plus market beta, both above a 130/30 long extension and well above long-only.",
+   "source": "active_equity_investing_portfolio_construction"
+  },
+  {
+   "text": "Net market exposure becomes a dial separate from stock selection: market-neutral targets roughly zero net beta for pure alpha with no market return, directional versions keep a chosen net exposure, and an equity-index futures overlay adds the market beta back as equitized market-neutral, giving alpha plus beta.",
+   "source": "active_equity_investing_portfolio_construction"
+  },
+  {
+   "text": "It isolates a factor. Long the high-scoring names and short the low-scoring ones leaves the factor return, which a long-only tilt cannot do because it keeps the full market exposure in place, making the factor a tilt on top of market beta rather than an isolated exposure.",
+   "source": "active_equity_investing_strategies"
+  },
+  {
+   "text": "A factor risk budget, once each factor has a share of total risk, is often mapped to investable instruments through long-short portfolios, which is why a mandate built that way reaches for this structure rather than a tilt. Note that the curriculum books the same requirement, shorting and leverage, as the drawback of factor implementation.",
+   "source": "principles_of_asset_allocation"
+  },
+  {
+   "text": "The market-neutral version is one of the few hedge fund approaches that genuinely fills the diversification role, alongside global macro and managed futures, because returns structurally independent of equity direction are what that role requires.",
+   "source": "asset_allocation_to_alternative_investments"
+  }
+ ],
+ "cons": [
+  {
+   "text": "A short position has theoretically unlimited loss, since the stock can rise without bound, against a capped gain. That asymmetry is the reverse of a long and it never goes away.",
+   "source": "active_equity_investing_portfolio_construction"
+  },
+  {
+   "text": "The short leg depends on borrowing the stock, so it carries borrow cost, availability and recall risk, margin requirements, and short-squeeze risk when a crowded short rises sharply and forces buying.",
+   "source": "active_equity_investing_portfolio_construction"
+  },
+  {
+   "text": "Leverage in long-short and 130/30 structures magnifies both gains and losses and can force deleveraging in stress, whether because a crowded short rallies against the book or because a net-long book falls with the market and the prime broker raises margin.",
+   "source": "active_equity_investing_portfolio_construction"
+  },
+  {
+   "text": "The market-neutral version gives up the equity risk premium. At roughly zero net beta there is no market return, so the result is the short-term rate earned on collateral plus the manager's alpha, net of borrow, margin and financing. That is why a neutral mandate is benchmarked to cash plus a spread rather than to an equity index.",
+   "source": "curriculum"
+  },
+  {
+   "text": "It does not remove equity risk unless net beta is deliberately set near zero. Decompose a typical long/short equity fund and the return is mostly equity beta, plus some credit and liquidity exposure, with manager-specific return only the residual, so a long-biased version is not an equity-risk mitigator.",
+   "source": "asset_allocation_to_alternative_investments"
+  },
+  {
+   "text": "Shorting, in a long extension or a long/short alike, demands stronger operational infrastructure, risk controls and prime-brokerage relationships than a long-only fund.",
+   "source": "active_equity_investing_portfolio_construction"
+  },
+  {
+   "text": "Accessed as a hedge fund it carries performance fees, lock-ups, weak transparency and wide manager dispersion. On a 2 and 20 where the 20 percent applies to the return above the management fee, a 10 percent gross return nets 6.4 percent, a drag of 3.6 percent, so recompute from the stated terms rather than recalling the figure.",
+   "source": "asset_allocation_to_alternative_investments"
+  }
+ ],
+ "whenToRecommend": [
+  "The manager has strong negative views they cannot act on, or the vignette names the long-only constraint as the binding one, and the IPS permits shorting and leverage.",
+  "The benchmark has a long tail of tiny weights and the best short ideas sit in that tail, so underweighting to zero expresses almost nothing.",
+  "A structure review shows a good information coefficient and wide breadth, yet expected active return falls well short of IC times the square root of breadth times active risk. Check first that the bets are genuinely independent, because correlated bets cut effective breadth and produce the same gap. If the breadth is real, the gap is a depressed transfer coefficient, and relaxing the long-only constraint is one repair alongside widening position and sector limits.",
+  "The allocation is built from a factor risk budget and a factor has to be isolated rather than merely tilted toward, because a long-only tilt would leave the full market exposure in place."
+ ],
+ "whenNotTo": [
+  "The IPS bans shorting, leverage or derivatives, or the client cannot post margin or support a prime broker. Stay long-only and take any systematic tilt through a factor or smart-beta index.",
+  "The client wants more breadth than long-only allows while keeping 100 percent net market exposure and only moderate leverage. A 130/30 long extension gives net 100 percent and gross 160 percent from one portfolio. It still needs the borrow, margin and prime-brokerage setup that any shorting requires.",
+  "The role being filled is equity-risk mitigation in a drawdown. A long-biased long/short equity fund carries equity beta and falls with the market, and fund liquidity is poor when cash is needed, so it fails both mitigator tests. Recommend high-quality government bonds or managed futures instead.",
+  "The stated requirement is zero net market exposure. Do not answer with a plain long/short, which can be directional. Name market-neutral, or equitized market-neutral if the market return is still wanted.",
+  "The fund is too small to meet hedge-fund minimums, diversify across managers, or pay for the operational due diligence. Use index or factor-index exposure instead.",
+  "Only the portfolio's market or factor beta needs repositioning, not its stock selection. An equity-index futures or equity-swap overlay does that without building two stock books."
+ ],
+ "pitfalls": [
+  "Writing \"long/short\" when the answer requires zero net beta. Only the market-neutral version targets roughly zero net beta; a directional long/short keeps a net exposure, so it earns the market return only in proportion to its net beta, and a net short book earns the reverse of it.",
+  "Mixing up net and gross exposure. For 130/30 it is net 100 percent and gross 160 percent. Quote gross when discussing leverage and margin, and the size of the short leg when discussing borrow cost, since the stock borrowed and the collateral posted scale with the shorts rather than with gross. Beta-weight the two books before calling a net exposure a beta: dollar neutral is not market neutral.",
+  "Leaving the overlay out of equitized market-neutral. The equity-index futures overlay is what adds market beta back, so the answer is alpha plus beta, not alpha instead of beta.",
+  "Claiming higher potential alpha without pricing it. The LOS asks for risks, costs and effects on potential alpha together, so pair the transfer-coefficient gain with borrow and financing, margin, leverage risk, and the operational and prime-brokerage demands.",
+  "Counting every new short as new breadth. Breadth requires independent bets, so a book of shorts expressing one factor view is closer to one bet, and the information ratio gain is smaller than the position count implies."
+ ],
+ "cues": [
+  {
+   "signal": "The benchmark has hundreds of names at weights under 0.1 percent, and the manager's conviction is on the short side of that tail.",
+   "implication": "The long-only constraint is maximally binding, because a 0.05 percent weight can only be underweighted to zero. This is the textbook case for relaxing it, so long extension or long/short, and the transfer-coefficient gain is largest here."
+  },
+  {
+   "signal": "The IPS permits shorting and leverage, and the fund already has margin and prime-brokerage arrangements.",
+   "implication": "Long/short is admissible. The binding test is what the IPS permits and whether the client can post margin and bear the cost: if the IPS bans shorting, leverage or derivatives, stay long-only or use a factor index however good the short ideas look. A vignette that is merely silent on the prime broker is not a prohibition; that is a setup cost and an operational requirement, not a bar."
+  },
+  {
+   "signal": "The committee wants the manager's stock picking but says it does not want equity market direction.",
+   "implication": "Market-neutral long/short at roughly zero net beta. Call it pure alpha with no market return, and expect high gross exposure: the four-approach comparison marks market-neutral High on leverage, with equitized market-neutral higher still once the overlay is added."
+  },
+  {
+   "signal": "Same brief, but they still want the equity market return inside the allocation.",
+   "implication": "Equitized market-neutral: the neutral book plus a long equity-index futures overlay. Alpha plus beta, with the overlay roll as the extra running cost on top of borrow."
+  },
+  {
+   "signal": "Exposures are reported as 100 percent net and 160 percent gross from a single portfolio.",
+   "implication": "That is the 130/30 arithmetic, so read it as a long extension rather than a market-neutral book, which would show net near zero. Net beta is about 1, leverage is moderate, and the main added cost is short borrow and financing."
+  },
+  {
+   "signal": "The fund's returns decompose mostly to an equity factor, with smaller credit and liquidity loadings and a manager residual.",
+   "implication": "Under the risk-based opportunity set this is more equity risk wearing a hedge fund label, so it adds far less diversification to an equity-heavy portfolio than the asset-class label implies. That is the point of the traditional versus risk-based comparison."
+  },
+  {
+   "signal": "The question asks which candidate holds up when equities fall and offers a long-biased long/short equity fund among the options.",
+   "implication": "Reject it on both mitigator tests: it carries equity beta so it falls with the market, and it is not liquid enough to matter mid-crisis. Government bonds are the reliable liquid mitigator, managed futures the higher-returning but less certain one."
+  },
+  {
+   "signal": "Stress language in the exhibit: the borrow is recalled, a crowded short rallies, or the prime broker raises margin.",
+   "implication": "Name forced deleveraging and the unlimited-loss asymmetry of the short leg, not tracking error. Leverage magnifies the loss, and the margin call forces selling into it."
+  }
+ ],
+ "comparesWith": [
+  "long_extension",
+  "market_neutral",
+  "factor_investing",
+  "hedge_funds"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "Pro: \"When a structure review shows good forecasts but a low transfer coefficient, relaxing the long-only constraint via a long extension or long/short is one of the three named repairs, alongside widening position and sector limits and raising breadth\", because it duplicated the first pro and listed raising breadth as a transfer-coefficient repair when breadth is a separate term in IR = TC x IC x sqrt(BR). The usable part of it moved into whenToRecommend.",
+   "Clause in the market-neutral cue, \"expect high gross leverage, because thin spreads need size to matter\", because the causal reason was invented; the notes only mark market-neutral as the high-leverage row, which is what the cue now says.",
+   "Top-level \"uncertain\" and \"problems\" fields, because the required output shape does not carry them; the surviving doubt is in residualRisk.",
+   "Skeptic pass. Pro: \"The short book is also the tool for neutralising the unrewarded exposure that rides along with a long idea\", because only the tail of that sentence is in active_equity_investing_strategies. The reading says a strategy should hedge or neutralise unrewarded exposures; it names no instrument, and the same reading's process description does the job by weighting, \"tilts toward high-scoring stocks while controlling unwanted exposures\", which a long-only manager does routinely. Both skeptics flagged the grafted head. The factor claim the notes do support survives as the factor-isolation pro.",
+   "Skeptic pass. Pitfall: \"Treating a long/short equity hedge fund as a diversifier because it sits in the hedge fund bucket. Under the factor lens it is largely more equity risk...\", because the same point is already made twice on the page, as the return-decomposition con and as the decomposition cue, the latter in near-identical words.",
+   "Skeptic pass. Two whenToRecommend items, the market-neutral case and the equitized case, because they repeated the trigger and answer of two cues that carry the same cases with more detail (gross exposure, overlay roll). The zero-net-beta requirement also still appears in whenNotTo.",
+   "Skeptic pass. Cue: \"The relative-value view is between two credits rather than two stocks\", with its CDS answer. It is grounded in fixed_income_active_management_credit_strategies, but it is off-scope for an equity-family page and comparesWith is full with the four keys a reader actually needs, so the pointer to the cds entry could not be supplied.",
+   "Skeptic pass. Clause in the infrastructure con, \"and that fixed cost does not scale down for a small mandate\", because the construction reading stops at the infrastructure, risk-control and prime-brokerage requirement and says nothing about fixed versus variable cost or mandate size. The curriculum's scale test is about the investor's pool, \"large enough to diversify across managers, strategies, and vintage years and to meet minimum investment sizes\", and whenNotTo already uses it correctly. Both skeptics flagged it.",
+   "Skeptic pass. Clause in the market-neutral con, \"and the comparison marks it as the high-leverage approach\", because Table 2 marks market-neutral High and equitized market-neutral High plus the overlay, so the definite article is contradicted by the row below. The corrected ranking is now stated once, in the market-neutral cue."
+  ],
+  "corrected": [
+   "The alpha-ranking pro was asserted as a bare \"highest of the four approaches\"; it is now anchored to what the comparison actually says, that shorting frees the full opportunity set and market-neutral plus equitized sit above 130/30 and long-only. Dropped the loose \"rather than half of it\".",
+   "The factor-isolation pro claimed a long-only tilt fails because \"market beta still dominates its risk\"; corrected to the defensible reason, that the tilt keeps the full market exposure in place so the factor rides on top of market beta.",
+   "whenToRecommend had a circular fundamental-law diagnostic, active return \"well below information ratio times active risk\", when IR x active risk already embeds TC. Restated as a shortfall against IC x sqrt(breadth) x active risk, which is what a depressed transfer coefficient shows up as, and added widening position and sector limits as the sibling repair.",
+   "The 130/30 cue inferred the structure from exposures alone; softened to say net 100 and gross 160 is the 130/30 arithmetic and reads as a long extension, since a market-neutral book would show net near zero.",
+   "The fee con quoted 6.4 percent on \"the standard 2 and 20\" without its convention; it now states that the 20 percent applies to the return above the management fee and tells the reader to recompute from the stated terms. Verified the arithmetic: 10 - 2 - 0.20 x 8 = 6.4, drag 3.6.",
+   "Added two pros the draft missed and the notes support: shorting is also how unrewarded sector or country exposure attached to a long idea gets neutralised, and the market-neutral version is one of the genuine diversifiers alongside macro and managed futures. (The first of these did not survive the skeptic pass; see deleted.)",
+   "Added a con the draft missed: the market-neutral version gives up the equity risk premium entirely, so the whole return rests on alpha net of borrow, margin and financing.",
+   "Re-sourced nothing to \"curriculum\": every source id was checked against that reading's own text in reading_notes.json, including the unlimited-loss, borrow and short-squeeze claims, which the draft attributed to the construction reading and which do appear there.",
+   "Skeptic pass. The zero-net-beta pitfall said a directional long/short \"keeps market exposure and still earns the market return\". It now says it earns the market return only in proportion to its net beta, and that a net short book earns the reverse. The notes define the directional case as keeping a net exposure, and the exposure flashcards work a directional 80/40 book at net 40 percent, which earns roughly 0.4 times the market, not the market return.",
+   "Skeptic pass. The leverage con glossed forced deleveraging as happening \"exactly when the shorts are rising and the longs are falling\". The reading says only that leverage magnifies both directions and can force deleveraging in stress. The gloss now offers both routes, a crowded short rallying against the book and a net-long book falling with the market while the prime broker raises margin, since a 130/30 or long-biased book at net beta about 1 deleverages in an ordinary selloff.",
+   "Skeptic pass. The market-neutral con said the result \"rests on the manager's alpha net of borrow, margin and financing\", which benchmarks a neutral mandate against zero. Collateral and short proceeds still earn the short-term rate, so it now reads cash plus alpha and names the cash-plus-a-spread benchmark that the performance-evaluation flashcards give for market-neutral long/short funds. This also brings the page back into line with the market_neutral entry, which already states the cash return on collateral. Source set to \"curriculum\": the construction reading carries the no-market-return half but not the cash return.",
+   "Skeptic pass. The net-versus-gross pitfall told the reader to quote gross \"when discussing borrow, margin and leverage\". Borrow and collateral are charged on the stock actually borrowed, which the flashcards quote as a percentage of the short positions, so on a 130/30 that is the 30 percent leg and not the 160 percent gross. The pitfall now splits leverage and margin (gross) from borrow cost (the short leg), and adds the beta caveat the curriculum insists on: a market-neutral book must be beta neutral, not merely dollar neutral, and treating dollar neutral as market neutral is named in the flashcards as the classic error.",
+   "Skeptic pass. The factor-budget pro claimed long/short \"is what makes a factor risk budget implementable\" and that factors are mapped to instruments \"largely\" through long-short portfolios. The grounding says \"often via long-short portfolios\", and long-only tilts and factor indices implement a budget with no short book, as this entry's own whenNotTo says. Restated as \"often\", with the necessity framing dropped, and the curriculum's own treatment of shorting and leverage as the drawback of factor implementation noted in the same bullet.",
+   "Skeptic pass. The transfer-coefficient recommendation treated the gap against IC x sqrt(breadth) x active risk as diagnostic of a low TC and called relaxing long-only \"the first repair\". The fundamental-law limits say correlated bets make effective breadth far lower than the raw position count and that overstating breadth flatters the expected IR, which produces the same gap, so the item now checks independence first. \"First repair\" also invented an ordering: the notes list relaxing long-only, widening limits and raising breadth flat, and close on the efficient point for the mandate rather than maximum freedom.",
+   "Skeptic pass. The 130/30 alternative claimed \"most of the breadth gain\" and \"lighter infrastructure than two books\". Both skeptics flagged the infrastructure comparison: the single sentence that establishes the requirement groups the two structures together, \"long-extension and long/short strategies demand stronger operational infrastructure, risk controls, and prime-brokerage relationships than a long-only fund\", and the long_extension entry repeats it, so the page was contradicting its sibling. The sourced differentiators are leverage (Moderate against High) and net beta (about 1 against about 0). Table 2 also only ranks 130/30 \"Higher\" against market-neutral's \"Highest\", so \"most of the breadth gain\" became \"more breadth than long-only allows\".",
+   "Skeptic pass. The admissibility cue said that without IPS permission and existing prime-brokerage lines \"the answer is long-only or a factor index\". Both skeptics flagged it: an IPS ban is binding, but missing margin or prime-brokerage lines are a setup cost the reading itself presents as a requirement of the approach, and silence in a vignette is not a prohibition. The implication now separates the two.",
+   "Skeptic pass. The mitigator item in whenNotTo repeated the closing sentence of the mitigator cue word for word. Trimmed to the two reasons plus the recommendation, leaving the ranking of bonds against managed futures stated once, in the cue that carries the vignette signal.",
+   "Skeptic pass. The stress cue's closing line, \"Leverage magnifies losses exactly when the shorts rise and the longs fall\", kept the asserted coincidence even though that cue's own signal offers a margin increase as an alternative trigger. Trimmed to leverage magnifying the loss and the margin call forcing selling into it.",
+   "Skeptic pass. Confidence lowered from high to medium. The core of the entry is well grounded in LOS h and Table 2, but a material part is cross-reading synthesis, one claim is sourced to \"curriculum\" rather than a reading, and the cross-entry consistency items below are open."
+  ],
+  "shortfall": "",
+  "residualRisk": "None on the alpha ranking. Table 2 has four rows and ranks market-neutral long/short \"Highest (full opportunity set)\" and equitized market-neutral \"Highest + market beta\", so the earlier recorded doubt about the top row was a misreading of the source and has been dropped. Open items. (1) Scope overlap: the market-neutral and equitized material here is the subject of the market_neutral key and the 130/30 arithmetic is the subject of long_extension; the overlap is justified by a LOS that compares four approaches, but the three entries must not drift, and they had drifted on infrastructure and on the cash return, both now aligned. (2) long_extension still glosses forced deleveraging as \"typically the moment when the shorts are rising and the longs are falling\"; it is hedged there, but that gloss should get the same treatment this entry's leverage con received. (3) The cash return on collateral is sourced to \"curriculum\": it is in the market_neutral entry and in the performance-evaluation flashcard giving a T-bill-plus-spread benchmark, but not in the construction reading's own notes."
+ }
+}

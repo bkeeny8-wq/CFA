@@ -1,0 +1,154 @@
+{
+ "key": "ig_corporates",
+ "name": "Investment Grade Corporates",
+ "family": "Fixed income",
+ "summary": "Bonds issued by companies rated BBB-/Baa3 or better: you are paid a credit spread over governments in exchange for default, downgrade and liquidity risk. The decision it turns on is whether that spread, net of expected credit losses and trading cost, pays for the risk, remembering that an IG portfolio is still rate-dominated rather than credit-dominated.",
+ "pros": [
+  {
+   "text": "The whole trade is computable before you put it on: E(excess return) = (spread x t) minus (change in spread x spread duration) minus (t x POD x LGD). Even when spreads are unchanged and the middle term drops out, what you keep is the spread less expected credit losses, not the spread.",
+   "source": "fixed_income_active_management_credit_strategies"
+  },
+  {
+   "text": "Second most liquid bond sub-sector after sovereigns, ahead of high-yield, securitized and EM. Larger and more recent issues trade most readily, so a credit view can be put on in cash bonds.",
+   "source": "overview_of_fixed_income_portfolio_management"
+  },
+  {
+   "text": "Pension and similar liabilities are often discounted at a credit or corporate rate, and the fix is to hold assets whose spread behaviour resembles that discount rate. IG corporates do that; a Treasury-only portfolio moves with risk-free rates instead and leaves the spread leg unhedged.",
+   "source": "liability_driven_and_index_based_strategies"
+  },
+  {
+   "text": "Mostly plain bullet or callable structures, so no prepayment, extension or tranche-correlation modelling, which is exactly what you take on with the structured alternatives.",
+   "source": "fixed_income_active_management_credit_strategies"
+  },
+  {
+   "text": "Rate-dominated rather than credit-dominated, so duration is the main lever: rate exposure can be reset with Treasury futures or swaps (the BPV hedge) and the spread position survives untouched, which is what you want when the view is on credit and not on rates.",
+   "source": "curriculum"
+  }
+ ],
+ "cons": [
+  {
+   "text": "A weaker equity diversifier than governments rather than a non-diversifier. Against the S&P 500 over the 20 years to December 2019 the curriculum gives -0.30 for the 10-year Treasury, -0.09 for the US Aggregate and 0.20 for US corporates, against 0.63 for US high yield. IG still moves mostly with sovereign rate changes; it is the spread leg that shares the economic and credit cycle with equities, so high-quality governments stay the risk-off holding.",
+   "source": "overview_of_fixed_income_portfolio_management"
+  },
+  {
+   "text": "Returns are negatively skewed with fat tails: held to maturity the upside is capped at the spread you were promised, while the downside is default loss. Over a shorter holding period a tightening can earn a multiple of the spread, but the distribution stays skewed. Standard deviation and ordinary VaR understate the tail, and correlations spike toward 1 in a crisis.",
+   "source": "fixed_income_active_management_credit_strategies"
+  },
+  {
+   "text": "Illiquid next to governments: OTC dealer trading, one issuer with many heterogeneous bonds, infrequent trades, and dealer inventories (so market-making capacity) shrunk since the financial crisis. A round trip in an illiquid corporate runs near 1.0% (buy at 100.5, sell at 99.5) against 0.05% in a liquid on-the-run Treasury, and it widens in stress exactly when you need to sell.",
+   "source": "fixed_income_active_management_credit_strategies"
+  },
+  {
+   "text": "Migration risk bites with no default at all: a downgrade widens the spread and cuts the price.",
+   "source": "fixed_income_active_management_credit_strategies"
+  },
+  {
+   "text": "A callable issue's quoted G-spread or Z-spread is inflated by the option the investor is short, so credit compensation looks larger than it is. Only the OAS is the true credit and liquidity spread, and its one drawback is model dependence: it needs an interest-rate volatility model, so different assumptions give different OAS values.",
+   "source": "fixed_income_active_management_credit_strategies"
+  },
+  {
+   "text": "Passive IG corporate exposure inherits the bums problem: issuance-weighted indexes give the largest weight to the most indebted issuers, and full replication is impractical given thousands of issues plus turnover from calls, downgrades and new issuance.",
+   "source": "liability_driven_and_index_based_strategies"
+  }
+ ],
+ "whenToRecommend": [
+  "The IPS caps quality at investment grade and the case gives a spread-tightening view, so you add credit risk inside IG rather than going down to high-yield.",
+  "A corporate DB plan's liabilities are discounted at a high-quality corporate yield while the hedging assets are Treasuries, and the committee asks why the funded ratio still moves.",
+  "The committee wants more yield than governments but must be able to sell in size, so you step up the yield ladder only as far as the sub-sector that still trades.",
+  "The vignette prohibits derivatives, so the credit view has to be expressed in cash bonds rather than by selling CDS protection.",
+  "The account is tax-exempt or tax-deferred, or the bracket sits below the breakeven rate (for a 3.0% muni against a 4.2% corporate that is about 28.6%), so the taxable corporate wins on an after-tax basis."
+ ],
+ "whenNotTo": [
+  "The holding exists to diversify equity risk or to cushion a risk-off shock. In a flight to quality investors buy governments and sell equities and credit, so governments are the cushion while the IG spread leg widens into the selloff. Use high-quality government bonds.",
+  "A high-bracket taxable private client has a municipal alternative. Convert first: a 3.0% muni at a 35% rate is a 4.62% taxable-equivalent yield, which beats a 4.2% corporate (2.73% after tax). Recommend the muni.",
+  "The view is a sharp tightening and the mandate permits below investment grade. Going down in quality to high-yield captures more of the move.",
+  "Credit exposure must change quickly, in size, or be shorted. Use CDS or a CDS index (CDX, iTraxx): unfunded, more liquid, and the only one of the two that lets you short credit.",
+  "Corporate credit is already concentrated and the case asks for different collateral. ABS (consumer receivables), RMBS/CMBS (real estate) and covered bonds (a ring-fenced mortgage or public-sector pool) reach collateral the corporate market does not offer. CLOs and CDOs do not: their collateral is corporate loans and bonds, so they repackage the same exposure, and the graded trap is calling a CDO held against its own underlying bonds a diversifier. The tranched structures often pay more than a similarly rated corporate as compensation for complexity and thinner trading, while covered bonds go the other way, dual recourse giving lower credit risk and a lower yield than ABS/MBS. A same-rated tranche is not risk-equivalent either, and many structured issues are less liquid than corporates, so it is not a liquidity upgrade.",
+  "Only rate or curve exposure is wanted. Treasuries or Treasury futures deliver it without spread risk or the illiquidity cost."
+ ],
+ "pitfalls": [
+  "Treating the quoted yield as the expected return. Expected credit losses (POD x LGD) subtract even when the yield looks generous: yield is promised, not expected. The notes' own worked example starts from positive spread income of 2.00% and still ends at a negative expected excess return of -0.20% once expected widening (1.00%) and expected default loss (1.20%) come out, so never read positive carry as a positive expected excess return.",
+  "Budgeting spread exposure with spread duration alone. Use DTS = spread duration x spread, because higher-spread bonds carry proportionally more spread volatility, so a given percentage spread change hits them harder.",
+  "Comparing a callable corporate's Z-spread against an option-free bond's. Z-spread minus OAS is the option cost, and only OAS is comparable across bonds with and without options.",
+  "Quoting analytical duration as how a credit bond will actually behave. In a flight to quality spreads widen as government yields fall, so empirical duration comes out lower than analytical (the curriculum's high-yield case is analytical 4.234 against empirical 2.95) and an analytical-duration hedge over-hedges. When the vignette hands you modified duration, still use it for the BPV contract count: that is what the graded answer does. Separately, a Treasury futures hedge removes rate risk only, so the spread risk stays in the book.",
+  "Saying IG is less exposed than high-yield to rate moves or to migration. The graded answer is the reverse on both: IG has longer duration and is rate-dominated, and it is more migration-sensitive because an IG to high-yield downgrade forces selling, while a downgrade within high-yield moves the price less.",
+  "Answering a credit tail-risk question with diversification alone. The full response is diversify, tilt up in quality, cap concentration and illiquid holdings, keep a liquidity buffer, and buy explicit tail protection (CDS, index products or options), measured with expected shortfall and stress tests rather than VaR.",
+  "Reading a foreign corporate's spread as if it were a spread over your own government curve. A euro corporate at 3.0% carries a 150 bp spread over Bunds, not over Treasuries, and for a dollar investor the unhedged currency move can swamp 150 bp. Hedging isolates the credit view but is not free: the cost is the rate differential, which can offset much of the yield advantage and sink the relative-value case, so price it or say plainly that you are keeping the currency bet."
+ ],
+ "cues": [
+  {
+   "signal": "The IPS permits investment grade only, or sets a minimum average rating, and the manager expects spreads to tighten.",
+   "implication": "You still add credit risk, but inside IG: extend spread duration, overweight cyclical sectors, tilt down in quality only as far as BBB, raise portfolio DTS above the benchmark. This rules out the usual down-in-quality-to-high-yield answer, which the mandate forbids."
+  },
+  {
+   "signal": "The plan's liabilities are discounted at a high-quality corporate bond yield while the asset portfolio is Treasuries, and durations are stated as matched.",
+   "implication": "Matched duration does not mean hedged. Spread moves make assets and liabilities diverge, so the fix is assets whose spread behaves like the discount rate, which means IG corporates or a credit overlay. Rules out the answer that the durations match so the plan is immunized."
+  },
+  {
+   "signal": "The exhibit gives both a Z-spread and an OAS for the same bond and they differ.",
+   "implication": "The bond has an embedded option. An OAS below the Z-spread means a call the investor is short, and the gap is the option cost (a 150 bp Z-spread less a 40 bp option cost leaves a 110 bp OAS). Only the OAS is comparable with option-free bonds, so any relative-value answer built on the Z-spread is wrong."
+  },
+  {
+   "signal": "The case quotes bid-ask spreads, trade volumes, dealer inventory or fund flows for the corporate holdings.",
+   "implication": "This is the liquidity-management question, not a valuation question. Answer with: size positions to tradability, favour the larger and more recently issued bonds, keep a cash buffer, and use liquid proxies (CDS indexes, bond ETFs, government futures) for the sleeve that must stay tradable."
+  },
+  {
+   "signal": "A marginal tax rate sits next to a municipal yield and a corporate yield.",
+   "implication": "The decision is taxable-equivalent yield, not the headline yields. Divide the exempt yield by (1 minus the rate). This often rules the corporate out for a high-bracket client even though its nominal yield is higher."
+  },
+  {
+   "signal": "The paragraph says the bonds behave like equity, that default risk dominates, or that outright market value is the thing to monitor.",
+   "implication": "That description is high-yield, not IG. IG's markers are longer duration, rate dominance, and sensitivity to rating migration and spread volatility."
+  },
+  {
+   "signal": "Credit exposure must change fast, in size, or be shorted, and the vignette stresses that the individual bonds trade rarely.",
+   "implication": "Push the answer to CDS or CDX rather than cash IG bonds: liquid, allows shorting credit, separates the credit decision from sourcing bonds. If instead the vignette bans derivatives, the cash IG answer is forced."
+  },
+  {
+   "signal": "The corporate holding is denominated in a foreign currency, quoted with a spread over the local government bond (a euro bond at 3.0%, 150 bp over Bunds).",
+   "implication": "Two decisions, not one. The spread is measured against the local curve so it is not comparable with a spread over Treasuries, and the currency exposure is separable: hedge it to isolate the credit view, at a cost equal to the rate differential which can eat much of the spread advantage, or keep it deliberately as a currency position. Rules out any answer that compares the 3.0% yield straight against domestic yields."
+  }
+ ],
+ "comparesWith": [
+  "government_bonds",
+  "high_yield",
+  "cds",
+  "securitized"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "whenToRecommend: 'The mandate is total return against an aggregate (broad investment-grade) benchmark, and the manager wants spread income without breaching quality or liquidity limits.' Deleted as padding: wanting spread income within limits is the definition of the asset class, not a situation that selects it, and the liquidity half restates the neighbouring yield-ladder item.",
+   "pitfalls: 'Judging the position on standard deviation or VaR. Credit is negatively skewed, so use scenario and stress testing plus conditional VaR (expected shortfall).' Deleted because cons[1] already carries the skew and the SD/VaR point verbatim; replaced with the tail-management response (diversify, up in quality, concentration and illiquidity caps, liquidity buffer, explicit tail hedges), which is the part a graded answer actually has to list.",
+   "pass 2, pros: 'Gives you the full two-level credit process: top-down sets credit beta and DTS and the sector (cyclical versus defensive) and quality tilts, bottom-up picks issuers on relative value inside that budget. Depth of issuers and maturities is what makes both levels possible.' Deleted. The second sentence was an invented causal rationale (nothing in the notes, the flashcards or the grounding makes the two-level process depend on universe depth), and the first describes a manager's process rather than a reason the instrument suits a mandate, so it earns nothing against a justify-the-recommendation stem. The top-down/bottom-up content itself is well grounded and is already carried by cues[0] and pitfalls[1]."
+  ],
+  "corrected": [
+   "pros: dropped 'so the expected-excess-return decomposition usually leaves positive carry'. Overstated, and backwards on the one example that matters: the credit strategies worked example exists to show a 2.00% spread turning into a NEGATIVE expected excess return of -0.20%. Kept the formula, moved the warning into pitfalls[0].",
+   "pros: the LDI point now states what the reading states (liabilities are often discounted at a credit or corporate rate, and managers hold assets whose spread behaviour resembles that discount rate) and names IG as that asset, rather than asserting the resemblance as a property of IG.",
+   "pros: the relative-value point was bottom-up only. Broadened to the two-level process the reading teaches, top-down credit beta/DTS and sector/quality tilts plus bottom-up issuer selection, which is both better grounded and the way the question is asked.",
+   "pros: the rate-dominance point now says explicitly that the futures or swap hedge leaves the spread position in place, which is the whole reason to use it, and names the BPV hedge the essay stem asks for.",
+   "cons: deleted 'OAS, which is model-dependent and needs a rate-volatility assumption' from the callable item, on the justification that the cited reading does not support it. REVERSED IN PASS 2: that justification was false. The credit strategies notes carry OAS model dependence three times (the spread-measure table lists 'Model-dependent (needs a rate-volatility model)'; the body says OAS 'depends on an interest-rate/volatility MODEL, so different assumptions give different OAS values'; the LOS exam-focus line repeats 'its drawback is model dependence'), and LOS b is worded 'discuss the advantages and disadvantages of credit spread measures', so the one disadvantage of OAS is gradeable. The clause is restored to cons[4].",
+   "cons: the illiquidity item now gives the reading's own prices (buy at 100.5, sell at 99.5) and its reasons instead of 'shrunken dealer inventories', which was called real-world colour the notes do not carry. REVERSED IN PASS 2: that justification was false. The notes state that 'dealer inventories (and thus market-making capacity) have shrunk since the financial crisis', and the LOS exam-focus line lists the three reasons as 'OTC, fragmented (many bonds per issuer), shrunken dealer inventories'. The bank reinforces it (harlow_choate q4 option A: liquidity risk in corporate bonds has risen markedly since the global financial crisis). The prices stay and the third reason is restored to cons[2].",
+   "whenNotTo: 'capital-light' changed to 'unfunded', and the CDS advantage narrowed to what is actually unique: it is the only one of the two that lets you short credit.",
+   "whenNotTo: added that many structured issues are less liquid than corporates, so the securitized switch diversifies collateral but is not a liquidity upgrade. Without it the item reads as a free yield pickup.",
+   "whenToRecommend: the tax item now gives the breakeven rate (about 28.6% for a 3.0% muni against a 4.2% corporate, from 1 minus 3.0/4.2) instead of the vague 'bracket is low enough'.",
+   "pitfalls: the DTS rationale re-worded to the curriculum's formulation, higher-spread bonds carry proportionally more spread volatility so a given percentage spread change hits them harder. The draft's 'move proportionally more' left the mechanism unstated.",
+   "cues: the Z-spread versus OAS implication now states the sign explicitly (OAS below Z-spread means a call the investor is short) with the 150/40/110 bp numbers, instead of 'a positive difference'. A candidate who gets the sign backwards reads a callable as a putable.",
+   "cues: in the liquidity cue, 'hold larger on-the-run issues' became 'favour the larger and more recently issued bonds'. On-the-run is sovereign vocabulary; the corporate version of the point is issue size and time since issuance.",
+   "cues: added the foreign-currency corporate cue (euro bond at 3.0%, 150 bp over Bunds), and the matching pitfall. It is in the grounding, it is the one international-credit trap the reading flags, and it was missing entirely.",
+   "pass 2, pros[0]: deleted 'If spreads are unchanged you keep the spread as excess return over governments'. Both skeptics flagged it and the candidate's own bank grades the opposite: central_county q7 asks exactly this case ('assuming spreads remain constant over the next year') and keys 'expected excess return = spread minus (probability of default x loss severity)', scoring Bond F at 1.25% minus 0.45% = 0.80%, not 1.25%. The clause also contradicted the formula printed in the same sentence, the summary ('net of expected credit losses') and pitfalls[0]. The item now says that even with the spread-change term gone you keep the spread less expected credit losses.",
+   "pass 2, whenNotTo[4]: CLOs and CDOs removed from the different-collateral recommendation. The trigger for the item is concentrated corporate credit, and CLO collateral is corporate loans while CDO collateral is corporate bonds, so they repackage the exposure rather than diversify it. central_county q6 grades exactly this: the diversification statement is wrong 'because the collateral for a CDO consists of its underlying corporate bonds. Accordingly, there is no diversification benefit.' The flashcards scope the benefit narrowly to 'cash flows unavailable in the corporate bond market, real estate and consumer loans'. This also removes the contradiction with securitized.json pros[0], which already carries the CLO caveat.",
+   "pass 2, whenNotTo[4]: the blanket 'picks up yield' is now scoped to the tranched structures, with covered bonds named as the counterexample. Where the two skeptics diverged (lens 2 kept covered bonds inside the yield pickup, lens 1 excluded them), the curriculum settles it: 'Covered bonds: DUAL recourse to the issuing bank and to the ring-fenced cover pool, plus substitution of non-performing assets, lower credit risk and a lower yield than ABS/MBS'. Lens 1 is right and lens 2's fix text was adopted only in part.",
+   "pass 2, cons[0]: 'Correlated with equities ... not a risk-off hedge' was flatter than the source. The grounding sentence is comparative, and the flashcard from the same reading groups high-quality government AND investment-grade bonds together as moving mostly with sovereign rate changes, reserving 'correlate far more with equities' for below investment grade: versus the S&P 500, 10-year Treasury -0.30, US Aggregate -0.09, US Corporate 0.20, US High Yield 0.63. Reworded to a weaker diversifier than governments with the figures, which also stops it fighting this entry's own rate-dominance claim.",
+   "pass 2, whenNotTo[0]: 'IG moves with equities in a crisis' deleted as an unsupported justification. The 'correlations spike toward 1' line is from the tail-risk LOS and is about diversification failing within a credit portfolio. The flight-to-quality result the candidate must reproduce is that investors buy governments and sell equities and high yield, so government-versus-equity correlations FALL while equity-versus-HIGH-YIELD correlations rise. The recommendation (hold governments) was right; the reason is now the flight-to-quality mechanism with the IG spread leg widening into the selloff.",
+   "pass 2, cons[1]: the capped-upside claim kept in the curriculum's own words ('the upside is capped, you can only earn the spread') but scoped to hold-to-maturity, with the holding-period exception stated. Flagged as overstated because an unconditional cap contradicts the excess-return formula one bullet away: the curriculum's own worked example (spread 2.75%, six-month hold, 50 bp tightening, EffSpreadDur 5) returns 3.575%, a multiple of the spread. The skew point is unchanged.",
+   "pass 2, pitfalls[0]: 'so never assume the carry is positive' deleted. Carry is the spread-income term and is positive whenever the spread is positive (the flashcard: 'Spread0 = initial spread (usually OAS), earned as carry'), and in the cited worked example the spread income IS +2.00%. What turns negative is the expected excess return, after the 1.00% spread-change loss and the 1.20% expected credit loss. Now reads: never read positive carry as a positive expected excess return, with the three components shown.",
+   "pass 2, pitfalls[3]: stopped labelling the standard calculation a mistake. The empirical-versus-analytical point is grounded (and the flashcard's practical rule is to hedge credit bonds off empirical duration), but the curriculum example is a high-yield bond, and the one essay in this entry's own stem list hedges a $10M CORPORATE portfolio off modified duration 7.5 to 47 short contracts with no empirical adjustment. The pitfall now targets quoting analytical duration as how the bond will behave, and says explicitly to use the modified duration a vignette hands you for the BPV contract count.",
+   "pass 2, pitfalls[6] and cues[7]: the currency hedge was presented as a free way to isolate the credit view. The notes price it ('Hedged: sell EUR forward, isolates the credit/rate return; hedge cost = rate differential') and the bank makes the cost decisive (ashley_wes q6 answer B: the cost of hedging can offset a significant amount of the yield advantage, thus reducing the relative value advantage). Both now carry the cost and the possibility that it kills the case.",
+   "pass 2 was an adversarial review by two independent skeptics (lens 1 mechanism and direction, lens 2 grounding, provenance and pitch). 15 flags were raised across the two reports and all 15 were acted on; none were rejected. Two of them were against pass 1's own justifications, and both deletions pass 1 had made on false provenance grounds are reversed above. Items from pass 1 carry no prefix; items from this pass are prefixed 'pass 2'.",
+   "pass 2, attribution rule applied throughout: a reading id is kept only where that reading's own notes in CFAL3/Resources/reading_notes.json carry the claim, verified line by line this pass (credit strategies for the excess-return formula, the bid-ask prices, the illiquidity reasons, OAS model dependence, migration and the negative skew; overview_of_fixed_income_portfolio_management for the liquidity ranking and the equity correlations; liability_driven_and_index_based_strategies for the credit-rate discount point and the bums problem). Everything else is 'curriculum'."
+  ],
+  "shortfall": "",
+  "residualRisk": "Three things. First, pitfalls[4], the clause that a downgrade within high-yield moves the price less than an IG to high-yield downgrade: it is the bank's own grading key for the IG versus HY essay and is the answer that earns the mark, but as a general statement it is soft, since a B to CCC downgrade can move a price violently. It is kept because the graded claim is about the forced selling the IG boundary triggers. Second, the grounding for this key is thin, 11 notes sentences and a single LOS (structured instruments as an alternative to corporate bonds), so most of the entry is assembled from the wider credit strategies notes, the flashcards and the question bank rather than from the key's own notesEvidence slice. Every claim kept was checked against those sources this pass, but the reader should treat the entry as a synthesis rather than a transcription, which is why confidence stays medium. Third, pass 1 twice deleted correct content on a false claim about what the notes contain, so provenance notes in this block should be re-checked against the notes rather than trusted."
+ }
+}

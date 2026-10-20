@@ -1,0 +1,146 @@
+{
+ "key": "government_bonds",
+ "name": "Government Bonds",
+ "family": "Fixed income",
+ "summary": "Nominal debt issued by a sovereign, and for a high-quality sovereign the default-free benchmark asset in its own currency and the most liquid source of portfolio duration. Every recommendation turns on one question: is the position there to protect and to match a liability, or to earn a spread, because governments do the first and pay the least for it.",
+ "pros": [
+  {
+   "text": "High-quality government bonds have low or negative correlation with equities, which is the diversification leg of a fixed-income allocation. Credit-sensitive bonds, investment grade and especially high yield, correlate more with equities because they share the economic and credit cycle.",
+   "source": "overview_of_fixed_income_portfolio_management"
+  },
+  {
+   "text": "The classic equity-risk mitigator for three stated reasons: a flight-to-quality rally when equities sell off, liquidity precisely when liquidity is scarce, and duration gains as central banks cut rates in a downturn.",
+   "source": "asset_allocation_to_alternative_investments"
+  },
+  {
+   "text": "Top of the bond liquidity ranking (sovereign, then investment grade, then high yield, then securitized and emerging market), and within sovereigns the on-the-run issue is the most liquid of all, so the exposure can be traded in size.",
+   "source": "overview_of_fixed_income_portfolio_management"
+  },
+  {
+   "text": "The cost gap is wide enough to decide a trade: the notes' illustration puts the round trip at roughly 0.05% on a liquid on-the-run Treasury against about 1.0% on an illiquid corporate, and the corporate's bid-ask widens further in stress, exactly when the manager needs to sell.",
+   "source": "fixed_income_active_management_credit_strategies"
+  },
+  {
+   "text": "Duration and BPV can be set without credit noise: no default loss, and no asset spread to move against a liability that is itself discounted at a government or swap rate. A deep government bond futures market also lets the manager fine-tune portfolio BPV without trading the cash book.",
+   "source": "liability_driven_and_index_based_strategies"
+  },
+  {
+   "text": "Expected return is defensible with one number: for an option-free bond with no default, held to maturity with coupons reinvested near the yield, yield to maturity is the most defensible single-number estimate of expected annual return, with no expected credit loss to subtract. It still ignores reinvestment risk, and it is a weaker proxy when the horizon is shorter than maturity.",
+   "source": "capital_market_expectations_part_2_forecasting_asset_class_returns"
+  },
+  {
+   "text": "Cheapest asset to finance in a levered or funded structure, because the repo rate falls with collateral quality.",
+   "source": "overview_of_fixed_income_portfolio_management"
+  }
+ ],
+ "cons": [
+  {
+   "text": "Lowest expected return in the family: the hedge is paid for in yield. At low yields both the expected return and the size of the negative-correlation cushion shrink, because there is less room for yields to fall.",
+   "source": "asset_allocation_to_alternative_investments"
+  },
+  {
+   "text": "No inflation protection. A nominal government bond loses real value when expected inflation rises, which is the gap inflation-linked bonds fill.",
+   "source": "curriculum"
+  },
+  {
+   "text": "The equity hedge is regime-dependent, not mechanical. It is reliable in growth shocks and flights to quality; in an inflation or policy-rate shock government bonds and equities can fall together.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Does not protect against spread risk versus liabilities. When liabilities are discounted at a corporate or credit rate and the assets are government bonds, the two diverge as spreads move even with durations matched.",
+   "source": "liability_driven_and_index_based_strategies"
+  },
+  {
+   "text": "Does not protect against curve reshaping. A duration-matched government portfolio immunizes a parallel shift only; twists and butterflies leave structural risk, larger the more asset dispersion and convexity exceed the liability's.",
+   "source": "liability_driven_and_index_based_strategies"
+  },
+  {
+   "text": "\"Government\" is not a synonym for default-free. Emerging-market local-currency debt carries sovereign credit risk plus currency risk for the foreign investor, and hard-currency debt shifts the risk onto the sovereign's ability to earn foreign exchange.",
+   "source": "capital_market_expectations_part_2_forecasting_asset_class_returns"
+  }
+ ],
+ "whenToRecommend": [
+  "The vignette wants an equity-risk mitigator that must work when equities fall and still be sellable mid-crisis: high-quality government bonds are the reliable, liquid answer, with managed futures as the higher-returning but less certain complement.",
+  "A single dated liability has to be immunized, for example a balloon payment in 6.5 years: a government bullet with Macaulay duration equal to the horizon, or a zero maturing at the liability date, is the immunizing asset.",
+  "Duration must be added or cut quickly, or the mandate requires trading in size: governments and government bond futures are the liquid duration vehicle, with contracts sized as (BPV target minus BPV current) divided by BPV per futures contract.",
+  "The liability discount rate is a government or swap-curve rate, so the assets' rate behaviour moves with the discounting rather than against it.",
+  "The manager expects spreads to widen: move up in quality toward governments and shorten spread duration, cutting duration times spread.",
+  "The portfolio needs high-quality collateral for repo financing, or a reserve for near-term spending that has to stay sellable in a crisis: short-dated high-quality governments fill both roles, while a long government bond still carries real rate risk."
+ ],
+ "whenNotTo": [
+  "The objective is spread income or excess return rather than protection: governments carry the lowest expected return, so investment-grade corporates or high yield earn the spread, budgeted by DTS against expected excess return.",
+  "The liability or spending rule is indexed to inflation: nominal governments leave that risk unhedged, so use inflation-linked bonds, or real assets for a broader inflation hedge.",
+  "The plan discounts liabilities at a corporate bond rate: a Treasury-based portfolio leaves spread risk, so hold assets whose spread behaves like the discount rate, which points to investment-grade corporates.",
+  "The exposure wanted is a broad bond index: government bond futures cover only part of the index, mainly government duration, so track the index with a sampled physical portfolio or a total return swap on the index instead of a government overlay.",
+  "The client is a high-bracket taxable private investor with access to tax-exempt municipals: compare on a taxable-equivalent basis, municipal yield divided by one minus the marginal rate, before preferring Treasuries.",
+  "The sovereign is the same country where the portfolio already holds a large equity or direct stake: the local-currency government bond compounds country, currency and policy concentration instead of diversifying it."
+ ],
+ "pitfalls": [
+  "Writing \"government bonds are risk free\" in an emerging-market vignette. Name sovereign credit risk and currency risk, and keep the local-currency versus hard-currency distinction straight.",
+  "Mixing the two immunization condition sets. Single liability: PV(assets) at least PV(liability), Macaulay duration of assets equal to the horizon, and dispersion and convexity MINIMIZED while still just above the liability's (a bullet, not a barbell). Multiple liabilities: MV(A) at least MV(L), BPV(A) equal to BPV(L), and asset dispersion and convexity GREATER than the liabilities', with the asset cash flows bracketing them. Asset convexity sits above the liability's in both sets, so what changes is minimize versus exceed, not the direction of the inequality.",
+  "Matching maturity instead of duration, or using modified duration where the single-liability condition calls for Macaulay duration.",
+  "Claiming a duration match removes interest-rate risk. It immunizes a parallel shift; say that, then name structural risk from twists and the need to rebalance as duration drifts.",
+  "Hedging a credit portfolio's rate exposure with government bonds or government futures at analytical duration. Spreads tend to move opposite to risk-free rates, so credit bonds' empirical duration is lower and an analytical-duration hedge comes out oversized; hedge on empirical duration.",
+  "Transferring the negative-correlation claim to investment grade and especially high yield. The diversification point belongs to high-quality government bonds only."
+ ],
+ "cues": [
+  {
+   "signal": "The portfolio needs something that holds up when equities sell off and can be sold at that moment.",
+   "implication": "High-quality government bonds pass on both counts. A long-biased equity hedge fund fails on correlation and illiquid alternatives fail on liquidity, so rank bonds and managed futures as the genuine mitigators, bonds most reliable."
+  },
+  {
+   "signal": "Yields are near historic lows and the vignette asks whether bonds are still the right equity-risk mitigator.",
+   "implication": "The mitigation case weakens: both the expected return and the negative-correlation cushion shrink because there is less room for yields to fall. Argue a smaller bond mitigator plus a trend or managed-futures complement, and give that reason explicitly."
+  },
+  {
+   "signal": "A single balloon payment due on a stated date, with candidate bond portfolios to choose between.",
+   "implication": "Single-liability immunization. State PV(assets) at least PV(liability), Macaulay duration equal to the horizon, minimum dispersion and convexity, and choose the bullet over the barbell."
+  },
+  {
+   "signal": "The liability is a stream with several payment dates across years rather than one dated amount.",
+   "implication": "Multiple-liability duration matching, not single-liability immunization: MV(A) at least MV(L), BPV(A) equal to BPV(L), and asset dispersion and convexity greater than the liabilities'. A quoted liability BPV is not itself the trigger, since a single dated liability has a BPV too; count the payment dates."
+  },
+  {
+   "signal": "Liabilities are discounted at a corporate or credit rate while the assets are governments.",
+   "implication": "Matched durations still diverge when spreads move. Name that spread risk and recommend assets whose spread behaviour resembles the liability discount rate, which rules out a government-only hedging portfolio."
+  },
+  {
+   "signal": "Trustees object to counterparty exposure on the hedging overlay.",
+   "implication": "Use exchange-traded government bond futures rather than OTC swaps. That choice essentially eliminates counterparty credit exposure and leaves basis and spread risk, margin flows and roll risk."
+  },
+  {
+   "signal": "A foreign government bond with a stated duration and currency exposure, plus a target duration.",
+   "implication": "Two separate overlays run together: sell the foreign currency forward in the amount of the bond's market value to remove the currency risk, and trade bond futures for the duration, N equal to (BPV target minus BPV current) divided by BPV per contract. Let the sign of N set the direction, negative is a sale, as in the notes' case cutting duration 8 to 3 where N is (6,000 minus 16,000)/50 equals minus 200."
+  },
+  {
+   "signal": "The mandate caps transaction costs, or a large position has to be built or unwound quickly.",
+   "implication": "The liquidity ranking decides the vehicle: sovereigns, or government futures, carry the exposure, and high yield, securitized and emerging-market debt are ruled out as the instrument for a size-constrained trade. Within sovereigns prefer on-the-run to off-the-run issues."
+  }
+ ],
+ "comparesWith": [
+  "ig_corporates",
+  "inflation_linked",
+  "bullet_barbell_ladder",
+  "futures"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "cues: \"The equity earnings yield is well above the government bond yield\" implying the Fed-model relative-value tilt to equities. Deleted as a market-view cue: the implication is a sizing judgement on the strategic allocation, not a constraint that rules an instrument in or out, and the second half (tactical allocation is hard to profit from) was generic padding."
+  ],
+  "corrected": [
+   "summary: added the high-quality qualifier. \"Default-free\" said of any sovereign is the exact error pitfalls[0] and cons[5] exist to prevent; own-currency issuance does not make an emerging-market sovereign default-free.",
+   "pros: the liquidity ranking was sourced to fixed_income_active_management_credit_strategies, where the word sovereign does not appear. Re-sourced the ranking to overview_of_fixed_income_portfolio_management (its LOS 3 table) and split the 0.05% versus 1.0% round-trip illustration into its own point under credit_strategies, where it is verbatim.",
+   "pros: \"no spread to break a liability match\" was inverted as a general claim. When the liability is discounted at a credit rate, having no asset spread is what breaks the match. Qualified it to a liability discounted at a government or swap rate.",
+   "pros: YTM was called \"the strongest estimate\" with the reinvestment proviso dropped. The reading says a strong estimate provided coupons are reinvested near the YTM, the most defensible single-number estimate for a buy-and-hold investor, and a weaker proxy when the horizon is shorter than maturity. Restored both conditions.",
+   "whenToRecommend: the near-term spending reserve item implied governments cannot be marked down. Narrowed it to short-dated high-quality governments and said a long government bond still carries real rate risk.",
+   "pitfalls: deleted the claim that \"the convexity condition reverses direction between the two\". It does not. The single-liability condition is minimize dispersion and convexity while keeping convexity just above the liability's, so asset convexity exceeds the liability's in both sets; only minimize versus exceed changes. As drafted it would have taught the candidate to write asset convexity BELOW the liability's on exactly the question this instrument's one essay stem asks.",
+   "cues: dropped \"or rates are expected to rise\" from the low-yield cue. The notes support the structural point that the cushion weakens at low yields, not a rate forecast.",
+   "cues: \"The liabilities' BPV is given\" was an unreliable trigger for the multiple-liability set, since a single dated liability has a BPV too and a vignette quotes it for any futures hedge. Replaced with the number of liability payment dates and said so explicitly.",
+   "cues: the foreign-bond overlay prescribed selling bond futures, but the signal only gives a target duration. Changed to trade futures and let the sign of N decide; selling is right only when the target duration is below current.",
+   "cues: cut the liquid-proxies clause from the transaction-cost cue. Liquid proxies are what managers use for illiquid credit, not a consequence of holding governments. Rewrote the implication so it eliminates high yield, securitized and emerging-market debt as the vehicle instead of restating the ranking pro."
+  ],
+  "shortfall": "",
+  "residualRisk": "\"Cheapest asset to finance in a levered or funded structure.\" The notes support only that the repo rate falls with collateral quality and rises with term and counterparty risk; the flat superlative is my inference from that, and no haircut level or ordering is asserted. Second place: the regime-dependence con, standard post-2022 material marked curriculum, since the notes say only that the cushion weakens at low yields and never that the correlation can turn positive."
+ }
+}

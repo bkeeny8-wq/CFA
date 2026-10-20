@@ -1,0 +1,168 @@
+{
+ "key": "cds",
+ "name": "Credit Default Swaps",
+ "family": "Fixed income",
+ "summary": "A credit default swap transfers credit risk on a reference entity: the protection buyer pays a periodic premium and is paid if a credit event occurs. Most CDS answers start with direction, because buying protection is a short credit position and selling protection is a long credit position, but the LOS also carries three non-directional uses: relative value pairs, curve trades and the CDS bond basis.",
+ "pros": [
+  {
+   "text": "Buying protection is a short credit position that needs no bond borrow. Shorting cash credit is hard to do and hard to size, so CDS is the practical way to express a negative view on an issuer.",
+   "source": "fixed_income_active_management_credit_strategies"
+  },
+  {
+   "text": "Credit exposure can be added or cut without trading the underlying bonds, which separates the credit decision from the cash bond position and is capital light.",
+   "source": "fixed_income_active_management_credit_strategies"
+  },
+  {
+   "text": "The CDS indexes, CDX and iTraxx, keep trading when individual bonds do not, so they are the liquid proxy for credit exposure when the cash market is fragmented or stressed.",
+   "source": "fixed_income_active_management_credit_strategies"
+  },
+  {
+   "text": "The default payout is formulaic: notional times (1 - recovery), so 10,000,000 of protection at a 40% recovery pays 6,000,000. Because that payout is the loss given default on the notional, protection sized to the par amount of a holding of the same issuer and seniority covers the default loss whatever recovery the auction sets; a recovery assumption is only needed when sizing to a target payout or against a holding of different seniority.",
+   "source": "fixed_income_active_management_credit_strategies"
+  },
+  {
+   "text": "The contract marks to market on spread moves before any default, so the protection buyer gains as the credit widens. That makes CDS a way to trade a spread view, not only a default bet.",
+   "source": "fixed_income_active_management_credit_strategies"
+  },
+  {
+   "text": "One index trade reaches diversified credit exposure in either direction: sell index protection to add credit beta, buy index protection to hedge a systemic widening, rather than assembling or hedging the book name by name.",
+   "source": "fixed_income_active_management_credit_strategies"
+  },
+  {
+   "text": "Maturities trade across the credit curve, so a view that short dated spreads move differently from long dated ones can be expressed directly in CDS rather than by reshuffling bonds.",
+   "source": "fixed_income_active_management_credit_strategies"
+  }
+ ],
+ "cons": [
+  {
+   "text": "The protection buyer pays away carry whether or not anything happens: 200 bp on 10,000,000 of notional is 200,000 a year in economic terms. Watch what the contract actually pays, though. Since 2009 the running coupon is the standard ISDA coupon, 1% for investment grade and 5% for high yield, with the difference from the market spread exchanged upfront, so the 200 bp is the quoted spread rather than the periodic payment.",
+   "source": "curriculum"
+  },
+  {
+   "text": "It hedges credit only. Buying protection on a bond you hold strips the spread and default risk but leaves the interest rate duration untouched, so a rate hedge is still a separate decision.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Basis risk. The CDS spread and the cash bond spread on the same issuer move apart, which is the CDS bond basis, so protection does not track the loss on one specific bond one for one.",
+   "source": "fixed_income_active_management_credit_strategies"
+  },
+  {
+   "text": "The payout rests on the recovery determined for the reference obligation, so a holding of different seniority or maturity is not covered one for one.",
+   "source": "curriculum"
+  },
+  {
+   "text": "The contracts are over the counter, so counterparty credit risk applies. The mitigant the curriculum names is collateral under a Credit Support Annex with daily margining, which an exchange traded hedge would not need.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Single name liquidity is concentrated in the large, frequently traded issuers. For many holdings the index is the only usable contract, and it hedges market wide widening rather than the specific name you own.",
+   "source": "curriculum"
+  }
+ ],
+ "whenToRecommend": [
+  "The manager expects spreads to widen but cannot or will not sell the holdings, because the bonds are illiquid, the sale would crystallise a loss, or the mandate requires the positions stay. Buy protection to cut credit exposure and lower portfolio DTS without a bond trade.",
+  "A large inflow has to be put to work and sourcing enough individual bonds would be slow and costly. Sell protection, or buy a CDX or iTraxx index, to take on credit beta immediately.",
+  "A concentrated credit book needs a tail hedge against a systemic widening or a default wave. Buy index protection, or use options, because the risk is market wide rather than one name. Diversifying, tilting up in quality and capping concentration stay in the answer as the cheap and easily implemented first line; correlations spike in a crisis, so explicit protection goes on top, and its premium is a real cost.",
+  "The view is relative, favouring one issuer over another in the same sector. Sell protection on the favoured credit and buy protection on the disliked one. Size the legs to equal DTS, spread duration times spread, rather than to equal spread duration: then the sector and market direction largely net out and the issuer call is what remains. Equal spread duration across two different spread levels leaves a residual directional position, because spreads move proportionally rather than in equal basis points.",
+  "The view sits on the credit curve rather than its level, for example short dated spreads tightening more than long dated, which is a steepener. Trade CDS at two maturities, sized to equal spread BPV (notional times effective spread duration): sell the short tenor and buy the long tenor protection for a steepener, and reverse both legs for a flattener. Without that BPV matching the position carries an unintended change in the level of credit exposure instead of a pure slope view.",
+  "The CDS spread and the cash bond spread on the same issuer have diverged. That is a CDS bond basis trade, taking the cheap side against the rich one, not a directional credit view."
+ ],
+ "whenNotTo": [
+  "The IPS bars OTC derivatives or counterparty exposure. Reduce credit risk the cash way instead: sell the credit and move up in quality into government bonds.",
+  "The risk to be changed is interest rate duration rather than spread. CDS leaves duration in place, so use the rate tools: sell government bond futures or pay fixed on an interest rate swap to cut duration, buy futures or receive fixed to add it.",
+  "The issuer has no liquid single name contract, which is the normal case for small issuers, loans, securitized positions and private credit. Trim the holding, or use index protection and state the basis risk you are accepting.",
+  "The exposure wanted is the whole total return of a bond or credit index, coupon and rate component included. That is a total return swap, not a CDS, which transfers only credit risk."
+ ],
+ "pitfalls": [
+  "Reversing the direction. Buy protection is SHORT credit: you pay the premium and gain on default or on widening. Sell protection is LONG credit: you receive the premium and lose if the credit deteriorates.",
+  "Writing the payout as the full notional. It is notional times (1 - recovery), so 10,000,000 at 40% recovery pays 6,000,000, not 10,000,000.",
+  "Saying 'CDS hedges the bond' with no qualifier. Credit risk is hedged, interest rate duration is not.",
+  "Forgetting to connect the trade to DTS when the question asks how positioning changed. Buying protection cuts the portfolio's duration times spread; selling protection or buying the index raises it.",
+  "Answering with 'use credit derivatives' and no specifics. Name the side, the reference and the maturity: buy five year protection on the issuer, or sell protection on the five year CDX index.",
+  "Treating CDS as a default bet only. It marks to market on spread moves, which is why it works for a widening or tightening view with no default in the scenario at all."
+ ],
+ "cues": [
+  {
+   "signal": "The manager expects spreads to widen but the bonds cannot be sold, or selling in size would be costly.",
+   "implication": "Buy protection: it cuts credit exposure and DTS without touching the holdings. Selling the bonds is the answer the vignette has deliberately blocked."
+  },
+  {
+   "signal": "Cash has come in, or the target credit exposure must be reached quickly, and the bonds are illiquid or would take many names to assemble.",
+   "implication": "Sell protection or buy a CDX or iTraxx index for immediate credit beta. Sourcing the individual bonds is the wrong answer because the constraint planted is speed and tradability, not relative value."
+  },
+  {
+   "signal": "Concern about a systemic widening, a default wave, or credit correlations spiking in a crisis.",
+   "implication": "A tail hedge is wanted, so index protection or options rather than a single name contract, and the premium is part of the answer. Do not dismiss diversification: diversifying, tilting to quality and capping concentration are treated as easily implemented and cheap, and the claim marked incorrect is the one calling diversification too costly while CDS is cheap. The limit is that correlations spike in a crisis, so diversification inside credit mitigates but does not hedge a market wide widening."
+  },
+  {
+   "signal": "Two issuers in the same sector, one described as cheap relative to fundamentals and one as deteriorating.",
+   "implication": "A long short credit pair: sell protection on the favoured credit, buy protection on the disliked one. Match the legs on DTS, not on spread duration, or the wider deteriorating name moves proportionally more and the pair is left net short credit beta. CDS legs carry spread duration rather than rate duration, so what a matched pair neutralises is market and sector spread direction, leaving the issuer call."
+  },
+  {
+   "signal": "The vignette gives both a CDS spread and a cash bond spread for the same issuer, and notes they have moved apart.",
+   "implication": "The basis is in play. Spreads that have moved apart point to the CDS bond basis trade; spreads offered as alternatives point to which way to implement the same credit view. Check the tenors match before comparing, since the basis is the bond Z-spread against the same tenor CDS spread."
+  },
+  {
+   "signal": "Short dated spreads are expected to tighten more than long dated, which is a credit curve steepener, or long dated spreads are expected to tighten more, which is a flattener.",
+   "implication": "A curve trade, not a level view. For a steepener, sell short tenor protection and buy long tenor protection on equal spread BPV, or overweight short maturity credit in cash. For a flattener, reverse both legs, and in cash underweight short maturity and overweight long maturity, because a flattening wide spread curve means long maturity yields decline by more."
+  },
+  {
+   "signal": "The IPS prohibits derivatives, OTC instruments or counterparty exposure.",
+   "implication": "CDS is ruled out even though it is the efficient answer. Fall back to cash positioning: sell the credit, go up in quality, shorten spread duration."
+  },
+  {
+   "signal": "The reference name is a small issuer, a bank loan, a securitized tranche or a private credit holding.",
+   "implication": "Assume no liquid single name CDS. The available tools are trimming the position, an index hedge with the basis risk stated, or a liquidity buffer."
+  },
+  {
+   "signal": "The portfolio owns a bond it must keep, and the question asks what the position looks like after buying protection on it.",
+   "implication": "Buy protection and say what is left behind. The spread income is paid away, so the net carry is the bond spread minus the CDS premium, and the credit hedged holding behaves like a default free bond of the same maturity: the full interest rate duration is still there, and the basis and counterparty exposure are still live. It is not close to cash."
+  }
+ ],
+ "comparesWith": [
+  "ig_corporates",
+  "high_yield",
+  "total_return_swap",
+  "government_bonds"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "Clause removed from the systemic widening cue: 'standard deviation and VaR are the wrong risk measures, since credit returns are negatively skewed; scenario stress and conditional VaR belong in the answer'. True in part but overstated, VaR is complemented by stress testing rather than wrong, and it drifts off the instrument choice the cue is supposed to make.",
+   "Clause removed from the direction pitfall: 'Marks are lost on this alone more than on anything else in the LOS'. An unsupported claim about grading that nothing in the grounding supports.",
+   "Clause removed from the basis trade recommendation: 'the vignette giving both spreads is the tell'. Padding that restated the cue which already carries it.",
+   "Skeptic pass: whenNotTo item on index settlement deleted ('a credit event on a constituent settles only that name's weight of the index notional'). Index settlement mechanics appear nowhere in the candidate's material, the previous pass had already flagged them as residual risk, and the suitability judgment they supported is already carried by the single name liquidity con and the illiquid reference cue.",
+   "Skeptic pass: whenNotTo item on a buy and hold mandate with no authority to write protection deleted. Strip out the direction point, which the first pitfall already makes, and what remains is 'if you may not sell protection, hold the bonds', which is not a CDS judgment; the carry cost it also carried is now stated in the first con.",
+   "Skeptic pass: grading assertions deleted from the 'CDS hedges the bond' pitfall ('and the grader wants that split stated') and from the illiquid reference cue ('and saying so is part of the mark'). Same genus as the grading claim the repair pass already struck, and nothing in the grounding pairs CDS with interest rate duration in a marking scheme. The substance was kept in both places.",
+   "Skeptic pass: 'This is the textbook buy protection setup because' deleted from the first cue, and the absolute 'Nothing else needs both numbers side by side' deleted from the basis cue. The second was refuted by this entry's own last cue, which needs both spreads for a question that is not the basis trade.",
+   "Skeptic pass: the central clearing sentence deleted from the counterparty con, along with the unfalsifiable trailing clause about operational and documentation burden. Which CDS contracts clear is post crisis market structure with no footing in the grounding; the mitigant the candidate's own material teaches is the Credit Support Annex."
+  ],
+  "corrected": [
+   "Pro on index liquidity narrowed from 'CDS and the CDS indexes' to the indexes, because the grounding attributes trading when individual bonds do not to CDX and iTraxx, and single name liquidity also thins in stress.",
+   "Pro on the payout no longer claims the hedge notional can be sized 'before the event'. The formula is known in advance but the recovery is only determined at the credit event, so the sizing rests on an assumption.",
+   "Pro on index trades had a direction error: it said index protection delivers credit beta. Buying index protection is short credit. Adding beta is selling index protection, or buying the index.",
+   "Con on basis risk rewritten to state the CDS bond basis directly, dropping a self referential aside about what the notes do and the garbled inference attached to it.",
+   "When to recommend a tail hedge now gives the reason, systemic rather than idiosyncratic risk, instead of citing the notes as the authority.",
+   "Long short credit pair, in both whenToRecommend and the cue, no longer claims there is 'no market direction bet'. The legs net out only when sized on matched spread duration, so that qualifier is now stated.",
+   "When not to use CDS for duration had a sign error: it recommended a receive fixed swap to hedge duration. Receive fixed ADDS duration. Cutting duration means selling bond futures or paying fixed.",
+   "The buy and hold item was misframed as an argument against CDS when it is an argument against buying protection; a constructive view with an income need argues for selling protection. It now turns on there being no authority to write protection.",
+   "The single name versus index item said index protection 'does not pay on a single constituent's trouble'. It does pay, at that constituent's weight of the index notional, which is why it is a poor single name hedge.",
+   "Pitfall example 'sell protection and buy the CDX index' described the same trade twice. Changed to selling protection on the five year CDX index.",
+   "The last cue's signal, wanting to 'keep the yield but remove default risk', is self contradictory, since buying protection pays the spread away. Reframed around a bond the portfolio must keep, with the net carry and the live duration as the implication.",
+   "Skeptic pass, both lenses, highest severity defect: the curve cue had the slope inverted, labelling short dated spreads tightening more than long dated as a 'credit curve flattener' and prescribing 'overweight short maturity credit in cash' for a flattener. Slope is long spread minus short spread, so short dated tightening more is a STEEPENER. The candidate's own flashcards settle it (a steepener expects the 10 year minus 5 year spread to WIDEN; legs are buy 10 year protection and sell 5 year protection; the flattener is buy short tenor and sell long tenor; late expansion pulls short tenor spreads down and curves steepen, while recession flattens and inverts them), and the question bank rationale for this very trade says that when a wide spread curve flattens long maturity yields decline more, so the optimal construction is underweight shorter maturity and overweight longer maturity. The cue now names both labels correctly and gives both legs for each. This defect is inherited from the candidate's own notes, which carry the same mislabel twice in the credit strategies reading, so it must not be restored on the notes' authority.",
+   "Skeptic pass, both lenses: the tail risk cue and recommendation said diversifying inside the credit book is 'the wrong answer' and 'does not answer it'. The question bank marks the opposite as the error: the incorrect consideration is the one claiming diversification is difficult and too costly while CDS is cheap, with the rationale that diversification is easy and only modestly costly and CDS hedging is effective but costly. The grounding lists diversifying and tilting to quality ahead of buying tail protection. Both now keep diversification in the answer, with the supportable limit, correlations spiking in a crisis, and the premium named as a real cost. A sibling entry already states it this way.",
+   "Skeptic pass, both lenses: the long short pair claimed matched spread duration makes the sector and market direction net out. Spread moves are proportional rather than equal in basis points, which is why the reading uses DTS, so equal spread duration across a 100 bp credit and a 500 bp credit leaves a residual short credit beta. Both the recommendation and the cue now call for matched DTS and state what equal spread duration leaves behind. The cue's 'rate exposure' was also wrong: a CDS carries spread duration, not interest rate duration, as this entry's own con says, so there is no rate exposure to net; the cue now says market and sector spread direction.",
+   "Skeptic pass, both lenses: the last cue said a held bond plus bought protection 'sits close to a risk free position' in the same sentence that conceded the interest rate duration is still live. It is credit risk free, not risk free: the holding behaves like a default free bond of the same maturity and keeps the full rate duration. Rewritten, with 'it is not close to cash' stated explicitly.",
+   "Skeptic pass, both lenses: the summary's 'every CDS answer turns on one decision, which side of the credit you want' was refuted by this entry's own content, since the basis trade is not a directional view and the duration weighted curve trade is built to carry no net directional position. The grounding lists four uses and only one is directional exposure adjustment. Now 'most CDS answers start with direction', with the three non-directional uses named.",
+   "Skeptic pass, lens 1: the pro on the payout had the recovery dependency backwards. For the natural hedge, protection notional equal to the par amount of a holding of the same issuer and seniority, the recovery cancels: the bond is worth notional times recovery and the CDS pays notional times one minus recovery, so the total is the notional whatever the auction sets. A recovery assumption is needed only when sizing to a target payout or against a mismatched holding, which the fourth con already covers.",
+   "Skeptic pass, lens 1: the carry con described 200 bp a year as the periodic payment. Since the 2009 ISDA standardisation the running coupon is fixed at 1% for investment grade and 5% for high yield, with the difference from the market spread exchanged upfront, and the candidate's flashcards list using the market spread in place of the standard coupon among the classic errors. The economic carry statement, which the grounding carries verbatim, is kept and the actual cash flow is now named. Tagged curriculum rather than the reading, because the standard coupon is not in that reading's notesEvidence.",
+   "Skeptic pass, lens 1: the curve recommendation promised a slope rather than level position from any two maturity CDS trade. It now carries the examinable sizing condition, equal spread BPV (notional times effective spread duration), names both legs, and says what unmatched notionals leave behind.",
+   "Skeptic pass, both lenses: the basis cue's 'nothing else needs both numbers side by side' was replaced by what the two spreads actually distinguish, a basis trade when they have diverged against an implementation choice when they are offered as alternatives, with a reminder that the basis compares the bond Z-spread to the same tenor CDS spread.",
+   "Skeptic pass, lens 2: the counterparty con now names the Credit Support Annex and daily margining, which the candidate's question bank teaches as the mitigant, in place of the central clearing claim.",
+   "Skeptic pass, lens 2: the single name liquidity con softened from the categorical 'liquid single name CDS exists only for a limited set of large issuers' to liquidity being concentrated in the large, frequently traded issuers. The grounding says only that CDS is liquid, so the categorical form was uncited, and three other items lean on this one.",
+   "Skeptic pass, lens 2: the cue implications were cut back to the recognition tell and the wrong answer the vignette plants, since eight of the nine mirrored a whenToRecommend or whenNotTo item nearly phrase for phrase. The cues were kept rather than cut, because the signal and implication pairing is the recognition layer the page is for, but the restatement is gone."
+  ],
+  "shortfall": "",
+  "residualRisk": "Three things to double check. First, the held bond plus bought protection cue: the credit risk free framing is standard, but nothing in the candidate's notes pairs a holding with bought protection at all, and the equivalence needs the contract to match the holding's maturity and seniority with a near zero basis. Second, matched DTS as the sizing rule for a long short CDS pair: the neutrality argument follows from the reading's own DTS logic, that spread moves are proportional, and both skeptics converged on it, but the curriculum states an explicit sizing convention only for the duration weighted curve trade (equal spread BPV), so DTS matching for a cross issuer pair is derived rather than quoted. Third, the single name liquidity con and the three items that lean on it are judgment about market structure rather than grounded text, which is why the categorical form was dropped. More broadly, the grounding for this entry is thin, 28 note sentences, one LOS and no essay stems, and several of the sharpest mechanics used in this pass, the ISDA standard coupon and upfront, equal spread BPV sizing, the steepener and flattener legs, come from the candidate's flashcards and question bank rather than from the reading's notesEvidence, which is why those items are tagged curriculum and why confidence stays medium. One thing deliberately not restored: lens 2 observed that the earlier repair pass cut the grounded half of the tail risk cue, that standard deviation and VaR understate the tail while scenario stress and conditional VaR fix it. The flashcards do support it, but it is risk measurement rather than instrument choice, so it belongs in the credit strategies notes and not in this cue."
+ }
+}

@@ -1,0 +1,143 @@
+{
+  "key": "high_yield",
+  "name": "High Yield Corporates",
+  "family": "Fixed income",
+  "summary": "Sub investment grade corporate bonds, rated BB+/Ba1 and below, that pay the widest spread in corporate credit in exchange for default and liquidity risk rather than for rate risk. The central computation: does the spread earned over the horizon exceed the expected spread change times spread duration, plus the expected credit loss (POD x LGD)?",
+  "pros": [
+    {
+      "text": "Spread income is the widest in corporate credit, and the reading gives the decomposition that tests whether it is enough: E(excess return) is approximately (spread x t) minus (change in spread x spread duration) minus (t x POD x LGD). Every input is a forecast, so the number has to be weighed against the liquidity, tail and mandate constraints below rather than read as the answer on its own.",
+      "source": "fixed_income_active_management_credit_strategies"
+    },
+    {
+      "text": "Less rate sensitive than investment grade, though not rate insensitive. Investment grade carries the longer duration and its price is dominated by rate risk, while high yield trades more like equity, dominated by credit. Separately, for any credit bond spreads tend to move opposite to rates in a flight to quality, so empirical duration, from regressing price on government yields, sits below analytical duration.",
+      "source": "fixed_income_active_management_credit_strategies"
+    },
+    {
+      "text": "Less sensitive to credit migration than investment grade. A downgrade inside high yield moves the price far less than an investment grade bond's crossover into junk, which forces investment grade mandates and indexes to sell. Migration and the spread volatility it drives is the investment grade manager's problem; outright default loss is the high yield manager's.",
+      "source": "fixed_income_active_management_credit_strategies"
+    },
+    {
+      "text": "The standard way to add credit beta on a spread-tightening view. In an expansion defaults fall and spreads tighten, so the top-down move is down in quality toward high yield, overweight cyclical sectors, and extend spread duration, raising portfolio DTS above the benchmark.",
+      "source": "fixed_income_active_management_credit_strategies"
+    },
+    {
+      "text": "The exposure can be added, cut or hedged through liquid proxies when the cash bonds will not trade: CDS indexes (CDX/iTraxx) and liquid ETFs give credit exposure that trades even when individual bonds do not, and buying protection shorts credit, which is hard to do with cash bonds.",
+      "source": "fixed_income_active_management_credit_strategies"
+    }
+  ],
+  "cons": [
+    {
+      "text": "Negatively skewed with fat tails: upside is capped at the spread earned, downside is default loss, so standard deviation and ordinary VaR understate the risk. Scenario and stress testing plus conditional VaR (expected shortfall) are needed, and correlations spike toward 1 in a crisis, so diversification helps least when it is needed most.",
+      "source": "fixed_income_active_management_credit_strategies"
+    },
+    {
+      "text": "Diversifies equity risk far less than the asset-class label suggests. High yield, public equity and private equity all load heavily on the same equity/credit risk factor and fall together in a downturn, so the apparent diversification is largely illusory.",
+      "source": "overview_of_asset_allocation"
+    },
+    {
+      "text": "Less liquid than sovereigns and investment grade corporates, and liquidity vanishes in stress, exactly when the manager wants to sell. The sub-sector ranking to know is sovereign, then investment grade corporate, then high yield, then securitized and emerging market.",
+      "source": "overview_of_fixed_income_portfolio_management"
+    },
+    {
+      "text": "The credit cycle turn hits it twice: as the cycle peaks and turns, spreads widen and default rates rise together, so the mark-to-market loss and the realised credit loss arrive in the same year.",
+      "source": "fixed_income_active_management_credit_strategies"
+    },
+    {
+      "text": "Where the issue is callable, part of the quoted spread is payment for an option the investor is short. A callable bond's Z-spread is inflated by that option and overstates the credit compensation; OAS equals Z-spread minus option cost and is the comparable measure. The short call also creates negative convexity, capping price upside.",
+      "source": "curriculum"
+    }
+  ],
+  "whenToRecommend": [
+    "The economy is early in a recovery or in expansion, default rates are falling, and the question asks how to add credit risk. Down in quality toward high yield, overweight cyclicals, extend spread duration, raise DTS.",
+    "A total-return credit mandate is explicitly permitted to hold issues outside its investment grade benchmark and the manager holds a spread-tightening view.",
+    "A long-horizon investor whose cash needs are met from a separate liquidity sleeve: a savings-type sovereign fund, or an endowment or foundation whose roughly 5% annual spending (a legal minimum for US private foundations) is already funded and is not relying on this sleeve, with a raised active risk budget, wants an off-benchmark but policy-compliant credit exposure.",
+    "The vignette states that issuer dispersion is wide and the manager's stated edge is issuer-level credit work, so the four Cs (capacity, collateral, covenants, character) and relative value on OAS have something to exploit beyond index beta."
+  ],
+  "whenNotTo": [
+    "Late cycle, once the leading indicators have turned. Reduce high yield, go up in quality toward investment grade corporates or government bonds, and shorten spread duration.",
+    "The mandate is an immunization, a duration match or cash-flow matching. Default risk breaks the match: a downgrade or default breaks the asset cash flows while the liability discount rate need not move with them. Use government bonds or high quality corporates.",
+    "The stated objective is diversifying an equity-heavy portfolio. High yield shares the economic and credit cycle with equities; high-quality government bonds are the holding with low or negative equity correlation.",
+    "The portfolio faces redemptions, a liquidity buffer requirement, or any need to trade in size quickly. Hold on-the-run government bonds or cash, and if the credit view must stay on, run it through a CDS index or a liquid high yield ETF rather than cash bonds, noting that a CDS index carries the credit exposure only, with no rate duration and some CDS-bond basis risk."
+  ],
+  "pitfalls": [
+    "Saying high yield is more exposed to credit migration risk than investment grade. It is the other way round in the comparison the exam makes, and it is the trap in the Choate essay: an investment grade downgrade into junk forces investment grade mandates to sell, while a further downgrade within high yield moves the price much less.",
+    "Saying high yield must be more rate sensitive because it is a bond. Relative to investment grade it is less rate sensitive: investment grade carries the longer duration and is dominated by rate risk, while high yield trades more like equity. And for credit bonds generally, empirical duration sits below analytical duration because the spread partly offsets the rate move.",
+    "Budgeting spread risk on spread duration alone. Use DTS, spread duration x spread: spread changes scale with the spread level, so the same proportional move is a larger move in basis points and the same spread duration then delivers a bigger loss. A 10% widening with spread duration 5 costs 1.0% at a 200 bp spread but 2.5% at a 500 bp spread. Two bonds with the same spread duration do not carry the same spread risk.",
+    "Quoting the spread as the expected return. Subtract the expected spread change times spread duration, and the expected credit loss, POD x LGD. In the notes' own worked example a 2.00% spread nets to minus 0.20% once a 1.00% widening loss (0.20% x spread duration 5) and a 1.20% expected credit loss come off, so the trade is rejected despite the headline carry.",
+    "Reading the words high yield in a currency or capital market expectations question as high yield credit. There it is a high-yield CURRENCY: the carry trade is long the high-yield currency and short the low-yield one, a bet against uncovered interest rate parity. Get the roll-yield direction right: being LONG a high-yield currency, at a forward discount, earns the carry, but HEDGING a high-yield currency COSTS roll yield, because hedging means selling it forward below spot and so giving up the rate differential (hedge cost is approximately the rate differential). It is hedging a LOW-yield currency, at a forward premium, that earns positive roll yield. Neither has anything to do with corporate credit quality."
+  ],
+  "cues": [
+    {
+      "signal": "The IPS permits exposure to classes or strategies outside the policy benchmark universe, and the board has just raised the active risk budget.",
+      "implication": "High yield and EM fixed income are the intended off-benchmark credit sleeves. The answer is a tactical, policy-compliant overweight inside the risk budget, not a change to the strategic asset allocation."
+    },
+    {
+      "signal": "Spreads are tight versus their own history, the central bank is still tightening, issuance quality is deteriorating and corporate leverage is rising.",
+      "implication": "Those are the reading's own late-cycle indicators. Reduce high yield, go up in quality, shorten spread duration and cut DTS. A recommendation that adds credit beta here loses the mark however attractive the carry looks."
+    },
+    {
+      "signal": "The portfolio must fund known liabilities on fixed dates, or the mandate is an immunization or a duration match.",
+      "implication": "Rules out high yield. Default risk breaks the cash-flow match, and the liability discount rate need not move with the assets. Government bonds, or high quality corporates."
+    },
+    {
+      "signal": "The committee says the fund is well diversified because it holds public equity, private equity and high yield bonds.",
+      "implication": "A factor-lens question. All three load on the same equity/credit factor, so the diversification is largely illusory. Recommend analysing exposure by factor, not adding a fourth asset-class label."
+    },
+    {
+      "signal": "The manager expects redemptions, could become a forced seller, or has to implement quickly and in size.",
+      "implication": "Rules out cash high yield bonds as the implementation. Use a CDS index or a liquid high yield ETF, size positions to tradability, and hold a government bond or cash buffer."
+    },
+    {
+      "signal": "Two credit bonds have the same spread duration but very different spread levels, or the question asks how to budget spread risk across the portfolio.",
+      "implication": "A DTS question. Compare spread duration x spread, not spread duration. The wider-spread bond carries more spread risk because spread changes scale with the spread level: the same proportional move is a larger move in basis points, so the same spread duration produces a bigger loss."
+    },
+    {
+      "signal": "The manager says that for the high yield sleeve, monitoring the outright market value of each position and sizing positions accordingly matters more than it does for his investment grade sleeve.",
+      "implication": "Correct as stated, so confirm it: the much higher credit loss rate puts the emphasis on credit risk and on the market value of the position, and position sizing and market-value risk metrics dominate for high yield. It is a matter of emphasis, not a replacement, since DTS and spread duration remain the spread-risk budget for the whole credit portfolio, high yield included. The same emphasis claimed for an investment grade portfolio would be the weaker answer, because there rate sensitivity and migration-driven spread volatility dominate."
+    }
+  ],
+  "comparesWith": [
+    "ig_corporates",
+    "government_bonds",
+    "cds",
+    "securitized"
+  ],
+  "confidence": "medium",
+  "_review": {
+    "deleted": [
+      "pitfalls: \"Monitoring a high yield position on spread alone. Because default loss dominates, outright market value and position size are the controls that matter, which is the point the vignette manager makes correctly, not an error to flag.\" Deleted as a restatement of the last cue, which carries the same content in its proper form, as a vignette plant with an implication; the pitfall version also mixed a pitfall with an instruction not to flag it.",
+      "cons: \"Offers no protection against the one risk it is most exposed to, a credit cycle turn.\" Deleted that opening clause as empty framing, an instrument does not offer protection against its own dominant risk, and kept the substantive late-cycle point in the same con.",
+      "cons: the \"correlations spike toward 1 in a crisis\" sentence was moved out of the credit-cycle con and into the tail-risk con, where the notes actually pair it with the negative skew, so the cycle con cites only what capital_market_expectations_part_2 supports.",
+      "Skeptic pass, whenToRecommend: \"The investor wants more spread income but the IPS caps portfolio duration, or the manager expects government yields to rise. High yield delivers more spread per unit of rate duration than investment grade of comparable maturity.\" Deleted. The two skeptics split on this one, lens 1 wanting it qualified and lens 2 wanting it gone, and lens 2 is right on the curriculum: a duration cap is a rate constraint whose curriculum answers are shorter maturities, a bullet or a futures/swap overlay, not a move down in credit quality, and \"spread per unit of rate duration\" appears nowhere in the 36 readings. The rate-sensitivity point survives, correctly stated, in pros 2 and pitfalls 2.",
+      "Skeptic pass, whenToRecommend: \"The holder is tax exempt, or the position can sit in a tax-deferred account, so a coupon taxed at ordinary income rates is not the deciding drag.\" Deleted. Tax exemption removes an objection, it is not a reason to take default and liquidity risk, so as a recommendation trigger it earns nothing; and there is no tax evidence in this key's grounding, while the notes hedge the claim (\"coupon income is USUALLY taxed as ordinary income\", and tax regimes differ by country).",
+      "Skeptic pass, pros: \"Recognised as an off-benchmark but policy-compliant exposure.\" Deleted. This is not a property of the instrument but one line of one endowment's IPS, and the entry stated it three times; cues 1 (which pairs the signal with the right answer) and whenToRecommend 3 carry it.",
+      "Skeptic pass, cons: \"Passive exposure is sampled, not replicated. High yield is one of the index categories with the worst liquidity and replication problems...\" Deleted. Both skeptics flagged the ranking: liability_driven_and_index_based_strategies says only that bond index categories each have their own liquidity and replication challenges, and \"worst\" also contradicted this entry's own liquidity ranking, which puts securitized and EM below high yield. The surviving substance (sampling rather than full replication) is true of every bond index, so it is not a high-yield-specific drawback and it duplicates the index_replication entry.",
+      "Skeptic pass, whenNotTo: \"The credit view is short-term and reversible. Selling CDS protection takes the same long-credit position on and off far more cheaply than sourcing and then liquidating illiquid cash bonds.\" Deleted. Both skeptics flagged it: a sold CDS is not the same position (no rate duration, no cash coupon, and CDS-bond basis risk, which the notes treat as a tradable spread in its own right), and it was the fourth copy of the use-CDS-or-ETF implementation answer. whenNotTo 4 now carries that answer once, with the exposure difference stated.",
+      "Skeptic pass, whenNotTo and cues: the \"call provisions break the duration match\" limb was cut from the immunization items. The three immunization conditions in liability_driven_and_index_based_strategies say nothing about option-free bonds; what that reading does say is that a downgrade or default breaks the match and the liability discount rate may not move with the assets, so both items now lead with the supported reason."
+    ],
+    "corrected": [
+      "confidence: downgraded from high to medium. Of the 26 grounding sentences, roughly fifteen are false positives about a high-yield CURRENCY in the carry trade and uncovered interest rate parity readings, los[] is empty, and the credit substance of this entry comes from the body of the credit strategies reading plus marked curriculum amplification rather than from the high yield slice itself.",
+      "pros: \"a high yield sleeve buys spread income without buying much rate duration\" was overstated. High yield is less rate sensitive than investment grade, not close to rate insensitive, so the claim now states the comparison and the mechanism instead of implying near-zero rate exposure.",
+      "pros: \"Less exposed to credit migration risk than investment grade\" was loose as an absolute. Lower-rated issuers are downgraded more often; what the curriculum compares is sensitivity, a downgrade inside high yield moves the price less than an investment grade bond's crossover into junk, which forces index and mandate selling. Reworded to the comparison the Choate grading key actually makes, and paired with the point that outright default loss is the high yield manager's dominant risk instead.",
+      "pros: the excess-return pro was headed by \"pays the widest spread in corporate credit\" with the formula appended. Kept the formula, which is verbatim from the credit strategies notes, and moved the widest-spread framing into the summary so the pro makes one claim.",
+      "cons: the index con said full replication is \"impossible\" for high yield specifically and attributed the turnover to calls, defaults and migration. Reworded at the time to sampling rather than replication; the whole con has now been deleted in the skeptic pass.",
+      "cons: the callable con is still marked curriculum, correctly. The OAS logic, Z-spread minus option cost, and the overstatement of credit compensation for a callable are verbatim in the credit strategies notes, but the prevalence of call provisions in high yield is amplification, so the source stays curriculum rather than borrowing the reading id.",
+      "whenNotTo: removed \"with a spread-duration haircut\" from the LDI alternative. That is not a curriculum construction.",
+      "pros: the liquid-proxy pro was sourced to the credit strategies reading on the strength of its own LOS 5 text (CDS indexes and liquid ETFs give credit exposure that trades even when individual bonds do not), which the overview reading's liquidity LOS also states. Kept the credit strategies id and made the short-credit direction explicit, buying protection is the short.",
+      "Skeptic pass, summary: the headline test dropped the spread-duration multiplier, which reversed the verdict on this entry's own worked example. \"Spread exceeds the expected spread change plus the expected credit loss\" gives 2.00 > 0.20 + 1.20, i.e. buy, where the notes' arithmetic is 2.00 - (0.20 x 5) - 1.20 = -0.20%, i.e. reject. Both skeptics flagged it. The summary now multiplies the expected spread change by spread duration, and \"turns on a single test\" is gone.",
+      "Skeptic pass, pros 1: \"whether it is enough is a computation rather than a judgement\" was overstated and contradicted LOS 11 of the same reading (garbage in, garbage out; models rely on historical relationships that can break; quantitative output must be combined with judgment; the tools do not make the decision). The pro now says every input is a forecast and the number has to be weighed against the constraints below.",
+      "Skeptic pass, pros 2: \"More of the yield is spread rather than risk-free rate\" was offered as the mechanism for lower rate sensitivity and is not one. Modified duration measures the price response to a change in the bond's own yield whatever share of that yield is spread. Both skeptics flagged it. Replaced with the two mechanisms the Choate grading key credits, investment grade has the longer duration and is dominated by rate risk while high yield trades more like equity, and the empirical-duration point is now stated for credit bonds generally, which is how the notes state it.",
+      "Skeptic pass, pros 5: \"buying protection shorts credit, which cash bonds cannot do\" hardened the notes' \"allows SHORTING credit (hard to do with bonds)\" into an impossibility. Softened to \"hard to do with cash bonds\".",
+      "Skeptic pass, cons 2: \"Does not diversify equity risk, which is the claim it is most often used to support\" was a flat zero-benefit claim where the notes say credit-sensitive bonds are MORE correlated with equities and the three-asset-class diversification is \"largely illusory\", and the trailing clause was an unsupported assertion about market practice. Now reads \"diversifies equity risk far less than the asset-class label suggests\", and the clause is gone.",
+      "Skeptic pass, cons 4: re-sourced. The con was tagged capital_market_expectations_part_2, which supports only \"reduce high-yield/spread exposure late-cycle when spreads are likely to widen\" and says nothing about default rates rising; its own late-cycle tilt is to add real assets, not quality. The defaults-rise-with-spreads claim is verbatim in fixed_income_active_management_credit_strategies (\"as the cycle PEAKS and turns, spreads widen and defaults rise\"), which is now the source. The late-cycle actions were also removed from the con, since whenNotTo 1 and cues 2 carry them.",
+      "Skeptic pass, cons 5: the premise that high yield is TYPICALLY callable has no support in any of the 36 readings, so it is now conditional, \"where the issue is callable\", and the OAS mechanics, which are verbatim curriculum, carry the con.",
+      "Skeptic pass, whenToRecommend 3: \"no near-term liabilities\" is false for two of the three investors it named. The institutional investors note gives endowments a moderate liquidity need from roughly 5% annual spending, foundations a roughly 5% payout that is a legal minimum for US private foundations, and splits sovereign funds (stabilization needs liquidity, savings does not). As written it admitted exactly the investors whom this entry's own whenNotTo 4 and cues 5 rule out. Now the condition is that the cash need is funded from a separate liquidity sleeve.",
+      "Skeptic pass, pitfalls 3 and cues 6: \"a wider-spread bond's spread moves proportionally more\" states the DTS premise backwards. DTS works because relative spread volatility is roughly constant across spread levels, so the same proportional move is a larger move in basis points, and it is that larger absolute move times spread duration that produces the bigger loss. Both now say so, with the notes' own 200 bp example extended to 500 bp.",
+      "Skeptic pass, pitfalls 5: the roll-yield direction was inverted, an error inherited from the currency notes, which state it the wrong way round in several places. Hedging a long position in a high-yield currency means SELLING it forward, and by covered interest rate parity that forward sits BELOW spot, so the hedge gives up the rate differential: hedging a high-yield currency COSTS roll yield, and it is hedging a low-yield currency, at a forward premium, that earns it. The decisive check is that a hedged foreign bill must return the domestic rate, so roll = i_domestic - i_foreign, which is negative for a high-yield currency; the credit strategies note agrees in its own hedged-foreign-credit illustration (\"sell EUR forward ... hedge cost = rate differential\"). The pitfall now teaches the correct direction explicitly, because the candidate's notes will contradict it.",
+      "Skeptic pass, cues 7: \"rather than watching spread measures\" is stronger than the vignette, which says only that monitoring outright market value is MORE CRITICAL for high yield than for investment grade, and the grading key says those metrics are DOMINANT for high yield. As written it told the candidate to confirm that spread measures are not watched, contradicting this entry's own DTS pitfall and cue. Both skeptics flagged it. The signal is now the relative claim and the implication says the emphasis supplements rather than replaces DTS.",
+      "Skeptic pass, whenNotTo 1, 2 and 4: compressed to their actions, since cues 2, 3 and 5 carry the same signals. The entry mirrored four of five whenNotTo items into cues almost word for word, which made the page about a third longer than its content."
+    ],
+    "shortfall": "",
+    "residualRisk": "Three things. First, this key's grounding is thin and mostly off-target: 26 notes sentences of which roughly fifteen are about a high-yield CURRENCY, no LOS, one essay stem. The credit substance comes from the body of fixed_income_active_management_credit_strategies and from the Choate essay grading key rather than from the high yield sentences themselves, so the reading ids on the pros and on cons 1 and 4 mean \"this reading's notes say it\", not \"the high yield slice of the grounding says it\". A stricter reading of the sourcing rule would retag several of them curriculum. Second, the candidate's own currency notes state the hedging roll-yield rule backwards in several places, including both worked examples, so pitfall 5 now deliberately contradicts his notes; if he checks only the notes he will think the playbook is wrong. Third, cons 5 keeps the OAS mechanics on a conditional premise: nothing in his material ties call provisions to high yield specifically, so the frequency of callable high yield issues is market knowledge he cannot verify from what he has."
+  }
+}

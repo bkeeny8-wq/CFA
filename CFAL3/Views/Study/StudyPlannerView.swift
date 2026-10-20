@@ -44,6 +44,8 @@ struct StudyPlannerView: View {
 
                 CycleMapEntryCard()
 
+                InstrumentPlaybookEntryCard()
+
                 NotesBookList(master: master, areas: areas, statuses: statuses, attempts: attempts)
             }
             .padding(24)
@@ -156,6 +158,47 @@ struct CycleMapEntryCard: View {
             .buttonStyle(.plain)
             .cfaCard()
             .accessibilityIdentifier("study.cyclemap.entry")
+        }
+    }
+}
+
+/// The instrument playbook entry, under the Cycle Map.
+///
+/// Hidden entirely when `instrument_playbook.json` is absent, rather than
+/// pushing a screen that can only apologise.
+struct InstrumentPlaybookEntryCard: View {
+    @Environment(ContentLoader.self) private var content
+
+    var body: some View {
+        if let playbook = content.playbook, !playbook.instruments.isEmpty {
+            NavigationLink {
+                InstrumentPlaybookView()
+            } label: {
+                HStack(spacing: 12) {
+                    Image(systemName: "chart.bar.doc.horizontal")
+                        .font(.title3)
+                        .foregroundStyle(Theme.accent)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Instruments")
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(Theme.ink)
+                        Text("Pros, cons and when to recommend, across \(playbook.instruments.count) instruments.")
+                            .font(.caption)
+                            .foregroundStyle(Theme.dust)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .multilineTextAlignment(.leading)
+                    }
+                    Spacer(minLength: 4)
+                    Image(systemName: "chevron.right")
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(Theme.dust)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .cfaCard()
+            .accessibilityIdentifier("study.playbook.entry")
         }
     }
 }

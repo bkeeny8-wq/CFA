@@ -1,0 +1,155 @@
+{
+ "key": "straddle",
+ "name": "Straddle",
+ "family": "Derivatives: options",
+ "summary": "A long straddle buys a call and a put at the same at-the-money strike, same expiry and same underlying: delta-neutral at inception, it pays if the underlying ends far enough from the strike in either direction, or if implied volatility rises before expiry. The decision it turns on is whether the move the vignette forecasts clears the breakevens X +/- (c0 + p0), not which way the underlying goes.",
+ "pros": [
+  {
+   "text": "Direction-neutral at inception. At an at-the-money strike the long call and long put deltas offset, so delta is close to zero and the position pays on a move either way without taking a side.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "The recommendation can be tested rather than argued. Breakevens are X +/- (c0 + p0), both computable from the premiums in the exhibit, so the answer reduces to one question: does the forecast move clear them?",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Long vega and long gamma. Delta-hedged, it monetizes realized volatility against the implied volatility paid; held unhedged it can still be closed at a gain if implied volatility rises before the underlying moves at all.",
+   "source": "curriculum"
+  },
+  {
+   "text": "The same structure works in FX: a straddle on a currency pair expresses a view on the pair's volatility rather than its direction.",
+   "source": "currency_management_an_introduction"
+  },
+  {
+   "text": "On an underlying with a listed options market both legs are exchange-traded, so the long-volatility view carries no OTC counterparty exposure and nothing to post as the market moves beyond the premium already paid.",
+   "source": "curriculum"
+  }
+ ],
+ "cons": [
+  {
+   "text": "The dearest of the option-based long-volatility structures. Both legs sit at the money, where time value and vega per option are highest, and a strangle on the same underlying costs less than an at-the-money straddle.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Needs a large move, not just the right direction. The X = 50 straddle costing 6 loses money anywhere between 44 and 56, so a correct but modest move still loses.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Negative theta. It bleeds value every day the underlying sits near the strike, and decay is fastest for at-the-money options as expiry approaches.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Delta does not stay at zero. Gamma is high at the money, so delta swings sharply once a direction asserts itself and an unmanaged straddle quietly becomes a directional position.",
+   "source": "options_strategies"
+  },
+  {
+   "text": "Downside profit is capped, not unlimited. The underlying can fall no further than zero, so the best downside outcome is X - (c0 + p0).",
+   "source": "curriculum"
+  },
+  {
+   "text": "It is an inefficient hedge rather than no hedge. Long stock plus a long straddle does floor the downside, but only at X - (c0 + p0), whereas the same strike bought as a plain protective put floors at X - p0 for roughly half the outlay, because the call leg adds nothing to the floor.",
+   "source": "curriculum"
+  }
+ ],
+ "whenToRecommend": [
+  "The manager is neutral on direction but expects a big move or a rise in implied volatility. That is the buy-straddle cell of the direction-by-volatility grid.",
+  "The analyst argues realized volatility will exceed implied volatility and offers no view on which way the underlying goes.",
+  "A binary catalyst is named (earnings, a trial result, a vote, a policy decision) and the exhibit shows implied volatility still low or in line with its own history.",
+  "A currency manager expects a pair to become much more volatile with no directional view and wants the exposure in options rather than forwards.",
+  "The question asks for a position that is delta-neutral at inception while still carrying volatility exposure."
+ ],
+ "whenNotTo": [
+  "The vignette gives a direction. Bullish plus rising volatility buys calls or a bull call spread; bearish plus rising volatility buys puts or a bear put spread. A straddle spends half the premium on the leg that expires worthless.",
+  "The underlying is expected to trade in a narrow range or implied volatility is expected to fall. Write the straddle instead, or buy a long butterfly if the open-ended loss of writing is unacceptable.",
+  "Implied volatility is expected to remain unchanged while the near-term and longer-term views differ. The unchanged-volatility, direction-neutral cell of the curriculum's three-way selection grid is the calendar spread, which earns the faster decay of the near-dated leg.",
+  "The premium at an already elevated implied volatility pushes the breakevens outside the move the vignette forecasts. Recompute X +/- (c0 + p0) and compare: a high implied volatility is not by itself a reason to decline, and a manager forecasting a further rise can still be keyed into a long straddle. The trade fails only when the forecast move no longer clears the wider breakevens.",
+  "The premium budget is the binding constraint. A long strangle at out-of-the-money strikes, for example 25-delta each, buys the same long-volatility view for less, at the cost of needing a bigger move.",
+  "The signal is the skew rather than the level of volatility, that is out-of-the-money put implied volatility judged too rich against out-of-the-money call implied volatility. The skew trade is a risk reversal, sell the rich out-of-the-money put and buy the cheap out-of-the-money call, which is net long delta and needs a short in the underlying to isolate the skew. A straddle is a bet on the level, not the shape."
+ ],
+ "pitfalls": [
+  "Calling the maximum profit unlimited on both sides. The upside is unlimited, but the downside maximum is X - (c0 + p0) because the underlying cannot fall below zero. This is the classic error on this structure.",
+  "Getting the legs wrong. A long straddle is long a call AND long a put at the SAME strike and expiry. Different strikes is a strangle, long call plus short put is a synthetic long forward, and short call plus short put is a short straddle.",
+  "Quoting one breakeven. The answer needs both, lower = X - (c0 + p0) and upper = X + (c0 + p0), plus the statement that the range between them produces a loss.",
+  "Treating delta-neutral as low risk. Delta is near zero only at inception and gamma is high, so the position does not stay neutral.",
+  "Trying to structure it at zero cost. Two long options always mean a net debit paid; the collar is the structure that can be built at zero cost.",
+  "Recommending it on the volatility story alone. The marks come from computing the breakevens at the quoted premiums and showing the forecast move clears them, and a straddle whose breakevens lie beyond the forecast move is the wrong answer however good the volatility argument sounds."
+ ],
+ "cues": [
+  {
+   "signal": "Neutral on direction, implied volatility expected to INCREASE.",
+   "implication": "Buy a straddle or strangle. This is the exact cell of the direction-by-volatility grid. Writing the straddle is the answer only when volatility is expected to DECREASE, so read the volatility verb before answering."
+  },
+  {
+   "signal": "The underlying is expected to stay in a narrow range, or implied volatility is rich and expected to fall.",
+   "implication": "Write the straddle: short vega and short gamma collect the premium. Expect the same vignette to ask you to flag the asymmetric tail risk, limited premium against large or unlimited loss."
+  },
+  {
+   "signal": "Implied volatility expected to remain UNCHANGED, with a neutral near term and a directional view further out.",
+   "implication": "Rules out both the long and the short straddle. The unchanged-volatility, neutral cell of the curriculum's three-way selection grid is the calendar spread, selling the near-dated option and buying the longer-dated one at the same strike."
+  },
+  {
+   "signal": "A known catalyst is named and the exhibit shows implied volatility already elevated against its own history.",
+   "implication": "Do the arithmetic before rejecting it. Recompute the breakevens at the richer premium and compare them with the forecast move: if the forecast still clears them, or the manager expects implied volatility to rise further, a long straddle can still be the keyed answer. If it does not clear them, declining or dropping to a strangle is the answer."
+  },
+  {
+   "signal": "Cost, premium budget or the word cheaper appears next to a long-volatility view.",
+   "implication": "Strangle, not straddle. Out-of-the-money strikes cut the premium but push the breakevens further out, so the required move is larger."
+  },
+  {
+   "signal": "Deltas are quoted for the legs, for example a 50-delta call plus a 50-delta put, or 25-delta each.",
+   "implication": "50-delta means at the money, so that is the straddle and the most expensive version. Equal out-of-the-money deltas such as 25 describe a strangle. The delta label identifies the structure for you."
+  },
+  {
+   "signal": "The exhibit shows out-of-the-money put implied volatility far above out-of-the-money call implied volatility, and the question asks how to exploit it.",
+   "implication": "A shape trade, not a level trade: the risk reversal sells the rich out-of-the-money put and buys the cheap out-of-the-money call. Two things the answer must say. It is net long delta, so it needs a short in the underlying to isolate the skew, and it requires a view that put implied volatility is too HIGH relative to call implied volatility, since in equity index options a put-rich skew is the normal state rather than a signal. A long straddle or strangle is right here only if the question separately says the overall level of implied volatility will rise."
+  },
+  {
+   "signal": "The client already owns the position, fears a near-term fall and does not want to pay much.",
+   "implication": "A hedging question, not a volatility question. Protective put, collar or put spread along the cost-versus-protection spectrum. A straddle would floor the position through its put leg, but at a floor dragged down by the call premium, which buys no protection."
+  },
+  {
+   "signal": "The manager wants exposure to realized variance itself and does not want to manage a changing delta or rebalance.",
+   "implication": "A variance swap, not a straddle. A straddle's volatility exposure decays and drifts as the underlying moves away from the strike, so its payoff depends on the path, not just on how volatile the period turned out to be."
+  },
+  {
+   "signal": "The IPS or mandate bars OTC counterparty exposure, or requires exchange-traded instruments.",
+   "implication": "Rules out the variance swap and any OTC volatility product. On an underlying with a listed options market the long-volatility view has to be a listed straddle or strangle."
+  },
+  {
+   "signal": "The view is range-bound or falling volatility, but the IPS prohibits writing uncovered options.",
+   "implication": "Rules out the short straddle and short strangle. The defined-risk way to be short volatility is a long butterfly: maximum loss the net premium paid, best outcome if the underlying finishes at the middle strike."
+  }
+ ],
+ "comparesWith": [
+  "strangle",
+  "calendar_spread",
+  "butterfly",
+  "variance_swap"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "'Three numbers define it completely: breakevens X +/- (c0 + p0), maximum loss c0 + p0 at S_T = X, and unlimited profit on the upside.' Deleted from pros: the notes say this three-number reduction about every structure in the reading, so it is no advantage of the straddle; 'completely' is false because the downside cap is a fourth figure; and as written it states max profit as unlimited with no downside figure, teaching the exact error pitfall 1 exists to correct. The usable part, the breakeven arithmetic, is now a pro in its own right.",
+   "'Maximum loss is capped at the premium paid and known before you enter, unlike a short straddle or strangle where the loss is open-ended.' Deleted rather than reworded: capped max loss is true of every long option so it does not distinguish the straddle, the number was already given, and 'open-ended' was itself wrong for the short straddle's downside, which is bounded at X - (c0 + p0). The asymmetry contrast survives in cue 2, phrased as 'large or unlimited'.",
+   "'Trades the level of implied volatility directly, with no position in the underlying and no synthetic exposure needed.' Deleted as padding: 'no position in the underlying' restates the direction-neutrality pro and 'trades the level of implied volatility' restates the vega pro, in a looser form.",
+   "'The vignette requires a pre-funded, defined maximum loss on a long-volatility trade, which rules out writing a straddle or strangle.' Deleted from whenToRecommend as circular and non-selecting: a long-volatility premise already excludes writing, and a long strangle has an equally defined pre-paid loss, so the condition never picks the straddle.",
+   "'Matching direction but not volatility. Getting the direction right and the volatility view wrong still loses money through vega and theta, and the grid requires both views.' Deleted from pitfalls: direction is irrelevant to a structure that is direction-neutral by construction, so this is generic grid advice padding out the list. Replaced with the breakeven-versus-forecast-move pitfall, which is the operation that actually earns marks here."
+  ],
+  "corrected": [
+   "summary: added 'at the money' and 'delta-neutral at inception'. Every statement of delta-neutrality in the evidence is time-qualified, and a straddle struck away from spot is not delta-neutral even at inception; the drafted summary asserted it as a standing property that cons 4 and pitfall 4 then had to refute. Also named the single decision the instrument turns on (does the forecast move clear the breakevens).",
+   "pros 1: added the at-the-money condition under which the two deltas actually offset.",
+   "pros 3 (long vega and gamma): the drafted claim 'it gains when realized volatility exceeds the implied volatility paid' is true of a DELTA-HEDGED straddle. Unhedged, realized volatility can exceed implied while the underlying round-trips to the strike and the whole premium is lost. Split into the hedged case (monetizes gamma against implied paid) and the unhedged case (a vega gain that has to be closed out), and moved the source to 'curriculum' because the delta-hedging mechanism is not in the notes evidence.",
+   "cons 1: the reason was wrong. Premium is not highest at the money; total straddle cost is near its MINIMUM at the at-the-money-forward strike, because moving the strike away gives one leg intrinsic value (an X = 45 straddle on a spot of 50 costs more than the X = 50 straddle, not less). What peaks at the money is time value and vega per option, which is why the straddle is dearer than the out-of-the-money strangle. Conclusion kept, reason reworded, and 'option-based' added so the comparison is against the strangle and not against a swap with no upfront premium.",
+   "cons 6: 'It does not protect a portfolio' was flatly wrong as stated. Long stock plus a long straddle contains a protective put and so does floor the downside, at X - (c0 + p0). The defect is efficiency: the same strike as a plain protective put floors higher, at X - p0, for roughly half the outlay. Restated as an inefficient hedge with the floor named, so a candidate asked for the floor on an overlaid position does not answer that there is none.",
+   "whenNotTo 3: the drafted text cited 'that cell of the grid' for the calendar spread, but the two-column direction-by-volatility grid the candidate revises from has no unchanged-volatility column, so the reference did not resolve while whenToRecommend 1 used 'the grid' to mean that two-column table. Substance kept, now explicitly attributed to the curriculum's three-way grid.",
+   "whenNotTo 4: changed the condition from 'implied volatility has already spiked' to 'the elevated premium pushes the breakevens outside the forecast move'. The drafted version taught a reflex that answers the elevated-implied-volatility vignettes wrong, because a manager forecasting a further rise is still keyed into a long straddle. The real test is arithmetic, not a vibe.",
+   "whenNotTo 6: the risk reversal was presented as a pure skew harvest. Added that it is net long delta and must be delta-hedged with a short in the underlying to isolate the skew, and that it needs put implied volatility judged too high relative to call implied volatility, not merely observed higher.",
+   "cues 3: same grid attribution fix as whenNotTo 3.",
+   "cues 4: rewritten from 'declining the trade is defensible' to the arithmetic test, for the same reason as whenNotTo 4, and named the fallback (strangle) when the breakevens do not clear.",
+   "cues 7: same risk-reversal fix as whenNotTo 6, plus the point that a put-rich skew is the normal state in equity index options, so its mere presence is not the signal.",
+   "cues 8: dropped 'a straddle is not portfolio insurance and its call leg is wasted premium' for the floor correction from cons 6, since the put leg does floor the position, just at a worse level than the protective put."
+  ],
+  "shortfall": "",
+  "residualRisk": "The claim that the unchanged-implied-volatility, direction-neutral cell of the curriculum's selection grid is the calendar spread (whenNotTo 3 and cue 3). It is standard Level III material and I am confident in the economics, a long calendar spread earns the faster decay of the near-dated leg, but the bundled notes carry only a two-column grid with no unchanged-volatility column, so nothing in the grounding for this key confirms the three-way version. I also kept the risk-reversal material in whenNotTo 6 and cue 7 although LOS f for this reading names only bull spread, bear spread, straddle and collar: it is in the reading and it is the trap that separates a shape signal from a level signal, but it sits outside the named outcome statement."
+ }
+}

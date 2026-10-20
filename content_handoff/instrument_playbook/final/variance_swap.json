@@ -1,0 +1,144 @@
+{
+ "key": "variance_swap",
+ "name": "Variance Swap",
+ "family": "Derivatives: swaps & futures",
+ "summary": "An OTC swap that pays the long side the variance notional times (realized variance minus a strike variance fixed at inception), making it a direct, convex position on volatility itself rather than on market direction. The decision it turns on is whether the client needs exposure to volatility, which this pays convexly, or a floor under portfolio value, which it never provides.",
+ "pros": [
+  {
+   "text": "Convex in volatility. Because it pays on squared volatility it gains more than the linear vega approximation and more than a volatility swap when volatility spikes, which is what a crash hedge has to do.",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "No roll cost. The strike is fixed at inception for the whole term, so unlike a rolled long VIX futures hedge it does not bleed negative roll yield while the curve sits in contango.",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "Volatility spikes when equities fall, so a long variance position pays off in the drawdowns when equity diversification is scarcest.",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "Sized in vega notional, the currency amount earned per volatility point, so the hedge can be quoted and scaled in volatility points. Convert to variance notional before computing anything: variance notional = vega notional / (2 x strike vol).",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "No premium is paid at inception. The strike is set so the swap is worth zero at the start, so unlike a protective put the hedge needs no cash outlay on day one.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Being OTC, term and strike are negotiated, so the hedge horizon can be matched to the exposure instead of to a listed expiry cycle.",
+   "source": "curriculum"
+  }
+ ],
+ "cons": [
+  {
+   "text": "It pays on realized variance, not on the portfolio's loss, so it sets no floor on value. Worse, if realized volatility finishes below the strike the long pays the dealer, so a slow orderly decline costs on the equity and on the swap. The long's loss runs up to variance notional x strike variance (realized variance floors at zero), which is 2,500 x 400 = 1,000,000 on a 100,000 vega notional struck at 20%.",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "The short side is asymmetric: its gain is capped at variance notional x strike variance because realized variance cannot fall below zero, while its loss rises without a corresponding limit as volatility spikes. That is the classic short volatility risk, and the long's profile is the mirror image.",
+   "source": "swaps_forwards_and_futures_strategies"
+  },
+  {
+   "text": "An OTC dealer contract, so the long carries counterparty credit risk for the life of the trade. The listed alternative swaps that risk for a different one: a VIX future is centrally cleared but marked to market daily, so it demands initial and variation margin and a cash buffer even when the hedge is working in economic terms.",
+   "source": "curriculum"
+  },
+  {
+   "text": "The strike tends to be set above the volatility subsequently realized, which is how sellers are paid for supplying the convexity, so the cost of holding long variance permanently shows up as a negative expected payoff rather than as an upfront premium.",
+   "source": "curriculum"
+  },
+  {
+   "text": "Settlement is at expiry on variance realized over an observation window fixed at inception. Variance accrued during a spike is locked into that sum and cannot be given back by later calm days, but the mid-life mark can be: it blends realized variance to date with implied variance for the remaining term, discounted, so a paper gain shrinks as forward implied volatility falls.",
+   "source": "curriculum"
+  }
+ ],
+ "whenToRecommend": [
+  "The vignette asks for a tail hedge against an equity crash and tells you the VIX curve is in contango: the variance swap gains on a volatility spike without paying the roll.",
+  "The client wants to hedge or express a view on volatility itself, for example expecting realized volatility to come in above the level implied in option prices, rather than a view on market level.",
+  "The hedge must be convex, paying disproportionately more in a severe move than in a mild one, so a linear instrument will not do.",
+  "The hedge horizon is specific, say nine months to a known liquidity event, and a listed expiry cycle would force an unwanted roll."
+ ],
+ "whenNotTo": [
+  "The IPS bars OTC counterparty exposure or the client requires cleared, exchange traded instruments: use VIX futures or listed index options instead.",
+  "The need is protection at a known price level rather than exposure to volatility: a protective put, or a collar if cost matters more than upside, hedges the loss directly.",
+  "The payoff must be linear in volatility points, for example to match a stated volatility target or a simple mandate: a volatility swap is the matching instrument.",
+  "The client wants premium income: the income trades are covered calls and cash secured puts, not a short variance swap, whose loss rises without limit if volatility spikes.",
+  "Volatility is already elevated, so the strike variance is struck off a high implied level and you would be paying for the spike that has already happened."
+ ],
+ "pitfalls": [
+  "Dividing by strike volatility instead of 2 x strike volatility. Variance notional = vega notional / (2 x strike vol), so 100,000 with a 20% strike gives 2,500, not 5,000.",
+  "Mixing units. Keep volatility in percentage points, the convention the vega notional is quoted in: strike variance 400, realized variance 625, payoff 2,500 x 225 = 562,500. Plugging decimal variances (0.0625 minus 0.04 = 0.0225) into a percentage point variance notional gives 56.25 and understates the answer by a factor of 10,000. Convert the notional and the variance terms together or not at all.",
+  "Answering with the linear vega approximation. Vega notional x (realized vol minus strike vol) gives 500,000 where the true payoff is 2,500 x 225 = 562,500, because the swap pays on variance.",
+  "Squaring the difference instead of differencing the squares. The payoff uses realized variance minus strike variance, never (realized vol minus strike vol) squared.",
+  "Treating a long variance swap as a floor on portfolio value. The curriculum does call it a tail risk hedge against volatility spikes and crashes, so do not deny that framing. The limit is narrower: it pays on realized variance rather than on the loss, and if realized volatility finishes below the strike the long pays out, up to variance notional x strike variance, on top of the equity loss.",
+  "Carrying the contango critique across to the swap. Negative roll yield is the VIX futures problem; the variance swap strike is fixed at inception, which is the whole point of the comparison.",
+  "Using the expiry payoff to value a swap that is only part way through its term. A live swap is valued as variance notional x PV factor x [(t/T) x realized variance to date + ((T minus t)/T) x implied variance for the remaining term minus strike variance], then signed for the side you hold."
+ ],
+ "cues": [
+  {
+   "signal": "The VIX futures curve is described as being in contango and the mandate is a tail hedge.",
+   "implication": "A rolled long VIX futures hedge bleeds negative roll yield. The variance swap strike is fixed at inception and never rolls, so it is the preferred tail hedge of the two."
+  },
+  {
+   "signal": "A vega notional and a strike volatility are given, with a realized volatility for the period.",
+   "implication": "It is a variance swap payoff at expiry. Convert first, variance notional = vega notional / (2 x strike vol), then payoff = variance notional x (realized var minus strike var). Do not stop at the vega approximation."
+  },
+  {
+   "signal": "The vignette gives elapsed time on an existing swap, realized volatility to date, and a new fair strike or implied volatility for the remaining term, plus a discount rate.",
+   "implication": "That is the mark to market valuation, not the expiry payoff: variance notional x PV factor x [(t/T) x realized variance + ((T minus t)/T) x implied variance minus strike variance]. A negative number is the value to the long, so it is positive by the same amount to the short."
+  },
+  {
+   "signal": "The manager expects realized volatility to exceed the volatility implied in option prices.",
+   "implication": "That is a variance swap view, because the swap settles on realized variance against a strike fixed at inception. VIX futures settle on the VIX, which is implied volatility, so they can lose on exactly this view. Index futures or a protective put are wrong either way, because this is not a directional view."
+  },
+  {
+   "signal": "The hedge is required to pay disproportionately more in a severe move, or the words convex or non-linear appear.",
+   "implication": "Variance swap over volatility swap. Variance is squared volatility and therefore convex; a volatility swap pays linearly and gives up that extra payoff in a spike."
+  },
+  {
+   "signal": "The client worries about counterparty risk, or the IPS requires exchange traded or centrally cleared positions.",
+   "implication": "Rules out the variance swap, which is an OTC dealer contract. Switch the recommendation to VIX futures or listed index options, and note that the cleared route brings a daily variation margin and cash buffer requirement with it."
+  },
+  {
+   "signal": "The portfolio is selling variance, or the question asks you to assess the dealer's side of the trade.",
+   "implication": "Switch to the short profile: gain capped at variance notional x strike variance because realized variance cannot go below zero, loss rising without limit if volatility spikes. Do not carry that asymmetry onto a long hedge, where it is the mirror image, loss capped and gain uncapped."
+  },
+  {
+   "signal": "The portfolio needs protection against a specific drawdown percentage or a floor on value.",
+   "implication": "A variance swap does not deliver that. It pays on realized variance, not on the portfolio's loss, so a protective put or collar is the instrument that sets a floor."
+  }
+ ],
+ "comparesWith": [
+  "futures",
+  "straddle",
+  "protective_put",
+  "collar"
+ ],
+ "confidence": "medium",
+ "_review": {
+  "deleted": [
+   "pros[0] 'Payoff is variance notional x (realized variance minus strike variance), so the gain comes straight from realized volatility exceeding the level priced at inception. No view on market direction is needed.' Correct but it restates the summary, and the formula already appears in two pitfalls and a cue.",
+   "cons[5] 'A dealer market: pricing and exit depend on a small set of counterparties, making it harder and costlier to reverse than a listed future or option.' Overlaps the OTC counterparty con and the mid-life exit con, so it buys no new mark.",
+   "whenToRecommend[4] 'The question hands you a vega notional, a strike volatility and a realized volatility: that is a variance swap payoff computation.' This is a cue, not a client situation, and it is already cues[1] where it belongs.",
+   "whenToRecommend[5] 'The mandate already permits OTC derivatives and the fund can post collateral, so counterparty exposure is not the binding constraint.' The absence of an obstacle, true of every OTC instrument in the playbook, and just whenNotTo[0] with the sign flipped.",
+   "whenNotTo[4] 'The hedge is wanted for a few weeks around one event and must be liquid and reversible the same day: listed options or VIX futures trade better than a dealer contract.' Same destination as whenNotTo[0] and the weaker reason, so it costs a read and discriminates nothing."
+  ],
+  "corrected": [
+   "cons[0] and pitfalls[4]: 'worth little' and 'pays nothing' were both wrong in the same way. With realized variance below the strike the long PAYS, up to variance notional x strike variance (2,500 x 400 = 1,000,000 on the notes' numbers), so a slow decline hits the portfolio and the hedge together.",
+   "pitfalls[4]: removed the blanket claim that calling a long variance swap an equity crash hedge is an error. The notes and the bundled drills both call it a tail risk hedge, so the pitfall now denies only the floor, not the hedge.",
+   "cons[2] (OTC and collateral): the collateral half was backwards and self contradictory. Counterparty credit risk belongs to the OTC swap; the cleared VIX future substitutes daily variation margin and a cash buffer requirement.",
+   "pitfalls[1]: the factor of 10,000 was attributed to 'the two conventions'. It arises only from mixing a percentage point variance notional with decimal variances; applied consistently the conventions do not differ by 10,000.",
+   "cons[4]: the dilution mechanism was wrong. Realized variance is a sum of squared returns over a fixed number of observations, so spike days are locked in and calm days cannot dilute them (a reversal adds variance). What gives back a paper gain is the mid-life mark, which blends realized to date with implied for the remainder, discounted.",
+   "cues[5] signal: 'the counterparty is a dealer' fires on every variance swap vignette while the candidate is usually long, so the short side asymmetry was attached to the wrong trigger. The signal is now selling variance or being asked about the dealer's side, and the implication names the long's mirror profile so it cannot be inverted.",
+   "cues[2]: split per the verifier. 'Expects realized to exceed implied' is a variance swap view only, because VIX futures settle on implied volatility and can lose on that view.",
+   "cons[1]: named the short's cap explicitly (variance notional x strike variance) instead of leaving it as 'capped', and avoided calling the loss unbounded without qualification.",
+   "cons[3]: reworded the variance risk premium so the cost is a negative expected payoff rather than an upfront premium, which keeps it consistent with the new pro that nothing is paid at inception.",
+   "pros[3]: dropped 'scaled to the equity loss being offset', which overstates the mapping (vega notional scales to volatility points, not to equity loss), and added the conversion formula.",
+   "whenNotTo[3]: named cash secured puts alongside covered calls and softened 'unbounded' to 'rises without limit if volatility spikes'.",
+   "cues[0]: trimmed the self referential clause about the bank's own essay.",
+   "ADDED pros 'no premium at inception', the discriminator against a protective put.",
+   "ADDED pitfalls and cues for the mid-life valuation (Equation 16), verified against the bundled drill r17_swf_los_d_q10: variance notional 1,250, PV 0.987654, 1,250 x 0.987654 x [(6/12) x 256 + (6/12) x 361 minus 400] = minus 112,962.93, positive 112,963 to the short. The draft had no cue for the second most examinable computation in the reading."
+  ],
+  "shortfall": "",
+  "residualRisk": "cons[3], that the strike tends to sit above subsequently realized volatility so permanent long variance is a negative expected payoff. The direction is standard (and the curriculum does say sellers can charge more than for at the money options because of the convexity), but this notes slice never states a variance risk premium, so no magnitude should be quoted from it. The OTC status itself is also inferred rather than stated in the 15 note sentences, though it is not in doubt."
+ }
+}
