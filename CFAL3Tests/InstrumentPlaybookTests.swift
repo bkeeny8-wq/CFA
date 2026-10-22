@@ -138,7 +138,14 @@ final class InstrumentPlaybookTests: XCTestCase {
         print("playbook provenance: \(cited) points cite a reading, \(curriculum) are curriculum")
     }
 
-    /// The house rule the content pipeline enforces everywhere else.
+    /// Matches `CycleMapTests.testNoEmDashesInAnyUserFacingString`. This is the
+    /// convention for the two GENERATED content files, NOT a repo-wide house
+    /// rule: there is no style-rules doc, and supplied content uses em dashes as
+    /// ordinary punctuation (over 2,000 in reading_notes.json alone, converted
+    /// from the owner's own DOCX). `ProgressMergeTests` even requires one on
+    /// screen for the on-pace indicator. So this is a consistency check on text
+    /// a generator wrote, and never a reason to sweep em dashes out of content
+    /// the owner authored.
     func testNoEmDashesInUserFacingText() throws {
         let book = try playbook(try loadedContent())
         for item in book.instruments {
