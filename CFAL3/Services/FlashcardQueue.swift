@@ -164,12 +164,17 @@ enum ResetScope {
         sessions: [Session],
         dayCompletions: [DayCompletion],
         losStatuses: [LOSStudyStatus],
-        flashcards: [FlashcardProgress]
+        flashcards: [FlashcardProgress],
+        blockResults: [ScheduleBlockResult]
     ) -> Bool {
         hasQuizHistory(attempts: attempts, sessions: sessions)
             || !dayCompletions.isEmpty
             || !losStatuses.isEmpty
             || flashcards.contains { $0.totalAttempts > 0 }
+            // Unlike cards, a block result only exists because someone typed
+            // it in, so existence IS progress. For a month sourced from
+            // Meldrum's app these rows may be the only progress there is.
+            || !blockResults.isEmpty
     }
 }
 

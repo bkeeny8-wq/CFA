@@ -333,7 +333,13 @@ struct HomeView: View {
     private func blockKindLabel(_ block: ScheduleBlock) -> String {
         switch block.kind {
         case .questions: return "Drills"
-        case .review: return "Case"
+        // `.mock` used to fall through to the keyword guesswork below and come
+        // back "Notes", and `.review` was labelled "Case". Harmless while
+        // every mock block sat alone on its day; 29 November stacks six of
+        // them, and six rows reading "Notes" over a full practice sitting is
+        // the kind of thing you plan a morning around.
+        case .mock: return "Mock"
+        case .review: return "Review"
         case .deep3, .study, .video: return "Notes"
         default:
             let lower = block.label.lowercased()

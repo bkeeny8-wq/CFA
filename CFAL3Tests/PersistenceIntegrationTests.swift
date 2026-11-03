@@ -18,7 +18,8 @@ final class PersistenceIntegrationTests: XCTestCase {
     override func setUpWithError() throws {
         let schema = Schema([
             Attempt.self, ReviewCard.self, Session.self,
-            LOSStudyStatus.self, DayCompletion.self, FlashcardProgress.self
+            LOSStudyStatus.self, DayCompletion.self, FlashcardProgress.self,
+            ScheduleBlockResult.self
         ])
         container = try ModelContainer(
             for: schema,
@@ -231,7 +232,8 @@ final class PersistenceIntegrationTests: XCTestCase {
                 sessions: fetch(Session.self),
                 dayCompletions: fetch(DayCompletion.self),
                 losStatuses: fetch(LOSStudyStatus.self),
-                flashcards: fetch(FlashcardProgress.self)
+                flashcards: fetch(FlashcardProgress.self),
+                blockResults: fetch(ScheduleBlockResult.self)
             )
         }
 
@@ -255,6 +257,94 @@ final class PersistenceIntegrationTests: XCTestCase {
             try ResetScope.hasQuizHistory(attempts: fetch(Attempt.self), sessions: fetch(Session.self)),
             "but it is not quiz history, so Clear stays disabled"
         )
+    }
+
+    /// The same gate, for a user whose only progress is typed-in sittings.
+    ///
+    /// Eleven November blocks are answered in Meldrum's app and can never
+    /// produce an Attempt, so someone can do a fortnight of real work and own
+    /// nothing but these rows. If the gate cannot see them, Settings tells
+    /// them there is nothing to erase — the exact bug the Cards-only case
+    /// above records.
+    func testRecordedSittingCountsAsUserProgress() throws {
+        content.bootstrapReviewCards(context: context)
+        content.bootstrapFlashcardProgress(context: context)
+
+        func hasProgress() throws -> Bool {
+            try ResetScope.hasAnyProgress(
+                attempts: fetch(Attempt.self),
+                sessions: fetch(Session.self),
+                dayCompletions: fetch(DayCompletion.self),
+                losStatuses: fetch(LOSStudyStatus.self),
+                flashcards: fetch(FlashcardProgress.self),
+                blockResults: fetch(ScheduleBlockResult.self)
+            )
+        }
+        XCTAssertFalse(try hasProgress())
+
+        context.insert(ScheduleBlockResult(
+            key: "2026-11-09|06:00",
+            dateKey: "2026-11-09",
+            blockStart: "06:00",
+            blockLabel: "MM Q: B6-M5 Yield Curve Strategies",
+            readingID: "yield_curve_strategies",
+            source: "mm",
+            questionsAttempted: 20,
+            questionsCorrect: 11
+        ))
+        try context.save()
+
+        XCTAssertTrue(try hasProgress(), "a recorded sitting is progress worth erasing")
+        XCTAssertFalse(
+            try ResetScope.hasQuizHistory(
+                attempts: fetch(Attempt.self), sessions: fetch(Session.self)
+            ),
+            "but it is not quiz history, so Clear stays disabled"
+        )
+    }
+
+    /// The unique key has to be the thing that repeats least. Two different
+    /// days both hold a 06:00 sitting; if the key were `ScheduleBlock.id`
+    /// (start-label) or the start alone, the second would overwrite the first
+    /// and a whole morning would vanish with no error.
+    func testTwoDaysCanEachRecordTheirOwnSitting() throws {
+        for (day, correct) in [("2026-11-13", 9), ("2026-11-23", 14)] {
+            context.insert(ScheduleBlockResult(
+                key: "\(day)|06:00",
+                dateKey: day,
+                blockStart: "06:00",
+                blockLabel: "App Q: B6-M2 Active Equity Investing: Strategies",
+                readingID: "active_equity_investing_strategies",
+                source: "app",
+                questionsAttempted: 15,
+                questionsCorrect: correct
+            ))
+        }
+        try context.save()
+
+        let rows = try fetch(ScheduleBlockResult.self).sorted { $0.dateKey < $1.dateKey }
+        XCTAssertEqual(rows.count, 2, "the later sitting overwrote the earlier one")
+        XCTAssertEqual(rows.map(\.questionsCorrect), [9, 14])
+        XCTAssertEqual(rows[0].correctRate ?? 0, 0.6, accuracy: 0.001)
+    }
+
+    /// A row with nothing in it is not a zero score. Ranking the month has to
+    /// tell "sat it and got none right" apart from "have not sat it yet".
+    func testEmptySittingHasNoRateRatherThanZero() {
+        let row = ScheduleBlockResult(
+            key: "2026-11-22|06:00",
+            dateKey: "2026-11-22",
+            blockStart: "06:00",
+            blockLabel: "Review: November baseline readout"
+        )
+        XCTAssertNil(row.correctRate)
+        XCTAssertNil(row.essayRate)
+        XCTAssertFalse(row.hasScore)
+
+        row.questionsAttempted = 12
+        row.questionsCorrect = 0
+        XCTAssertEqual(row.correctRate, 0.0)
+        XCTAssertTrue(row.hasScore, "a genuine zero is a score")
     }
 
     // MARK: - Flashcard pacing over a real store

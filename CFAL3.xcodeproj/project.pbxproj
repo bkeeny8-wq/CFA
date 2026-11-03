@@ -71,6 +71,7 @@
 		52CB938372B04A5AA8006E99 /* StudyComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C566E562D6C4ECBB63B2BD1 /* StudyComponents.swift */; };
 		548EB08DE8AC4A7199341A81 /* los_drills_r11.json in Resources */ = {isa = PBXBuildFile; fileRef = 30E16C1C7B144F6085746833 /* los_drills_r11.json */; };
 		578B7ECBE5A34243889D6A61 /* DayCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED961B735048B893137430 /* DayCompletion.swift */; };
+		7A3C91D0B4E24F6A81C70001 /* ScheduleBlockResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3C91D0B4E24F6A81C70002 /* ScheduleBlockResult.swift */; };
 		57BB770922ED474DAB420B3C /* topics.json in Resources */ = {isa = PBXBuildFile; fileRef = 61AFB4B738AF426CB8CE2169 /* topics.json */; };
 		5BFED40742ED4467B25AEEA1 /* VignetteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D985187F6C4B53B3101CC3 /* VignetteView.swift */; };
 		5C3782E842CB40E8B1E4B6A4 /* los_drills_r23.json in Resources */ = {isa = PBXBuildFile; fileRef = A47F557D6A7E458189CDA91E /* los_drills_r23.json */; };
@@ -83,6 +84,7 @@
 		71C5D6A00C7940C09CA7A27B /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195D89159A9E4CDDBB90386C /* Case.swift */; };
 		73A28D0D5A5D45A0A685BFB9 /* los_drills_r26.json in Resources */ = {isa = PBXBuildFile; fileRef = 43EC39CAF8334FB0AB2F6B6C /* los_drills_r26.json */; };
 		741797DC119C4419B8C276A9 /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6707A2355E894E7991D0D637 /* PlanView.swift */; };
+		7A3C91D0B4E24F6A81C70003 /* BlockResultRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3C91D0B4E24F6A81C70004 /* BlockResultRecorder.swift */; };
 		7649D8F0C0A04B889CC4F81B /* los_drills_r8.json in Resources */ = {isa = PBXBuildFile; fileRef = 9512812FFCAE48BCBFD1C5B7 /* los_drills_r8.json */; };
 		78DEDB03150A4E7389DC55F7 /* los_drills_index.json in Resources */ = {isa = PBXBuildFile; fileRef = E50F06C699DD40EB9C991616 /* los_drills_index.json */; };
 		7A8E045D66BA4B3E892676DB /* LOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD4C8C92164987B6983CA6 /* LOS.swift */; };
@@ -237,6 +239,7 @@
 		61AFB4B738AF426CB8CE2169 /* topics.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = topics.json; sourceTree = "<group>"; };
 		6634F87049124714A9BDCF93 /* ProgressStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStats.swift; sourceTree = "<group>"; };
 		6707A2355E894E7991D0D637 /* PlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanView.swift; sourceTree = "<group>"; };
+		7A3C91D0B4E24F6A81C70004 /* BlockResultRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockResultRecorder.swift; sourceTree = "<group>"; };
 		679AB138ED074D10A47247E7 /* los_drills_r3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r3.json; sourceTree = "<group>"; };
 		67D75174F099481C90E0545D /* QuestionAttemptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAttemptView.swift; sourceTree = "<group>"; };
 		684C7349EB174F60BF66AC33 /* StudyDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyDisplay.swift; sourceTree = "<group>"; };
@@ -325,6 +328,7 @@
 		E0AB356B2D1940F4ABB6C046 /* ContentLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLoader.swift; sourceTree = "<group>"; };
 		E2DE7AB1BAA5484897E95179 /* StudySchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySchedule.swift; sourceTree = "<group>"; };
 		E4ED961B735048B893137430 /* DayCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCompletion.swift; sourceTree = "<group>"; };
+		7A3C91D0B4E24F6A81C70002 /* ScheduleBlockResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleBlockResult.swift; sourceTree = "<group>"; };
 		E50F06C699DD40EB9C991616 /* los_drills_index.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_index.json; sourceTree = "<group>"; };
 		E5CFG00000000000000F0001 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Secrets.xcconfig; path = Config/Secrets.xcconfig; sourceTree = "<group>"; };
 		E5UI000000000000000F0001 /* CFAL3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFAL3UITests.swift; sourceTree = "<group>"; };
@@ -412,6 +416,7 @@
 			children = (
 				38887C1F4EFD4276A65D075C /* Attempt.swift */,
 				E4ED961B735048B893137430 /* DayCompletion.swift */,
+				7A3C91D0B4E24F6A81C70002 /* ScheduleBlockResult.swift */,
 				5FECB28C521A446CB948F083 /* LOSStudyStatus.swift */,
 				AC4D694149554AD4B0EF1260 /* ReviewCard.swift */,
 				97678F60837047BB877E3886 /* FlashcardProgress.swift */,
@@ -472,6 +477,7 @@
 			isa = PBXGroup;
 			children = (
 				6707A2355E894E7991D0D637 /* PlanView.swift */,
+				7A3C91D0B4E24F6A81C70004 /* BlockResultRecorder.swift */,
 			);
 			path = Plan;
 			sourceTree = "<group>";
@@ -935,6 +941,7 @@
 				D24BFB81E3CD467EAADEF909 /* Topic.swift in Sources */,
 				6A408F02B0FE429CB9C6E0C7 /* Attempt.swift in Sources */,
 				578B7ECBE5A34243889D6A61 /* DayCompletion.swift in Sources */,
+				7A3C91D0B4E24F6A81C70001 /* ScheduleBlockResult.swift in Sources */,
 				1D7562E5223E40509DA8D2C1 /* LOSStudyStatus.swift in Sources */,
 				BDB6E32655A1492E8B647ED5 /* ReviewCard.swift in Sources */,
 				EA104E48307E4173A2389D71 /* Session.swift in Sources */,
@@ -971,6 +978,7 @@
 				3850143D80B94D4689C0F2DA /* ProgressDashboardView.swift in Sources */,
 				CEA5BD5285DC4484AAB37770 /* TopicProgressRow.swift in Sources */,
 				741797DC119C4419B8C276A9 /* PlanView.swift in Sources */,
+				7A3C91D0B4E24F6A81C70003 /* BlockResultRecorder.swift in Sources */,
 				4EA5E834AC7841D09C6228B1 /* EssayInput.swift in Sources */,
 				D88B0B2015734B3B9107F515 /* GradingResultView.swift in Sources */,
 				F6DF3A9B5F784E15B344F99E /* MultipleChoiceInput.swift in Sources */,

@@ -1,5 +1,24 @@
 #!/usr/bin/env python3
-"""Export study_schedule.json from L3_2027_Final_3.xlsx."""
+"""Export study_schedule.json from L3_2027_Final_3.xlsx.
+
+WARNING: this script can no longer regenerate the shipped schedule, and running
+it unguarded would silently destroy work the workbook does not contain.
+
+November 8-30 2026 is HAND MAINTAINED. It was rewritten into 53 one-hour
+question sittings carrying `question_source` ("app" or "mm") and `also_covers`,
+neither of which exists in the xlsx or in this exporter. Re-exporting would:
+
+  - drop every `question_source`, so the Plan tab stops saying where to answer
+  - drop every `also_covers`, so four Ethics sittings lose the second reading
+    they cover and the month's coverage silently falls from 36 readings to 32
+  - map any label containing "B5-M2" to guidance_standard_i_professionalism
+    (see reading_id_for), rewriting the three new guidance reading ids
+  - classify the new "App Q:" and "Mock:" labels as `study` via kind_for
+  - restore total_planned_hours to 444, which no longer matches the content
+
+So `main` now refuses to overwrite a file whose November has been rewritten.
+To regenerate the rest of the plan, re-apply November afterwards.
+"""
 
 from __future__ import annotations
 
@@ -149,6 +168,26 @@ def main(argv: list[str]) -> int:
     if not xlsx.exists():
         print(f"Workbook not found: {xlsx}", file=sys.stderr)
         return 1
+
+    # Refuse before reading the workbook, not after: the check is about what is
+    # already on disk, and an error that arrives only once the new content is
+    # built invites someone to pass --force and lose it.
+    if OUT_PATH.exists():
+        shipped = json.loads(OUT_PATH.read_text(encoding="utf-8"))
+        hand_written = [
+            block
+            for day in shipped.get("days", [])
+            for block in day.get("blocks", [])
+            if "question_source" in block or "also_covers" in block
+        ]
+        if hand_written:
+            print(
+                f"Refusing to overwrite {OUT_PATH.name}: {len(hand_written)} blocks carry "
+                "question_source/also_covers, which this exporter cannot produce. "
+                "See the module docstring.",
+                file=sys.stderr,
+            )
+            return 1
 
     payload = export(xlsx)
     total = sum(day["hours"] for day in payload["days"])

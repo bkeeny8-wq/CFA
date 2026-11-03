@@ -414,5 +414,54 @@ final class ProgressBackupTests: XCTestCase {
         XCTAssertEqual(decoded.attempts.count, 0)
         XCTAssertEqual(decoded.reviewCards.count, 0)
         XCTAssertEqual(decoded.flashcardProgress?.count, 0)
+        XCTAssertNil(decoded.blockResults,
+                     "omitted stays omitted, so older backups still decode")
+    }
+
+    /// The arm the memberwise init lets you forget.
+    ///
+    /// `blockResults` is an optional var, so every existing call site compiles
+    /// untouched with it implicitly nil — which means nothing would have
+    /// noticed if the field were exported and never read back. For the eleven
+    /// November sittings answered in Meldrum's app these rows are the only
+    /// record there is, so a backup that drops them loses the data outright.
+    func testBlockResultsSurviveTheRoundTrip() throws {
+        let recorded = Date(timeIntervalSince1970: 1_793_000_000)
+        let payload = ExportPayload(
+            exportedAt: Date(timeIntervalSince1970: 0),
+            attempts: [],
+            reviewCards: [],
+            sessions: [],
+            losStudyStatuses: [],
+            dayCompletions: [],
+            flashcardProgress: [],
+            blockResults: [
+                BlockResultExport(
+                    key: "2026-11-09|06:00",
+                    dateKey: "2026-11-09",
+                    blockStart: "06:00",
+                    blockLabel: "MM Q: B6-M5 Yield Curve Strategies",
+                    readingID: "yield_curve_strategies",
+                    source: "mm",
+                    questionsAttempted: 20,
+                    questionsCorrect: 11,
+                    pointsEarned: 6,
+                    pointsPossible: 10,
+                    ranOutOfTime: true,
+                    confidence: 2,
+                    recordedAt: recorded
+                )
+            ]
+        )
+        let decoded = try ProgressBackup.decode(from: try ProgressBackup.write(payload))
+        let row = try XCTUnwrap(decoded.blockResults?.first)
+        XCTAssertEqual(decoded.blockResults?.count, 1)
+        XCTAssertEqual(row.key, "2026-11-09|06:00")
+        XCTAssertEqual(row.source, "mm")
+        XCTAssertEqual(row.questionsCorrect, 11)
+        XCTAssertEqual(row.pointsEarned, 6)
+        XCTAssertTrue(row.ranOutOfTime)
+        XCTAssertEqual(row.confidence, 2)
+        XCTAssertEqual(row.recordedAt, recorded)
     }
 }

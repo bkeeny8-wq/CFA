@@ -12,7 +12,8 @@ enum ProgressBackup {
         sessions: [Session],
         losStudyStatuses: [LOSStudyStatus],
         dayCompletions: [DayCompletion],
-        flashcardProgress: [FlashcardProgress]
+        flashcardProgress: [FlashcardProgress],
+        blockResults: [ScheduleBlockResult]
     ) -> ExportPayload {
         ExportPayload(
             exportedAt: .now,
@@ -102,7 +103,26 @@ enum ProgressBackup {
                         firstAttemptedAt: $0.firstAttemptedAt,
                         flaggedForReview: $0.flaggedForReview
                     )
-                }
+                },
+            // Every row, unfiltered. A block result is hand entered, so unlike
+            // a seeded card there is no scaffolding to strip out.
+            blockResults: blockResults.map {
+                BlockResultExport(
+                    key: $0.key,
+                    dateKey: $0.dateKey,
+                    blockStart: $0.blockStart,
+                    blockLabel: $0.blockLabel,
+                    readingID: $0.readingID,
+                    source: $0.source,
+                    questionsAttempted: $0.questionsAttempted,
+                    questionsCorrect: $0.questionsCorrect,
+                    pointsEarned: $0.pointsEarned,
+                    pointsPossible: $0.pointsPossible,
+                    ranOutOfTime: $0.ranOutOfTime,
+                    confidence: $0.confidence,
+                    recordedAt: $0.recordedAt
+                )
+            }
         )
     }
 
@@ -129,6 +149,24 @@ struct ExportPayload: Codable {
     var dayCompletions: [DayCompletionExport]?
     /// Optional so backups written before flashcards existed still decode.
     var flashcardProgress: [FlashcardProgressExport]?
+    /// Same reason, for backups written before the November plan tracking.
+    var blockResults: [BlockResultExport]?
+}
+
+struct BlockResultExport: Codable {
+    let key: String
+    let dateKey: String
+    let blockStart: String
+    let blockLabel: String
+    let readingID: String?
+    let source: String?
+    let questionsAttempted: Int
+    let questionsCorrect: Int
+    let pointsEarned: Int?
+    let pointsPossible: Int?
+    let ranOutOfTime: Bool
+    let confidence: Int?
+    let recordedAt: Date
 }
 
 struct FlashcardProgressExport: Codable {

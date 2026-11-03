@@ -8,14 +8,32 @@ struct PlanView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Query private var completions: [DayCompletion]
+    @Query private var blockResults: [ScheduleBlockResult]
 
     @State private var visibleMonth: Date = Calendar.current.startOfDay(for: .now)
     @State private var selectedKey: String = StudySchedule.dateKey(for: .now)
+    /// The dateKey travels with the block: a bare ScheduleBlock cannot say
+    /// which day it belongs to, and its own `id` repeats across days.
+    @State private var recording: RecordingTarget?
+    @State private var showBaseline = false
+
+    private struct RecordingTarget: Identifiable {
+        let dateKey: String
+        let block: ScheduleBlock
+        var id: String { block.resultKey(on: dateKey) }
+    }
 
     private var schedule: StudySchedule? { content.schedule }
 
     private var completionByDate: [String: DayCompletion] {
         Dictionary(uniqueKeysWithValues: completions.map { ($0.dateKey, $0) })
+    }
+
+    /// `uniquingKeysWith:` rather than `uniqueKeysWithValues:` as the line
+    /// above uses. That one is safe only because DayCompletion.dateKey carries
+    /// a unique constraint; a duplicate here would trap at runtime.
+    private var resultByKey: [String: ScheduleBlockResult] {
+        Dictionary(blockResults.map { ($0.key, $0) }, uniquingKeysWith: { first, _ in first })
     }
 
     private var todayKey: String { StudySchedule.dateKey(for: .now) }
@@ -55,13 +73,36 @@ struct PlanView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
 
             if let selected {
-                dayInspector(selected, schedule: schedule)
-                    .frame(width: horizontalSizeClass == .regular ? 280 : nil)
+                // Scrolls because it has to: six November days carry six
+                // blocks where the old plan's maximum was four, and each row
+                // is now taller. Unscrolled, the make-up line and the
+                // days-to-exam label fall off the bottom of a 280pt column.
+                ScrollView {
+                    dayInspector(selected, schedule: schedule)
+                }
+                .frame(width: horizontalSizeClass == .regular ? 280 : nil)
             }
         }
         .padding(24)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(Theme.paper)
+        .sheet(item: $recording) { target in
+            BlockResultSheet(
+                dateKey: target.dateKey,
+                block: target.block,
+                existing: resultByKey[target.block.resultKey(on: target.dateKey)],
+                onSave: saveResult,
+                onDelete: deleteResult
+            )
+            .environment(content)
+        }
+        .sheet(isPresented: $showBaseline) {
+            BaselineReadoutView(
+                rows: BaselineReadout.rows(
+                    schedule: schedule, results: blockResults, content: content
+                )
+            )
+        }
     }
 
     private func monthGrid(_ schedule: StudySchedule) -> some View {
@@ -182,8 +223,11 @@ struct PlanView: View {
     /// land on a word boundary. The Text already has `lineLimit(1)`, so
     /// SwiftUI truncates to the cell's real width and adds the ellipsis.
     private func shortBlockLabel(_ day: ScheduleDay?) -> String? {
-        guard let block = day?.blocks.first else { return nil }
-        return StudyDisplay.scheduleBlockTitle(block, content: content)
+        guard let day, let block = day.blocks.first else { return nil }
+        let title = StudyDisplay.scheduleBlockTitle(block, content: content)
+        // Six November days carry six blocks each, where the old plan's
+        // maximum was four. Showing only the first silently hid five of them.
+        return day.blocks.count > 1 ? "\(title) +\(day.blocks.count - 1)" : title
     }
 
     private func dayAccessibility(_ date: Date, day: ScheduleDay?, isDone: Bool, isRest: Bool) -> String {
@@ -209,36 +253,35 @@ struct PlanView: View {
     @ViewBuilder
     private func dayInspector(_ day: ScheduleDay, schedule: StudySchedule) -> some View {
         let isDone = completionByDate[day.date] != nil
-        let isToday = day.date == todayKey
         VStack(alignment: .leading, spacing: 14) {
             Text(inspectorTitle(day))
                 .font(Theme.serif(.title2, weight: .semibold))
                 .foregroundStyle(Theme.ink)
-            Text("\(Formatting.hours(day.hours)) planned")
-                .font(.subheadline)
-                .foregroundStyle(Theme.dust)
-
-            ForEach(day.blocks) { block in
-                HStack {
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(block.start)
-                            .font(.caption)
-                            .foregroundStyle(Theme.dust)
-                        Text(StudyDisplay.scheduleBlockTitle(block, content: content))
-                            .font(.subheadline.weight(.medium))
-                            .foregroundStyle(Theme.ink)
-                    }
-                    Spacer()
-                    Text("\(block.minutes)m")
+            VStack(alignment: .leading, spacing: 2) {
+                Text("\(Formatting.hours(day.hours)) planned")
+                    .font(.subheadline)
+                    .foregroundStyle(Theme.dust)
+                if let summary = recordedSummary(day) {
+                    Text(summary)
                         .font(.caption)
                         .foregroundStyle(Theme.dust)
+                        .accessibilityIdentifier("plan.day.recorded.\(day.date)")
                 }
-                .padding(12)
-                .background(
-                    RoundedRectangle(cornerRadius: 14, style: .continuous)
-                        .fill(Theme.cardFill)
-                )
             }
+
+            ForEach(day.blocks) { block in
+                blockRow(block, dateKey: day.date)
+            }
+
+            Button {
+                showBaseline = true
+            } label: {
+                Label("November baseline", systemImage: "chart.bar.doc.horizontal")
+                    .font(.caption.weight(.medium))
+            }
+            .buttonStyle(.plain)
+            .foregroundStyle(Theme.pine)
+            .accessibilityIdentifier("plan.baseline.open")
 
             Button {
                 router.selected = .notes
@@ -271,19 +314,134 @@ struct PlanView: View {
                 .font(.caption)
                 .foregroundStyle(Theme.dust)
 
-            if isToday, let readingID = day.blocks.compactMap(\.readingID).first,
+            // The day-level "start that block's drills" button lived here and
+            // has moved onto each block row, where it can tell which block you
+            // meant and stay quiet on the Meldrum ones.
+        }
+    }
+
+    /// How much of a day has been written down.
+    ///
+    /// Deliberately NOT wired into DayCompletion. Everything downstream — the
+    /// grid checkmark, the owed dash, ScheduleProgress.delta — credits
+    /// `day.hours` from that one row, and letting block results credit hours
+    /// as well would count the same morning twice. This line just makes the
+    /// relationship visible so a day with every block scored and no check mark
+    /// looks like an oversight rather than a contradiction.
+    private func recordedSummary(_ day: ScheduleDay) -> String? {
+        let recordable = day.blocks.filter { $0.kind == .questions || $0.kind == .mock }
+        guard !recordable.isEmpty else { return nil }
+        let done = recordable.filter { resultByKey[$0.resultKey(on: day.date)]?.hasScore == true }
+        return "\(done.count) of \(recordable.count) sittings recorded"
+    }
+
+    /// One block, tappable to record what it scored.
+    ///
+    /// Identifiers carry the dateKey because `block.id` is `start-label`,
+    /// which repeats on 42 of the plan's blocks and on one across six days.
+    private func blockRow(_ block: ScheduleBlock, dateKey: String) -> some View {
+        let result = resultByKey[block.resultKey(on: dateKey)]
+        let slot = "\(dateKey).\(block.start)"
+        return VStack(alignment: .leading, spacing: 6) {
+            Button {
+                recording = RecordingTarget(dateKey: dateKey, block: block)
+            } label: {
+                VStack(alignment: .leading, spacing: 6) {
+                    HStack(alignment: .firstTextBaseline) {
+                        Text(block.start)
+                            .font(.caption)
+                            .foregroundStyle(Theme.dust)
+                        BlockSourceBadge(source: block.questionSource)
+                            .accessibilityIdentifier("plan.block.source.\(slot)")
+                        Spacer()
+                        Text("\(block.minutes)m")
+                            .font(.caption)
+                            .foregroundStyle(Theme.dust)
+                    }
+                    Text(StudyDisplay.scheduleBlockTitle(block, content: content))
+                        .font(.subheadline.weight(.medium))
+                        .foregroundStyle(Theme.ink)
+                        .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                    HStack(spacing: 6) {
+                        Image(systemName: result?.hasScore == true
+                              ? "checkmark.circle.fill" : "square.and.pencil")
+                            .font(.caption2)
+                            .foregroundStyle(result?.hasScore == true ? Theme.pine : Theme.dust)
+                        Text(result.flatMap { $0.hasScore ? scoreSummary($0) : nil }
+                             ?? "Tap to record")
+                            .font(.caption2)
+                            .foregroundStyle(result?.hasScore == true ? Theme.ink : Theme.dust)
+                    }
+                    .accessibilityIdentifier("plan.block.score.\(slot)")
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(12)
+                .background(
+                    RoundedRectangle(cornerRadius: 14, style: .continuous)
+                        .fill(Theme.cardFill)
+                )
+            }
+            .buttonStyle(.plain)
+            .accessibilityIdentifier("plan.block.\(slot)")
+            .accessibilityValue(result?.hasScore == true ? "Recorded" : "Not recorded")
+
+            // Offered only where the questions actually live here. On five
+            // November days the first reading-bearing block is a Meldrum one,
+            // and the old day-level button sent you to in-app drills for a
+            // reading the plan says to answer somewhere else.
+            if let readingID = block.readingID,
+               block.questionSource?.isMeldrum != true,
                let bundle = content.drillBundle(forReading: readingID) {
-                Button("Start that block's drills") {
+                Button("Start these drills") {
                     router.startQuestions(
                         sessionCoordinator,
                         ids: bundle.drills.flatMap { $0.questions.map(\.id) }.shuffled(),
                         mode: .losDrill,
-                        description: "Plan drills"
+                        description: StudyDisplay.scheduleBlockTitle(block, content: content)
                     )
                 }
                 .font(.caption.weight(.medium))
                 .foregroundStyle(Theme.pine)
+                .padding(.leading, 12)
+                .accessibilityIdentifier("plan.block.drills.\(slot)")
             }
+        }
+    }
+
+    private func scoreSummary(_ result: ScheduleBlockResult) -> String {
+        var parts: [String] = []
+        if let rate = result.correctRate {
+            parts.append("\(result.questionsCorrect)/\(result.questionsAttempted)"
+                         + " · \(Int((rate * 100).rounded()))%")
+        }
+        if let essay = result.essayRate {
+            parts.append("essays \(Int((essay * 100).rounded()))%")
+        }
+        if result.ranOutOfTime { parts.append("ran out of time") }
+        return parts.isEmpty ? "Recorded" : parts.joined(separator: " · ")
+    }
+
+    private func saveResult(_ row: ScheduleBlockResult) {
+        // Inserting a row that is already registered is a no-op, so this one
+        // call covers both create and edit.
+        modelContext.insert(row)
+        persist()
+    }
+
+    private func deleteResult(_ row: ScheduleBlockResult) {
+        modelContext.delete(row)
+        persist()
+    }
+
+    /// Not `try?`. A unique-constraint violation would otherwise look exactly
+    /// like a row that was never created, and the view would keep showing the
+    /// unsaved state until relaunch.
+    private func persist() {
+        do {
+            try modelContext.save()
+        } catch {
+            modelContext.rollback()
         }
     }
 

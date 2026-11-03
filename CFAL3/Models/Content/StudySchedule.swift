@@ -59,13 +59,60 @@ struct ScheduleBlock: Codable, Identifiable, Hashable {
     let book: Int?
     /// When set, Plan can open this block's curriculum reading.
     let readingID: String?
+    /// Where to answer this block's questions. Deliberately NOT named `source`:
+    /// `StudySchedule.source` above means the workbook this plan was exported
+    /// from, and two unrelated meanings for one key fifty lines apart is how a
+    /// reader gets it wrong. Nil on blocks that are not question sittings.
+    let questionSource: ScheduleBlockSource?
+    /// The further readings a bundled block covers. Ethics is ten short
+    /// readings against one book's weight, so four November blocks carry two
+    /// readings each; without this the plan would claim to cover 32 readings
+    /// while the content covers 36.
+    let alsoCovers: [String]?
 
     enum CodingKeys: String, CodingKey {
         case start, label, minutes, kind, book
         case readingID = "reading_id"
+        case questionSource = "question_source"
+        case alsoCovers = "also_covers"
     }
 
+    /// Unique only WITHIN a day. 42 of the plan's 203 distinct values repeat
+    /// across days (one on six separate days), so this is safe for a ForEach
+    /// inside one day's inspector and wrong for anything persisted. Storage
+    /// keys on `resultKey(on:)`.
     var id: String { "\(start)-\(label)" }
+
+    /// The stable identity for a recorded result: unique across the whole plan
+    /// (verified: no day repeats a start time), and unlike `id` it survives a
+    /// copy-edit to the label without orphaning the row.
+    func resultKey(on dateKey: String) -> String { "\(dateKey)|\(start)" }
+
+    /// Every reading this block covers, primary first.
+    var readingIDs: [String] {
+        (readingID.map { [$0] } ?? []) + (alsoCovers ?? [])
+    }
+}
+
+/// Which question bank a block's sitting comes from. Only November 2026 blocks
+/// carry this today; everything earlier predates the distinction and decodes to
+/// nil, which must render as no badge rather than as `app`.
+enum ScheduleBlockSource: String, Codable {
+    case app
+    case mm
+    case other
+
+    /// Matches ScheduleBlockKind below. Without it one typo in one of 300
+    /// blocks throws, ContentLoader's `try?` swallows it, and the whole
+    /// schedule silently becomes nil: Plan shows "No study schedule" and
+    /// Today's plan card disappears with no error logged anywhere.
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let raw = try container.decode(String.self)
+        self = ScheduleBlockSource(rawValue: raw) ?? .other
+    }
+
+    var isMeldrum: Bool { self == .mm }
 }
 
 enum ScheduleBlockKind: String, Codable {

@@ -13,6 +13,7 @@ struct SettingsView: View {
     @Query private var dayCompletions: [DayCompletion]
     @Query private var losStudyStatuses: [LOSStudyStatus]
     @Query private var flashcardProgress: [FlashcardProgress]
+    @Query private var blockResults: [ScheduleBlockResult]
 
     @State private var exportURL: URL?
     @State private var showExporter = false
@@ -99,7 +100,8 @@ struct SettingsView: View {
                     sessions: sessions,
                     dayCompletions: dayCompletions,
                     losStatuses: losStudyStatuses,
-                    flashcards: flashcardProgress
+                    flashcards: flashcardProgress,
+                    blockResults: blockResults
                 ))
             } header: {
                 Text("Reset")
@@ -215,6 +217,7 @@ struct SettingsView: View {
         let ratedCards = flashcardProgress.filter { $0.totalAttempts > 0 }.count
         let removed = attempts.count + sessions.count
             + dayCompletions.count + losStudyStatuses.count + ratedCards
+            + blockResults.count
         for item in attempts { modelContext.delete(item) }
         for item in cards { modelContext.delete(item) }
         for item in sessions { modelContext.delete(item) }
@@ -223,6 +226,10 @@ struct SettingsView: View {
         // "Erase all progress" promises a clean slate; leaving every seeded
         // flashcard schedule in place made that promise false.
         for item in flashcardProgress { modelContext.delete(item) }
+        // Counted as well as deleted, unlike the seeded rows above: every one
+        // of these was typed in by hand, so they are the user progress the
+        // tally is supposed to be about.
+        for item in blockResults { modelContext.delete(item) }
         do {
             try modelContext.save()
             content.bootstrapReviewCards(context: modelContext)
@@ -241,7 +248,8 @@ struct SettingsView: View {
             sessions: sessions,
             losStudyStatuses: losStudyStatuses,
             dayCompletions: dayCompletions,
-            flashcardProgress: flashcardProgress
+            flashcardProgress: flashcardProgress,
+            blockResults: blockResults
         )
         do {
             exportURL = try ProgressBackup.write(payload)
@@ -427,6 +435,52 @@ struct SettingsView: View {
                             completedHours: item.completedHours))
                         inserted += 1
                     }
+                }
+            }
+
+            // Recorded sittings: upsert by the block's result key. Newer-wins
+            // on recordedAt like the card arms, because the same block can be
+            // re-recorded on either device after a correction.
+            if let items = payload.blockResults {
+                let existing = Dictionary(
+                    blockResults.map { ($0.key, $0) }, uniquingKeysWith: { a, _ in a }
+                )
+                for item in items {
+                    guard let row = existing[item.key] else {
+                        modelContext.insert(ScheduleBlockResult(
+                            key: item.key,
+                            dateKey: item.dateKey,
+                            blockStart: item.blockStart,
+                            blockLabel: item.blockLabel,
+                            readingID: item.readingID,
+                            source: item.source,
+                            questionsAttempted: item.questionsAttempted,
+                            questionsCorrect: item.questionsCorrect,
+                            pointsEarned: item.pointsEarned,
+                            pointsPossible: item.pointsPossible,
+                            ranOutOfTime: item.ranOutOfTime,
+                            confidence: item.confidence,
+                            recordedAt: item.recordedAt))
+                        inserted += 1
+                        continue
+                    }
+                    guard ProgressMerge.importWins(
+                        imported: item.recordedAt, local: row.recordedAt
+                    ) else {
+                        skipped += 1
+                        continue
+                    }
+                    row.blockLabel = item.blockLabel
+                    row.readingID = item.readingID
+                    row.source = item.source
+                    row.questionsAttempted = item.questionsAttempted
+                    row.questionsCorrect = item.questionsCorrect
+                    row.pointsEarned = item.pointsEarned
+                    row.pointsPossible = item.pointsPossible
+                    row.ranOutOfTime = item.ranOutOfTime
+                    row.confidence = item.confidence
+                    row.recordedAt = item.recordedAt
+                    updated += 1
                 }
             }
 

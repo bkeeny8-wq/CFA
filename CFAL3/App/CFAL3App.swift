@@ -63,7 +63,8 @@ struct CFAL3App: App {
     init() {
         let schema = Schema([
             Attempt.self, ReviewCard.self, Session.self,
-            LOSStudyStatus.self, DayCompletion.self, FlashcardProgress.self
+            LOSStudyStatus.self, DayCompletion.self, FlashcardProgress.self,
+            ScheduleBlockResult.self
         ])
         let config = ModelConfiguration(
             schema: schema,
