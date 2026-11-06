@@ -69,6 +69,24 @@ struct PracticeBuilderView: View {
                     }
                     .pickerStyle(.menu)
 
+                    VStack(alignment: .leading, spacing: 4) {
+                        Picker("Working", selection: Bindable(pref).calculatorFilter) {
+                            ForEach(CalculatorFilter.allCases) { filter in
+                                Text(filter.displayName).tag(filter)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        .accessibilityIdentifier("practice.calculatorFilter")
+                        if pref.calculatorFilter == .noCalculator {
+                            Text("Conceptual recall only, for a commute. "
+                                 + "Anything needing a calculator, scratch working or an "
+                                 + "exhibit is held back.")
+                                .font(.caption)
+                                .foregroundStyle(Theme.dust)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                    }
+
                     Toggle("Weight toward weaker questions", isOn: Bindable(pref).weaknessWeighted)
                 }
                 .padding(18)

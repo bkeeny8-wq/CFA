@@ -28,6 +28,43 @@ enum QuestionTypeFilter: String, CaseIterable, Identifiable, Codable {
 /// How many questions to draw for EACH book / reading / LOS in scope. The
 /// session total scales with how many units are selected — pick "5" with
 /// four readings in scope and you get up to 20 questions, four per reading.
+/// Whether a sitting may include questions that need a calculator.
+///
+/// This is a filter on the CONTENT, not on the hardware. The app is iPad only
+/// (`TARGETED_DEVICE_FAMILY = 2`), so reading `userInterfaceIdiom` would always
+/// answer `.pad` and a device check would be a permanent no-op. What actually
+/// varies is where you are: 70 minutes of a commute with a phone and no
+/// calculator is a different sitting from an hour at a desk, and only you know
+/// which one you are in.
+enum CalculatorFilter: String, CaseIterable, Identifiable, Codable {
+    case any
+    /// Conceptual recall only: definitions, mechanisms, formula recognition.
+    case noCalculator
+    /// The opposite slice, for when you deliberately want the numerical work.
+    case calculatorOnly
+
+    var id: String { rawValue }
+
+    var displayName: String {
+        switch self {
+        case .any: return "Any"
+        case .noCalculator: return "No calculator"
+        case .calculatorOnly: return "Calculator"
+        }
+    }
+
+    /// Nil `needsCalculator` means unclassified, which `.noCalculator` must
+    /// exclude: finding an unanswerable question mid-commute costs the
+    /// session, while wrongly holding one back costs nothing.
+    func allows(needsCalculator: Bool?) -> Bool {
+        switch self {
+        case .any: return true
+        case .noCalculator: return needsCalculator == false
+        case .calculatorOnly: return needsCalculator == true
+        }
+    }
+}
+
 enum PracticeCount: Int, CaseIterable, Identifiable, Codable {
     case three = 3
     case five = 5
@@ -68,6 +105,7 @@ final class PracticeBuilderPreference {
         static let selectedReadings = "practice.selectedReadings"
         static let selectedLOS = "practice.selectedLOS"
         static let weaknessWeighted = "practice.weaknessWeighted"
+        static let calculatorFilter = "practice.calculatorFilter"
         static let dailyNewLimit = "review.dailyNewLimit"
         static let dailyNewFlashcardLimit = "review.dailyNewFlashcardLimit"
     }
@@ -98,6 +136,10 @@ final class PracticeBuilderPreference {
 
     var weaknessWeighted: Bool {
         didSet { defaults.set(weaknessWeighted, forKey: Keys.weaknessWeighted) }
+    }
+
+    var calculatorFilter: CalculatorFilter {
+        didSet { defaults.set(calculatorFilter.rawValue, forKey: Keys.calculatorFilter) }
     }
 
     /// Never-seen questions admitted to a review session per day. Lives here
@@ -144,6 +186,9 @@ final class PracticeBuilderPreference {
         selectedReadings = Set(defaults.stringArray(forKey: Keys.selectedReadings) ?? [])
         selectedLOS = Set(defaults.stringArray(forKey: Keys.selectedLOS) ?? [])
         weaknessWeighted = defaults.bool(forKey: Keys.weaknessWeighted)
+        calculatorFilter = CalculatorFilter(
+            rawValue: defaults.string(forKey: Keys.calculatorFilter) ?? ""
+        ) ?? .any
 
         // `integer(forKey:)` returns 0 for a missing key, and 0 is a valid
         // choice here ("Off"), so absence has to be tested separately.
@@ -169,6 +214,7 @@ final class PracticeBuilderPreference {
         selectedReadings = []
         selectedLOS = []
         weaknessWeighted = false
+        calculatorFilter = .any
     }
 }
 

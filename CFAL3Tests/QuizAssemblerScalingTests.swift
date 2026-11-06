@@ -279,3 +279,145 @@ final class QuizAssemblerScalingTests: XCTestCase {
         XCTAssertEqual(Set(ids).count, ids.count)
     }
 }
+
+/// The commute contract.
+///
+/// 82 hours of this plan are 35 minutes each way on a phone, with no
+/// calculator and no scratch paper. That only works if a no-calculator sitting
+/// genuinely cannot serve a question needing one, so these tests are about the
+/// one direction that costs something: a calculator question reaching the
+/// phone pool breaks the session, while a phone question held back merely
+/// wastes capacity.
+final class CalculatorFilterTests: XCTestCase {
+
+    private func loadedContent() -> ContentLoader {
+        let content = ContentLoader()
+        content.load()
+        return content
+    }
+
+    private func freshPreference() -> PracticeBuilderPreference {
+        let name = "CalculatorFilterTests-\(UUID().uuidString)"
+        let defaults = UserDefaults(suiteName: name)!
+        defaults.removePersistentDomain(forName: name)
+        return PracticeBuilderPreference(defaults: defaults)
+    }
+
+    /// Unclassified content must be excluded, not admitted. The classifier
+    /// leaves nothing unlabelled today, but it is the default that decides
+    /// what happens to any question added later.
+    func testUnclassifiedIsTreatedAsNeedingACalculator() {
+        XCTAssertFalse(CalculatorFilter.noCalculator.allows(needsCalculator: nil))
+        XCTAssertTrue(CalculatorFilter.noCalculator.allows(needsCalculator: false))
+        XCTAssertFalse(CalculatorFilter.noCalculator.allows(needsCalculator: true))
+
+        XCTAssertTrue(CalculatorFilter.any.allows(needsCalculator: nil))
+        XCTAssertTrue(CalculatorFilter.calculatorOnly.allows(needsCalculator: true))
+        XCTAssertFalse(CalculatorFilter.calculatorOnly.allows(needsCalculator: nil))
+    }
+
+    func testEveryBundledQuestionIsClassified() throws {
+        let content = loadedContent()
+        let bank = try XCTUnwrap(content.questionBank)
+
+        var unclassified: [String] = []
+        for topic in bank.topics {
+            for caseStudy in topic.cases {
+                for q in caseStudy.questions where q.needsCalculator == nil {
+                    unclassified.append(q.id)
+                }
+            }
+        }
+        for bundle in content.losDrillBundles.values {
+            for group in bundle.drills {
+                for d in group.questions where d.needsCalculator == nil {
+                    unclassified.append(d.id)
+                }
+            }
+        }
+        XCTAssertTrue(unclassified.isEmpty,
+                      "\(unclassified.count) unclassified, e.g. \(unclassified.prefix(3))")
+    }
+
+    /// The counts the commute plan is sized against. 2,670 phone-friendly
+    /// questions is roughly 90 hours of material for 82 hours of commuting;
+    /// if this number collapses, the plan's February load changes with it.
+    func testPhonePoolIsBigEnoughToPlanAround() throws {
+        let content = loadedContent()
+        let bank = try XCTUnwrap(content.questionBank)
+
+        let bankPhone = bank.topics
+            .flatMap(\.cases).flatMap(\.questions).filter(\.isPhoneFriendly).count
+        let drillPhone = content.losDrillBundles.values
+            .flatMap(\.drills).flatMap(\.questions).filter(\.isPhoneFriendly).count
+
+        XCTAssertEqual(bankPhone, 86)
+        XCTAssertEqual(drillPhone, 2584)
+
+        // No essay is ever phone work: they are written answers carrying
+        // 1,018 marks of workings between them.
+        let phoneEssays = bank.topics.flatMap(\.cases).flatMap(\.questions)
+            .filter { $0.type == .essay && $0.isPhoneFriendly }
+        XCTAssertTrue(phoneEssays.isEmpty, "\(phoneEssays.count) essays called phone work")
+    }
+
+    /// Every reading has to offer phone drills, or a commute lands on a
+    /// reading with nothing to do.
+    func testEveryReadingOffersPhoneDrills() {
+        let content = loadedContent()
+        for (readingID, bundle) in content.losDrillBundles {
+            let phone = bundle.drills.flatMap(\.questions).filter(\.isPhoneFriendly).count
+            XCTAssertGreaterThan(phone, 0, "\(readingID) has no phone-friendly drill")
+        }
+    }
+
+    /// The contract itself, through the real assembler rather than a
+    /// re-implementation of its predicate.
+    func testNoCalculatorSittingServesNoCalculatorQuestions() throws {
+        let content = loadedContent()
+        let pref = freshPreference()
+        pref.calculatorFilter = .noCalculator
+        pref.count = .all
+        pref.sourceFilter = .both
+        pref.typeFilter = .mixed
+
+        let ids = Set(QuizAssembler.assemble(pref: pref, content: content, attempts: []))
+        XCTAssertFalse(ids.isEmpty)
+
+        var offenders: [String] = []
+        for topic in try XCTUnwrap(content.questionBank).topics {
+            for caseStudy in topic.cases {
+                for q in caseStudy.questions where ids.contains(q.id) && !q.isPhoneFriendly {
+                    offenders.append(q.id)
+                }
+            }
+        }
+        for bundle in content.losDrillBundles.values {
+            for group in bundle.drills {
+                for d in group.questions where ids.contains(d.id) && !d.isPhoneFriendly {
+                    offenders.append(d.id)
+                }
+            }
+        }
+        XCTAssertTrue(offenders.isEmpty,
+                      "a commute sitting would serve \(offenders.count) unanswerable "
+                      + "question(s): \(offenders.prefix(3))")
+    }
+
+    /// `DrillQuestion.asQuestion` rebuilds a Question through JSON, and that
+    /// payload dictionary is the whole of what survives. A field left out of
+    /// it vanishes with no error — and losing this one puts calculator work
+    /// into a commute sitting.
+    func testDrillRoundTripKeepsTheCalculatorFlag() throws {
+        let content = loadedContent()
+        let drills = content.losDrillBundles.values.flatMap(\.drills).flatMap(\.questions)
+
+        let phone = try XCTUnwrap(drills.first { $0.needsCalculator == false })
+        XCTAssertEqual(phone.asQuestion.needsCalculator, false)
+        XCTAssertTrue(phone.asQuestion.isPhoneFriendly)
+
+        let desk = try XCTUnwrap(drills.first { $0.needsCalculator == true })
+        XCTAssertEqual(desk.asQuestion.needsCalculator, true)
+        XCTAssertFalse(desk.asQuestion.isPhoneFriendly)
+    }
+}

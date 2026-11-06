@@ -29,6 +29,8 @@ enum QuizAssembler {
         let losIDs: Set<String>
         let gradeable: Bool
         let isDrill: Bool
+        /// Nil means unclassified, which the no-calculator filter excludes.
+        let needsCalculator: Bool?
     }
 
     /// Last-resort book for a reading `los_master` does not carry.
@@ -213,7 +215,8 @@ enum QuizAssembler {
                             readingIDs: Set(q.primaryReadingIDs),
                             losIDs: Set(q.candidateLOS),
                             gradeable: q.type != .mc || q.canGradeMC,
-                            isDrill: false
+                            isDrill: false,
+                            needsCalculator: q.needsCalculator
                         ))
                     }
                 }
@@ -232,7 +235,8 @@ enum QuizAssembler {
                             readingIDs: [d.readingID],
                             losIDs: [d.primaryLOS],
                             gradeable: d.correct != nil,
-                            isDrill: true
+                            isDrill: true,
+                            needsCalculator: d.needsCalculator
                         ))
                     }
                 }
@@ -284,6 +288,12 @@ enum QuizAssembler {
     ) -> [PoolItem] {
         pool.filter { item in
             guard pref.typeFilter.allows(item.type) else { return false }
+
+            // Where you are, not what you are holding. A commute sitting
+            // must never serve a question that needs a calculator.
+            guard pref.calculatorFilter.allows(needsCalculator: item.needsCalculator) else {
+                return false
+            }
 
             // Content-integrity gate: never serve an MC that cannot be graded.
             guard item.gradeable else { return false }

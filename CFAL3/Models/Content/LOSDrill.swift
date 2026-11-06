@@ -15,6 +15,8 @@ struct DrillQuestion: Codable, Identifiable, Hashable {
     let curriculumRef: String?
     let dataQuality: String
     let dataQualityFlags: [String]
+    /// See `Question.needsCalculator`. Nil means "assume it does".
+    let needsCalculator: Bool?
 
     enum CodingKeys: String, CodingKey {
         case id, number, stem, type, options, correct, rationales
@@ -25,7 +27,10 @@ struct DrillQuestion: Codable, Identifiable, Hashable {
         case curriculumRef = "curriculum_ref"
         case dataQuality = "data_quality"
         case dataQualityFlags = "data_quality_flags"
+        case needsCalculator = "needs_calculator"
     }
+
+    var isPhoneFriendly: Bool { needsCalculator == false }
 
     var asQuestion: Question {
         let payload: [String: Any] = [
@@ -40,6 +45,10 @@ struct DrillQuestion: Codable, Identifiable, Hashable {
             "primary_reading_ids": [readingID],
             "data_quality": dataQuality,
             "data_quality_flags": dataQualityFlags,
+            // Carried explicitly. This payload is the whole of what survives
+            // the round trip, so a field left out here is silently lost — and
+            // losing this one puts a calculator question in a commute sitting.
+            "needs_calculator": needsCalculator as Any,
         ]
         let data = try! JSONSerialization.data(withJSONObject: payload)
         return try! JSONDecoder().decode(Question.self, from: data)
