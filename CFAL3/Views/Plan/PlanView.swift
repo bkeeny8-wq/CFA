@@ -386,12 +386,12 @@ struct PlanView: View {
             .accessibilityIdentifier("plan.block.\(slot)")
             .accessibilityValue(result?.hasScore == true ? "Recorded" : "Not recorded")
 
-            // Offered only where the questions actually live here. On five
-            // November days the first reading-bearing block is a Meldrum one,
-            // and the old day-level button sent you to in-app drills for a
-            // reading the plan says to answer somewhere else.
+            // Offered only where the questions actually live here. Most
+            // blocks in the plan now point at Meldrum's app or CFA
+            // Institute's bank, and the old day-level button sent you to
+            // in-app drills for a reading the plan says to answer elsewhere.
             if let readingID = block.readingID,
-               block.questionSource?.isMeldrum != true,
+               block.questionSource?.isAnsweredInThisApp == true,
                let bundle = content.drillBundle(forReading: readingID) {
                 Button("Start these drills") {
                     router.startQuestions(

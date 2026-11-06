@@ -94,12 +94,15 @@ struct ScheduleBlock: Codable, Identifiable, Hashable {
     }
 }
 
-/// Which question bank a block's sitting comes from. Only November 2026 blocks
-/// carry this today; everything earlier predates the distinction and decodes to
-/// nil, which must render as no badge rather than as `app`.
+/// Which question bank a block's sitting comes from. Only blocks from
+/// 6 November 2026 carry this; everything earlier predates the distinction and
+/// decodes to nil, which must render as no badge rather than as `app`.
 enum ScheduleBlockSource: String, Codable {
     case app
     case mm
+    /// CFA Institute's own online question bank, 1,126 questions. Added when
+    /// the plan was rebuilt around all three banks rather than two.
+    case cfai
     case other
 
     /// Matches ScheduleBlockKind below. Without it one typo in one of 300
@@ -113,6 +116,12 @@ enum ScheduleBlockSource: String, Codable {
     }
 
     var isMeldrum: Bool { self == .mm }
+
+    /// Whether this app can actually start the questions. False for Meldrum
+    /// and for CFA Institute's own bank: offering in-app drills there sends
+    /// you somewhere the plan did not ask you to go, and the resulting
+    /// attempts would land against a sitting you never sat here.
+    var isAnsweredInThisApp: Bool { self == .app }
 }
 
 enum ScheduleBlockKind: String, Codable {

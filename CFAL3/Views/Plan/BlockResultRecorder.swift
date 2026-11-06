@@ -32,26 +32,36 @@ struct BlockSourceBadge: View {
         }
     }
 
+    /// Only pine and copper are genuinely distinct in this palette: accent,
+    /// success and sage all resolve to pine. The third bank therefore takes
+    /// ink rather than inventing a colour that reads as one of the other two.
     private func tint(for source: ScheduleBlockSource) -> Color {
-        source.isMeldrum ? Theme.copper : Theme.pine
+        switch source {
+        case .app: return Theme.pine
+        case .mm: return Theme.copper
+        case .cfai: return Theme.ink
+        case .other: return Theme.dust
+        }
     }
 
     /// `.other` is a decode fallback for a value this build does not know, so
-    /// it gets no badge: an unknown source is not a third option to show the
+    /// it gets no badge: an unknown source is not a fourth option to show the
     /// reader, it is a content bug to leave invisible.
     static func text(for source: ScheduleBlockSource) -> String? {
         switch source {
         case .app: return "App"
         case .mm: return "MM"
+        case .cfai: return "CFAI"
         case .other: return nil
         }
     }
 
-    /// "App" and "MM" are not speakable.
+    /// None of these abbreviations are speakable.
     static func spoken(for source: ScheduleBlockSource) -> String {
         switch source {
         case .app: return "Answer in this app"
         case .mm: return "Answer in Mark Meldrum's app"
+        case .cfai: return "Answer in the CFA Institute online bank"
         case .other: return "Unknown source"
         }
     }

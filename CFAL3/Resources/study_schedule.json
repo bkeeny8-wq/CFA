@@ -2,7 +2,7 @@
   "version": 1,
   "source": "L3_2027_Final_3.xlsx",
   "exam_date": "2027-02-20",
-  "total_planned_hours": 458.5,
+  "total_planned_hours": 506.0,
   "days": [
     {
       "date": "2026-07-06",
@@ -1855,43 +1855,51 @@
     },
     {
       "date": "2026-11-06",
-      "hours": 2.0,
-      "note": null,
+      "hours": 6.0,
+      "note": "Off (columbus)",
       "blocks": [
         {
           "start": "06:00",
-          "label": "D3: B6-M7 Trade Strategy & Execution",
+          "label": "MM Video: finish remaining Meldrum material",
           "minutes": 120,
-          "kind": "deep3",
-          "book": 6
+          "kind": "video"
+        },
+        {
+          "start": "08:00",
+          "label": "MM Video: finish remaining Meldrum material",
+          "minutes": 120,
+          "kind": "video"
+        },
+        {
+          "start": "10:00",
+          "label": "MM Video: finish remaining Meldrum material",
+          "minutes": 120,
+          "kind": "video"
         }
       ]
     },
     {
       "date": "2026-11-07",
-      "hours": 3.5,
+      "hours": 6.0,
       "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "D3: B6-M7 Trade Strategy & Execution",
+          "label": "MM Video: finish remaining Meldrum material",
           "minutes": 120,
-          "kind": "deep3",
-          "book": 6
+          "kind": "video"
         },
         {
           "start": "08:00",
-          "label": "MM Video: B2-M6 Trading Costs",
-          "minutes": 45,
-          "kind": "video",
-          "book": 2
+          "label": "MM Video: finish remaining Meldrum material",
+          "minutes": 120,
+          "kind": "video"
         },
         {
-          "start": "08:45",
-          "label": "MM Video: B6-M7 Trade Strategy & Execution",
-          "minutes": 45,
-          "kind": "video",
-          "book": 6
+          "start": "10:00",
+          "label": "MM Video: finish remaining Meldrum material",
+          "minutes": 120,
+          "kind": "video"
         }
       ]
     },
@@ -1902,57 +1910,30 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "App Q: B4-M2 Swaps, Forwards, and Futures Strategies",
-          "minutes": 60,
+          "label": "MM Q: B6 Fixed-Income Active Management: Credit Strategies",
+          "minutes": 120,
           "kind": "questions",
-          "book": 4,
-          "reading_id": "swaps_forwards_and_futures_strategies",
-          "question_source": "app"
-        },
-        {
-          "start": "07:00",
-          "label": "App Q: B4-M3 Currency Management: An Introduction",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 4,
-          "reading_id": "currency_management_an_introduction",
-          "question_source": "app"
+          "book": 6,
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "question_source": "mm"
         },
         {
           "start": "08:00",
-          "label": "App Q: B2-M5 Portfolio Management for Institutional Investors",
-          "minutes": 60,
+          "label": "MM Q: B1 Principles of Asset Allocation",
+          "minutes": 120,
           "kind": "questions",
-          "book": 2,
-          "reading_id": "portfolio_management_for_institutional_investors",
-          "question_source": "app"
-        },
-        {
-          "start": "09:00",
-          "label": "App Q: B4-M1 Options Strategies",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 4,
-          "reading_id": "options_strategies",
-          "question_source": "app"
+          "book": 1,
+          "reading_id": "principles_of_asset_allocation",
+          "question_source": "mm"
         },
         {
           "start": "10:00",
-          "label": "App Q: B2-M2 Overview of Fixed-Income Portfolio Management",
-          "minutes": 60,
+          "label": "MM Q: B2 Asset Allocation to Alternative Investments",
+          "minutes": 120,
           "kind": "questions",
           "book": 2,
-          "reading_id": "overview_of_fixed_income_portfolio_management",
-          "question_source": "app"
-        },
-        {
-          "start": "11:00",
-          "label": "App Q: B6-M4 Liability-Driven and Index-Based Strategies",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 6,
-          "reading_id": "liability_driven_and_index_based_strategies",
-          "question_source": "app"
+          "reading_id": "asset_allocation_to_alternative_investments",
+          "question_source": "mm"
         }
       ]
     },
@@ -1963,11 +1944,11 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "MM Q: B6-M5 Yield Curve Strategies",
+          "label": "MM Q: B4 Options Strategies",
           "minutes": 60,
           "kind": "questions",
-          "book": 6,
-          "reading_id": "yield_curve_strategies",
+          "book": 4,
+          "reading_id": "options_strategies",
           "question_source": "mm"
         }
       ]
@@ -1979,12 +1960,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "App Q: B6-M6 Fixed-Income Active Management: Credit Strategies",
+          "label": "MM Q: B5 Application of the Code and Standards: Level III",
           "minutes": 60,
           "kind": "questions",
-          "book": 6,
-          "reading_id": "fixed_income_active_management_credit_strategies",
-          "question_source": "app"
+          "book": 5,
+          "reading_id": "application_of_code_and_standards_l3",
+          "question_source": "mm"
         }
       ]
     },
@@ -1995,11 +1976,11 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "MM Q: B2-M1 Overview of Equity Portfolio Management",
+          "label": "MM Q: B3 Portfolio Performance Evaluation",
           "minutes": 60,
           "kind": "questions",
-          "book": 2,
-          "reading_id": "overview_of_equity_portfolio_management",
+          "book": 3,
+          "reading_id": "portfolio_performance_evaluation",
           "question_source": "mm"
         }
       ]
@@ -2011,12 +1992,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "App Q: B6-M1 Index-Based Equity Strategies",
+          "label": "MM Q: B6 Active Equity Investing: Strategies",
           "minutes": 60,
           "kind": "questions",
           "book": 6,
-          "reading_id": "index_based_equity_strategies",
-          "question_source": "app"
+          "reading_id": "active_equity_investing_strategies",
+          "question_source": "mm"
         }
       ]
     },
@@ -2027,12 +2008,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "App Q: B6-M2 Active Equity Investing: Strategies",
+          "label": "MM Q: B4 Currency Management: An Introduction",
           "minutes": 60,
           "kind": "questions",
-          "book": 6,
-          "reading_id": "active_equity_investing_strategies",
-          "question_source": "app"
+          "book": 4,
+          "reading_id": "currency_management_an_introduction",
+          "question_source": "mm"
         }
       ]
     },
@@ -2043,57 +2024,30 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "App Q: B6-M3 Active Equity Investing: Portfolio Construction",
-          "minutes": 60,
+          "label": "MM Q: B5 Guidance for Standard I: Professionalism",
+          "minutes": 120,
           "kind": "questions",
-          "book": 6,
-          "reading_id": "active_equity_investing_portfolio_construction",
-          "question_source": "app"
-        },
-        {
-          "start": "07:00",
-          "label": "App Q: B1-M1 Capital Market Expectations, Part 1: Framework and Macro Considerations",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 1,
-          "reading_id": "capital_market_expectations_part_1_framework_and_macro_considerations",
-          "question_source": "app"
+          "book": 5,
+          "reading_id": "guidance_standard_i_professionalism",
+          "question_source": "mm"
         },
         {
           "start": "08:00",
-          "label": "App Q: B1-M2 Capital Market Expectations, Part 2: Forecasting Asset Class Returns",
-          "minutes": 60,
+          "label": "CFAI Q: B6 Liability-Driven and Index-Based Strategies",
+          "minutes": 120,
           "kind": "questions",
-          "book": 1,
-          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
-          "question_source": "app"
-        },
-        {
-          "start": "09:00",
-          "label": "App Q: B1-M3 Overview of Asset Allocation",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 1,
-          "reading_id": "overview_of_asset_allocation",
-          "question_source": "app"
+          "book": 6,
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "question_source": "cfai"
         },
         {
           "start": "10:00",
-          "label": "App Q: B1-M4 Principles of Asset Allocation",
-          "minutes": 60,
+          "label": "MM Q: B1 Capital Market Expectations, Part 1: Framework and Macro Considerations",
+          "minutes": 120,
           "kind": "questions",
           "book": 1,
-          "reading_id": "principles_of_asset_allocation",
-          "question_source": "app"
-        },
-        {
-          "start": "11:00",
-          "label": "App Q: B1-M5 Asset Allocation with Real-World Constraints",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 1,
-          "reading_id": "asset_allocation_with_real_world_constraints",
-          "question_source": "app"
+          "reading_id": "capital_market_expectations_part_1_framework_and_macro_considerations",
+          "question_source": "mm"
         }
       ]
     },
@@ -2104,57 +2058,30 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "App Q: B2-M3 Asset Allocation to Alternative Investments",
-          "minutes": 60,
+          "label": "App Q: B2 Portfolio Management for Institutional Investors",
+          "minutes": 120,
           "kind": "questions",
           "book": 2,
-          "reading_id": "asset_allocation_to_alternative_investments",
+          "reading_id": "portfolio_management_for_institutional_investors",
           "question_source": "app"
-        },
-        {
-          "start": "07:00",
-          "label": "MM Q: B2-M4 An Overview of Private Wealth Management",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 2,
-          "reading_id": "an_overview_of_private_wealth_management",
-          "question_source": "mm"
         },
         {
           "start": "08:00",
-          "label": "MM Q: B2-M6 Trading Costs and Electronic Markets",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 2,
-          "reading_id": "trading_costs_and_electronic_markets",
-          "question_source": "mm"
-        },
-        {
-          "start": "09:00",
-          "label": "App Q: B6-M7 Trade Strategy and Execution",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 6,
-          "reading_id": "trade_strategy_and_execution",
-          "question_source": "app"
-        },
-        {
-          "start": "10:00",
-          "label": "App Q: B3-M1 Portfolio Performance Evaluation",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 3,
-          "reading_id": "portfolio_performance_evaluation",
-          "question_source": "app"
-        },
-        {
-          "start": "11:00",
-          "label": "App Q: B3-M2 Investment Manager Selection",
-          "minutes": 60,
+          "label": "CFAI Q: B3 Investment Manager Selection",
+          "minutes": 120,
           "kind": "questions",
           "book": 3,
           "reading_id": "investment_manager_selection",
-          "question_source": "app"
+          "question_source": "cfai"
+        },
+        {
+          "start": "10:00",
+          "label": "MM Q: B6 Active Equity Investing: Portfolio Construction",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 6,
+          "reading_id": "active_equity_investing_portfolio_construction",
+          "question_source": "mm"
         }
       ]
     },
@@ -2165,12 +2092,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "MM Q: B3-M3 Overview of the Global Investment Performance Standards",
+          "label": "App Q: B4 Swaps, Forwards, and Futures Strategies",
           "minutes": 60,
           "kind": "questions",
-          "book": 3,
-          "reading_id": "overview_of_the_global_investment_performance_standards",
-          "question_source": "mm"
+          "book": 4,
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "question_source": "app"
         }
       ]
     },
@@ -2181,12 +2108,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "MM Q: B2-C Case Study in Portfolio Management: Institutional (SWF)",
+          "label": "App Q: B6 Trade Strategy and Execution",
           "minutes": 60,
           "kind": "questions",
-          "book": 2,
-          "reading_id": "case_study_in_portfolio_management_institutional_swf",
-          "question_source": "mm"
+          "book": 6,
+          "reading_id": "trade_strategy_and_execution",
+          "question_source": "app"
         }
       ]
     },
@@ -2197,12 +2124,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "App Q: B6-C Case Study in Portfolio Management: Institutional (Endowment)",
+          "label": "CFAI Q: B1 Overview of Asset Allocation",
           "minutes": 60,
           "kind": "questions",
-          "book": 6,
-          "reading_id": "case_study_in_portfolio_management_institutional_endowment",
-          "question_source": "app"
+          "book": 1,
+          "reading_id": "overview_of_asset_allocation",
+          "question_source": "cfai"
         }
       ]
     },
@@ -2213,15 +2140,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "App Q: B5-M1 Code of Ethics and Standards of Professional Conduct + Guidance for Standard I: Professionalism",
+          "label": "MM Q: B2 Overview of Fixed-Income Portfolio Management",
           "minutes": 60,
           "kind": "questions",
-          "book": 5,
-          "reading_id": "code_and_standards",
-          "also_covers": [
-            "guidance_standard_i_professionalism"
-          ],
-          "question_source": "app"
+          "book": 2,
+          "reading_id": "overview_of_fixed_income_portfolio_management",
+          "question_source": "mm"
         }
       ]
     },
@@ -2232,14 +2156,11 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "App Q: B5-M2a Guidance for Standard II: Integrity of Capital Markets + Guidance for Standard III: Duties to Clients",
+          "label": "App Q: B4 Options Strategies",
           "minutes": 60,
           "kind": "questions",
-          "book": 5,
-          "reading_id": "guidance_standard_ii_integrity_capital_markets",
-          "also_covers": [
-            "guidance_standard_iii_duties_to_clients"
-          ],
+          "book": 4,
+          "reading_id": "options_strategies",
           "question_source": "app"
         }
       ]
@@ -2251,62 +2172,29 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "App Q: B5-M2b Guidance for Standard IV: Duties to Employers + Guidance for Standard V: Investment Analysis, Recommendations, and Actions",
-          "minutes": 60,
+          "label": "CFAI Q: B5 Guidance for Standard III: Duties to Clients",
+          "minutes": 120,
           "kind": "questions",
           "book": 5,
-          "reading_id": "guidance_standard_iv_duties_to_employers",
-          "also_covers": [
-            "guidance_standard_v_investment_analysis"
-          ],
-          "question_source": "app"
-        },
-        {
-          "start": "07:00",
-          "label": "App Q: B5-M2c Guidance for Standard VI: Conflicts of Interest + Guidance for Standard VII: Responsibilities as a CFA Institute Member or CFA Candidate",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 5,
-          "reading_id": "guidance_standard_vi_conflicts_of_interest",
-          "also_covers": [
-            "guidance_standard_vii_responsibilities"
-          ],
-          "question_source": "app"
+          "reading_id": "guidance_standard_iii_duties_to_clients",
+          "question_source": "cfai"
         },
         {
           "start": "08:00",
-          "label": "App Q: B5-M3 Application of the Code and Standards: Level III",
-          "minutes": 60,
+          "label": "MM Q: B6 Index-Based Equity Strategies",
+          "minutes": 120,
           "kind": "questions",
-          "book": 5,
-          "reading_id": "application_of_code_and_standards_l3",
-          "question_source": "app"
-        },
-        {
-          "start": "09:00",
-          "label": "MM Q: B5-M4 Asset Manager Code of Professional Conduct",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 5,
-          "reading_id": "asset_manager_code_of_professional_conduct",
+          "book": 6,
+          "reading_id": "index_based_equity_strategies",
           "question_source": "mm"
         },
         {
           "start": "10:00",
-          "label": "App Q: B6-M6 Fixed-Income Active Management: Credit Strategies",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 6,
-          "reading_id": "fixed_income_active_management_credit_strategies",
-          "question_source": "app"
-        },
-        {
-          "start": "11:00",
-          "label": "App Q: B1-M4 Principles of Asset Allocation",
-          "minutes": 60,
+          "label": "App Q: B1 Capital Market Expectations, Part 2: Forecasting Asset Class Returns",
+          "minutes": 120,
           "kind": "questions",
           "book": 1,
-          "reading_id": "principles_of_asset_allocation",
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
           "question_source": "app"
         }
       ]
@@ -2318,9 +2206,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "Review: November baseline readout",
+          "label": "CFAI Q: B2 Trading Costs and Electronic Markets",
           "minutes": 60,
-          "kind": "review"
+          "kind": "questions",
+          "book": 2,
+          "reading_id": "trading_costs_and_electronic_markets",
+          "question_source": "cfai"
         }
       ]
     },
@@ -2331,12 +2222,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "App Q: B6-M2 Active Equity Investing: Strategies",
+          "label": "MM Q: B6 Case Study in Portfolio Management: Institutional (Endowment)",
           "minutes": 60,
           "kind": "questions",
           "book": 6,
-          "reading_id": "active_equity_investing_strategies",
-          "question_source": "app"
+          "reading_id": "case_study_in_portfolio_management_institutional_endowment",
+          "question_source": "mm"
         }
       ]
     },
@@ -2347,11 +2238,11 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "App Q: B4-M1 Options Strategies",
+          "label": "App Q: B4 Currency Management: An Introduction",
           "minutes": 60,
           "kind": "questions",
           "book": 4,
-          "reading_id": "options_strategies",
+          "reading_id": "currency_management_an_introduction",
           "question_source": "app"
         }
       ]
@@ -2363,148 +2254,93 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "App Q: B6-M4 Liability-Driven and Index-Based Strategies",
+          "label": "CFAI Q: B6 Yield Curve Strategies",
           "minutes": 60,
           "kind": "questions",
           "book": 6,
-          "reading_id": "liability_driven_and_index_based_strategies",
-          "question_source": "app"
+          "reading_id": "yield_curve_strategies",
+          "question_source": "cfai"
         }
       ]
     },
     {
       "date": "2026-11-26",
-      "hours": 1.0,
+      "hours": 0.0,
       "note": "Thanksgiving",
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "App Q: B1-M1 Capital Market Expectations, Part 1: Framework and Macro Considerations",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 1,
-          "reading_id": "capital_market_expectations_part_1_framework_and_macro_considerations",
-          "question_source": "app"
-        }
-      ]
+      "blocks": []
     },
     {
       "date": "2026-11-27",
       "hours": 1.0,
-      "note": "Thanksgiving",
+      "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "App Q: B4-M3 Currency Management: An Introduction",
+          "label": "MM Q: B2 An Overview of Private Wealth Management",
           "minutes": 60,
           "kind": "questions",
-          "book": 4,
-          "reading_id": "currency_management_an_introduction",
-          "question_source": "app"
+          "book": 2,
+          "reading_id": "an_overview_of_private_wealth_management",
+          "question_source": "mm"
         }
       ]
     },
     {
       "date": "2026-11-28",
-      "hours": 6.0,
-      "note": "Thanksgiving",
+      "hours": 4.0,
+      "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "MM Q: B3-M1 Portfolio Performance Evaluation",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 3,
-          "reading_id": "portfolio_performance_evaluation",
-          "question_source": "mm"
-        },
-        {
-          "start": "07:00",
-          "label": "MM Q: B6-M3 Active Equity Investing: Portfolio Construction",
-          "minutes": 60,
+          "label": "App Q: B6 Fixed-Income Active Management: Credit Strategies",
+          "minutes": 120,
           "kind": "questions",
           "book": 6,
-          "reading_id": "active_equity_investing_portfolio_construction",
-          "question_source": "mm"
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "question_source": "app"
         },
         {
           "start": "08:00",
-          "label": "App Q: B1-M3 Overview of Asset Allocation",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 1,
-          "reading_id": "overview_of_asset_allocation",
-          "question_source": "app"
-        },
-        {
-          "start": "09:00",
-          "label": "MM Q: B4-M2 Swaps, Forwards, and Futures Strategies",
-          "minutes": 60,
+          "label": "CFAI Q: B4 Swaps, Forwards, and Futures Strategies",
+          "minutes": 120,
           "kind": "questions",
           "book": 4,
           "reading_id": "swaps_forwards_and_futures_strategies",
-          "question_source": "mm"
-        },
-        {
-          "start": "10:00",
-          "label": "MM Q: B3-M2 Investment Manager Selection",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 3,
-          "reading_id": "investment_manager_selection",
-          "question_source": "mm"
-        },
-        {
-          "start": "11:00",
-          "label": "App Q: B2-M3 Asset Allocation to Alternative Investments",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 2,
-          "reading_id": "asset_allocation_to_alternative_investments",
-          "question_source": "app"
+          "question_source": "cfai"
         }
       ]
     },
     {
       "date": "2026-11-29",
       "hours": 6.0,
-      "note": "Thanksgiving",
+      "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "Mock: full sitting 1/6",
-          "minutes": 60,
-          "kind": "mock"
-        },
-        {
-          "start": "07:00",
-          "label": "Mock: full sitting 2/6",
-          "minutes": 60,
-          "kind": "mock"
+          "label": "MM Q: B5 Guidance for Standard IV: Duties to Employers",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 5,
+          "reading_id": "guidance_standard_iv_duties_to_employers",
+          "question_source": "mm"
         },
         {
           "start": "08:00",
-          "label": "Mock: full sitting 3/6",
-          "minutes": 60,
-          "kind": "mock"
-        },
-        {
-          "start": "09:00",
-          "label": "Mock: full sitting 4/6",
-          "minutes": 60,
-          "kind": "mock"
+          "label": "App Q: B1 Asset Allocation with Real-World Constraints",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 1,
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "question_source": "app"
         },
         {
           "start": "10:00",
-          "label": "Mock: full sitting 5/6",
-          "minutes": 60,
-          "kind": "mock"
-        },
-        {
-          "start": "11:00",
-          "label": "Mock: full sitting 6/6",
-          "minutes": 60,
-          "kind": "mock"
+          "label": "CFAI Q: B2 Case Study in Portfolio Management: Institutional (SWF)",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 2,
+          "reading_id": "case_study_in_portfolio_management_institutional_swf",
+          "question_source": "cfai"
         }
       ]
     },
@@ -2515,9 +2351,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "Review: December plan",
+          "label": "MM Q: B3 Overview of the Global Investment Performance Standards",
           "minutes": 60,
-          "kind": "review"
+          "kind": "questions",
+          "book": 3,
+          "reading_id": "overview_of_the_global_investment_performance_standards",
+          "question_source": "mm"
         }
       ]
     },
@@ -2528,11 +2367,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "D3: B5-M1 Code of Ethics and Standards",
+          "label": "MM Q: B6 Active Equity Investing: Strategies",
           "minutes": 120,
-          "kind": "deep3",
-          "book": 5,
-          "reading_id": "code_and_standards"
+          "kind": "questions",
+          "book": 6,
+          "reading_id": "active_equity_investing_strategies",
+          "question_source": "mm"
         }
       ]
     },
@@ -2543,483 +2383,665 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "D3: B5-M1 Code of Ethics and Standards",
+          "label": "App Q: B6 Liability-Driven and Index-Based Strategies",
           "minutes": 120,
-          "kind": "deep3",
-          "book": 5,
-          "reading_id": "code_and_standards"
+          "kind": "questions",
+          "book": 6,
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "question_source": "app"
         }
       ]
     },
     {
       "date": "2026-12-03",
-      "hours": 2.0,
+      "hours": 1.0,
       "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "D3: B5-M2 Guidance for Standards I\u2013VII",
-          "minutes": 120,
-          "kind": "deep3",
-          "book": 5,
-          "reading_id": "guidance_standard_i_professionalism"
+          "label": "CFAI Q: B1 Principles of Asset Allocation",
+          "minutes": 60,
+          "kind": "questions",
+          "book": 1,
+          "reading_id": "principles_of_asset_allocation",
+          "question_source": "cfai"
         }
       ]
     },
     {
       "date": "2026-12-04",
-      "hours": 2.0,
-      "note": null,
+      "hours": 6.0,
+      "note": "Off (vet)",
       "blocks": [
         {
           "start": "06:00",
-          "label": "D3: B5-M2 Guidance for Standards I\u2013VII",
+          "label": "CFAI Q: B2 Overview of Equity Portfolio Management",
           "minutes": 120,
-          "kind": "deep3",
-          "book": 5,
-          "reading_id": "guidance_standard_i_professionalism"
+          "kind": "questions",
+          "book": 2,
+          "reading_id": "overview_of_equity_portfolio_management",
+          "question_source": "cfai"
+        },
+        {
+          "start": "08:00",
+          "label": "MM Q: B3 Portfolio Performance Evaluation",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 3,
+          "reading_id": "portfolio_performance_evaluation",
+          "question_source": "mm"
+        },
+        {
+          "start": "10:00",
+          "label": "App Q: B6 Active Equity Investing: Portfolio Construction",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 6,
+          "reading_id": "active_equity_investing_portfolio_construction",
+          "question_source": "app"
         }
       ]
     },
     {
       "date": "2026-12-05",
-      "hours": 3.5,
-      "note": null,
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "D3: B5-M2 Guidance for Standards I\u2013VII",
-          "minutes": 120,
-          "kind": "deep3",
-          "book": 5,
-          "reading_id": "guidance_standard_i_professionalism"
-        },
-        {
-          "start": "08:00",
-          "label": "MM Video: B5-M1 Code of Ethics and Standards",
-          "minutes": 15,
-          "kind": "video",
-          "book": 5,
-          "reading_id": "code_and_standards"
-        },
-        {
-          "start": "08:15",
-          "label": "MM Video: B5-M2 Guidance for Standards I\u2013VII",
-          "minutes": 75,
-          "kind": "video",
-          "book": 5,
-          "reading_id": "guidance_standard_i_professionalism"
-        }
-      ]
-    },
-    {
-      "date": "2026-12-06",
-      "hours": 2.75,
-      "note": null,
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "MM Video: B5-M2 Guidance for Standards I\u2013VII",
-          "minutes": 120,
-          "kind": "video",
-          "book": 5,
-          "reading_id": "guidance_standard_i_professionalism"
-        },
-        {
-          "start": "08:00",
-          "label": "MM Q: B5-M2 Guidance for Standards I\u2013VII",
-          "minutes": 45,
-          "kind": "video",
-          "book": 5,
-          "reading_id": "guidance_standard_i_professionalism"
-        }
-      ]
-    },
-    {
-      "date": "2026-12-07",
-      "hours": 2.0,
-      "note": null,
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "D3: B5-M3 Application of the Code and Standards",
-          "minutes": 120,
-          "kind": "deep3",
-          "book": 5,
-          "reading_id": "application_of_code_and_standards_l3"
-        }
-      ]
-    },
-    {
-      "date": "2026-12-08",
-      "hours": 2.0,
-      "note": null,
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "D3: B5-M3 Application of the Code and Standards",
-          "minutes": 120,
-          "kind": "deep3",
-          "book": 5,
-          "reading_id": "application_of_code_and_standards_l3"
-        }
-      ]
-    },
-    {
-      "date": "2026-12-09",
-      "hours": 2.0,
-      "note": null,
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "D3: B5-M3 Application of the Code and Standards",
-          "minutes": 120,
-          "kind": "deep3",
-          "book": 5,
-          "reading_id": "application_of_code_and_standards_l3"
-        }
-      ]
-    },
-    {
-      "date": "2026-12-10",
-      "hours": 2.0,
-      "note": null,
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "MM Video: B5-M3 Application of the Code and Standards",
-          "minutes": 120,
-          "kind": "video",
-          "book": 5,
-          "reading_id": "application_of_code_and_standards_l3"
-        }
-      ]
-    },
-    {
-      "date": "2026-12-11",
-      "hours": 2.0,
-      "note": null,
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "MM Video: B5-M3 Application of the Code and Standards",
-          "minutes": 15,
-          "kind": "video",
-          "book": 5,
-          "reading_id": "application_of_code_and_standards_l3"
-        },
-        {
-          "start": "06:15",
-          "label": "MM Q: B5-M1 Code of Ethics and Standards",
-          "minutes": 105,
-          "kind": "video",
-          "book": 5,
-          "reading_id": "code_and_standards"
-        }
-      ]
-    },
-    {
-      "date": "2026-12-12",
-      "hours": 3.5,
-      "note": null,
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "MM Q: B5-M1 Code of Ethics and Standards",
-          "minutes": 120,
-          "kind": "video",
-          "book": 5,
-          "reading_id": "code_and_standards"
-        },
-        {
-          "start": "08:00",
-          "label": "MM Q: B5-M3 Application of the Code and Standards",
-          "minutes": 90,
-          "kind": "video",
-          "book": 5,
-          "reading_id": "application_of_code_and_standards_l3"
-        }
-      ]
-    },
-    {
-      "date": "2026-12-13",
-      "hours": 0.25,
-      "note": null,
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "MM Q: B5-M3 Application of the Code and Standards",
-          "minutes": 15,
-          "kind": "video",
-          "book": 5,
-          "reading_id": "application_of_code_and_standards_l3"
-        }
-      ]
-    },
-    {
-      "date": "2026-12-14",
-      "hours": 2.0,
-      "note": null,
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "D3: B5-M4 Asset Manager Code of Professional Conduct",
-          "minutes": 120,
-          "kind": "deep3",
-          "book": 5,
-          "reading_id": "asset_manager_code_of_professional_conduct"
-        }
-      ]
-    },
-    {
-      "date": "2026-12-15",
-      "hours": 2.0,
-      "note": null,
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "D3: B5-M4 Asset Manager Code of Professional Conduct",
-          "minutes": 120,
-          "kind": "deep3",
-          "book": 5,
-          "reading_id": "asset_manager_code_of_professional_conduct"
-        }
-      ]
-    },
-    {
-      "date": "2026-12-16",
-      "hours": 2.0,
-      "note": null,
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "D3: B5-M4 Asset Manager Code of Professional Conduct",
-          "minutes": 120,
-          "kind": "deep3",
-          "book": 5,
-          "reading_id": "asset_manager_code_of_professional_conduct"
-        }
-      ]
-    },
-    {
-      "date": "2026-12-17",
-      "hours": 2.0,
-      "note": null,
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "MM Video: B5-M4 Asset Manager Code of Professional Conduct",
-          "minutes": 30,
-          "kind": "video",
-          "book": 5,
-          "reading_id": "asset_manager_code_of_professional_conduct"
-        },
-        {
-          "start": "06:30",
-          "label": "MM Q: B5-M4 Asset Manager Code of Professional Conduct",
-          "minutes": 90,
-          "kind": "video",
-          "book": 5,
-          "reading_id": "asset_manager_code_of_professional_conduct"
-        }
-      ]
-    },
-    {
-      "date": "2026-12-18",
-      "hours": 2.0,
-      "note": null,
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "MM Q: B5-M4 Asset Manager Code of Professional Conduct",
-          "minutes": 120,
-          "kind": "video",
-          "book": 5,
-          "reading_id": "asset_manager_code_of_professional_conduct"
-        }
-      ]
-    },
-    {
-      "date": "2026-12-19",
-      "hours": 0.0,
-      "note": null,
-      "blocks": []
-    },
-    {
-      "date": "2026-12-20",
-      "hours": 0.0,
-      "note": null,
-      "blocks": []
-    },
-    {
-      "date": "2026-12-21",
-      "hours": 2.0,
-      "note": null,
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "CFAI Q: B4-M1 Option Strategies",
-          "minutes": 120,
-          "kind": "questions",
-          "book": 4
-        }
-      ]
-    },
-    {
-      "date": "2026-12-22",
-      "hours": 2.0,
-      "note": null,
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "CFAI Q: B4-M1 Option Strategies",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 4
-        },
-        {
-          "start": "07:00",
-          "label": "CFAI Q: B4-M2 Swaps, Forwards & Futures",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 4
-        }
-      ]
-    },
-    {
-      "date": "2026-12-23",
-      "hours": 2.0,
-      "note": null,
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "CFAI Q: B4-M2 Swaps, Forwards & Futures",
-          "minutes": 120,
-          "kind": "questions",
-          "book": 4
-        }
-      ]
-    },
-    {
-      "date": "2026-12-24",
-      "hours": 2.0,
-      "note": null,
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "CFAI Q: B4-M3 Currency Management",
-          "minutes": 120,
-          "kind": "questions",
-          "book": 4
-        }
-      ]
-    },
-    {
-      "date": "2026-12-25",
-      "hours": 0.0,
-      "note": "Christmas",
-      "blocks": []
-    },
-    {
-      "date": "2026-12-26",
       "hours": 6.0,
       "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "TAKE: Deep 3 Practice Exam 1",
+          "label": "CFAI Q: B4 Options Strategies",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 4,
+          "reading_id": "options_strategies",
+          "question_source": "cfai"
+        },
+        {
+          "start": "08:00",
+          "label": "MM Q: B5 Guidance for Standard V: Investment Analysis, Recommendations, and Actions",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 5,
+          "reading_id": "guidance_standard_v_investment_analysis",
+          "question_source": "mm"
+        },
+        {
+          "start": "10:00",
+          "label": "App Q: B1 Capital Market Expectations, Part 1: Framework and Macro Considerations",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 1,
+          "reading_id": "capital_market_expectations_part_1_framework_and_macro_considerations",
+          "question_source": "app"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-06",
+      "hours": 6.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "CFAI Q: B6 Trade Strategy and Execution",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 6,
+          "reading_id": "trade_strategy_and_execution",
+          "question_source": "cfai"
+        },
+        {
+          "start": "08:00",
+          "label": "MM Q: B2 Asset Allocation to Alternative Investments",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 2,
+          "reading_id": "asset_allocation_to_alternative_investments",
+          "question_source": "mm"
+        },
+        {
+          "start": "10:00",
+          "label": "App Q: B6 Index-Based Equity Strategies",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 6,
+          "reading_id": "index_based_equity_strategies",
+          "question_source": "app"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-07",
+      "hours": 1.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "CFAI Q: B1 Overview of Asset Allocation",
+          "minutes": 60,
+          "kind": "questions",
+          "book": 1,
+          "reading_id": "overview_of_asset_allocation",
+          "question_source": "cfai"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-08",
+      "hours": 1.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "MM Q: B4 Currency Management: An Introduction",
+          "minutes": 60,
+          "kind": "questions",
+          "book": 4,
+          "reading_id": "currency_management_an_introduction",
+          "question_source": "mm"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-09",
+      "hours": 1.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "App Q: B5 Guidance for Standard VI: Conflicts of Interest",
+          "minutes": 60,
+          "kind": "questions",
+          "book": 5,
+          "reading_id": "guidance_standard_vi_conflicts_of_interest",
+          "question_source": "app"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-10",
+      "hours": 1.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "CFAI Q: B6 Case Study in Portfolio Management: Institutional (Endowment)",
+          "minutes": 60,
+          "kind": "questions",
+          "book": 6,
+          "reading_id": "case_study_in_portfolio_management_institutional_endowment",
+          "question_source": "cfai"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-11",
+      "hours": 1.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "MM Q: B1 Capital Market Expectations, Part 2: Forecasting Asset Class Returns",
+          "minutes": 60,
+          "kind": "questions",
+          "book": 1,
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "question_source": "mm"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-12",
+      "hours": 6.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "App Q: B2 Portfolio Management for Institutional Investors",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 2,
+          "reading_id": "portfolio_management_for_institutional_investors",
+          "question_source": "app"
+        },
+        {
+          "start": "08:00",
+          "label": "CFAI Q: B6 Yield Curve Strategies",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 6,
+          "reading_id": "yield_curve_strategies",
+          "question_source": "cfai"
+        },
+        {
+          "start": "10:00",
+          "label": "MM Q: B1 Asset Allocation with Real-World Constraints",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 1,
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "question_source": "mm"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-13",
+      "hours": 6.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "App Q: B4 Swaps, Forwards, and Futures Strategies",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 4,
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "question_source": "app"
+        },
+        {
+          "start": "08:00",
+          "label": "CFAI Q: B5 Asset Manager Code of Professional Conduct",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 5,
+          "reading_id": "asset_manager_code_of_professional_conduct",
+          "question_source": "cfai"
+        },
+        {
+          "start": "10:00",
+          "label": "MM Q: B3 Investment Manager Selection",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 3,
+          "reading_id": "investment_manager_selection",
+          "question_source": "mm"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-14",
+      "hours": 1.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "App Q: B6 Fixed-Income Active Management: Credit Strategies",
+          "minutes": 60,
+          "kind": "questions",
+          "book": 6,
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "question_source": "app"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-15",
+      "hours": 1.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "CFAI Q: B2 Overview of Fixed-Income Portfolio Management",
+          "minutes": 60,
+          "kind": "questions",
+          "book": 2,
+          "reading_id": "overview_of_fixed_income_portfolio_management",
+          "question_source": "cfai"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-16",
+      "hours": 1.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "MM Q: B6 Active Equity Investing: Strategies",
+          "minutes": 60,
+          "kind": "questions",
+          "book": 6,
+          "reading_id": "active_equity_investing_strategies",
+          "question_source": "mm"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-17",
+      "hours": 1.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "App Q: B6 Liability-Driven and Index-Based Strategies",
+          "minutes": 60,
+          "kind": "questions",
+          "book": 6,
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "question_source": "app"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-18",
+      "hours": 1.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "CFAI Q: B1 Principles of Asset Allocation",
+          "minutes": 60,
+          "kind": "questions",
+          "book": 1,
+          "reading_id": "principles_of_asset_allocation",
+          "question_source": "cfai"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-19",
+      "hours": 6.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "MM Q: B2 Trading Costs and Electronic Markets",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 2,
+          "reading_id": "trading_costs_and_electronic_markets",
+          "question_source": "mm"
+        },
+        {
+          "start": "08:00",
+          "label": "App Q: B6 Active Equity Investing: Portfolio Construction",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 6,
+          "reading_id": "active_equity_investing_portfolio_construction",
+          "question_source": "app"
+        },
+        {
+          "start": "10:00",
+          "label": "CFAI Q: B4 Options Strategies",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 4,
+          "reading_id": "options_strategies",
+          "question_source": "cfai"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-20",
+      "hours": 6.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "MM Q: B5 Guidance for Standard II: Integrity of Capital Markets",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 5,
+          "reading_id": "guidance_standard_ii_integrity_capital_markets",
+          "question_source": "mm"
+        },
+        {
+          "start": "08:00",
+          "label": "App Q: B1 Capital Market Expectations, Part 1: Framework and Macro Considerations",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 1,
+          "reading_id": "capital_market_expectations_part_1_framework_and_macro_considerations",
+          "question_source": "app"
+        },
+        {
+          "start": "10:00",
+          "label": "CFAI Q: B6 Trade Strategy and Execution",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 6,
+          "reading_id": "trade_strategy_and_execution",
+          "question_source": "cfai"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-21",
+      "hours": 1.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "MM Q: B2 An Overview of Private Wealth Management",
+          "minutes": 60,
+          "kind": "questions",
+          "book": 2,
+          "reading_id": "an_overview_of_private_wealth_management",
+          "question_source": "mm"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-22",
+      "hours": 1.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "App Q: B6 Index-Based Equity Strategies",
+          "minutes": 60,
+          "kind": "questions",
+          "book": 6,
+          "reading_id": "index_based_equity_strategies",
+          "question_source": "app"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-23",
+      "hours": 1.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "CFAI Q: B3 Overview of the Global Investment Performance Standards",
+          "minutes": 60,
+          "kind": "questions",
+          "book": 3,
+          "reading_id": "overview_of_the_global_investment_performance_standards",
+          "question_source": "cfai"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-24",
+      "hours": 1.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "MM Q: B6 Case Study in Portfolio Management: Institutional (Endowment)",
+          "minutes": 60,
+          "kind": "questions",
+          "book": 6,
+          "reading_id": "case_study_in_portfolio_management_institutional_endowment",
+          "question_source": "mm"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-25",
+      "hours": 1.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "App Q: B1 Overview of Asset Allocation",
+          "minutes": 60,
+          "kind": "questions",
+          "book": 1,
+          "reading_id": "overview_of_asset_allocation",
+          "question_source": "app"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-26",
+      "hours": 0.0,
+      "note": null,
+      "blocks": []
+    },
+    {
+      "date": "2026-12-27",
+      "hours": 6.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "MOCK: Deep 3 Practice Exam 1",
           "minutes": 360,
           "kind": "mock"
         }
       ]
     },
     {
-      "date": "2026-12-27",
-      "hours": 7.0,
-      "note": null,
-      "blocks": [
-        {
-          "start": "06:00",
-          "label": "Extra Review: PM Pathway (B6)",
-          "minutes": 420,
-          "kind": "review"
-        }
-      ]
-    },
-    {
       "date": "2026-12-28",
-      "hours": 2.0,
+      "hours": 6.0,
       "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B4-M3 Currency Management",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 4
+          "label": "REVIEW: Deep 3 Practice Exam 1",
+          "minutes": 120,
+          "kind": "review"
         },
         {
-          "start": "07:00",
-          "label": "CFAI Q: B2-M5 PM for Institutional Investors",
-          "minutes": 60,
+          "start": "08:00",
+          "label": "CFAI Q: B2 Case Study in Portfolio Management: Institutional (SWF)",
+          "minutes": 120,
           "kind": "questions",
-          "book": 2
+          "book": 2,
+          "reading_id": "case_study_in_portfolio_management_institutional_swf",
+          "question_source": "cfai"
+        },
+        {
+          "start": "10:00",
+          "label": "MM Q: B6 Yield Curve Strategies",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 6,
+          "reading_id": "yield_curve_strategies",
+          "question_source": "mm"
         }
       ]
     },
     {
       "date": "2026-12-29",
-      "hours": 2.0,
+      "hours": 6.0,
       "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B2-M5 PM for Institutional Investors",
+          "label": "App Q: B4 Currency Management: An Introduction",
           "minutes": 120,
           "kind": "questions",
-          "book": 2
+          "book": 4,
+          "reading_id": "currency_management_an_introduction",
+          "question_source": "app"
+        },
+        {
+          "start": "08:00",
+          "label": "CFAI Q: B5 Guidance for Standard VII: Responsibilities as a CFA Institute Member or CFA Candidate",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 5,
+          "reading_id": "guidance_standard_vii_responsibilities",
+          "question_source": "cfai"
+        },
+        {
+          "start": "10:00",
+          "label": "MM Q: B1 Capital Market Expectations, Part 2: Forecasting Asset Class Returns",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 1,
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "question_source": "mm"
         }
       ]
     },
     {
       "date": "2026-12-30",
-      "hours": 2.0,
+      "hours": 6.0,
       "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B2-M2 Overview of FI Portfolio Mgmt",
+          "label": "App Q: B6 Fixed-Income Active Management: Credit Strategies",
           "minutes": 120,
           "kind": "questions",
-          "book": 2
+          "book": 6,
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "question_source": "app"
+        },
+        {
+          "start": "08:00",
+          "label": "CFAI Q: B2 Overview of Equity Portfolio Management",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 2,
+          "reading_id": "overview_of_equity_portfolio_management",
+          "question_source": "cfai"
+        },
+        {
+          "start": "10:00",
+          "label": "MM Q: B3 Portfolio Performance Evaluation",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 3,
+          "reading_id": "portfolio_performance_evaluation",
+          "question_source": "mm"
         }
       ]
     },
     {
       "date": "2026-12-31",
-      "hours": 2.0,
+      "hours": 6.0,
       "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B2-M2 Overview of FI Portfolio Mgmt",
-          "minutes": 60,
+          "label": "App Q: B6 Active Equity Investing: Strategies",
+          "minutes": 120,
           "kind": "questions",
-          "book": 2
+          "book": 6,
+          "reading_id": "active_equity_investing_strategies",
+          "question_source": "app"
         },
         {
-          "start": "07:00",
-          "label": "CFAI Q: B6-M4 Liability Driven & Index Based",
-          "minutes": 60,
+          "start": "08:00",
+          "label": "CFAI Q: B1 Asset Allocation with Real-World Constraints",
+          "minutes": 120,
           "kind": "questions",
-          "book": 6
+          "book": 1,
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "question_source": "cfai"
+        },
+        {
+          "start": "10:00",
+          "label": "MM Q: B4 Swaps, Forwards, and Futures Strategies",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 4,
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "question_source": "mm"
         }
       ]
     },
     {
       "date": "2027-01-01",
       "hours": 0.0,
-      "note": "New Year's Day",
+      "note": null,
       "blocks": []
     },
     {
@@ -3029,7 +3051,7 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "TAKE: MM Practice Exam 1",
+          "label": "MOCK: Mark Meldrum Practice Exam 1",
           "minutes": 360,
           "kind": "mock"
         }
@@ -3037,14 +3059,32 @@
     },
     {
       "date": "2027-01-03",
-      "hours": 4.0,
+      "hours": 6.0,
       "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "REVIEW: Deep 3 Practice Exam 1",
-          "minutes": 240,
-          "kind": "mock"
+          "label": "REVIEW: Mark Meldrum Practice Exam 1",
+          "minutes": 120,
+          "kind": "review"
+        },
+        {
+          "start": "08:00",
+          "label": "App Q: B5 Code of Ethics and Standards of Professional Conduct",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 5,
+          "reading_id": "code_and_standards",
+          "question_source": "app"
+        },
+        {
+          "start": "10:00",
+          "label": "CFAI Q: B6 Liability-Driven and Index-Based Strategies",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 6,
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "question_source": "cfai"
         }
       ]
     },
@@ -3055,10 +3095,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B6-M4 Liability Driven & Index Based",
+          "label": "MM Q: B2 Asset Allocation to Alternative Investments",
           "minutes": 120,
           "kind": "questions",
-          "book": 6
+          "book": 2,
+          "reading_id": "asset_allocation_to_alternative_investments",
+          "question_source": "mm"
         }
       ]
     },
@@ -3069,10 +3111,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B6-M5 Yield Curve Strategies",
+          "label": "App Q: B6 Active Equity Investing: Portfolio Construction",
           "minutes": 120,
           "kind": "questions",
-          "book": 6
+          "book": 6,
+          "reading_id": "active_equity_investing_portfolio_construction",
+          "question_source": "app"
         }
       ]
     },
@@ -3083,17 +3127,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B6-M5 Yield Curve Strategies",
-          "minutes": 60,
+          "label": "CFAI Q: B1 Principles of Asset Allocation",
+          "minutes": 120,
           "kind": "questions",
-          "book": 6
-        },
-        {
-          "start": "07:00",
-          "label": "CFAI Q: B6-M6 FI Credit Strategies",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 6
+          "book": 1,
+          "reading_id": "principles_of_asset_allocation",
+          "question_source": "cfai"
         }
       ]
     },
@@ -3104,10 +3143,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B6-M6 FI Credit Strategies",
+          "label": "MM Q: B6 Trade Strategy and Execution",
           "minutes": 120,
           "kind": "questions",
-          "book": 6
+          "book": 6,
+          "reading_id": "trade_strategy_and_execution",
+          "question_source": "mm"
         }
       ]
     },
@@ -3118,10 +3159,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B2-M1 Overview of Equity PM",
+          "label": "App Q: B2 Portfolio Management for Institutional Investors",
           "minutes": 120,
           "kind": "questions",
-          "book": 2
+          "book": 2,
+          "reading_id": "portfolio_management_for_institutional_investors",
+          "question_source": "app"
         }
       ]
     },
@@ -3132,7 +3175,7 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "TAKE: MM Practice Exam 2",
+          "label": "MOCK: Deep 3 Practice Exam 2",
           "minutes": 360,
           "kind": "mock"
         }
@@ -3140,14 +3183,32 @@
     },
     {
       "date": "2027-01-10",
-      "hours": 4.0,
+      "hours": 6.0,
       "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "REVIEW: MM Practice Exam 1",
-          "minutes": 240,
-          "kind": "mock"
+          "label": "REVIEW: Deep 3 Practice Exam 2",
+          "minutes": 120,
+          "kind": "review"
+        },
+        {
+          "start": "08:00",
+          "label": "CFAI Q: B4 Options Strategies",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 4,
+          "reading_id": "options_strategies",
+          "question_source": "cfai"
+        },
+        {
+          "start": "10:00",
+          "label": "MM Q: B5 Application of the Code and Standards: Level III",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 5,
+          "reading_id": "application_of_code_and_standards_l3",
+          "question_source": "mm"
         }
       ]
     },
@@ -3158,17 +3219,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B2-M1 Overview of Equity PM",
-          "minutes": 60,
+          "label": "App Q: B3 Investment Manager Selection",
+          "minutes": 120,
           "kind": "questions",
-          "book": 2
-        },
-        {
-          "start": "07:00",
-          "label": "CFAI Q: B6-M1 Index Based Equity Strategies",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 6
+          "book": 3,
+          "reading_id": "investment_manager_selection",
+          "question_source": "app"
         }
       ]
     },
@@ -3179,10 +3235,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B6-M1 Index Based Equity Strategies",
+          "label": "CFAI Q: B6 Index-Based Equity Strategies",
           "minutes": 120,
           "kind": "questions",
-          "book": 6
+          "book": 6,
+          "reading_id": "index_based_equity_strategies",
+          "question_source": "cfai"
         }
       ]
     },
@@ -3193,10 +3251,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B6-M2 Active Equity Investing Strategies",
+          "label": "MM Q: B1 Capital Market Expectations, Part 1: Framework and Macro Considerations",
           "minutes": 120,
           "kind": "questions",
-          "book": 6
+          "book": 1,
+          "reading_id": "capital_market_expectations_part_1_framework_and_macro_considerations",
+          "question_source": "mm"
         }
       ]
     },
@@ -3207,17 +3267,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B6-M2 Active Equity Investing Strategies",
-          "minutes": 60,
+          "label": "App Q: B6 Case Study in Portfolio Management: Institutional (Endowment)",
+          "minutes": 120,
           "kind": "questions",
-          "book": 6
-        },
-        {
-          "start": "07:00",
-          "label": "CFAI Q: B6-M3 Active Equity Port Construction",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 6
+          "book": 6,
+          "reading_id": "case_study_in_portfolio_management_institutional_endowment",
+          "question_source": "app"
         }
       ]
     },
@@ -3228,10 +3283,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B6-M3 Active Equity Port Construction",
+          "label": "CFAI Q: B2 Overview of Fixed-Income Portfolio Management",
           "minutes": 120,
           "kind": "questions",
-          "book": 6
+          "book": 2,
+          "reading_id": "overview_of_fixed_income_portfolio_management",
+          "question_source": "cfai"
         }
       ]
     },
@@ -3242,7 +3299,7 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "TAKE: Deep 3 Practice Exam 2",
+          "label": "MOCK: Mark Meldrum Practice Exam 2",
           "minutes": 360,
           "kind": "mock"
         }
@@ -3250,28 +3307,66 @@
     },
     {
       "date": "2027-01-17",
-      "hours": 4.0,
+      "hours": 6.0,
       "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "REVIEW: MM Practice Exam 2",
-          "minutes": 240,
-          "kind": "mock"
+          "label": "REVIEW: Mark Meldrum Practice Exam 2",
+          "minutes": 120,
+          "kind": "review"
+        },
+        {
+          "start": "08:00",
+          "label": "MM Q: B6 Yield Curve Strategies",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 6,
+          "reading_id": "yield_curve_strategies",
+          "question_source": "mm"
+        },
+        {
+          "start": "10:00",
+          "label": "App Q: B4 Currency Management: An Introduction",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 4,
+          "reading_id": "currency_management_an_introduction",
+          "question_source": "app"
         }
       ]
     },
     {
       "date": "2027-01-18",
-      "hours": 2.0,
+      "hours": 6.0,
       "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B1-M1 Capital Market Expectations I",
+          "label": "CFAI Q: B5 Guidance for Standard I: Professionalism",
           "minutes": 120,
           "kind": "questions",
-          "book": 1
+          "book": 5,
+          "reading_id": "guidance_standard_i_professionalism",
+          "question_source": "cfai"
+        },
+        {
+          "start": "08:00",
+          "label": "MM Q: B1 Overview of Asset Allocation",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 1,
+          "reading_id": "overview_of_asset_allocation",
+          "question_source": "mm"
+        },
+        {
+          "start": "10:00",
+          "label": "App Q: B2 Trading Costs and Electronic Markets",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 2,
+          "reading_id": "trading_costs_and_electronic_markets",
+          "question_source": "app"
         }
       ]
     },
@@ -3282,17 +3377,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B1-M1 Capital Market Expectations I",
-          "minutes": 60,
+          "label": "CFAI Q: B6 Fixed-Income Active Management: Credit Strategies",
+          "minutes": 120,
           "kind": "questions",
-          "book": 1
-        },
-        {
-          "start": "07:00",
-          "label": "CFAI Q: B1-M2 Capital Market Expectations II",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 1
+          "book": 6,
+          "reading_id": "fixed_income_active_management_credit_strategies",
+          "question_source": "cfai"
         }
       ]
     },
@@ -3303,10 +3393,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B1-M2 Capital Market Expectations II",
+          "label": "MM Q: B1 Capital Market Expectations, Part 2: Forecasting Asset Class Returns",
           "minutes": 120,
           "kind": "questions",
-          "book": 1
+          "book": 1,
+          "reading_id": "capital_market_expectations_part_2_forecasting_asset_class_returns",
+          "question_source": "mm"
         }
       ]
     },
@@ -3317,10 +3409,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B1-M3 Overview of Asset Allocation",
+          "label": "App Q: B6 Active Equity Investing: Strategies",
           "minutes": 120,
           "kind": "questions",
-          "book": 1
+          "book": 6,
+          "reading_id": "active_equity_investing_strategies",
+          "question_source": "app"
         }
       ]
     },
@@ -3331,17 +3425,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B1-M3 Overview of Asset Allocation",
-          "minutes": 60,
+          "label": "CFAI Q: B3 Overview of the Global Investment Performance Standards",
+          "minutes": 120,
           "kind": "questions",
-          "book": 1
-        },
-        {
-          "start": "07:00",
-          "label": "CFAI Q: B1-M4 Principles of Asset Allocation",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 1
+          "book": 3,
+          "reading_id": "overview_of_the_global_investment_performance_standards",
+          "question_source": "cfai"
         }
       ]
     },
@@ -3352,7 +3441,7 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "TAKE: CFAI Practice Exam 1",
+          "label": "MOCK: CFAI Practice Exam 1",
           "minutes": 360,
           "kind": "mock"
         }
@@ -3360,14 +3449,32 @@
     },
     {
       "date": "2027-01-24",
-      "hours": 4.0,
+      "hours": 6.0,
       "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "REVIEW: Deep 3 Practice Exam 2",
-          "minutes": 240,
-          "kind": "mock"
+          "label": "REVIEW: CFAI Practice Exam 1",
+          "minutes": 120,
+          "kind": "review"
+        },
+        {
+          "start": "08:00",
+          "label": "MM Q: B4 Swaps, Forwards, and Futures Strategies",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 4,
+          "reading_id": "swaps_forwards_and_futures_strategies",
+          "question_source": "mm"
+        },
+        {
+          "start": "10:00",
+          "label": "App Q: B5 Guidance for Standard III: Duties to Clients",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 5,
+          "reading_id": "guidance_standard_iii_duties_to_clients",
+          "question_source": "app"
         }
       ]
     },
@@ -3378,10 +3485,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B1-M4 Principles of Asset Allocation",
+          "label": "CFAI Q: B2 An Overview of Private Wealth Management",
           "minutes": 120,
           "kind": "questions",
-          "book": 1
+          "book": 2,
+          "reading_id": "an_overview_of_private_wealth_management",
+          "question_source": "cfai"
         }
       ]
     },
@@ -3392,10 +3501,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B1-M5 Real World Constraints",
+          "label": "MM Q: B6 Liability-Driven and Index-Based Strategies",
           "minutes": 120,
           "kind": "questions",
-          "book": 1
+          "book": 6,
+          "reading_id": "liability_driven_and_index_based_strategies",
+          "question_source": "mm"
         }
       ]
     },
@@ -3406,17 +3517,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B1-M5 Real World Constraints",
-          "minutes": 60,
+          "label": "App Q: B1 Asset Allocation with Real-World Constraints",
+          "minutes": 120,
           "kind": "questions",
-          "book": 1
-        },
-        {
-          "start": "07:00",
-          "label": "CFAI Q: B2-M3 Alt Investments",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 2
+          "book": 1,
+          "reading_id": "asset_allocation_with_real_world_constraints",
+          "question_source": "app"
         }
       ]
     },
@@ -3427,10 +3533,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B2-M3 Alt Investments",
+          "label": "CFAI Q: B6 Active Equity Investing: Portfolio Construction",
           "minutes": 120,
           "kind": "questions",
-          "book": 2
+          "book": 6,
+          "reading_id": "active_equity_investing_portfolio_construction",
+          "question_source": "cfai"
         }
       ]
     },
@@ -3441,10 +3549,12 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B2-M4 Private Wealth Mgmt",
+          "label": "MM Q: B2 Case Study in Portfolio Management: Institutional (SWF)",
           "minutes": 120,
           "kind": "questions",
-          "book": 2
+          "book": 2,
+          "reading_id": "case_study_in_portfolio_management_institutional_swf",
+          "question_source": "mm"
         }
       ]
     },
@@ -3455,7 +3565,7 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "TAKE: CFAI Practice Exam 2",
+          "label": "MOCK: CFAI Practice Exam 2",
           "minutes": 360,
           "kind": "mock"
         }
@@ -3463,14 +3573,32 @@
     },
     {
       "date": "2027-01-31",
-      "hours": 4.0,
+      "hours": 6.0,
       "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "REVIEW: CFAI Practice Exam 1",
-          "minutes": 240,
-          "kind": "mock"
+          "label": "REVIEW: CFAI Practice Exam 2",
+          "minutes": 120,
+          "kind": "review"
+        },
+        {
+          "start": "08:00",
+          "label": "App Q: B6 Trade Strategy and Execution",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 6,
+          "reading_id": "trade_strategy_and_execution",
+          "question_source": "app"
+        },
+        {
+          "start": "10:00",
+          "label": "CFAI Q: B4 Options Strategies",
+          "minutes": 120,
+          "kind": "questions",
+          "book": 4,
+          "reading_id": "options_strategies",
+          "question_source": "cfai"
         }
       ]
     },
@@ -3481,17 +3609,10 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B2-M4 Private Wealth Mgmt",
-          "minutes": 60,
+          "label": "WEAK: lowest-scoring reading",
+          "minutes": 120,
           "kind": "questions",
-          "book": 2
-        },
-        {
-          "start": "07:00",
-          "label": "CFAI Q: B2-M6 Trading Costs",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 2
+          "question_source": "app"
         }
       ]
     },
@@ -3502,10 +3623,10 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B2-M6 Trading Costs",
+          "label": "WEAK: lowest-scoring reading",
           "minutes": 120,
           "kind": "questions",
-          "book": 2
+          "question_source": "app"
         }
       ]
     },
@@ -3516,10 +3637,10 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B3-M1 Portfolio Performance Measurement",
+          "label": "WEAK: lowest-scoring reading",
           "minutes": 120,
           "kind": "questions",
-          "book": 3
+          "question_source": "app"
         }
       ]
     },
@@ -3530,17 +3651,10 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B3-M1 Portfolio Performance Measurement",
-          "minutes": 60,
+          "label": "WEAK: lowest-scoring reading",
+          "minutes": 120,
           "kind": "questions",
-          "book": 3
-        },
-        {
-          "start": "07:00",
-          "label": "CFAI Q: B6-M7 Trade Strategy & Execution",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 6
+          "question_source": "app"
         }
       ]
     },
@@ -3551,42 +3665,66 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B6-M7 Trade Strategy & Execution",
+          "label": "WEAK: lowest-scoring reading",
           "minutes": 120,
           "kind": "questions",
-          "book": 6
+          "question_source": "app"
         }
       ]
     },
     {
       "date": "2027-02-06",
-      "hours": 7.0,
+      "hours": 6.0,
       "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "Extra Review: PM Pathway (B6)",
+          "label": "WEAK: lowest-scoring reading",
           "minutes": 120,
-          "kind": "review"
+          "kind": "questions",
+          "question_source": "app"
         },
         {
           "start": "08:00",
-          "label": "Extra Review: Asset Allocation (B1)",
-          "minutes": 300,
-          "kind": "review"
+          "label": "WEAK: lowest-scoring reading",
+          "minutes": 120,
+          "kind": "questions",
+          "question_source": "app"
+        },
+        {
+          "start": "10:00",
+          "label": "WEAK: lowest-scoring reading",
+          "minutes": 120,
+          "kind": "questions",
+          "question_source": "app"
         }
       ]
     },
     {
       "date": "2027-02-07",
-      "hours": 4.0,
+      "hours": 6.0,
       "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "REVIEW: CFAI Practice Exam 2",
-          "minutes": 240,
-          "kind": "mock"
+          "label": "WEAK: lowest-scoring reading",
+          "minutes": 120,
+          "kind": "questions",
+          "question_source": "app"
+        },
+        {
+          "start": "08:00",
+          "label": "WEAK: lowest-scoring reading",
+          "minutes": 120,
+          "kind": "questions",
+          "question_source": "app"
+        },
+        {
+          "start": "10:00",
+          "label": "WEAK: lowest-scoring reading",
+          "minutes": 120,
+          "kind": "questions",
+          "question_source": "app"
         }
       ]
     },
@@ -3597,10 +3735,10 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B3-M2 Investment Manager Selection",
+          "label": "WEAK: lowest-scoring reading",
           "minutes": 120,
           "kind": "questions",
-          "book": 3
+          "question_source": "app"
         }
       ]
     },
@@ -3611,17 +3749,10 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B3-M2 Investment Manager Selection",
-          "minutes": 60,
+          "label": "WEAK: lowest-scoring reading",
+          "minutes": 120,
           "kind": "questions",
-          "book": 3
-        },
-        {
-          "start": "07:00",
-          "label": "CFAI Q: B3-M3 Overview of GIPS",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 3
+          "question_source": "app"
         }
       ]
     },
@@ -3632,10 +3763,10 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B3-M3 Overview of GIPS",
+          "label": "WEAK: lowest-scoring reading",
           "minutes": 120,
           "kind": "questions",
-          "book": 3
+          "question_source": "app"
         }
       ]
     },
@@ -3646,11 +3777,10 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B5-M1 Code of Ethics and Standards",
+          "label": "WEAK: lowest-scoring reading",
           "minutes": 120,
           "kind": "questions",
-          "book": 5,
-          "reading_id": "code_and_standards"
+          "question_source": "app"
         }
       ]
     },
@@ -3661,36 +3791,33 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B5-M1 Code of Ethics and Standards",
-          "minutes": 60,
+          "label": "WEAK: lowest-scoring reading",
+          "minutes": 120,
           "kind": "questions",
-          "book": 5,
-          "reading_id": "code_and_standards"
-        },
-        {
-          "start": "07:00",
-          "label": "CFAI Q: B5-M2 Guidance for Standards I\u2013VII",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 5,
-          "reading_id": "guidance_standard_i_professionalism"
+          "question_source": "app"
         }
       ]
     },
     {
       "date": "2027-02-13",
-      "hours": 7.0,
+      "hours": 6.0,
       "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "Extra Review: Portfolio Construction (B2)",
-          "minutes": 300,
+          "label": "REVIEW: book sweep",
+          "minutes": 120,
           "kind": "review"
         },
         {
-          "start": "11:00",
-          "label": "Extra Review: Derivatives (B4)",
+          "start": "08:00",
+          "label": "REVIEW: book sweep",
+          "minutes": 120,
+          "kind": "review"
+        },
+        {
+          "start": "10:00",
+          "label": "REVIEW: book sweep",
           "minutes": 120,
           "kind": "review"
         }
@@ -3698,24 +3825,24 @@
     },
     {
       "date": "2027-02-14",
-      "hours": 7.0,
+      "hours": 6.0,
       "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "Extra Review: Derivatives (B4)",
-          "minutes": 90,
+          "label": "REVIEW: book sweep",
+          "minutes": 120,
           "kind": "review"
         },
         {
-          "start": "07:30",
-          "label": "Extra Review: Ethics (B5)",
-          "minutes": 210,
+          "start": "08:00",
+          "label": "REVIEW: book sweep",
+          "minutes": 120,
           "kind": "review"
         },
         {
-          "start": "11:00",
-          "label": "Extra Review: Performance Measurement (B3)",
+          "start": "10:00",
+          "label": "REVIEW: book sweep",
           "minutes": 120,
           "kind": "review"
         }
@@ -3723,16 +3850,26 @@
     },
     {
       "date": "2027-02-15",
-      "hours": 2.0,
+      "hours": 6.0,
       "note": null,
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B5-M2 Guidance for Standards I\u2013VII",
+          "label": "REVIEW: book sweep",
           "minutes": 120,
-          "kind": "questions",
-          "book": 5,
-          "reading_id": "guidance_standard_i_professionalism"
+          "kind": "review"
+        },
+        {
+          "start": "08:00",
+          "label": "REVIEW: book sweep",
+          "minutes": 120,
+          "kind": "review"
+        },
+        {
+          "start": "10:00",
+          "label": "REVIEW: book sweep",
+          "minutes": 120,
+          "kind": "review"
         }
       ]
     },
@@ -3743,11 +3880,9 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B5-M3 Application of the Code and Standards",
+          "label": "TAPER: recall and ethics",
           "minutes": 120,
-          "kind": "questions",
-          "book": 5,
-          "reading_id": "application_of_code_and_standards_l3"
+          "kind": "review"
         }
       ]
     },
@@ -3758,19 +3893,9 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B5-M3 Application of the Code and Standards",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 5,
-          "reading_id": "application_of_code_and_standards_l3"
-        },
-        {
-          "start": "07:00",
-          "label": "CFAI Q: B5-M4 Asset Manager Code of Professional Conduct",
-          "minutes": 60,
-          "kind": "questions",
-          "book": 5,
-          "reading_id": "asset_manager_code_of_professional_conduct"
+          "label": "TAPER: recall and ethics",
+          "minutes": 120,
+          "kind": "review"
         }
       ]
     },
@@ -3781,24 +3906,29 @@
       "blocks": [
         {
           "start": "06:00",
-          "label": "CFAI Q: B5-M4 Asset Manager Code of Professional Conduct",
+          "label": "TAPER: recall and ethics",
           "minutes": 120,
-          "kind": "questions",
-          "book": 5,
-          "reading_id": "asset_manager_code_of_professional_conduct"
+          "kind": "review"
         }
       ]
     },
     {
       "date": "2027-02-19",
-      "hours": 0.0,
-      "note": "Rest Day",
-      "blocks": []
+      "hours": 2.0,
+      "note": null,
+      "blocks": [
+        {
+          "start": "06:00",
+          "label": "TAPER: recall and ethics",
+          "minutes": 120,
+          "kind": "review"
+        }
+      ]
     },
     {
       "date": "2027-02-20",
       "hours": 0.0,
-      "note": "CFA LEVEL 3 EXAM",
+      "note": "Exam Day",
       "blocks": []
     }
   ]

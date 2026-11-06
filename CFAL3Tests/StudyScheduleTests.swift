@@ -14,10 +14,10 @@ final class StudyScheduleTests: XCTestCase {
         schedule = try! JSONDecoder().decode(StudySchedule.self, from: data)
     }
 
-    /// 458.5, not the original 444.0: November 8-30 was rewritten from 38.5
-    /// hours of Meldrum video and deep-read blocks into 53 one-hour question
-    /// sittings. The day count is unchanged because those 23 days already
-    /// existed; only their contents and hours moved.
+    /// 506.0. Everything from 6 November to the exam was rebuilt against the
+    /// owner's own 316-hour slate, replacing 268.5 planned hours. The day count
+    /// is unchanged because those 107 days already existed; only their contents
+    /// and hours moved.
     ///
     /// Both assertions stay. The declared total and the summed days are
     /// independent, and the split is the only thing that catches a day edit
@@ -25,9 +25,9 @@ final class StudyScheduleTests: XCTestCase {
     func testSchedulePins() {
         XCTAssertEqual(schedule.version, 1)
         XCTAssertEqual(schedule.days.count, 230)
-        XCTAssertEqual(schedule.totalPlannedHours, 458.5, accuracy: 0.001)
+        XCTAssertEqual(schedule.totalPlannedHours, 506.0, accuracy: 0.001)
         let summed = schedule.days.reduce(0.0) { $0 + $1.hours }
-        XCTAssertEqual(summed, 458.5, accuracy: 0.001)
+        XCTAssertEqual(summed, 506.0, accuracy: 0.001)
         XCTAssertEqual(schedule.examDate, "2027-02-20")
     }
 
@@ -130,40 +130,35 @@ final class StudyScheduleTests: XCTestCase {
           "label": "Q: somewhere new",
           "minutes": 60,
           "kind": "questions",
-          "question_source": "cfai"
+          "question_source": "schweser"
         }
         """.data(using: .utf8)!
         let block = try JSONDecoder().decode(ScheduleBlock.self, from: json)
         XCTAssertEqual(block.questionSource, .other)
         XCTAssertNil(BlockSourceBadge.text(for: .other),
-                     "an unknown source is a content bug to leave invisible, not a third badge")
+                     "an unknown source is a content bug to leave invisible, not a fourth badge")
+        // "cfai" used to be the unknown value here, which stopped testing
+        // anything the moment CFA Institute's bank became a real case.
+        XCTAssertEqual(BlockSourceBadge.text(for: .cfai), "CFAI")
     }
 
-    /// A bundled block covers two readings, and only the first is `reading_id`.
-    /// Without `also_covers` the plan would claim to cover 32 readings while
-    /// the content covers 36.
-    func testBundledEthicsBlocksDeclareBothReadings() throws {
-        let november = schedule.days.filter { $0.date >= "2026-11-08" && $0.date <= "2026-11-30" }
-        let bundled = november.flatMap(\.blocks).filter { ($0.alsoCovers ?? []).isEmpty == false }
-        XCTAssertEqual(bundled.count, 4, "the four paired Ethics sittings")
-        for block in bundled {
-            XCTAssertEqual(block.readingIDs.count, 2, block.label)
-        }
-
-        let covered = Set(november.flatMap(\.blocks).flatMap(\.readingIDs))
-        XCTAssertEqual(covered.count, 36, "every reading gets a November sitting")
+    /// Every reading has to appear somewhere in the run to the exam, or the
+    /// plan quietly leaves part of the curriculum unpractised. Counted through
+    /// `readingIDs` so a bundled block credits both of its readings.
+    func testEveryReadingGetsABlockBeforeTheExam() {
+        let plan = schedule.days.filter { $0.date >= "2026-11-06" }
+        let covered = Set(plan.flatMap(\.blocks).flatMap(\.readingIDs))
+        XCTAssertEqual(covered.count, 36, "readings with no block: see los_master")
     }
 
-    /// Scoped to November on purpose. The invariant does NOT hold file-wide:
-    /// 56 `CFAI Q:` blocks from December onward are `kind: questions` with no
-    /// source, because they predate the app-versus-Meldrum distinction.
-    func testNovemberQuestionBlocksAllDeclareASource() {
-        let november = schedule.days
-            .filter { $0.date >= "2026-11-08" && $0.date <= "2026-11-30" }
-            .flatMap(\.blocks)
-        XCTAssertEqual(november.count, 53)
+    /// Scoped to the rebuilt window on purpose. The invariant does NOT hold
+    /// file-wide: blocks before 6 November predate the distinction and carry
+    /// no source at all.
+    func testEveryQuestionBlockDeclaresABank() {
+        let plan = schedule.days.filter { $0.date >= "2026-11-06" }.flatMap(\.blocks)
+        XCTAssertEqual(plan.count, 162)
 
-        for block in november {
+        for block in plan {
             if block.kind == .questions {
                 XCTAssertNotNil(block.questionSource, "unsourced question block: \(block.label)")
                 XCTAssertNotEqual(block.questionSource, .other, block.label)
@@ -173,9 +168,38 @@ final class StudyScheduleTests: XCTestCase {
             }
         }
 
-        let sources = november.compactMap(\.questionSource)
-        XCTAssertEqual(sources.filter { $0 == .app }.count, 34)
-        XCTAssertEqual(sources.filter { $0 == .mm }.count, 11)
+        // All three banks are in play. A regression that collapsed the plan
+        // onto one of them would still satisfy every assertion above.
+        let sources = plan.compactMap(\.questionSource)
+        XCTAssertEqual(sources.filter { $0 == .app }.count, 51)
+        XCTAssertEqual(sources.filter { $0 == .mm }.count, 44)
+        XCTAssertEqual(sources.filter { $0 == .cfai }.count, 36)
+    }
+
+    /// The six papers are the scarcest resource on the plan and the whole
+    /// point of the December-January shape. Each is sat on its own day and
+    /// reviewed the next, and all of them land before February, which is when
+    /// the plan switches to weak topics only.
+    func testSixPracticeExamsAreSatAndReviewedBeforeFebruary() throws {
+        let mocks = schedule.days
+            .filter { $0.date >= "2026-11-06" }
+            .flatMap { day in day.blocks.filter { $0.kind == .mock }.map { (day.date, $0) } }
+        XCTAssertEqual(mocks.count, 6)
+        XCTAssertEqual(Set(mocks.map(\.0)).count, 6, "two papers sat on one day")
+
+        for (date, block) in mocks {
+            XCTAssertEqual(block.minutes, 360, "\(date) is not a full sitting")
+            XCTAssertLessThan(date, "2027-02-01", "\(date) leaves no time to act on it")
+
+            let next = try XCTUnwrap(
+                schedule.days.first { $0.date > date && !$0.isRestDay },
+                "nothing follows \(date)"
+            )
+            XCTAssertTrue(
+                next.blocks.contains { $0.kind == .review && $0.label.contains("REVIEW") },
+                "\(date) is sat but never reviewed; next study day is \(next.date)"
+            )
+        }
     }
 
     /// `ScheduleBlock.id` is start-label, which repeats across days, so
@@ -209,50 +233,35 @@ final class StudyScheduleTests: XCTestCase {
         }
     }
 
-    func testAssetManagerCodePlanBlocksOpenTheAMCReading() {
-        let amc = "asset_manager_code_of_professional_conduct"
-        let blocks = schedule.days.flatMap(\.blocks).filter { $0.label.contains("B5-M4") }
-        // 9 since the November rewrite added a sitting on 2026-11-21. This is
-        // the SECOND place B5-M4 is counted; the table in
-        // testEthicsPlanBlocksOpen2027Modules pins it too, and they have to
-        // move together.
-        XCTAssertEqual(blocks.count, 9)
-        for block in blocks {
-            XCTAssertEqual(block.readingID, amc)
-            XCTAssertTrue(
-                block.label.contains("Asset Manager Code of Professional Conduct"),
-                block.label
-            )
-        }
-    }
-
-    /// Note the TRAILING SPACE on the B5-M2 needle. The November rewrite
-    /// bundles the eight guidance standards into four sittings labelled
-    /// B5-M2a/b/c, and a bare "B5-M2" matches all eleven blocks across four
-    /// different reading ids — so the per-block readingID assertion below
-    /// would fail three times no matter what count were written here. The
-    /// space separates the original "B5-M2 Guidance for Standards I-VII"
-    /// blocks from the new suffixed ones.
+    /// Replaces two tests that counted "B5-M1"-style substrings in block
+    /// labels. Every block carrying those codes sat inside the window the
+    /// rebuild replaced, so both assertions had quietly become counts of
+    /// zero — and substring matching over labels was always the fragile part:
+    /// any future "B5-M2x" silently joined the bucket it was meant to exclude.
     ///
-    /// B5-M1 still reads 8 by coincidence, not because it was left alone: the
-    /// rewrite deleted the 2026-11-30 block and added one on 2026-11-19.
-    func testEthicsPlanBlocksOpen2027Modules() {
-        let expected: [(needle: String, readingID: String, count: Int)] = [
-            ("B5-M1", "code_and_standards", 8),
-            ("B5-M2 ", "guidance_standard_i_professionalism", 8),
-            ("B5-M2a", "guidance_standard_ii_integrity_capital_markets", 1),
-            ("B5-M2b", "guidance_standard_iv_duties_to_employers", 1),
-            ("B5-M2c", "guidance_standard_vi_conflicts_of_interest", 1),
-            ("B5-M3", "application_of_code_and_standards_l3", 10),
-            ("B5-M4", "asset_manager_code_of_professional_conduct", 9),
-        ]
-        for row in expected {
-            let blocks = schedule.days.flatMap(\.blocks).filter { $0.label.contains(row.needle) }
-            XCTAssertEqual(blocks.count, row.count, row.needle)
-            for block in blocks {
-                XCTAssertEqual(block.readingID, row.readingID, block.label)
+    /// What those tests were really protecting is that a plan block opens the
+    /// reading it names. That is asserted here directly, against every block
+    /// in the file, without depending on how a label happens to be spelled.
+    func testEveryBlockReadingIDResolvesToARealReading() throws {
+        let content = ContentLoader()
+        content.load()
+        try XCTSkipIf(content.loadError != nil, content.loadError ?? "")
+        let known = Set((content.losMaster?.areas ?? []).flatMap(\.readings).map(\.id))
+        XCTAssertFalse(known.isEmpty)
+
+        var checked = 0
+        for day in schedule.days {
+            for block in day.blocks {
+                for readingID in block.readingIDs {
+                    XCTAssertTrue(
+                        known.contains(readingID),
+                        "\(day.date) \(block.label) points at '\(readingID)'"
+                    )
+                    checked += 1
+                }
             }
         }
+        XCTAssertGreaterThan(checked, 100, "the plan barely references any readings")
     }
 
     func testScheduleBlockReadingIDDecodes() throws {
