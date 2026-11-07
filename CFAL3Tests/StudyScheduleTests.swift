@@ -14,10 +14,13 @@ final class StudyScheduleTests: XCTestCase {
         schedule = try! JSONDecoder().decode(StudySchedule.self, from: data)
     }
 
-    /// 506.0. Everything from 6 November to the exam was rebuilt against the
-    /// owner's own 316-hour slate, replacing 268.5 planned hours. The day count
-    /// is unchanged because those 107 days already existed; only their contents
-    /// and hours moved.
+    /// 580.67. The 316-hour slate rebuilt everything from 6 November, and
+    /// 74.7 hours of commute drilling were then added on top of it: 35 minutes
+    /// each way on 64 weekdays. Day hours are fractional now because a commute
+    /// day is 1h at a desk plus 70 minutes of travel.
+    ///
+    /// The accuracy is 0.01 rather than 0.001 because 70 minutes is not a
+    /// round number of hours and the day totals carry a repeating fraction.
     ///
     /// Both assertions stay. The declared total and the summed days are
     /// independent, and the split is the only thing that catches a day edit
@@ -25,9 +28,9 @@ final class StudyScheduleTests: XCTestCase {
     func testSchedulePins() {
         XCTAssertEqual(schedule.version, 1)
         XCTAssertEqual(schedule.days.count, 230)
-        XCTAssertEqual(schedule.totalPlannedHours, 506.0, accuracy: 0.001)
+        XCTAssertEqual(schedule.totalPlannedHours, 580.67, accuracy: 0.01)
         let summed = schedule.days.reduce(0.0) { $0 + $1.hours }
-        XCTAssertEqual(summed, 506.0, accuracy: 0.001)
+        XCTAssertEqual(summed, 580.67, accuracy: 0.01)
         XCTAssertEqual(schedule.examDate, "2027-02-20")
     }
 
@@ -156,7 +159,7 @@ final class StudyScheduleTests: XCTestCase {
     /// no source at all.
     func testEveryQuestionBlockDeclaresABank() {
         let plan = schedule.days.filter { $0.date >= "2026-11-06" }.flatMap(\.blocks)
-        XCTAssertEqual(plan.count, 162)
+        XCTAssertEqual(plan.count, 290, "162 planned blocks plus 128 commute legs")
 
         for block in plan {
             if block.kind == .questions {
@@ -171,9 +174,19 @@ final class StudyScheduleTests: XCTestCase {
         // All three banks are in play. A regression that collapsed the plan
         // onto one of them would still satisfy every assertion above.
         let sources = plan.compactMap(\.questionSource)
-        XCTAssertEqual(sources.filter { $0 == .app }.count, 51)
+        XCTAssertEqual(sources.filter { $0 == .app }.count, 179)
         XCTAssertEqual(sources.filter { $0 == .mm }.count, 44)
         XCTAssertEqual(sources.filter { $0 == .cfai }.count, 36)
+
+        // Every commute leg is this app's drills: it is the only bank that
+        // works on a phone with no calculator.
+        let commute = plan.filter(\.isCommute)
+        XCTAssertEqual(commute.count, 128)
+        XCTAssertEqual(commute.filter { $0.minutes == 35 }.count, 128)
+        for block in commute {
+            XCTAssertEqual(block.questionSource, .app, block.label)
+            XCTAssertNotNil(block.readingID, block.label)
+        }
     }
 
     /// The six papers are the scarcest resource on the plan and the whole

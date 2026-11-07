@@ -69,13 +69,20 @@ struct ScheduleBlock: Codable, Identifiable, Hashable {
     /// readings each; without this the plan would claim to cover 32 readings
     /// while the content covers 36.
     let alsoCovers: [String]?
+    /// A leg of the commute rather than time at a desk: 35 minutes on a phone
+    /// with no calculator. Only ever this app's drills, and only ones
+    /// classified `needs_calculator = false`.
+    let commute: Bool?
 
     enum CodingKeys: String, CodingKey {
         case start, label, minutes, kind, book
         case readingID = "reading_id"
         case questionSource = "question_source"
         case alsoCovers = "also_covers"
+        case commute
     }
+
+    var isCommute: Bool { commute == true }
 
     /// Unique only WITHIN a day. 42 of the plan's 203 distinct values repeat
     /// across days (one on six separate days), so this is safe for a ForEach
