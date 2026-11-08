@@ -128,6 +128,46 @@ enum StudyDisplay {
         return stripPlanCode(block.label)
     }
 
+    /// What Today calls a block in one word.
+    ///
+    /// Commute is tested first and wins over `kind`, which every leg sets to
+    /// `questions`. The distinction the reader needs at 06:50 is not what sort
+    /// of content it is — the whole plan is questions now — it is whether this
+    /// one happens at the desk or on the train with no calculator.
+    static func scheduleKindLabel(_ block: ScheduleBlock) -> String {
+        if block.isCommute { return commuteLegLabel(block) }
+        switch block.kind {
+        case .questions: return "Drills"
+        // `.mock` used to fall through to the keyword guesswork below and come
+        // back "Notes", and `.review` was labelled "Case". Harmless while
+        // every mock block sat alone on its day; 29 November stacks six of
+        // them, and six rows reading "Notes" over a full practice sitting is
+        // the kind of thing you plan a morning around.
+        case .mock: return "Mock"
+        case .review: return "Review"
+        case .deep3, .study, .video: return "Notes"
+        default:
+            let lower = block.label.lowercased()
+            if lower.contains("case") { return "Case" }
+            if lower.contains("drill") || lower.contains("question") { return "Drills" }
+            return "Notes"
+        }
+    }
+
+    /// Which leg of the commute, read off the label the plan writes
+    /// (`Commute out: …` / `Commute back: …`).
+    ///
+    /// Falls back to the bare word rather than guessing from the start time:
+    /// the morning leg begins 15 minutes after that day's last desk block, so
+    /// it is 07:15 on a 1h day and 12:15 on a 6h one. Time does not identify
+    /// the direction; only the label does.
+    private static func commuteLegLabel(_ block: ScheduleBlock) -> String {
+        let lower = block.label.lowercased()
+        if lower.contains("commute out") { return "Commute out" }
+        if lower.contains("commute back") { return "Commute back" }
+        return "Commute"
+    }
+
     static func stripPlanCode(_ label: String) -> String {
         let pattern = #"^(?:D\d+|MM Video|MM Q|MM):\s*(?:B\d+-M\d+\s+)?"#
         guard let regex = try? NSRegularExpression(pattern: pattern) else { return label }

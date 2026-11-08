@@ -159,7 +159,7 @@ final class StudyScheduleTests: XCTestCase {
     /// no source at all.
     func testEveryQuestionBlockDeclaresABank() {
         let plan = schedule.days.filter { $0.date >= "2026-11-06" }.flatMap(\.blocks)
-        XCTAssertEqual(plan.count, 290, "162 planned blocks plus 128 commute legs")
+        XCTAssertEqual(plan.count, 389, "261 planned blocks plus 128 commute legs")
 
         for block in plan {
             if block.kind == .questions {
@@ -174,9 +174,9 @@ final class StudyScheduleTests: XCTestCase {
         // All three banks are in play. A regression that collapsed the plan
         // onto one of them would still satisfy every assertion above.
         let sources = plan.compactMap(\.questionSource)
-        XCTAssertEqual(sources.filter { $0 == .app }.count, 179)
-        XCTAssertEqual(sources.filter { $0 == .mm }.count, 44)
-        XCTAssertEqual(sources.filter { $0 == .cfai }.count, 36)
+        XCTAssertEqual(sources.filter { $0 == .app }.count, 221)
+        XCTAssertEqual(sources.filter { $0 == .mm }.count, 74)
+        XCTAssertEqual(sources.filter { $0 == .cfai }.count, 63)
 
         // Every commute leg is this app's drills: it is the only bank that
         // works on a phone with no calculator.
@@ -186,6 +186,154 @@ final class StudyScheduleTests: XCTestCase {
         for block in commute {
             XCTAssertEqual(block.questionSource, .app, block.label)
             XCTAssertNotNil(block.readingID, block.label)
+        }
+    }
+
+    /// Today flags the leg rather than the content type.
+    ///
+    /// Every commute block sets `kind = .questions`, so a label read off
+    /// `kind` alone prints "Drills" against the train and the desk
+    /// identically — which is the one distinction the row exists to make.
+    /// The direction comes from the label, not the clock: the morning leg
+    /// starts 15 minutes after that day's last desk block, so it is 07:15 on
+    /// a 1h day and 12:15 on a 2h one.
+    func testCommuteLegsAreLabelledByLegNotByKind() {
+        let plan = schedule.days.filter { $0.date >= "2026-11-06" }.flatMap(\.blocks)
+        let commute = plan.filter(\.isCommute)
+        let labelled = commute.map(StudyDisplay.scheduleKindLabel)
+
+        XCTAssertEqual(Set(labelled), ["Commute out", "Commute back"])
+        XCTAssertEqual(labelled.filter { $0 == "Commute out" }.count, 64)
+        XCTAssertEqual(labelled.filter { $0 == "Commute back" }.count, 64)
+
+        // And nothing at a desk may pick it up. 44 desk blocks also carry
+        // `kind = .questions`; if the commute branch leaked into them the
+        // assertions above would still pass.
+        for block in plan where !block.isCommute {
+            XCTAssertFalse(
+                StudyDisplay.scheduleKindLabel(block).hasPrefix("Commute"),
+                "\(block.label) is not a commute leg"
+            )
+        }
+        XCTAssertEqual(StudyDisplay.scheduleKindLabel(plan[0]), "Notes", plan[0].label)
+    }
+
+    /// The rotation contract: one hour, one topic.
+    ///
+    /// The plan used to spend 2h and 3h at a stretch on a single reading, which
+    /// meant a 6h weekend touched three topics. Every question block at the desk
+    /// is now exactly an hour, so the same weekend touches six. Mock sittings,
+    /// paper reviews, taper hours and the Meldrum video days are deliberately
+    /// exempt — a 6h paper is 6h whatever the grid says.
+    func testEveryDeskQuestionBlockIsOneHour() {
+        let plan = schedule.days.filter { $0.date >= "2026-11-06" }.flatMap(\.blocks)
+        let desk = plan.filter { $0.kind == .questions && !$0.isCommute }
+        XCTAssertEqual(desk.filter { $0.minutes == 60 }.count, desk.count,
+                       "a desk question block is an hour: " +
+                       desk.filter { $0.minutes != 60 }.map(\.label).joined(separator: ", "))
+        XCTAssertGreaterThan(desk.count, 200)
+
+        // Nothing longer than an hour survives except the four exempt kinds.
+        for block in plan where block.minutes > 60 {
+            XCTAssertNotEqual(block.kind, .questions, block.label)
+        }
+    }
+
+    /// No day repeats a topic, and the ride home is a different one.
+    ///
+    /// The evening leg used to re-run the morning's reading for a third pass.
+    /// It now takes a casual topic instead, so a hard morning is not also the
+    /// thing being attempted tired on a phone. The morning leg still mirrors
+    /// the day's lead block, which is where the consolidation pass went.
+    func testADayNeverRepeatsATopicAndTheEveningLegIsADifferentOne() throws {
+        for day in schedule.days where day.date >= "2026-11-06" {
+            let desk = day.blocks.filter { !$0.isCommute }.compactMap(\.readingID)
+            XCTAssertEqual(Set(desk).count, desk.count,
+                           "\(day.date) studies the same reading twice at the desk")
+
+            let deskSet = Set(desk)
+            for leg in day.blocks where leg.isCommute {
+                let id = try XCTUnwrap(leg.readingID, "\(day.date) leg with no reading")
+                if leg.label.lowercased().contains("back") {
+                    XCTAssertFalse(deskSet.contains(id),
+                                   "\(day.date) evening leg re-runs the day's desk work")
+                } else if let lead = desk.first {
+                    XCTAssertEqual(id, lead,
+                                   "\(day.date) morning leg does not mirror the lead block")
+                }
+            }
+        }
+    }
+
+    /// A commute day's `hours` counts travel, so Today has to split it.
+    ///
+    /// 2.17h on screen is not 2.17 hours at a desk, and the desk hour is the
+    /// only part of it that is negotiable in the evening.
+    func testCommuteDaysSplitDeskHoursFromTravel() {
+        let commuteDays = schedule.days.filter(\.hasCommute)
+        XCTAssertEqual(commuteDays.count, 64)
+
+        for day in commuteDays {
+            XCTAssertEqual(day.commuteMinutes, 70, day.date)
+            XCTAssertEqual(
+                day.deskHours + Double(day.commuteMinutes) / 60,
+                day.hours,
+                accuracy: 0.001,
+                day.date
+            )
+            // A day that is all travel and no desk would mean the pairing
+            // lost its anchor block, and the leg would have no reading.
+            XCTAssertGreaterThanOrEqual(day.deskHours, 1.0, day.date)
+        }
+
+        for day in schedule.days where !day.hasCommute {
+            XCTAssertEqual(day.commuteMinutes, 0, day.date)
+            XCTAssertEqual(day.deskHours, day.hours, accuracy: 0.001, day.date)
+        }
+    }
+
+    /// No reading is studied mostly on the train.
+    ///
+    /// The commute carries 128 legs against 230 desk hours, and the evening leg
+    /// is drawn from the casual end of the difficulty ranking on purpose — which
+    /// points it straight at Ethics, the only genuinely casual material in the
+    /// plan and still 12.5% of the exam. Left unbounded that is how a reading
+    /// ends up with one desk hour between November and February and everything
+    /// else attempted tired on a phone with no calculator. It happened: the nine
+    /// guidance readings reached 70% commute, because the generator capped only
+    /// the evening leg and the morning leg mirrors the day's lead block for
+    /// free. Nothing in the suite noticed, so this is that assertion.
+    func testNoReadingIsStudiedMostlyOnTheTrain() throws {
+        var total: [String: Int] = [:]
+        var travel: [String: Int] = [:]
+        var deskBlocks: [String: Int] = [:]
+
+        for day in schedule.days where day.date >= "2026-11-06" {
+            for block in day.blocks {
+                guard let id = block.readingID else { continue }
+                total[id, default: 0] += block.minutes
+                if block.isCommute {
+                    travel[id, default: 0] += block.minutes
+                } else {
+                    deskBlocks[id, default: 0] += 1
+                }
+            }
+        }
+
+        XCTAssertEqual(total.count, 36, "every reading should appear in the plan")
+
+        for (id, minutes) in total {
+            let share = Double(travel[id] ?? 0) / Double(minutes)
+            XCTAssertLessThanOrEqual(
+                share, 0.55,
+                "\(id) takes \(Int(share * 100))% of its \(minutes)m from commute legs"
+            )
+            // The share alone would be satisfied by a reading with no desk time
+            // and no legs either, so pin the desk work directly.
+            XCTAssertGreaterThanOrEqual(
+                deskBlocks[id] ?? 0, 1,
+                "\(id) is never opened at a desk"
+            )
         }
     }
 

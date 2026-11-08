@@ -274,12 +274,40 @@ struct HomeView: View {
                         } else {
                             ForEach(Array(today.blocks.enumerated()), id: \.element.id) { index, block in
                                 HStack(spacing: 10) {
-                                    timelineDot(index: index, count: today.blocks.count)
-                                    Text("\(block.start)  ·  \(blockKindLabel(block))  ·  \(StudyDisplay.scheduleBlockTitle(block, content: content))")
+                                    timelineDot(
+                                        index: index,
+                                        count: today.blocks.count,
+                                        isCommute: block.isCommute
+                                    )
+                                    if block.isCommute {
+                                        Image(systemName: "tram.fill")
+                                            .font(.caption2)
+                                            .foregroundStyle(Theme.copper)
+                                            .accessibilityHidden(true)
+                                    }
+                                    Text("\(block.start)  ·  \(StudyDisplay.scheduleKindLabel(block))  ·  \(StudyDisplay.scheduleBlockTitle(block, content: content))")
                                         .font(.subheadline)
                                         .foregroundStyle(Theme.ink)
                                         .lineLimit(1)
                                 }
+                                .accessibilityElement(children: .combine)
+                                .accessibilityIdentifier(
+                                    block.isCommute
+                                    ? "home.block.commute.\(block.start)"
+                                    : "home.block.desk.\(block.start)"
+                                )
+                            }
+
+                            // The day's total now counts travel, so on a
+                            // commute day "2.17h" is not 2.17 hours at a desk.
+                            // Splitting it is the whole point of flagging the
+                            // legs: what is negotiable in the evening is the
+                            // desk hour, not the train.
+                            if today.hasCommute {
+                                Text("\(Formatting.hours(today.deskHours)) at the desk  ·  \(today.commuteMinutes)m commuting")
+                                    .font(.caption)
+                                    .foregroundStyle(Theme.dust)
+                                    .accessibilityIdentifier("home.today.split")
                             }
                         }
 
@@ -316,37 +344,22 @@ struct HomeView: View {
         }
     }
 
-    private func timelineDot(index: Int, count: Int) -> some View {
-        VStack(spacing: 0) {
+    /// Pine for desk work, copper for a commute leg, and the connector takes
+    /// the colour of the block it leads into so the two runs of the day read
+    /// as two runs rather than one striped list.
+    private func timelineDot(index: Int, count: Int, isCommute: Bool) -> some View {
+        let tint = isCommute ? Theme.copper : Theme.pine
+        return VStack(spacing: 0) {
             Circle()
-                .stroke(Theme.pine.opacity(0.45), lineWidth: 1.5)
+                .stroke(tint.opacity(0.45), lineWidth: 1.5)
                 .frame(width: 10, height: 10)
             if index < count - 1 {
                 Rectangle()
-                    .fill(Theme.pine.opacity(0.2))
+                    .fill(tint.opacity(0.2))
                     .frame(width: 1, height: 14)
             }
         }
         .frame(width: 10)
-    }
-
-    private func blockKindLabel(_ block: ScheduleBlock) -> String {
-        switch block.kind {
-        case .questions: return "Drills"
-        // `.mock` used to fall through to the keyword guesswork below and come
-        // back "Notes", and `.review` was labelled "Case". Harmless while
-        // every mock block sat alone on its day; 29 November stacks six of
-        // them, and six rows reading "Notes" over a full practice sitting is
-        // the kind of thing you plan a morning around.
-        case .mock: return "Mock"
-        case .review: return "Review"
-        case .deep3, .study, .video: return "Notes"
-        default:
-            let lower = block.label.lowercased()
-            if lower.contains("case") { return "Case" }
-            if lower.contains("drill") || lower.contains("question") { return "Drills" }
-            return "Notes"
-        }
     }
 
     private func toggleTodayCompletion(_ today: ScheduleDay, isDone: Bool) {

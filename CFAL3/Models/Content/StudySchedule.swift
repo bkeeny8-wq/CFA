@@ -49,6 +49,21 @@ struct ScheduleDay: Codable, Identifiable, Hashable {
     var parsedDate: Date? {
         StudySchedule.parseDate(date)
     }
+
+    /// Travel time, in minutes rather than hours: two 35-minute legs are
+    /// 1.17h, and a card that says "1.17h commuting" is arithmetic, not
+    /// information.
+    var commuteMinutes: Int {
+        blocks.filter(\.isCommute).reduce(0) { $0 + $1.minutes }
+    }
+
+    /// `hours` counts the commute too, so the two are not interchangeable:
+    /// a 1h slate day with both legs reports 2.17 total and 1.0 desk.
+    var deskHours: Double {
+        Double(blocks.filter { !$0.isCommute }.reduce(0) { $0 + $1.minutes }) / 60
+    }
+
+    var hasCommute: Bool { commuteMinutes > 0 }
 }
 
 struct ScheduleBlock: Codable, Identifiable, Hashable {
