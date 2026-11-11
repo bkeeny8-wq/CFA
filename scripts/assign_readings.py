@@ -131,17 +131,31 @@ def main():
         return (commute_min[rid] + LEG_MINUTES
                 <= MAX_COMMUTE_SHARE * (placed[rid] + LEG_MINUTES))
 
+    def short_by(rid):
+        """How far behind its own budget a reading is, as a FRACTION.
+
+        Ranking by absolute minutes remaining is what made the starvation gate
+        non-monotonic: the ten Ethics readings share one book's weight, so each
+        has a target about a third the size of a Pathway reading's and a
+        correspondingly small absolute shortfall. Sorted on raw minutes they
+        lose every tie to a big-target reading and finish proportionally short,
+        and which of them finishes short depends on the order days happened to
+        fall. Fractions make the comparison fair across target sizes, so a
+        reading that is 20% behind outranks one that is 20 minutes behind.
+        """
+        return remaining[rid] / target_min[rid] if target_min[rid] else 0
+
     def pick_desk(di, n, exclude):
-        """n distinct readings, most under-served first, rested."""
+        """n distinct readings, furthest behind their budget first, rested."""
         for rest in (REST_DAYS, 1, 0):
             pool = [r for r in remaining
                     if r not in exclude and remaining[r] > 0
                     and di - last_used.get(r, -99) > rest]
-            pool.sort(key=lambda r: (-remaining[r], last_used.get(r, -99)))
+            pool.sort(key=lambda r: (-short_by(r), last_used.get(r, -99)))
             if len(pool) >= n:
                 return pool[:n]
         pool = [r for r in remaining if r not in exclude]
-        pool.sort(key=lambda r: (-remaining[r], last_used.get(r, -99)))
+        pool.sort(key=lambda r: (-short_by(r), last_used.get(r, -99)))
         return pool[:n]
 
     def pick_evening(di, exclude):
@@ -158,14 +172,14 @@ def main():
                     if r not in exclude and remaining[r] > 0 and under_cap(r)
                     and di - last_used.get(r, -99) > rest
                     and di - last_evening.get(r, -99) > rest]
-            pool.sort(key=lambda r: (-commute_value[r], -remaining[r]))
+            pool.sort(key=lambda r: (-commute_value[r], -short_by(r)))
             if pool:
                 return pool[0]
         pool = [r for r in remaining if r not in exclude]
         compliant = [r for r in pool if under_cap(r)]
         if compliant:
             pool = compliant
-        pool.sort(key=lambda r: (not under_cap(r), -commute_value[r], -remaining[r]))
+        pool.sort(key=lambda r: (not under_cap(r), -commute_value[r], -short_by(r)))
         return pool[0]
 
     def assign(block, rid):
