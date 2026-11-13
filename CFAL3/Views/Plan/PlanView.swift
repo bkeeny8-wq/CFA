@@ -54,36 +54,62 @@ struct PlanView: View {
         .toolbar(.hidden, for: .navigationBar)
     }
 
+    /// Title, month grid and legend — the left column at regular width, the
+    /// top of the stack on a phone.
+    private func calendarColumn(_ schedule: StudySchedule) -> some View {
+        VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Plan")
+                    .font(Theme.serif(.largeTitle, weight: .semibold))
+                    .foregroundStyle(Theme.ink)
+                Text("\(schedule.days.filter { !$0.isRestDay }.count) study days · \(schedule.days.filter(\.isRestDay).count) rest · schedule adds time, it never slips.")
+                    .font(.subheadline)
+                    .foregroundStyle(Theme.dust)
+            }
+            monthGrid(schedule)
+            legend
+        }
+    }
+
     @ViewBuilder
     private func planContent(_ schedule: StudySchedule) -> some View {
         let selected = schedule.day(forKey: selectedKey) ?? schedule.day(for: .now)
-        HStack(alignment: .top, spacing: 24) {
-            VStack(alignment: .leading, spacing: 16) {
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("Plan")
-                        .font(Theme.serif(.largeTitle, weight: .semibold))
-                        .foregroundStyle(Theme.ink)
-                    Text("\(schedule.days.filter { !$0.isRestDay }.count) study days · \(schedule.days.filter(\.isRestDay).count) rest · schedule adds time, it never slips.")
-                        .font(.subheadline)
-                        .foregroundStyle(Theme.dust)
-                }
-                monthGrid(schedule)
-                legend
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
+        Group {
+            if horizontalSizeClass == .regular {
+                HStack(alignment: .top, spacing: 24) {
+                    calendarColumn(schedule)
+                        .frame(maxWidth: .infinity, alignment: .leading)
 
-            if let selected {
-                // Scrolls because it has to: six November days carry six
-                // blocks where the old plan's maximum was four, and each row
-                // is now taller. Unscrolled, the make-up line and the
-                // days-to-exam label fall off the bottom of a 280pt column.
-                ScrollView {
-                    dayInspector(selected, schedule: schedule)
+                    if let selected {
+                        // Scrolls because it has to: six November days carry
+                        // six blocks where the old plan's maximum was four,
+                        // and each row is now taller. Unscrolled, the make-up
+                        // line and the days-to-exam label fall off the bottom
+                        // of a 280pt column.
+                        ScrollView {
+                            dayInspector(selected, schedule: schedule)
+                        }
+                        .frame(width: 280)
+                    }
                 }
-                .frame(width: horizontalSizeClass == .regular ? 280 : nil)
+            } else {
+                // A phone cannot hold the two columns side by side. Split in
+                // half, a 393pt screen gives the month grid under 190pt, which
+                // wrapped the date numbers onto two lines - "1 3" for the 13th
+                // - and broke the legend into "Co mpl ete d". The inspector
+                // goes under the calendar instead, and the whole thing scrolls
+                // as one rather than two columns scrolling separately.
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 20) {
+                        calendarColumn(schedule)
+                        if let selected {
+                            dayInspector(selected, schedule: schedule)
+                        }
+                    }
+                }
             }
         }
-        .padding(24)
+        .padding(horizontalSizeClass == .regular ? 24 : 16)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(Theme.paper)
         .sheet(item: $recording) { target in
@@ -199,9 +225,16 @@ struct PlanView: View {
             }
             .frame(maxWidth: .infinity, minHeight: 54)
             .background(
-                Circle()
+                // A rounded rect rather than a circle, because a circle
+                // inscribed in a cell this shape only reaches the day number.
+                // The reading label sits below it, outside the fill, and it is
+                // drawn white to read against the fill — so on the selected
+                // day the label was white on cream and all but invisible. The
+                // shape now covers what it tints.
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
                     .fill(isSelected && isToday ? Theme.pine : (isSelected ? Theme.sage : Color.clear))
-                    .padding(6)
+                    .padding(.horizontal, 2)
+                    .padding(.vertical, 4)
             )
         }
         .buttonStyle(.plain)

@@ -30,6 +30,16 @@ struct FlashcardsHomeView: View {
     /// See HomeView: the daily new-card allowance is a function of "today".
     @State private var dayToken = 0
 
+
+    private var cardTypePicker: some View {
+        Picker("Card type", selection: $typeFilter) {
+            Text("All").tag(FlashcardType?.none)
+            ForEach(FlashcardType.allCases) { t in
+                Text(t.displayName).tag(FlashcardType?.some(t))
+            }
+        }
+    }
+
     private var areas: [CurriculumArea] { content.losMaster?.areas ?? [] }
 
     private func matchesFilter(_ card: Flashcard) -> Bool {
@@ -133,13 +143,16 @@ struct FlashcardsHomeView: View {
                 header
 
                 VStack(alignment: .leading, spacing: 16) {
-                    Picker("Card type", selection: $typeFilter) {
-                        Text("All").tag(FlashcardType?.none)
-                        ForEach(FlashcardType.allCases) { t in
-                            Text(t.displayName).tag(FlashcardType?.some(t))
-                        }
+                    // Six segments need about 600pt to spell themselves out.
+                    // On a phone they truncated to "Conc...", "Form...",
+                    // "Com...", "Proc..." — four of the six indistinguishable
+                    // at a glance, which is worse than a menu that costs one
+                    // tap and shows the whole word.
+                    if horizontalSizeClass == .regular {
+                        cardTypePicker.pickerStyle(.segmented)
+                    } else {
+                        cardTypePicker.pickerStyle(.menu)
                     }
-                    .pickerStyle(.segmented)
 
                     Picker("New cards per day", selection: Bindable(practicePref).dailyNewFlashcardLimit) {
                         ForEach(FlashcardQueue.newLimitOptions, id: \.self) { limit in

@@ -163,6 +163,7 @@
 		FF04PBTS0001000100010001 /* InstrumentPlaybookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF04PBTS0002000200020002 /* InstrumentPlaybookTests.swift */; };
 		EE06CTST0001000100010001 /* CycleMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE06CTST0002000200020002 /* CycleMapTests.swift */; };
 		CC01CMDW0001000100010001 /* CommandWordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01CMDW0002000200020002 /* CommandWordTests.swift */; };
+		CC01APTB0001000100010001 /* AppTabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01APTB0002000200020002 /* AppTabTests.swift */; };
 		FAF0FB28A4074A6E8CA13738 /* NotesContentParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CAADDFEE34FF7ACA5F995 /* NotesContentParserTests.swift */; };
 		FE2B69D3DF5C400E87678B71 /* FlashcardProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97678F60837047BB877E3886 /* FlashcardProgress.swift */; };
 /* End PBXBuildFile section */
@@ -257,6 +258,7 @@
 		FF04PBTS0002000200020002 /* InstrumentPlaybookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentPlaybookTests.swift; sourceTree = "<group>"; };
 		EE06CTST0002000200020002 /* CycleMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleMapTests.swift; sourceTree = "<group>"; };
 		CC01CMDW0002000200020002 /* CommandWordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandWordTests.swift; sourceTree = "<group>"; };
+		CC01APTB0002000200020002 /* AppTabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabTests.swift; sourceTree = "<group>"; };
 		849CAADDFEE34FF7ACA5F995 /* NotesContentParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesContentParserTests.swift; sourceTree = "<group>"; };
 		8522D72A30624A7DB90C00EA /* reading_notes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = reading_notes.json; sourceTree = "<group>"; };
 		85EC6CF17C714A989CE377AA /* los_drills_r15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = los_drills_r15.json; sourceTree = "<group>"; };
@@ -716,6 +718,7 @@
 				DF27571BE6C440D7BD11BEC6 /* ClaudeGraderErrorTests.swift */,
 				929CD068491F4FA29B4E9EDA /* GradingResponseParserTests.swift */,
 				CC01CMDW0002000200020002 /* CommandWordTests.swift */,
+				CC01APTB0002000200020002 /* AppTabTests.swift */,
 				EE06CTST0002000200020002 /* CycleMapTests.swift */,
 				FF04PBTS0002000200020002 /* InstrumentPlaybookTests.swift */,
 				849CAADDFEE34FF7ACA5F995 /* NotesContentParserTests.swift */,
@@ -902,6 +905,7 @@
 				C142D518BA5A472AA97DD4D0 /* ClaudeGraderErrorTests.swift in Sources */,
 				F3F572AD8E65408E9B33CE60 /* GradingResponseParserTests.swift in Sources */,
 				CC01CMDW0001000100010001 /* CommandWordTests.swift in Sources */,
+				CC01APTB0001000100010001 /* AppTabTests.swift in Sources */,
 				EE06CTST0001000100010001 /* CycleMapTests.swift in Sources */,
 				FF04PBTS0001000100010001 /* InstrumentPlaybookTests.swift in Sources */,
 				FAF0FB28A4074A6E8CA13738 /* NotesContentParserTests.swift in Sources */,
@@ -1052,7 +1056,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.brandonkeeny.CFAL3Tests;
 				PRODUCT_NAME = CFAL3Tests;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CFAL3.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CFAL3";
 			};
 			name = Release;
@@ -1165,7 +1169,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.brandonkeeny.CFAL3;
 				PRODUCT_NAME = CFAL3;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1189,7 +1193,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.brandonkeeny.CFAL3;
 				PRODUCT_NAME = CFAL3;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1205,7 +1209,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.brandonkeeny.CFAL3Tests;
 				PRODUCT_NAME = CFAL3Tests;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CFAL3.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CFAL3";
 			};
 			name = Debug;
@@ -1221,7 +1225,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.brandonkeeny.CFAL3UITests;
 				PRODUCT_NAME = CFAL3UITests;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = CFAL3;
 			};
 			name = Debug;
@@ -1237,7 +1241,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.brandonkeeny.CFAL3UITests;
 				PRODUCT_NAME = CFAL3UITests;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = CFAL3;
 			};
 			name = Release;

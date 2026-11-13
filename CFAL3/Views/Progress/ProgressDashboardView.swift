@@ -29,18 +29,29 @@ struct ProgressDashboardView: View {
             VStack(alignment: .leading, spacing: 20) {
                 header
                 statTiles(overall: overall)
-                HStack(alignment: .top, spacing: 18) {
+                // Two column pairs at regular width, stacked on a phone. Side
+                // by side on a 393pt screen the LOS list and its inspector get
+                // about 180pt each, which truncated every LOS name to "I.
+                // Pro..." and left the inspector too narrow to read.
+                if horizontalSizeClass == .regular {
+                    HStack(alignment: .top, spacing: 18) {
+                        losCoverageColumn(visibleArea, selected: selected)
+                        inspector(selected)
+                            .frame(width: 280)
+                    }
+                    HStack(alignment: .top, spacing: 16) {
+                        emptyCaseCallout(coverage)
+                        bookGrid(topicProgress, coverage: coverage)
+                    }
+                } else {
                     losCoverageColumn(visibleArea, selected: selected)
                     inspector(selected)
-                        .frame(width: horizontalSizeClass == .regular ? 280 : nil)
-                }
-                HStack(alignment: .top, spacing: 16) {
                     emptyCaseCallout(coverage)
                     bookGrid(topicProgress, coverage: coverage)
                 }
                 weeklySparkline
             }
-            .padding(24)
+            .padding(horizontalSizeClass == .regular ? 24 : 16)
         }
         .background(Theme.paper)
         .toolbar(.hidden, for: .navigationBar)
@@ -72,7 +83,13 @@ struct ProgressDashboardView: View {
             guard let schedule = content.schedule else { return 0 }
             return ScheduleProgress.delta(schedule: schedule, completions: dayCompletions)
         }()
-        return HStack(spacing: 12) {
+        // Four across needs about 600pt. On a phone each tile got roughly
+        // 90pt and the titles broke mid-word — "Pro- ject- ed fin- ish",
+        // "Ac- cu- racy" — so they wrap to a 2x2 grid instead.
+        let columns: [GridItem] = horizontalSizeClass == .regular
+            ? Array(repeating: GridItem(.flexible(), spacing: 12), count: 4)
+            : Array(repeating: GridItem(.flexible(), spacing: 12), count: 2)
+        return LazyVGrid(columns: columns, spacing: 12) {
             progressTile(
                 "Projected finish",
                 finish?.replacingOccurrences(of: "Unseen finish ~", with: "") ?? "—",

@@ -43,6 +43,19 @@ enum AppTab: Hashable, CaseIterable, Identifiable {
         }
     }
 
+    /// Tab order on a phone, which is not the sidebar's order.
+    ///
+    /// A phone tab bar shows four before folding the rest into More, and the
+    /// phone exists in this plan to do commute legs: 128 of them, all drills
+    /// from this app's own bank. So Practice and Cards come forward and the
+    /// desk-bound destinations — Notes, MM Review, Cases, Command words — go
+    /// to More, where reaching them costs a tap you would only pay sitting
+    /// down. The sidebar keeps `allCases` order, which is the reading order.
+    static let compactOrder: [AppTab] = [
+        .today, .practice, .cards, .plan,
+        .notes, .progress, .cases, .commandWords, .mmReview,
+    ]
+
     /// Sidebar rows are addressed by identifier. UITests used to hunt a
     /// floating iPad tab pill; the chrome changed, the contract did not.
     ///
@@ -129,17 +142,11 @@ private struct RootTabContent: View {
     var body: some View {
         @Bindable var router = router
 
-        return VStack(spacing: 0) {
-            if !barColumns.isEmpty {
-                LeftColumnBar(columns: barColumns)
-            }
-            HStack(spacing: 0) {
-                if sidebarApplies, !leftColumns.isHidden(.sidebar) {
-                    DaybookSidebar()
-                        .frame(width: sidebarWidth)
-                        .transition(.move(edge: .leading).combined(with: .opacity))
-                }
-                destination
+        return Group {
+            if sidebarApplies {
+                shell
+            } else {
+                compactShell
             }
         }
         .daybookPaper()
@@ -176,6 +183,56 @@ private struct RootTabContent: View {
         }
     }
 
+    /// Regular width: the Daybook sidebar beside the page, as before.
+    private var shell: some View {
+        VStack(spacing: 0) {
+            if !barColumns.isEmpty {
+                LeftColumnBar(columns: barColumns)
+            }
+            HStack(spacing: 0) {
+                if !leftColumns.isHidden(.sidebar) {
+                    DaybookSidebar()
+                        .frame(width: sidebarWidth)
+                        .transition(.move(edge: .leading).combined(with: .opacity))
+                }
+                destination
+            }
+        }
+    }
+
+    /// Compact width: a tab bar, because there is no room for the sidebar and
+    /// without it the nine destinations had no control at all — the phone
+    /// build opened on Today with no way to leave it.
+    ///
+    /// Nine is more than a phone tab bar shows, so iOS folds the overflow into
+    /// a More list. That is the conventional behaviour and keeps every
+    /// destination reachable; the first four are the ones a commute leg needs.
+    ///
+    /// Every tab builds its own page rather than only the selected one.
+    ///
+    /// Building lazily — `if router.selected == tab` with a placeholder
+    /// otherwise — looks like an easy win and breaks the More list: iOS pushes
+    /// an overflow tab's content inside the More navigation controller without
+    /// the selection binding arriving first, so every destination behind More
+    /// opened as the placeholder, a blank page with a back chevron. TabView
+    /// does not render the tabs you cannot see; let it do that itself.
+    private var compactShell: some View {
+        @Bindable var router = router
+
+        return TabView(selection: $router.selected) {
+            ForEach(AppTab.compactOrder) { tab in
+                VStack(spacing: 0) {
+                    if !leftColumns.innerColumns.isEmpty {
+                        LeftColumnBar(columns: leftColumns.innerColumns)
+                    }
+                    stack(for: tab)
+                }
+                .tabItem { Label(tab.title, systemImage: tab.symbol) }
+                .tag(tab)
+            }
+        }
+    }
+
     private var storeBanner: some View {
         Text("This session isn’t saving. Export is disabled until the on-disk store can be opened.")
             .font(.footnote.weight(.medium))
@@ -187,27 +244,47 @@ private struct RootTabContent: View {
             .accessibilityIdentifier("store.unavailable")
     }
 
-    @ViewBuilder
     private var destination: some View {
-        switch router.selected {
-        case .today:
-            NavigationStack { HomeView() }
-        case .plan:
-            NavigationStack { PlanView() }
-        case .notes:
-            NavigationStack { StudyPlannerView() }
-        case .mmReview:
-            NavigationStack { MMReviewView() }
-        case .cards:
-            NavigationStack { FlashcardsHomeView() }
-        case .practice:
-            NavigationStack { PracticeBuilderView() }
-        case .commandWords:
-            NavigationStack { CommandWordsView() }
-        case .cases:
-            NavigationStack { TopicListView() }
-        case .progress:
-            NavigationStack { ProgressDashboardView() }
+        stack(for: router.selected)
+    }
+
+    /// The page itself, with no navigation chrome around it.
+    @ViewBuilder
+    private func page(for tab: AppTab) -> some View {
+        switch tab {
+        case .today: HomeView()
+        case .plan: PlanView()
+        case .notes: StudyPlannerView()
+        case .mmReview: MMReviewView()
+        case .cards: FlashcardsHomeView()
+        case .practice: PracticeBuilderView()
+        case .commandWords: CommandWordsView()
+        case .cases: TopicListView()
+        case .progress: ProgressDashboardView()
+        }
+    }
+
+    /// A page in its NavigationStack.
+    ///
+    /// At compact width this also carries Settings. The sidebar owns that
+    /// button at regular width, and the sidebar does not exist on a phone, so
+    /// without this Settings is unreachable there.
+    private func stack(for tab: AppTab) -> some View {
+        NavigationStack {
+            page(for: tab)
+                .toolbar {
+                    if horizontalSizeClass == .compact {
+                        ToolbarItem(placement: .topBarTrailing) {
+                            Button {
+                                router.showSettings = true
+                            } label: {
+                                Image(systemName: "gearshape")
+                            }
+                            .accessibilityLabel("Settings")
+                            .accessibilityIdentifier("tab.settings")
+                        }
+                    }
+                }
         }
     }
 
