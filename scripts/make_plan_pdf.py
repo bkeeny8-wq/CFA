@@ -26,6 +26,7 @@ import tempfile
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SCHEDULE = ROOT / "CFAL3" / "Resources" / "study_schedule.json"
+MM_REVIEW = ROOT / "CFAL3" / "Resources" / "mm_review.json"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 MONTHS = [(2026, 11), (2026, 12), (2027, 1), (2027, 2)]
@@ -38,9 +39,9 @@ BANK_LABEL = {"app": "App", "mm": "MM", "cfai": "CFAI"}
 # seven of them are indistinguishable at 5.8pt. Longest first so a prefix
 # never shadows a more specific rule.
 SHORTEN = [
-    ("Guidance for Standard VII: Responsibilities as a CFA Institute Member or CFA Candidate", "Std VII: Responsibilities"),
-    ("Guidance for Standard V: Investment Analysis, Recommendations, and Actions", "Std V: Investment analysis"),
-    ("Guidance for Standard II: Integrity of Capital Markets", "Std II: Market integrity"),
+    ("Guidance for Standard VII: Responsibilities as a CFA Institute Member or CFA Candidate", "Std VII: Member resp"),
+    ("Guidance for Standard V: Investment Analysis, Recommendations, and Actions", "Std V: Inv analysis"),
+    ("Guidance for Standard II: Integrity of Capital Markets", "Std II: Mkt integrity"),
     ("Guidance for Standard VI: Conflicts of Interest", "Std VI: Conflicts"),
     ("Guidance for Standard IV: Duties to Employers", "Std IV: Employers"),
     ("Guidance for Standard III: Duties to Clients", "Std III: Clients"),
@@ -56,18 +57,18 @@ SHORTEN = [
     ("Fixed-Income Active Management: Credit Strategies", "FI active: credit"),
     ("Overview of Fixed-Income Portfolio Management", "FI portfolio mgmt"),
     ("Portfolio Management for Institutional Investors", "PM for institutions"),
-    ("Active Equity Investing: Portfolio Construction", "Active equity: construction"),
-    ("Active Equity Investing: Strategies", "Active equity: strategies"),
+    ("Active Equity Investing: Portfolio Construction", "Active eq: constr"),
+    ("Active Equity Investing: Strategies", "Active eq: strategies"),
     ("Liability-Driven and Index-Based Strategies", "LDI & index-based"),
     ("Asset Allocation with Real-World Constraints", "AA with constraints"),
     ("Asset Allocation to Alternative Investments", "AA to alternatives"),
     ("An Overview of Private Wealth Management", "Private wealth"),
-    ("Overview of Equity Portfolio Management", "Equity portfolio mgmt"),
-    ("Swaps, Forwards, and Futures Strategies", "Swaps, forwards, futures"),
+    ("Overview of Equity Portfolio Management", "Equity PM"),
+    ("Swaps, Forwards, and Futures Strategies", "Swaps/fwds/futures"),
     ("Trading Costs and Electronic Markets", "Trading costs"),
-    ("Currency Management: An Introduction", "Currency management"),
-    ("Index-Based Equity Strategies", "Index-based equity"),
-    ("Portfolio Performance Evaluation", "Performance evaluation"),
+    ("Currency Management: An Introduction", "Currency mgmt"),
+    ("Index-Based Equity Strategies", "Index-based eq"),
+    ("Portfolio Performance Evaluation", "Performance eval"),
     ("Principles of Asset Allocation", "AA principles"),
     ("Investment Manager Selection", "Manager selection"),
     ("Overview of Asset Allocation", "AA overview"),
@@ -83,6 +84,22 @@ PREFIX = re.compile(r"^(MM Q|App Q|CFAI Q|MM Video|MOCK|REVIEW|WEAK|"
 
 def esc(text):
     return (text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+
+
+def learning_modules():
+    """reading_id → learning-module number, counted by position in its book.
+
+    mm_review.json carries no explicit number; the MM Review tab presents the
+    modules as an ordered list per book ("Book → learning module → the page it
+    starts on"), so the ordinal is the number, and counting it here keeps the
+    print-out saying what the app says.
+    """
+    out = {}
+    for book in json.loads(MM_REVIEW.read_text())["books"]:
+        for number, module in enumerate(book["modules"], 1):
+            if module.get("readingID"):
+                out[module["readingID"]] = number
+    return out
 
 
 def title_of(block):
@@ -113,7 +130,7 @@ def leg_of(block):
     return None
 
 
-def day_cell(day, date, exam_date):
+def day_cell(day, date, exam_date, modules):
     """One day. `day` is None when the plan has no row for that date."""
     classes = ["day"]
     if date.isoformat() == exam_date:
@@ -142,17 +159,22 @@ def day_cell(day, date, exam_date):
             tint = BOOK_TINT.get(b.get("book"), "#6B645C")
             badge = (f'<span class="bank" style="background:{tint}">{bank}</span>'
                      if bank else "")
+            # The badge's colour already says which book; this says which
+            # learning module inside it, which is the part you cannot work out
+            # from the reading's name.
+            lm = modules.get(b.get("reading_id"))
+            tag = f'<span class="lm">LM{lm}</span>' if lm else ""
             arrow = {"out": "&#8594;&#8201;", "back": "&#8592;&#8201;"}.get(leg, "")
             bits.append(
                 f'<div class="{cls}"><span class="t">{b["start"]}</span>'
-                f'{badge}<span class="n">{arrow}{esc(title_of(b))}</span></div>')
+                f'{badge}{tag}<span class="n">{arrow}{esc(title_of(b))}</span></div>')
         if day.get("note"):
             bits.append(f'<div class="note">{esc(day["note"])}</div>')
 
     return f'<td class="{" ".join(classes)}">' + "".join(bits) + "</td>"
 
 
-def month_page(year, month, by_date, exam_date):
+def month_page(year, month, by_date, exam_date, modules):
     cal = calendar.Calendar(firstweekday=0)  # Monday
     weeks = cal.monthdatescalendar(year, month)
 
@@ -176,7 +198,7 @@ def month_page(year, month, by_date, exam_date):
             if date.month != month:
                 out.append('<td class="day out"></td>')
             else:
-                out.append(day_cell(by_date.get(date.isoformat()), date, exam_date))
+                out.append(day_cell(by_date.get(date.isoformat()), date, exam_date, modules))
         out.append("</tr>")
     out.append("</tbody></table></section>")
     return "".join(out)
@@ -258,6 +280,7 @@ td.day.exam .num, td.day.exam .examline { color:#FCF9F4; }
 .blk .t { color:#6B645C; flex:0 0 auto; }
 .blk .n { overflow:hidden; text-overflow:ellipsis; }
 .blk.leg { background:#F6EDE4; border-radius:2px; padding:0 2px; margin-left:-2px; }
+.lm { color:#6B645C; font-size:4.6pt; flex:0 0 auto; letter-spacing:-.01em; }
 .bank { color:#FCF9F4; font-size:4.4pt; padding:0 2px; border-radius:2px;
         flex:0 0 auto; position:relative; top:-.4pt; }
 .note { font-size:5.4pt; color:#C47A4A; margin-top:2px; }
@@ -300,7 +323,8 @@ def main():
     by_date = {d["date"]: d for d in days}
 
     pages = [cover_page(data, days, exam)]
-    pages += [month_page(y, m, by_date, exam) for y, m in MONTHS]
+    modules = learning_modules()
+    pages += [month_page(y, m, by_date, exam, modules) for y, m in MONTHS]
     html = (f"<!doctype html><meta charset='utf-8'><title>CFA L3 plan</title>"
             f"<style>{CSS}</style>" + "".join(pages))
 
