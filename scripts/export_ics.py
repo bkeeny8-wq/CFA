@@ -35,6 +35,21 @@ BOOK = {
 }
 BANK = {"app": "Daybook", "mm": "MarkMeldrum", "cfai": "CFA Institute"}
 
+# The question bank and the review PDFs do not always number a book's modules
+# the same way. Meldrum's Ethics PDF runs nine modules and has no "Application
+# of the Code" of its own; the question bank runs ten, inserting Application at
+# position 9 and pushing the Asset Manager Code to 10. Every other book agrees,
+# which is why this table has two rows and not thirty-six.
+#
+# The BADGE follows the QUESTION BANK, because that is the number you are
+# looking at while answering questions and the one you filter on. The page
+# reference in the event body still names the PDF's own module explicitly, so
+# neither number is left silently wrong.
+BANK_MODULE = {
+    "application_of_code_and_standards_l3": 9,
+    "asset_manager_code_of_professional_conduct": 10,
+}
+
 
 def learning_modules():
     """reading_id → (book name, module number, first page, last page, file).
@@ -117,13 +132,10 @@ def where(block, modules):
     """
     book = block.get("book")
     rid = block.get("reading_id")
-    mod = modules.get(rid) if rid else None
-    if book and mod:
-        return f"B{book} LM{mod[1]}"
-    if book:
-        # Application of the Code has no Meldrum module of its own.
-        return f"B{book}"
-    return ""
+    if not book:
+        return ""
+    number = BANK_MODULE.get(rid) or (modules[rid][1] if rid in modules else None)
+    return f"B{book} LM{number}" if number else f"B{book}"
 
 
 def summarise(block, modules):
@@ -157,11 +169,20 @@ def describe(block, day, modules):
     lines = []
     if block.get("book"):
         lines.append(f"Book {block['book']} — {BOOK[block['book']]}")
-    mod = modules.get(block.get("reading_id") or "")
+    rid = block.get("reading_id") or ""
+    mod = modules.get(rid)
+    bank = BANK_MODULE.get(rid)
     if mod:
         _, number, first, last, filename = mod
-        lines.append(f"Learning module {number} — pages {first}–{last} of {filename}"
-                     + f" ({last - first + 1} pages)")
+        line = (f"Learning module {number} — pages {first}–{last} of {filename}"
+                f" ({last - first + 1} pages)")
+        if bank and bank != number:
+            line += f" — the question bank files this one under LM{bank}"
+        lines.append(line)
+    elif bank:
+        lines.append(f"Question bank LM{bank}. No module of its own in the "
+                     f"review PDFs — LM1–LM8 of mm-ethics.pdf are the "
+                     f"underlying Standards this reading applies.")
     if block.get("question_source"):
         lines.append(f"Answer in: {BANK.get(block['question_source'], block['question_source'])}")
     if leg_of(block):

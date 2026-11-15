@@ -86,19 +86,31 @@ def esc(text):
     return (text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
 
 
+# Ethics is numbered differently by the question bank than by the review PDF:
+# the bank inserts "Application of the Code and Standards" at position 9 and
+# pushes the Asset Manager Code to 10, where the PDF has nine modules and no
+# Application of its own. The printed grid follows the BANK, matching the
+# calendar — see the same table in scripts/export_ics.py.
+BANK_MODULE = {
+    "application_of_code_and_standards_l3": 9,
+    "asset_manager_code_of_professional_conduct": 10,
+}
+
+
 def learning_modules():
     """reading_id → learning-module number, counted by position in its book.
 
     mm_review.json carries no explicit number; the MM Review tab presents the
     modules as an ordered list per book ("Book → learning module → the page it
     starts on"), so the ordinal is the number, and counting it here keeps the
-    print-out saying what the app says.
+    print-out saying what the app says — except where BANK_MODULE overrides it.
     """
     out = {}
     for book in json.loads(MM_REVIEW.read_text())["books"]:
         for number, module in enumerate(book["modules"], 1):
             if module.get("readingID"):
                 out[module["readingID"]] = number
+    out.update(BANK_MODULE)
     return out
 
 
