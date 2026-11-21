@@ -1439,13 +1439,13 @@
           "options": {
             "A": "selling protection on 5y CDX HY (with notional adjusted to BPV-match) and buying protection on 10y CDX HY.",
             "B": "buying protection on both maturities.",
-            "C": "Selling protection on both maturities. That specification would be used as-is, with no forward-looking overlay."
+            "C": "selling protection on both maturities."
           },
           "correct": "A",
           "rationales": {
             "A": "Full statement: selling protection on 5y CDX HY (with notional adjusted to BPV-match) and buying protection on 10y CDX HY — capitalizes on expected steepening (5y spread declining more than 10y).\n\nCorrect. Per Example 31: 'The appropriate strategy is to sell protection on the 5-year CDX HY and buy protection on the 10-year CDX HY.' Calculate 5y notional to match BPV of 10y: (EffSpreadDur_10y / EffSpreadDur_5y) × $10M = (8.656/4.637) × $10M = $18,667,000. For 175 bp fall in 5y and 25 bp fall in 10y: 5y gain = $1,514,780, 10y loss = −$216,400, portfolio gain = $1,298,380.",
             "B": "Same-direction on both would not be duration-neutral or steepener.",
-            "C": "Would be duration-matched but not directional."
+            "C": "Incorrect. Selling protection on both maturities is a directional long-credit position: the two legs' spread BPVs add rather than offset, so it is neither duration-neutral nor a curve trade."
           },
           "type": "mc",
           "primary_los": "fixed_income_active_management_credit_strategies.h",
