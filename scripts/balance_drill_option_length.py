@@ -1,5 +1,28 @@
 #!/usr/bin/env python3
-"""Lengthen short LOS-drill options so the correct choice is not a length cue.
+"""DO NOT RUN THIS. Kept for history; superseded by fix_drill_length_cue.py.
+
+Running it caused the defect it was written to prevent. Two passes — 9265ff6
+to stop the key being uniquely longest, c6a0a85 to stop it being uniquely
+shortest — squeezed both tails of a three-way ranking, which left the correct
+option in the MIDDLE on 96.4% of drills. On the 1,586 items whose gaps exceed
+about three words, "pick the middle option" was correct 1,586 times out of
+1,586: a working answer key requiring no knowledge at all.
+
+It also injected stock padding ("That specification would be used as-is, with
+no forward-looking overlay") into 1,797 distractors and none of the keys,
+which is a second cue — the padded option is always wrong. Its expander falls
+back to a degenerate template whenever a rationale has no clean clause to
+lift, producing text like "precise, timely, and quantitative — as a complete
+reading of these are that they."
+
+The repair is in scripts/fix_drill_length_cue.py, which only ever deletes.
+QuestionBankIntegrityTests.testDrillOptionLengthDoesNotPredictTheAnswer now
+guards the distribution; the version of that test written alongside this script
+asserted BOTH tails were empty, which is what pinned the key to the middle.
+
+---- original docstring follows ----
+
+Lengthen short LOS-drill options so the correct choice is not a length cue.
 
 Unique-longest: keep the correct option text; expand the closest shorter
 distractor (both only if needed) so the key is not uniquely longest.

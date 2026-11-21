@@ -44,7 +44,7 @@
           "options": {
             "A": "Trade urgency refers to the total notional value of the trade being executed.",
             "B": "how quickly or slowly the order is executed over the trading time horizon — greater urgency = shorter execution horizon.",
-            "C": "Trade urgency refers to the number of counterparties involved in filling the order. That specification would be used as-is, with no forward-looking overlay."
+            "C": "Trade urgency refers to the number of counterparties involved in filling the order."
           },
           "correct": "B",
           "rationales": {
@@ -192,7 +192,7 @@
           "number": 8,
           "stem": "For hedge funds with lockup periods, redemptions most likely:",
           "options": {
-            "A": "Occur daily without limitation. That specification would be used as-is, with no forward-looking overlay.",
+            "A": "occur daily without limitation.",
             "B": "are made according to a regular schedule (e.g., calendar quarter-ends).",
             "C": "are never permitted."
           },
@@ -217,7 +217,7 @@
           "number": 9,
           "stem": "For index tracking portfolios, when the index has additions, deletions, or constituent weight changes, the manager most likely:",
           "options": {
-            "A": "Trades index changes at the next day's opening auction to avoid closing-auction congestion. That specification would be used as-is, with no forward-looking overlay.",
+            "A": "trades index changes at the next day's opening auction to avoid closing-auction congestion.",
             "B": "trades only at the open.",
             "C": "trades index changes at the closing price to ensure the same price is used for fund and benchmark valuation."
           },
@@ -354,7 +354,7 @@
           "options": {
             "A": "trade patiently.",
             "B": "trade at an accelerated rate to capture prices before less favorable prices are expected later in the trading horizon.",
-            "C": "Make no adjustments. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class."
+            "C": "make no adjustments."
           },
           "correct": "B",
           "rationales": {
@@ -377,7 +377,7 @@
           "number": 6,
           "stem": "Execution risk is most likely:",
           "options": {
-            "A": "Execution risk is the same concept as market impact under a different name. Market impact is the trader's own price pressure; execution risk is ADVERSE PRICE MOVEMENT over the horizon from value changes or induced volatility.",
+            "A": "Execution risk is the same concept as market impact under a different name.",
             "B": "Execution risk is the risk that a completed trade fails to settle.",
             "C": "the risk of an adverse price movement occurring over the trading horizon due to a change in fundamental value or trading-induced volatility — often proxied by price volatility."
           },
@@ -403,7 +403,7 @@
           "stem": "A high level of individual risk aversion in a trader most likely results in:",
           "options": {
             "A": "higher trade urgency — more concerned about market risk and tends to trade quickly to avoid greater market exposure associated with trading patiently.",
-            "B": "High individual risk aversion in a trader results in lower trade urgency and more patient execution. That specification would be used as-is, with no forward-looking overlay.",
+            "B": "High individual risk aversion in a trader results in lower trade urgency and more patient execution.",
             "C": "A trader's risk aversion has no impact on the chosen trading strategy."
           },
           "correct": "A",
@@ -427,7 +427,7 @@
           "number": 8,
           "stem": "Temporary market impact vs permanent market impact differ most likely because:",
           "options": {
-            "A": "Temporary impact is longer-lasting. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
+            "A": "temporary impact is longer-lasting.",
             "B": "temporary impact is the short-lived price effect from buying/selling pressure (with subsequent price reversion).",
             "C": "they are identical concepts."
           },
@@ -464,7 +464,7 @@
           "options": {
             "A": "These are decision price, arrival price, VWAP, and closing price benchmarks. That specification would be used as-is, with no forward-looking overlay.",
             "B": "pre-trade, intraday, post-trade, and market-adjusted benchmarks.",
-            "C": "pre-trade, intraday, post-trade, and price target benchmarks. As that include."
+            "C": "pre-trade, intraday, post-trade, and price target benchmarks."
           },
           "correct": "C",
           "rationales": {
@@ -514,7 +514,7 @@
           "options": {
             "A": "the previous close.",
             "B": "the price of the security at the time the order is entered into the market for execution.",
-            "C": "The arrival price benchmark is an average of intraday prices. That specification would be used as-is, with no forward-looking overlay."
+            "C": "an average of intraday prices."
           },
           "correct": "B",
           "rationales": {
@@ -537,7 +537,7 @@
           "number": 4,
           "stem": "VWAP is most likely:",
           "options": {
-            "A": "VWAP is the average of high and low prices. That specification would be used as-is, with no forward-looking overlay.",
+            "A": "the average of high and low prices.",
             "B": "the last price of the day.",
             "C": "the volume-weighted average price of all trades executed over the day or trading horizon."
           },
@@ -563,7 +563,7 @@
           "stem": "TWAP is most likely:",
           "options": {
             "A": "an equal-weighted average price of all trades executed over the day or trading horizon — does NOT consider volume traded.",
-            "B": "TWAP is identical to VWAP, differing only in the naming convention used by vendors. That specification would be used as-is, with no forward-looking overlay.",
+            "B": "TWAP is identical to VWAP, differing only in the naming convention used by vendors.",
             "C": "TWAP is the volume-weighted price of trades executed within the horizon."
           },
           "correct": "A",
@@ -587,7 +587,7 @@
           "number": 6,
           "stem": "The closing price benchmark is most likely used by:",
           "options": {
-            "A": "The closing price benchmark is used primarily by high-turnover quantitative funds. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
+            "A": "The closing price benchmark is used primarily by high-turnover quantitative funds.",
             "B": "index managers and mutual funds that wish to execute transactions at the closing price for the day — important for managers with index mandates where fund securities are valued using official market close.",
             "C": "The closing price benchmark is used exclusively by intraday day traders."
           },
@@ -639,7 +639,7 @@
           "options": {
             "A": "a benchmark specifying a price to meet or beat (transact more favorably).",
             "B": "the VWAP over the horizon of the trade.",
-            "C": "The price target benchmark is the arrival price at the time the order is released to the market."
+            "C": "the arrival price at the time the order is released to the market."
           },
           "correct": "A",
           "rationales": {
@@ -697,7 +697,7 @@
           "number": 1,
           "stem": "For a short-term alpha-driven equity trade (high urgency, XYZ trading at significant pre-market discount believed to be an overreaction), the most appropriate trading strategy is most likely:",
           "options": {
-            "A": "For the high-urgency alpha trade, the most appropriate strategy is passive VWAP or TWAP over the whole day routed through dark pools. That specification would be used as-is, with no forward-looking overlay.",
+            "A": "For the high-urgency alpha trade, the most appropriate strategy is passive VWAP or TWAP over the whole day routed through dark pools.",
             "B": "The most appropriate strategy is waiting until the closing auction to execute the entire order.",
             "C": "trade portion in the opening auction and continue any residual in the open market (using price target benchmark, e.g., $60 limit) — provides greater execution certainty given trade urgency."
           },
@@ -747,7 +747,7 @@
           "number": 3,
           "stem": "For a risk rebalance trade (macro hedge fund with balanced buy/sell list to reduce volatility), the most appropriate strategy is most likely:",
           "options": {
-            "A": "With balanced buy/sell list to reduce volatility), the most appropriate strategy is aggressive full-day trading with dark pools only.",
+            "A": "aggressive full-day trading with dark pools only.",
             "B": "TWAP algorithm with TWAP reference price over the next day or two.",
             "C": "single trade at market open."
           },
@@ -798,7 +798,7 @@
           "stem": "For a new mandate trade (€100M into MDAX with 3% TE, performance measurement begins today's close), the most appropriate strategy is most likely:",
           "options": {
             "A": "buy MDAX futures immediately to gain full €100M index exposure (equitize the cash), then build underlying stock positions over time and unwind the futures.",
-            "B": "For the new €100M MDAX mandate, the appropriate strategy is investing slowly in the underlying stocks over many days without interim exposure. That specification would be used as-is, with no forward-looking overlay.",
+            "B": "For the new €100M MDAX mandate, the appropriate strategy is investing slowly in the underlying stocks over many days without interim exposure.",
             "C": "The appropriate strategy is holding the €100M in cash indefinitely until attractive entry prices emerge."
           },
           "correct": "A",
@@ -822,7 +822,7 @@
           "number": 6,
           "stem": "For a balanced buy/sell list with net beta ~0, the trader most likely has:",
           "options": {
-            "A": "Greater trade urgency than a directional trade. That specification would be used as-is, with no forward-looking overlay.",
+            "A": "greater trade urgency than a directional trade.",
             "B": "lower trade urgency because market risk exposure is reduced when a list is balanced in market exposure.",
             "C": "no urgency considerations."
           },
@@ -897,7 +897,7 @@
           "number": 9,
           "stem": "The primary goal of any trading strategy is most likely to:",
           "options": {
-            "A": "The primary goal of any trading strategy is to always execute at the lowest possible price. The lowest price is rarely achievable and chasing it invites opportunity cost; the goal is the cost/risk balance.",
+            "A": "The primary goal of any trading strategy is to always execute at the lowest possible price.",
             "B": "balance the expected costs and risks associated with trading the order in the market consistent with the portfolio manager's trading objectives, risk aversion, and other known constraints.",
             "C": "The primary goal is to always trade at the fastest achievable speed."
           },
@@ -934,7 +934,7 @@
           "options": {
             "A": "trade execution and regulatory reporting.",
             "B": "These are market making and settlement optimization. That specification would be used as-is, with no forward-looking overlay.",
-            "C": "trade execution and profit generation — as that these."
+            "C": "trade execution and profit generation."
           },
           "correct": "C",
           "rationales": {
@@ -982,7 +982,7 @@
           "number": 3,
           "stem": "A POV algorithm with 10% participation rate most likely means:",
           "options": {
-            "A": "Trades 10% of the order at the open. That specification would be used as-is, with no forward-looking overlay.",
+            "A": "trades 10% of the order at the open.",
             "B": "for every 10,000 shares that trade in the market, the algorithm will execute 1,000 shares.",
             "C": "trades 10% during the first hour."
           },
@@ -1008,7 +1008,7 @@
           "stem": "Liquidity-seeking algorithms are most likely appropriate for:",
           "options": {
             "A": "only small orders in liquid markets.",
-            "B": "Liquidity-seeking algorithms are small orders that need immediate execution. That specification would be used as-is, with no forward-looking overlay.",
+            "B": "small orders that need immediate execution.",
             "C": "large orders that must execute quickly without substantial impact — priority is to minimize information leakage."
           },
           "correct": "C",
@@ -1033,7 +1033,7 @@
           "stem": "Arrival price algorithms are most likely:",
           "options": {
             "A": "trade more aggressively at the beginning of trading to execute more shares nearer to the arrival price — 'front-loaded' strategy.",
-            "B": "Arrival price algorithms spread trading uniformly across the entire day. Uniform spreading is TWAP's profile; arrival price algos are FRONT-loaded.",
+            "B": "Arrival price algorithms spread trading uniformly across the entire day.",
             "C": "Arrival price algorithms concentrate all trading at the end of the day."
           },
           "correct": "A",
@@ -1057,7 +1057,7 @@
           "number": 6,
           "stem": "Dark aggregator algorithms are most likely appropriate for:",
           "options": {
-            "A": "Dark aggregator algorithms are most appropriate for small orders in highly liquid securities. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
+            "A": "Dark aggregator algorithms are most appropriate for small orders in highly liquid securities.",
             "B": "large orders relative to expected volume where trading in the open market would lead to significant market impact and where the trader is concerned about information leakage from posting limit orders in lit venues.",
             "C": "Dark aggregators are appropriate for trades requiring immediate, certain execution."
           },
@@ -1082,7 +1082,7 @@
           "number": 7,
           "stem": "Smart order routers (SORs) most likely:",
           "options": {
-            "A": "Smart order routers execute exclusively in dark pools, never touching lit venues. That specification would be used as-is, with no forward-looking overlay.",
+            "A": "Smart order routers execute exclusively in dark pools, never touching lit venues.",
             "B": "Smart order routers send every order to a single pre-designated venue.",
             "C": "determine how best to route an order given prevailing market conditions — for limit orders, find the destination with highest execution probability."
           },
@@ -1108,7 +1108,7 @@
           "stem": "For a portfolio manager expecting short-term buying pressure by other participants into the market close (adverse price expectations), the most appropriate algorithm for a moderate-size order in a liquid stock is most likely:",
           "options": {
             "A": "arrival price — to trade more aggressively at the beginning and capture alpha ahead of the adverse price movement expected later.",
-            "B": "Most appropriate algorithm for a moderate-size order in a liquid stock is dark aggregator — for order sizes that are relatively small and in liquid markets.",
+            "B": "dark aggregator — for order sizes that are relatively small and in liquid markets.",
             "C": "closing auction only."
           },
           "correct": "A",
@@ -1194,7 +1194,7 @@
           "options": {
             "A": "small trades and large urgent trades usually via broker risk trades (RFQs, broker takes contract into inventory).",
             "B": "all trades via algorithms.",
-            "C": "No trader interaction needed. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class."
+            "C": "no trader interaction needed."
           },
           "correct": "A",
           "rationales": {
@@ -1242,7 +1242,7 @@
           "number": 5,
           "stem": "OTC derivative markets most likely have:",
           "options": {
-            "A": "OTC derivative markets have high public transparency similar to listed equity markets. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
+            "A": "OTC derivative markets have high public transparency similar to listed equity markets.",
             "B": "OTC derivative markets operate with no dealer involvement.",
             "C": "historically opaque markets — regulatory efforts (Dodd-Frank in US, G-20 2009 agreement) have increased transparency via swap data repositories (SDRs) and central clearing for standardized derivatives."
           },
@@ -1294,7 +1294,7 @@
           "options": {
             "A": "all trades via a single dealer.",
             "B": "large urgent trades via RFQs submitted to multiple dealers competing.",
-            "C": "All trades via central clearing. That specification would be used as-is, with no forward-looking overlay."
+            "C": "all trades via central clearing."
           },
           "correct": "B",
           "rationales": {
@@ -1344,7 +1344,7 @@
           "options": {
             "A": "broker risk trade via RFQ process (because of corporate bond illiquidity, low likelihood of finding a matching buyer).",
             "B": "closing auction of stock exchange.",
-            "C": "A large, urgent sell of corporate bonds, the most appropriate execution is algorithmic execution across venues. That specification would be used as-is, with no forward-looking overlay."
+            "C": "algorithmic execution across venues."
           },
           "correct": "A",
           "rationales": {
@@ -1402,7 +1402,7 @@
           "number": 2,
           "stem": "The IS decomposition includes three main components. These are most likely:",
           "options": {
-            "A": "These are delay cost, trading cost, and opportunity cost.",
+            "A": "delay cost, trading cost, and opportunity cost.",
             "B": "commissions, market impact, and spread cost.",
             "C": "execution cost, opportunity cost, and fixed fees."
           },
@@ -1503,7 +1503,7 @@
           "stem": "In the RLK example (decision 9:00 at $30.00, released 10:30 at $30.10, 80,000 of 100,000 executed with total cost $2,425,000, closes $30.65, $0.02/share commission), delay cost is most likely:",
           "options": {
             "A": "$8,000 = 80,000 × ($30.10 − $30.00).",
-            "B": "02/share commission), delay cost is $25,000.",
+            "B": "$25,000.",
             "C": "$13,000."
           },
           "correct": "A",
@@ -1553,7 +1553,7 @@
           "stem": "Total implementation shortfall in bps for the RLK example (total shares 100,000, decision price $30.00, total IS $39,600) is most likely:",
           "options": {
             "A": "13 bps.",
-            "B": "00, total IS $39,600) is 1,320 bps. That specification would be used as-is, with no forward-looking overlay.",
+            "B": "1,320 bps.",
             "C": "132 bps = $39,600 / ($30 × 100,000) × 10,000 bps."
           },
           "correct": "C",
@@ -1588,7 +1588,7 @@
           "stem": "Trade cost analysis (TCA) or post-trade analysis most likely:",
           "options": {
             "A": "evaluates and measures the execution quality of the trade and the overall performance of the trader, broker, and/or algorithm — facilitates communication among portfolio manager, traders, brokers to understand how costs occur.",
-            "B": "Trade cost analysis is the same exercise as pre-trade cost estimation, performed with identical models before the order is worked in the market. Pre-trade estimates are forecasts; TCA is RETROSPECTIVE evaluation of execution quality.",
+            "B": "Trade cost analysis is the same exercise as pre-trade cost estimation, performed with identical models before the order is worked in the market.",
             "C": "Post-trade TCA focuses only on the commissions paid to executing brokers, since implicit costs cannot be measured after the fact."
           },
           "correct": "A",
@@ -1663,7 +1663,7 @@
           "stem": "For a market-adjusted cost calculation, the formula is most likely:",
           "options": {
             "A": "Market-adjusted cost (bps) = Arrival cost (bps) − β × Index cost (bps) — removes expected stock movement due to market movement (based on stock's beta) so the residual isolates the impact of the order itself.",
-            "B": "Market-adjusted cost is computed as arrival cost plus beta times the index cost. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
+            "B": "Market-adjusted cost is computed as arrival cost plus beta times the index cost.",
             "C": "Market-adjusted cost is simply equal to the arrival cost with no adjustment."
           },
           "correct": "A",
@@ -1687,7 +1687,7 @@
           "number": 5,
           "stem": "In the buying in a rising market example (arrival cost 166.7 bps, index cost 100 bps, β 1.25), market-adjusted cost is most likely:",
           "options": {
-            "A": "25), market-adjusted cost is 266.7 bps.",
+            "A": "266.7 bps.",
             "B": "41.7 bps = 166.7 − 1.25 × 100.",
             "C": "125 bps."
           },
@@ -1713,7 +1713,7 @@
           "stem": "Added value (or pre-trade adjusted cost) is most likely:",
           "options": {
             "A": "Added value is computed as arrival cost plus the estimated pre-trade cost.",
-            "B": "Added value equals the closing price minus the opening price on the trade date. That specification would be used as-is, with no forward-looking overlay.",
+            "B": "Added value equals the closing price minus the opening price on the trade date.",
             "C": "Added value = Arrival cost − Est. pre-trade cost — if a fund executes at cost lower than pre-trade estimate it's superior performance."
           },
           "correct": "C",
@@ -1823,7 +1823,7 @@
           "stem": "The objective of a trade policy is most likely:",
           "options": {
             "A": "ensure the asset manager's execution and order-handling procedures are in line with the duty of best execution owed to clients.",
-            "B": "The objective of a trade policy is to maximize firm profits even at the expense of clients. That specification would be used as-is, with no forward-looking overlay.",
+            "B": "The objective of a trade policy is to maximize firm profits even at the expense of clients.",
             "C": "The objective of a trade policy is to eliminate all trading activity."
           },
           "correct": "A",
@@ -1848,7 +1848,7 @@
           "stem": "The reading identifies four key aspects of a trade policy. Which is least likely one of them?",
           "options": {
             "A": "Meaning of best execution as defined by relevant regulatory framework.",
-            "B": "Procedures for selecting the fund's custodian bank — as that policy.",
+            "B": "Procedures for selecting the fund's custodian bank.",
             "C": "Factors determining the optimal order execution approach."
           },
           "correct": "B",
@@ -1898,7 +1898,7 @@
           "stem": "For trade errors, firms most likely need to:",
           "options": {
             "A": "have a policy for treatment of trade errors — errors and any resulting gains/losses must be disclosed to firm's compliance department and documented in a trade error log with related documentation.",
-            "B": "Firms should conceal trade errors from the compliance department to avoid regulatory attention. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
+            "B": "Firms should conceal trade errors from the compliance department to avoid regulatory attention.",
             "C": "Firms should always pass trade errors and any resulting losses through to the client."
           },
           "correct": "A",
@@ -1924,7 +1924,7 @@
           "options": {
             "A": "achieving the lowest commission rate on every trade.",
             "B": "execution price, trading costs, speed of execution, likelihood of execution and settlement, and other factors.",
-            "C": "Always executing at the best displayed quote, regardless of order size or settlement likelihood. That specification would be used as-is, with no forward-looking overlay."
+            "C": "always executing at the best displayed quote, regardless of order size or settlement likelihood."
           },
           "correct": "B",
           "rationales": {

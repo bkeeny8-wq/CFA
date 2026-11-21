@@ -297,8 +297,24 @@ final class QuestionBankIntegrityTests: XCTestCase {
         XCTAssertTrue(mismatches.isEmpty, "drill los_text != master: \(mismatches)")
     }
 
-    /// A uniquely longest or uniquely shortest correct option is a length cue.
-    func testDrillCorrectOptionIsNotUniquelyLongestOnMostItems() throws {
+    /// Option length must not predict the answer.
+    ///
+    /// This test previously asserted `uniqueLongest == 0` AND
+    /// `uniqueShortest == 0`, and both passed. Those two conditions cannot
+    /// hold together without a third: if the key is never the longest and
+    /// never the shortest of three options, it is ALWAYS the middle one. It
+    /// was, on 96.4% of drills, and on the 1,586 items whose gaps exceed about
+    /// three words "pick the middle option" was correct 1,586 times out of
+    /// 1,586. The test was not failing to catch the cue — it was specifying
+    /// it, and any correct fix would have been reverted to make CI green.
+    ///
+    /// Each tail is a cue worth 33 points over chance; squeezing both into the
+    /// middle is a cue worth 63. The property actually wanted is that all
+    /// three positions are roughly equally likely, so that is what is asserted
+    /// now. Bounds are wide enough to permit honest drift and tight enough to
+    /// fail both the old state (100% middle) and a naive revert to the
+    /// pre-balancing data (76.6% longest).
+    func testDrillOptionLengthDoesNotPredictTheAnswer() throws {
         let content = ContentLoader()
         content.load()
         XCTAssertNil(content.loadError, content.loadError ?? "")
@@ -307,7 +323,16 @@ final class QuestionBankIntegrityTests: XCTestCase {
         var uniqueLongest = 0
         var uniqueShortest = 0
         var distractorTails = 0
+        var boilerplateDistractors = 0
+        var boilerplateOnKeys = 0
         var keys: [String: Int] = [:]
+        // The stock sentences the balancing passes appended. Kept separate
+        // from `tail` above because that pattern was written alongside the
+        // padding and misses the commonest form of it entirely.
+        let boilerplate = try NSRegularExpression(
+            pattern: #"That specification would be used as-is|That approach would be applied without further adjustment"#,
+            options: [.caseInsensitive]
+        )
         let tail = try NSRegularExpression(
             pattern: #"(namely\s+.+\bas a complete account of|\bas the .{2,80} reading\.?$|\bas a complete reading of |every implication that reading is usually thought to carry|[—–-]\s*as (?:that|those) [A-Za-z][\w\-]{0,30}(?:\s+[A-Za-z][\w\-]{0,30}){0,4}\.?$|\.\s+As (?:that|those) [A-Za-z][\w\-]{0,30}(?:\s+[A-Za-z][\w\-]{0,30}){0,4}\.?$|,\s+as (?:that|those) [A-Za-z][\w\-]{0,30}(?:\s+[A-Za-z][\w\-]{0,30}){0,4}\.?$)"#,
             options: [.caseInsensitive]
@@ -328,19 +353,57 @@ final class QuestionBankIntegrityTests: XCTestCase {
                     if let shortestOther = other.min(), keyLen < shortestOther {
                         uniqueShortest += 1
                     }
-                    for (letter, text) in options where letter != correct {
+                    for (letter, text) in options {
                         let range = NSRange(text.startIndex..<text.endIndex, in: text)
+                        let padded = boilerplate.firstMatch(in: text, range: range) != nil
+                        if letter == correct {
+                            if padded { boilerplateOnKeys += 1 }
+                            continue
+                        }
                         if tail.firstMatch(in: text, range: range) != nil {
                             distractorTails += 1
                         }
+                        if padded { boilerplateDistractors += 1 }
                     }
                 }
             }
         }
         XCTAssertEqual(total, 2_667)
-        XCTAssertEqual(uniqueLongest, 0, "correct option uniquely longest on \(uniqueLongest)/\(total)")
-        XCTAssertEqual(uniqueShortest, 0, "correct option uniquely shortest on \(uniqueShortest)/\(total)")
-        XCTAssertEqual(distractorTails, 0, "grammatical length tails remain on \(distractorTails) distractors")
+
+        let longest = Double(uniqueLongest) / Double(total)
+        let shortest = Double(uniqueShortest) / Double(total)
+        let middle = 1.0 - longest - shortest
+        for (name, share) in [("longest", longest), ("middle", middle), ("shortest", shortest)] {
+            XCTAssertGreaterThan(
+                share, 0.10,
+                "correct option is \(name) on only \(Int(share * 100))% of drills — "
+                + "length is predicting the answer again")
+            XCTAssertLessThan(
+                share, 0.55,
+                "correct option is \(name) on \(Int(share * 100))% of drills — "
+                + "that is a usable answer key without reading the question")
+        }
+
+        // Boilerplate bolted onto a distractor is its own cue: the phrase
+        // marks a wrong option every time it appears. The balancing passes
+        // added "That specification would be used as-is…" to 1,797
+        // distractors, and the regex above — written at the same time — did
+        // not match it, so this count read 0 while two thirds of the corpus
+        // carried it. Removing the padding took it to 902. It should reach 0,
+        // which needs distractors rewritten rather than trimmed; until then
+        // this is a ratchet, not a target.
+        XCTAssertLessThanOrEqual(
+            boilerplateDistractors, 902,
+            "machine-written padding on \(boilerplateDistractors) distractors")
+        // `tail` matches one legitimately-worded option — "…as that would
+        // invade financial privacy" — so this is 1, not 0, and has been since
+        // the padding was removed. Kept as a ratchet rather than retuned,
+        // because the pattern earns its keep on the forms it does catch.
+        XCTAssertLessThanOrEqual(
+            distractorTails, 1,
+            "grammatical length tails on \(distractorTails) distractors")
+        XCTAssertEqual(boilerplateOnKeys, 0, "padding on a correct option marks the answer")
+
         XCTAssertEqual(keys["A"], 889)
         XCTAssertEqual(keys["B"], 889)
         XCTAssertEqual(keys["C"], 889)
