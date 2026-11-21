@@ -325,6 +325,7 @@ final class QuestionBankIntegrityTests: XCTestCase {
         var distractorTails = 0
         var boilerplateDistractors = 0
         var boilerplateOnKeys = 0
+        var loneLowercaseIsKey = 0
         var keys: [String: Int] = [:]
         // The stock sentences the balancing passes appended. Kept separate
         // from `tail` above because that pattern was written alongside the
@@ -345,6 +346,17 @@ final class QuestionBankIntegrityTests: XCTestCase {
                     else { continue }
                     total += 1
                     keys[correct, default: 0] += 1
+
+                    // The generator wrote distractors as capitalised standalone
+                    // sentences and keys as lowercase continuations of the stem,
+                    // so "the option that carries on from the stem" named the
+                    // answer on 919 drills. Present in the data from generation
+                    // onward — neither balancing pass caused it and neither
+                    // earlier audit caught it.
+                    let lowerStart = options.filter { $0.value.first?.isLowercase == true }
+                    if lowerStart.count == 1, lowerStart.first?.key == correct {
+                        loneLowercaseIsKey += 1
+                    }
                     let keyLen = keyText.count
                     let other = options.compactMap { $0.key == correct ? nil : $0.value.count }
                     if let longestOther = other.max(), keyLen > longestOther {
@@ -403,6 +415,14 @@ final class QuestionBankIntegrityTests: XCTestCase {
             distractorTails, 1,
             "grammatical length tails on \(distractorTails) distractors")
         XCTAssertEqual(boilerplateOnKeys, 0, "padding on a correct option marks the answer")
+
+        // Case is normalised to uppercase-initial, so no option can be the
+        // lone continuation of the stem. Zero, not a ratchet: nothing about
+        // correct content requires a key to start in lower case.
+        XCTAssertEqual(
+            loneLowercaseIsKey, 0,
+            "the key is the only lowercase-initial option on \(loneLowercaseIsKey) drills — "
+            + "it can be picked out without reading the stem")
 
         XCTAssertEqual(keys["A"], 889)
         XCTAssertEqual(keys["B"], 889)

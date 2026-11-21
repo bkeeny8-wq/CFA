@@ -75,8 +75,8 @@
           "stem": "Approximation for volatility decomposition most likely:",
           "options": {
             "A": "When R_FC and R_FX are large, the cross-term dominates so R_DC ≈ R_FC × R_FX. That specification would be used as-is, with no forward-looking overlay.",
-            "B": "σ²(R_DC) ≈ σ²(R_FC) + σ²(R_FX) because the correlation term nets to zero.",
-            "C": "when R_FC and R_FX are small, cross-term R_FC × R_FX is small so R_DC ≈ R_FC + R_FX."
+            "B": "Σ²(R_DC) ≈ σ²(R_FC) + σ²(R_FX) because the correlation term nets to zero.",
+            "C": "When R_FC and R_FX are small, cross-term R_FC × R_FX is small so R_DC ≈ R_FC + R_FX."
           },
           "correct": "C",
           "rationales": {
@@ -99,7 +99,7 @@
           "number": 4,
           "stem": "Exchange rate exposure effect on domestic-currency variance most likely:",
           "options": {
-            "A": "because Equation 5 is based on addition of all three terms on right side of equal sign, exchange rate exposure will generally cause variance of domestic-currency returns σ²(R_DC) to increase to more than that of foreign-currency returns σ²(R_FC) considered on their own.",
+            "A": "Because Equation 5 is based on addition of all three terms on right side of equal sign, exchange rate exposure will generally cause variance of domestic-currency returns σ²(R_DC) to increase to more than that of foreign-currency returns σ²(R_FC) considered on their own.",
             "B": "Exchange rate exposure has no effect on the variance of domestic-currency returns.",
             "C": "Adding currency exposure always reduces domestic-currency return variance through diversification. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class. No cycle overlay would be allowed to lift or cut that bound."
           },
@@ -200,7 +200,7 @@
           "stem": "Correlations and diversification most likely:",
           "options": {
             "A": "Portfolio currency risk depends only on the individual variances of each foreign-currency asset. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
-            "B": "domestic-currency risk exposure of overall portfolio σ(R_DC) will depend not only on variances of each of the foreign-currency returns (R_FC) and exchange rate movements (R_FX) but also on how each of these interacts with the others.",
+            "B": "Domestic-currency risk exposure of overall portfolio σ(R_DC) will depend not only on variances of each of the foreign-currency returns (R_FC) and exchange rate movements (R_FX) but also on how each of these interacts with the others.",
             "C": "Correlations among currency and asset returns are irrelevant to portfolio construction."
           },
           "correct": "B",
@@ -236,7 +236,7 @@
           "options": {
             "A": "A single unified view governs currency management: all currency risk should always be fully hedged.",
             "B": "Both schools of thought agree that currency movements are predictable in the short run.",
-            "C": "one camp holds that in the long run currency effects cancel out to zero as exchange rates revert to historical means or fundamental values."
+            "C": "One camp holds that in the long run currency effects cancel out to zero as exchange rates revert to historical means or fundamental values."
           },
           "correct": "C",
           "rationales": {
@@ -285,7 +285,7 @@
           "stem": "Two-step process for portfolio optimization with currency most likely:",
           "options": {
             "A": "Portfolio optimization with currency risk must always be solved in a single simultaneous step. That specification would be used as-is, with no forward-looking overlay.",
-            "B": "many portfolio managers handle asset allocation with currency risk as two-step process: (1) portfolio optimization over fully hedged returns.",
+            "B": "Many portfolio managers handle asset allocation with currency risk as two-step process: (1) portfolio optimization over fully hedged returns.",
             "C": "The two-step process optimizes currency exposures first and asset holdings second."
           },
           "correct": "B",
@@ -310,8 +310,8 @@
           "stem": "Diversification considerations and time horizon most likely:",
           "options": {
             "A": "Over short horizons unhedged foreign-currency exposure does not affect expected portfolio returns. That specification would be used as-is, with no forward-looking overlay.",
-            "B": "currency return correlations are stable, so hedging needs are independent of the time horizon.",
-            "C": "time horizon of IPS important."
+            "B": "Currency return correlations are stable, so hedging needs are independent of the time horizon.",
+            "C": "Time horizon of IPS important."
           },
           "correct": "C",
           "rationales": {
@@ -334,7 +334,7 @@
           "number": 5,
           "stem": "Fixed-income vs equity hedging correlations most likely:",
           "options": {
-            "A": "often asserted that correlation between foreign-currency returns and foreign-currency asset returns tends to be GREATER for fixed-income portfolios than for equity portfolios.",
+            "A": "Often asserted that correlation between foreign-currency returns and foreign-currency asset returns tends to be GREATER for fixed-income portfolios than for equity portfolios.",
             "B": "Currency-asset correlations are identical for fixed income and equity portfolios, implying the same hedge ratios.",
             "C": "Equity portfolios should be hedged more heavily than fixed-income portfolios."
           },
@@ -360,8 +360,8 @@
           "stem": "Safe haven currencies most likely:",
           "options": {
             "A": "High-yield emerging market currencies act as safe havens and appreciate in times of market stress. That specification would be used as-is, with no forward-looking overlay.",
-            "B": "some currencies — USD, JPY, and CHF in particular — seem to act as safe haven and appreciate in times of market stress.",
-            "C": "safe-haven currencies should be fully hedged (100% hedge ratio) to remove exposure during stress."
+            "B": "Some currencies — USD, JPY, and CHF in particular — seem to act as safe haven and appreciate in times of market stress.",
+            "C": "Safe-haven currencies should be fully hedged (100% hedge ratio) to remove exposure during stress."
           },
           "correct": "B",
           "rationales": {
@@ -384,9 +384,9 @@
           "number": 7,
           "stem": "Costs of currency hedging most likely:",
           "options": {
-            "A": "hedging costs come mainly in two forms: bid-offer spreads and custodial fees.",
-            "B": "currency hedging is essentially a free good once the forward is entered, with no ongoing cost.",
-            "C": "hedging costs come mainly in two forms: trading costs and opportunity costs."
+            "A": "Hedging costs come mainly in two forms: bid-offer spreads and custodial fees.",
+            "B": "Currency hedging is essentially a free good once the forward is entered, with no ongoing cost.",
+            "C": "Hedging costs come mainly in two forms: trading costs and opportunity costs."
           },
           "correct": "C",
           "rationales": {
@@ -409,7 +409,7 @@
           "number": 8,
           "stem": "Choice of currency exposures range most likely:",
           "options": {
-            "A": "there are a variety of approaches to currency management ranging from trying to avoid all currency risk in portfolio to actively seeking foreign exchange risk in order to manage it and enhance portfolio returns.",
+            "A": "There are a variety of approaches to currency management ranging from trying to avoid all currency risk in portfolio to actively seeking foreign exchange risk in order to manage it and enhance portfolio returns.",
             "B": "Only two currency postures exist: fully hedged or fully unhedged, with nothing in between.",
             "C": "All institutional investors are required to run identical currency management programs."
           },
@@ -444,8 +444,8 @@
           "number": 1,
           "stem": "Currency management strategies spectrum most likely range from:",
           "options": {
-            "A": "discretionary hedging that grants the manager latitude around a benchmark.",
-            "B": "passive, rules-based, complete hedging of currency exposures.",
+            "A": "Discretionary hedging that grants the manager latitude around a benchmark.",
+            "B": "Passive, rules-based, complete hedging of currency exposures.",
             "C": "Unconstrained active currency management that seeks currency risk for profit. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
@@ -469,9 +469,9 @@
           "number": 2,
           "stem": "Passive complete hedging most likely:",
           "options": {
-            "A": "passive hedging leaves currency exposures unhedged to minimize transaction costs.",
-            "B": "passive hedging continuously adjusts hedge ratios based on the manager's market view.",
-            "C": "passive hedging is rules-based approach to hedging currency exposures completely."
+            "A": "Passive hedging leaves currency exposures unhedged to minimize transaction costs.",
+            "B": "Passive hedging continuously adjusts hedge ratios based on the manager's market view.",
+            "C": "Passive hedging is rules-based approach to hedging currency exposures completely."
           },
           "correct": "C",
           "rationales": {
@@ -494,8 +494,8 @@
           "number": 3,
           "stem": "Discretionary hedging most likely:",
           "options": {
-            "A": "discretionary hedging allows portfolio manager some latitude on managing currency exposures around a benchmark.",
-            "B": "discretionary hedging requires the manager to hedge 100% of currency exposure at all times.",
+            "A": "Discretionary hedging allows portfolio manager some latitude on managing currency exposures around a benchmark.",
+            "B": "Discretionary hedging requires the manager to hedge 100% of currency exposure at all times.",
             "C": "Discretionary hedging treats currency as a standalone alpha source managed by a specialist overlay. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
@@ -519,9 +519,9 @@
           "number": 4,
           "stem": "Active currency management most likely:",
           "options": {
-            "A": "matches portfolio currency exposures to the benchmark to eliminate active currency risk.",
-            "B": "seeks out currency risk in order to manage it for profit.",
-            "C": "hedges currency exposure completely whenever the manager lacks a market view."
+            "A": "Matches portfolio currency exposures to the benchmark to eliminate active currency risk.",
+            "B": "Seeks out currency risk in order to manage it for profit.",
+            "C": "Hedges currency exposure completely whenever the manager lacks a market view."
           },
           "correct": "B",
           "rationales": {
@@ -544,9 +544,9 @@
           "number": 5,
           "stem": "Currency overlay programs most likely:",
           "options": {
-            "A": "passive replication of the benchmark's currency weights.",
-            "B": "limited latitude to adjust hedge ratios around a fixed benchmark target.",
-            "C": "aggressive management of currency alpha."
+            "A": "Passive replication of the benchmark's currency weights.",
+            "B": "Limited latitude to adjust hedge ratios around a fixed benchmark target.",
+            "C": "Aggressive management of currency alpha."
           },
           "correct": "C",
           "rationales": {
@@ -569,8 +569,8 @@
           "number": 6,
           "stem": "IPS variables affecting currency management program design most likely:",
           "options": {
-            "A": "portfolio's currency management program depends on: general objectives of portfolio.",
-            "B": "portfolio's currency management program depends on: the prevailing level of forward points.",
+            "A": "Portfolio's currency management program depends on: general objectives of portfolio.",
+            "B": "Portfolio's currency management program depends on: the prevailing level of forward points.",
             "C": "Portfolio's currency management program depends on: the base currency's recent historical returns. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
@@ -595,7 +595,7 @@
           "stem": "Effect of market conditions on hedging cost/benefit most likely:",
           "options": {
             "A": "Market conditions are irrelevant to the cost/benefit calculus behind hedging decisions. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
-            "B": "market conditions affect cost/benefit calculations behind hedging decision — movements in forward points (expected roll yield) or exchange rate volatility (option premiums) affect expected cost of hedge.",
+            "B": "Market conditions affect cost/benefit calculations behind hedging decision — movements in forward points (expected roll yield) or exchange rate volatility (option premiums) affect expected cost of hedge.",
             "C": "Hedging costs are constant across all market environments."
           },
           "correct": "B",
@@ -619,9 +619,9 @@
           "number": 8,
           "stem": "Judgment differences among managers most likely:",
           "options": {
-            "A": "there is one optimal hedge ratio that all managers should adopt given the same data.",
-            "B": "residual currency risk in a hedge must always be reduced to zero to be acceptable.",
-            "C": "there is no single 'correct' approach to initiating and managing currency exposures."
+            "A": "There is one optimal hedge ratio that all managers should adopt given the same data.",
+            "B": "Residual currency risk in a hedge must always be reduced to zero to be acceptable.",
+            "C": "There is no single 'correct' approach to initiating and managing currency exposures."
           },
           "correct": "C",
           "rationales": {
@@ -654,7 +654,7 @@
           "number": 1,
           "stem": "Economic fundamentals approach to active currency management most likely:",
           "options": {
-            "A": "at heart of approach is assumption that in flexible exchange rate system exchange rates are determined by logical economic relationships that can be modeled.",
+            "A": "At heart of approach is assumption that in flexible exchange rate system exchange rates are determined by logical economic relationships that can be modeled.",
             "B": "The economic fundamentals approach assumes exchange rates are pure random walks unrelated to economic variables.",
             "C": "The fundamentals approach relies exclusively on chart patterns and past price behavior."
           },
@@ -680,7 +680,7 @@
           "stem": "Base currency's real exchange rate should appreciate if most likely:",
           "options": {
             "A": "No identifiable factors connect economic conditions to real exchange rate appreciation. That specification would be used as-is, with no forward-looking overlay.",
-            "B": "all else equal, base currency's real exchange rate should appreciate if there is upward movement in: (1) its long-run equilibrium real exchange rate.",
+            "B": "All else equal, base currency's real exchange rate should appreciate if there is upward movement in: (1) its long-run equilibrium real exchange rate.",
             "C": "The base currency's real exchange rate appreciates only when its interest rates fall."
           },
           "correct": "B",
@@ -729,8 +729,8 @@
           "number": 4,
           "stem": "Support and resistance levels most likely:",
           "options": {
-            "A": "price points on dealers' order boards where one would expect to see clustering of bids and offers respectively.",
-            "B": "fair-value exchange rate levels implied by purchasing power parity models.",
+            "A": "Price points on dealers' order boards where one would expect to see clustering of bids and offers respectively.",
+            "B": "Fair-value exchange rate levels implied by purchasing power parity models.",
             "C": "Price levels at which central banks are obligated to intervene in the market. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
@@ -754,9 +754,9 @@
           "number": 5,
           "stem": "Carry trade strategy most likely:",
           "options": {
-            "A": "trading strategy of borrowing in high-yield currencies and investing in low-yield currencies.",
-            "B": "trading strategy of borrowing in low-yield currencies and investing in high-yield currencies.",
-            "C": "trading strategy of repeatedly buying and selling one currency to capture bid-offer spreads."
+            "A": "Trading strategy of borrowing in high-yield currencies and investing in low-yield currencies.",
+            "B": "Trading strategy of borrowing in low-yield currencies and investing in high-yield currencies.",
+            "C": "Trading strategy of repeatedly buying and selling one currency to capture bid-offer spreads."
           },
           "correct": "B",
           "rationales": {
@@ -781,7 +781,7 @@
           "options": {
             "A": "The forward rate bias is the tendency of forward rates to perfectly predict future spot rates.",
             "B": "The forward rate bias describes central banks' preference for forward intervention over spot intervention. Intervention style is unrelated.",
-            "C": "persistent violation of uncovered interest rate parity described by carry trade is often referred to as forward rate bias."
+            "C": "Persistent violation of uncovered interest rate parity described by carry trade is often referred to as forward rate bias."
           },
           "correct": "C",
           "rationales": {
@@ -804,7 +804,7 @@
           "number": 7,
           "stem": "Equivalence of carry trade and trading forward rate bias most likely:",
           "options": {
-            "A": "carry trade strategy (borrowing low-yield, investing high-yield) is equivalent to strategy based on trading forward rate bias.",
+            "A": "Carry trade strategy (borrowing low-yield, investing high-yield) is equivalent to strategy based on trading forward rate bias.",
             "B": "The carry trade and trading the forward rate bias are unrelated strategies with different return drivers. They are EQUIVALENT.",
             "C": "The carry trade profits only when uncovered interest rate parity holds exactly."
           },
@@ -829,9 +829,9 @@
           "number": 8,
           "stem": "Carry trade negative skew most likely:",
           "options": {
-            "A": "steady small losses mean the carry trade return distribution has pronounced POSITIVE skew.",
-            "B": "occasional large losses mean return distribution for carry trade has pronounced NEGATIVE skew.",
-            "C": "frequent extreme gains give the carry trade return distribution fat tails but zero skew."
+            "A": "Steady small losses mean the carry trade return distribution has pronounced POSITIVE skew.",
+            "B": "Occasional large losses mean return distribution for carry trade has pronounced NEGATIVE skew.",
+            "C": "Frequent extreme gains give the carry trade return distribution fat tails but zero skew."
           },
           "correct": "B",
           "rationales": {
@@ -854,9 +854,9 @@
           "number": 9,
           "stem": "Volatility trading most likely:",
           "options": {
-            "A": "type of active trading style unique to spot and forward markets.",
-            "B": "trading style that expresses a view on the direction of the underlying exchange rate.",
-            "C": "type of active trading style unique to option markets."
+            "A": "Type of active trading style unique to spot and forward markets.",
+            "B": "Trading style that expresses a view on the direction of the underlying exchange rate.",
+            "C": "Type of active trading style unique to option markets."
           },
           "correct": "C",
           "rationales": {
@@ -879,9 +879,9 @@
           "number": 10,
           "stem": "Long straddle vs long strangle most likely:",
           "options": {
-            "A": "long straddle = long ATM put + long ATM call (both same strike).",
+            "A": "Long straddle = long ATM put + long ATM call (both same strike).",
             "B": "Long straddle = long OTM put + long OTM call at different strikes. That specification would be used as-is, with no forward-looking overlay.",
-            "C": "long straddle = long ATM call + short ATM put at the same strike."
+            "C": "Long straddle = long ATM call + short ATM put at the same strike."
           },
           "correct": "A",
           "rationales": {
@@ -914,8 +914,8 @@
           "number": 1,
           "stem": "Effect of yield differential change on carry trade most likely:",
           "options": {
-            "A": "the carry trade's attractiveness depends only on spot exchange rate volatility, not on yield differentials.",
-            "B": "changes in yield differential between currencies alter attractiveness of carry trade.",
+            "A": "The carry trade's attractiveness depends only on spot exchange rate volatility, not on yield differentials.",
+            "B": "Changes in yield differential between currencies alter attractiveness of carry trade.",
             "C": "A narrowing yield differential makes the carry trade more attractive because the position becomes less risky. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
@@ -941,7 +941,7 @@
           "options": {
             "A": "An expected but unpriced monetary tightening has no implication for the currency's near-term direction.",
             "B": "A tightening that is not fully priced into markets would be expected to depreciate the tightening country's currency.",
-            "C": "if authorities are expected to tighten monetary policy and change not fully priced into market, currency of tightening country would be expected to appreciate."
+            "C": "If authorities are expected to tighten monetary policy and change not fully priced into market, currency of tightening country would be expected to appreciate."
           },
           "correct": "C",
           "rationales": {
@@ -964,9 +964,9 @@
           "number": 3,
           "stem": "Effect of higher expected inflation differential most likely:",
           "options": {
-            "A": "if country's expected inflation rises relative to another country's, its currency should depreciate.",
-            "B": "if a country's expected inflation rises relative to another's, its currency should appreciate.",
-            "C": "changes in expected inflation have no effect on nominal exchange rates in the medium term."
+            "A": "If country's expected inflation rises relative to another country's, its currency should depreciate.",
+            "B": "If a country's expected inflation rises relative to another's, its currency should appreciate.",
+            "C": "Changes in expected inflation have no effect on nominal exchange rates in the medium term."
           },
           "correct": "A",
           "rationales": {
@@ -990,7 +990,7 @@
           "stem": "Effect of increased expected volatility most likely:",
           "options": {
             "A": "A trader expecting higher exchange rate volatility with no directional view should sell straddles to collect premium.",
-            "B": "if trader expects exchange rate volatility to increase without directional view, appropriate response is to buy volatility (e.g., long straddle or long strangle).",
+            "B": "If trader expects exchange rate volatility to increase without directional view, appropriate response is to buy volatility (e.g., long straddle or long strangle).",
             "C": "Volatility expectations cannot be expressed through option positions."
           },
           "correct": "B",
@@ -1015,8 +1015,8 @@
           "stem": "Effect of moving average signals most likely:",
           "options": {
             "A": "When the spot rate reaches its long-run PPP value, this is seen as a price 'break out' point. That specification would be used as-is, with no forward-looking overlay.",
-            "B": "when the 50-day and 200-day moving averages converge, all open positions must be closed.",
-            "C": "when 50-day moving average crosses 200-day moving average, sometimes seen as price 'break out' point."
+            "B": "When the 50-day and 200-day moving averages converge, all open positions must be closed.",
+            "C": "When 50-day moving average crosses 200-day moving average, sometimes seen as price 'break out' point."
           },
           "correct": "C",
           "rationales": {
@@ -1039,8 +1039,8 @@
           "number": 6,
           "stem": "Best carry trade fund/invest choice among yield differentials most likely:",
           "options": {
-            "A": "look for widest yield differential to maximize carry.",
-            "B": "fund in the highest-yield currency and invest in the lowest-yield currency.",
+            "A": "Look for widest yield differential to maximize carry.",
+            "B": "Fund in the highest-yield currency and invest in the lowest-yield currency.",
             "C": "Choose the currency pair with the narrowest yield differential to limit risk. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
@@ -1065,7 +1065,7 @@
           "stem": "Directional view impact on option choice for hedging most likely:",
           "options": {
             "A": "A trader with a strong directional view should prefer deep-ITM options for maximum leverage. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
-            "B": "when trader has directional view expecting significant move, deep-OTM options provide leveraged exposure — larger percentage change in premium for given change in spot.",
+            "B": "When trader has directional view expecting significant move, deep-OTM options provide leveraged exposure — larger percentage change in premium for given change in spot.",
             "C": "Option moneyness is irrelevant when expressing directional currency views."
           },
           "correct": "B",
@@ -1089,9 +1089,9 @@
           "number": 8,
           "stem": "Convergence of long-run vs short-run factors most likely:",
           "options": {
-            "A": "exchange rate forecast depends solely on the long-run equilibrium real exchange rate.",
-            "B": "exchange rate forecast depends solely on short-term interest rate movements.",
-            "C": "exchange rate forecast is mix of long-term, medium-term, and short-term factors."
+            "A": "Exchange rate forecast depends solely on the long-run equilibrium real exchange rate.",
+            "B": "Exchange rate forecast depends solely on short-term interest rate movements.",
+            "C": "Exchange rate forecast is mix of long-term, medium-term, and short-term factors."
           },
           "correct": "C",
           "rationales": {
@@ -1124,9 +1124,9 @@
           "number": 1,
           "stem": "FX swap definition most likely:",
           "options": {
-            "A": "simultaneous spot and forward transaction — one leg is buying the base currency and the other is selling it.",
-            "B": "two offsetting forward contracts with different settlement dates and no spot leg.",
-            "C": "an exchange of periodic interest payments in two currencies with no exchange of principal."
+            "A": "Simultaneous spot and forward transaction — one leg is buying the base currency and the other is selling it.",
+            "B": "Two offsetting forward contracts with different settlement dates and no spot leg.",
+            "C": "An exchange of periodic interest payments in two currencies with no exchange of principal."
           },
           "correct": "A",
           "rationales": {
@@ -1149,8 +1149,8 @@
           "number": 2,
           "stem": "Roll yield definition and sign most likely:",
           "options": {
-            "A": "magnitude of roll yield is |(S_P/B - F_P/B)/F_P/B|, scaled by the forward rate.",
-            "B": "magnitude of roll yield is |(F_P/B - S_P/B)/S_P/B|.",
+            "A": "Magnitude of roll yield is |(S_P/B - F_P/B)/F_P/B|, scaled by the forward rate.",
+            "B": "Magnitude of roll yield is |(F_P/B - S_P/B)/S_P/B|.",
             "C": "Magnitude of roll yield equals the difference between the two countries' interest rates. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
@@ -1174,9 +1174,9 @@
           "number": 3,
           "stem": "Buying base currency at forward premium hedge outcome most likely:",
           "options": {
-            "A": "if hedge requires buying base currency at forward premium: earn positive roll yield.",
-            "B": "if hedge requires buying base currency at forward premium: watch the forward price roll up toward the spot rate as settlement approaches.",
-            "C": "if hedge requires buying base currency at forward premium: pay the higher forward price now and later close out by selling at a lower price as the contract rolls down the curve toward spot, producing negative roll yield."
+            "A": "If hedge requires buying base currency at forward premium: earn positive roll yield.",
+            "B": "If hedge requires buying base currency at forward premium: watch the forward price roll up toward the spot rate as settlement approaches.",
+            "C": "If hedge requires buying base currency at forward premium: pay the higher forward price now and later close out by selling at a lower price as the contract rolls down the curve toward spot, producing negative roll yield."
           },
           "correct": "C",
           "rationales": {
@@ -1199,7 +1199,7 @@
           "number": 4,
           "stem": "Equivalence carry trade / trade forward rate bias / earn positive roll yield most likely:",
           "options": {
-            "A": "carry trade (borrow low-yield, invest high-yield) is equivalent to trading forward rate bias (buy forward discount currency, sell forward premium currency) and to earning positive roll yield.",
+            "A": "Carry trade (borrow low-yield, invest high-yield) is equivalent to trading forward rate bias (buy forward discount currency, sell forward premium currency) and to earning positive roll yield.",
             "B": "The carry trade, forward rate bias trading, and earning roll yield are three unrelated sources of currency return. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "C": "Positive roll yield accrues to hedgers who buy forward-premium currencies."
           },
@@ -1225,7 +1225,7 @@
           "stem": "Hedge ratio adjustment based on cost/benefit most likely:",
           "options": {
             "A": "Hedge ratios are held constant regardless of movements in forward points.",
-            "B": "when forward points move against hedger amount of hedging activity typically declines as cost/benefit ratio deteriorates.",
+            "B": "When forward points move against hedger amount of hedging activity typically declines as cost/benefit ratio deteriorates.",
             "C": "Deteriorating hedge economics lead managers to increase hedging activity to lock in rates before further decline."
           },
           "correct": "B",
@@ -1251,7 +1251,7 @@
           "options": {
             "A": "Kwun Tong should hedge the GBP exposure because the 0.099% forward discount represents the full cost of hedging over the period. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
             "B": "The example provides no basis for comparing the forward discount to the expected GBP depreciation.",
-            "C": "long GBP against HKD; HKD/GBP selling at small forward discount of 0.099% vs current spot — this is expected roll yield, NOT in firm's favor because to implement hedge Kwun Tong would sell GBP (base currency) at price lower than current spot."
+            "C": "Long GBP against HKD; HKD/GBP selling at small forward discount of 0.099% vs current spot — this is expected roll yield, NOT in firm's favor because to implement hedge Kwun Tong would sell GBP (base currency) at price lower than current spot."
           },
           "correct": "C",
           "rationales": {
@@ -1274,9 +1274,9 @@
           "number": 7,
           "stem": "Kwun Tong ZAR hedge decision (Example 4) — HKD/ZAR spot 0.5210, 6-mo forward 0.5082, 6-mo forecast 0.5100 most likely:",
           "options": {
-            "A": "long ZAR against HKD; HKD/ZAR selling at forward discount of -2.5% vs current spot.",
-            "B": "long ZAR against HKD; HKD/ZAR selling at forward premium of +2.5% vs current spot.",
-            "C": "long ZAR against HKD; expected 2.11% depreciation exceeds the 2.5% hedge cost, so hedging clearly adds value."
+            "A": "Long ZAR against HKD; HKD/ZAR selling at forward discount of -2.5% vs current spot.",
+            "B": "Long ZAR against HKD; HKD/ZAR selling at forward premium of +2.5% vs current spot.",
+            "C": "Long ZAR against HKD; expected 2.11% depreciation exceeds the 2.5% hedge cost, so hedging clearly adds value."
           },
           "correct": "A",
           "rationales": {
@@ -1300,7 +1300,7 @@
           "stem": "Manager balancing hedge ratio decision most likely:",
           "options": {
             "A": "Setting the hedge ratio requires only minimizing expected hedging costs.",
-            "B": "when setting hedge ratio, portfolio manager must balance effect of expected future exchange rate movements on portfolio returns against expected effect of roll yield (expected cost of hedge).",
+            "B": "When setting hedge ratio, portfolio manager must balance effect of expected future exchange rate movements on portfolio returns against expected effect of roll yield (expected cost of hedge).",
             "C": "The hedge ratio decision ignores the investor's risk tolerance entirely."
           },
           "correct": "B",
@@ -1336,7 +1336,7 @@
           "options": {
             "A": "A protective put pairs a short position in the underlying currency with a long put option. That specification would be used as-is, with no forward-looking overlay.",
             "B": "A protective put is a written put option held against an uncovered currency exposure.",
-            "C": "long position in underlying with put option — matching long position in underlying with put option is known as protective put strategy."
+            "C": "Long position in underlying with put option — matching long position in underlying with put option is known as protective put strategy."
           },
           "correct": "C",
           "rationales": {
@@ -1359,9 +1359,9 @@
           "number": 2,
           "stem": "Reducing cost with OTM put most likely:",
           "options": {
-            "A": "way to reduce cost of using options is to accept some downside risk by using OTM option, such as 25- or 10-delta option.",
+            "A": "Way to reduce cost of using options is to accept some downside risk by using OTM option, such as 25- or 10-delta option.",
             "B": "Way to reduce cost of using options is to buy a deeper in-the-money put with a higher delta. That specification would be used as-is, with no forward-looking overlay.",
-            "C": "way to reduce cost of using options is to lengthen the option's time to expiry."
+            "C": "Way to reduce cost of using options is to lengthen the option's time to expiry."
           },
           "correct": "A",
           "rationales": {
@@ -1385,7 +1385,7 @@
           "stem": "Risk reversal / collar structure most likely:",
           "options": {
             "A": "A currency collar buys an ATM call and sells an ATM put to create symmetric exposure.",
-            "B": "one strategy to obtain downside protection at lower cost than straight protective put: buy OTM put option and write OTM call option — selling some upside potential (writing call) using option premiums to help pay cost of long put.",
+            "B": "One strategy to obtain downside protection at lower cost than straight protective put: buy OTM put option and write OTM call option — selling some upside potential (writing call) using option premiums to help pay cost of long put.",
             "C": "The risk reversal structure requires paying more premium than a straight protective put. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class."
           },
           "correct": "B",
@@ -1409,9 +1409,9 @@
           "number": 4,
           "stem": "Put spread most likely:",
           "options": {
-            "A": "volatility straddle combining a long ATM put and a long ATM call.",
-            "B": "variation of a protective put that adds a long deeper-OTM put for extra downside protection.",
-            "C": "variation of short risk reversal position."
+            "A": "Volatility straddle combining a long ATM put and a long ATM call.",
+            "B": "Variation of a protective put that adds a long deeper-OTM put for extra downside protection.",
+            "C": "Variation of short risk reversal position."
           },
           "correct": "C",
           "rationales": {
@@ -1434,7 +1434,7 @@
           "number": 5,
           "stem": "1x2 put spread most likely:",
           "options": {
-            "A": "to make put spread cheaper or zero-cost, portfolio manager could write larger notional amount for deeper-OTM option — e.g., ratio for notionals for options written vs bought might be 1:2.",
+            "A": "To make put spread cheaper or zero-cost, portfolio manager could write larger notional amount for deeper-OTM option — e.g., ratio for notionals for options written vs bought might be 1:2.",
             "B": "A 1x2 put spread buys two puts at the higher strike and writes one put at the lower strike.",
             "C": "The 1x2 structure always increases the net premium paid versus a standard put spread."
           },
@@ -1459,8 +1459,8 @@
           "number": 6,
           "stem": "Seagull spread most likely:",
           "options": {
-            "A": "a single at-the-money option position with no additional legs.",
-            "B": "extension of risk reversal and put spread.",
+            "A": "A single at-the-money option position with no additional legs.",
+            "B": "Extension of risk reversal and put spread.",
             "C": "Two options at identical strikes bought and sold in equal size. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
@@ -1486,7 +1486,7 @@
           "options": {
             "A": "A knock-in option is a standard vanilla option that ceases to exist when the spot rate touches a trigger level.",
             "B": "Knock-in and knock-out features have no effect on an option's premium.",
-            "C": "knock-in option = vanilla option that only comes into existence when spot exchange rate touches pre-specified level (trigger level, called 'barrier', not same as strike price)."
+            "C": "Knock-in option = vanilla option that only comes into existence when spot exchange rate touches pre-specified level (trigger level, called 'barrier', not same as strike price)."
           },
           "correct": "C",
           "rationales": {
@@ -1509,8 +1509,8 @@
           "number": 8,
           "stem": "Digital options most likely:",
           "options": {
-            "A": "also called binary options or all-or-nothing options.",
-            "B": "also called basket options because they pay off on a weighted group of currencies.",
+            "A": "Also called binary options or all-or-nothing options.",
+            "B": "Also called basket options because they pay off on a weighted group of currencies.",
             "C": "Also called vanilla options because their payoff scales with how far in-the-money they finish. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
@@ -1535,7 +1535,7 @@
           "stem": "Cost mitigation methods summary most likely:",
           "options": {
             "A": "No methods exist for reducing the cost of a core currency hedge.",
-            "B": "for manager with long exposure to currency, cost of 'core' hedge (short position in forward or upfront premium on long put) can be reduced by: (a) writing options to gain upfront premiums.",
+            "B": "For manager with long exposure to currency, cost of 'core' hedge (short position in forward or upfront premium on long put) can be reduced by: (a) writing options to gain upfront premiums.",
             "C": "Cost mitigation always requires abandoning downside protection entirely. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class."
           },
           "correct": "B",
@@ -1559,9 +1559,9 @@
           "number": 10,
           "stem": "Theta / time decay of options most likely:",
           "options": {
-            "A": "second determinant of option's premium is its intrinsic value, which rises as expiry approaches.",
-            "B": "an option's time value increases steadily as the contract approaches its expiry date.",
-            "C": "second determinant of option's premium is time value, heavily influenced by volatility in exchange rates."
+            "A": "Second determinant of option's premium is its intrinsic value, which rises as expiry approaches.",
+            "B": "An option's time value increases steadily as the contract approaches its expiry date.",
+            "C": "Second determinant of option's premium is time value, heavily influenced by volatility in exchange rates."
           },
           "correct": "C",
           "rationales": {
@@ -1594,8 +1594,8 @@
           "number": 1,
           "stem": "Cross hedge concept most likely:",
           "options": {
-            "A": "hedging one currency exposure using derivative contract in different but correlated currency.",
-            "B": "hedging a currency exposure with a forward contract in that same currency pair.",
+            "A": "Hedging one currency exposure using derivative contract in different but correlated currency.",
+            "B": "Hedging a currency exposure with a forward contract in that same currency pair.",
             "C": "Hedging a currency exposure by holding an offsetting position in that same currency's bonds. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
@@ -1620,7 +1620,7 @@
           "stem": "Macro hedge most likely:",
           "options": {
             "A": "A macro hedge targets a single asset's currency exposure with its own dedicated forward contract.",
-            "B": "cross hedge focused on entire portfolio rather than individual assets or currency pairs, particularly when individual asset price movements are highly correlated.",
+            "B": "Cross hedge focused on entire portfolio rather than individual assets or currency pairs, particularly when individual asset price movements are highly correlated.",
             "C": "Macro hedging is unrelated to cross hedging techniques."
           },
           "correct": "B",
@@ -1644,9 +1644,9 @@
           "number": 3,
           "stem": "Minimum-variance hedge ratio most likely:",
           "options": {
-            "A": "rule of thumb that sets the hedge ratio equal to the ratio of the two currencies' interest rates.",
-            "B": "approach that always sets the hedge ratio to 100% of the exposure's notional value.",
-            "C": "mathematical approach to determining optimal cross hedging ratio using OLS regression."
+            "A": "Rule of thumb that sets the hedge ratio equal to the ratio of the two currencies' interest rates.",
+            "B": "Approach that always sets the hedge ratio to 100% of the exposure's notional value.",
+            "C": "Mathematical approach to determining optimal cross hedging ratio using OLS regression."
           },
           "correct": "C",
           "rationales": {
@@ -1669,9 +1669,9 @@
           "number": 4,
           "stem": "Kilmarnock SMI minimum-variance hedge example — β̂ = 1.35 most likely:",
           "options": {
-            "A": "β̂ = 1.35 is the minimum-variance hedge ratio, so a long CHF1,000,000 SMI exposure is hedged with a short CHF position of approximately CHF1,350,000 (135%).",
-            "B": "β̂ = 1.35 implies the exposure should be under-hedged at roughly 74% of notional.",
-            "C": "β̂ = 1.35 means a CHF1,000,000 SMI exposure is hedged with a short CHF350,000 forward."
+            "A": "Β̂ = 1.35 is the minimum-variance hedge ratio, so a long CHF1,000,000 SMI exposure is hedged with a short CHF position of approximately CHF1,350,000 (135%).",
+            "B": "Β̂ = 1.35 implies the exposure should be under-hedged at roughly 74% of notional.",
+            "C": "Β̂ = 1.35 means a CHF1,000,000 SMI exposure is hedged with a short CHF350,000 forward."
           },
           "correct": "A",
           "rationales": {
@@ -1695,7 +1695,7 @@
           "stem": "Direct hedge and MVHR most likely:",
           "options": {
             "A": "The minimum-variance hedge ratio applies to all hedges, including direct forward hedges of a currency against itself.",
-            "B": "calculating minimum-variance hedge ratio typically applies only for 'indirect' hedges based on cross hedging or macro hedges.",
+            "B": "Calculating minimum-variance hedge ratio typically applies only for 'indirect' hedges based on cross hedging or macro hedges.",
             "C": "Direct hedges require regression-based hedge ratios estimated from historical data."
           },
           "correct": "B",
@@ -1721,7 +1721,7 @@
           "options": {
             "A": "Replacing a direct hedge with a cross hedge or macro hedge introduces no additional risk.",
             "B": "Basis risk arises only in exchange-traded futures, never in OTC hedging structures.",
-            "C": "any time direct currency hedge (spot rate hedged against own forward contract) is replaced with indirect hedge (cross hedge, macro hedge), basis risk is brought into portfolio."
+            "C": "Any time direct currency hedge (spot rate hedged against own forward contract) is replaced with indirect hedge (cross hedge, macro hedge), basis risk is brought into portfolio."
           },
           "correct": "C",
           "rationales": {
@@ -1744,7 +1744,7 @@
           "number": 7,
           "stem": "Currency basket derivatives for macro hedge most likely:",
           "options": {
-            "A": "one macro hedge specific to foreign exchange markets uses derivatives based on fixed-weight baskets of currencies (available in both exchange-traded and OTC form).",
+            "A": "One macro hedge specific to foreign exchange markets uses derivatives based on fixed-weight baskets of currencies (available in both exchange-traded and OTC form).",
             "B": "Currency basket derivatives are unavailable in foreign exchange markets.",
             "C": "Basket derivatives hedge each currency pair individually with separate contracts. The basket's point is AGGREGATION — one instrument against the portfolio's blended currency exposure, accepting basis risk for cost efficiency."
           },
@@ -1769,9 +1769,9 @@
           "number": 8,
           "stem": "Kilmarnock S&P 500 MVHR calc — σ(%ΔS_GBP/USD) 2.7%, σ(R_DC) 4.4%, ρ 0.2, $10M investment most likely:",
           "options": {
-            "A": "h = ρ × [σ(R_FX)/σ(R_DC)] = 0.2 × (2.7%/4.4%) = 0.12 or 12%.",
-            "B": "h = ρ × [σ(R_DC)/σ(R_FX)] = 0.2 × (4.4%/2.7%) = 0.33 or 33%.",
-            "C": "h = ρ = 0.2, or a 20% hedge of the notional."
+            "A": "H = ρ × [σ(R_FX)/σ(R_DC)] = 0.2 × (2.7%/4.4%) = 0.12 or 12%.",
+            "B": "H = ρ × [σ(R_DC)/σ(R_FX)] = 0.2 × (4.4%/2.7%) = 0.33 or 33%.",
+            "C": "H = ρ = 0.2, or a 20% hedge of the notional."
           },
           "correct": "B",
           "rationales": {
@@ -1829,7 +1829,7 @@
           "number": 2,
           "stem": "Cross-rate trading through intermediary currency most likely:",
           "options": {
-            "A": "for EM cross rates like CLP/THB, typically no direct trade because insufficient trade or capital flows between countries.",
+            "A": "For EM cross rates like CLP/THB, typically no direct trade because insufficient trade or capital flows between countries.",
             "B": "Emerging market cross rates like CLP/THB trade in deep, direct interbank markets.",
             "C": "Cross-rate trades through an intermediary currency eliminate all transaction costs. That specification would be used as-is, with no forward-looking overlay."
           },
@@ -1855,7 +1855,7 @@
           "stem": "Fat tails and negative skew in EM most likely:",
           "options": {
             "A": "Emerging market currency returns are well described by the normal distribution.",
-            "B": "investment return probability distributions for currency (and other) trades subject to such relatively frequent extreme events have FATTER TAILS than normal distribution as well as pronounced NEGATIVE SKEW.",
+            "B": "Investment return probability distributions for currency (and other) trades subject to such relatively frequent extreme events have FATTER TAILS than normal distribution as well as pronounced NEGATIVE SKEW.",
             "C": "Extreme events in EM currencies are too rare to affect risk management practice."
           },
           "correct": "B",
@@ -1879,9 +1879,9 @@
           "number": 4,
           "stem": "Forward hedging cost in EM currency crisis most likely:",
           "options": {
-            "A": "hedging long exposure to a foreign currency typically involves buying that currency forward.",
-            "B": "a central bank rate hike in a crisis pushes the currency to a forward premium, cheapening the hedge.",
-            "C": "hedging long exposure to foreign currency typically involves selling foreign currency forward."
+            "A": "Hedging long exposure to a foreign currency typically involves buying that currency forward.",
+            "B": "A central bank rate hike in a crisis pushes the currency to a forward premium, cheapening the hedge.",
+            "C": "Hedging long exposure to foreign currency typically involves selling foreign currency forward."
           },
           "correct": "C",
           "rationales": {
@@ -1904,8 +1904,8 @@
           "number": 5,
           "stem": "Non-deliverable forwards (NDFs) most likely:",
           "options": {
-            "A": "currencies of many emerging market countries trade with some form of capital controls.",
-            "B": "non-deliverable forwards are physically settled in the controlled emerging market currency at maturity.",
+            "A": "Currencies of many emerging market countries trade with some form of capital controls.",
+            "B": "Non-deliverable forwards are physically settled in the controlled emerging market currency at maturity.",
             "C": "Non-deliverable forwards are used only for freely convertible major currencies with no capital controls. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "A",
@@ -1930,7 +1930,7 @@
           "stem": "NDF credit risk vs vanilla forward most likely:",
           "options": {
             "A": "An NDF carries the same credit risk as an outright deliverable forward of equal notional.",
-            "B": "credit risk of NDF typically LOWER than for outright forward because principal sums in NDF do not move, unlike with outright 'vanilla' forward contract.",
+            "B": "Credit risk of NDF typically LOWER than for outright forward because principal sums in NDF do not move, unlike with outright 'vanilla' forward contract.",
             "C": "NDFs carry higher credit risk than deliverable forwards because they settle in a controlled currency. That specification would be used as-is, with no forward-looking overlay."
           },
           "correct": "B",
@@ -1956,7 +1956,7 @@
           "options": {
             "A": "NDF pricing always matches covered interest rate parity exactly, as with deliverable forwards.",
             "B": "NDF pricing is unrelated to onshore interest rates or capital flow conditions.",
-            "C": "when capital controls exist, free cross-border flow of capital that enforces arbitrage condition underlying covered interest rate parity no longer functions consistently."
+            "C": "When capital controls exist, free cross-border flow of capital that enforces arbitrage condition underlying covered interest rate parity no longer functions consistently."
           },
           "correct": "C",
           "rationales": {
