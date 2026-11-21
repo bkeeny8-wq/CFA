@@ -222,6 +222,43 @@ def main():
             print(f"  {rid[:52]:54} rank {rank.get(rid,0):2}/36  "
                   f"{desk[rid]/60:5.1f}h desk + {legs.get(rid,0):4}m train")
 
+    # ---- test-retest ------------------------------------------------------
+    # The strongest thing in this dataset. When a module's n grows between two
+    # snapshots, the NEW questions are an independent second sample of the same
+    # module. Correlating the old score against the incremental score measures
+    # reliability directly, instead of inferring it from binomial theory.
+    if prev:
+        pairs = []
+        for m in snap["modules"]:
+            q = prev.get(m["reading_id"])
+            if not q or m["n"] <= q["n"]:
+                continue
+            add_n = m["n"] - q["n"]
+            add_k = round(m["score"] / 100 * m["n"]) - round(q["score"] / 100 * q["n"])
+            pairs.append(dict(rid=m["reading_id"], n1=q["n"], s1=q["score"],
+                              n2=add_n, s2=add_k / add_n * 100, now=m["score"]))
+        if len(pairs) >= 3:
+            print("\n\nTEST-RETEST — modules re-sampled since the previous snapshot")
+            print("(the second column is the NEW questions only, not the running total)\n")
+            print(f"  {'module':46}{'first':>8}{'retest':>8}{'swing':>7}{'pooled':>8}")
+            for p in sorted(pairs, key=lambda p: p["s2"] - p["s1"]):
+                print(f"  {p['rid'][:44]:46}{p['s1']:7.0f}%{p['s2']:7.0f}%"
+                      f"{p['s2']-p['s1']:+6.0f}{p['now']:7.0f}%")
+            xs = [p["s1"] for p in pairs]
+            ys = [p["s2"] for p in pairs]
+            mx, my = sum(xs) / len(xs), sum(ys) / len(ys)
+            cov = sum((x - mx) * (y - my) for x, y in zip(xs, ys))
+            den = math.sqrt(sum((x - mx) ** 2 for x in xs)
+                            * sum((y - my) ** 2 for y in ys))
+            r_ = cov / den if den else 0.0
+            swing = sum(abs(y - x) for x, y in zip(xs, ys)) / len(xs)
+            print(f"\n  test-retest r = {r_:+.3f} over {len(pairs)} modules, "
+                  f"mean absolute swing {swing:.1f}pp")
+            if r_ < 0.3:
+                print("  A module's score does NOT predict its own next sample. Any")
+                print("  per-module finding is a coin flip; use the BOOK, which is the")
+                print("  unit the generator allocates by anyway.")
+
     # ---- pace -------------------------------------------------------------
     # The dashboard shows only accuracy. The session log also carries a clock,
     # and time spent is an INDEPENDENT signal: a module answered slowly and
