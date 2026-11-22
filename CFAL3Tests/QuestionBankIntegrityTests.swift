@@ -429,6 +429,217 @@ final class QuestionBankIntegrityTests: XCTestCase {
         XCTAssertEqual(keys["C"], 889)
     }
 
+    // MARK: - House style
+
+    /// A drill, stripped to what the test needs.
+    private struct DrillItem {
+        let id: String
+        let stem: String
+        let options: [String: String]
+        let correct: String
+    }
+
+    private func drillItems(_ content: ContentLoader) -> [DrillItem] {
+        content.losDrillBundles.values.flatMap { bundle in
+            bundle.drills.flatMap { group in
+                group.questions.compactMap { q -> DrillItem? in
+                    guard let options = q.options, options.count == 3,
+                          let correct = q.correct, options[correct] != nil
+                    else { return nil }
+                    return DrillItem(id: q.id, stem: q.stem,
+                                     options: options, correct: correct)
+                }
+            }
+        }
+    }
+
+    private func matches(_ pattern: String, _ text: String) throws -> Bool {
+        let re = try NSRegularExpression(pattern: pattern, options: [.caseInsensitive])
+        return re.firstMatch(in: text, range: NSRange(text.startIndex..., in: text)) != nil
+    }
+
+    /// Sentences, counted the way scripts/drill_style_lint.py counts them, so
+    /// the two cannot disagree about whether an option runs to two.
+    ///
+    /// Two details carry the whole rule. A full stop only ends a sentence when
+    /// WHITESPACE follows it, or "2.5%" is two sentences. And abbreviations
+    /// that do take a following space -- "U.S. Treasuries", "e.g. a swap" --
+    /// are masked first. Counting bare "." characters made this read 1,158
+    /// against the linter's 1,038.
+    private static let abbreviation = try! NSRegularExpression(
+        pattern: #"\b(?:[A-Za-z]\.){2,}|\b(?:e\.g|i\.e|vs|No|Mr|Ms|Dr|St|Inc|Co)\."#)
+    private static let sentenceBreak = try! NSRegularExpression(pattern: #"[.!?]\s+"#)
+
+    private func sentenceCount(_ text: String) -> Int {
+        let masked = Self.abbreviation.stringByReplacingMatches(
+            in: text, range: NSRange(text.startIndex..., in: text), withTemplate: "@")
+        let flattened = Self.sentenceBreak.stringByReplacingMatches(
+            in: masked, range: NSRange(masked.startIndex..., in: masked), withTemplate: "\u{1}")
+        return flattened.components(separatedBy: "\u{1}")
+            .filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
+            .count
+    }
+
+    /// A plain 0-9 digit. `Character.isNumber` also accepts "²" and "½", which
+    /// made the mixed-types count read 427 against the linter's 419 -- the
+    /// difference being options carrying "18²".
+    private func hasDigit(_ text: String) -> Bool {
+        text.contains { $0.isASCII && $0.isNumber }
+    }
+
+    /// The real test of a question bank is how well you score on it knowing
+    /// nothing at all about the curriculum.
+    ///
+    /// Six strategies have been found in this corpus, each needing no
+    /// knowledge whatever, and the counting of them has twice been reported
+    /// too kindly because only some of the family was measured. So they are
+    /// all scored here, together, and the assertion is on the BEST of them --
+    /// closing four cues while a fifth still scores 74% is not progress.
+    ///
+    /// These are ratchets. They tighten as the corpus is rewritten and they
+    /// are never loosened: a number going up means a cue came back.
+    func testDrillsCannotBeAnsweredWithoutReadingThem() throws {
+        let content = ContentLoader()
+        content.load()
+        XCTAssertNil(content.loadError, content.loadError ?? "")
+        let items = drillItems(content)
+        XCTAssertEqual(items.count, 2_667)
+
+        let boilerplate = try NSRegularExpression(
+            pattern: #"That specification would be used as-is"#
+            + #"|That approach would be applied without further adjustment"#,
+            options: [.caseInsensitive])
+        func isBoilerplate(_ s: String) -> Bool {
+            boilerplate.firstMatch(in: s, range: NSRange(s.startIndex..., in: s)) != nil
+        }
+        func byLength(_ item: DrillItem, _ pool: [String]) -> String {
+            pool.max { item.options[$0]!.count < item.options[$1]!.count } ?? item.correct
+        }
+
+        var strategies: [String: (DrillItem) -> String] = [:]
+        strategies["take the longest option"] = { byLength($0, Array($0.options.keys)) }
+        strategies["take the shortest option"] = { item in
+            item.options.keys.min { item.options[$0]!.count < item.options[$1]!.count }!
+        }
+        strategies["take the middle-length option"] = { item in
+            item.options.keys.sorted { item.options[$0]!.count > item.options[$1]!.count }[1]
+        }
+        strategies["drop the two-sentence option, then longest"] = { item in
+            let live = item.options.filter { self.sentenceCount($0.value) == 1 }.map(\.key)
+            if live.count == 1 { return live[0] }
+            return byLength(item, live.isEmpty ? Array(item.options.keys) : live)
+        }
+        strategies["drop the boilerplate option, then longest"] = { item in
+            let live = item.options.filter { !isBoilerplate($0.value) }.map(\.key)
+            if live.count == 1 { return live[0] }
+            return byLength(item, live.isEmpty ? Array(item.options.keys) : live)
+        }
+        strategies["take the odd option out by type"] = { item in
+            let numeric = item.options.filter { self.hasDigit($0.value) }.map(\.key)
+            if numeric.count == 1 { return numeric[0] }
+            let prose = item.options.filter { !self.hasDigit($0.value) }.map(\.key)
+            if prose.count == 1 { return prose[0] }
+            return byLength(item, Array(item.options.keys))
+        }
+
+        var worst = (name: "", score: 0.0)
+        for (name, pick) in strategies.sorted(by: { $0.key < $1.key }) {
+            let hits = items.filter { pick($0) == $0.correct }.count
+            let score = Double(hits) / Double(items.count)
+            if score > worst.score { worst = (name, score) }
+            // Floor as well as ceiling. A strategy that scores far BELOW
+            // chance is just as usable inverted -- "the shortest option is
+            // never right" was worth 13% here, which is to say 87% as a rule
+            // about where the answer is not.
+            XCTAssertGreaterThan(
+                score, 0.20,
+                "\"\(name)\" scores \(Int(score * 100))%, so its inverse is a usable rule")
+        }
+        XCTAssertLessThanOrEqual(
+            worst.score, 0.74,
+            "\"\(worst.name)\" answers \(Int(worst.score * 100))% of the drills "
+            + "without reading one of them (chance is 33%)")
+    }
+
+    /// The house style, measured against the corpus that already has it.
+    ///
+    /// question_bank.json holds 270 real-format item-set questions and passes
+    /// these rules on 91% of them; the drills passed 12% when this was
+    /// written. Every count here is a ratchet taken from the state of the
+    /// corpus at the time, and `scripts/drill_style_lint.py` computes the same
+    /// numbers outside Xcode.
+    func testDrillStyleMatchesTheCaseBank() throws {
+        let content = ContentLoader()
+        content.load()
+        XCTAssertNil(content.loadError, content.loadError ?? "")
+        let items = drillItems(content)
+
+        // A drill has no vignette: no exhibit field in the data model, one
+        // question on screen at a time. So an item that cites Example 14 is
+        // pointing at a table that does not exist in this app. The case bank
+        // cites exhibits constantly and is right to -- it has them.
+        let dangling = #"\b(?:Example|Exhibit|Table|Figure|Section|Equation|Case)\s+\d+"#
+            + #"|according to the (?:CFA Institute )?curriculum"#
+            + #"|the curriculum (?:states|says|notes|identifies|warns)"#
+        // A CFA stem is a sentence ending in a qualifier. "The LDI Model most
+        // likely:" is a heading with a colon after it.
+        let qualifier = #"\b(?:most likely|least likely|closest to|best describes?"#
+            + #"|best characteri[sz]ed|most appropriate|best explains?|most accurate"#
+            + #"|least accurate|best supported)\b"#
+        let finiteVerb = #"\b(?:is|are|was|were|will|would|should|does|do|did|has|have"#
+            + #"|had|can|could|may|which|what|who|the|if|when|using|based|given|after"#
+            + #"|for|under|accord\w*)\b"#
+
+        var counts: [String: Int] = [:]
+        for item in items {
+            if try item.options.values.contains(where: {
+                try matches(#"That specification would be used as-is"#
+                            + #"|That approach would be applied without further adjustment"#, $0)
+            }) { counts["boilerplate", default: 0] += 1 }
+
+            if item.options.values.contains(where: { sentenceCount($0) > 1 }) {
+                counts["multi_sentence", default: 0] += 1
+            }
+            if item.options.values.contains(where: { $0.contains("=") }) {
+                counts["equation", default: 0] += 1
+            }
+            if item.options.values.contains(where: { $0.count > 120 }) {
+                counts["too_long", default: 0] += 1
+            }
+            let numeric = Set(item.options.values.map(hasDigit))
+            if numeric.count > 1 { counts["mixed_option_types", default: 0] += 1 }
+
+            if try matches(dangling, item.stem) {
+                counts["dangling_reference", default: 0] += 1
+            }
+            let head = try matches(qualifier, item.stem)
+                ? item.stem.components(separatedBy: " most likely").first ?? item.stem
+                : item.stem
+            if try !matches(finiteVerb, head) {
+                counts["fragment_stem", default: 0] += 1
+            }
+        }
+
+        // Ratchets, from the corpus as it stood. Never loosen one; a rise
+        // means the defect came back.
+        let ceiling = [
+            "boilerplate": 901,
+            "multi_sentence": 1_038,
+            "equation": 135,
+            "too_long": 1_819,
+            "mixed_option_types": 419,
+            "dangling_reference": 340,
+            "fragment_stem": 956,
+        ]
+        for (rule, limit) in ceiling.sorted(by: { $0.key < $1.key }) {
+            let found = counts[rule] ?? 0
+            XCTAssertLessThanOrEqual(
+                found, limit,
+                "\(found) drills break \"\(rule)\", up from \(limit) — "
+                + "see scripts/drill_house_style.md")
+        }
+    }
+
     /// Where the answer SITS must carry no information either.
     ///
     /// The generator laid the key down in strict rotation: inside a single LOS
