@@ -429,6 +429,79 @@ final class QuestionBankIntegrityTests: XCTestCase {
         XCTAssertEqual(keys["C"], 889)
     }
 
+    /// Where the answer SITS must carry no information either.
+    ///
+    /// The generator laid the key down in strict rotation: inside a single LOS
+    /// group — which is exactly what "Run all N" serves, in file order, with
+    /// options never shuffled at display time — 2,418 of 2,420 consecutive
+    /// pairs went A to B to C to A. 99.9%. Answer the first question and you
+    /// have every answer after it.
+    ///
+    /// Nothing in this file caught that. Every assertion above is about the
+    /// TEXT of an option, and the cycle is not in the text. `fix_drill_answer_
+    /// cycle.py` permuted each question's options, rationales and key together
+    /// to break it.
+    ///
+    /// The assertion is a band, not a target. Forcing any of these three
+    /// transitions to zero would be the same mistake as the one that produced
+    /// a 96% length cue: "never the next letter" is as usable a rule as
+    /// "always the next letter". A third each, give or take sampling noise, is
+    /// the only shape that leaks nothing.
+    func testDrillAnswerPositionIsNotASequence() throws {
+        let content = ContentLoader()
+        content.load()
+        XCTAssertNil(content.loadError, content.loadError ?? "")
+
+        let forward: [String: String] = ["A": "B", "B": "C", "C": "A"]
+        var transitions: [String: Int] = ["same": 0, "forward": 0, "backward": 0]
+        var pairs = 0
+        var longestRun = 1
+
+        for bundle in content.losDrillBundles.values {
+            for group in bundle.drills {
+                let keys = group.questions.compactMap { q -> String? in
+                    guard let options = q.options, options.count == 3,
+                          let correct = q.correct, options[correct] != nil
+                    else { return nil }
+                    return correct
+                }
+                var run = 1
+                for (previous, next) in zip(keys, keys.dropFirst()) {
+                    pairs += 1
+                    if previous == next {
+                        transitions["same", default: 0] += 1
+                        run += 1
+                        longestRun = max(longestRun, run)
+                    } else {
+                        run = 1
+                        let name = forward[previous] == next ? "forward" : "backward"
+                        transitions[name, default: 0] += 1
+                    }
+                }
+            }
+        }
+
+        XCTAssertGreaterThan(pairs, 2_000, "not enough drills to measure a sequence")
+        for (name, count) in transitions.sorted(by: { $0.key < $1.key }) {
+            let share = Double(count) / Double(pairs)
+            XCTAssertGreaterThan(
+                share, 0.20,
+                "the key follows the previous key's \(name) transition on only "
+                + "\(Int(share * 100))% of consecutive drills — rare enough to bet against")
+            XCTAssertLessThan(
+                share, 0.47,
+                "the key follows the previous key's \(name) transition on "
+                + "\(Int(share * 100))% of consecutive drills — answer one and you have the rest")
+        }
+
+        // A long enough run of one letter reads as a pattern even when it is
+        // not one, and the learner cannot tell the difference. The permutation
+        // refuses a fourth repeat while any quota is left to refuse it with.
+        XCTAssertLessThanOrEqual(
+            longestRun, 4,
+            "\(longestRun) drills in a row share an answer letter")
+    }
+
     /// Practice-by-LOS finds Standards I–VII via candidate_los; Progress
     /// coverage uses primary_reading_ids. Those must agree after unparking.
     func testEthicsStandardCasesAreNotParkedOnCodeReading() throws {
