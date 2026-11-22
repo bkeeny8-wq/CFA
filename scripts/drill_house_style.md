@@ -62,16 +62,57 @@ option runs to 125 against the distractors' 91.
 
 7. **The three options are parallel**: same grammatical shape, same kind of
    thing. Three durations, or three countries, or three actions. Not one
-   action, one justification and one formula.
+   action, one justification and one formula — and above all, **not two
+   qualitative claims and one set of figures**:
+
+   ```
+   A. Both portfolios gain.
+   B. Both portfolios lose the same amount.
+   C. Portfolio A −2.407% ($1,203,437 loss); Portfolio B −3.518% ($1,759,216 loss).
+   ```
+
+   Nobody has to know anything about yield curves to pick C. That shape fires
+   on 333 drills and names the key **78.7%** of the time. In the case bank it
+   fires on 4 and names the key **0** times. Either all three options carry
+   figures or none of them do.
 
 8. **The stem carries the setup and ends with the CFA qualifier** — *is most
    likely*, *is closest to*, *best describes*, *is least likely*, *is most
    appropriate*. It may hold data. It may not hold a worked calculation.
 
-9. **Do not cite the source inside the item.** No "According to the CFA
-   Institute curriculum", no "Per Example 12", no "the curriculum states".
-   The learner is answering a question, not auditing a reading. Citations
-   belong in the rationale.
+9. **The item must be answerable from the item.** A drill has no vignette —
+   the data model has no exhibit field and the app shows one question at a
+   time — so "In Example 14 scenario analysis…" points at a table the learner
+   cannot open. 340 drills do this. Citations like *According to the CFA
+   Institute curriculum*, *Per Example 12* and *the curriculum states* are the
+   same failure in milder form. They belong in the rationale, after the
+   learner has committed.
+
+   The case bank cites exhibits constantly and is right to: 38 of its 63 cases
+   carry their own vignette. Drills have nothing to cite.
+
+## Reframing an item that points outside itself
+
+Rules 1–8 are style: the substance is preserved and only the wording changes.
+Rule 9 sometimes cannot be met that way. If the answer depends on a table you
+cannot reproduce in a line or two, you have three moves, in order of
+preference:
+
+1. **Inline the data.** If the figures that matter fit in the stem, put them
+   there and the item is self-contained.
+2. **Ask the conceptual question instead.** The yield-curve item above is
+   really asking whether a barbell underperforms a bullet of the same duration
+   under a bear steepening. Asked that way it needs no table at all, it tests
+   the same LOS, and it is a better question — the exam asks for the direction
+   far more often than it asks for the fourth decimal place.
+3. **Keep the arithmetic but supply every input.** Only when the computation
+   itself is the point of the LOS.
+
+A reframe changes what the item asks, so it is held to a different standard
+than a restatement: the LOS must still be the one being tested, the key must
+still sit in its stored slot, and the reframed question must be answerable and
+unambiguous. Mark it `reframed` so the checker knows which standard applies.
+Do not reframe an item that is already self-contained.
 
 ## What must not change
 

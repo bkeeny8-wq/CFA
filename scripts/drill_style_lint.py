@@ -98,6 +98,27 @@ BOILERPLATE = re.compile(
 # "U.S.", "e.g.", "i.e.", "vs." must not look like sentence ends.
 ABBREV = re.compile(r"\b(?:[A-Za-z]\.){2,}|\b(?:e\.g|i\.e|vs|No|Mr|Ms|Dr|St|Inc|Co)\.")
 ARITH = re.compile(r"[×÷]|\s[x*/]\s|(?<=\d)\s*[-−+]\s*(?=\d)")
+# A drill group carries los metadata and a list of questions. There is no
+# vignette field and no exhibit field, so a drill that cites "Example 14" is
+# pointing at a table the learner cannot open. The case bank cites exhibits
+# constantly and is right to -- 38 of its 63 cases carry their own vignette --
+# so this rule is scored on the drills only.
+DANGLING = re.compile(
+    r"\b(?:Example|Exhibit|Table|Figure|Section|Equation|Case)\s+\d+"
+    r"|according to the (?:CFA Institute )?curriculum"
+    r"|the curriculum (?:states|says|notes|identifies|warns)"
+    r"|\bas the reading\b|\bin the reading\b", re.I)
+DIGIT = re.compile(r"\d")
+# A CFA stem is a sentence that ends in a qualifier. "The LDI Model most
+# likely:" is a heading with a colon after it. 45% of drill stems have no
+# finite verb in front of the qualifier, against 3% of the case bank's, and
+# the drills' median stem is 10 words where the bank's is 17.
+QUALIFIER = re.compile(
+    r"\b(?:most likely|least likely|closest to|best describes?|best characteri[sz]ed"
+    r"|most appropriate|best explains?|most accurate|least accurate|best supported)\b", re.I)
+FINITE_VERB = re.compile(
+    r"\b(?:is|are|was|were|will|would|should|does|do|did|has|have|had|can|could|may"
+    r"|which|what|who|the|if|when|using|based|given|after|for|under|accord\w*)\b", re.I)
 
 MAX_OPTION_CHARS = 120      # case bank p90 is 62; this is a generous ceiling
 
@@ -148,11 +169,23 @@ def lint_question(q: dict) -> list:
     starts = {v[:1].islower() for v in opts.values() if v}
     if len(starts) > 1:
         bad.append("inconsistent_case")
+    # Options have to be three of the same kind of thing. Where two are
+    # qualitative claims and the third carries the figures, the third is the
+    # answer: that fires on 333 drills and names the key 78.7% of the time.
+    # In the case bank it fires on 4 and names the key none of the time.
+    numeric = {bool(DIGIT.search(v)) for v in opts.values() if v}
+    if len(numeric) > 1:
+        bad.append("mixed_option_types")
     stem = q.get("stem") or ""
     if "=" in stem:
         bad.append("equation_in_stem")
     if emphasis_caps(stem):
         bad.append("shouting_stem")
+    if not q.get("_has_vignette") and DANGLING.search(stem):
+        bad.append("dangling_reference")
+    head = QUALIFIER.split(stem)[0] if QUALIFIER.search(stem) else stem
+    if not FINITE_VERB.search(head):
+        bad.append("fragment_stem")
     return bad
 
 
@@ -180,7 +213,14 @@ def load_bank() -> list:
         elif isinstance(o, list):
             for v in o:
                 yield from walk(v)
-    return [q for q in walk(data) if q.get("correct") in KEYS]
+    out = []
+    for q in walk(data):
+        if q.get("correct") in KEYS:
+            # Case-bank items sit under a vignette, so citing an exhibit is
+            # ordinary rather than dangling.
+            q["_has_vignette"] = True
+            out.append(q)
+    return out
 
 
 def no_reading_scores(qs: list) -> dict:
@@ -203,9 +243,20 @@ def no_reading_scores(qs: list) -> dict:
         live = [k for k, v in o.items() if not BOILERPLATE.search(v)] or list(o)
         return live[0] if len(live) == 1 else longest(q, live)
 
+    def lone_numeric(q):
+        o = q["options"]
+        with_digits = [k for k, v in o.items() if DIGIT.search(v)]
+        if len(with_digits) == 1:
+            return with_digits[0]
+        without = [k for k, v in o.items() if not DIGIT.search(v)]
+        if len(without) == 1:
+            return without[0]
+        return longest(q)
+
     return {
         "drop two-sentence option, then longest": score(drop_multi),
         "drop boilerplate option, then longest": score(drop_boiler),
+        "take the odd option out by type": score(lone_numeric),
         "longest option": score(longest),
         "middle-length option": score(
             lambda q: sorted(q["options"], key=lambda k: -len(q["options"][k]))[1]),
@@ -256,6 +307,7 @@ def main() -> int:
     print(f"\n  rule breaches           questions          options")
     for rule in ("boilerplate", "multi_sentence", "equation", "arithmetic",
                  "too_long", "shouting", "inconsistent_case",
+                 "mixed_option_types", "dangling_reference", "fragment_stem",
                  "equation_in_stem", "shouting_stem"):
         qn, on = per_question[rule], per_option.get(rule, 0)
         print(f"    {rule:20} {qn:6} ({qn / n * 100:5.1f}%)   "
