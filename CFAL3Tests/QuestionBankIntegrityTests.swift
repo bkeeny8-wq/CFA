@@ -401,11 +401,11 @@ final class QuestionBankIntegrityTests: XCTestCase {
         // added "That specification would be used as-is…" to 1,797
         // distractors, and the regex above — written at the same time — did
         // not match it, so this count read 0 while two thirds of the corpus
-        // carried it. Removing the padding took it to 902. It should reach 0,
-        // which needs distractors rewritten rather than trimmed; until then
-        // this is a ratchet, not a target.
+        // carried it. Removing the padding took it to 902; rewriting the
+        // distractors, which is what it actually needed, took it to 144. The
+        // remainder sits on the 377 drills the rewrite pass never reached.
         XCTAssertLessThanOrEqual(
-            boilerplateDistractors, 902,
+            boilerplateDistractors, 144,
             "machine-written padding on \(boilerplateDistractors) distractors")
         // `tail` matches one legitimately-worded option — "…as that would
         // invade financial privacy" — so this is 1, not 0, and has been since
@@ -551,12 +551,18 @@ final class QuestionBankIntegrityTests: XCTestCase {
             // chance is just as usable inverted -- "the shortest option is
             // never right" was worth 13% here, which is to say 87% as a rule
             // about where the answer is not.
+            //
+            // This bound is load-bearing, not slack: "take the shortest
+            // option" sits at 20.5% after the rewrite pass, half a point
+            // above it. Shortening options closes the longest-option cue and
+            // opens this one, so a future pass that trims further has to
+            // lengthen some keys to stay honest.
             XCTAssertGreaterThan(
                 score, 0.20,
                 "\"\(name)\" scores \(Int(score * 100))%, so its inverse is a usable rule")
         }
         XCTAssertLessThanOrEqual(
-            worst.score, 0.74,
+            worst.score, 0.51,
             "\"\(worst.name)\" answers \(Int(worst.score * 100))% of the drills "
             + "without reading one of them (chance is 33%)")
     }
@@ -565,9 +571,13 @@ final class QuestionBankIntegrityTests: XCTestCase {
     ///
     /// question_bank.json holds 270 real-format item-set questions and passes
     /// these rules on 91% of them; the drills passed 12% when this was
-    /// written. Every count here is a ratchet taken from the state of the
-    /// corpus at the time, and `scripts/drill_style_lint.py` computes the same
-    /// numbers outside Xcode.
+    /// written and 78% after 2,290 of them were rewritten. Every count here is
+    /// a ratchet taken from the state of the corpus at the time, and
+    /// `scripts/drill_style_lint.py` computes the same numbers outside Xcode.
+    ///
+    /// The counts that remain are concentrated in the 377 drills the rewrite
+    /// pass never reached, so they should fall again rather than being the new
+    /// floor of what this corpus can do.
     func testDrillStyleMatchesTheCaseBank() throws {
         let content = ContentLoader()
         content.load()
@@ -623,13 +633,13 @@ final class QuestionBankIntegrityTests: XCTestCase {
         // Ratchets, from the corpus as it stood. Never loosen one; a rise
         // means the defect came back.
         let ceiling = [
-            "boilerplate": 901,
-            "multi_sentence": 1_038,
-            "equation": 135,
-            "too_long": 1_819,
-            "mixed_option_types": 419,
-            "dangling_reference": 340,
-            "fragment_stem": 956,
+            "boilerplate": 144,
+            "multi_sentence": 177,
+            "equation": 0,
+            "too_long": 339,
+            "mixed_option_types": 70,
+            "dangling_reference": 64,
+            "fragment_stem": 266,
         ]
         for (rule, limit) in ceiling.sorted(by: { $0.key < $1.key }) {
             let found = counts[rule] ?? 0
