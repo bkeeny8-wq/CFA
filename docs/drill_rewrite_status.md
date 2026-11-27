@@ -9,9 +9,21 @@ several sessions in ephemeral containers and the scratchpad does not survive.
 
 | | drills | rewritten | substance-audited |
 |---|---|---|---|
-| applied | 2,290 | yes | 1,280 (56%) |
+| applied | 2,290 | yes | 2,095 (100% of the rewrites) |
 | group 5 (held) | 377 | produced, not applied | no |
-| total | 2,667 | 2,290 | 1,280 |
+| total | 2,667 | 2,290 | 2,095 |
+
+The audit of the applied rewrites is **complete, with no applied rewrite left
+unaudited**. It ran in two passes whose union is exactly the 2,290 applied
+rewrites, overlapping by 5 drills:
+
+- the 200-drill sample: 6 fatal, a 3.0% rate, 5 repaired (one was a duplicate
+  of a finding in the other pass)
+- the full run: 210 of 210 batches, 2,095 drills, 1,878 sound, 25 fatal for a
+  rate of 1.19%, and 205 style findings left alone
+
+All 31 fatal findings are repaired: 5 in `1eaf4ea`, 16 in `ddf6616`, 9 in the
+commit that added this paragraph. 36 field changes over 24 questions.
 
 Corpus measurements, all from `scripts/drill_style_lint.py` and
 `scripts/drill_ratchets.py`:
@@ -33,12 +45,7 @@ objections only because their verifiers failed too — that is the same reading
 error that let 2,270 unverified rewrites through the first time, and a zero
 from a dead agent means nothing.
 
-**2. 815 applied rewrites have never been checked for substance.**
-The audit reached 128 of 210 batches before the same limit. 16 fatal defects in
-the 1,280 it did reach, a 1.25% rate, all repaired in `ddf6616`. At that rate
-the unaudited remainder holds roughly 10 more broken questions.
-
-**3. The Swift test suite has never been run.**
+**2. The Swift test suite has never been run.**
 `CFAL3Tests/QuestionBankIntegrityTests.swift` holds every ratchet, and no
 container in this work had Xcode. `scripts/drill_ratchets.py` mirrors its logic
 exactly — same regexes, same sentence counting, same ASCII-only digit test —
@@ -67,10 +74,24 @@ class without an LLM, and all three were measured against the 16 known defects:
 
 Best precision 7%, best recall 50%. The drift detector flags 1,581 of the
 2,095 questions, which is 75% of the corpus, so its 5/16 is close to what
-flagging everything would give — it is not a filter at all. All 41 orphan-rebuttal candidates sitting
-in the unaudited region were then read by hand and produced no new defect, so
-the filters are exhausted rather than merely unlucky. The remaining 815 drills
-need the LLM audit; there is no cheap substitute.
+flagging everything would give — it is not a filter at all.
+
+I then read all 41 candidates in the then-unaudited region by hand and cleared
+every one. The audit later found a fatal defect among them, and the lesson is
+worth recording because it is about reading rather than tooling:
+
+    stem    "Performance-based fees are most likely:"
+    option  B  "based on total return rather than on return relative to a
+                benchmark."
+
+I judged B false, reading "rather than" as an exclusivity claim the curriculum
+contradicts. But "most likely" turns the option into a claim about the typical
+case, and hedge fund and private equity performance fees commonly ARE charged
+on total return, so B was defensible and the item was double-keyed. The
+detector flagged it correctly; I cleared it wrongly. So a hand pass over a
+candidate list does not substitute for the audit either, and specifically: an
+option has to be tested against the modality the stem gives it, not only
+against whether its words are literally false.
 
 ## Resuming
 
@@ -108,5 +129,6 @@ exactly, so a repair cannot land on a question that moved under it. The two
 repair sets applied so far are kept as the record of what was changed and on
 what grounds:
 
-- `docs/drill_repairs_audit_1280.json` — 25 field changes over 15 questions
-- `docs/drill_audit_run_1280.json` — the audit findings they answer
+- `docs/drill_repairs_audit.json` — 36 field changes over 24 questions
+- `docs/drill_audit_complete_2095.json` — the full audit findings they answer
+- `docs/drill_audit_sample_200.json` — the earlier sample run

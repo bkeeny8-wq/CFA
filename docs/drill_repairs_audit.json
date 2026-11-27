@@ -173,5 +173,82 @@
     "why": "match the rationale to the variable the option now names.",
     "old": "The sensitivities run on the project bracket the 15% base case with the traffic cases: around 10% to 11% on the low side and the high teens on the high side. No discount-rate sensitivity is among them, and an IRR of roughly 5% sits well outside the range the project's own analysis produces.",
     "new": "The concession runs 25 years by its own terms, so its length is not one of the variables the sponsor flexes. The sensitivities that are run bracket the 15% base case with the traffic cases, around 10% to 11% on the low side and the high teens on the high side, and an IRR of roughly 5% sits well outside the range the project's own analysis produces."
+  },
+  {
+    "id": "r16_active_eq_los_e_q4",
+    "field": "opt.A",
+    "why": "distractor_now_true: 'effectively identical' is a defensible reading of a 0.56 vs 0.54 Sharpe gap, so it competed with the key. Restore the exact-identity claim across the three dimensions the rationale already says all differ.",
+    "old": "effectively identical.",
+    "new": "identical in return, volatility and Sharpe ratio."
+  },
+  {
+    "id": "r17_active_eq_pc_los_g_q8",
+    "field": "stem",
+    "why": "claim_changed: the 98.0% figure is the share of TOTAL risk explained by the market factor, not of active risk. The reframed stem inverted the definition and a sibling item in the same reading states it correctly.",
+    "old": "An analyst compares active equity managers on active risk, Active Share, average sector deviation, and the share of active risk explained by the market factor. The pairing of manager type with risk profile that is most likely correct is:",
+    "new": "An analyst compares active equity managers on active risk, Active Share, average sector deviation, and the share of total risk explained by the market factor. The pairing of manager type with risk profile that is most likely correct is:"
+  },
+  {
+    "id": "r17_active_eq_pc_los_g_q8",
+    "field": "rat.B",
+    "why": "the rationale repeated the inverted definition.",
+    "old": "The factor-diversified manager shows 3.4% active risk, 0.76 Active Share, 3.6% average sector deviation, and sources of risk of 98.0% market, -0.8% sectors, 1.8% styles, and 1.0% unexplained. A second factor-diversified manager shows 3.6% active risk, 0.63 Active Share, 3.9% average sector deviation, and 99.2% market, -3.8% sectors, 4.2% styles, and 0.4% unexplained. The concentrated sector rotator shows 4.5% active risk, 0.87 Active Share, 5.6% average sector deviation, and 69.2% market, 11.6% sectors, 9.7% styles, and 9.5% unexplained, holding 21 positions with the top five at 25.1% and 21.3% in cash and bonds. The consistent pattern is that factor-diversified managers run lower active risk, lower Active Share, and smaller sector deviations, and have nearly all of their active risk explained by the market factor, whereas a sector rotator's sector and style bets and security-specific concentration pull the market share of risk down and push the unexplained share up.",
+    "new": "The factor-diversified manager shows 3.4% active risk, 0.76 Active Share, 3.6% average sector deviation, and sources of risk of 98.0% market, -0.8% sectors, 1.8% styles, and 1.0% unexplained. A second factor-diversified manager shows 3.6% active risk, 0.63 Active Share, 3.9% average sector deviation, and 99.2% market, -3.8% sectors, 4.2% styles, and 0.4% unexplained. The concentrated sector rotator shows 4.5% active risk, 0.87 Active Share, 5.6% average sector deviation, and 69.2% market, 11.6% sectors, 9.7% styles, and 9.5% unexplained, holding 21 positions with the top five at 25.1% and 21.3% in cash and bonds. The consistent pattern is that factor-diversified managers run lower active risk, lower Active Share, and smaller sector deviations, and have nearly all of their total risk explained by the market factor, whereas a sector rotator's sector and style bets and security-specific concentration pull the market share of risk down and push the unexplained share up."
+  },
+  {
+    "id": "r17_swf_los_f_q2",
+    "field": "stem",
+    "why": "not_self_contained: the stem referred to 'that target' without ever giving it, and the two competing options are claims about that target. Supply the equity figure the rebalancing targets, from which the 40/60 split follows.",
+    "old": "Grant's portfolio has risen from €100 million to €106 million over the last month and now holds €46 million of European stocks and €60 million of German bunds, which has pushed the weights away from her target allocation. Regarding that target and the rebalancing she needs, the most accurate statement is that:",
+    "new": "Grant's portfolio has risen from €100 million to €106 million over the last month and now holds €46 million of European stocks and €60 million of German bunds. Restoring her target allocation requires cutting the equity exposure to €42.4 million. Regarding that target and the rebalancing she needs, the most accurate statement is that:"
+  },
+  {
+    "id": "r20_ims_los_i_q2",
+    "field": "opt.B",
+    "why": "distractor_now_true: under a 'most likely' stem the bare claim reads as a statement about the typical case, and hedge fund and private equity performance fees are commonly charged on total return, so it was defensible. Restore the absolute framing the rationale rebuts. I had read this option by hand and wrongly cleared it.",
+    "old": "based on total return rather than on return relative to a benchmark.",
+    "new": "always based on total return and never on return relative to a benchmark."
+  },
+  {
+    "id": "r27_code_los_b_q11",
+    "field": "opt.B",
+    "why": "distractor_now_true: prompt correction of a misrepresentation genuinely is expected under I(C), so the option became a true requirement. Restore the claim that correction stands in place of refraining, which is what rationale B rebuts.",
+    "old": "Correcting any misrepresentation within a reasonable period.",
+    "new": "Correcting misrepresentations rather than refraining from them."
+  },
+  {
+    "id": "r27_code_los_b_q12",
+    "field": "opt.C",
+    "why": "claim_changed: 'is limited to' was the whole falsity, and avoiding fraud genuinely is required by I(D). Rationale C already argues no conviction or charge is needed.",
+    "old": "Avoiding conduct that results in a criminal conviction for fraud.",
+    "new": "Avoiding only conduct that results in a criminal conviction for fraud."
+  },
+  {
+    "id": "r27_code_los_b_q37",
+    "field": "opt.C",
+    "why": "key_merely_arguable: the reframed stem puts the party list in issue, and the key then dropped 'prospective clients' while distractor A carried the complete list. Standard VI(A) runs to clients, prospective clients and employer, as the key's own rationale states.",
+    "old": "Any matter that could reasonably be expected to impair objectivity, to clients and employer.",
+    "new": "Any matter that could reasonably be expected to impair objectivity, to clients, prospective clients, and employer."
+  },
+  {
+    "id": "r28_prof_los_a_q15",
+    "field": "opt.C",
+    "why": "key_merely_arguable: the key was narrowed to one of two routes the item's own rationale A presents as elective, so as a 'must' it was only defensible by elimination. Restore the duty itself, which holds whichever route she takes.",
+    "old": "reach and issue her own independent conclusion.",
+    "new": "issue only recommendations reflecting her own independent opinion."
+  },
+  {
+    "id": "r30_dtc_los_a_q8",
+    "field": "stem",
+    "why": "claim_changed: 'undersubscribed' is the technical opposite of the premise the item needs. Proportionate allocation is only at issue when supply is short, and both the key's and C's rationales run on short supply.",
+    "old": "Dill manages accounts for his father and brother, both regular fee-paying accounts, and an IPO suitable for many of his clients, including his brother, is undersubscribed. To avoid any appearance of a conflict of interest, Dill allocates no shares to his brother's account. With respect to the allocation, Dill most likely:",
+    "new": "Dill manages accounts for his father and brother, both regular fee-paying accounts, and the firm's allocation of an IPO suitable for many of his clients, including his brother, falls short of what those accounts could absorb. To avoid any appearance of a conflict of interest, Dill allocates no shares to his brother's account. With respect to the allocation, Dill most likely:"
+  },
+  {
+    "id": "r30_dtc_los_a_q8",
+    "field": "rat.B",
+    "why": "the rationale repeated the inverted premise.",
+    "old": "Avoiding the appearance of a conflict does not justify disadvantaging a client. A regular fee-paying family account must be treated the same as every other client account, so excluding it from a suitable but undersubscribed offering is itself unfair treatment rather than a cure for the conflict.",
+    "new": "Avoiding the appearance of a conflict does not justify disadvantaging a client. A regular fee-paying family account must be treated the same as every other client account, so excluding it from a suitable offering in short supply is itself unfair treatment rather than a cure for the conflict."
   }
 ]
