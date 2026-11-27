@@ -110,15 +110,46 @@ DANGLING = re.compile(
     r"|\bas the reading\b|\bin the reading\b", re.I)
 DIGIT = re.compile(r"\d")
 # A CFA stem is a sentence that ends in a qualifier. "The LDI Model most
-# likely:" is a heading with a colon after it. 45% of drill stems have no
-# finite verb in front of the qualifier, against 3% of the case bank's, and
-# the drills' median stem is 10 words where the bank's is 17.
+# likely:" is a heading with a colon after it, and that heading is what this
+# rule is for.
+#
+# It used to look for a finite verb in the text BEFORE the qualifier, and that
+# measured the wrong thing. FINITE_VERB is a whitelist of auxiliaries and
+# determiners, not a verb detector, so a stem whose verb is a content verb
+# failed it:
+#
+#   "Fiscal policy plays a smaller role than monetary policy most likely
+#    because:"                                    -- flagged, verb is "plays"
+#   "An institutional investor's IPS most likely codifies:"
+#                                                 -- flagged, verb "codifies"
+#   "Banks and insurance companies differ from other investors most likely
+#    because they:"                               -- flagged, verb "differ"
+#
+# Those are the stems the house style asks for. The old rule counted 266 of
+# them, 207 in drills the rewrite pass had just improved, because a rewritten
+# stem uses a content verb where a generated heading used "the". A ratchet on
+# that number would have failed the build for getting better.
+#
+# Two conditions together identify the heading and leave the clause alone: the
+# qualifier is the LAST thing in the stem, bar the colon, AND no auxiliary
+# appears anywhere in it. "A good capital market forecast is most likely:"
+# ends in a bare qualifier but has "is", so it is a sentence. "Liquidity
+# aggregators most likely:" has neither and is a heading. That reads 89 across
+# the corpus, 40 of them in rewritten drills, and spot-checking the list finds
+# no false positive.
 QUALIFIER = re.compile(
     r"\b(?:most likely|least likely|closest to|best describes?|best characteri[sz]ed"
     r"|most appropriate|best explains?|most accurate|least accurate|best supported)\b", re.I)
-FINITE_VERB = re.compile(
+# The qualifier sitting at the very end, with nothing after it but punctuation.
+BARE_QUALIFIER = re.compile(
+    r"\b(?:most likely|least likely|closest to|best describes?|best characteri[sz]ed"
+    r"|most appropriate|best explains?|most accurate|least accurate|best supported)"
+    r"\s*:?\s*$", re.I)
+AUXILIARY = re.compile(
     r"\b(?:is|are|was|were|will|would|should|does|do|did|has|have|had|can|could|may"
-    r"|which|what|who|the|if|when|using|based|given|after|for|under|accord\w*)\b", re.I)
+    r"|might|must|be|been|being"
+    r"|which|what|who|whose|the|if|when|using|based|given|after|for|under|accord\w*"
+    r"|compared|relative)\b", re.I)
 
 MAX_OPTION_CHARS = 120      # case bank p90 is 62; this is a generous ceiling
 
@@ -183,9 +214,8 @@ def lint_question(q: dict) -> list:
         bad.append("shouting_stem")
     if not q.get("_has_vignette") and DANGLING.search(stem):
         bad.append("dangling_reference")
-    head = QUALIFIER.split(stem)[0] if QUALIFIER.search(stem) else stem
-    if not FINITE_VERB.search(head):
-        bad.append("fragment_stem")
+    if BARE_QUALIFIER.search(stem) and not AUXILIARY.search(stem):
+        bad.append("heading_stem")
     return bad
 
 
@@ -307,7 +337,7 @@ def main() -> int:
     print(f"\n  rule breaches           questions          options")
     for rule in ("boilerplate", "multi_sentence", "equation", "arithmetic",
                  "too_long", "shouting", "inconsistent_case",
-                 "mixed_option_types", "dangling_reference", "fragment_stem",
+                 "mixed_option_types", "dangling_reference", "heading_stem",
                  "equation_in_stem", "shouting_stem"):
         qn, on = per_question[rule], per_option.get(rule, 0)
         print(f"    {rule:20} {qn:6} ({qn / n * 100:5.1f}%)   "

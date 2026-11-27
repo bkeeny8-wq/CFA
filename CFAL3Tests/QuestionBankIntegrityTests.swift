@@ -326,6 +326,7 @@ final class QuestionBankIntegrityTests: XCTestCase {
         var boilerplateDistractors = 0
         var boilerplateOnKeys = 0
         var loneLowercaseIsKey = 0
+        var loneUppercaseIsKey = 0
         var keys: [String: Int] = [:]
         // The stock sentences the balancing passes appended. Kept separate
         // from `tail` above because that pattern was written alongside the
@@ -356,6 +357,18 @@ final class QuestionBankIntegrityTests: XCTestCase {
                     let lowerStart = options.filter { $0.value.first?.isLowercase == true }
                     if lowerStart.count == 1, lowerStart.first?.key == correct {
                         loneLowercaseIsKey += 1
+                    }
+                    // The mirror, which this test did not check until the
+                    // rewrite pass produced four of them. Lowercase options
+                    // are correct CFA style -- they continue the stem -- so an
+                    // option forced into upper case by a leading proper noun
+                    // ("Robertson only."), a letter-shape name ("U-shaped.")
+                    // or an "About" becomes the odd one out, and on four
+                    // drills that odd one was the key. Counting only the
+                    // lowercase direction measured half of a symmetric cue.
+                    let upperStart = options.filter { $0.value.first?.isUppercase == true }
+                    if upperStart.count == 1, upperStart.first?.key == correct {
+                        loneUppercaseIsKey += 1
                     }
                     let keyLen = keyText.count
                     let other = options.compactMap { $0.key == correct ? nil : $0.value.count }
@@ -416,12 +429,18 @@ final class QuestionBankIntegrityTests: XCTestCase {
             "grammatical length tails on \(distractorTails) distractors")
         XCTAssertEqual(boilerplateOnKeys, 0, "padding on a correct option marks the answer")
 
-        // Case is normalised to uppercase-initial, so no option can be the
-        // lone continuation of the stem. Zero, not a ratchet: nothing about
-        // correct content requires a key to start in lower case.
+        // Within one item the three options agree on case, so neither case can
+        // single the key out. Both directions are zero, not ratchets: nothing
+        // about correct content requires the key to be the odd one out, and
+        // whichever case an item settles on, the fix is to make all three
+        // match it.
         XCTAssertEqual(
             loneLowercaseIsKey, 0,
             "the key is the only lowercase-initial option on \(loneLowercaseIsKey) drills — "
+            + "it can be picked out without reading the stem")
+        XCTAssertEqual(
+            loneUppercaseIsKey, 0,
+            "the key is the only uppercase-initial option on \(loneUppercaseIsKey) drills — "
             + "it can be picked out without reading the stem")
 
         XCTAssertEqual(keys["A"], 889)
@@ -571,13 +590,28 @@ final class QuestionBankIntegrityTests: XCTestCase {
     ///
     /// question_bank.json holds 270 real-format item-set questions and passes
     /// these rules on 91% of them; the drills passed 12% when this was
-    /// written and 78% after 2,290 of them were rewritten. Every count here is
+    /// written and 84% after 2,290 of them were rewritten. Every count here is
     /// a ratchet taken from the state of the corpus at the time, and
     /// `scripts/drill_style_lint.py` computes the same numbers outside Xcode.
     ///
-    /// The counts that remain are concentrated in the 377 drills the rewrite
-    /// pass never reached, so they should fall again rather than being the new
-    /// floor of what this corpus can do.
+    /// Where what remains actually sits, measured rather than assumed. The
+    /// first commit after the pass claimed all of it was in the 377 drills the
+    /// usage limit stopped the pass from reaching. That is true of five rules
+    /// and false of two:
+    ///
+    ///   too_long            100% in the 377    boilerplate   100% in the 377
+    ///   dangling_reference  100% in the 377    multi_sentence 99% in the 377
+    ///   shouting             99% in the 377    mixed_types     76% in the 377
+    ///   heading_stem         55% in the 377
+    ///   inconsistent_case     0% in the 377 — the pass INTRODUCED every one
+    ///
+    /// The last line is the one worth keeping. Shortening options into
+    /// lowercase continuations of the stem is right, and it collides with the
+    /// options a proper noun forces into upper case, so a rewrite that
+    /// improves an item can still leave its three options disagreeing. The
+    /// pass produced 13. Five of them had the odd option sitting on the key,
+    /// which is a cue; normalising those five cleared four of the 13, and 9
+    /// remain where the case splits without naming the answer.
     func testDrillStyleMatchesTheCaseBank() throws {
         let content = ContentLoader()
         content.load()
@@ -592,13 +626,37 @@ final class QuestionBankIntegrityTests: XCTestCase {
             + #"|according to the (?:CFA Institute )?curriculum"#
             + #"|the curriculum (?:states|says|notes|identifies|warns)"#
         // A CFA stem is a sentence ending in a qualifier. "The LDI Model most
-        // likely:" is a heading with a colon after it.
-        let qualifier = #"\b(?:most likely|least likely|closest to|best describes?"#
+        // likely:" is a heading with a colon after it, and the heading is what
+        // this rule is for.
+        //
+        // It used to look for a "finite verb" before the qualifier, where the
+        // pattern was a whitelist of auxiliaries and determiners rather than a
+        // verb detector. So a stem whose verb is a CONTENT verb failed it:
+        // "Fiscal policy plays a smaller role than monetary policy most likely
+        // because:", "An institutional investor's IPS most likely codifies:",
+        // "Banks and insurance companies differ from other investors most
+        // likely because they:". Those are the stems the house style asks for.
+        //
+        // That rule counted 266, and 207 of them sat in drills the rewrite
+        // pass had just improved, because a rewritten stem uses a content verb
+        // where the generator's heading used "the". Ratcheting it would have
+        // failed the build for getting better, which is the one thing a
+        // ratchet must never do.
+        //
+        // Two conditions together find the heading and leave the clause alone:
+        // the qualifier is the LAST thing in the stem bar a colon, AND no
+        // auxiliary appears anywhere in it. "A good capital market forecast is
+        // most likely:" ends in a bare qualifier but has "is", so it is a
+        // sentence; "Liquidity aggregators most likely:" has neither and is a
+        // heading. 89 across the corpus, and the list has no false positive in
+        // it. scripts/drill_style_lint.py computes the same number.
+        let bareQualifier = #"\b(?:most likely|least likely|closest to|best describes?"#
             + #"|best characteri[sz]ed|most appropriate|best explains?|most accurate"#
-            + #"|least accurate|best supported)\b"#
-        let finiteVerb = #"\b(?:is|are|was|were|will|would|should|does|do|did|has|have"#
-            + #"|had|can|could|may|which|what|who|the|if|when|using|based|given|after"#
-            + #"|for|under|accord\w*)\b"#
+            + #"|least accurate|best supported)\s*:?\s*$"#
+        let auxiliary = #"\b(?:is|are|was|were|will|would|should|does|do|did|has|have"#
+            + #"|had|can|could|may|might|must|be|been|being"#
+            + #"|which|what|who|whose|the|if|when|using|based|given|after"#
+            + #"|for|under|accord\w*|compared|relative)\b"#
 
         var counts: [String: Int] = [:]
         for item in items {
@@ -618,15 +676,25 @@ final class QuestionBankIntegrityTests: XCTestCase {
             }
             let numeric = Set(item.options.values.map(hasDigit))
             if numeric.count > 1 { counts["mixed_option_types", default: 0] += 1 }
+            // New rule, and the only defect the rewrite pass added rather than
+            // removed, so it is ratcheted here from the start.
+            //
+            // The test is "is the first character lowercase", NOT "is it
+            // uppercase", because an option may open with a digit and the
+            // linter groups a digit with the capitals. Asking the question the
+            // other way round reads 5 here against the linter's 9, the
+            // difference being items whose options open with figures.
+            let initials = Set(item.options.values.compactMap {
+                $0.first.map { $0.isLowercase }
+            })
+            if initials.count > 1 { counts["inconsistent_case", default: 0] += 1 }
 
             if try matches(dangling, item.stem) {
                 counts["dangling_reference", default: 0] += 1
             }
-            let head = try matches(qualifier, item.stem)
-                ? item.stem.components(separatedBy: " most likely").first ?? item.stem
-                : item.stem
-            if try !matches(finiteVerb, head) {
-                counts["fragment_stem", default: 0] += 1
+            if try matches(bareQualifier, item.stem),
+               try !matches(auxiliary, item.stem) {
+                counts["heading_stem", default: 0] += 1
             }
         }
 
@@ -639,7 +707,8 @@ final class QuestionBankIntegrityTests: XCTestCase {
             "too_long": 339,
             "mixed_option_types": 70,
             "dangling_reference": 64,
-            "fragment_stem": 266,
+            "heading_stem": 89,
+            "inconsistent_case": 9,
         ]
         for (rule, limit) in ceiling.sorted(by: { $0.key < $1.key }) {
             let found = counts[rule] ?? 0
