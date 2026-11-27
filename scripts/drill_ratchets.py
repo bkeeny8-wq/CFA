@@ -112,8 +112,8 @@ print("length-does-not-predict")
 print(f"  longest share   {uniq_long / n:.4f}  ({uniq_long})")
 print(f"  shortest share  {uniq_short / n:.4f}  ({uniq_short})")
 print(f"  middle share    {1 - uniq_long / n - uniq_short / n:.4f}")
-print(f"  boilerplateDistractors {bp_distract}   (ratchet 144)")
-print(f"  distractorTails        {tails}   (ratchet 1)")
+print(f"  boilerplateDistractors {bp_distract}   (must be 0)")
+print(f"  distractorTails        {tails}   (must be 0)")
 print(f"  boilerplateOnKeys      {bp_keys}   (must be 0)")
 print(f"  loneLowercaseIsKey     {lone_lower}   (must be 0)")
 print(f"  loneUppercaseIsKey     {lone_upper}   (must be 0)")
@@ -141,9 +141,9 @@ for it in items:
     if len({v[:1].islower() for v in vals if v}) > 1:
         counts["inconsistent_case"] += 1
 
-old = {"boilerplate": 144, "multi_sentence": 177, "equation": 0,
-       "too_long": 339, "mixed_option_types": 70, "dangling_reference": 64,
-       "heading_stem": 89, "inconsistent_case": 9}
+old = {"boilerplate": 0, "multi_sentence": 1, "equation": 0,
+       "too_long": 0, "mixed_option_types": 18, "dangling_reference": 0,
+       "heading_stem": 40, "inconsistent_case": 9}
 print("house-style ceilings")
 for rule in sorted(old):
     print(f"  {rule:20} {counts[rule]:6}   was {old[rule]}")
@@ -198,7 +198,7 @@ strategies = {
     "drop the boilerplate option, then longest": drop_bp,
     "take the odd option out by type": odd_type,
 }
-print("surface cues (ceiling 0.51, floor 0.20)")
+print("surface cues (ceiling 0.44, floor 0.20)")
 best = 0.0
 for name, pick in sorted(strategies.items()):
     s = sum(pick(it) == it["correct"] for it in items) / n

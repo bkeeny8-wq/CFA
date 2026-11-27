@@ -415,17 +415,17 @@ final class QuestionBankIntegrityTests: XCTestCase {
         // distractors, and the regex above — written at the same time — did
         // not match it, so this count read 0 while two thirds of the corpus
         // carried it. Removing the padding took it to 902; rewriting the
-        // distractors, which is what it actually needed, took it to 144. The
-        // remainder sits on the 377 drills the rewrite pass never reached.
-        XCTAssertLessThanOrEqual(
-            boilerplateDistractors, 144,
+        // distractors, which is what it actually needed, took it to 144; and
+        // the last 377 drills, rewritten in the final group, took it to 0.
+        // Every remaining instance was on a drill the pass had not reached.
+        XCTAssertEqual(
+            boilerplateDistractors, 0,
             "machine-written padding on \(boilerplateDistractors) distractors")
-        // `tail` matches one legitimately-worded option — "…as that would
-        // invade financial privacy" — so this is 1, not 0, and has been since
-        // the padding was removed. Kept as a ratchet rather than retuned,
-        // because the pattern earns its keep on the forms it does catch.
-        XCTAssertLessThanOrEqual(
-            distractorTails, 1,
+        // `tail` matched one legitimately-worded option — "…as that would
+        // invade financial privacy" — and stayed at 1 from the padding removal
+        // until that drill was itself rewritten. Now 0.
+        XCTAssertEqual(
+            distractorTails, 0,
             "grammatical length tails on \(distractorTails) distractors")
         XCTAssertEqual(boilerplateOnKeys, 0, "padding on a correct option marks the answer")
 
@@ -571,17 +571,23 @@ final class QuestionBankIntegrityTests: XCTestCase {
             // never right" was worth 13% here, which is to say 87% as a rule
             // about where the answer is not.
             //
-            // This bound is load-bearing, not slack: "take the shortest
-            // option" sits at 20.5% after the rewrite pass, half a point
-            // above it. Shortening options closes the longest-option cue and
-            // opens this one, so a future pass that trims further has to
-            // lengthen some keys to stay honest.
+            // This bound was load-bearing while the rewrite was partial:
+            // "take the shortest option" sat at 20.5% with half a point of
+            // room, because shortening options closes the longest-option cue
+            // and opens this one. Rewriting the last group moved it to 23.3%,
+            // so the margin is real again — but the mechanism has not gone
+            // away, and a future pass that trims further has to lengthen some
+            // keys to stay honest.
             XCTAssertGreaterThan(
                 score, 0.20,
                 "\"\(name)\" scores \(Int(score * 100))%, so its inverse is a usable rule")
         }
+        // 0.735 before the rewrite, 0.51 with 2,290 of 2,667 rewritten,
+        // 0.4372 with all of them. Four of the six strategies now sit within
+        // two tenths of a point of each other just under this bound, so a
+        // breach will not be subtle.
         XCTAssertLessThanOrEqual(
-            worst.score, 0.51,
+            worst.score, 0.44,
             "\"\(worst.name)\" answers \(Int(worst.score * 100))% of the drills "
             + "without reading one of them (chance is 33%)")
     }
@@ -701,13 +707,13 @@ final class QuestionBankIntegrityTests: XCTestCase {
         // Ratchets, from the corpus as it stood. Never loosen one; a rise
         // means the defect came back.
         let ceiling = [
-            "boilerplate": 144,
-            "multi_sentence": 177,
+            "boilerplate": 0,
+            "multi_sentence": 1,
             "equation": 0,
-            "too_long": 339,
-            "mixed_option_types": 70,
-            "dangling_reference": 64,
-            "heading_stem": 89,
+            "too_long": 0,
+            "mixed_option_types": 18,
+            "dangling_reference": 0,
+            "heading_stem": 40,
             "inconsistent_case": 9,
         ]
         for (rule, limit) in ceiling.sorted(by: { $0.key < $1.key }) {

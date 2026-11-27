@@ -1607,17 +1607,17 @@
         {
           "id": "r29_int_los_b_q19",
           "number": 19,
-          "stem": "Controls addressing trading algorithms under II(B) most likely:",
+          "stem": "Under Standard II(B), the compliance practice recommended for a firm's trading algorithms is most likely:",
           "options": {
-            "A": "A blanket prohibition on algorithmic trading whenever the firm possesses material nonpublic information.",
-            "B": "A requirement that every algorithmic order receive manual approval before execution.",
-            "C": "Controls that address the use of trading algorithms for manipulative trading practices."
+            "A": "an algorithmic trading ban whenever the firm holds material nonpublic information.",
+            "B": "order-by-order manual approval before execution.",
+            "C": "controls addressing manipulative use of trading algorithms."
           },
           "correct": "C",
           "rationales": {
-            "A": "Wrong — conflates the II(B) algo control with an MNPI-triggered ban; the practice is targeted controls on manipulative algorithmic activity.",
-            "B": "Wrong — the practice relies on automated controls, not case-by-case human approval of each order.",
-            "C": "Full statement: controls that address the use of trading algorithms for manipulative trading practices; algorithms represent a specific area of concern because their speed and complexity can be leveraged for manipulation without human oversight of individual trades.\n\nCorrect. Per Standard II(B) Compliance Practices: 'Controls that address the use of trading algorithms for manipulative trading practices.'"
+            "A": "This conflates the Standard II(B) algorithm control with a ban triggered by possession of material nonpublic information. Possession and misuse of material nonpublic information is the subject of Standard II(A), and the practice recommended under II(B) is not a blanket shutdown of algorithmic trading. What the guidance calls for is targeted controls over manipulative algorithmic activity, so algorithmic trading continues under surveillance rather than stopping.",
+            "B": "Order-by-order human sign-off is not the practice described. Compliance under Standard II(B) relies on automated, systematic controls built into algorithm design, testing and monitoring, not on case-by-case approval of individual orders, which the speed and volume of algorithmic order flow would make impracticable.",
+            "C": "The compliance practices listed under Standard II(B) include controls that address the use of trading algorithms for manipulative trading practices. Algorithms are a specific area of concern because their speed and complexity allow manipulative strategies such as layering, spoofing and quote stuffing to be carried out without any human reviewing the individual trades. The control therefore has to be designed into the algorithm and its monitoring, so that manipulative patterns are detected and blocked by the system itself."
           },
           "type": "mc",
           "primary_los": "guidance_standard_ii_integrity_capital_markets.b",
@@ -1632,17 +1632,17 @@
         {
           "id": "r29_int_los_b_q20",
           "number": 20,
-          "stem": "Trade exception reporting under II(B) most likely:",
+          "stem": "Under Standard II(B), the compliance practice that flags individual trades deviating from expected patterns is best described as:",
           "options": {
-            "A": "Reporting designed to identify trades that deviate from expected patterns or trigger established thresholds so compliance can review them for possible manipulative activity.",
-            "B": "Pre-clearance of every client order by senior management.",
-            "C": "Periodic reporting of the firm's aggregate trading volume."
+            "A": "trade exception reporting.",
+            "B": "pre-clearance of client orders by senior management.",
+            "C": "periodic aggregate trading volume reporting."
           },
           "correct": "A",
           "rationales": {
-            "A": "Full statement: trade exception reporting — a compliance practice designed to identify trades that deviate from expected patterns or trigger established thresholds, allowing compliance and supervisory personnel to review the trades for possible manipulative activity.\n\nCorrect. Per Standard II(B) Compliance Practices: 'Trade exception reporting.'",
-            "B": "Wrong — this describes order pre-approval, not exception reporting that flags trades deviating from expected patterns.",
-            "C": "Wrong — exception reporting targets individual trades that breach thresholds, not summaries of total volume."
+            "A": "Trade exception reporting is the compliance practice designed to identify trades that deviate from expected patterns or that trigger established thresholds, so that compliance and supervisory personnel can review those trades for possible manipulative activity. The practice works by exception: normal activity passes unexamined and only the outliers are surfaced for human judgment, which is what makes it workable in a firm that executes a large volume of orders.",
+            "B": "Pre-clearance operates before execution and applies to orders without regard to whether they look unusual, so it is a different control serving a different purpose. The practice described is detective rather than authorizing, applied after the fact to the trades that depart from expected patterns or breach set thresholds, and directed at possible manipulation rather than at routine approval.",
+            "C": "Aggregate volume reporting describes the firm's activity in total and cannot isolate the individual trades that matter. The practice described is aimed precisely at the single trade that departs from the expected pattern or crosses a threshold, and that trade would be invisible inside a firmwide total."
           },
           "type": "mc",
           "primary_los": "guidance_standard_ii_integrity_capital_markets.b",
@@ -1657,17 +1657,17 @@
         {
           "id": "r29_int_los_b_q21",
           "number": 21,
-          "stem": "Alternative to permanent prohibition most likely:",
+          "stem": "A multiservice firm proposes prohibiting research recommendations on the securities of its investment banking clients rather than maintaining information firewalls. This approach is best described as:",
           "options": {
-            "A": "Prohibiting recommendations of stock of companies that are clients of investment banking department is an ALTERNATIVE to firewalls, but PERMANENT prohibition would not be best answer because once an offering is complete and MNPI obtained by IB department becomes public, resuming publishing recommendations on the stock is not a violation of Code and Standards.",
-            "B": "The preferred solution is a permanent, irrevocable prohibition on recommending the securities of any company that has ever been an investment banking client of the firm.",
-            "C": "There is no recognized alternative to physical information barriers; every multiservice firm must maintain firewalls between banking and research regardless of size, structure, or business mix."
+            "A": "acceptable only while the offering information remains nonpublic.",
+            "B": "preferred, and permanent for any former banking client.",
+            "C": "impermissible, since firewalls are mandatory for such firms."
           },
           "correct": "A",
           "rationales": {
-            "A": "Full statement: prohibiting recommendations of stock of companies that are clients of investment banking department is an ALTERNATIVE to firewalls, but PERMANENT prohibition would not be best answer because once an offering is complete and MNPI obtained by IB department becomes public, resuming publishing recommendations on the stock is not a violation of Code and Standards — the information no longer gives brokerage operation an advantage.\n\nCorrect. Per Practice Problem 2 Solution: 'Prohibiting recommendations of the stock of companies that are clients of the investment banking department is an alternative, but Option A states that this prohibition would be permanent, which is not the best answer. Once an offering is complete and the material nonpublic information obtained by the investment banking department becomes public, resuming publishing recommendations on the stock is not a violation of the Code and Standards, because the information of the investment banking department no longer gives the brokerage operation an advantage in writing the report.'",
-            "B": "Incorrect. A PERMANENT prohibition would not be practical or fair to research clients — the restriction is temporary, tied to the engagement.",
-            "C": "Incorrect. Prohibiting recommendations of banking clients' securities is a recognized alternative to firewalls."
+            "A": "Prohibiting recommendations on the stock of companies that are clients of the investment banking department is a recognized alternative to firewalls, but the prohibition should not be permanent. Once an offering is complete and the material nonpublic information held by the investment banking department has become public, resuming published recommendations on that stock is not a violation of the Code and Standards, because the banking department's information no longer gives the brokerage operation any advantage in writing the report. The restriction is therefore tied to the period during which the information is still nonpublic.",
+            "B": "A permanent, irrevocable prohibition goes further than the Code and Standards require and is not the best answer. It would deny research clients coverage of a company indefinitely for a conflict that expires when the information becomes public, so the restriction is temporary and tied to the engagement rather than open-ended.",
+            "C": "Firewalls are the usual and best policy, but they are not the only permissible response. Prohibiting recommendations on the securities of investment banking clients is expressly recognized as an alternative, so it is wrong to say that no alternative exists or that every multiservice firm must maintain physical information barriers regardless of its size, structure or business mix."
           },
           "type": "mc",
           "primary_los": "guidance_standard_ii_integrity_capital_markets.b",
@@ -1682,17 +1682,17 @@
         {
           "id": "r29_int_los_b_q22",
           "number": 22,
-          "stem": "Firewalls' review of employee/proprietary trading most likely:",
+          "stem": "Within a firm's firewall system, employee and proprietary trading is most likely:",
           "options": {
-            "A": "Review of employee trading through the maintenance of 'watch,' 'restricted,' and 'rumor' lists is one of the elements of a firewall system.",
-            "B": "Only a single restricted list is used; watch and rumor lists are not part of firewall practice.",
-            "C": "Employee trading may not be monitored because personal accounts are private."
+            "A": "reviewed against watch, restricted, and rumor lists.",
+            "B": "reviewed against a single restricted list.",
+            "C": "left unreviewed, because personal accounts are private."
           },
           "correct": "A",
           "rationales": {
-            "A": "Full statement: review of employee trading through the maintenance of 'watch,' 'restricted,' and 'rumor' lists is one of the elements of a firewall system; this creates layered categorization of securities under different levels of monitoring/restriction.\n\nCorrect. Per Standard II(A) Guidance on firewall elements: 'review of employee trading through the maintenance of \"watch,\" \"restricted,\" and \"rumor\" lists.'",
-            "B": "Incorrect. The guidance describes maintaining watch, restricted, AND rumor lists.",
-            "C": "Incorrect. Reviewing employee and proprietary trading via list-based monitoring is a firewall element."
+            "A": "One element of a firewall system is the review of employee trading through the maintenance of watch, restricted and rumor lists. The three lists create a layered categorization of securities under different levels of monitoring and restriction: a watch list limits knowledge of sensitive information to a few people while their trading is observed, a restricted list bars trading and sometimes research in the named securities, and a rumor list captures securities subject to market rumors that may signal an information leak.",
+            "B": "The guidance describes maintaining watch, restricted and rumor lists together, not a restricted list by itself. Each list serves a distinct surveillance purpose, and a single restricted list would provide no mechanism for monitoring trading in securities that are sensitive but not yet subject to an outright trading ban.",
+            "C": "Review of employee and proprietary trading through list-based monitoring is itself an element of a firewall system, so personal accounts are not beyond the firm's reach. Employees who have access to material nonpublic information accept monitoring of their trading as a condition of that access, and such review is how the firm detects misuse."
           },
           "type": "mc",
           "primary_los": "guidance_standard_ii_integrity_capital_markets.b",
@@ -1707,17 +1707,17 @@
         {
           "id": "r29_int_los_b_q23",
           "number": 23,
-          "stem": "Documentation of firewall procedures most likely:",
+          "stem": "Under Standard II(A), firewall documentation most likely covers:",
           "options": {
-            "A": "Documenting firewall procedures is discouraged because records could be discoverable in litigation. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
-            "B": "Documentation of procedures designed to limit flow of information between departments AND of the actions taken to enforce those procedures is an element of a firewall system.",
-            "C": "Only the procedures themselves need documenting; enforcement actions may remain informal."
+            "A": "no part of the firm's information-flow regime.",
+            "B": "the procedures and the actions taken to enforce them.",
+            "C": "the procedures but not their enforcement."
           },
           "correct": "B",
           "rationales": {
-            "A": "Incorrect. Documentation of both the procedures and their enforcement is an element of an effective firewall.",
-            "B": "Correct. Per Standard II(A) Guidance on firewall elements: 'documentation of the procedures designed to limit the flow of information between departments and of the actions taken to enforce those procedures.'",
-            "C": "Incorrect. Actions taken to ENFORCE the procedures must be documented as well."
+            "A": "Documenting both the procedures and their enforcement is an element of an effective firewall, so documenting neither is the opposite of the guidance. A firm that keeps no records also gives up its own best evidence that the barrier existed and was enforced, which is precisely what it would need to demonstrate.",
+            "B": "An element of a firewall system is documentation of the procedures designed to limit the flow of information between departments and of the actions taken to enforce those procedures. Both halves matter: the written procedure shows what the barrier is meant to accomplish, and the enforcement record shows that it operated in practice. A procedure on paper with no evidence of enforcement will not establish that the firm maintained an effective barrier.",
+            "C": "Documenting the procedures alone is incomplete, because the actions taken to enforce those procedures must be documented as well. Informal enforcement leaves no record that the barrier was actually applied, so the firm could not show that an employee was removed from a deal team, added to a restricted list, or denied access to information when the procedure required it."
           },
           "type": "mc",
           "primary_los": "guidance_standard_ii_integrity_capital_markets.b",
@@ -1732,17 +1732,17 @@
         {
           "id": "r29_int_los_b_q24",
           "number": 24,
-          "stem": "Heightened proprietary trading review during MNPI most likely:",
+          "stem": "While a firm is in possession of material nonpublic information, the firewall element governing its proprietary trading is most likely:",
           "options": {
-            "A": "Proprietary trading must halt entirely, without exception, whenever the firm holds any MNPI.",
-            "B": "Proprietary desks may trade normally during MNPI possession if traders certify they have not seen it.",
-            "C": "Heightened review or restriction of proprietary trading while a firm is in possession of material nonpublic information is an element of a firewall system."
+            "A": "a complete halt to all proprietary trading.",
+            "B": "normal trading supported by trader self-certification.",
+            "C": "heightened review or restriction of that trading."
           },
           "correct": "C",
           "rationales": {
-            "A": "Incorrect. The element is HEIGHTENED REVIEW OR RESTRICTION — market-making and risk-arb contexts may warrant continued, scrutinized activity rather than a full stop.",
-            "B": "Incorrect. Self-certification is not the control; heightened review or restriction of the activity is.",
-            "C": "Full statement: heightened review or restriction of proprietary trading while a firm is in possession of material nonpublic information is an element of a firewall system — recognizes that proprietary trading is high-risk area for MNPI misuse.\n\nCorrect. Per Standard II(A) Guidance on firewall elements: 'heightened review or restriction of proprietary trading while a firm is in possession of material nonpublic information.'"
+            "A": "The element is heightened review or restriction, not an unconditional stop. Market-making and risk-arbitrage activity may properly continue while the firm holds material nonpublic information, provided it is scrutinized, because withdrawing entirely from making a market can itself signal the existence of the information and can leave clients without liquidity.",
+            "B": "Self-certification by traders is not the control. The firewall element is heightened review or restriction of the activity itself, imposed and supervised by the firm, because a certification is unverifiable and cannot prevent information from reaching the desk through the ordinary course of business.",
+            "C": "An element of a firewall system is heightened review or restriction of proprietary trading while the firm is in possession of material nonpublic information. Proprietary trading is a high-risk area for misuse because the firm trades for its own account and therefore captures the gain directly. Raising the level of review, or restricting the activity in the affected securities, addresses that risk while allowing legitimate functions such as market making to continue under scrutiny."
           },
           "type": "mc",
           "primary_los": "guidance_standard_ii_integrity_capital_markets.b",
@@ -1757,17 +1757,17 @@
         {
           "id": "r29_int_los_b_q25",
           "number": 25,
-          "stem": "Preventing selective disclosure by companies recommended practices most likely:",
+          "stem": "Regarding the handling of analyst calls, members and candidates are most likely to encourage the companies they follow to:",
           "options": {
-            "A": "Encourage companies to issue press releases prior to analyst meetings and conference calls and to SCRIPT those meetings/calls to decrease chance further information will be disclosed.",
-            "B": "Scripting analyst meetings is discouraged because it reduces the information content of the call.",
-            "C": "Companies should be encouraged to hold analyst calls before issuing any press release, to reward attentive analysts."
+            "A": "issue a press release before a scripted analyst call.",
+            "B": "issue a press release before an unscripted analyst call.",
+            "C": "hold a scripted analyst call before any press release."
           },
           "correct": "A",
           "rationales": {
-            "A": "Full statement: encourage companies to issue press releases prior to analyst meetings and conference calls and to SCRIPT those meetings/calls to decrease chance further information will be disclosed; if material nonpublic information is disclosed for first time in analyst meeting or call, encourage company to promptly issue press release or otherwise make information publicly available.\n\nCorrect. Per Standard II(A) Compliance Practices — Issue Press Releases: 'Members and candidates should encourage companies they follow to issue press releases prior to analyst meetings and conference calls and to script those meetings and calls to decrease the chance that further information will be disclosed. If material nonpublic information is disclosed for the first time in an analyst meeting or call, members and candidates should encourage the company to promptly issue a press release or otherwise make the information publicly available.'",
-            "B": "Incorrect. Scripting is recommended precisely to reduce the chance that further material information slips out selectively.",
-            "C": "Incorrect. The recommended sequence is the reverse: press release FIRST, then the meeting or call."
+            "A": "Members and candidates should encourage companies they follow to issue press releases prior to analyst meetings and conference calls, and to script those meetings and calls to decrease the chance that further information will be disclosed. The press release puts the information in the public domain first, so nothing said on the call is material and nonpublic, and the script keeps the discussion inside what has already been released. If material nonpublic information is in fact disclosed for the first time in an analyst meeting or call, the company should be encouraged to issue a press release promptly or otherwise make the information publicly available.",
+            "B": "The sequence here is right but the second half of the recommendation is missing, because scripting is recommended rather than optional. An unscripted call invites spontaneous answers that go beyond the released information, which is how material nonpublic information is selectively disclosed to the analysts on the line. Any loss of color on the call is a smaller cost than a selective disclosure, and the company remains free to release more information publicly.",
+            "C": "Scripting the call does not cure the reversed sequence. The press release comes first and the meeting or call follows, so that attendees learn nothing the market does not already have. Holding the call first in order to reward attentive analysts is the selective disclosure the practice is designed to prevent."
           },
           "type": "mc",
           "primary_los": "guidance_standard_ii_integrity_capital_markets.b",
@@ -1782,17 +1782,17 @@
         {
           "id": "r29_int_los_b_q26",
           "number": 26,
-          "stem": "Documenting mosaic research most likely:",
+          "stem": "Under the mosaic theory, an analyst who assembles a recommendation from public and nonmaterial nonpublic information is most likely advised to:",
           "options": {
-            "A": "Although analysts are free to use mosaic information in their research reports, they should save and document all their research.",
-            "B": "Mosaic research files should be purged periodically to limit regulatory exposure.",
-            "C": "Only the final report need be retained; underlying notes and sources may be discarded."
+            "A": "save and document all of the underlying research.",
+            "B": "purge the underlying research files periodically.",
+            "C": "retain the final research report alone."
           },
           "correct": "A",
           "rationales": {
-            "A": "Full statement: although analysts are free to use mosaic information in their research reports, they should save and document all their research; evidence of the analyst's knowledge of public and nonmaterial nonpublic information about a corporation strengthens the assertion that the analyst reached his or her conclusions solely through appropriate methods rather than through using material nonpublic information.\n\nCorrect. Per Standard II(A) Mosaic Theory guidance: 'Although analysts are free to use mosaic information in their research reports, they should save and document all their research. Evidence of the analyst's knowledge of public and nonmaterial nonpublic information about a corporation strengthens the assertion that the analyst reached his or her conclusions solely through appropriate methods rather than through using material nonpublic information.'",
-            "B": "Incorrect. Saving and documenting ALL the research is the protective practice.",
-            "C": "Incorrect. The underlying pieces are exactly what demonstrate the mosaic was built from public and nonmaterial information."
+            "A": "Analysts are free to use mosaic information in their research reports, but they should save and document all of their research. Evidence of the analyst's knowledge of public and nonmaterial nonpublic information about a corporation strengthens the assertion that the conclusions were reached solely through appropriate methods rather than through the use of material nonpublic information. The documentation is the analyst's defense: it shows the chain of inference from permissible inputs to the conclusion.",
+            "B": "Purging the files destroys the record that supports the analyst's position. Without the underlying research there is nothing to show that the conclusion came from assembling public and nonmaterial pieces, which leaves the analyst exposed to the inference that a material nonpublic source explained the call.",
+            "C": "The final report alone does not demonstrate how the conclusion was reached. The underlying notes and sources are exactly what show that the mosaic was built from public and nonmaterial nonpublic information, so discarding them removes the evidence that matters most."
           },
           "type": "mc",
           "primary_los": "guidance_standard_ii_integrity_capital_markets.b",
@@ -1807,17 +1807,17 @@
         {
           "id": "r29_int_los_b_q27",
           "number": 27,
-          "stem": "Acceptable forecasting practice to avoid market manipulation most likely:",
+          "stem": "Under Standard II(B), an analyst publishing earnings projections is most likely to:",
           "options": {
-            "A": "Acceptable practice is publishing a single point estimate to give clients an unambiguous forecast. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
-            "B": "Acceptable practice is to write reports that (1) FRAME earnings projections in RANGE of possible outcomes and (2) OUTLINE CLEARLY the assumptions used in models that took into consideration relevant findings from research.",
-            "C": "Model assumptions should be withheld as proprietary, with only conclusions disclosed."
+            "A": "publish a single point estimate as an unambiguous forecast.",
+            "B": "publish a range of outcomes with the assumptions disclosed.",
+            "C": "publish conclusions while withholding the model assumptions."
           },
           "correct": "B",
           "rationales": {
-            "A": "Incorrect. Framing projections as a RANGE of outcomes is the acceptable practice — a bare point estimate invites the manipulation concern.",
-            "B": "Full statement: acceptable practice is to write reports that (1) FRAME earnings projections in RANGE of possible outcomes and (2) OUTLINE CLEARLY the assumptions used in models that took into consideration relevant findings from research; this contrasts with Example 5 Gordon's violation of exaggerating single-point projections to force company guidance updates.\n\nCorrect. Per Example 5 Comment (Gordon): 'However, it would have been acceptable for Gordon to write a report that (1) framed her earnings projection in a range of possible outcomes and (2) outlined clearly the assumptions used in her Hygene models that took into consideration the findings from her trip through Latin America.'",
-            "C": "Incorrect. Clearly OUTLINING the assumptions is the second half of the acceptable practice."
+            "A": "An unambiguous single figure looks more useful to clients, but a bare point estimate is what invites the manipulation concern. Presented without a range or the assumptions behind it, an aggressive single figure can be used to pressure a company into revising its guidance, and that is information-based manipulation rather than analysis. Framing the projection as a range of possible outcomes is the acceptable practice.",
+            "B": "The acceptable practice is to write a report that frames the earnings projection in a range of possible outcomes and clearly outlines the assumptions used in the models, including the relevant findings from the analyst's own research. The range conveys the genuine uncertainty in the forecast, and the disclosed assumptions let readers judge the analysis for themselves and reproduce it. Together they distinguish legitimate research, however aggressive its conclusion, from an exaggerated projection published to move a company or its share price.",
+            "C": "Clearly outlining the assumptions used in the models is the second half of the acceptable practice, so treating them as proprietary defeats it. A conclusion that cannot be examined gives readers no way to assess whether the forecast is supported, which is the condition under which an extreme projection becomes manipulative."
           },
           "type": "mc",
           "primary_los": "guidance_standard_ii_integrity_capital_markets.b",
@@ -1832,17 +1832,17 @@
         {
           "id": "r29_int_los_b_q28",
           "number": 28,
-          "stem": "Firm information barriers to contain MNPI most likely:",
+          "stem": "Nonpublic deal information held by a multiservice firm's investment banking department reaches its sales staff in the ordinary course of business. The firm's most appropriate action would have been to:",
           "options": {
-            "A": "The firm's only failing was not requiring salespeople to sign confidentiality agreements. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
-            "B": "No structural remedy was needed; Peter's individual discretion should have sufficed.",
-            "C": "Per Example 2 (Peter/Bright Ideas): Peter's firm should have adopted information barriers to prevent the communication of nonpublic information between departments of the firm."
+            "A": "require the sales staff to sign confidentiality agreements.",
+            "B": "rely on the discretion of the individual employees.",
+            "C": "adopt information barriers between its departments."
           },
           "correct": "C",
           "rationales": {
-            "A": "Incorrect. Agreements alone do not contain information; barriers between departments do.",
-            "B": "Incorrect. The example's lesson is firm-level: information barriers (including physical separation) should prevent interdepartmental MNPI flow.",
-            "C": "Full statement: per Example 2 (Peter/Bright Ideas): Peter's firm should have adopted information barriers to prevent the communication of nonpublic information between departments of the firm; firm-level information barriers protect against personnel overhearing/observing MNPI during interdepartmental communications.\n\nCorrect. Per Example 2 Comment (Peter): 'Peter's firm should have adopted information barriers to prevent the communication of nonpublic information between departments of the firm.' Also per Practice Problem 2 Solution: firewalls (physical and informational barriers) are the best policy to prevent violation of II(A)."
+            "A": "Confidentiality agreements bind the people who already have the information; they do not stop it from reaching them. The failure here is structural, in that nonpublic deal information crossed out of the department that held it into one with no need for it, and a signature does not cure the exposure that created.",
+            "B": "The lesson is firm-level rather than individual. A firm cannot rely on each employee's judgment to contain material nonpublic information that ordinary interdepartmental contact puts in front of them; the firm must establish the barrier, since personnel will otherwise encounter such information in the normal course of business.",
+            "C": "The firm should have adopted information barriers to prevent the communication of nonpublic information between its departments. Firewalls, meaning physical and informational separation of the investment banking function from sales and research, are the best policy for preventing a violation of Standard II(A). They address exactly this exposure: separate space, restricted systems access and controlled communication keep deal information inside the department that holds it, so that personnel elsewhere in the firm do not encounter it in the normal course of business."
           },
           "type": "mc",
           "primary_los": "guidance_standard_ii_integrity_capital_markets.b",
@@ -1857,17 +1857,17 @@
         {
           "id": "r29_int_los_b_q29",
           "number": 29,
-          "stem": "Compliance officer coordination for wall-crossing most likely:",
+          "stem": "An employee behind a firewall who believes he or she needs to share confidential information with someone on the other side is most likely required to:",
           "options": {
-            "A": "Once behind the firewall, an employee may never share information with the other side under any process. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class. No cycle overlay would be allowed to lift or cut that bound.",
-            "B": "If employee behind firewall believes he/she needs to share confidential information with someone on the other side, employee should consult designated compliance officer to determine whether sharing is necessary and how much information should be shared.",
-            "C": "Wall-crossing may be arranged informally between the two employees involved."
+            "A": "never share the information.",
+            "B": "consult the designated compliance officer.",
+            "C": "arrange the sharing with that colleague."
           },
           "correct": "B",
           "rationales": {
-            "A": "Incorrect. Controlled wall-crossing exists — it simply requires compliance-officer consultation and supervision.",
-            "B": "Full statement: if employee behind firewall believes he/she needs to share confidential information with someone on the other side, employee should consult designated compliance officer to determine whether sharing is necessary and how much information should be shared; if sharing is necessary, compliance officer should coordinate the process of 'looking over the wall' so that necessary information will be shared and integrity of procedure will be maintained.\n\nCorrect. Per Standard II(A) Guidance: 'If an employee behind a firewall believes that he or she needs to share confidential information with someone on the other side of the firewall, the employee should consult a designated compliance officer to determine whether sharing the information is necessary and how much information should be shared. If the sharing is necessary, the compliance officer should coordinate the process of \"looking over the wall\" so that the necessary information will be shared and the integrity of the procedure will be maintained.'",
-            "C": "Incorrect. Sharing across the wall must be coordinated through the DESIGNATED COMPLIANCE OFFICER, not arranged bilaterally."
+            "A": "Standard II(A) contemplates controlled wall-crossing rather than an absolute bar on sharing. Information may cross the firewall when the sharing is necessary, provided a designated compliance officer determines that it is necessary, decides how much may be shared, and coordinates the process. A rule that no information may ever cross would make the designated-officer procedure pointless.",
+            "B": "Under Standard II(A), an employee behind a firewall who believes that he or she needs to share confidential information with someone on the other side of the firewall should consult a designated compliance officer to determine whether sharing the information is necessary and how much information should be shared. If the sharing is necessary, the compliance officer should coordinate the process of 'looking over the wall' so that the necessary information will be shared and the integrity of the procedure will be maintained. The compliance officer is the control point for both decisions: whether to share at all, and how much.",
+            "C": "Sharing across the wall must be coordinated through the designated compliance officer, not arranged bilaterally. The officer judges whether the sharing is necessary, limits how much is disclosed, and supervises the look over the wall. A private arrangement between the two employees bypasses that review and defeats the integrity of the firewall procedure."
           },
           "type": "mc",
           "primary_los": "guidance_standard_ii_integrity_capital_markets.b",
@@ -1882,17 +1882,17 @@
         {
           "id": "r29_int_los_b_q30",
           "number": 30,
-          "stem": "Employers' restrictions or prohibitions on personal trading most likely practices:",
+          "stem": "Employer practices restricting employees' personal trading most likely include:",
           "options": {
-            "A": "Employers may not monitor employees' personal trading, as that would invade financial privacy.",
-            "B": "Such practices may include: firm monitoring of personal trading, mandating periodic reports of personal transactions, and implementing a restricted list and watch list of companies.",
-            "C": "Personal-trading controls consist solely of an annual ethics attestation."
+            "A": "a prohibition on firm monitoring of employees' personal accounts.",
+            "B": "monitoring, periodic reports, and restricted and watch lists.",
+            "C": "an annual ethics attestation."
           },
           "correct": "B",
           "rationales": {
-            "A": "Incorrect. Monitoring personal trading is a recognized employer practice for preventing MNPI misuse.",
-            "B": "Full statement: such practices may include: firm monitoring of personal trading, mandating periodic reports of personal transactions, and implementing a restricted list and watch list of companies; combination of monitoring, reporting, and list-maintenance forms comprehensive personal trading compliance program.\n\nCorrect. Per Standard II(A) Compliance Practices — Comply with Personal Trading Limitations: 'Such practices may include firm monitoring of personal trading, mandating periodic reports of personal transactions, and implementing a restricted list and watch list of companies.'",
-            "C": "Incorrect. The practices include trade monitoring, periodic transaction reports, and restricted/watch lists — not a lone attestation."
+            "A": "Firm monitoring of personal trading is itself one of the recognized employer practices for preventing misuse of material nonpublic information, so a program that bars monitoring omits a central control. Employees' personal accounts are precisely where misuse of confidential information surfaces, which is why monitoring sits alongside reporting and list maintenance rather than being displaced by them.",
+            "B": "Such practices may include firm monitoring of personal trading, mandating periodic reports of personal transactions, and implementing a restricted list and watch list of companies, which Standard II(A) sets out among the compliance practices for complying with personal trading limitations. The combination of monitoring, reporting, and list maintenance forms a comprehensive personal trading compliance program: monitoring detects trading in sensitive names, periodic reports give the firm a record against which that monitoring can be tested, and the restricted and watch lists tell employees in advance which securities are off limits or under heightened scrutiny.",
+            "C": "An annual attestation is a statement by the employee, not a control over the employee's trading. The practices contemplated are continuous: firm monitoring of personal trading, mandated periodic reports of personal transactions, and a restricted list and watch list of companies."
           },
           "type": "mc",
           "primary_los": "guidance_standard_ii_integrity_capital_markets.b",
