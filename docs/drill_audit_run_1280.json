@@ -1,0 +1,1254 @@
+{
+ "batchesDone": 128,
+ "batchesAttempted": 210,
+ "checked": 1280,
+ "sound": 1149,
+ "fatalCount": 16,
+ "styleCount": 121,
+ "fatalRate": 0.0125,
+ "byRule": {
+  "claim_changed": 49,
+  "style": 54,
+  "options_collide": 9,
+  "distractor_now_true": 10,
+  "not_self_contained": 6,
+  "rationale_lost_content": 9
+ },
+ "fatal": [
+  {
+   "id": "r1_cme1_los_d_q5",
+   "letter": "B",
+   "rule": "options_collide",
+   "severity": "fatal",
+   "detail": "The rewrite deleted the only qualifier that made C uniquely right, and option B is a mathematically valid decomposition of aggregate equity value, so the item is now double-keyed. In 'before' the stem pointed at one specific published decomposition ('The curriculum expresses the aggregate market value of equity, V_e, using three multiplicative components'), so 'which decomposition is it' had exactly one answer. The rewritten stem asks a free-standing factual question, 'The aggregate market value of equity in an economy is most likely expressed as the product of:', and under that stem B is true as written: aggregate book value x aggregate ROE = aggregate earnings, and aggregate earnings x aggregate P/E = aggregate market value of equity. That is an identity at any level of aggregation, not only at firm level. The after-rationale for B concedes the arithmetic ('Book value multiplied by return on equity gives earnings, and the P/E multiple capitalizes those earnings') and then rests the distinction entirely on a framing the stem no longer supplies ('It is not the aggregate market decomposition, which has to begin from the size of the economy rather than from a company's balance sheet') - a learner reading only the stem has no basis for preferring C. The citation did have to go under rule 9, but it needed replacing with a substantive restriction in the stem (e.g. asking for the decomposition that links aggregate equity value to the size of the economy), not simply dropping it.",
+   "quote_before": "The curriculum expresses the aggregate market value of equity, V_e, using three multiplicative components. This decomposition is most likely: ... B: \"V_e = Book value × Return on equity × P/E.\"",
+   "quote_after": "The aggregate market value of equity in an economy is most likely expressed as the product of: ... B: \"Book value, return on equity and the P/E multiple.\""
+  },
+  {
+   "id": "r2_cme2_los_d_q8",
+   "letter": "B",
+   "rule": "distractor_now_true",
+   "severity": "fatal",
+   "detail": "The reframe cut the case anchor out of the stem and in doing so turned distractor B into a true statement. Before, the stem tied the question to one specific market ('In the Belvia case (Example 6), Dwight also faces high concentration risk in the equity market because most likely:'), so B was false as a matter of fact about that market — its rationale said only 'This is not the concentration described.' The rewritten stem asks a generic question, 'Concentration risk in a small emerging equity market most likely arises from:', and under that stem 'a single global technology company dominating the market' is a correct answer to it: one issuer dominating a market is concentration risk, and it is a more extreme concentration than the sector-plus-ownership mix in A. A and B now collide, with B defensible on the stem's own terms (a learner can point to Taiwan or Korea), so the item is no longer uniquely keyed to A. Nothing in the stem as rewritten lets the learner rule B out; only the vanished Belvia facts did that.",
+   "quote_before": "STEM: \"In the Belvia case (Example 6), Dwight also faces high concentration risk in the equity market because most likely:\" / B: \"The equity market is dominated by a single global technology company.\" / rationale B: \"This is not the concentration described.\"",
+   "quote_after": "STEM: \"Concentration risk in a small emerging equity market most likely arises from:\" / B: \"a single global technology company dominating the market.\""
+  },
+  {
+   "id": "r3_oaa_los_e_q8",
+   "letter": "B",
+   "rule": "distractor_now_true",
+   "severity": "fatal",
+   "detail": "Dropping the universal quantifier turned the B distractor into a defensible answer, so the item is now double-keyed against C. Before, B read 'Always overstate diversification benefits.' — false because of 'Always'. After, it reads 'overstate an asset's diversification value.', an unqualified statement under a stem that only asks what pairwise correlations 'are most likely to' do. The after-rationale for B concedes the direction does occur: 'Pairwise correlations can make a redundant asset appear diversifying', and defends B only with a qualifier that exists nowhere in the option text — 'they do not systematically overstate the benefit.' The sidebar example the key rests on (an asset that is an exact weighted combination of two holdings, adding no diversification value, yet showing only moderate pairwise correlations) is itself an overstatement of diversification value, so a learner reading B has a direct textual case for it. B is also now a strict subset of keyed C ('mismeasure an asset's diversification value.'): if B holds, C holds, so the two can no longer be separated without the rationale's unstated 'systematically'. Restoring 'always' (or 'systematically') to option B fixes it.",
+   "quote_before": "Always overstate diversification benefits.",
+   "quote_after": "overstate an asset's diversification value."
+  },
+  {
+   "id": "r3_oaa_los_h_q7",
+   "letter": "B",
+   "rule": "distractor_now_true",
+   "severity": "fatal",
+   "detail": "The stem is unchanged: \"Alternative weighting schemes to market-cap weighting for the global market portfolio most likely include:\". Distractor B's only falsifier was the word \"only\" — it was false because it asserted trailing-earnings weighting was the sole alternative, which is exactly what the old rationale said: \"Earnings-weighting alone is not identified.\" With \"only\" deleted, B now claims merely that trailing-earnings weighting is among the alternatives to market-value weighting, which is defensible (it is the standard fundamental-indexation alternative), so the stem's \"include\" is satisfied. The rewritten rationale had to abandon the original reason and substitute a new, weaker one — \"not among the alternatives identified. It is a fundamental-indexation idea rather than one of the recognized substitutes\" — which concedes it is a weighting scheme. Key A (\"GDP weighting or equal weighting\") is still the curriculum-named answer but is now only arguably better than B rather than uniquely correct.",
+   "quote_before": "Trailing-earnings weighting only.",
+   "quote_after": "Trailing-earnings weighting."
+  },
+  {
+   "id": "r3_oaa_los_h_q7",
+   "letter": "C",
+   "rule": "distractor_now_true",
+   "severity": "fatal",
+   "detail": "Same defect in the third option. \"Book-value weighting only.\" was false because of \"only\", and the old rationale named that reason exactly: \"Book value alone is not the identified alternative.\" Shortened to \"Book-value weighting.\", the option now asserts only that book-value weighting is one of the alternatives to market-cap weighting, which is true in the ordinary sense (book-value weighting is the canonical fundamental-index alternative). The new rationale, \"Weighting by book value is likewise not the identified alternative. Like earnings weighting it is an accounting-based measure of size...\", concedes it is a measure of size used for weighting, so it no longer establishes that the option is wrong. The item is left with three options that can each be read as true and only \"most likely\" separating key A from B and C.",
+   "quote_before": "Book-value weighting only.",
+   "quote_after": "Book-value weighting."
+  },
+  {
+   "id": "r8_altaa_los_a_q1",
+   "letter": "A",
+   "rule": "distractor_now_true",
+   "severity": "fatal",
+   "detail": "The whole falsity of distractor A lived in its causal clause, and the rewrite deleted it. Before, A read \"Capital preservation, because appraisal-based valuations give alternatives lower reported volatility than public equities.\" — false because it attributed capital preservation to appraisal smoothing. After, A is the bare role name \"capital preservation.\" answering the stem \"The roles that alternative investments play in a multi-asset portfolio most likely include:\". Nothing now marks it wrong, and the item's own key rationale affirmatively endorses it: the after rationale for C lists among the roles \"safe-haven characteristics in specific sub-strategies, such as some hedge fund strategies\" — i.e. holding value in a drawdown, which is capital preservation. The after rationale for A tries to close this by asserting \"so preservation of capital is not a role alternatives fill\" (a sentence not present in before), so the item now contradicts itself: C's rationale says safe-haven/preservation is a role, A's rationale says it is not. A learner can defend A, so the item is ambiguous between A and C where before it was not.",
+   "quote_before": "Capital preservation, because appraisal-based valuations give alternatives lower reported volatility than public equities.",
+   "quote_after": "capital preservation."
+  },
+  {
+   "id": "r8_ycs_los_b_q11",
+   "letter": "stem",
+   "rule": "claim_changed",
+   "severity": "fatal",
+   "detail": "The reframed stem inverts the direction of the swap position. 'Pays a fixed rate of 2.8535% against a six-month MRR of 0.5925%' is the standard idiom for a PAY-fixed swap, and it contradicts the 'receive-fixed' label in the same clause; the before-stem avoided this by stating the rate without an operative verb ('receive-fixed swap at 2.8535%, 6m MRR 0.5925%'). Read literally, carry is -GBP1,130,500 and the 50 bp fall in rates produces a mark-to-market loss (the rationale's own approximation, 8.318 x GBP100M / 10,000 x 50 = GBP4,159,000, flips sign), so the six-month gain is about -GBP5,364,760. Among the three options the closest value is then A (GBP100,000), distance GBP5,464,760, against GBP10,729,520 for the keyed C -- the item is mis-keyed on its literal reading, not merely ambiguous. Rationale C still reasons from the receive-fixed side ('Swap carry is GBP1,130,500 = [(2.8535% - 0.5925%)/2] x GBP100 million' and 'the swap mark-to-market gain is GBP4,234,260'), so stem and rationale now describe opposite positions. All other inputs the reframe needed are present; the fix is the verb alone.",
+   "quote_before": "In Example 3 (UK gilt vs GBP swap, 10-year, £100M notional, 50 bp rate fall over 6 months): 10y UK gilt at 2.25% coupon priced £93.947, YTM 2.9535%, vs 10y GBP receive-fixed swap at 2.8535%, 6m MRR 0.5925%, swap ModDur 8.318.",
+   "quote_after": "a £100 million 10-year GBP receive-fixed swap pays a fixed rate of 2.8535% against a six-month MRR of 0.5925% and has a modified duration of 8.318"
+  },
+  {
+   "id": "r8_ycs_los_c_q10",
+   "letter": "C",
+   "rule": "distractor_now_true",
+   "severity": "fatal",
+   "detail": "Entry 577 (key A). The distractor lost the one word that made it false. Before, C was a definitional claim — the stem read \"The reading's butterfly strategy for curvature is most likely:\" and C answered \"uses bullet-only exposure concentrated at a single maturity point\"; \"bullet-only\" is what made it wrong, because a butterfly is never bullet-only. After, the stem reads \"A yield curve butterfly strategy for curvature most likely involves:\" and C reads \"Bullet exposure concentrated at a single maturity.\" With \"only\" deleted and the stem's verb changed from \"is\" to \"involves\", C is now a true statement about a butterfly: the intermediate-term bullet body IS exposure concentrated at a single maturity, so a butterfly does involve it. Key A (\"A long bullet paired with a short barbell, or the reverse\") remains the fuller and better answer, but C is no longer wrong, and the rationale confirms the mismatch: after-rationale C still argues against the deleted qualifier — \"A bullet concentrated at a single maturity is only the body of the trade. Without the offsetting barbell wings there is no exposure to curvature\" — i.e. it rebuts a claim the option no longer makes (option C as it now reads does not exclude the wings). Fix is to restore the exclusivity, e.g. \"Bullet exposure alone, concentrated at a single maturity.\"",
+   "quote_before": "The butterfly strategy for curvature uses bullet-only exposure concentrated at a single maturity point.",
+   "quote_after": "Bullet exposure concentrated at a single maturity."
+  },
+  {
+   "id": "r9_cs_los_d_q3",
+   "letter": "C",
+   "rule": "rationale_lost_content",
+   "severity": "fatal",
+   "detail": "The rewrite replaced a three-word distractor rationale with invented arithmetic that is numerically false. Before, rationale C read in full: \"Risk varies dramatically.\" After, it asserts that \"the likelihood of credit loss at BB+ (940) is more than twice that at BBB- (610) and roughly eight times that at A- (180).\" Neither ratio holds on the very factor table the item carries: 940/610 = 1.54, which is not more than twice, and 940/180 = 5.22, which is not roughly eight times. The figures themselves were preserved correctly from before (BBB- = 610, BB+ = 940, A- = 180, matching the before rationale's \"BBB+=260, BBB=360, BBB-=610, BB+=940\"), and the same after block gets the adjacent step right -- rationale A correctly says \"The step from BBB- to BB+ alone is more than 300 factor points\" (940 - 610 = 330). So this is one sentence the rewriter added on its own initiative, not content inherited from the source. Scope: key A is unaffected and the item is still answerable and single-keyed -- A (\"default risk rises faster as ratings decline than ordinal spacing implies\") remains the only true option against B (\"all rating categories warrant identical treatment\") and C (\"credit risk does not differ across rating categories\"). I am marking it fatal rather than style because the defect is a false quantitative claim shown to the learner after they commit, not prose that merely reads worse; the fix is to delete or correct the two ratios in rationale C.",
+   "quote_before": "Risk varies dramatically.",
+   "quote_after": "the likelihood of credit loss at BB+ (940) is more than twice that at BBB- (610) and roughly eight times that at A- (180)"
+  },
+  {
+   "id": "r9_pwm_los_b_q1",
+   "letter": "C",
+   "rule": "distractor_now_true",
+   "severity": "fatal",
+   "detail": "The rewrite deleted the limiting words that made C false. Before, C claimed personal discovery 'reduces to' age and gender — an exclusive claim, false against a stem that asks what discovery 'includes'. After, C is the bare noun phrase 'the client's age and gender', and the stem still reads 'most likely includes'. The client's age (and gender, for longevity and insurance purposes) genuinely is part of the personal information gathered, so C now reads as a true statement and collides with keyed B. C's own 'after' rationale also no longer describes the option as written: it argues against an exclusivity claim ('Age and gender barely begin the picture... a lifecycle rule keyed to two data points is not personal discovery') that the option no longer makes. The fix is to restore the limiter, e.g. 'the client's age and gender alone.'",
+   "quote_before": "PERSONAL information reduces to the client's AGE and GENDER, the two data points that determine allocation under lifecycle models.",
+   "quote_after": "the client's age and gender."
+  },
+  {
+   "id": "r9_pwm_los_b_q4",
+   "letter": "C",
+   "rule": "distractor_now_true",
+   "severity": "fatal",
+   "detail": "Same deletion of the falsifying qualifier. Before, C asserted legal discovery 'is limited to confirming a WILL exists' and that trusts and powers of attorney are 'solely the estate attorney's concern' — false. After, C is simply 'confirmation that a will exists', under a stem that asks what the legal and estate information gathered 'most likely includes'. Confirming the existence of a will is unambiguously included in legal discovery, so C is now literally true and is no longer wrong for the reason its rationale gives. C's 'after' rationale is still written against the deleted claim ('Confirming that a will exists is the beginning of the inventory, not the whole of it'), i.e. it rebuts a 'limited to' statement the option no longer makes. Keyed B ('wills, trusts, and powers of attorney') is more complete, but the item now has two defensible answers. Restoring 'only'/'limited to' in C repairs it.",
+   "quote_before": "LEGAL discovery is limited to confirming a WILL exists; trusts and powers of attorney are solely the estate attorney's concern.",
+   "quote_after": "confirmation that a will exists."
+  },
+  {
+   "id": "r11_endow_los_h_q1",
+   "letter": "stem",
+   "rule": "not_self_contained",
+   "detail": "The item asks WHEN the policy was adopted, and after the rewrite nothing in the item supplies that date. Before, the timing fact lived in the option text and the stem named the case: stem 'QUINCO's ESG responsible investing policy has been in place most likely:' with keyed option A 'For the past seven years, based on three key considerations and objectives: acknowledgment that ESG factors along with traditional financial factors affect risk and return.' After, the option is stripped to a bare relative claim, 'Several years before the protest.', and the reframed stem supplies only the policy's three pillars ('built on ESG materiality to risk and return, transparency on material ESG issues, and long-term sustainability') plus the existence of a protest. It gives no horizon, no adoption date, no statement that the protest tested an existing policy or that the policy was only updated afterwards. A, B ('A few weeks before the protest.') and C ('Two years ago, in response to the protest.') are therefore all logically consistent with everything the item states; the choice turns entirely on the vignette fact 'in place for the past seven years', which the rewrite deleted along with the case name. The key's slot is still the true answer in the source case but is no longer derivable from the item, so the question is unanswerable as it now reads. (Checked: the seven-year fact appears nowhere in /home/user/CFA/CFAL3/Resources/reading_notes.json as curriculum content a learner could be expected to recall; it is case detail only.)",
+   "severity": "fatal",
+   "quote_before": "QUINCO's ESG responsible investing policy has been in place most likely: / A: \"For the past seven years, based on three key considerations and objectives: acknowledgment that ESG factors along with traditional financial factors affect risk and return.\"",
+   "quote_after": "Students have protested an endowment's holding in a company facing child labor allegations. The endowment's ESG responsible investing policy, built on ESG materiality to risk and return, transparency on material ESG issues, and long-term sustainability, was most likely put in place: / A: \"Several years before the protest.\""
+  },
+  {
+   "id": "r12_swf_los_a_q10",
+   "letter": "C",
+   "rule": "options_collide",
+   "severity": "fatal",
+   "detail": "The reframe changed the question from \"what does the sensitivity analysis show\" to \"which variable produces the largest reduction in IRR\" — and under that new question A and C assert the SAME cause (\"low traffic\"), differing only in a number the stem never supplies. The stem gives the base case IRR (15%), the fixed-price contract, and the fact that low and high traffic cases were run; it gives no low-case IRR and no overrun IRR. So a learner can use the fixed-price-contract clue to eliminate B (cost risk is passed to the contractor), and is then left with two options that both answer the stem's question identically. Nothing in the item lets them prefer \"10% to 11%\" over \"about 5%\" — that discriminator exists only in the Year-0 dialogue the drill no longer reproduces, i.e. exactly the outside-the-item dependency rule 9 and the reframe ladder were meant to remove. In \"before\" the two options were at least distinguishable as whole statements of what the analysis showed, each carrying the base case plus its own case figure; the rewrite stripped A and C down to a shared stub plus an unsupported figure. The key is still factually right, but the item is no longer answerable from itself and C cannot be eliminated on reasoning. Fix is to put the low-case and overrun IRRs in the stem (ladder move 3) or to make the three options name three different causes (ladder move 2).",
+   "quote_before": "stem: \"Sensitivity analysis on the Sunnyland airport IRR most likely shows:\" / A: \"Base case 15% IRR; low-traffic case 10-11%.\" / C: \"A base case of 15%; the low-traffic case pushes the IRR to roughly 5%, well below the project hurdle.\"",
+   "quote_after": "stem: \"...and the sponsor also runs reasonable low and high traffic cases. The largest reduction in the project's IRR most likely comes from:\" / A: \"low traffic, with an IRR of 10% to 11%.\" / C: \"low traffic, with an IRR of about 5%.\""
+  },
+  {
+   "id": "r12_swf_los_c_q11",
+   "rule": "not_self_contained",
+   "letter": "C",
+   "severity": "fatal",
+   "detail": "The rewrite deleted the item's only input and left nothing in its place, so the question is now unanswerable. In 'before', the only content distinguishing the three options was the figure pair carried by the key: options were 'A': 'Flat AUM.' / 'B': 'AUM decline.' / 'C': 'AUM growth from $50B to $56B.' In 'after' they are 'A': 'remained flat.' / 'B': 'declined.' / 'C': 'grew.' Flattening the figures-only-on-the-key shape was right, but the stem was only re-voiced, not reframed: 'Over the three years to R-SWF's interim review, its assets under management most likely:' supplies no starting AUM, no return, no flow and no market context, and R-SWF is a vignette entity the learner cannot open. Unlike the other R-SWF items in this slice (e.g. q12, q13, q14), where the distractors are implausible on reasoning alone, flat vs declined vs grew carries no internal asymmetry whatever, so the item is a blind one-in-three guess. The reframe ladder in the spec required move 1 (inline the data) or move 2 (ask the conceptual question); neither was taken. The inputs plainly existed: the 'after' C rationale still states 'Assets under management grew by $6 billion over the three years, from $50 billion to $56 billion.'",
+   "quote_before": "\"C\": \"AUM growth from $50B to $56B.\"",
+   "quote_after": "stem: \"Over the three years to R-SWF's interim review, its assets under management most likely:\" with \"C\": \"grew.\""
+  },
+  {
+   "id": "r12_swf_los_d_q15",
+   "rule": "not_self_contained",
+   "letter": "stem",
+   "severity": "fatal",
+   "quote_before": "R-SWF's ultimate ABC exit strategy (secondary sale) is most likely successful because:",
+   "quote_after": "A sovereign wealth fund seeks to exit a 35% stake in a domestic beverage producer. The outcome is most likely:",
+   "detail": "The reframe deleted the premise that made the item answerable and changed the question from cause to outcome. (1) Option C -- before 'No exit from ABC proved possible.', after 'No feasible exit from the stake.' -- was ruled out by the old stem's own words ('secondary sale ... successful'); the new stem asserts no outcome, so C is no longer excluded by anything in the item and the learner must recall how an unopenable case ended. (2) The stem supplies none of the inputs that identify the key: there is no weak local currency and no exporting buyer in it, so key B 'A sale to a strategic buyer with a hedging motive.' rests on facts that survive only inside rationale B ('whose sales had been adversely affected by a weaker local currency'). Held to the spec's reframe standard ('the reframed question must be answerable and unambiguous'), it fails: the item is now vignette recall. Remedy: restore the premise in the stem (an exit was achieved; the local currency had weakened and the buyer was an exporter into that market) and ask why the sale was available."
+  },
+  {
+   "id": "r15_gips_los_e_q3",
+   "letter": "C",
+   "rule": "distractor_now_true",
+   "severity": "fatal",
+   "detail": "Double-keyed. The stem stopped naming the method under test, which turned distractor C into a second correct answer. BEFORE the stem fixed the method ('Composite return using beginning assets plus weighted cash flows most likely:') and C was false because it offered beginning-of-period-only weighting AS that method: 'R_C = Sigma [r_pi x (V_0,pi / Sigma V_0,pi)], using only beginning-of-period values with no adjustment for external cash flows.' AFTER, the stem only establishes that cash flows occurred and asks an open question about GIPS ('Under the GIPS standards, each portfolio's return is most likely weighted by its:'), and C reads 'beginning-of-period assets alone.' Asset-weighting by beginning-of-period values is itself one of the three GIPS-permitted methods and is not voided by the presence of external cash flows - the sibling item r15_gips_los_e_q1 (index 1142) states exactly that in its own 'after' rationale A: 'Composite returns must be calculated by asset-weighting the individual portfolio returns using beginning-of-period values, by a method that reflects both beginning-of-period values and external cash flows, or by the Aggregate Return method.' So key A ('beginning assets plus day-weighted external cash flows') and distractor C are now both correct answers to the stem as written, and C's rationale still rebuts the old stem rather than the new one, arguing only that C 'is the beginning-assets method' and that 'The beginning assets plus weighted cash flows method instead uses V_pi = V_0 + Sigma(CF_i x w_i)' - a method the rewritten stem never asks about. Fix by restoring the method name to the stem (e.g. 'Under the beginning assets plus weighted cash flows method, ...'), which makes C false again for its original reason.",
+   "quote_before": "Composite return using beginning assets plus weighted cash flows most likely: ... C: \"R_C = Sigma [r_pi x (V_0,pi / Sigma V_0,pi)], using only beginning-of-period values with no adjustment for external cash flows.\"",
+   "quote_after": "A composite's constituent portfolios experienced external cash flows during the measurement period. Under the GIPS standards, each portfolio's return is most likely weighted by its: ... C: \"beginning-of-period assets alone.\""
+  }
+ ],
+ "style": [
+  {
+   "id": "r1_cme1_los_a_q5",
+   "letter": "A",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "Option A's assertion moved from a claim about the BASIS of universe design (index composition substituted for the firm's own process) to a claim about the universe's BREADTH (matching index breadth). The option is still false under the stem as rewritten -- the curriculum's criterion is the set of asset classes that receive a distinct allocation, kept otherwise as small as possible -- and rationale A in \"after\" still argues the original point (\"Letting index composition set the universe ignores the firm's own investment process\"), so the item is not broken and the key at C is unaffected. But the detail that carried the falsity explicitly (\"without regard to firm-specific portfolio needs\") is gone, leaving a distractor whose wrongness the learner must infer from the \"as small as possible\" guidance rather than read off the option. Worth noting as the one place in entries 0-9 where a distractor's claim is not the same claim said tersely. Not fatal: no collision with B (\"as large as possible\") or C, and A remains clearly wrong.",
+   "quote_before": "Based on capitalization-weighted major indices without regard to firm-specific portfolio needs.",
+   "quote_after": "as broad as the major capitalization-weighted indices."
+  },
+  {
+   "id": "r1_cme1_los_b_q5",
+   "letter": "C",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "Distractor C gained a claim it did not previously make. Before, C asserted one direction (risk overestimated) plus a causal clause; the rewrite deleted the clause (correct under rule 1) but added a second, new assertion about expected return, turning C into the exact mirror of A. Not fatal: C is still false, still false for the same underlying reason, and rationale C in 'after' does cover both halves ('Both directions run the other way ... makes the sample overstate rather than understate ex ante expected return'). But per the per-letter same-claim requirement this is drift, not compression — the learner is now being asked to reject a proposition the item never put to them before.",
+   "quote_before": "Overestimate ex ante risk because currency risk was still priced into asset yields.",
+   "quote_after": "Overestimate ex ante risk and underestimate expected return."
+  },
+  {
+   "id": "r1_cme1_los_c_q1",
+   "letter": "A",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The key's own option lost the qualifier that located it. 'Cyclical' was the word that marked consumer confidence as a business-cycle phenomenon rather than a trend shock, and that is precisely the distinction the rewritten stem now turns on ('exogenous shocks to a country's trend rate of economic growth'). The 'after' rationale still reasons from the deleted word — 'A swing in consumer confidence is a business cycle phenomenon — a fluctuation around the trend' — so the rationale argues a qualifier the option no longer carries. Not fatal: consumer confidence appears on none of the six named shock categories (policy changes, new products and technologies, geopolitics, natural disasters, natural resources and critical inputs, financial crises) with or without 'cyclical', so A remains the unique correct answer and B and C remain on the list.",
+   "quote_before": "A cyclical decline in consumer confidence.",
+   "quote_after": "Weaker consumer confidence."
+  },
+  {
+   "id": "r1_cme1_los_b_q6",
+   "letter": "A",
+   "rule": "style",
+   "severity": "style",
+   "detail": "Two linked residues. (1) Option A dropped 'then publishing the result', but rationale A still rests part of its argument on publishing — 'publishing on that basis passes the data-mining bias on to the reader' — so the rationale describes a clause the option no longer reads. (2) The compression moved A toward B: A is now 'Construct an economic explanation', B is 'Require an explicit economic rationale', and the only things separating them are A's 'once found' and B's out-of-sample test, where the 'before' pair were separated by the much blunter 'Inventing a plausible story ... after the fact'. Checked for collision and it does not collide: the stem asks for the 'most appropriate safeguard', and B alone carries the out-of-sample test, so B is still clearly best. Worth tightening A rather than fixing the key.",
+   "quote_before": "Inventing a plausible story to explain the finding after the fact, then publishing the result.",
+   "quote_after": "Construct an economic explanation for the relationship once found."
+  },
+  {
+   "id": "r1_cme1_los_d_q2",
+   "letter": "A",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The rewrite added explicit arithmetic to rationale A that does not match the figure option A actually carries. Option A is 4.0% (unchanged), but the new rationale works the subtraction out loud as 0.7% + 1.5% + 2.0% = 4.2%, hedged only by the word 'roughly'. The 'before' rationale made the same latent claim ('This value omits the dividend yield contribution') without exposing the 0.2pp gap, so nothing substantive changed; the rewrite just put a number on the page that contradicts the option it is explaining. Key C (6.0% = 0.7 + 1.5 + 2.0 + 1.8) is exact and still uniquely correct, so the item is not broken - the rationale simply now reads as if it describes an option that says 4.2%.",
+   "quote_before": "A: \"This value omits the dividend yield contribution.\"",
+   "quote_after": "A: \"This is roughly the nominal trend growth figure on its own — labor input growth plus labor productivity growth plus inflation, 0.7% + 1.5% + 2.0% = 4.2% — with the 1.8% dividend yield omitted.\" (option A reads \"4.0%.\")"
+  },
+  {
+   "id": "r1_cme1_los_g_q7",
+   "letter": "C",
+   "rule": "style",
+   "severity": "style",
+   "detail": "Reframed although the 'before' item was already self-contained, which the spec forbids ('Do not reframe an item that is already self-contained' — the old stem cited no exhibit and no curriculum text, so only rules 1-8 applied). The reframe is not wrong — key C is still the only correct direction and A/B are still false — but the correct option's second clause, which is the part of the LOS the item was testing, is now absent from the option set, leaving a bare sign question. The 'shorter-term yields rise more but with less price impact' nuance survives only in rationale C, i.e. after the learner has committed. A restatement under rules 1-8 would have shortened option C to something like 'Capital losses, concentrated in longer maturities.' and kept the tested distinction in play.",
+   "quote_before": "stem: \"Rising expected inflation that stays within the cyclical range would most likely affect nominal bonds by:\" / C: \"Generating capital losses as the expected-inflation component of yields rises; shorter-term yields rise more but with less price impact than longer yields.\"",
+   "quote_after": "stem: \"Rising expected inflation that stays within the expected cyclical range would most likely cause nominal bond prices to:\" / A: \"rise.\" B: \"remain unchanged.\" C: \"fall.\""
+  },
+  {
+   "id": "r1_cme1_los_g_q8",
+   "letter": "stem",
+   "rule": "style",
+   "severity": "style",
+   "detail": "Same pattern: reframed from a claim-selection item to a direction item although the 'before' stem was already self-contained, so the reframe ladder was not available to it. Substance is intact — key B 'rise.' is correct, A and C are still false, and rationale B keeps the idiosyncrasy caveat about lease length and the supply pipeline — but the reframe was triggered by option length (option C carried generator junk, 'That specification would be used as-is, with no forward-looking overlay'), which a straight rewrite under rules 1-2 would have cured without changing what the item asks. Note also that rationale A still opens by rebutting a premise the option no longer states.",
+   "quote_before": "stem: \"Higher-than-expected inflation is most likely to affect real estate as follows:\" / A: \"Real estate is neutral because leases lock in nominal rates permanently.\" B: \"Real estate benefits, coinciding with high demand, expectations of rental income rising faster than general inflation, and rising property values.\"",
+   "quote_after": "stem: \"Higher-than-expected inflation is most likely to cause property values and expected rental income to:\" / A: \"remain flat.\" B: \"rise.\" C: \"decline.\" / rationale A: \"Leases do not lock in nominal rates permanently.\""
+  },
+  {
+   "id": "r2_cme2_los_a_q10",
+   "letter": "C",
+   "rule": "claim_changed",
+   "severity": "style",
+   "quote_before": "No meaningful relationship with corporate excess returns.",
+   "quote_after": "No meaningful change in excess returns on investment-grade corporate bonds.",
+   "detail": "The distractor's claim shifts from 'no relationship' (a statement about correlation, which is what the item tests) to 'no meaningful change' (a statement about the level of excess returns). Its own rationale in 'after' still rebuts the old wording -- 'The relationship is meaningful and positive, with correlations of about 0.28 at a one-quarter horizon and 0.39 at a one-year horizon' -- so the rationale describes the option as it read before, not as it now reads. Not fatal: the option remains false either way and B is still the unambiguous best answer."
+  },
+  {
+   "id": "r1_cme1_los_j_q7",
+   "letter": "C",
+   "rule": "claim_changed",
+   "severity": "style",
+   "quote_before": "Central banks explicitly coordinate real rate targeting internationally.",
+   "quote_after": "Central banks coordinate real rate targets internationally.",
+   "detail": "The qualifier 'explicitly' was dropped, and that qualifier is the hinge the rationale still turns on: 'Co-movement does not depend on explicit international coordination of real rate targets.' The option now makes the broader (and looser) claim that central banks coordinate real rate targets at all. Not fatal -- central banks do not target real rates, let alone coordinate such targets, so the option is still clearly wrong and the rationale's second clause ('not from any coordination agreement') still covers it -- but the distractor lost the word that made it crisply false."
+  },
+  {
+   "id": "r2_cme2_los_d_q8",
+   "letter": "rationales",
+   "rule": "not_self_contained",
+   "severity": "style",
+   "detail": "All three rationales in 'after' refute or support their option by appeal to a specific market the rewritten stem no longer identifies, so they no longer describe the options as the learner now reads them. The key's rationale opens 'In the market at issue roughly half of the public equity market capitalization is represented by companies in the natural resources sector'; B is dismissed as 'not the concentration described in this market'; C is dismissed with 'The market contains substantial large companies'. With the Belvia setup gone from the stem, 'the market at issue' and 'this market' point at nothing the learner has seen, and the refutation of B reduces to an assertion about hidden facts rather than a reason. This is the same gap that makes the fatal finding above bite; even if B were reworded, the rationales would need to argue from the generic stem rather than from an unnamed market.",
+   "quote_before": "rationale A: \"Correct. The reading states roughly half of the public equity market is represented by natural resource companies...\" / rationale B: \"This is not the concentration described.\" / rationale C: \"The reading does not describe this concentration.\"",
+   "quote_after": "rationale A: \"In the market at issue roughly half of the public equity market capitalization is represented by companies in the natural resources sector\" / rationale B: \"not the concentration described in this market\" / rationale C: \"The market contains substantial large companies, including the natural resource producers\""
+  },
+  {
+   "id": "r2_cme2_los_h_q1",
+   "letter": "rationales",
+   "rule": "style",
+   "severity": "style",
+   "detail": "Rationale B invents a substantive defence of the distractor that was not in 'before' and that sits awkwardly against the reading itself. The option is 'requires normality, and cannot handle time variation'; it is false because of the normality half, and 'before' said only that the pair is not the one identified. The rewrite instead tells the learner that a constant sample matrix 'handles time variation no worse than the alternatives it is being compared with'. That is defensible only within this question's comparison set (multi-factor and shrinkage matrices are also constant); read on its own it contradicts the reason the same reading goes on to introduce ARCH, namely that volatility is time-varying and a constant matrix cannot capture it. Not fatal: option B is still wrong, the key still sits on A, and the rationale does end with 'Neither item is one of the two problems identified.' Recommend trimming the clause to the non-identification point.",
+   "quote_before": "Neither of these is the specific pair identified.",
+   "quote_after": "a constant sample matrix handles time variation no worse than the alternatives it is being compared with"
+  },
+  {
+   "id": "r2_cme2_los_h_q9",
+   "letter": "stem",
+   "rule": "not_self_contained",
+   "severity": "style",
+   "detail": "The keyed option now refers to 'the two coefficients' but the stem no longer names or defines them. 'Before' at least pointed at the standard ARCH notation on the face of the options ('The parameter beta = 0', '(alpha + beta)'); the rewrite replaced those with 'A shock coefficient of zero' and 'A high sum of the two coefficients' while the stem was shortened to a single clause that introduces no model and no parameters, so the phrase has no antecedent in the item. A drill shows one question at a time, so the learner cannot pick the antecedent up from the neighbouring ARCH item (index 127), which does describe the specification. Not fatal, because within an ARCH model the two coefficients (on lagged variance and on the squared shock) are unambiguous and B is the only one of the three that could explain clustering at all. Fix is one clause in the stem, e.g. naming the coefficients on the lagged variance and the squared shock.",
+   "quote_before": "According to the reading, the reason volatility 'clusters' at high or low levels in an ARCH model is most likely that: ... B. The higher the parameter (α + β), the more the variance 'remembers' what happened in the past.",
+   "quote_after": "In an ARCH model, the clustering of volatility at high or low levels is most likely explained by: ... B. A high sum of the two coefficients."
+  },
+  {
+   "id": "r2_cme2_los_i_q2",
+   "letter": "C",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The rewritten C rationale still rebuts a clause that was deleted from option C. In \"before\", option C read \"A rise in required return, so an overweight allocation is not warranted.\" — the overweight claim was part of the option. In \"after\", option C is only \"A rise in the required return.\", but its rationale closes by contrasting \"attractive instead of unwarranted\", which now answers a claim the learner never saw. The option itself is fine and the key is untouched; the rationale just no longer describes the option as it reads.",
+   "quote_before": "C option: \"A rise in required return, so an overweight allocation is not warranted.\"",
+   "quote_after": "C option: \"A rise in the required return.\" / C rationale: \"the resulting price adjustment is what makes an overweight allocation attractive instead of unwarranted.\""
+  },
+  {
+   "id": "r2_cme2_los_i_q8",
+   "letter": "B",
+   "rule": "style",
+   "severity": "style",
+   "detail": "Same pattern: option B's justifying clause was dropped but the rationale still argues against it. \"before\" option B was \"Only the domestic-currency return, since currency movements will average out.\"; \"after\" is \"The domestic-currency return alone.\" The option stays wrong (the word \"alone\" carries the falsity), so this is not fatal, but the rationale's opening rebuts an \"averaging out\" rationale that is no longer on the page.",
+   "quote_before": "B option: \"Only the domestic-currency return, since currency movements will average out.\"",
+   "quote_after": "B option: \"The domestic-currency return alone.\" / B rationale: \"Currency exposure cannot be set aside on the view that movements average out.\""
+  },
+  {
+   "id": "r3_oaa_los_b_q2",
+   "letter": "A",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The key option lost the present-value framing that makes these items balance-sheet assets rather than income streams. Before, each element was explicitly a PV; after, two of the three are named as flows (\"pension income\", \"expected inheritances\"), which on an extended economic balance sheet are assets only as present values. The claim is not changed in substance and A remains unambiguously the best of the three (B and C are plainly conventional financial assets), and the rationale restores the PV wording in full (\"the present value of expected pension income; and the present value of expected inheritances\"), so this is imprecision rather than a broken question. Not fatal; noted because the stem asks what extended portfolio *assets* include.",
+   "quote_before": "Human capital (PV of future earnings), PV of pension income, and PV of expected inheritances.",
+   "quote_after": "human capital, pension income, and expected inheritances."
+  },
+  {
+   "id": "r3_oaa_los_d_q4",
+   "letter": "stem",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The reframed stem drops the qualifier 'beyond volatility', which was what made the keyed option an exact answer and what set up the contrast with distractor C. The new stem asks for the full set of risk measures a mean-variance allocation can incorporate, but option B ('tracking risk and downside risk measures.') omits volatility itself -- which the item's own after-rationale for C concedes is incorporated ('Volatility is the baseline risk measure of the approach, not the only one it can accommodate.'). Not fatal: B carries no 'only' while A ('only tail risk measures...') and C ('volatility only.') are both exclusive and both false, so B is still unambiguously best and the key has not moved. Restoring 'beyond volatility' (or 'in addition to volatility') to the stem would make B exact again.",
+   "quote_before": "A mean–variance asset allocation most likely can incorporate risk sensitivities beyond volatility, including:",
+   "quote_after": "The risk measures that a mean-variance asset allocation can incorporate are most likely:"
+  },
+  {
+   "id": "r3_oaa_los_e_q6",
+   "letter": "C",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "Distractor C lost the universal qualifier \"always\". Before it read as an absolute claim that was false on its face; after, it is a general claim that is closer to defensible, since thin history genuinely is a problem for some narrow segments. Not fatal: the item is still single-keyed on B against the \"most likely problematic because\" stem, the exclusion in \"before\" did not rest on \"always\" either (its rationale said data availability is a secondary concern, not the primary reason), and the \"after\" rationale re-establishes the falsity by noting that many sub-asset classes do have long series available and that thin history is a secondary concern rather than the central objection. Flagged because qualifier deletion on a distractor is exactly the pattern this pass risks, and a reviewer should confirm the blanket claim is still read as false. Compare the sibling item r3_oaa_los_e_q7, where the same deletion (option C losing \"only\") was compensated by changing the stem verb from \"include\" to \"comprises\"; no such compensation was made here.",
+   "quote_before": "Sub-asset classes always have insufficient historical data for optimization.",
+   "quote_after": "sub-asset classes lack sufficient history for optimization."
+  },
+  {
+   "id": "r3_oaa_los_f_q7",
+   "letter": "B",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The keyed option lost the hedge that made it literally accurate. Before: 'Equity risk can be the dominant risk exposure even in a seemingly well-diversified portfolio.' After: 'Equity risk dominates a seemingly well-diversified portfolio.' The after-rationale still carries the hedged form — 'equity risk can be the dominant risk exposure even in a seemingly well-diversified portfolio' — so the option and its own rationale no longer say the same thing: the option asserts that equity risk does dominate such a portfolio, which is not a claim the reading makes. B remains clearly the best of the three (A is a separate implementation issue, C is explicitly denied) and the item is still answerable and correctly keyed, so this is not fatal, but 'can dominate' should be restored.",
+   "quote_before": "Equity risk can be the dominant risk exposure even in a seemingly well-diversified portfolio.",
+   "quote_after": "Equity risk dominates a seemingly well-diversified portfolio."
+  },
+  {
+   "id": "r3_oaa_los_g_q3",
+   "letter": "B",
+   "rule": "claim_changed",
+   "severity": "style",
+   "quote_before": "W* = (μ − rf) × σ.",
+   "quote_after": "Varies with excess return per unit of volatility, independent of risk aversion.",
+   "detail": "The reframe reversed the direction of B's error in volatility. Before, B was wrong partly because it MULTIPLIED the risk premium by volatility: option \"W* = (μ − rf) × σ.\" As rewritten, \"per unit of volatility\" states the opposite operation — the risk premium DIVIDED by σ (a Sharpe-ratio-like quantity). The option's own rationale was not updated to match and still asserts the old multiplication: \"This formulation leaves risk aversion out altogether and mishandles variance, scaling by volatility instead, as in w* = (μ − rf) × σ.\" So the rationale describes a formula the option no longer states, violating the spec's requirement that a distractor's rationale \"still has to describe it.\" Not keyed-breaking: B remains false on the surviving \"independent of risk aversion\" clause, and key C (\"Falls with risk aversion and rises with excess return per unit of variance\") is still the unambiguous best answer against A (\"Rises with both risk aversion and variance\"), whose rationale does match its option. Fix is to re-voice B as scaling with volatility (e.g. \"Varies with excess return times volatility, independent of risk aversion\") or to correct the rationale's formula."
+  },
+  {
+   "id": "r4_paa_los_a_q4",
+   "letter": "A",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The key's option now asserts something the stem has just removed from the problem. The stem reads \"For an unconstrained mean-variance optimization, in which no budget constraint forces the weights to sum to 1\" - so there is no budget constraint for the weights to breach, and option C has the mirror-image problem (\"satisfy the budget constraint\"). The after-rationale concedes the contradiction in as many words: \"the solution does not respect a budget constraint that was never imposed.\" The substantive claim is unchanged and A is still uniquely correct (B is a frontier, not a point; C is the constrained outcome), so the item is not broken - but \"that fail to sum to 100%\" would carry the same claim without arguing against the stem. The dropped reverse-optimization qualifier is adequately covered by the stem's \"most likely\" and survives in the rationale.",
+   "quote_before": "A single set of weights that is typically relatively extreme, with very large long and short positions, and which will not sum to 100% except in special reverse-optimization cases.",
+   "quote_after": "Extreme long and short weights that breach the budget constraint."
+  },
+  {
+   "id": "r4_paa_los_a_q5",
+   "letter": "rationales",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The expansion of distractor A's rationale added a clause whose sense is inverted. The before text was just \"lambda = 0.5 corresponds to an aggressive investor with low risk aversion.\" The after text appends that such an investor \"would accept a large variance penalty in exchange for expected return\" - but the variance penalty in U = E(R) - 0.005(lambda)(sigma squared) is proportional to lambda, so at lambda = 0.5 the penalty the investor applies is small, not large. What the aggressive investor accepts is large variance, not a large penalty; as written it describes high risk aversion. Compare the correctly worded parallel clause in the after-rationale for C, \"penalizing variance so heavily that the investor would hold a near-riskless allocation.\" The option itself (0.5) and the key (4) are unaffected, so this reads worse rather than breaking the item.",
+   "quote_before": "λ = 0.5 corresponds to an aggressive investor with low risk aversion.",
+   "quote_after": "A λ of 0.5 sits below the 1–10 range into which most investors' risk aversion falls and corresponds to an aggressive investor with low risk aversion, who would accept a large variance penalty in exchange for expected return."
+  },
+  {
+   "id": "r4_paa_los_d_q2",
+   "letter": "stem",
+   "rule": "style",
+   "detail": "The rewritten stem stacks two CFA qualifiers on top of each other: \"the most appropriate remedy is most likely:\". The spec (rule 8) wants the stem to end with one qualifier, and the bank's own examples carry exactly one (\"is closest to\", \"is most likely\"). The original carried the qualifier once (\"the reading recommends most likely\"). Substance is unaffected -- key B (\"Using the Black-Litterman model\") is still the only approach that keeps the equilibrium anchor while admitting views, A and C both remain wrong for the reasons their rationales still give -- so this reads worse rather than breaking anything. Fix is to drop one: \"the most appropriate remedy is to:\" or \"the recommended remedy is most likely:\".",
+   "severity": "style",
+   "quote_before": "For those with minor objections to using market-cap weights alone, the reading recommends most likely:",
+   "quote_after": "the most appropriate remedy is most likely:"
+  },
+  {
+   "id": "r4_paa_los_e_q5",
+   "letter": "rationales",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The item was reframed off Exhibit 9 and the stem now reads generically ('A Monte Carlo projection of a retiree's wealth'), with no currency, no investor and no figures. The key's rationale still quotes the exhibit's CAF$ amounts, so a currency code that the self-contained stem never introduces appears from nowhere in the explanation. Not a defect in the question: option B is correct, A and C are false, every letter carries its prior claim, and the stem is answerable from itself. The fix would be to say 'a few hundred thousand' and 'ten times that' or to introduce the currency in the stem.",
+   "quote_before": "The reading footnote explains that Exhibit 9's y-axis is a logarithmic scale — CAF$1 million is the same distance from CAF$100K as CAF$10 million is from CAF$1 million",
+   "quote_after": "the spread of simulated terminal wealth from the 10th to the 90th percentile is very wide: the 10th percentile might be a few hundred thousand while the 90th exceeds CAF$10 million"
+  },
+  {
+   "id": "r4_paa_los_m_q3",
+   "letter": "B",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The rewrite made the keyed option the conspicuously longest of the three, where before the longest option was a distractor, so the \"take the longest option\" heuristic now names the key. After: A = 58 chars, B (key) = 88 chars, C = 64 chars. Before: A = 70, B = 122, C = 145, so length did not point at B. This is the length-asymmetry leak the spec calls a working answer key (drill_house_style.md lines 29-31, 41-42). Not fatal: each letter carries the same claim it carried before, B is still the only correct definition of minimum expectations, and both distractors remain false per their own rationales. B could carry the identical claim in distractor-length form, e.g. \"The minimum return expected over the horizon at a given probability of success.\"",
+   "quote_before": "B. \"The minimum return expected to be earned over the given time horizon with a given minimum required probability of success.\" (122 chars) against distractor C. \"The arithmetic mean of expected returns across the goal's investment horizon. The plain expected return carries no success-probability qualifier.\" (145 chars)",
+   "quote_after": "B. \"The minimum return expected over the horizon at a given required probability of success.\" (88 chars) against A. \"The lowest return observed historically for the asset mix.\" (58) and C. \"The arithmetic mean of expected returns over the goal's horizon.\" (64)"
+  },
+  {
+   "id": "r4_paa_los_o_q2",
+   "letter": "rationales",
+   "rule": "style",
+   "detail": "Rationale A names a different second interpretation than the keyed option C does, so the two rationales disagree about what the pair is. Rationale A (after): 'The rebalancing story is instead the diversification return and the return to supplying liquidity - buying the asset class that has weakened and selling the one that has strengthened.' Rationale C (after) and option C instead give 'A diversification return and a short volatility return.' A learner who reads A first is told the second interpretation is liquidity supply, then told by C it is short volatility. IMPORTANT CAVEAT: this is NOT introduced by the rewrite - the identical sentence is already in before's rationale A ('Momentum and value are EQUITY factor premia; the rebalancing interpretations are the diversification return and being a supplier of liquidity (buying weakness, selling strength).'), and before's option A leaked the same text into the option itself. The rewrite only removed the leak from the option, which is an improvement. The key sits correctly in C, option C makes the same claim it made before, and A and B remain false. I report it only so the defect is on record; no rewrite action is implicated, and the item is otherwise sound.",
+   "quote_before": "Incorrect. Momentum and value are EQUITY factor premia; the rebalancing interpretations are the diversification return and being a supplier of liquidity (buying weakness, selling strength).",
+   "quote_after": "The rebalancing story is instead the diversification return and the return to supplying liquidity — buying the asset class that has weakened and selling the one that has strengthened.",
+   "severity": "style"
+  },
+  {
+   "id": "r5_aarw_los_a_q5",
+   "letter": "A",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "Distractor A lost the exclusivity qualifier that made it false. Before, A claimed regulatory position limits were THE MAIN disadvantage of growing AUM — an over-claim, false on its face regardless of whether position limits bite at all. After, the stem reads 'As assets under management grow, investment managers most likely incur disadvantages including:' and A is merely one item in a non-exclusive list, so the option now asserts only that narrower opportunity sets from regulatory position limits are AMONG the disadvantages of scale. That is defensible in substance (large managers do run into ownership/position limits that shrink the investable set), so the option is no longer cleanly false; its falsity now rests entirely on the curriculum's list of three being closed, which the item does not say. The key is not displaced — C still reproduces the curriculum's three disadvantages verbatim (larger trade sizes/price impact, style drift from inflows, slower decision making) and remains clearly the best of the three — so the item is not double-keyed, but the distractor is weaker than it was and the rationale ('not among the disadvantages of manager scale identified here') now has to appeal to an unstated closed list rather than to anything wrong in the option itself.",
+   "quote_before": "The main AUM disadvantage is a narrower opportunity set imposed by regulatory position limits. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
+   "quote_after": "narrower opportunity sets imposed by regulatory position limits."
+  },
+  {
+   "id": "r5_aarw_los_a_q9",
+   "letter": "A",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "Distractor A's attributed mechanism changed subject. Before, the false claim was about dealer behavior causing total market failure (\"Dealers withdrew market-making capital across fixed-income markets, so even government bonds became impossible to sell.\"); after, it is about asset owners' own inability to sell (\"owners could not sell even their government bonds.\"). The dealer/market-making clause is gone entirely. This is NOT fatal: the falsifying core (government bonds were unsellable) survives, so A is still wrong for the same reason, the \"after\" rationale still describes it (\"The most liquid assets, such as government bonds, remained saleable throughout\"), key B (\"owners sold their most liquid assets first, raising the illiquid share.\") is still the single correct answer, and C is still the reversed mechanism. Flagged only so the claim-identity drift in this letter is on record; no edit is required for the item to work.",
+   "quote_before": "Dealers withdrew market-making capital across fixed-income markets, so even government bonds became impossible to sell.",
+   "quote_after": "owners could not sell even their government bonds."
+  },
+  {
+   "id": "r5_aarw_los_b_q8",
+   "letter": "A",
+   "rule": "rationale_lost_content",
+   "detail": "The rewrite added a fabricated, self-contradicting derivation to distractor A's rationale. It asserts the 25.0% answer \"comes from applying the tax rate as a direct multiple rather than through the (1 - t) relationship\" and then names that supposed error as \"0.10 / 0.40\". 0.40 is neither the tax rate (0.25) nor (1 - t) (0.75), so the denominator it attributes to the mistaken candidate has no relation to the tax rate at all, and the two halves of the sentence describe different errors. The arithmetic is incidentally true (0.10/0.40 = 0.25), and the rationale still tells the learner the correct conversion, so the item remains correctly keyed and answerable; the invented error path merely reads worse than the original one-liner it replaced. The real trap is simply mistaking the tax rate for the range.",
+   "quote_before": "This is far too wide.",
+   "quote_after": "This is far too wide. It comes from applying the tax rate as a direct multiple rather than through the (1 - t) relationship: the correct conversion is R_at = R_pt / (1 - t) = 0.10 / 0.75 = 13.3%, not 0.10 / 0.40 or any similar form that produces 25%. The equivalent range widens only modestly at a 25% tax rate.",
+   "severity": "style"
+  },
+  {
+   "id": "r5_aarw_los_d_q11",
+   "letter": "A",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "Option A no longer states a claim about trend signals; it names a thing that is not a candidate trend signal at all. Before, A asserted a proposition the learner could judge true or false (\"Trend signals assume asset prices follow a random walk with no exploitable direction.\"). After, A is a noun phrase, \"A random walk in prices over the trailing 12 months\", offered as an answer to \"A basic trend signal used in systematic TAA is most likely:\" — a random walk is a price process, not a signal, so the option is a category error rather than a wrong signal. It also breaks the parallelism of rule 7: B and C are both return measures (\"The most recent 12-month return.\" / \"The average return over the past 30 years.\") while A is a process description, which makes A visibly the odd one out and narrows the real choice to B versus C. Not fatal: A is still unambiguously not the answer, the key B is still correct and clearly best, and rationale A still explains the same reason it is wrong (\"If asset prices followed a random walk, past returns would carry no information about future returns and trend following would be pointless.\"). The repair is to keep A a signal, e.g. \"A randomly selected direction for the next 12 months.\"",
+   "quote_before": "Trend signals assume asset prices follow a random walk with no exploitable direction.",
+   "quote_after": "A random walk in prices over the trailing 12 months."
+  },
+  {
+   "id": "r6_epm_los_a_q10",
+   "letter": "rationales",
+   "rule": "rationale_lost_content",
+   "detail": "Rationale C's statement of the purpose of ESG integration was tightened from a disjunction to a conjunction, which overstates the curriculum claim: the goals are to reduce risk and/or enhance returns, not necessarily both. The keyed answer (C, ESG integration) is unaffected and the item remains correctly single-keyed; this is a fidelity slip inside the rationale text only.",
+   "severity": "style",
+   "quote_before": "The goals of ESG integration are to reduce financial risks and/or enhance financial returns by identifying and valuing risks or opportunities that are not typically identified and valued.",
+   "quote_after": "The goals of ESG integration are to reduce financial risks and enhance financial returns by identifying and valuing risks or opportunities that are not typically identified and valued."
+  },
+  {
+   "id": "r6_epm_los_b_q3",
+   "letter": "rationales",
+   "rule": "style",
+   "detail": "Rationale B now opens with a sentence that inverts the concept it is explaining. Before, the rationale correctly located the disadvantage in the instability of the categories; after, the first clause literally asserts that stability itself is the disadvantage, and only the clause after the colon ('the categories may change over time') restores the actual reasoning. A learner reading the first clause alone is told the opposite of the curriculum point. The key does not move and the enumerated four advantages are preserved in full, so this is wording, not a broken question.",
+   "quote_before": "Correct. The reading explicitly identifies as a *disadvantage* that size/style categories may change over time and may be defined differently among investors.",
+   "quote_after": "Stability is a disadvantage of size/style segmentation, not an advantage: the categories may change over time, and they may be defined differently among investors.",
+   "severity": "style"
+  },
+  {
+   "id": "r6_epm_los_b_q3",
+   "letter": "B",
+   "rule": "claim_changed",
+   "detail": "The keyed option dropped the absolute qualifier 'Perfect'. Flagging it because qualifier loss on a keyed option is the pattern this audit hunts, but I judge it non-fatal: the curriculum lists as a disadvantage that size/style categories may change over time and may be defined differently among investors, and advantage (4) is specifically accommodation of a company's changing growth/value orientation, so plain 'Stability of size/style classifications over time' is still not one of the four advantages. B remains the clear answer and A and C remain genuine advantages, so the item is not double-keyed or arguable; the rewrite merely removed a redundant giveaway.",
+   "quote_before": "Perfect stability of size/style classification over time.",
+   "quote_after": "Stability of size/style classifications over time.",
+   "severity": "style"
+  },
+  {
+   "id": "r6_epm_los_c_q12",
+   "rule": "claim_changed",
+   "letter": "stem",
+   "detail": "The rewrite promoted the stem from identifying one hidden cost to ranking it as the largest. Before: \"The reading identifies a hidden cost faced by index funds — most likely:\". After: \"For an index fund, the most significant hidden cost is most likely:\". The source material supports only existence, not primacy — rationale C in \"after\" still says \"Index funds face a hidden cost from potential predatory trading\" and never claims it is the most significant, so the rationale no longer supports the stem it now sits under. Not fatal: A (\"a commission premium over active managers\") is false and B (\"none, given low turnover and transparency\") is false, so the key in slot C remains correct and clearly the best of the three. The fix is to drop \"most significant\" (e.g. \"For an index fund, a hidden cost of trading is most likely:\").",
+   "quote_before": "The reading identifies a hidden cost faced by index funds — most likely:",
+   "quote_after": "For an index fund, the most significant hidden cost is most likely:",
+   "severity": "style"
+  },
+  {
+   "id": "r6_epm_los_e_q12",
+   "letter": "A",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "Distractor A lost the absolute qualifier that carried its falsity. Before it claimed results were \"fully explained by factor exposures\" (an overreach the rationale rebuts); after it claims only that results are \"explained by factor exposures\", which is a defensible reading of the empirical literature. The option is still wrong against the stem because \"successful before fees\" is not what the reading says, and keyed C (\"unsuccessful at beating benchmarks while charging high fees\") remains clearly best, so this is not fatal — but the softened claim is weaker than the one the \"after\" rationale for A argues against (\"the record is not described as gross outperformance that is subsequently explained away by exposures to size, value, or momentum\").",
+   "quote_before": "Successful before fees but with results fully explained by factor exposures.",
+   "quote_after": "successful before fees, with results explained by factor exposures."
+  },
+  {
+   "id": "r6_epm_los_e_q4",
+   "letter": "stem",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The stem dropped the belief hedge and now asserts as fact what the reading (and the item's own keyed rationale) presents as an investor belief. Before, the stem asked why \"investors often believe potential alpha is most likely reduced\"; after, it asserts that \"the potential for alpha is most likely reduced\". The B rationale in \"after\" still reads \"investors often believe that potential alpha is substantially reduced because all publicly available information is efficiently disseminated, analyzed, and reflected in stock prices\", so the stem now states more than the rationale supports. Key B is unaffected and both distractors remain false, so the item is still answerable and correctly keyed.",
+   "quote_before": "The reading notes that in large-cap developed markets investors often believe potential alpha is most likely reduced because:",
+   "quote_after": "In large-cap developed markets, the potential for alpha is most likely reduced because:"
+  },
+  {
+   "id": "r6_epm_los_f_q2",
+   "letter": "B",
+   "rule": "style",
+   "severity": "style",
+   "detail": "Option B was a standalone proposition; compressed into the new stem frame it reads as self-contradiction. Before, the stem was \"The reading identifies two examples of non-investable indexes. These are most likely:\" with B as a full sentence. After, the stem is \"Non-investable equity indexes most likely include:\" and B is the lowercase continuation \"no equity indexes.\", so the item now reads \"Non-investable equity indexes most likely include no equity indexes.\" The underlying claim (that no equity index is non-investable) survives and the rationale still rebuts exactly that claim, so the key is unaffected and it is not fatal — but the option no longer states its claim cleanly, and B is also the only one of the three that is not a named index or set of indexes, breaking the parallelism rule 7 asks for.",
+   "quote_before": "No equity index is non-investable.",
+   "quote_after": "no equity indexes."
+  },
+  {
+   "id": "r6_epm_los_f_q4",
+   "letter": "stem",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "De-citing the stem swapped a curriculum attribution for an empirical size ranking the curriculum does not make. \"The reading identifies five major equity index providers\" is a claim about what the reading names; \"The five largest global equity index providers are...\" asserts a global ranking. That assertion is shaky on its own terms (CRSP and Morningstar are not plausibly among the five largest index providers by revenue or by assets tracked, whereas Nasdaq — distractor C — arguably is), so the rewrite slightly strengthens the distractor it is meant to exclude. Not fatal: the item still asks only which firm completes the stated list, S&P Dow Jones is the curriculum's fifth and is unambiguously a top index provider, and Nasdaq is still not on the list of five, so B remains clearly best. The fix is to drop the superlative — \"Major global equity index providers include CRSP, FTSE Russell, Morningstar, MSCI, and most likely:\" — which meets rule 9 without asserting a ranking.",
+   "quote_before": "The reading identifies five major equity index providers. These include CRSP, FTSE Russell, Morningstar, MSCI, and most likely:",
+   "quote_after": "The five largest global equity index providers are CRSP, FTSE Russell, Morningstar, MSCI, and most likely:"
+  },
+  {
+   "id": "r6_epm_los_f_q4",
+   "letter": "C",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The rationale for distractor C keeps its original reason (Nasdaq is an exchange operator, not one of the five named providers) but appends a sentence with no counterpart in \"before\" and no bearing on why C is wrong. Naming Nasdaq as the fifth provider does not \"understate how many firms publish rule-based, investable benchmarks\" — the count of benchmark publishers is not what the option gets wrong, and the sentence invites the learner to reason that there are in fact more than five providers, which cuts against the stem. Rationale padding only; the first sentence already does the work. Everything else in this item's rationales is faithfully carried over.",
+   "quote_before": "Nasdaq operates the Nasdaq family of indexes but is not among the five broad providers the reading names.",
+   "quote_after": "Naming Nasdaq as the remaining provider also understates how many firms publish rule-based, investable benchmarks that tracking portfolios are built against."
+  },
+  {
+   "id": "r7_fipm_los_b_q6",
+   "letter": "B",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "Distractor B gained a clause it did not carry before. Before, B asserted only the inverse convexity-duration relationship; after, it leads with the TRUE proposition that duration rises linearly with maturity and only its second clause is false. The option is still wrong (a conjunction with one false clause), it is still wrong for the same reason, and rationale B still describes it correctly ('The relationship is direct, not inverse'), so the item is NOT broken and the key at A is still uniquely best. Flagging only because the per-letter claim text genuinely changed: the addition appears to be a parallelism move so that all three options share the same two-clause shape. No action needed unless the audit wants distractor claims held byte-for-byte.",
+   "quote_before": "For zeros, convexity is inversely proportional to duration, so longer-duration zeros carry systematically less convexity.",
+   "quote_after": "duration rises linearly with maturity and convexity falls as duration rises."
+  },
+  {
+   "id": "r7_fipm_los_d_q7",
+   "letter": "B",
+   "rule": "options_collide",
+   "detail": "Key A and distractor B now differ only by the words \"compounded\" and \"multiplied\", and under one natural reading they say the same thing. Before, B carried its own arithmetic and was unambiguously false: it asserted the bare product of the two NET returns, R_DC = R_FC x R_FX, which is visibly not (1 + R_FC)(1 + R_FX) - 1. The rewrite stripped that formula, leaving \"the foreign-currency and currency returns multiplied\" -- but compounding IS the multiplication of the two GROSS returns, so a learner who reads B as \"multiply the returns (as 1 + R factors)\" sees a second correct option. A is still the better answer, because \"compounded\" is the curriculum's own word for the relationship and the stem asks for the most likely, so this is not mis-keyed or double-keyed; but the distractor lost the detail that made it cleanly wrong, and the option set no longer stands on its own -- only B's rationale (\"The bare product R_FC x R_FX is only the cross-term of that expansion\") restores the distinction, and the learner reads that after committing. The fix is to keep the distinction visible in the option itself, e.g. \"The foreign-currency and currency returns multiplied together as a cross-product.\"",
+   "quote_before": "The domestic-currency return on a foreign bond is the product of the two returns: R_DC = R_FC × R_FX.",
+   "quote_after": "The foreign-currency and currency returns multiplied.",
+   "severity": "style"
+  },
+  {
+   "id": "r7_fipm_los_f_q5",
+   "letter": "stem",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The reframed stem predicates \"is least likely\" directly on three gerund phrases, so the item reads \"a recommended practice is least likely: Maximizing turnover to increase active management alpha.\" The before-stem asked \"Which of the following is least likely one of them?\", which governed the imperative options cleanly; the new stem needs \"is least likely to be:\" (or \"the practice least likely to be recommended is:\") to govern gerunds. Substance is untouched: all five key points are preserved in rationale C, C is still the only non-recommended practice, and A and B are both still genuine key points with rationales that describe them as they now read. Style only, not broken.",
+   "quote_before": "The reading identifies five key points for managing taxable FI portfolios. Which of the following is least likely one of them?",
+   "quote_after": "In managing a taxable fixed-income portfolio, a recommended practice is least likely:"
+  },
+  {
+   "id": "r7_fipm_los_g_q8",
+   "letter": "B",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The keyed option's content was broadened rather than restated tersely: before, B named two liability-based approaches (cash flow matching and duration matching, each with its definition in parentheses); after, it names three (cash flow matching, duration matching, and contingent immunization). This is a genuine change to what letter B asserts, not a shortening of the same assertion. It is not fatal: the stem asks what liability-based mandates 'most likely include', the before-rationale for B already enumerated all three approaches as the liability-based family, so the new B is still true, still the best of the three, and the key has not moved. A ('Cash flow matching and contingent immunization, but not duration matching') remains false because duration matching is liability-based, and C ('Duration matching, understood as matching each liability payout with a bond cash flow') remains false because that describes cash flow matching, so no collision or double key is created. Flagged only because the spec's 'the correct option makes the same claim it made before, said tersely' was not what happened here.",
+   "quote_before": "Cash flow matching (attempts to ensure all future liability payouts are matched precisely by cash flows from bonds or fixed-income derivatives) and duration matching (based on the duration of assets and liabilities, so both are similarly affected by interest rate changes).",
+   "quote_after": "Cash flow matching, duration matching, and contingent immunization."
+  },
+  {
+   "id": "r7_fipm_los_i_q6",
+   "letter": "B",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The key's slot no longer carries the claim it carried. Before, B was a decision-process statement: \"The decision to build a laddered bond portfolio should be weighed against buying shares in a fixed-income mutual fund, especially if the portfolio consists of a limited number of corporate bonds.\" After, it is a substantive comparative claim: \"it diversifies default risk less well than a fixed-income mutual fund.\" That is one of the three reasons the curriculum gives for weighing the decision (the others, greater cost of acquisition and slower/worse liquidation, are still in the rationale but no longer in the option), so the option is a narrowing to a subset rather than a terse restatement. It remains true, remains supported by the after rationale (\"The mutual fund clearly provides greater diversification of default risk\"), and remains uniquely best against A and C, so the item is not broken — but the per-letter claim did change, not merely shorten.",
+   "quote_before": "The decision to build a laddered bond portfolio should be weighed against buying shares in a fixed-income mutual fund, especially if the portfolio consists of a limited number of corporate bonds.",
+   "quote_after": "it diversifies default risk less well than a fixed-income mutual fund."
+  },
+  {
+   "id": "r7_fipm_los_i_q5",
+   "letter": "rationales",
+   "rule": "rationale_lost_content",
+   "severity": "style",
+   "detail": "A figure inside what is presented as a direct curriculum quotation was silently altered in the C rationale: before \"These ETFs have a designated year of maturity and credit risk profile — for instance, 2024 investment-grade corporate bonds\", after \"These ETFs have a designated year of maturity and credit risk profile, for instance 2029 investment-grade corporate bonds\". No reasoning depends on the year and the change does harmonize the rationale with the option's own \"2029\" example, so nothing is broken; but the rewrite was not licensed to change numbers in the rationale, and the adjacent \"Roughly equal positions in a series of such funds, say 2022 through 2029\" was left untouched, so the edit was deliberate rather than mechanical.",
+   "quote_before": "for instance, 2024 investment-grade corporate bonds",
+   "quote_after": "for instance 2029 investment-grade corporate bonds"
+  },
+  {
+   "id": "r8_altaa_los_b_q5",
+   "letter": "C",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The key's proposition was replaced with its consequence, and the old proposition was moved into the stem. Before, C asserted the shared data dependence itself: \"Both rely on reported returns of alternatives, which are subject to STALE PRICING and APPRAISAL SMOOTHING.\" After, C asserts the resulting bias: \"Understated volatility in both, biasing toward overallocation.\" The stem now supplies the old C as a given — before: \"Weakness common to BOTH the asset-class and risk-factor approaches when applied to alternatives most likely:\" / after: \"Smoothed and stale reported returns on alternative investments affect the asset-class approach and the risk-factor approach to allocation most likely as:\" So the tested content shifts from recognizing that both approaches inherit the smoothed-returns problem to knowing the direction of the bias. NOT fatal: the new C is correct (it is stated verbatim in the before rationale, \"both approaches understate true volatility and correlations, biasing efficient frontiers toward overallocation to alternatives\"), A and B remain false (A reverses direction, B is refuted because factor decomposition is estimated from the same return series), the key stays in C and the item is unambiguous and answerable. Flagged only because the item was already self-contained (no exhibit, no citation), and the spec says \"Do not reframe an item that is already self-contained\"; the shortening could have been done as a restatement of the original claim instead. Secondary: option B, \"Distortion of the asset-class approach only.\", is not grammatically parallel with A and C, which are both \"<direction> volatility in both, biasing toward <direction>\".",
+   "quote_before": "Both rely on reported returns of alternatives, which are subject to STALE PRICING and APPRAISAL SMOOTHING.",
+   "quote_after": "Understated volatility in both, biasing toward overallocation."
+  },
+  {
+   "id": "r8_altaa_los_d_q4",
+   "letter": "B",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The rewritten stem asks for a tax character (\"the tax character of hedge fund returns is most likely:\"), and A and C both answer with one (\"short-term gains taxed at ordinary rates.\" / \"long-term gains taxed at favorable rates.\"). B instead answers with a materiality judgment about the suitability assessment, so the three options are no longer the same kind of thing (house style rule 7). The claim itself is preserved from \"before\" and B is still false, so the key is unaffected; it merely makes B discardable on shape rather than on knowledge. A parallel re-voicing in the same register as A and C (e.g. a third candidate tax character) would fix it.",
+   "quote_before": "B: \"Tax considerations are irrelevant to hedge fund suitability for private clients.\" (stem: \"High-net-worth taxable investor's suitability considerations for hedge funds most likely:\")",
+   "quote_after": "stem: \"For a high-net-worth taxable investor, the tax character of hedge fund returns is most likely:\" / B: \"immaterial to the suitability assessment.\""
+  },
+  {
+   "id": "r8_altaa_los_f_q5",
+   "letter": "stem",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The rewrite broadened the stem's asset-class scope from private equity to closed-end funds generally, while two of the three options (B, C) still speak specifically of \"private equity\" and distractor A contrasts hedge funds with private equity. The key (B) is still correct and still clearly best, and the item remains answerable, so this is not fatal; but the new scope makes A a free reject on a technicality the item does not intend to test -- hedge funds are not closed-end funds, so a learner can discard A from the stem's wording alone without knowing anything about vintage-year dispersion. Under the old stem (\"in private equity\") A was a live, substantive distractor about where the effect lives. Narrowing the stem back to private equity, or re-voicing A as \"an effect of manager selection rather than of inception timing,\" would restore the three-way discrimination.",
+   "quote_before": "Vintage-year effects in private equity most likely:",
+   "quote_after": "Vintage-year effects in closed-end fund returns are best described as:"
+  },
+  {
+   "id": "r8_altaa_los_h_q7",
+   "letter": "rationales",
+   "rule": "style",
+   "severity": "style",
+   "detail": "Distractor B's rewritten rationale ends in a garbled, ungrammatical clause. The old rationale closed cleanly on the point that stress brings 'wider discounts and paused distributions, not improved access'; the rewrite tries to rebut the original distractor's 'distressed buyers compete to purchase LP interests' and produces 'rather than competing access open', which is not a sentence. The reasoning is still recoverable and the item itself is correctly keyed (C, 'worse'), so this is cosmetic, not fatal.",
+   "quote_before": "Reverses reality; liquidity deeply contracts in stress, with wider discounts and paused distributions, not improved access.",
+   "quote_after": "Buyers in the secondary market gain bargaining power over distressed sellers rather than competing access open."
+  },
+  {
+   "id": "r8_altaa_los_j_q4",
+   "letter": "rationales",
+   "rule": "rationale_lost_content",
+   "detail": "The correct option's rationale drops the named fraud exemplar that anchored the claim about why ODD carries veto authority. Nothing is made wrong by this and the key (B) is still the only correct option, but the rationale is less concrete than the one it replaced and the spec asks rationales to get longer, not to shed specifics.",
+   "severity": "style",
+   "quote_before": "ODD failures are LEADING causes of hedge fund fraud losses (Madoff, others), so ODD often carries VETO authority in institutional programs.",
+   "quote_after": "Operational failures are a leading cause of hedge fund fraud losses, so ODD often carries veto authority in institutional programs."
+  },
+  {
+   "id": "r8_altaa_los_j_q6",
+   "letter": "A",
+   "rule": "style",
+   "detail": "Option A was shortened so that its justification clause ('to simplify tracking and reporting') is gone, but rationale A was rewritten to add a rebuttal of exactly that dropped clause. The rationale now answers a claim the learner can no longer see in the option it is explaining. The key (B) is unaffected and A is still false for the reason given in the first half of the rationale.",
+   "severity": "style",
+   "quote_before": "Concentrate all commitments in a single vintage year to simplify tracking and reporting. / rationale: Single-vintage concentration creates cyclical timing risk; the goal is deploying across vintages to smooth exposure.",
+   "quote_after": "concentrate all commitments in a single vintage year. / rationale: Single-vintage concentration creates cyclical timing risk; the goal is deploying across vintages to smooth exposure, not simplifying the tracking."
+  },
+  {
+   "id": "r8_altaa_los_j_q7",
+   "letter": "rationales",
+   "rule": "rationale_lost_content",
+   "detail": "The correct option's rationale replaces the named strategy-specific benchmark with a generic paraphrase, so the learner no longer gets the actual index family the curriculum points at. The reasoning and the 'cash plus 400 bps' absolute-benchmark example survive, and the key (C) remains correct and uniquely so, so this is a specificity loss in the explanation only.",
+   "severity": "style",
+   "quote_before": "STRATEGY-SPECIFIC benchmarks preferred (e.g., HFRI equity market neutral); consider PEER GROUPS with similar strategy and risk profile",
+   "quote_after": "Strategy-specific benchmarks are preferred, such as an equity market-neutral index for a market-neutral fund, and peer groups with a similar strategy and risk profile are also useful."
+  },
+  {
+   "id": "r8_ycs_los_a_q1",
+   "letter": "rationales",
+   "rule": "claim_changed",
+   "detail": "Rationale C's closing sentence changed what it asserts about where credit/spread strategies are handled. \"before\" says the reading covers the first three components, adds currency in a later section, and that credit/spread work is outside this reading: \"The reading focuses on actively managing the first three components (yield curve strategies) and adds currency in Section 4; credit/spread strategies come later.\" \"after\" drops the section citation (correctly, per rule 9) but re-assigns the topic: \"currency is added separately, and credit or spread strategies are treated with the fourth.\" The before sentence places credit/spread strategies elsewhere in the curriculum; the after sentence tells the learner they are treated here, alongside the fourth component, and \"the fourth\" has no antecedent in the sentence (the fourth component? the fourth section?). The key (C) is still correct and still clearly the best of the three, A and B remain false, and every letter carries its prior claim, so the item is not broken — but this sentence now says something the before rationale did not, and the simplest repair is to restore \"credit and spread strategies are covered later\" without the section number.",
+   "quote_before": "The reading focuses on actively managing the first three components (yield curve strategies) and adds currency in Section 4; credit/spread strategies come later.",
+   "quote_after": "currency is added separately, and credit or spread strategies are treated with the fourth",
+   "severity": "style"
+  },
+  {
+   "id": "r8_ycs_los_c_q7",
+   "letter": "A",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "Distractor A was narrowed from \"no change in slope\" to \"no change in yields at all\". These are not the same claim: the original admitted a parallel shift (yields move, slope does not), the rewrite admits only a frozen curve. Both remain false against the stem and the rewritten rationale (\"Yields unchanged at both ends is a static view, not a steepening at all\") describes the option as it now reads, so the key (B) is untouched and nothing is double-keyed. Flagged only because the letter no longer carries the claim it carried before; the shortening also drops the one case the original distractor was testing, namely that a parallel shift is not a steepener.",
+   "quote_before": "A scenario with no slope change.",
+   "quote_after": "Short- and long-term yields unchanged."
+  },
+  {
+   "id": "r8_ycs_los_e_q1",
+   "rule": "style",
+   "letter": "rationales",
+   "severity": "style",
+   "detail": "The rewrite de-Unicoded the key rate duration formula in rationale B and in doing so changed the operator from a discrete change to a derivative. 'Before' carries the curriculum's Equation 10 as KeyRateDur_k = -(1/PV) x (DeltaPV / Delta r_k) with the proper minus sign, multiplication sign and Sigma for the summation; 'after' writes dPV / dr_k with an ASCII hyphen, a lowercase letter x for the multiplication sign, and spells the summation out as 'sum of KeyRateDur_k = EffDur'. Delta -> d promotes a finite-difference definition into a partial derivative, which is not what the reading states, and the item's sibling r8_ycs_los_d_q5 kept Delta, the multiplication sign and the true minus sign in its EffDur / EffCon equations, so the two rewritten rationales now render the same notation two different ways. No option or key is affected and the reasoning around the formula is intact and in fact expanded (the rewrite correctly adds 'while the other key rates are held constant'), so this reads worse rather than breaking the question.",
+   "quote_before": "KeyRateDur_k = −(1/PV) × (ΔPV / Δr_k), and the sum of key rate durations equals the effective duration. ... Per Equations 10 and 11: KeyRateDur_k = −(1/PV) × (ΔPV / Δr_k), where r_k represents the kth key rate and PV is the portfolio value. Σ KeyRateDur_k = EffDur.",
+   "quote_after": "Key rate duration is defined as KeyRateDur_k = -(1/PV) x (dPV / dr_k), where r_k is the kth key rate and PV is the portfolio value ... The key rate durations sum to effective duration: sum of KeyRateDur_k = EffDur."
+  },
+  {
+   "id": "r8_ycs_los_f_q1",
+   "letter": "B",
+   "rule": "options_collide",
+   "severity": "style",
+   "detail": "Dropping the equation from distractor B removed the only thing that made it unambiguously false. Before, B read 'the product of the two component returns: R_DC = R_FC x R_FX' — the formula pinned it to net returns. After, B is 'the product of the foreign-currency return and the FX return', and the key A is 'the compounded combination of the foreign-currency return and the FX return'. The correct relationship IS a product (of gross returns), so B is now only wrong if the learner reads 'product' as strictly the product of net returns and 'compounded' as the gross-return product minus one. A is still the better option and the key does not move, so this is not fatal, but the gap between A and B now rests on an unstated gross-versus-net reading rather than on anything in the option text. The after rationale B still argues against net returns ('Multiplying the two net returns together, R_FC x R_FX, is not the compounding relationship'), which is a claim the option as it now reads does not quite make.",
+   "quote_before": "The domestic-currency return on a foreign bond is the product of the two component returns: R_DC = R_FC × R_FX.",
+   "quote_after": "the product of the foreign-currency return and the FX return."
+  },
+  {
+   "id": "r8_ycs_los_f_q2",
+   "letter": "B",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The key's slot lost both the spot rate and the compounding. Before, B carried the full relation 'F(DC/FC, T) = S_0(DC/FC) x [(1 + r_DC)^T / (1 + r_FC)^T]'. After, it reads 'a forward rate scaled by the ratio of the two risk-free rates' — which omits the spot rate that is actually being scaled (A and C both still reference spot, so B is now the only option that does not), and says 'the ratio of the two risk-free rates' where CIP uses the ratio of the gross rates compounded over T, (1 + r_DC)^T / (1 + r_FC)^T. The after rationale B still states the precise form, so the rationale is now more specific than the option it explains. B remains uniquely defensible against 'no link between the forward and spot exchange rates' and 'a forward rate equal to the spot rate in all circumstances', so the key is safe; the claim is just looser than it was.",
+   "quote_before": "F(DC/FC, T) = S_0(DC/FC) × [(1 + r_DC)^T / (1 + r_FC)^T], where F is forward rate, S is spot, r_DC and r_FC are domestic and foreign risk-free rates.",
+   "quote_after": "a forward rate scaled by the ratio of the two risk-free rates."
+  },
+  {
+   "id": "r8_ycs_los_e_q7",
+   "letter": "A",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "On a pure definition item, the key's slot dropped the words 'changes in'. Before, A read 'A portfolio's sensitivity to changes in the shape of the benchmark yield curve'; after, 'A portfolio's sensitivity to the shape of the benchmark yield curve'. Shaping risk is sensitivity to changes in the curve's shape, not to its shape as a static fact, and the after rationale A quotes the full curriculum wording verbatim — 'a portfolio's sensitivity to changes in the shape of the benchmark yield curve' — so the rationale no longer matches the option it justifies word for word on the one phrase that constitutes the definition. A is still clearly the best of the three (B is about manager behaviour, C about parallel shifts alone) and the key does not move.",
+   "quote_before": "A portfolio's sensitivity to changes in the shape of the benchmark yield curve.",
+   "quote_after": "A portfolio's sensitivity to the shape of the benchmark yield curve."
+  },
+  {
+   "id": "r9_cs_los_g_q5",
+   "letter": "A",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The reframe added the word \"credit\" to distractor A, and its rationale now argues against something the option no longer says. Before, A was \"Only OTC forwards.\" with the rationale \"OTC forwards different from CDS.\" After, A reads \"an over-the-counter credit forward.\" while the rationale rests its wrongness on the instrument not transferring credit risk: \"it fixes a price or rate for future delivery rather than transferring credit risk in exchange for a premium\". An instrument the option itself names a *credit* forward does transfer credit risk, so the stated reason no longer describes the option as it now reads. Not fatal: under the rewritten stem (\"A credit strategy that an active fixed-income manager can implement in the CDS market is most likely:\") a credit forward is still not a CDS-market strategy, and key C, \"a receiver option on a CDS index.\", is still unambiguously one of the four CDS strategies and the clear best answer. The fix is to drop \"credit\" from the option (or re-base the rationale on the forward not being a CDS contract rather than on it not transferring credit risk).",
+   "quote_before": "\"A\": \"Only OTC forwards.\" / rationale A: \"OTC forwards different from CDS.\"",
+   "quote_after": "\"A\": \"an over-the-counter credit forward.\" / rationale A: \"An over-the-counter forward agreement is a different instrument from a credit default swap: it fixes a price or rate for future delivery rather than transferring credit risk in exchange for a premium, so it is not one of the CDS strategies.\""
+  },
+  {
+   "id": "r9_cs_los_h_q3",
+   "letter": "stem",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The options were expanded from abbreviations to full words while the stem was left untouched, so the item now uses 'HY' and 'IG' in the stem with nothing in the item defining them, and then spells both out in the options. Before the rewrite the stem's abbreviations were carried through in the options ('HY bonds', 'IG bonds'), so the shorthand was at least self-consistent. Not a meaning change and not fatal — B is still the only positioning that profits from HY spreads widening relative to IG, and A (no change) and C (long HY) remain clearly wrong — but the stem should say 'high-yield versus investment-grade' to match the options it now has.",
+   "quote_before": "B. \"Sells (goes short in) HY bonds and buys (goes long in) IG bonds, or synthetically: buys protection on HY CDS index and sells protection on IG CDS index.\" (stem: \"a manager expecting widening HY vs IG spreads\")",
+   "quote_after": "B. \"Sells high-yield bonds and buys investment-grade bonds.\" (stem unchanged: \"a manager expecting widening HY vs IG spreads in an economic slowdown most likely:\")"
+  },
+  {
+   "id": "r9_cs_los_i_q2",
+   "letter": "rationales",
+   "rule": "style",
+   "severity": "style",
+   "detail": "Distractor B's rationale gained a weighting claim that is not in the source material it was rewritten from. The reading says the SRSK model combines external debt to GDP, currency reserves, GDP growth and political risk; it does not say the macro-financial inputs carry most of the estimate relative to the qualitative one. The distractor is still wrong for the same reason it was wrong before (political risk is one input among several), so nothing is mis-keyed; the added sentence is an invented quantitative assertion a learner could carry away as curriculum fact and should be dropped or softened.",
+   "quote_before": "B. \"Incorrect. Political risk is one factor among several — external debt/GDP, currency reserves, and GDP growth join it.\"",
+   "quote_after": "B. \"Political risk is one factor among several. External debt to GDP, currency reserves, and GDP growth sit alongside it in the model, and those macro-financial variables carry most of the estimate.\""
+  },
+  {
+   "id": "r9_pwm_los_a_q10",
+   "letter": "C",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The shortening deleted the two qualifiers that made this distractor false, and the rationale still depends on one of them. Before, C read as the mathematically optimal portfolio implemented 'regardless of the distress it causes the client'; after, it reads only as 'the optimal portfolio'. The 'after' rationale for C still argues against the MATHEMATICALLY optimal portfolio, so it now describes a claim the option no longer makes (spec: 'Each distractor stays wrong for the same reason it was wrong before - its rationale still has to describe it'). Read as a technical term ('optimal portfolio' = mean-variance optimal) plus the surviving 'always', the option is still false and key A ('private clients bring personal emotion to decisions') remains unambiguously the most accurate claim, so I do not call the item broken or double-keyed. But a learner who reads 'optimal' as 'best for the client' gets a tautology that is true, and the detail that foreclosed that reading is the one that was cut. Restoring 'mathematically' in the option closes the gap at a cost of one word.",
+   "quote_before": "The adviser should always implement the MATHEMATICALLY OPTIMAL portfolio, regardless of the distress it causes the client.",
+   "quote_after": "the adviser should always implement the optimal portfolio."
+  },
+  {
+   "id": "r9_pwm_los_c_q12",
+   "letter": "B",
+   "rule": "options_collide",
+   "severity": "style",
+   "detail": "The rewritten stem asks what the allocation is 'set by considering', and B now opens by conceding the pair ('both'), so B and C both answer the question the stem literally asks and are separated only by B's trailing qualifier. In 'before', B made no concession at all ('sets FC allocation INDEPENDENTLY of the risk character of HC'), so the two options were cleanly distinct. B is still false — the whole content of the perspective is that the financial mix offsets human capital's bond-like or equity-like character, and the after-B rationale says so ('The financial allocation should be set to offset the human capital exposure, not independently of it') — so the key is not moved and C remains the best answer; this is a readability regression, not a mis-key. Compounding it, 'both' has no antecedent at the point it is read: the stem never names human capital and financial capital, and C, the only option that names the pair, comes after B.",
+   "quote_before": "The TOTAL PORTFOLIO sets FC allocation INDEPENDENTLY of the risk character of HC.",
+   "quote_after": "both, but with the financial allocation independent of human capital's risk."
+  },
+  {
+   "id": "r9_pwm_los_e_q10",
+   "letter": "A",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "Option A's claim shifted from a normative preference claim to a descriptive practice claim, and in doing so lost the qualifier that made it false. Before, A asserted commissions are the preferred compensation form (\"is PREFERRED\"), which is squarely contradicted by the curriculum's fee-only preference. After, A asserts only that the adviser relies on commissions from product sales — a thing advisers do in fact do, so it is no longer false on its face; it is only not-the-best answer. The stem was also re-cut from a transparency question (\"Fee structures and adviser compensation transparency most likely:\") to a broader one about \"arranging and communicating compensation,\" which widens the stem enough to cover A's subject matter (how the adviser is paid) rather than only B and C's (whether fees are disclosed), leaving the three options non-parallel: A names a compensation form while B and C name disclosure postures. Not fatal — B (\"disclose every fee the client bears\") remains the unambiguous curriculum answer, is not tied by A, and A's \"after\" rationale still condemns it for the same reason as before (product-sales conflict of interest, fee-only preferred). But A is now a weaker distractor than the one it replaced.",
+   "quote_before": "Commission-based compensation is PREFERRED, because it eliminates explicit client-paid fees and ties adviser pay to activity. That specification would be used as-is, with no forward-looking overlay.",
+   "quote_after": "rely on commissions from product sales."
+  },
+  {
+   "id": "r9_pwm_los_e_q8",
+   "letter": "B",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The key's slot no longer carries the proposition it carried before. Before, option B asserted that the report includes total portfolio value and its change over the period; after, it asserts that the report includes after-tax/after-fee returns and progress against each stated goal. Both are elements of the same enumerated reporting framework set out in the before-rationale for B (items (4) AFTER-TAX and AFTER-FEE returns and (5) GOAL PROGRESS toward stated objectives), so the substitution is internally consistent and B is still the uniquely correct answer against A (forecasts in place of realized results) and C (pre-tax, pre-fee headline only). The item is therefore not broken and not double-keyed. But judged per letter against the spec's requirement that the correct option 'makes the same claim it made before, said tersely', this slot's claim was swapped for a different element of the list rather than shortened, and the after-rationale for B now leads with the framework as a whole rather than with the value-and-change item the option used to name. Non-fatal; recorded so the swap is visible rather than silent.",
+   "quote_before": "Reporting should include: (1) TOTAL PORTFOLIO value and change.",
+   "quote_after": "after-tax, after-fee returns and progress against each stated goal."
+  },
+  {
+   "id": "r10_tse_los_a_q4",
+   "letter": "stem",
+   "rule": "style",
+   "detail": "The reframe off the study citation is legitimate and the key still holds (C \"immediate, within a fraction of a second.\" matches the 200-millisecond finding retained in rationale C), but the new stem stacks two CFA qualifiers where the spec asks for one. Before: \"...most likely found that:\". After: \"...is most likely best described as:\". Either \"is most likely\" or \"is best described as\" alone would read correctly; the pair reads as generator residue. The old stem is also 12 words, the new one 38, with the extra length going to setup the options do not need (nothing in A/B/C turns on \"two-tiered release process\"). No substantive defect: all three claims are preserved letter for letter (A months/gradual, B no impact/negligible, C 200 ms/fraction of a second) and the item is self-contained.",
+   "severity": "style",
+   "quote_before": "The Hu/Pan/Wang (2017) study of the University of Michigan ICS most likely found that:",
+   "quote_after": "During the period when the University of Michigan Index of Consumer Sentiment was distributed under a two-tiered release process, the speed with which S&P 500 Index prices incorporated the release is most likely best described as:"
+  },
+  {
+   "id": "r10_tse_los_a_q9",
+   "letter": "A",
+   "rule": "options_collide",
+   "detail": "A and C are now two spellings of the same wrong answer: \"trades the changes at the next day's opening auction.\" and \"trades the changes only at the open.\" Both say the manager trades at an opening auction rather than the close, both are wrong for the same reason, and the three options are therefore effectively two. This overlap is inherited from \"before\" rather than created by the rewrite (A was already the next day's open and C already \"Trades only at the open.\"), and the key is unaffected -- B \"trades the changes at the closing price.\" remains the single correct answer, with its NAV-alignment reasoning intact in rationale B. What the rewrite did do is strip the one clause that gave A its own identity, \"to avoid closing-auction congestion\", which was correctly removed as reasoning under rule 1 but leaves A with nothing distinguishing it from C; the \"after\" rationales now have to manufacture the distinction (A argues overnight misalignment plus congestion, C argues wrong point in the day). Not fatal, but the item would be better with one of A/C replaced by a genuinely different wrong strategy, e.g. trading over the days following the effective date.",
+   "severity": "style",
+   "quote_before": "Trades index changes at the next day's opening auction to avoid closing-auction congestion. / Trades only at the open.",
+   "quote_after": "trades the changes at the next day's opening auction. / trades the changes only at the open."
+  },
+  {
+   "id": "r10_tse_los_c_q6",
+   "letter": "B",
+   "rule": "style",
+   "severity": "style",
+   "detail": "Distractor B's rationale still rebuts a qualifier the option no longer carries. Before, option B read \"The closing price benchmark is used exclusively by intraday day traders.\" and the rewrite trimmed it to the bare \"Intraday day traders.\" — correctly, since the option is false either way. But the rewritten rationale for B closes with \"Index managers and mutual funds valued at the close are, and no one group uses the benchmark exclusively.\" That trailing clause answers the deleted word \"exclusively\" and now describes an option that no longer says it, which reads as a non-sequitur to a learner looking at the three short options. The substantive first sentence (\"Day traders typically close their positions before the end of the session and are not valued at the official close\") already disposes of the option, so the key is not affected and the item is not broken.",
+   "quote_before": "The closing price benchmark is used exclusively by intraday day traders.",
+   "quote_after": "Index managers and mutual funds valued at the close are, and no one group uses the benchmark exclusively."
+  },
+  {
+   "id": "r11_endow_los_a_q5",
+   "letter": "B",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The correct option's claim is preserved and B is still the only correct answer, but the compression leaves it non-parallel with the other two and grammatically mismatched to the stem. Stem is \"A liquidity budget is most likely:\", so B now reads \"A liquidity budget is most likely the minimum liquidity targets\" — a plural noun phrase — while A (\"the maximum amount of leverage permitted.\") and C (\"the total dollar amount of annual spending.\") are both singular noun phrases. \"based on time to cash\" also compresses \"based on the expected time needed to convert portfolio holdings to cash\" to the point of being telegraphic. Nothing is broken: the rationale still carries the full definition and the liquidity-budget categories, and A (leverage) and C (spending) remain wrong for the same reasons as before.",
+   "quote_before": "Specifies minimum acceptable liquidity targets based on the expected time needed to convert portfolio holdings to cash.",
+   "quote_after": "the minimum liquidity targets based on time to cash."
+  },
+  {
+   "id": "r11_endow_los_b_q6",
+   "letter": "C",
+   "rule": "distractor_now_true",
+   "severity": "style",
+   "detail": "The stem went from plural enumeration to a singular request: before, 'Arguments specifically supporting QU's illiquidity increase (beyond generic long-horizon benefits) include most likely:'; after, 'An argument that specifically supports the QU endowment's proposed increase in illiquid exposure is most likely its:'. Under the old plural stem, distractor C ('Only alumni connections matter.') was unambiguously false because the reading lists four supporting circumstances. Under the new singular stem the falsity of C rests entirely on the hedge 'considered in isolation', and the alumni network IS one of the reading's genuine specific supports ('the long presence in the market and the ability to access QU alumni networks have helped the endowment develop a strong network of connections ... and gain access to best-in-class managers'), which the after-rationale for C itself concedes ('Alumni connections are only one of several supporting circumstances'). A reader asked for one supporting argument can therefore read C as naming a true one. Not fatal: key A ('positive realized returns on illiquid investments to date') is still the clearly better answer and its rationale is intact, so the item is not tied or double-keyed — the distractor is merely thinner than it was.",
+   "quote_before": "Only alumni connections matter.",
+   "quote_after": "alumni connections, considered in isolation."
+  },
+  {
+   "id": "r11_endow_los_c_q4",
+   "letter": "C",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The key option's visible proposition was re-voiced from a positive statement of what the 'Stress' scenario contains to a negative statement about what it omits. Before, C asserted the composition of the scenario (market shock plus the drying up of donation inflows and private market distributions); after, it asserts only the absence of added disbursements, and the 'drying up of inflows' element — half of the scenario's definition in the source ('Stress = market shock plus drying up of donations and private distributions') — is gone from the option face. Not fatal: the new stem asks how the two scenarios differ, the rewritten C is a true and uniquely correct statement of that difference, A ('high stress assumes only a longer version of the same shock') and B ('stress, rather than high stress, assumes higher disbursements') remain clearly false, and the full definition is preserved in rationale C. Flagged only because it is the one letter in this slice whose visible claim changed content rather than merely length.",
+   "quote_before": "'Stress' scenario implies primarily a market shock and drying up of donation inflows and private market distributions.",
+   "quote_after": "stress is a market shock without added disbursements."
+  },
+  {
+   "id": "r11_endow_los_d_q6",
+   "letter": "C",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "Option C lost the clause that gave it its specific (and specifically wrong) ground, and its rationale was not re-aimed at the option as it now reads. Before, C asserted no violation BECAUSE the figures were labelled confidential; after, C asserts only that no Standard is implicated, with no mention of confidentiality. The rewritten C rationale still opens by rebutting the deleted clause ('a confidentiality label does not relieve the presenter of that duty'), so the learner reads a refutation of a premise the option no longer states. Not fatal: C is still false (Allen's inflated performance history does implicate Standard I(C) and Standard III(D)), key A is still the single correct answer, and A and B are untouched in substance. Fix is to either restore a short confidentiality hook in C or drop the confidentiality sentence from its rationale.",
+   "quote_before": "No violation because his numbers were 'confidential'.",
+   "quote_after": "no Standard at all. | rationale C: \"Performance information presented to a prospective client must be accurate, and a confidentiality label does not relieve the presenter of that duty.\""
+  },
+  {
+   "id": "r11_endow_los_f_q1",
+   "letter": "stem",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The reframe removes the vignette pointer but leaves the item as a recall question about which three vehicles a source happened to compare, now dressed as a general one. 'The set of vehicles a manager evaluates ... is most likely' has no uniquely determined answer from first principles — a manager could legitimately evaluate equity index forwards, which appear in distractor A and are themselves cash-efficient and linear. The key survives only because A also carries an index mutual fund and B carries cash equities, both of which fail the 'least cash committed' test; the discriminating work is done by the weakest member of each distractor rather than by the stem. The strain shows in rationale A, which disqualifies the mutual fund because 'it cannot be judged on cash usage against a derivative at all' — a test the keyed set's own ETF also fails, since the companion item r11_endow_los_f_q6 keys the ETF as 'The least cash-efficient of the three.' Not fatal: C is still the best of the three offered, the key does not move, and the LOS is unchanged. But this is the one item in the slice where the reframe left the stem carrying less than the options do.",
+   "quote_before": "For QUINCO's 1% overweight to US large-cap equities (S&P 500), Thompson considers three implementation options. These are most likely:",
+   "quote_after": "The set of vehicles a manager evaluates to add a 1% equity index overweight for one year at the lowest cost and with the least cash committed is most likely:"
+  },
+  {
+   "id": "r11_endow_los_f_q9",
+   "letter": "C",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The reframe converted option C from a claim about cost levels into a bare vehicle name, but its rationale still opens by rebutting the old claim rather than the new one. Before, C was the assertion that leverage leaves costs unchanged: \"For a 4x leveraged mandate (Exhibit 16), the total costs shift to ETF 35 bps, Futures 42 bps, TRS 51 bps (same as unlevered).\" After, under the new stem \"The lowest-cost vehicle is most likely:\", C reads only \"An ETF.\" — i.e. the claim that the ETF is cheapest at 4x leverage. The after rationale for C nevertheless begins \"The costs do not stay at their unlevered levels.\", which answers a claim the option no longer makes; a learner who picked \"An ETF.\" is first told something they did not assert. The rationale does go on to establish why the ETF is wrong (\"The ETF is the cheapest vehicle unlevered and the most expensive at four times leverage\"), so the item is not broken — only the opening sentence mis-describes the option as it now reads.",
+   "quote_before": "For a 4x leveraged mandate (Exhibit 16), the total costs shift to ETF 35 bps, Futures 42 bps, TRS 51 bps (same as unlevered).",
+   "quote_after": "The costs do not stay at their unlevered levels."
+  },
+  {
+   "id": "r11_endow_los_g_q9",
+   "letter": "rationales",
+   "rule": "style",
+   "detail": "The reframe anonymized the actor out of the stem but the rationales still reason through him as a person the learner is assumed to know. Before, the stem introduced him ('For the 2.5% rebalancing, Thompson most likely uses:'), so rationale B's 'Thompson would likely decide...' had a referent. After, the stem is 'A fund's equity allocation has breached its corridor...' with no named actor, yet rationale B still reads 'Based on relative expected costs, Thompson would likely decide to rebalance the portfolio in the cash markets...' and closes 'On the facts given, Thompson rebalances in the cash markets' — facts about a Thompson who is nowhere given. Reads as an orphaned reference to a vignette the drill no longer carries. Separately, after-rationale A rebuts a claim the option no longer makes ('The cost advantage of derivatives does not grow with transaction size'), which only before-option A asserted ('derivative cost advantages grow proportionally with transaction size'). The key is still correct and uniquely best (a lasting reallocation between two managers, no urgency stated, favors the cash market), so this is presentation only, not a broken question.",
+   "severity": "style",
+   "quote_before": "For the 2.5% rebalancing, Thompson most likely uses: / B rationale: \"Correct. Per the reading: 'Based on relative expected costs, Thompson would likely decide to rebalance the portfolio in the cash markets...'\"",
+   "quote_after": "A fund's equity allocation has breached its corridor, and correcting it calls for a lasting 2.5% reallocation between the international developed equity and fixed-income managers. / B rationale: \"Based on relative expected costs, Thompson would likely decide to rebalance the portfolio in the cash markets... On the facts given, Thompson rebalances in the cash markets.\""
+  },
+  {
+   "id": "r12_swf_los_a_q10",
+   "letter": "B",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "B no longer makes the claim it made before. Before, B asserted that the ±10% CapEx sensitivity was the largest driver — a claim the source contradicts directly (\"it does impinge on the IRR a little bit but not as much as the low-traffic case\"). After, B asserts \"cost overruns, with an IRR of 13%\", which pairs a different scenario (real cost overruns and delays, not the ±10% CapEx sensitivity) with a figure that is itself TRUE in the source. B survives as a distractor only because the stem asks which cause is largest; the proposition inside it is now a true statement about the project. Not fatal — the rationale still describes it and still rests on \"Traffic, not capital expenditure, is therefore the largest sensitivity\" — but it is the shortening-deletes-the-falsity pattern, and the item would be sturdier if B named the CapEx sensitivity it originally named rather than the overrun case the correct option's own rationale cites as supporting evidence.",
+   "quote_before": "B: \"A base case of 15%; the ±10% CapEx sensitivity is the largest driver, reducing the IRR more than the low-traffic case. That specification would be used as-is, with no forward-looking overlay.\"",
+   "quote_after": "B: \"cost overruns, with an IRR of 13%.\"  (and A's rationale: \"Even real cost overruns or delays leave about a 13% IRR\")"
+  },
+  {
+   "id": "r12_swf_los_a_q5",
+   "letter": "stem",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The reframe moves the answer into the stem. The old stem named the deal and let the option set discriminate: 'The ABC (Atsui Beverage Company) PE investment most likely involves:'. The new stem asserts the founder 'is unwilling to give up control of the business', and the options are then 'full ownership of the company.' / 'a controlling equity stake.' / 'a significant minority stake.' Once control is ruled out in the stem, A and B are eliminated by the stem alone and no knowledge of the LOS is needed to land on the keyed C. The key is still correct and the item is self-contained, so this is not fatal, but the item no longer tests anything; a stem that stopped at 'keen to modernize the plant' (and left the control point to be inferred from the founder's 65% retention, which the rationales still carry) would preserve the discrimination.",
+   "quote_before": "The ABC (Atsui Beverage Company) PE investment most likely involves:",
+   "quote_after": "a beverage company whose founder is keen to modernize the plant but is unwilling to give up control of the business. The investment most likely takes the form of:"
+  },
+  {
+   "id": "r12_swf_los_b_q11",
+   "letter": "C",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The distractor rationale adds a quantitative claim that is in neither the 'before' rationale nor the cited source material. 'Before' reads: \"Exhibit 12's mitigation examples center on clean energy, energy efficiency, batteries and storage, smart grids, and transition materials — not gas-fired generation as the primary long-term asset.\" 'After' appends a new concessive clause about the levelized cost of gas combined cycle relative to coal. Rationales were to keep the formulas, numbers and reasoning they had, not to acquire new unsourced cost comparisons; the claim is also market- and vintage-dependent and invites a learner to argue with it. The option itself is unchanged and still false, so this is style only.",
+   "quote_before": "Incorrect. Exhibit 12's mitigation examples center on clean energy, energy efficiency, batteries and storage, smart grids, and transition materials — not gas-fired generation as the primary long-term asset.",
+   "quote_after": "so it is not the long-term asset through which an investor expresses a mitigation view, even though its levelized cost sits below coal."
+  },
+  {
+   "id": "r12_swf_los_b_q4",
+   "letter": "B",
+   "rule": "claim_changed",
+   "detail": "The key option changed from a descriptive account of WHAT the dismissal rested on into a normative verdict on WHETHER it was defensible. Before, B listed the two supports (expert assurance plus engineered drainage) and noted the three-year update undercut them; the before rationale's own conclusion was that 'the initial comfort was misplaced.' After, B asserts the dismissal was 'reasonable at the time' - a claim the before letter never made and one that sits awkwardly against 'misplaced.' The after rationale does argue the new reading ('two supports that looked sound when it was made... The flaw is structural rather than careless'), and B is still unambiguously the best of the three (A is excluded by the stem's own 'Three years later, seas have risen', C by the rationale), so the item is not mis-keyed or double-keyed. But the letter now tests a judgement about reasonableness rather than recall of the basis for the dismissal, which is a substantive shift in what B claims.",
+   "severity": "style",
+   "quote_before": "Based on experts' assurance that risks are unlikely to materialize in the time frame + engineered mitigation (drainage for 50-year and 100-year flood scenarios) — but the 3-year update shows climate change has led to rising seas and more frequent storms.",
+   "quote_after": "reasonable at the time but overtaken by events."
+  },
+  {
+   "id": "r12_swf_los_b_q8",
+   "letter": "A",
+   "rule": "claim_changed",
+   "detail": "Distractor A lost the contrast clause that made it self-evidently false, and at the same time the stem acquired a superlative. Before, A read 'Environmental emissions in logistics rather than labor management lapses' against a stem asking what 'the reading identifies... most likely includes' - the trailing clause explicitly denied the keyed answer, so A was wrong by construction. After, A is the bare, free-standing claim 'Environmental emissions in logistics', and the stem asks for 'the supply chain risk of greatest ESG concern' - a ranking the stem gives the learner no basis to perform. Logistics and upstream emissions are a genuine ESG supply-chain concern for apparel and consumer electronics, so A's exclusion has moved from definitional to a matter of judgement. B remains the better answer on the standard framing of these brands' supply chain exposure (and the rationales still describe A as wrong: 'The supply chain concern for these brands is labor management, not logistics emissions'), so this is not fatal, but the stem's new 'greatest' plus the stripped clause is exactly the shortening-deletes-the-falsifying-detail pattern and weakens the item.",
+   "severity": "style",
+   "quote_before": "Environmental emissions in logistics rather than labor management lapses. That specification would be used as-is, with no forward-looking overlay.",
+   "quote_after": "Environmental emissions in logistics."
+  },
+  {
+   "id": "r12_swf_los_d_q12",
+   "rule": "options_collide",
+   "letter": "C",
+   "severity": "style",
+   "quote_before": "R-SWF has no protection regarding concession fees or quality standards at the airport. That specification would be used as-is, with no forward-looking overlay. Applied uniformly, it would bind at every horizon and every asset class.",
+   "quote_after": "No protection over fees or quality standards.",
+   "detail": "Distractors A and C now state the same claim in different words: A 'No contractual protection of any kind.' and C 'No protection over fees or quality standards.' The collision existed in substance before (A: 'The concession agreement contains no contractual protections of any kind.'), but stripping C's generator filler leaves two interchangeable denials, and rationales A ('so protection is present and contractual') and C ('Protections exist and are contractual.') now argue the identical point. Key B does not move and the item remains uniquely answerable, so this is not fatal -- but both distractors fall in one step, so one of the two needs a different wrong idea."
+  },
+  {
+   "id": "r12_swf_los_d_q8",
+   "letter": "rationales",
+   "rule": "rationale_lost_content",
+   "detail": "The reframe shortened option B to only the first and last steps, but rationale B still argues against two elements that option B no longer contains. Before, B read \"(1) establish liquidity risk parameters; (2) develop an emergency action plan; (3) liquidate the least liquid assets; (4) assess portfolio liquidity; (5) project future cash flows.\" so a rebuttal of a mis-placed emergency action plan and of pre-emptive liquidation described the option. After, B reads only \"establish liquidity risk parameters and project future cash flows.\" yet the rationale still closes with \"Placing the emergency action plan early, or treating cash flow projection as the end point, ... Pre-emptive liquidation of the least liquid assets is not one of the five steps at all.\" The first clause of that sentence and the whole last sentence now rebut claims the learner cannot find in any option. The key is unaffected and the live part of the rationale (\"Projecting future cash flows is the third step, not the last.\") does correctly dispose of B, so this reads worse rather than breaking the item.",
+   "quote_before": "(1) establish liquidity risk parameters; (2) develop an emergency action plan; (3) liquidate the least liquid assets; (4) assess portfolio liquidity; (5) project future cash flows.",
+   "quote_after": "Placing the emergency action plan early, or treating cash flow projection as the end point, stops the process one stage short of the contingency plan and leaves the crisis sequencing undecided. Pre-emptive liquidation of the least liquid assets is not one of the five steps at all.",
+   "severity": "style"
+  },
+  {
+   "id": "r12_swf_los_e_q9",
+   "letter": "B",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The distractor's falsifying qualifier survives but is now phrased as a methodological restriction attached to the board's object of understanding, which reads awkwardly against the stem \"For private equity investments, the board most likely wants to understand:\" — the board wanting to understand something \"with no forward-looking assessment\" is clumsier and longer than the original terse form, and it edges toward carrying the rationale's reasoning inside the option (spec rule 1). The claim itself is unchanged and still wrong for the same reason its after-rationale gives (\"A backward-looking return figure on its own does not answer the board's question. Forward-looking analysis is needed as well\"), so the key at C is unaffected. No fatal defect.",
+   "quote_before": "Only historical returns.",
+   "quote_after": "whether past returns were adequate, with no forward-looking assessment."
+  },
+  {
+   "id": "r13_inst_los_a_q9",
+   "rule": "style",
+   "letter": "stem",
+   "severity": "style",
+   "detail": "The reframe stripped the stem's anchor to one specific fee structure, leaving distractor C generically defensible and leaving rationale C pointing at a referent the stem no longer supplies. Before, the stem read 'The hedge fund fee structure example illustrates the principal-agent problem most likely by:' - the word 'example' tied the item to the curriculum's single structure, so only A could fit. After, it reads 'A hedge fund fee structure illustrates the principal-agent problem most likely because:', which asks about hedge fund fee structures in general. Under that generic stem, distractor C ('a low base fee forces excessive risk taking to earn the incentive fee.') states a real agency conflict - risk shifting induced by an option-like incentive fee - rather than a plainly false one. Its rationale still rebuts it by appealing to an anchor the stem has lost: 'The structure at issue features a high base fee that is due regardless of performance, not a low one.' Not fatal: key A ('a high base fee is due regardless of performance, giving little incentive to outperform.') remains true, matches the curriculum, and describes typical hedge fund terms, while C's 'low base fee' and 'forces' are overstated, so A is still the best of three. Fix by restoring the anchor in the stem itself (e.g. 'A hedge fund fee structure under which the manager receives a high base fee...' or '...most likely illustrates the principal-agent problem when:') rather than relying on the rationale to supply it.",
+   "quote_before": "The hedge fund fee structure example illustrates the principal-agent problem most likely by:",
+   "quote_after": "A hedge fund fee structure illustrates the principal-agent problem most likely because:"
+  },
+  {
+   "id": "r13_inst_los_c_q7",
+   "letter": "B",
+   "rule": "claim_changed",
+   "severity": "style",
+   "quote_before": "8% to 10% nominal, with no explicit adjustment for inflation.",
+   "quote_after": "8% to 10% nominal.",
+   "detail": "The trailing qualifier \"with no explicit adjustment for inflation\" was the feature that made this distractor false, and the rationale in \"after\" still rests on it (\"The target is stated in real terms, not nominal, precisely because maintaining intergenerational purchasing power requires netting out inflation... A nominal target with no inflation adjustment leaves the endowment's real value exposed\"). Stripped to the bare figure, \"8% to 10% nominal\" is no longer self-evidently wrong: a 5% to 5.5% real target plus HEPI inflation of roughly 3% to 4.5% lands in exactly that nominal band, so the option is now arithmetically consistent with the keyed answer rather than contradicting it. Not fatal - the stem's \"long-term return target\" and the curriculum's explicitly real target still leave A (\"5% to 5.5% real.\") uniquely best, and the reader can discriminate on real vs. nominal - but the distractor is weaker than it was and its rationale now argues against a qualifier the option no longer carries."
+  },
+  {
+   "id": "r13_inst_los_d_q2",
+   "letter": "rationales",
+   "rule": "style",
+   "severity": "style",
+   "detail": "Rationale B gains a causal bridge that was not in \"before\" and that does not follow. Stating that higher discount rates \"reduce the reported present value of liabilities, so defined benefit plans must generate higher... returns\" inverts its own logic: a lower reported PV of liabilities would, on its face, ease the required return, not raise it. The curriculum's point (preserved correctly in rationale C) is simply that liabilities discounted at a higher rate require assets to earn that higher rate for funding status to stay sustainable. The \"before\" rationale made the direction claim without attempting the mechanism, so this is added reasoning that reads worse than silence. The key (C) is unaffected and option B is still false, so this is not fatal.",
+   "quote_before": "Incorrect. The direction is reversed: later revisions RAISED the permissible discount rates (high-grade bond yields averaged over 25 years), so plans must generate HIGHER returns to remain sustainable — typically by taking greater investment risk.",
+   "quote_after": "Higher discount rates reduce the reported present value of liabilities, so defined benefit plans must generate higher, not lower, returns for their funding status to remain sustainable, which typically requires taking on greater investment risk."
+  },
+  {
+   "id": "r13_inst_los_f_q2",
+   "letter": "rationales",
+   "rule": "style",
+   "severity": "style",
+   "detail": "Option A was shortened correctly, but rationale A still rebuts a clause the option no longer contains. The before option read \"Reviewed every three to five years alongside the periodic asset-liability study, with revisions made at each review\"; the after option drops the asset-liability study entirely (\"Reviewed every three to five years, with revisions made at each review.\"), yet rationale A devotes its second sentence to the study. A learner who sees only the rewritten option A has no idea where the asset-liability study came from. The first sentence of the rationale (annual cycle, revisions reserved for material changes) already fully disposes of the option as it now reads; the trailing sentence should have gone with the clause it answers. Substance, key and distractor wrongness are all intact — this is cosmetic only.",
+   "quote_before": "Reviewed every three to five years alongside the periodic asset-liability study, with revisions made at each review.",
+   "quote_after": "A periodic asset-liability study may inform the asset allocation policy, but it does not set the cadence at which the policy statement is reviewed, and tying revision to the study would leave the document stale between studies."
+  },
+  {
+   "id": "r14_trading_los_a_q4",
+   "letter": "B",
+   "rule": "rationale_lost_content",
+   "detail": "The rewrite silently reversed the bid/ask pairing inside the key's rationale rather than preserving the reasoning it carried in \"before\". The before rationale quoted the source as \"For small orders, market impact often is limited to buying at bid prices and selling at lower ask prices\"; the after rationale states the opposite pairing, \"For small orders, market impact is often limited to buying at ask prices and selling at bid prices\". Note the direction: the after wording is the economically correct one (an impatient buyer pays the ask, an impatient seller receives the bid), whereas the before wording was internally incoherent, so this is a correction and not a regression. Flagged as style only because the key (B, \"The effect of a trade on transaction prices.\"), both distractors and the answerability of the item are unaffected, but it is a before/after change in rationale substance and should be a deliberate choice rather than an incidental rewrite.",
+   "severity": "style",
+   "quote_before": "For small orders, market impact often is limited to buying at bid prices and selling at lower ask prices.",
+   "quote_after": "For small orders, market impact is often limited to buying at ask prices and selling at bid prices, and small market orders generally have small impact because they are filled immediately by traders willing to trade at the quoted prices."
+  },
+  {
+   "id": "r14_trading_los_b_q4",
+   "letter": "A",
+   "rule": "style",
+   "detail": "The rewrite expanded the bare 'Not double quoted.' rationale for distractor A into prose that introduces a false statement: C$0.24 is not the ask price. The ask is C$10.24; C$0.24 is twice the quoted spread, which the same sentence already says correctly. The error does not make A attractive or the item mis-keyed (key B, C$0.06, is still the only correct value), but the rationale now tells the learner something untrue about the stem's own quotes.",
+   "quote_before": "A: \"Not double quoted.\"",
+   "quote_after": "C$0.24 is twice the quoted spread of C$0.12, and it is also the ask price.",
+   "severity": "style"
+  },
+  {
+   "id": "r14_trading_los_a_q5",
+   "letter": "C",
+   "rule": "style",
+   "detail": "Distractor C was a timing claim ('always incurred immediately at the moment the order is submitted') and the rewrite reduced it to a bare point in time, which is not the same kind of thing as the other two options under the new stem 'arise from:'. A and B name candidate sources of cost (a fee category, an inability to trade); C names an instant, so it is not parallel (rule 7) and reads as the transparent throwaway. The underlying substance survives and the rationale still argues the right point ('No cost is locked in at submission... An order filled immediately at submission incurs no delay cost at all'), so the item is still answerable and correctly keyed to B; it just reads worse. A completion such as 'The moment of order submission, when the cost is locked in.' would keep the claim parallel.",
+   "quote_before": "Delay costs are always incurred immediately at the moment the order is submitted.",
+   "quote_after": "The instant of order submission.",
+   "severity": "style"
+  },
+  {
+   "id": "r14_trading_los_b_q7",
+   "letter": "B",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The key's condition was tightened and one of its two branches was dropped. Before, B triggered when the evaluated trades are a \"substantial fraction of all trades in benchmark, OR trades took place at same rate as other trades\" — the reading's two conditions, the second being the more general one (\"or, more generally, when the trades took place at the same rate as other trades in the market\"). After, B keeps only the first branch and strengthens it from \"substantial fraction\" to \"dominate the benchmark\". The key is still correct and still clearly the best of the three (A's \"always exactly zero by construction\" and C's \"impossible to interpret\" remain plainly false), and the after-rationale for B still states both conditions in full, so this is not fatal — but the option now asserts a narrower, stronger trigger than the curriculum sentence it is keyed to, and a learner who knows the same-participation-rate case will not see it in any option. Style, not fatal.",
+   "quote_before": "When trades being evaluated are substantial fraction of all trades in benchmark, or trades took place at same rate as other trades, Trade VWAP and VWAP benchmark will be nearly equal — suggesting trades were not costly.",
+   "quote_after": "biased toward zero when the evaluated trades dominate the benchmark."
+  },
+  {
+   "id": "r14_trading_los_e_q5",
+   "letter": "C",
+   "rule": "claim_changed",
+   "severity": "style",
+   "quote_before": "Send orders to the venue charging the lowest access fees, regardless of quoted prices.",
+   "quote_after": "Send orders to the venue charging the lowest access fees.",
+   "detail": "The rewrite deleted the qualifier 'regardless of quoted prices', which was the detail that made this distractor unambiguously false. Fee-aware venue selection is something real smart order routers do as a secondary criterion, so as now worded the option is a weaker, partly-defensible claim rather than a plainly wrong one. Non-fatal: the stem asks what smart order-routing algorithms 'most likely' do, key A ('Send orders to the markets displaying the best-quoted prices and sizes') remains the curriculum definition and clearly the best of the three, and C's 'after' rationale still describes the option it has ('Smart order routers select venues by the best displayed prices and sizes, not by access fees. A low-fee venue showing an inferior quote would not receive the order'). Restoring the four-word qualifier closes the gap; no key movement and no double-keying."
+  },
+  {
+   "id": "r14_trading_los_e_q7",
+   "letter": "A",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The keyed option lost its frequency qualifier. Before it claimed single-venue liquidity \"often\" represents \"just\" a fraction of the aggregate; after, it asserts flatly that it does. Read literally the rewritten option is a universal claim that is false for an instrument that trades on only one venue. The stem's \"most likely\" and the rationale (which still says \"now often represents just a small fraction\") keep the item answerable and the key uniquely best, so this is not fatal — but the hedge the curriculum sentence carried is gone from the option itself.",
+   "quote_before": "Often represents just a small fraction of the aggregate liquidity for that instrument — due to fragmentation across multiple venues.",
+   "quote_after": "Represents a small fraction of the instrument's aggregate liquidity."
+  },
+  {
+   "id": "r14_trading_los_g_q1",
+   "letter": "C",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The keyed option's disjunctions became a conjunction. The curriculum (and the \"before\" option, and the \"after\" rationale, which still reads \"combinations or sequences of simple orders, advanced orders, or multiple orders\") says an algo may use any of those; the rewritten option asserts it combines simple, advanced and multiple orders together. It is still clearly the best of the three against distractors \"process a single simple order at a time\" and \"submit market orders exclusively\", so not fatal, but the option now states more than the source does and no longer matches the wording of its own rationale.",
+   "quote_before": "Are programmed strategies using combinations or sequences of simple orders, advanced orders, or multiple orders to achieve objectives.",
+   "quote_after": "combine sequences of simple, advanced, and multiple orders."
+  },
+  {
+   "id": "r14_trading_los_f_q2",
+   "letter": "C",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The rewrite added a justification clause to a distractor that previously carried only a claim, which runs against house-style rule 1 (\"An option is the candidate answer and nothing else... If the option explains why it is right, it is wrong\"). Read into the stem \"Low-latency traders most likely include:\" it also parses awkwardly — the answer slot wants a kind of trader, and this option answers with a reason. The pre-rewrite wording was shorter in substance and style-clean; \"No category of low-latency traders exists in modern markets.\" would have survived the pass unchanged. Not fatal: the option is still false for the same reason and its rationale still describes it.",
+   "quote_before": "No category of low-latency traders exists in modern markets.",
+   "quote_after": "No type of trader, since no such category exists."
+  },
+  {
+   "id": "r14_trading_los_h_q3",
+   "letter": "A",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The compression garbled the distractor into something that is not grammatical as written: latencies cannot 'dominate' a distance. Before, the option made two linked assertions (equipment latency dominates; distance is therefore negligible); after, the second clause is gone and the first has been welded onto 'transmission distance' with no comparative, so the reader has to supply 'dominate [the latency due to] transmission distance' to get a claim at all. The claim is still recoverable and still false, so the key (C) is unaffected and the item is not broken, but it reads worse than the original. The 'after' rationale for A also no longer refutes the 'dominate' claim head-on: it concedes that 'Each router and switch a message passes through adds its own latency' and only argues that the physical limit is not eliminated.",
+   "quote_before": "Router and switch processing latencies dominate, so transmission distance is negligible.",
+   "quote_after": "Router and switch latencies dominate transmission distance."
+  },
+  {
+   "id": "r14_trading_los_h_q1",
+   "letter": "stem",
+   "rule": "style",
+   "severity": "style",
+   "detail": "Reframing the stem to end in 'are most likely to:' makes 'the three major steps' the grammatical subject of the option's verbs, so the item now reads 'the three major steps ... are most likely to learn of the event, respond with a new order instruction, then send it to the exchange' — the steps learn and send, rather than the trader. The old stem's numbered-list options ('(1) learn that the event took place; ...') attached to 'involves three major steps' and did not have this problem. Substance, key and all three option claims are intact; only the grammar of the join is worse. A stem such as 'In electronic trading, a trader reacting to an event most likely must:' would carry the same content without the mismatch.",
+   "quote_before": "Reacting to an event electronically involves three major steps most likely:",
+   "quote_after": "In electronic trading, the three major steps in reacting to an event are most likely to:"
+  },
+  {
+   "id": "r14_trading_los_i_q5",
+   "letter": "C",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The rewrite broke the parallelism the three options had before, and it did so in a way that makes the key the odd one out. Before, all three were verb-initial continuations of the stem: 'Have smaller consequences...', 'Are unique to...', 'Occur when a manual trader...'. After, A and B are noun phrases headed by 'errors' while the key C is the only one headed by 'orders', so a learner who reads only the shape of the options sees one option that does not match the other two and it is the answer. Substance is intact (fat finger errors are indeed orders larger than the trader intended, and both distractors remain false), so this is style only; the fix is to head C with 'errors' too, e.g. 'errors in which the order exceeds the size intended.'",
+   "quote_before": "A: \"Have smaller consequences in electronic systems because automated risk checks catch them before execution.\" / B: \"Are unique to electronic trading systems and cannot occur in manual, floor-based markets.\" / C: \"Occur when a manual trader submits a larger order than intended (hits wrong key or key more often than intended).\"",
+   "quote_after": "A: \"errors whose consequences are smaller in electronic markets.\" / B: \"errors unique to electronic trading systems.\" / C: \"orders larger than the trader intended.\""
+  },
+  {
+   "id": "r14_trading_los_j_q4",
+   "letter": "A",
+   "rule": "style",
+   "severity": "style",
+   "detail": "Rationale A still rebuts a detail that the rewrite deleted from option A, so it no longer describes the option as it now reads. Option A's old 'never the volumes' parenthetical is gone, but rationale A retains the clause written to knock it down ('it is not confined to prices while leaving volumes accurate'), which now refers to nothing the learner can see in the option. Not fatal: option A is still false for the reason the rest of the rationale gives (wash trading requires common control of both sides; falsely reporting trades that never occurred is the separate abuse), and the key is unaffected. The dangling volumes clause should simply be dropped.",
+   "quote_before": "option A: \"Falsely reporting only the prices — never the volumes — of trades that actually occurred.\"",
+   "quote_after": "option A: \"Misreported prices on trades that did occur.\" / rationale A: \"...not merely misstating the prices of trades that did occur, and it is not confined to prices while leaving volumes accurate.\""
+  },
+  {
+   "id": "r15_gips_los_a_q3",
+   "letter": "A",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The rewrite removed the specific dollar figure from option A, but rationale A still argues against that figure as though the learner could see it. Before, option A read \"Only firms managing more than $1 billion in discretionary assets are eligible to claim compliance.\" After, it reads \"firms whose discretionary assets exceed a minimum size threshold.\" The after rationale A opens \"No asset-size threshold exists for claiming compliance, so a cut-off such as $1 billion in discretionary assets is invented.\" The hedge \"such as\" keeps it from being flatly wrong, but the rationale is rebutting a number the option no longer contains; it should rebut the generic threshold the option now asserts. The option itself is still false (no size threshold governs eligibility, which turns on discretionary management and competing for business), B is still uniquely correct, and the item is not broken.",
+   "quote_before": "Only firms managing more than $1 billion in discretionary assets are eligible to claim compliance.",
+   "quote_after": "firms whose discretionary assets exceed a minimum size threshold."
+  },
+  {
+   "id": "r15_gips_los_b_q1",
+   "letter": "A",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The key's claim was generalized, not tersened. The before item tested the counts; the after item tests only that both kinds of provision exist, and the distractors were re-cut to that weaker axis ('recommendations only, adopted at each firm's discretion.' / 'requirements only, with no recommendations.'). The counts survive only in the rationale. '39 requirements and seven recommendations.' is 40 characters and would have met the length target as an option, so the specificity did not have to go.",
+   "quote_before": "Contains 39 requirements and seven recommendations.",
+   "quote_after": "both requirements and recommendations."
+  },
+  {
+   "id": "r15_gips_los_b_q1",
+   "letter": "C",
+   "rule": "style",
+   "severity": "style",
+   "detail": "After C's rationale still rebuts the old wording of the option. The old option denied that any distinction was drawn ('with no distinction drawn between requirements and recommendations'); the new option does draw the distinction and merely denies that recommendations exist, so the trailing clause about 'a single undifferentiated body of mandatory provisions' no longer describes the option as it reads. The opening of the same rationale does rebut the new option correctly, so the item still works.",
+   "quote_before": "Wrong: the GIPS standards deliberately separate binding requirements from non-binding recommendations — Section 1 contains 39 requirements and seven recommendations.",
+   "quote_after": "a single undifferentiated body of mandatory provisions does not describe the structure"
+  },
+  {
+   "id": "r15_gips_los_a_q7",
+   "letter": "C",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The distractor now half-restates the key. Before, C was purely a structural claim and carried no date; after, it asserts the correct effective date ('effective 1 January 2020') and appends the false structural claim. Key B reads 'effective as of 1 January 2020.' C is still wrong (the 2020 edition has three chapters, Firms, Asset Owners and Verifiers, each with its own glossary) and B is still unambiguously best, so this is not a collision, but the option set is no longer parallel (two bare dates plus one date-plus-structure hybrid) and the distractor now agrees with the key on the very fact the stem asks about.",
+   "quote_before": "The 2020 edition consolidates all provisions into one chapter applicable to firms, asset owners, and verifiers alike.",
+   "quote_after": "effective 1 January 2020 under a single consolidated chapter."
+  },
+  {
+   "id": "r15_gips_los_c_q4",
+   "letter": "rationales",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The reframe is sound (true TWR 0.41% is indeed below Modified Dietz 0.51%, so key A holds and both distractors stay false), but the rewrite appended a new explanatory clause to rationale A that is self-contradictory and was not in 'before'. It says the approximation methods 'credit the loss to a smaller effective base' — crediting the loss to a smaller base would push the measured return DOWN, yet the sentence is offered as the reason Modified Dietz comes out HIGHER (0.51% vs 0.41%). The actual reason runs the other way: Modified Dietz spreads the net $550 gain over a single weighted base of $108,333, whereas the true TWR gives the -1.00% sub-period its full weight even though only $100,000 was invested during it. All the formulas and figures from 'before' survive intact; only this added reasoning sentence misleads.",
+   "quote_before": "sub-period 2 return = (110,550 - 109,000)/109,000 = 0.0142; TWR = (1 + -0.01)(1 + 0.0142) - 1 = 0.0041 = 0.41%; Modified Dietz weight = (30-5)/30 = 0.83; Modified Dietz = (110,550 - 100,000 - 10,000)/(100,000 + 10,000 × 25/30) = 550/108,333.33 = 0.51%; Modified IRR also gives 0.51%.",
+   "quote_after": "The true time-weighted return is therefore the lower of the two, because the approximation methods do not recognize that the portfolio had already lost value before the contribution arrived, and so they credit the loss to a smaller effective base."
+  },
+  {
+   "id": "r15_gips_los_d_q6",
+   "letter": "A",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The key option lost the word that distinguishes it from distractor C. BEFORE, A read 'made available to prospective clients upon request' and C denied exactly that ('need not be shared with prospective clients'). AFTER, A reads 'available to clients on request' while C still reads 'need not be shared with prospective clients' - so the key no longer states the GIPS requirement in the terms the only remaining live distractor contests. A is still correct and still the best of the three (the requirement does extend to clients), so this is not fatal, but 'available to prospective clients on request' would cost two words and restore the exact claim. The rationale is unchanged in substance and still says 'made available to prospective clients upon request', i.e. it describes the stronger claim the option no longer makes.",
+   "quote_before": "Once established, valuation policies must be documented, followed consistently, and made available to prospective clients upon request.",
+   "quote_after": "must be documented and available to clients on request."
+  },
+  {
+   "id": "r15_gips_los_e_q7",
+   "letter": "stem",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The rewrite removed the anchor that pinned the measurement period to the month of June, so D_i = 5 is now an inference rather than a given. BEFORE: 'A portfolio receives a $10,000 contribution on 5 June (June has 30 calendar days; the firm's policy assumes cash flows occur at the end of the day).' AFTER: 'receives a $10,000 contribution on 5 June, within a measurement period of 30 calendar days' - this supplies CD = 30 but never says the period begins 1 June, so strictly nothing fixes D_i (a 30-day period containing 5 June need not start on the 1st). The natural reading is still the month of June, and only D_i = 5 produces any of the three options, so the item remains answerable and correctly keyed at B (0.83); the fix is to say 'during June, a 30-day measurement period'. Dropping the formula from the stem was correct under spec rule 3 and it survives in rationale B ('w_i = (CD - D_i)/CD ... = (30 - 5)/30 = 25/30 = 0.83'), so that part is not a defect.",
+   "quote_before": "A portfolio receives a $10,000 contribution on 5 June (June has 30 calendar days; the firm's policy assumes cash flows occur at the end of the day).",
+   "quote_after": "A portfolio receives a $10,000 contribution on 5 June, within a measurement period of 30 calendar days, and the firm's policy assumes cash flows occur at the end of the day."
+  },
+  {
+   "id": "r15_gips_los_f_q4",
+   "letter": "rationales",
+   "rule": "style",
+   "detail": "Rationale A turns the curriculum's conditional into a causal assertion. The source says the derivatives prohibition may be irrelevant *if* the manager's approach is plain buy/hold/sell; the rewrite says it is irrelevant *because* the approach is plain buy/hold/sell. The stem no longer stipulates a domestic mid-cap buy-and-hold mandate, so as rewritten the rationale asserts of the generic manager what the source asserted only conditionally. The key (A, 'matters only if derivatives are central to the mandate') is still correct and the distractors are still false, so this is not fatal — but the sentence now states as fact the condition the whole item is about.",
+   "severity": "style",
+   "quote_before": "the fact that the client prohibits the use of derivatives may be irrelevant if the manager's typical investment approach simply buys, holds, and sells common stocks",
+   "quote_after": "the fact that the client prohibits the use of derivatives may be irrelevant, because the manager's typical investment approach simply buys, holds, and sells common stocks"
+  },
+  {
+   "id": "r15_gips_los_g_q4",
+   "letter": "B",
+   "rule": "style",
+   "detail": "Option B still carries its own reasoning clause and is not parallel with A and C, which are bare noun phrases completing 'based on:'. A reads 'money-weighted averages of its holdings' characteristics.' and C reads 'the manager's self-declared strategy label.'; B reads 'based on nothing, because style categories are only marketing constructs.' — an option that argues for itself (spec rule 1) and a different grammatical shape from the other two (rule 7). The claim is unchanged from before and still false, so the item is not broken; the rewrite simply did not fix the option it was rewriting. Note the rewrite did correctly drop the giveaway second sentence ('Style-based composite definition is legitimate.') that flagged B as a distractor.",
+   "severity": "style",
+   "quote_before": "Portfolios may not be assigned to style categories because styles are marketing constructs. Style-based composite definition is legitimate.",
+   "quote_after": "nothing, because style categories are only marketing constructs."
+  },
+  {
+   "id": "r15_gips_los_g_q7",
+   "letter": "A",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The key option dropped the second of the two conditions the curriculum attaches to benchmark-based composite definition. Before, A carried both: the benchmark must reflect the strategy AND the firm must have no other composite with the same characteristics. After, A states only the first, so as written it presents a benchmark that reflects the strategy as sufficient on its own when it is only one of two necessary conditions. Not fatal: A is still plainly the best of the three (B 'Benchmark-based composites are prohibited.' and C 'Risk/return-based composites are limited to hedge fund strategies.' remain flatly false), and the after rationales for A and B both restate the 'no other composites with the same characteristics' condition, so the full rule is still taught. But the option now makes a looser claim than it made before, and a learner who knows both conditions can read it as overbroad.",
+   "quote_before": "Firms may also define composites based on portfolios' benchmarks, as long as benchmarks reflect the investment strategy and firm has no other composites with same characteristics.",
+   "quote_after": "Benchmark-based composites are permitted when the benchmark reflects the strategy."
+  },
+  {
+   "id": "r15_gips_los_j_q2",
+   "letter": "A",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The keyed option lost the condition that made it true, and the stem does not supply it. In \"before\", option A was explicitly conditional: \"If there is break in track record between past firm and new or acquiring firm, AND if first three portability tests are met, then performance from past firm or affiliation may be USED TO REPRESENT the historical performance of new or acquiring firm.\" In \"after\", option A is the unconditional \"presented, but not linked to the new record.\" and the rewritten stem supplies only the break (\"If there is a break in the track record between the past firm and the acquiring firm, the prior performance is most likely:\"), never the three tests. The condition now appears only inside the rationale for A (\"and the first three portability tests are met -- substantially all the investment decision makers are employed by the new or acquiring firm...\"), i.e. after the learner has committed. As the item now reads, the prior performance may be presented only if those three tests hold; where they do not, it may not be used at all, which is distractor C's territory (\"unusable in any form.\"). A remains the single defensible best answer under the most-likely convention, since C's absolutism is false as a general statement about breaks, so the item is not mis-keyed, double-keyed or unanswerable -- but the claim in the key's slot is now broader than the claim it carried before, and the fix is to put the condition back in the stem (e.g. \"...and the first three portability tests are met, the prior performance is most likely:\").",
+   "quote_before": "If there is break in track record between past firm and new or acquiring firm, AND if first three portability tests are met, then performance from past firm or affiliation may be USED TO REPRESENT the historical performance of new or acquiring firm.",
+   "quote_after": "presented, but not linked to the new record."
+  },
+  {
+   "id": "r15_gips_los_k_q5",
+   "letter": "C",
+   "rule": "options_collide",
+   "severity": "style",
+   "detail": "Key A is still unambiguously correct and both distractors are still false, so the item is not broken. But the rewrite stripped the clause that distinguished distractor C from distractor B, leaving two distractors asserting the same proposition and leaving A/C as a bare true/false pair on the identical wording. Before, C argued a prohibition on a stated ground (\"because it leaves untested accounts\") while B asserted an exhaustive-coverage requirement; after, C is just the negation of A (\"may be performed\" / \"may not be performed\" on a sample of portfolios), which B already denies by requiring coverage of every portfolio. C's own 'after' rationale still answers the dropped ground (\"Rather than prohibiting sampling because some accounts would go untested...\"), so the rationale now describes a claim the option no longer makes. Recommend restoring a distinguishing basis to C, or replacing it with a non-equivalent error (e.g. sampling permitted only where an external performance measurement service is used).",
+   "quote_before": "C: \"Sampling is prohibited in verification because it leaves untested accounts.\" / B: \"Verification requires testing every portfolio and composite at the firm without exception.\"",
+   "quote_after": "A: \"may be performed on a sample of portfolios.\" / B: \"must cover every portfolio and composite at the firm.\" / C: \"may not be performed on a sample of portfolios.\""
+  },
+  {
+   "id": "r15_index_los_b_q11",
+   "letter": "C",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "Distractor C changed topic from trading duties to record keeping, and lost the internal logic that made it coherent. Before, the option denied trading responsibility and gave unchanging index membership as the reason; after, it asserts record keeping is the manager's only duty, for which unchanging index membership is not a reason. The rewritten rationale had to be extended with a new sentence ('Record keeping is a benefit the fund structure provides to the investor, not the limit of the manager's duties') to describe the new claim, which is the tell. Not fatal: the option is still false and key A ('trading, cash management, corporate actions, proxy voting, and performance reporting') remains uniquely correct, and distractor B ('computing and reporting fund performance only') does not collide with it.",
+   "quote_before": "Index fund managers have no trading responsibilities because index membership never changes.",
+   "quote_after": "record keeping only, because index membership does not change."
+  },
+  {
+   "id": "r15_index_los_b_q7",
+   "letter": "C",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "Distractor C acquired a quantified level it did not previously carry. 'Similar across regions' was false on dispersion alone (US 12.5%, Europe 7.1%, Asia 3.8%); 'near 10% in every region' is a different claim, and it sits close to the curriculum's own combined figure of 9%, which the same after-rationale cites ('The combined figure across the three regions was 9% of equity assets, which masks that spread rather than describing each region'). A learner recalling the 9% aggregate can read C as nearly right, so the distractor is weaker than the one it replaced. Not fatal: key A ('highest in the US, at 12.5%') is unambiguously true and still clearly best, and B ('over 50% in each region') is plainly false.",
+   "quote_before": "Similar across regions. That specification would be used as-is, with no forward-looking overlay.",
+   "quote_after": "near 10% in every region."
+  },
+  {
+   "id": "r15_index_los_c_q13",
+   "letter": "stem",
+   "rule": "style",
+   "severity": "style",
+   "detail": "The reframed stem stacks two CFA qualifiers, \"most likely\" and \"best described as\", which is redundant and reads worse than either alone. Rule 8 of the house style lists \"is most likely\", \"is closest to\" and \"best describes\" as alternative closers, not as things to combine. Substance is unaffected: the key (C, \"The risk that futures and spot prices diverge.\") is still the only correct option, A (clearing house default) is still counterparty/credit risk and B (removed by daily settlement) is still false, and the rationales still carry the tracking-error reasoning. The fix is to end the stem at one qualifier, e.g. \"Basis risk on an equity index futures position is best described as:\".",
+   "quote_before": "Futures/spot basis risk most likely is:",
+   "quote_after": "Basis risk on an equity index futures position is most likely best described as:"
+  },
+  {
+   "id": "r15_index_los_c_q8",
+   "rule": "style",
+   "letter": "stem",
+   "severity": "style",
+   "detail": "The stem's CFA qualifier was changed from \"most likely\" to \"is closest to\" on a pure-recall factual item. A contract multiplier is an exact specification, not a computed or approximated value, so \"is closest to\" invites the learner to look for the nearest of three approximations when only one value is right. The item is not broken: the options are $1 / $250 / $5, and $250 is still the only correct answer and the stored key. This reads worse, nothing more.",
+   "quote_before": "The S&P 500 Index futures contract multiplier on CME is most likely:",
+   "quote_after": "The contract multiplier for S&P 500 Index futures traded on the Chicago Mercantile Exchange is closest to:"
+  },
+  {
+   "id": "r15_index_los_d_q9",
+   "letter": "rationales",
+   "rule": "rationale_lost_content",
+   "detail": "Option A is the claim that the practice is 'undocumented in the practitioner literature'. The one thing that refutes it is the citation, and the rewrite dropped the named source from both rationales: rationale B now opens 'In practice, index-based portfolio managers often conduct a mean-variance optimization using all the index constituents' with no attribution, and rationale A refutes the distractor only with the vague 'The practice is documented in practitioner research'. The spec puts citations in the rationale rather than deleting them ('They belong in the rationale, after the learner has committed'), and the sibling item d_q5 did exactly that, keeping 'as Roll (1992) and Jorion (2003) demonstrate' inside rationale B. The key does not move and all three options still read correctly, so this is style, not fatal.",
+   "severity": "style",
+   "quote_before": "Correct. Per the reading: 'Fabozzi, Focardi, and Kolm (2010) note that in practice, index-based portfolio managers often conduct a mean–variance optimization using all the index constituents, the output from which shows highly diverse weightings for the stocks.'",
+   "quote_after": "In practice, index-based portfolio managers often conduct a mean-variance optimization using all the index constituents, the output from which shows highly diverse weightings for the stocks. [and, in rationale A] The practice is documented in practitioner research, which describes managers optimizing across the full list of index constituents and then pruning the smallest weights."
+  },
+  {
+   "id": "r15_index_los_e_q10",
+   "letter": "A",
+   "rule": "claim_changed",
+   "detail": "The distractor lost the universal quantifier 'always', which is what made it over-claim. As rewritten, under the stem 'An index fund's measured tracking error most likely:', A asserts a general tendency rather than an invariable ordering, and an unannualized monthly standard deviation of return differences is in fact mechanically larger than a daily one, so a candidate can argue A is directionally true. I am filing this as style and not fatal for two reasons: the option's falseness never rested on the word 'always' in the first place (rationale A in 'before' refuted it with 'There is no fixed ordering', which rationale A in 'after' still does, with 'neither monthly nor daily measurement is reliably the larger of the two'), and C 'is different at a daily frequency than at a lower frequency' is the reading's own statement and strictly broader than A, so it remains the single best answer in the key's slot and the item is not double-keyed.",
+   "severity": "style",
+   "quote_before": "Monthly data always produce higher measured tracking error than daily data.",
+   "quote_after": "is higher when computed from monthly data than from daily data."
+  },
+  {
+   "id": "r15_index_los_f_q7",
+   "letter": "C",
+   "rule": "options_collide",
+   "detail": "Both wrong options were stripped of the distinct reason that made each false, and they now read as synonyms of one another. A was 'unreliable lenders prone to abrupt recalls' (recall risk) and C was 'avoided as securities lenders because their holdings turn over rapidly' (turnover) — two different false claims. As rewritten, A is 'unreliable lenders.' and C is 'undesirable lenders.', which a learner cannot tell apart; the after-rationales still argue two different grounds (A: 'least likely lenders to recall shares abruptly'; C: 'Rapid portfolio turnover would be the characteristic that makes a lender undesirable'), so the distinguishing content survives only where the learner cannot see it while choosing. Not fatal: both remain false and key B ('preferred lenders.') is still uniquely correct.",
+   "quote_before": "C: \"Index funds and pension funds are avoided as securities lenders because their holdings turn over rapidly.\" / A: \"Institutional index investors are considered unreliable lenders prone to abrupt recalls.\"",
+   "quote_after": "C: \"undesirable lenders.\" / A: \"unreliable lenders.\"",
+   "severity": "style"
+  },
+  {
+   "id": "r15_index_los_f_q9",
+   "letter": "A",
+   "rule": "style",
+   "detail": "The after-rationale for A opens by rebutting a claim option A no longer makes. Before, A was 'cannot engage in investor activism because they never choose their holdings', so 'Holding choice is irrelevant to activism' was the right rebuttal. A now reads 'no engagement with corporate management.' — the holdings-choice premise is gone, yet the rationale still leads with 'Not choosing the holdings is no bar to activism.' The rest of the rationale ('access to private meetings with corporate management') does rebut the option as it now reads, so the item is answerable and correctly keyed; the opening sentence is vestigial and describes the old wording.",
+   "quote_before": "A option: \"Index-based fund managers cannot engage in investor activism because they never choose their holdings.\" / A rationale: \"Incorrect. Holding choice is irrelevant to activism; large index managers wield major proxy-voting influence.\"",
+   "quote_after": "A option: \"no engagement with corporate management.\" / A rationale: \"Not choosing the holdings is no bar to activism.\"",
+   "severity": "style"
+  },
+  {
+   "id": "r16_active_eq_los_a_q3",
+   "letter": "A",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The keyed option replaced a hedged claim with an absolute one. Before, A asserted that quantitative strategies \"Involve analyst judgment at the design stage but largely replace ongoing reliance on human judgment and discretion with systematic processes\" — tracking the curriculum's \"largely replace,\" which leaves room for ongoing human involvement (model re-estimation, risk overrides). After, A reads \"involve human judgment at the design stage only,\" which asserts judgment appears nowhere else. That is a stronger claim than the source supports, and the \"after\" rationale for A still says \"largely replace the ongoing reliance,\" so the rationale no longer quite describes the option as it now reads. Not fatal: B (\"become identical to fundamental strategies once the model is running\") and C (\"involve no human judgment at any stage\") remain plainly false, so A is still the only defensible choice and the key does not move. Fix would be a word: \"involve human judgment mainly at the design stage.\"",
+   "quote_before": "Involve analyst judgment at the design stage but largely replace ongoing reliance on human judgment and discretion with systematic processes that are often dependent on computer programming for execution.",
+   "quote_after": "involve human judgment at the design stage only."
+  },
+  {
+   "id": "r16_active_eq_los_b_q7",
+   "letter": "stem",
+   "rule": "not_self_contained",
+   "severity": "style",
+   "detail": "The reframe moved the one figure that decides between A and C out of the item and into the rationale. Before, option A carried the stock's return itself ('dropped below HKD 41 at end of 2020 - 48.7% decline in seven years, while Hang Seng Financial Index gained 16.0%'). After, the stem supplies the starting multiples, the cost-cutting cue and the index's +16.0%, but never says what HSBC's own price did; the 48.7% decline from over HKD 80 to below HKD 41 now appears only in the rationales for A, B and C. So a question literally asking what the stock's experience was withholds the stock's experience, and the learner has to reach A by concept (cheap multiples + deteriorating business = value trap = underperformance) rather than from the data given. Not fatal: with the 'subsequently faced a need for extensive cost cutting' cue in the stem, A is still clearly the best of the three and B ('No value trap.') and C ('Outperformance after appearing cheap.') are both clearly wrong, so the key does not move and the item is still answerable as a conceptual item. Inlining 'the stock fell 48.7%' in the stem would close the gap. Separately, B is not a description of an 'experience' and so breaks parallelism with A and C.",
+   "quote_before": "A: \"At end of 2013 HKD 80, dropped below HKD 41 at end of 2020 - 48.7% decline in seven years, while Hang Seng Financial Index gained 16.0%.\"",
+   "quote_after": "stem: \"Over the seven years to the end of 2020, a period in which the Hang Seng Financial Index gained 16.0%, the stock's experience is best described as:\" / A: \"Underperformance consistent with a value trap.\""
+  },
+  {
+   "id": "r16_active_eq_los_b_q6",
+   "letter": "C",
+   "rule": "claim_changed",
+   "severity": "style",
+   "detail": "The key's hedge was hardened. Before, option C defined a value trap as a stock that 'may still be overpriced given its worsening future prospects' - the curriculum's own wording, which the after-rationale still quotes verbatim ('may still be overpriced given its worsening future prospects'). After, the option asserts it flatly: 'but is overpriced given worsening prospects'. The option no longer reads the way its own rationale describes it. Not fatal: with the stem's 'most likely' carrying some of the hedge, C is still a fair characterization of a value trap and remains uniquely correct - A ('a growth stock whose expected earnings fail to materialize') and B ('a myth, since any low-multiple stock after a price fall is genuinely cheap') are both still plainly wrong, so the key does not move. Restoring 'may still be overpriced' would cost three words and re-align the option with the rationale.",
+   "quote_before": "C: \"Stock that appears attractively valued (low P/E, P/B, or P/CF multiple) because of significant price fall but that may still be overpriced given its worsening future prospects\"",
+   "quote_after": "C: \"a stock that looks cheap on a low multiple but is overpriced given worsening prospects.\""
+  }
+ ]
+}
